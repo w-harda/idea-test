@@ -48,3 +48,18 @@ wc -l outputs/cuhk_train.jsonl
 ```
 
 去掉 `--split train` 可处理标注中的全部 split。若使用已经展平的 caption JSON/JSONL，请使用默认的 `--adapter flat`。
+
+## 在服务器上处理 ICFG-PEDES 与 RSTPReid
+
+两种 adapter 都会把一张图像的 `captions` 逐条展开，输出 ID 分别为 `file_path#caption_index` 和 `img_path#caption_index`。`--split` 按标注中的原始名称筛选；省略时处理全部 split。可先加 `--limit 20` 抽查结果。
+
+```bash
+mkdir -p outputs
+ICFG_JSON=/home/lzf/TBPS/Datasets/ICFG-PEDES/ICFG-PEDES.json
+python scripts/batch_extract.py --adapter icfg --split train \
+  --input "$ICFG_JSON" --output outputs/icfg_train.jsonl
+
+RSTP_JSON=/home/lzf/TBPS/Datasets/RSTPReid/data_captions.json
+python scripts/batch_extract.py --adapter rstp --split train \
+  --input "$RSTP_JSON" --output outputs/rstp_train.jsonl
+```

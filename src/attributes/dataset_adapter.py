@@ -77,3 +77,51 @@ class CuhkPedesAdapter:
                 if not isinstance(caption, str):
                     raise ValueError(f"第 {index} 条 CUHK 记录的 captions[{caption_index}] 不是字符串")
                 yield CaptionRecord(f"{image_path}#{caption_index}", caption)
+
+
+def _iter_image_captions(
+    path: Path, split: str | None, image_key: str, dataset_name: str
+) -> Iterator[CaptionRecord]:
+    with path.open("r", encoding="utf-8") as handle:
+        data = json.load(handle)
+    if not isinstance(data, list):
+        raise ValueError(f"{dataset_name} annotation 顶层必须是数组")
+    for index, item in enumerate(data):
+        if not isinstance(item, dict):
+            raise ValueError(f"第 {index} 条 {dataset_name} 记录必须是对象")
+        if split is not None and item.get("split") != split:
+            continue
+        image_path = item.get(image_key)
+        captions = item.get("captions")
+        if not isinstance(image_path, str):
+            raise ValueError(f"第 {index} 条 {dataset_name} 记录的 {image_key} 必须是字符串")
+        if not isinstance(captions, list):
+            raise ValueError(f"第 {index} 条 {dataset_name} 记录的 captions 必须是列表")
+        for caption_index, caption in enumerate(captions):
+            if not isinstance(caption, str):
+                raise ValueError(
+                    f"第 {index} 条 {dataset_name} 记录的 captions[{caption_index}] 必须是字符串"
+                )
+            yield CaptionRecord(f"{image_path}#{caption_index}", caption)
+
+
+class IcfgPedesAdapter:
+    """读取 ICFG-PEDES.json 中每张图像的全部 captions。"""
+
+    def __init__(self, path: str | Path, split: str | None = None):
+        self.path = Path(path)
+        self.split = split
+
+    def iter_records(self) -> Iterator[CaptionRecord]:
+        yield from _iter_image_captions(self.path, self.split, "file_path", "ICFG-PEDES")
+
+
+class RstpReidAdapter:
+    """读取 data_captions.json 中每张图像的全部 captions。"""
+
+    def __init__(self, path: str | Path, split: str | None = None):
+        self.path = Path(path)
+        self.split = split
+
+    def iter_records(self) -> Iterator[CaptionRecord]:
+        yield from _iter_image_captions(self.path, self.split, "img_path", "RSTPReid")
