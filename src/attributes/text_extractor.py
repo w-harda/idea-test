@@ -1,0 +1,260 @@
+"""与数据集格式无关的、基于显式短语的文本属性提取器。"""
+
+from __future__ import annotations
+
+import re
+from dataclasses import dataclass
+from functools import lru_cache
+from pathlib import Path
+from typing import Any
+
+import yaml
+
+
+_ROOT = Path(__file__).resolve().parents[2]
+_ONTOLOGY = _ROOT / "ontology" / "upar_attribute_space.yaml"
+_ALIASES = _ROOT / "ontology" / "alias_map.yaml"
+_CLAUSE_SPLIT = re.compile(r"[,;.]|\b(?:wearing|wears|dressed in|with|without|under|over|beneath|underneath|in|but)\b", re.I)
+_AND = re.compile(r"\band\b", re.I)
+_NEGATIVE = re.compile(r"\b(?:without|no|not|never|isn't|doesn't)\b", re.I)
+_HAIR_LENGTH = re.compile(r"\b(short|long)\s+(?:\w+\s+){0,2}hair\b", re.I)
+
+
+@dataclass(frozen=True)
+class _Match:
+    start: int
+    end: int
+    value: str
+
+
+@dataclass(frozen=True)
+class _Garment:
+    side: str
+    kind: str | None
+    rank: int
+    colors: frozenset[str]
+    lengths: frozenset[str]
+
+
+def _read_yaml(path: Path) -> dict[str, Any]:
+    with path.open("r", encoding="utf-8") as handle:
+        data = yaml.safe_load(handle)
+    if not isinstance(data, dict):
+        raise ValueError(f"YAML 顶层必须是映射: {path}")
+    return data
+
+
+def _pattern(phrase: str) -> re.Pattern[str]:
+    words = re.split(r"[\s-]+", phrase.strip())
+    if not words or not all(words):
+        raise ValueError(f"空 alias: {phrase!r}")
+    return re.compile(r"(?<!\w)" + r"[\s-]+".join(map(re.escape, words)) + r"(?!\w)", re.I)
+
+
+class _Matcher:
+    def __init__(self, aliases: dict[str, list[str]]):
+        self.patterns = [
+            (_pattern(phrase), canonical)
+            for canonical, phrases in aliases.items()
+            for phrase in phrases
+        ]
+
+    def find(self, text: str) -> list[_Match]:
+        found = [
+            _Match(match.start(), match.end(), canonical)
+            for pattern, canonical in self.patterns
+            for match in pattern.finditer(text)
+        ]
+        # 长短 alias 重叠时优先完整短语，例如 t-shirt 优先于 shirt。
+        found.sort(key=lambda item: (item.start, -(item.end - item.start)))
+        selected: list[_Match] = []
+        for item in found:
+            if not selected or item.start >= selected[-1].end:
+                selected.append(item)
+        return selected
+
+
+def _single(values: set[str] | frozenset[str]) -> str:
+    return next(iter(values)) if len(values) == 1 else "null"
+
+
+class TextAttributeExtractor:
+    """将 caption 映射到 ontology 中固定的 13 个槽位。"""
+
+    def __init__(self, ontology_path: str | Path = _ONTOLOGY, alias_path: str | Path = _ALIASES):
+        ontology = _read_yaml(Path(ontology_path))
+        slots = ontology.get("slots")
+        if not isinstance(slots, list) or len(slots) != ontology.get("slot_count"):
+            raise ValueError("ontology slots 与 slot_count 不一致")
+        self.allowed = {
+            slot["key"]: {value["key"] for value in slot["values"]}
+            for slot in slots
+        }
+        if len(self.allowed) != len(slots) or any("null" not in values for values in self.allowed.values()):
+            raise ValueError("ontology slot 重复或缺少 null")
+        self.slot_order = tuple(self.allowed)
+        aliases = _read_yaml(Path(alias_path))
+        for slot in ("age", "gender", "hair_length", "upper_clothing_type", "lower_clothing_type"):
+            self._check_aliases(aliases[slot], slot)
+        for slot in ("upper_clothing_color", "lower_clothing_color"):
+            self._check_aliases(aliases["colors"], slot)
+        for slot in ("upper_clothing_length", "lower_clothing_length"):
+            self._check_aliases(aliases["lengths"], slot)
+        for slot in ("backpack", "bag", "hat"):
+            if slot not in self.allowed or not isinstance(aliases["accessories"][slot], list):
+                raise ValueError(f"非法配饰 alias: {slot}")
+        self._check_aliases(aliases["accessories"]["glasses"], "glasses")
+
+        self.direct = {slot: _Matcher(aliases[slot]) for slot in ("age", "gender", "hair_length")}
+        self.colors = _Matcher(aliases["colors"])
+        self.lengths = _Matcher(aliases["lengths"])
+        self.upper = _Matcher(aliases["upper_clothing_type"])
+        self.lower = _Matcher(aliases["lower_clothing_type"])
+        self.generic_upper = _Matcher({"generic": aliases["generic_garments"]["upper"]})
+        self.generic_lower = _Matcher({"generic": aliases["generic_garments"]["lower"]})
+        self.accessories = {
+            slot: _Matcher({"yes": aliases["accessories"][slot]})
+            for slot in ("backpack", "bag", "hat")
+        }
+        self.accessories["glasses"] = _Matcher(aliases["accessories"]["glasses"])
+
+    def _check_aliases(self, mapping: dict[str, list[str]], slot: str) -> None:
+        if slot not in self.allowed or not isinstance(mapping, dict):
+            raise ValueError(f"非法 alias 映射: {slot}")
+        for canonical, phrases in mapping.items():
+            if canonical not in self.allowed[slot] or not isinstance(phrases, list) or not phrases:
+                raise ValueError(f"{slot} 的 alias 指向 ontology 外的值: {canonical}")
+            if not all(isinstance(phrase, str) and phrase.strip() for phrase in phrases):
+                raise ValueError(f"{slot} 的 alias 必须是非空字符串")
+
+    def extract(self, caption: str) -> dict[str, str]:
+        """仅提取明示属性；未提及、矛盾或无法绑定的槽位返回 null。"""
+        if not isinstance(caption, str):
+            raise TypeError("caption 必须是 str")
+        result = dict.fromkeys(self.slot_order, "null")
+        text = caption.lower()
+
+        for slot, matcher in self.direct.items():
+            values = {
+                item.value for item in matcher.find(text)
+                if not _negated(text, item.start)
+            }
+            if slot == "hair_length":
+                values.update(
+                    match.group(1) for match in _HAIR_LENGTH.finditer(text)
+                    if not _negated(text, match.start())
+                )
+            result[slot] = _single(values)
+
+        garments = [
+            garment
+            for phrase, offset in self._phrases(text)
+            for garment in self._garments(phrase, offset, text)
+        ]
+        for side in ("upper", "lower"):
+            candidates = [garment for garment in garments if garment.side == side]
+            if not candidates:
+                continue
+            outer_rank = max(garment.rank for garment in candidates)
+            primary = [garment for garment in candidates if garment.rank == outer_rank]
+            type_slot = f"{side}_clothing_type"
+            color_slot = f"{side}_clothing_color"
+            length_slot = f"{side}_clothing_length"
+            result[type_slot] = _single({garment.kind for garment in primary if garment.kind is not None})
+            result[color_slot] = _single(set().union(*(garment.colors for garment in primary)))
+            result[length_slot] = _single(set().union(*(garment.lengths for garment in primary)))
+
+        for slot, matcher in self.accessories.items():
+            values = set()
+            for item in matcher.find(text):
+                negative = _negated(text, item.start)
+                values.add(("no_glasses" if slot == "glasses" else "no") if negative else item.value)
+            result[slot] = _single(values)
+
+        return result
+
+    def _phrases(self, text: str) -> list[tuple[str, int]]:
+        phrases = []
+        boundaries = [(match.start(), match.end()) for match in _CLAUSE_SPLIT.finditer(text)]
+        start = 0
+        for end, next_start in boundaries + [(len(text), len(text))]:
+            clause = text[start:end]
+            part_start = 0
+            for match in _AND.finditer(clause):
+                if self._has_entity(clause[part_start:match.start()]):
+                    phrase = clause[part_start:match.start()]
+                    if phrase.strip():
+                        phrases.append((phrase, start + part_start))
+                    part_start = match.end()
+            phrase = clause[part_start:]
+            if phrase.strip():
+                phrases.append((phrase, start + part_start))
+            start = next_start
+        return phrases
+
+    def _has_entity(self, phrase: str) -> bool:
+        return bool(
+            self.upper.find(phrase) or self.lower.find(phrase)
+            or self.generic_upper.find(phrase) or self.generic_lower.find(phrase)
+            or any(matcher.find(phrase) for matcher in self.accessories.values())
+            or re.search(r"\bhair\b", phrase)
+        )
+
+    def _garments(self, phrase: str, offset: int, full_text: str) -> list[_Garment]:
+        matches = [
+            (item, side, rank)
+            for matcher, side, rank in (
+                (self.upper, "upper", 0), (self.lower, "lower", 0),
+                (self.generic_upper, "upper", -1), (self.generic_lower, "lower", -1),
+            )
+            for item in matcher.find(phrase)
+        ]
+        matches.sort(key=lambda entry: (entry[0].start, -(entry[0].end - entry[0].start)))
+        garments = []
+        previous_end = 0
+        for item, side, rank in matches:
+            if item.start < previous_end:
+                continue
+            if _negated(full_text, offset + item.start):
+                previous_end = item.end
+                continue
+            descriptor = phrase[previous_end:item.start]
+            # 后置颜色只接受 "shirt in white" 这类直接修饰，避免吞入下一件衣物。
+            tail = phrase[item.end:]
+            post_color = re.match(r"\s+(?:in|of|colored|coloured)\s+([\w\s-]+)", tail)
+            if post_color:
+                descriptor += " " + post_color.group(1)
+            colors = frozenset(match.value for match in self.colors.find(descriptor))
+            lengths = frozenset(match.value for match in self.lengths.find(descriptor))
+            kind = None if item.value == "generic" else item.value
+            if side == "upper":
+                rank = {"t_shirt_shirt": 0, "hoodie_sweater": 1,
+                        "vest_sleeveless": 1, "jacket_coat": 2}.get(kind, rank)
+            garments.append(_Garment(side, kind, rank, colors, lengths))
+            previous_end = item.end
+        return garments
+
+
+def _negated(text: str, start: int) -> bool:
+    context = re.split(r"[,;.]|\bbut\b", text[:start])[-1]
+    recent = " ".join(context.split()[-5:])
+    negation = list(_NEGATIVE.finditer(recent))
+    if not negation:
+        return False
+    last = negation[-1]
+    # "no bag and a hat" 中，冠词引入新的肯定实体；without 则可辖及并列实体。
+    if last.group().lower() != "without" and re.search(
+        r"\band\s+(?:a|an|the)\b", recent[last.end():]
+    ):
+        return False
+    return True
+
+
+@lru_cache(maxsize=1)
+def _default_extractor() -> TextAttributeExtractor:
+    return TextAttributeExtractor()
+
+
+def extract(caption: str) -> dict[str, str]:
+    """使用项目默认 ontology 与 alias 映射提取固定属性字典。"""
+    return _default_extractor().extract(caption)

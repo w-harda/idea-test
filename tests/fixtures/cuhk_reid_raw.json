@@ -1,0 +1,17 @@
+[
+  {
+    "split": "train",
+    "captions": [
+      "a man wearing a white shirt and black pants",
+      "without a hat"
+    ],
+    "file_path": "train_query/p1.jpg",
+    "id": 1
+  },
+  {
+    "split": "test",
+    "captions": ["a woman wearing a blue coat"],
+    "file_path": "test_query/p2.jpg",
+    "id": 2
+  }
+]
