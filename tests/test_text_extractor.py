@@ -54,3 +54,110 @@ def test_repeated_aliases_keep_one_canonical_value() -> None:
 def test_non_string_caption_is_rejected() -> None:
     with pytest.raises(TypeError):
         TextAttributeExtractor().extract(None)  # type: ignore[arg-type]
+
+
+@pytest.mark.parametrize(
+    ("caption", "expected"),
+    [
+        (
+            "A boy wearing a blue tee shirt with black shorts and carrying a black jacket over his shoulder.",
+            {"gender": "male", "upper_clothing_type": "t_shirt_shirt", "upper_clothing_color": "blue",
+             "lower_clothing_type": "trousers_shorts", "lower_clothing_color": "black"},
+        ),
+        (
+            "A woman wearing a white shirt and holding a red coat.",
+            {"gender": "female", "upper_clothing_type": "t_shirt_shirt", "upper_clothing_color": "white"},
+        ),
+        (
+            "A man wearing a black jacket and carrying a bag.",
+            {"gender": "male", "upper_clothing_type": "jacket_coat", "upper_clothing_color": "black", "bag": "yes"},
+        ),
+        (
+            "A woman in a red coat holding an umbrella.",
+            {"upper_clothing_type": "jacket_coat", "upper_clothing_color": "red"},
+        ),
+        (
+            "A man carrying a red coat and wearing a black jacket.",
+            {"upper_clothing_type": "jacket_coat", "upper_clothing_color": "black"},
+        ),
+        (
+            "A woman carrying a black jacket and a red coat.",
+            {"upper_clothing_type": "null", "upper_clothing_color": "null", "upper_clothing_length": "null"},
+        ),
+        (
+            "A woman wearing a blue skirt and holding black pants.",
+            {"lower_clothing_type": "skirt_dress", "lower_clothing_color": "blue"},
+        ),
+        (
+            "A person wearing a white shirt and holding a long red coat.",
+            {"upper_clothing_type": "t_shirt_shirt", "upper_clothing_color": "white", "upper_clothing_length": "null"},
+        ),
+        (
+            "A person wearing a white shirt and a red coat held in one hand.",
+            {"upper_clothing_type": "t_shirt_shirt", "upper_clothing_color": "white"},
+        ),
+    ],
+)
+def test_carried_garments_do_not_override_worn_garments(caption: str, expected: dict[str, str]) -> None:
+    result = extract(caption)
+    assert {slot: result[slot] for slot in expected} == expected
+
+
+@pytest.mark.parametrize("verb", ["carry", "carries", "carrying", "holding", "holds", "held"])
+def test_carry_hold_forms_exclude_coat(verb: str) -> None:
+    result = extract(f"A person wearing a white shirt and {verb} a red coat.")
+    assert result["upper_clothing_type"] == "t_shirt_shirt"
+    assert result["upper_clothing_color"] == "white"
+
+
+@pytest.mark.parametrize(
+    ("word", "gender"),
+    [("girl", "female"), ("boy", "male"), ("guy", "male"),
+     ("women", "female"), ("men", "male")],
+)
+def test_gender_aliases(word: str, gender: str) -> None:
+    assert extract(word)["gender"] == gender
+
+
+@pytest.mark.parametrize("word", ["bookbag", "book bag", "knapsack", "school bag", "schoolbag"])
+def test_backpack_aliases(word: str) -> None:
+    result = extract(f"A girl wearing a {word}.")
+    assert result["gender"] == "female"
+    assert result["backpack"] == "yes"
+    assert result["bag"] == "null"
+
+
+@pytest.mark.parametrize("word", ["leggings", "slacks", "capris", "tights", "capri", "khakis"])
+def test_lower_clothing_aliases(word: str) -> None:
+    assert extract(f"A woman wearing {word}.")["lower_clothing_type"] == "trousers_shorts"
+
+
+@pytest.mark.parametrize("word", ["briefcase", "satchel", "tote"])
+def test_bag_aliases(word: str) -> None:
+    assert extract(f"A man holding a {word}.")["bag"] == "yes"
+
+
+@pytest.mark.parametrize(
+    ("caption", "slot", "color"),
+    [
+        ("navy shirt", "upper_clothing_color", "blue"),
+        ("maroon shirt", "upper_clothing_color", "red"),
+        ("burgundy jacket", "upper_clothing_color", "red"),
+        ("silver jacket", "upper_clothing_color", "grey"),
+        ("cream shirt", "upper_clothing_color", "white"),
+        ("off-white shirt", "upper_clothing_color", "white"),
+        ("tan pants", "lower_clothing_color", "brown"),
+        ("beige pants", "lower_clothing_color", "brown"),
+        ("khaki pants", "lower_clothing_color", "brown"),
+        ("teal shirt", "upper_clothing_color", "blue"),
+        ("turquoise shirt", "upper_clothing_color", "blue"),
+        ("cyan shirt", "upper_clothing_color", "blue"),
+        ("gold coat", "upper_clothing_color", "yellow"),
+    ],
+)
+def test_color_aliases(caption: str, slot: str, color: str) -> None:
+    assert extract(caption)[slot] == color
+
+
+def test_multiple_canonical_colors_remain_unresolved() -> None:
+    assert extract("red and black shirt")["upper_clothing_color"] == "null"

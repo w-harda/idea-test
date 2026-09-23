@@ -18,6 +18,10 @@ _CLAUSE_SPLIT = re.compile(r"[,;.]|\b(?:wearing|wears|dressed in|with|without|un
 _AND = re.compile(r"\band\b", re.I)
 _NEGATIVE = re.compile(r"\b(?:without|no|not|never|isn't|doesn't)\b", re.I)
 _HAIR_LENGTH = re.compile(r"\b(short|long)\s+(?:\w+\s+){0,2}hair\b", re.I)
+_CARRY = re.compile(r"\b(?:carrying|carry|carries|carried|holding|holds|held)\b", re.I)
+_WEAR = re.compile(r"\b(?:wearing|wears|wear|worn)\b", re.I)
+_ACTION_BOUNDARY = re.compile(r"[,;.]|\b(?:but|with|in|under|over|beneath|underneath)\b", re.I)
+_POSTPOSED_CARRY = re.compile(r"^\s+(?:held|carried)\b", re.I)
 
 
 @dataclass(frozen=True)
@@ -164,9 +168,15 @@ class TextAttributeExtractor:
             result[color_slot] = _single(set().union(*(garment.colors for garment in primary)))
             result[length_slot] = _single(set().union(*(garment.lengths for garment in primary)))
 
+        backpack_mentions = self.accessories["backpack"].find(text)
         for slot, matcher in self.accessories.items():
             values = set()
             for item in matcher.find(text):
+                if slot == "bag" and any(
+                    item.start < backpack.end and backpack.start < item.end
+                    for backpack in backpack_mentions
+                ):
+                    continue
                 negative = _negated(text, item.start)
                 values.add(("no_glasses" if slot == "glasses" else "no") if negative else item.value)
             result[slot] = _single(values)
@@ -215,12 +225,14 @@ class TextAttributeExtractor:
         for item, side, rank in matches:
             if item.start < previous_end:
                 continue
-            if _negated(full_text, offset + item.start):
+            tail = phrase[item.end:]
+            if (_negated(full_text, offset + item.start)
+                    or _carried(full_text, offset + item.start)
+                    or _POSTPOSED_CARRY.match(tail)):
                 previous_end = item.end
                 continue
             descriptor = phrase[previous_end:item.start]
             # 后置颜色只接受 "shirt in white" 这类直接修饰，避免吞入下一件衣物。
-            tail = phrase[item.end:]
             post_color = re.match(r"\s+(?:in|of|colored|coloured)\s+([\w\s-]+)", tail)
             if post_color:
                 descriptor += " " + post_color.group(1)
@@ -248,6 +260,16 @@ def _negated(text: str, start: int) -> bool:
     ):
         return False
     return True
+
+
+def _carried(text: str, start: int) -> bool:
+    """最近的明确动作是 carry/hold 时，该衣物不是穿着实体。"""
+    context = _ACTION_BOUNDARY.split(text[:start])[-1]
+    carrying = list(_CARRY.finditer(context))
+    if not carrying:
+        return False
+    wearing = list(_WEAR.finditer(context))
+    return not wearing or carrying[-1].start() > wearing[-1].start()
 
 
 @lru_cache(maxsize=1)
