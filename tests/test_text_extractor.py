@@ -161,3 +161,82 @@ def test_color_aliases(caption: str, slot: str, color: str) -> None:
 
 def test_multiple_canonical_colors_remain_unresolved() -> None:
     assert extract("red and black shirt")["upper_clothing_color"] == "null"
+
+
+@pytest.mark.parametrize(
+    ("caption", "expected"),
+    [
+        (
+            "A man carrying a black jacket.",
+            {"upper_clothing_type": "null", "upper_clothing_color": "null", "upper_clothing_length": "null"},
+        ),
+        (
+            "A man carrying a bag and wearing a black jacket.",
+            {"bag": "yes", "upper_clothing_type": "jacket_coat", "upper_clothing_color": "black"},
+        ),
+        (
+            "She carries a backpack and has a red shirt on.",
+            {"gender": "female", "backpack": "yes", "upper_clothing_type": "t_shirt_shirt",
+             "upper_clothing_color": "red"},
+        ),
+        (
+            "The person is carrying a teal bag and has on a pink shirt.",
+            {"bag": "yes", "upper_clothing_type": "t_shirt_shirt", "upper_clothing_color": "pink"},
+        ),
+        (
+            "A woman holding a red coat and wearing a white shirt.",
+            {"gender": "female", "upper_clothing_type": "t_shirt_shirt", "upper_clothing_color": "white"},
+        ),
+        (
+            "A man carrying a bag and has black pants on.",
+            {"bag": "yes", "lower_clothing_type": "trousers_shorts", "lower_clothing_color": "black"},
+        ),
+        (
+            "A woman holding a coat and had on a blue shirt.",
+            {"upper_clothing_type": "t_shirt_shirt", "upper_clothing_color": "blue"},
+        ),
+    ],
+)
+def test_carried_scope_stops_at_new_wearing_cue(caption: str, expected: dict[str, str]) -> None:
+    result = extract(caption)
+    assert {slot: result[slot] for slot in expected} == expected
+
+
+@pytest.mark.parametrize(
+    ("caption", "expected"),
+    [
+        (
+            "A man wearing a white dress shirt.",
+            {"upper_clothing_type": "t_shirt_shirt", "upper_clothing_color": "white",
+             "lower_clothing_type": "null"},
+        ),
+        (
+            "A man wearing black dress shoes.",
+            {"lower_clothing_type": "null"},
+        ),
+        (
+            "A man wearing black dress pants.",
+            {"lower_clothing_type": "trousers_shorts", "lower_clothing_color": "black"},
+        ),
+        (
+            "A woman wearing a red dress.",
+            {"lower_clothing_type": "skirt_dress", "lower_clothing_color": "red"},
+        ),
+        (
+            "A man wearing white dress shirts.",
+            {"upper_clothing_type": "t_shirt_shirt", "upper_clothing_color": "white",
+             "lower_clothing_type": "null"},
+        ),
+        (
+            "A man wearing black dress pant.",
+            {"lower_clothing_type": "trousers_shorts", "lower_clothing_color": "black"},
+        ),
+        (
+            "A man wearing dress shoe.",
+            {"lower_clothing_type": "null"},
+        ),
+    ],
+)
+def test_dress_compounds_do_not_mean_a_dress(caption: str, expected: dict[str, str]) -> None:
+    result = extract(caption)
+    assert {slot: result[slot] for slot in expected} == expected

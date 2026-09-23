@@ -22,6 +22,11 @@ _CARRY = re.compile(r"\b(?:carrying|carry|carries|carried|holding|holds|held)\b"
 _WEAR = re.compile(r"\b(?:wearing|wears|wear|worn)\b", re.I)
 _ACTION_BOUNDARY = re.compile(r"[,;.]|\b(?:but|with|in|under|over|beneath|underneath)\b", re.I)
 _POSTPOSED_CARRY = re.compile(r"^\s+(?:held|carried)\b", re.I)
+_HAS_ON = re.compile(r"\b(?:has|have|had)\s+on\b", re.I)
+_HAS = re.compile(r"\b(?:has|have|had)\b", re.I)
+_ON_AFTER_GARMENT = re.compile(r"^\s+on\b", re.I)
+_DRESS_COMPOUND = re.compile(r"\bdress[\s-]+(shirts?|shoes?|pants?)\b", re.I)
+_LEADING_PRONOUN = re.compile(r"^\s*(she|he)\b", re.I)
 
 
 @dataclass(frozen=True)
@@ -148,6 +153,10 @@ class TextAttributeExtractor:
                     match.group(1) for match in _HAIR_LENGTH.finditer(text)
                     if not _negated(text, match.start())
                 )
+            if slot == "gender":
+                pronoun = _LEADING_PRONOUN.match(text)
+                if pronoun:
+                    values.add("female" if pronoun.group(1) == "she" else "male")
             result[slot] = _single(values)
 
         garments = [
@@ -211,6 +220,7 @@ class TextAttributeExtractor:
         )
 
     def _garments(self, phrase: str, offset: int, full_text: str) -> list[_Garment]:
+        compounds = list(_DRESS_COMPOUND.finditer(phrase))
         matches = [
             (item, side, rank)
             for matcher, side, rank in (
@@ -218,7 +228,15 @@ class TextAttributeExtractor:
                 (self.generic_upper, "upper", -1), (self.generic_lower, "lower", -1),
             )
             for item in matcher.find(phrase)
+            if not any(item.start < compound.end() and compound.start() < item.end
+                       for compound in compounds)
         ]
+        for compound in compounds:
+            noun = compound.group(1)
+            if noun.startswith("shirt"):
+                matches.append((_Match(compound.start(), compound.end(), "t_shirt_shirt"), "upper", 0))
+            elif noun.startswith("pant"):
+                matches.append((_Match(compound.start(), compound.end(), "trousers_shorts"), "lower", 0))
         matches.sort(key=lambda entry: (entry[0].start, -(entry[0].end - entry[0].start)))
         garments = []
         previous_end = 0
@@ -227,7 +245,7 @@ class TextAttributeExtractor:
                 continue
             tail = phrase[item.end:]
             if (_negated(full_text, offset + item.start)
-                    or _carried(full_text, offset + item.start)
+                    or _carried(full_text, offset + item.start, offset + item.end)
                     or _POSTPOSED_CARRY.match(tail)):
                 previous_end = item.end
                 continue
@@ -262,14 +280,17 @@ def _negated(text: str, start: int) -> bool:
     return True
 
 
-def _carried(text: str, start: int) -> bool:
+def _carried(text: str, start: int, end: int) -> bool:
     """最近的明确动作是 carry/hold 时，该衣物不是穿着实体。"""
     context = _ACTION_BOUNDARY.split(text[:start])[-1]
     carrying = list(_CARRY.finditer(context))
     if not carrying:
         return False
-    wearing = list(_WEAR.finditer(context))
-    return not wearing or carrying[-1].start() > wearing[-1].start()
+    wearing = [match.start() for match in _WEAR.finditer(context)]
+    wearing.extend(match.start() for match in _HAS_ON.finditer(context))
+    if _ON_AFTER_GARMENT.match(text[end:]):
+        wearing.extend(match.start() for match in _HAS.finditer(context))
+    return carrying[-1].start() > max(wearing, default=-1)
 
 
 @lru_cache(maxsize=1)
