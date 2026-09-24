@@ -26,6 +26,13 @@ _HAS_ON = re.compile(r"\b(?:has|have|had)\s+on\b", re.I)
 _HAS = re.compile(r"\b(?:has|have|had)\b", re.I)
 _ON_AFTER_GARMENT = re.compile(r"^\s+on\b", re.I)
 _DRESS_COMPOUND = re.compile(r"\bdress[\s-]+(shirts?|shoes?|pants?)\b", re.I)
+_SUIT_LOWER = re.compile(r"suit[\s-]+(?:pants|trousers?)\b", re.I)
+_GARMENT_PART = re.compile(
+    r"\b(?:sleeves?|hood|fur|collar|cuffs?|hat|cap|lining|zip|zipper|pockets?)"
+    r"\s+(?:of|on)\s+(?:(?:his|her|the|its|a|an|my|your|their|our)\s+)?"
+    r"(?P<modifiers>(?:[a-z-]+\s+){0,2})$",
+    re.I,
+)
 _LEADING_PRONOUN = re.compile(r"^\s*(she|he)\b", re.I)
 
 
@@ -231,6 +238,8 @@ class TextAttributeExtractor:
             for item in matcher.find(phrase)
             if not any(item.start < compound.end() and compound.start() < item.end
                        for compound in compounds)
+            and not (side == "upper" and phrase[item.start:item.end] == "suit"
+                     and _SUIT_LOWER.match(phrase, item.start))
         ]
         for compound in compounds:
             noun = compound.group(1)
@@ -262,7 +271,12 @@ class TextAttributeExtractor:
                 color_text += " " + post_color.group(1)
             copula = re.match(r"\s+(?:is|are|was|were)\b", tail, re.I)
             if copula:
-                color_text += " " + tail[copula.end():]
+                part = _GARMENT_PART.search(descriptor)
+                if part:
+                    # 部件的谓词颜色不属于整件衣物；保留衣物名词前的修饰色。
+                    color_text = part.group("modifiers")
+                else:
+                    color_text += " " + tail[copula.end():]
             colors = frozenset(match.value for match in self.colors.find(color_text))
             lengths = frozenset(match.value for match in self.lengths.find(descriptor))
             kind = None if item.value == "generic" else item.value

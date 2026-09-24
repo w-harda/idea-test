@@ -2,7 +2,7 @@
 # 仅收录可由文本直接识别的表达；不在此推断衣物长度。
 age:
   young: [young man, young woman, young person, young male, young female, teenager, teen, young, teenage]
-  adult: [adult, middle-aged]
+  adult: [adult, middle-aged, young adult, young adults, young middle-aged]
   elderly: [elderly, senior, old man, old woman, older man, older woman]
 gender:
   male: [man, male, gentleman, boy, boys, guy, guys, men]
@@ -32,7 +32,7 @@ upper_clothing_type:
   jacket_coat: [jacket, coat, blazer, overcoat, parka, windbreaker, suit]
   vest_sleeveless: [vest, sleeveless top, tank top]
 lower_clothing_type:
-  trousers_shorts: [pants, trousers, jeans, shorts, slacks, leggings, tights, capri, capris, khakis]
+  trousers_shorts: [pants, trouser, trousers, jeans, shorts, slacks, leggings, tights, capri, capris, khakis]
   skirt_dress: [skirt, dress]
 generic_garments:
   upper: [top, upper clothes, upper clothing]

@@ -319,3 +319,66 @@ def test_cross_dataset_clothing_aliases(word: str, expected_type: str) -> None:
 def test_carried_scope_and_postposed_relation(caption: str, expected: dict[str, str]) -> None:
     result = extract(caption)
     assert {slot: result[slot] for slot in expected} == expected
+
+
+@pytest.mark.parametrize(
+    ("caption", "expected"),
+    [
+        ("A young adult with short black hair.", "adult"),
+        ("The young adults are walking.", "adult"),
+        ("A young middle-aged man.", "adult"),
+        ("A young boy.", "young"),
+        ("A young woman.", "young"),
+        ("He is young.", "young"),
+    ],
+)
+def test_specific_age_phrase_takes_precedence(caption: str, expected: str) -> None:
+    assert extract(caption)["age"] == expected
+
+
+@pytest.mark.parametrize(
+    ("caption", "expected"),
+    [
+        ("He is wearing black suit pants.",
+         {"upper_clothing_type": "null", "lower_clothing_type": "trousers_shorts",
+          "lower_clothing_color": "black"}),
+        ("He wears grey suit trousers.",
+         {"upper_clothing_type": "null", "lower_clothing_type": "trousers_shorts",
+          "lower_clothing_color": "grey"}),
+        ("He wears grey suit trouser.",
+         {"upper_clothing_type": "null", "lower_clothing_type": "trousers_shorts",
+          "lower_clothing_color": "grey"}),
+        ("He wears a black suit.",
+         {"upper_clothing_type": "jacket_coat", "upper_clothing_color": "black"}),
+        ("He is wearing a suit jacket.",
+         {"upper_clothing_type": "jacket_coat"}),
+        ("He wears a grey jacket and black suit trousers.",
+         {"upper_clothing_type": "jacket_coat", "upper_clothing_color": "grey",
+          "lower_clothing_type": "trousers_shorts", "lower_clothing_color": "black"}),
+    ],
+)
+def test_suit_lower_compound_does_not_create_upper_garment(
+    caption: str, expected: dict[str, str]
+) -> None:
+    result = extract(caption)
+    assert {slot: result[slot] for slot in expected} == expected
+
+
+@pytest.mark.parametrize(
+    ("caption", "expected_color"),
+    [
+        ("He is wearing a black jacket. The sleeves of his jacket are white.", "black"),
+        ("She wears a red coat. The hood of the coat is grey.", "red"),
+        ("He is wearing a blue jacket. The fur on his jacket is white.", "blue"),
+        ("The sleeves of his jacket are white.", "null"),
+        ("The pockets of the jacket are red.", "null"),
+        ("The white cuffs of his black jacket are red.", "black"),
+        ("Her jacket is black.", "black"),
+    ],
+)
+def test_garment_part_color_does_not_override_main_color(
+    caption: str, expected_color: str
+) -> None:
+    result = extract(caption)
+    assert result["upper_clothing_type"] == "jacket_coat"
+    assert result["upper_clothing_color"] == expected_color
