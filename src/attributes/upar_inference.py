@@ -46,7 +46,14 @@ class Upar40Predictor:
         classifier = LinearClassifier(
             nattr=40, c_in=2048, bn=False, pool="avg", scale=1)
         model = FeatClassifier(backbone, classifier)
-        saved = torch.load(checkpoint, map_location="cpu", weights_only=True)
+        # 官方 checkpoint 的 metric 等元数据含 NumPy scalar；只允许这些
+        # 数值类型参与反序列化，仍保持 weights_only 的受限加载。
+        import numpy as np
+        numeric_dtypes = ("float16", "float32", "float64", "int32", "int64")
+        safe_types = [np.core.multiarray.scalar, np.dtype]
+        safe_types.extend({type(np.dtype(name)) for name in numeric_dtypes})
+        with torch.serialization.safe_globals(safe_types):
+            saved = torch.load(checkpoint, map_location="cpu", weights_only=True, mmap=True)
         state = saved.get("state_dicts", saved) if isinstance(saved, dict) else saved
         if not isinstance(state, dict) or not state:
             raise ValueError("checkpoint 缺少模型 state_dicts")
