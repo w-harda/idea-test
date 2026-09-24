@@ -106,3 +106,16 @@ python scripts/batch_extract_image.py \
 ```
 
 ICFG-PEDES 使用 `--dataset icfg` 与其 `ICFG-PEDES.json`；RSTPReid 使用 `--dataset rstp` 与其 `data_captions.json`。`--image-root` 应是 annotation 图像相对路径的起点，实际路径需按服务器数据布局填写。初始 batch 大小为 16，可用 `--batch-size` 调整。
+
+### 服务器全量后台提取
+
+三个数据集各 20 张图像的 GPU smoke test 通过后，可以在服务器运行：
+
+```bash
+nohup bash /home/lzf/ldx/projects/idea-TBPS-test1/scripts/run_full_image_extraction.sh \
+  > /home/lzf/ldx/outputs/idea-TBPS-test1/upar/full-run.log 2>&1 < /dev/null &
+```
+
+关闭 SSH 或本地电脑不会中断 `nohup` 任务。脚本按 CUHK、ICFG、RSTP 顺序处理，每张不同图片只推理一次，默认 batch 大小为 2。结果分别保存在 `/home/lzf/ldx/outputs/idea-TBPS-test1/upar/full/{cuhk,icfg,rstp}.jsonl`；进度与错误写入 `full-run.log`，每 100 张新图像报告一次。可用 `tail -f /home/lzf/ldx/outputs/idea-TBPS-test1/upar/full-run.log` 查看进度。
+
+再次运行同一脚本会从已有 JSONL 续跑，跳过已写入的图像。已有结果若包含损坏或重复的图像记录，脚本会停止并报出行号，以免静默混入错误输出。数据集、checkpoint 和实验输出均在 Git 仓库外。
