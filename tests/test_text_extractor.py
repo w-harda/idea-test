@@ -1,6 +1,13 @@
+import json
+import sys
+from pathlib import Path
+from unittest.mock import mock_open, patch
+
 import pytest
 
-from attributes import TextAttributeExtractor, extract
+from attributes import TextAttributeExtractor, extract, extract_with_provenance
+from attributes.dataset_adapter import CaptionRecord, JsonCaptionAdapter
+from scripts.batch_extract import main as batch_main
 
 
 def test_required_caption_maps_to_fixed_slots() -> None:
@@ -382,3 +389,139 @@ def test_garment_part_color_does_not_override_main_color(
     result = extract(caption)
     assert result["upper_clothing_type"] == "jacket_coat"
     assert result["upper_clothing_color"] == expected_color
+
+
+def _mentions(caption: str, slot: str) -> list[dict]:
+    result = extract_with_provenance(caption)
+    assert result["attributes"] == extract(caption)
+    assert len(result["provenance"]) == 13
+    for key, value in result["provenance"].items():
+        if result["attributes"][key] == "null":
+            assert value is None
+            continue
+        assert value["canonical"] == result["attributes"][key]
+        for mention in value["mentions"]:
+            assert caption[mention["start"]:mention["end"]] == mention["raw"]
+            if "linked_object" in mention:
+                linked = mention["linked_object"]
+                assert caption[linked["start"]:linked["end"]] == linked["raw"]
+    return result["provenance"][slot]["mentions"]
+
+
+def test_provenance_preserves_alias_and_original_case() -> None:
+    caption = "A woman in a Navy Blue jacket."
+    mentions = _mentions(caption, "upper_clothing_color")
+    assert [item["raw"] for item in mentions] == ["Navy Blue"]
+    assert mentions[0]["linked_object"]["raw"] == "jacket"
+    assert extract_with_provenance(caption)["provenance"]["upper_clothing_color"]["canonical"] == "blue"
+
+
+def test_repeated_color_spans_are_bound_to_each_garment() -> None:
+    caption = "A man wears a black jacket and black trousers."
+    upper = _mentions(caption, "upper_clothing_color")
+    lower = _mentions(caption, "lower_clothing_color")
+    assert [(item["start"], item["raw"], item["linked_object"]["raw"]) for item in upper] == [
+        (caption.index("black"), "black", "jacket")
+    ]
+    assert [(item["start"], item["raw"], item["linked_object"]["raw"]) for item in lower] == [
+        (caption.rindex("black"), "black", "trousers")
+    ]
+
+
+def test_outer_garment_provenance_excludes_inner_shirt() -> None:
+    caption = "A man wears a black jacket over a white shirt."
+    color = _mentions(caption, "upper_clothing_color")
+    kind = _mentions(caption, "upper_clothing_type")
+    assert [(item["raw"], item["linked_object"]["raw"]) for item in color] == [
+        ("black", "jacket")
+    ]
+    assert [item["raw"] for item in kind] == ["jacket"]
+
+
+def test_postposed_color_and_repeated_same_canonical_mentions() -> None:
+    caption = "He wears a black jacket. The jacket is black. His trousers are black."
+    upper = _mentions(caption, "upper_clothing_color")
+    lower = _mentions(caption, "lower_clothing_color")
+    assert [item["start"] for item in upper] == [caption.index("black"), caption.index("black", 20)]
+    assert [item["linked_object"]["raw"] for item in upper] == ["jacket", "jacket"]
+    assert [item["raw"] for item in lower] == ["black"]
+    assert lower[0]["linked_object"]["raw"] == "trousers"
+    assert [item["raw"] for item in _mentions(caption, "lower_clothing_type")] == ["trousers"]
+
+
+def test_age_pronoun_length_and_conflict_provenance() -> None:
+    assert [item["raw"] for item in _mentions("A teenage woman.", "age")] == ["teenage"]
+    assert [item["raw"] for item in _mentions("She is wearing a grey coat.", "gender")] == ["She"]
+    caption = "A man in a long grey coat."
+    assert _mentions(caption, "upper_clothing_length")[0]["linked_object"]["raw"] == "coat"
+    assert _mentions(caption, "upper_clothing_color")[0]["linked_object"]["raw"] == "coat"
+    result = extract_with_provenance("red and black shirt")
+    assert result["attributes"]["upper_clothing_color"] == "null"
+    assert result["provenance"]["upper_clothing_color"] is None
+
+
+def test_unicode_lowercase_expansion_keeps_original_offsets() -> None:
+    caption = "İ woman wearing a Navy Blue jacket."
+    assert _mentions(caption, "gender")[0]["raw"] == "woman"
+    color = _mentions(caption, "upper_clothing_color")[0]
+    assert color["raw"] == "Navy Blue"
+    assert color["start"] == caption.index("Navy Blue")
+
+
+def test_synthetic_color_phrase_uses_real_source_mention() -> None:
+    caption = "The dark shirt is blue."
+    assert [item["raw"] for item in _mentions(caption, "upper_clothing_color")] == ["blue"]
+
+
+@pytest.mark.parametrize(("caption", "slot", "canonical", "raw"), [
+    ("A woman with medium-length black hair.", "hair_length", "long", "medium-length"),
+    ("A man without a hat.", "hat", "no", "hat"),
+    ("A woman with sunglasses and a backpack.", "glasses", "sunglasses", "sunglasses"),
+    ("A woman with sunglasses and a backpack.", "backpack", "yes", "backpack"),
+])
+def test_direct_attribute_mentions_keep_raw_alias(
+    caption: str, slot: str, canonical: str, raw: str
+) -> None:
+    result = extract_with_provenance(caption)
+    assert result["provenance"][slot]["canonical"] == canonical
+    assert [item["raw"] for item in _mentions(caption, slot)] == [raw]
+
+
+@pytest.mark.parametrize("caption", [
+    "without a hat",
+    "A young adult with short black hair.",
+    "He is wearing black suit pants.",
+    "He wears a grey jacket and black suit trousers.",
+    "He is wearing a black jacket. The sleeves of his jacket are white.",
+    "A boy wearing a blue tee shirt with black shorts and carrying a black jacket.",
+    "A woman carrying a black jacket and a red coat.",
+    "A man with shoulder-length black hair and a navy blue parka.",
+])
+def test_provenance_api_preserves_frozen_attributes(caption: str) -> None:
+    assert extract_with_provenance(caption)["attributes"] == extract(caption)
+
+
+@pytest.mark.parametrize("extension", ["json", "jsonl"])
+def test_batch_provenance_flag_keeps_default_output(extension: str) -> None:
+    caption = "A woman in a Navy Blue jacket."
+    extractor = TextAttributeExtractor()
+
+    def run(with_provenance: bool) -> dict:
+        argv = ["batch_extract.py", "--input", f"input.{extension}",
+                "--output", f"output.{extension}"]
+        if with_provenance:
+            argv.append("--with-provenance")
+        writer = mock_open()
+        with (patch.object(sys, "argv", argv),
+              patch("scripts.batch_extract.TextAttributeExtractor", return_value=extractor),
+              patch.object(JsonCaptionAdapter, "iter_records", return_value=iter([CaptionRecord("p1", caption)])),
+              patch.object(Path, "open", writer)):
+            batch_main()
+        data = json.loads("".join(call.args[0] for call in writer().write.call_args_list))
+        return data[0] if extension == "json" else data
+
+    plain = run(False)
+    traced = run(True)
+    assert list(plain) == ["id", "caption", "attributes"]
+    assert {key: traced[key] for key in plain} == plain
+    assert traced["provenance"]["upper_clothing_color"]["mentions"][0]["raw"] == "Navy Blue"

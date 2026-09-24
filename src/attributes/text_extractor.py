@@ -50,6 +50,9 @@ class _Garment:
     rank: int
     colors: frozenset[str]
     lengths: frozenset[str]
+    object_match: _Match
+    color_matches: tuple[_Match, ...]
+    length_matches: tuple[_Match, ...]
 
 
 def _read_yaml(path: Path) -> dict[str, Any]:
@@ -92,6 +95,37 @@ class _Matcher:
 
 def _single(values: set[str] | frozenset[str]) -> str:
     return next(iter(values)) if len(values) == 1 else "null"
+
+
+def _located_matches(
+    matches: list[_Match], pieces: list[tuple[str, int | None]], matcher: _Matcher
+) -> tuple[_Match, ...]:
+    """还原拼接文本中的原文位置；跨边界命中时改用真实片段中的同值 alias。"""
+    segments = []
+    cursor = 0
+    for content, source_start in pieces:
+        segments.append((cursor, cursor + len(content), source_start))
+        cursor += len(content)
+    located = [
+        _Match(source_start + match.start - left, source_start + match.end - left, match.value)
+        for match in matches
+        for left, right, source_start in segments
+        if source_start is not None and left <= match.start and match.end <= right
+    ]
+    for canonical in {match.value for match in matches} - {match.value for match in located}:
+        located.extend(
+            _Match(source_start + item.start, source_start + item.end, item.value)
+            for content, source_start in pieces if source_start is not None
+            for item in matcher.find(content) if item.value == canonical
+        )
+    return tuple(located)
+
+
+def _source_span(caption: str, source_index: list[int], match: _Match) -> dict[str, Any]:
+    """lower() 可能扩展 Unicode 字符，使用逐字符索引返回原文位置。"""
+    start = source_index[match.start]
+    end = source_index[match.end - 1] + 1
+    return {"raw": caption[start:end], "start": start, "end": end}
 
 
 class TextAttributeExtractor:
@@ -145,27 +179,46 @@ class TextAttributeExtractor:
 
     def extract(self, caption: str) -> dict[str, str]:
         """仅提取明示属性；未提及、矛盾或无法绑定的槽位返回 null。"""
+        return self._extract(caption, with_provenance=False)[0]
+
+    def extract_with_provenance(self, caption: str) -> dict[str, Any]:
+        """同时返回属性及其在原始 caption 中的真实匹配位置。"""
+        attributes, provenance = self._extract(caption, with_provenance=True)
+        return {"attributes": attributes, "provenance": provenance}
+
+    def _extract(
+        self, caption: str, with_provenance: bool
+    ) -> tuple[dict[str, str], dict[str, Any] | None]:
         if not isinstance(caption, str):
             raise TypeError("caption 必须是 str")
         result = dict.fromkeys(self.slot_order, "null")
         text = caption.lower()
+        supporting: dict[str, list[tuple[_Match, _Match | None]]] = {
+            slot: [] for slot in self.slot_order
+        }
 
         for slot, matcher in self.direct.items():
-            values = {
-                item.value for item in matcher.find(text)
-                if not _negated(text, item.start)
-            }
+            matches = [item for item in matcher.find(text) if not _negated(text, item.start)]
+            values = {item.value for item in matches}
             if slot == "hair_length":
-                values.update(
-                    "short" if match.group(1) == "short" else "long"
-                    for match in _HAIR_LENGTH.finditer(text)
-                    if not _negated(text, match.start())
-                )
+                for match in _HAIR_LENGTH.finditer(text):
+                    if _negated(text, match.start()):
+                        continue
+                    canonical = "short" if match.group(1) == "short" else "long"
+                    values.add(canonical)
+                    if not any(
+                        item.value == canonical and item.start <= match.start(1)
+                        and match.end(1) <= item.end for item in matches
+                    ):
+                        matches.append(_Match(match.start(1), match.end(1), canonical))
             if slot == "gender":
                 pronoun = _LEADING_PRONOUN.match(text)
                 if pronoun:
-                    values.add("female" if pronoun.group(1) == "she" else "male")
+                    canonical = "female" if pronoun.group(1) == "she" else "male"
+                    values.add(canonical)
+                    matches.append(_Match(pronoun.start(1), pronoun.end(1), canonical))
             result[slot] = _single(values)
+            supporting[slot].extend((item, None) for item in matches)
 
         garments = [
             garment
@@ -184,6 +237,15 @@ class TextAttributeExtractor:
             result[type_slot] = _single({garment.kind for garment in primary if garment.kind is not None})
             result[color_slot] = _single(set().union(*(garment.colors for garment in primary)))
             result[length_slot] = _single(set().union(*(garment.lengths for garment in primary)))
+            for garment in primary:
+                if garment.kind is not None:
+                    supporting[type_slot].append((garment.object_match, None))
+                supporting[color_slot].extend(
+                    (match, garment.object_match) for match in garment.color_matches
+                )
+                supporting[length_slot].extend(
+                    (match, garment.object_match) for match in garment.length_matches
+                )
 
         backpack_mentions = self.accessories["backpack"].find(text)
         for slot, matcher in self.accessories.items():
@@ -195,10 +257,38 @@ class TextAttributeExtractor:
                 ):
                     continue
                 negative = _negated(text, item.start)
-                values.add(("no_glasses" if slot == "glasses" else "no") if negative else item.value)
+                canonical = ("no_glasses" if slot == "glasses" else "no") if negative else item.value
+                values.add(canonical)
+                supporting[slot].append((_Match(item.start, item.end, canonical), None))
             result[slot] = _single(values)
 
-        return result
+        if not with_provenance:
+            return result, None
+
+        source_index = [index for index, char in enumerate(caption) for _ in char.lower()]
+        provenance = {}
+        for slot, canonical in result.items():
+            if canonical == "null":
+                provenance[slot] = None
+                continue
+            mentions = []
+            seen = set()
+            for match, linked in sorted(
+                supporting[slot], key=lambda pair: (pair[0].start, pair[0].end)
+            ):
+                if match.value != canonical:
+                    continue
+                key = (match.start, match.end, linked.start if linked else None,
+                       linked.end if linked else None)
+                if key in seen:
+                    continue
+                seen.add(key)
+                mention = _source_span(caption, source_index, match)
+                if linked is not None:
+                    mention["linked_object"] = _source_span(caption, source_index, linked)
+                mentions.append(mention)
+            provenance[slot] = {"canonical": canonical, "mentions": mentions}
+        return result, provenance
 
     def _phrases(self, text: str) -> list[tuple[str, int]]:
         phrases = []
@@ -265,25 +355,44 @@ class TextAttributeExtractor:
                 continue
             descriptor = phrase[previous_end:item.start]
             color_text = descriptor
+            color_pieces: list[tuple[str, int | None]] = [(descriptor, offset + previous_end)]
             # 后置颜色仅在当前衣物与下一件衣物之间查找。
             post_color = re.match(r"\s+(?:in|of|colored|coloured)\s+([\w\s-]+)", tail)
             if post_color:
                 color_text += " " + post_color.group(1)
+                color_pieces.extend([
+                    (" ", None),
+                    (post_color.group(1), offset + item.end + post_color.start(1)),
+                ])
             copula = re.match(r"\s+(?:is|are|was|were)\b", tail, re.I)
             if copula:
                 part = _GARMENT_PART.search(descriptor)
                 if part:
                     # 部件的谓词颜色不属于整件衣物；保留衣物名词前的修饰色。
                     color_text = part.group("modifiers")
+                    color_pieces = [(color_text, offset + previous_end + part.start("modifiers"))]
                 else:
                     color_text += " " + tail[copula.end():]
-            colors = frozenset(match.value for match in self.colors.find(color_text))
-            lengths = frozenset(match.value for match in self.lengths.find(descriptor))
+                    color_pieces.extend([
+                        (" ", None),
+                        (tail[copula.end():], offset + item.end + copula.end()),
+                    ])
+            color_matches = self.colors.find(color_text)
+            length_matches = self.lengths.find(descriptor)
+            colors = frozenset(match.value for match in color_matches)
+            lengths = frozenset(match.value for match in length_matches)
             kind = None if item.value == "generic" else item.value
             if side == "upper":
                 rank = {"t_shirt_shirt": 0, "hoodie_sweater": 1,
                         "vest_sleeveless": 1, "jacket_coat": 2}.get(kind, rank)
-            garments.append(_Garment(side, kind, rank, colors, lengths))
+            garments.append(_Garment(
+                side, kind, rank, colors, lengths,
+                _Match(offset + item.start, offset + item.end, item.value),
+                _located_matches(color_matches, color_pieces, self.colors),
+                tuple(_Match(offset + previous_end + match.start,
+                             offset + previous_end + match.end, match.value)
+                      for match in length_matches),
+            ))
             previous_end = item.end
         return garments
 
@@ -324,3 +433,8 @@ def _default_extractor() -> TextAttributeExtractor:
 def extract(caption: str) -> dict[str, str]:
     """使用项目默认 ontology 与 alias 映射提取固定属性字典。"""
     return _default_extractor().extract(caption)
+
+
+def extract_with_provenance(caption: str) -> dict[str, Any]:
+    """使用默认 ontology 返回固定属性字典和对应原文位置。"""
+    return _default_extractor().extract_with_provenance(caption)

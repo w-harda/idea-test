@@ -14,10 +14,19 @@ from attributes import extract
 attributes = extract("a man wearing a white shirt and black pants")
 ```
 
+如需记录属性在原始 caption 中的文本与字符位置，可调用 `extract_with_provenance(caption)`。它返回 `attributes` 和包含 13 个槽位的 `provenance`；最终值为 `"null"` 的槽位对应 `null`，其余槽位包含 `canonical` 与 `mentions`。每个 mention 的 `start`、`end` 满足 `caption[start:end] == raw`，衣物颜色和长度还包含 `linked_object`。
+
+```python
+from attributes import extract_with_provenance
+
+result = extract_with_provenance("A woman in a navy blue jacket.")
+```
+
 通用批处理接受 JSON 数组或 JSONL。每条记录可为 caption 字符串，或 `{ "id": "...", "caption": "..." }`；输出包含 `id`、`caption`、`attributes`。
 
 ```powershell
 python scripts/batch_extract.py --input captions.jsonl --output attributes.jsonl
+python scripts/batch_extract.py --input captions.jsonl --output attributes_with_spans.jsonl --with-provenance
 python -m pytest
 ```
 

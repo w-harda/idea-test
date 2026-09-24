@@ -23,6 +23,7 @@ def main() -> None:
     parser.add_argument("--adapter", choices=("flat", "cuhk", "icfg", "rstp"), default="flat", help="annotation 格式")
     parser.add_argument("--split", help="按 annotation 中的 split 名称筛选；默认全部")
     parser.add_argument("--limit", type=int, help="仅处理前 N 条 caption，便于抽查")
+    parser.add_argument("--with-provenance", action="store_true", help="在原有输出中增加属性原文位置")
     args = parser.parse_args()
     if args.output.suffix.lower() not in (".json", ".jsonl"):
         parser.error("输出文件必须使用 .json 或 .jsonl 后缀")
@@ -46,10 +47,13 @@ def main() -> None:
     captions = adapter.iter_records()
     if args.limit is not None:
         captions = itertools.islice(captions, args.limit)
-    records = (
-        {"id": record.id, "caption": record.caption, "attributes": extractor.extract(record.caption)}
-        for record in captions
-    )
+    def output_record(record):
+        if args.with_provenance:
+            extracted = extractor.extract_with_provenance(record.caption)
+            return {"id": record.id, "caption": record.caption, **extracted}
+        return {"id": record.id, "caption": record.caption, "attributes": extractor.extract(record.caption)}
+
+    records = (output_record(record) for record in captions)
     with args.output.open("w", encoding="utf-8") as handle:
         if args.output.suffix.lower() == ".jsonl":
             for record in records:
