@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import sys
-from types import ModuleType
+from types import ModuleType, SimpleNamespace
 from pathlib import Path
 from typing import Sequence
 from unittest.mock import patch
@@ -34,14 +34,7 @@ class Upar40Predictor:
         with patch.dict(sys.modules, {"mmcv": mmcv, "mmcv.runner": mmcv.runner}):
             from models.backbone import swin_transformer2
         from models.base_block import FeatClassifier, LinearClassifier
-        import timm
-
-        original_create_model = timm.create_model
-        def create_without_download(*args, **kwargs):
-            kwargs["pretrained"] = False
-            return original_create_model(*args, **kwargs)
-        with patch.object(timm, "create_model", create_without_download):
-            backbone = swin_transformer2.swin_base_patch4_window7_224(pretrained=None)
+        backbone = _build_backbone_without_extra_weights(swin_transformer2)
         # 官方测试阶段推理脚本显式设为 2048，而非 model_factory 中的 1024。
         classifier = LinearClassifier(
             nattr=40, c_in=2048, bn=False, pool="avg", scale=1)
@@ -88,3 +81,16 @@ class Upar40Predictor:
                 raise ValueError(f"官方模型输出形状不是 [batch, 40]: {tuple(logits.shape)}")
             probabilities = self.torch.sigmoid(logits)
         return probabilities.cpu().tolist()
+
+
+def _build_backbone_without_extra_weights(backbone_module):
+    """只在官方骨干模块内禁用 EVA 初始权重；最终权重由 UPAR checkpoint 加载。"""
+    original_create_model = backbone_module.timm.create_model
+
+    def create_without_download(*args, **kwargs):
+        kwargs["pretrained"] = False
+        return original_create_model(*args, **kwargs)
+
+    timm_for_backbone = SimpleNamespace(create_model=create_without_download)
+    with patch.object(backbone_module, "timm", timm_for_backbone):
+        return backbone_module.swin_base_patch4_window7_224(pretrained=None)
