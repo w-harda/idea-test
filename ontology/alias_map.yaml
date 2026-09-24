@@ -1,7 +1,7 @@
 # 别名映射的目标值必须已存在于 upar_attribute_space.yaml。
 # 仅收录可由文本直接识别的表达；不在此推断衣物长度。
 age:
-  young: [young man, young woman, young person, young male, young female, teenager, teen]
+  young: [young man, young woman, young person, young male, young female, teenager, teen, young, teenage]
   adult: [adult, middle-aged]
   elderly: [elderly, senior, old man, old woman, older man, older woman]
 gender:
@@ -9,7 +9,7 @@ gender:
   female: [woman, female, lady, girl, girls, women]
 hair_length:
   short: [short hair, short-haired]
-  long: [long hair, long-haired]
+  long: [long hair, long-haired, shoulder-length hair, medium-length hair, medium hair]
   bald: [bald, bald head]
 colors:
   black: [black]
@@ -27,9 +27,9 @@ lengths:
   short: [short, short-sleeved, short sleeved]
   long: [long, long-sleeved, long sleeved]
 upper_clothing_type:
-  t_shirt_shirt: [t-shirt, tshirt, tee, shirt, blouse]
-  hoodie_sweater: [hoodie, sweatshirt, sweater, jumper]
-  jacket_coat: [jacket, coat, blazer, overcoat]
+  t_shirt_shirt: [t-shirt, tshirt, tee, shirt, blouse, polo, jersey]
+  hoodie_sweater: [hoodie, sweatshirt, sweater, jumper, cardigan, pullover]
+  jacket_coat: [jacket, coat, blazer, overcoat, parka, windbreaker, suit]
   vest_sleeveless: [vest, sleeveless top, tank top]
 lower_clothing_type:
   trousers_shorts: [pants, trousers, jeans, shorts, slacks, leggings, tights, capri, capris, khakis]

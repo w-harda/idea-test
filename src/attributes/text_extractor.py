@@ -14,14 +14,14 @@ import yaml
 _ROOT = Path(__file__).resolve().parents[2]
 _ONTOLOGY = _ROOT / "ontology" / "upar_attribute_space.yaml"
 _ALIASES = _ROOT / "ontology" / "alias_map.yaml"
-_CLAUSE_SPLIT = re.compile(r"[,;.]|\b(?:wearing|wears|dressed in|with|without|under|over|beneath|underneath|in|but)\b", re.I)
+_CLAUSE_SPLIT = re.compile(r"[,;.]|\b(?:wearing|wears|dressed in|with|without|under|over|beneath|underneath|in|but|that|which|who|whose)\b", re.I)
 _AND = re.compile(r"\band\b", re.I)
 _NEGATIVE = re.compile(r"\b(?:without|no|not|never|isn't|doesn't)\b", re.I)
-_HAIR_LENGTH = re.compile(r"\b(short|long)\s+(?:\w+\s+){0,2}hair\b", re.I)
+_HAIR_LENGTH = re.compile(r"\b(short|long|shoulder[\s-]+length|medium(?:[\s-]+length)?)\s+(?:\w+\s+){0,2}hair\b", re.I)
 _CARRY = re.compile(r"\b(?:carrying|carry|carries|carried|holding|holds|held)\b", re.I)
 _WEAR = re.compile(r"\b(?:wearing|wears|wear|worn)\b", re.I)
-_ACTION_BOUNDARY = re.compile(r"[,;.]|\b(?:but|with|in|under|over|beneath|underneath)\b", re.I)
-_POSTPOSED_CARRY = re.compile(r"^\s+(?:held|carried)\b", re.I)
+_ACTION_BOUNDARY = re.compile(r"[,;.]|\b(?:but|with|in|under|over|beneath|underneath|that|which|who|whose)\b", re.I)
+_POSTPOSED_CARRY = re.compile(r"^\s+(?:held|carried)\s+(?:over|in|on|under|beneath|by|across|around)\b", re.I)
 _HAS_ON = re.compile(r"\b(?:has|have|had)\s+on\b", re.I)
 _HAS = re.compile(r"\b(?:has|have|had)\b", re.I)
 _ON_AFTER_GARMENT = re.compile(r"^\s+on\b", re.I)
@@ -150,7 +150,8 @@ class TextAttributeExtractor:
             }
             if slot == "hair_length":
                 values.update(
-                    match.group(1) for match in _HAIR_LENGTH.finditer(text)
+                    "short" if match.group(1) == "short" else "long"
+                    for match in _HAIR_LENGTH.finditer(text)
                     if not _negated(text, match.start())
                 )
             if slot == "gender":
@@ -240,21 +241,29 @@ class TextAttributeExtractor:
         matches.sort(key=lambda entry: (entry[0].start, -(entry[0].end - entry[0].start)))
         garments = []
         previous_end = 0
-        for item, side, rank in matches:
+        for position, (item, side, rank) in enumerate(matches):
             if item.start < previous_end:
                 continue
-            tail = phrase[item.end:]
+            next_start = next(
+                (other.start for other, _, _ in matches[position + 1:] if other.start >= item.end),
+                len(phrase),
+            )
+            tail = phrase[item.end:next_start]
             if (_negated(full_text, offset + item.start)
                     or _carried(full_text, offset + item.start, offset + item.end)
-                    or _POSTPOSED_CARRY.match(tail)):
+                    or _POSTPOSED_CARRY.match(full_text[offset + item.end:])):
                 previous_end = item.end
                 continue
             descriptor = phrase[previous_end:item.start]
-            # 后置颜色只接受 "shirt in white" 这类直接修饰，避免吞入下一件衣物。
+            color_text = descriptor
+            # 后置颜色仅在当前衣物与下一件衣物之间查找。
             post_color = re.match(r"\s+(?:in|of|colored|coloured)\s+([\w\s-]+)", tail)
             if post_color:
-                descriptor += " " + post_color.group(1)
-            colors = frozenset(match.value for match in self.colors.find(descriptor))
+                color_text += " " + post_color.group(1)
+            copula = re.match(r"\s+(?:is|are|was|were)\b", tail, re.I)
+            if copula:
+                color_text += " " + tail[copula.end():]
+            colors = frozenset(match.value for match in self.colors.find(color_text))
             lengths = frozenset(match.value for match in self.lengths.find(descriptor))
             kind = None if item.value == "generic" else item.value
             if side == "upper":

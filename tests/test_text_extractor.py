@@ -240,3 +240,82 @@ def test_carried_scope_stops_at_new_wearing_cue(caption: str, expected: dict[str
 def test_dress_compounds_do_not_mean_a_dress(caption: str, expected: dict[str, str]) -> None:
     result = extract(caption)
     assert {slot: result[slot] for slot in expected} == expected
+
+
+@pytest.mark.parametrize(
+    ("caption", "expected"),
+    [
+        ("His trousers are black.", {"lower_clothing_type": "trousers_shorts", "lower_clothing_color": "black"}),
+        ("His shirt is blue.", {"upper_clothing_type": "t_shirt_shirt", "upper_clothing_color": "blue"}),
+        ("Her jacket was grey.", {"upper_clothing_type": "jacket_coat", "upper_clothing_color": "grey"}),
+        ("His shorts were purple.", {"lower_clothing_type": "trousers_shorts", "lower_clothing_color": "purple"}),
+        ("The top is black.", {"upper_clothing_type": "null", "upper_clothing_color": "black"}),
+        ("The pants are purple.", {"lower_clothing_type": "trousers_shorts", "lower_clothing_color": "purple"}),
+        ("His shirt is blue and his trousers are black.",
+         {"upper_clothing_color": "blue", "lower_clothing_color": "black"}),
+        ("The man is wearing a grey jacket and a blue shirt.",
+         {"upper_clothing_type": "jacket_coat", "upper_clothing_color": "grey"}),
+    ],
+)
+def test_copula_color_binds_to_its_garment(caption: str, expected: dict[str, str]) -> None:
+    result = extract(caption)
+    assert {slot: result[slot] for slot in expected} == expected
+
+
+@pytest.mark.parametrize(
+    "caption",
+    ["A young girl.", "A young boy.", "He is young.", "A teenage woman."],
+)
+def test_young_age_aliases(caption: str) -> None:
+    assert extract(caption)["age"] == "young"
+
+
+@pytest.mark.parametrize(
+    ("caption", "expected"),
+    [
+        ("A woman with shoulder-length black hair.", "long"),
+        ("A woman with shoulder length hair.", "long"),
+        ("A man with medium-length hair.", "long"),
+        ("A man with medium length brown hair.", "long"),
+        ("A man with medium hair.", "long"),
+        ("A man carrying a medium bag.", "null"),
+        ("A woman with short black hair.", "short"),
+        ("A man with long brown hair.", "long"),
+    ],
+)
+def test_hair_length_requires_hair_context(caption: str, expected: str) -> None:
+    assert extract(caption)["hair_length"] == expected
+
+
+@pytest.mark.parametrize(
+    ("word", "expected_type"),
+    [
+        ("parka", "jacket_coat"), ("windbreaker", "jacket_coat"), ("suit", "jacket_coat"),
+        ("cardigan", "hoodie_sweater"), ("pullover", "hoodie_sweater"),
+        ("polo", "t_shirt_shirt"), ("jersey", "t_shirt_shirt"),
+    ],
+)
+def test_cross_dataset_clothing_aliases(word: str, expected_type: str) -> None:
+    result = extract(f"A person wearing a black {word}.")
+    assert result["upper_clothing_type"] == expected_type
+    assert result["upper_clothing_color"] == "black"
+
+
+@pytest.mark.parametrize(
+    ("caption", "expected"),
+    [
+        ("The man in the suit, tie, and overcoat carried a black bag in his right hand.",
+         {"upper_clothing_type": "jacket_coat", "bag": "yes"}),
+        ("A man with a coat carried over his left arm.",
+         {"upper_clothing_type": "null"}),
+        ("A woman with a jacket held in her hand.",
+         {"upper_clothing_type": "null"}),
+        ("She is carrying a large purse that matches her grey shirt.",
+         {"bag": "yes", "upper_clothing_type": "t_shirt_shirt", "upper_clothing_color": "grey"}),
+        ("She is carrying a black purse which matches her grey shirt.",
+         {"bag": "yes", "upper_clothing_type": "t_shirt_shirt", "upper_clothing_color": "grey"}),
+    ],
+)
+def test_carried_scope_and_postposed_relation(caption: str, expected: dict[str, str]) -> None:
+    result = extract(caption)
+    assert {slot: result[slot] for slot in expected} == expected
