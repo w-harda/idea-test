@@ -6,3 +6,5 @@ pytest-cache-files-*/
 .venv/
 datasets/
 outputs/
+checkpoints/
+upar_challenge/
