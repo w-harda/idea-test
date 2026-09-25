@@ -157,3 +157,16 @@ nohup bash /home/lzf/ldx/projects/idea-TBPS-test1/scripts/run_full_image_extract
 ```
 
 `report.json` 分别报告三个数据集及合计的每槽位指标，并包含按槽位审核分数段统计的准确率。真值为空的单元格不参与统计；人工真值为 `null` 时记入单独计数，不参与准确率和覆盖率。对于有明确真值的单元格，`accuracy` 是非 `null` 预测中的正确比例，`overall_accuracy` 把模型弃判计作未答对，`non_null_coverage` 和 `null_ratio` 分别是非 `null` 与 `null` 预测比例。分段准确率也只对该段内有明确真值且模型非 `null` 的预测计算。由于验收样本刻意分层，指标用于定位问题，不能直接当作全数据集无偏准确率。
+
+## 属性匹配与判别力计算（Stage 03）
+
+使用阶段 01 的 caption 属性 JSONL 和阶段 02 的图像属性 JSONL。每个数据集分别指定自己的图库，例如：
+
+```bash
+/home/lzf/ldx/envs/tbps-text/bin/python scripts/score_attributes.py \
+  --queries outputs/cuhk_train_provenance.jsonl \
+  --gallery /home/lzf/ldx/outputs/idea-TBPS-test1/upar/full/cuhk.jsonl \
+  --output /home/lzf/ldx/outputs/idea-TBPS-test1/stage03/cuhk_train_scores.jsonl
+```
+
+可用 `--limit 20` 抽查前 20 条 query。输出每行保留文本 `id`，并包含共享属性、图库总数、有效图库数、原候选数和各属性的 `scores`。有效图库按当前 query 中视觉可比较且文本非 `null` 的属性确定一次；图像未知值过半时剔除。候选图像要求无明确冲突且至少有一个明确匹配。`scores[slot]` 是独立删除该属性后新进入候选集的图像数量。当前视觉侧不支持 `upper_clothing_type`，该槽位不参与评分。输出依赖所选图库；换检索 split 时需重新计算。
