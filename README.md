@@ -119,3 +119,41 @@ nohup bash /home/lzf/ldx/projects/idea-TBPS-test1/scripts/run_full_image_extract
 关闭 SSH 或本地电脑不会中断 `nohup` 任务。脚本按 CUHK、ICFG、RSTP 顺序处理，每张不同图片只推理一次，默认 batch 大小为 2。结果分别保存在 `/home/lzf/ldx/outputs/idea-TBPS-test1/upar/full/{cuhk,icfg,rstp}.jsonl`；进度与错误写入 `full-run.log`，每 100 张新图像报告一次。可用 `tail -f /home/lzf/ldx/outputs/idea-TBPS-test1/upar/full-run.log` 查看进度。
 
 再次运行同一脚本会从已有 JSONL 续跑，跳过已写入的图像。已有结果若包含损坏或重复的图像记录，脚本会停止并报出行号，以免静默混入错误输出。数据集、checkpoint 和实验输出均在 Git 仓库外。
+
+## 图像侧视觉属性质量验收
+
+运行 `scripts/visual_quality_audit.py` 可从已经生成的 CUHK、ICFG、RSTP 图像结果中各选约 100 张，生成独立人工验收材料。它只读取图像结果及原图，不读取 Caption、文本属性或 provenance，也不调用或修改 UPAR 模型。示例（`audit-v1` 已生成；再次抽样须换一个新目录，避免覆盖人工标注）：
+
+```bash
+/home/lzf/ldx/envs/tbps-image/bin/python \
+  /home/lzf/ldx/projects/idea-TBPS-test1/scripts/visual_quality_audit.py sample \
+  --results-dir /home/lzf/ldx/outputs/idea-TBPS-test1/upar/full \
+  --cuhk-image-root /home/lzf/TBPS/Datasets/CUHK-PEDES/imgs \
+  --icfg-image-root /home/lzf/TBPS/Datasets/ICFG-PEDES/imgs \
+  --rstp-image-root /home/lzf/TBPS/Datasets/RSTPReid/imgs \
+  --output-dir /home/lzf/ldx/outputs/idea-TBPS-test1/upar/audit-v2 \
+  --per-dataset 100 --seed 20260925
+```
+
+抽样按每张图像的 12 个可评估槽位的平均审核分数分成低、中、高三个等人数层；每层再优先选择尚未充分覆盖的「槽位 × 预测值 × 槽位分数段」组合。因此样本覆盖常见和罕见取值、弃判以及分歧边界，不是纯随机样本。槽位审核分数是 UPAR 独立 sigmoid 概率的启发式决策强度：二元槽位取 `max(p, 1-p)`；多候选槽位取 `(最高概率 + 1 - 次高概率) / 2`。它**不是校准后的正确概率**。槽位分段为低于 0.70、0.70 至低于 0.85、至少 0.85；图像级低/中/高是本数据集平均分数的三等分。
+
+输出目录包含：
+
+- `manifest.jsonl`：每张图的 `sample_id`、数据集、相对及绝对图像路径、13 槽位预测、12 槽位审核分数与分段、完整 UPAR40 概率。
+- `cuhk.html`、`icfg.html`、`rstp.html`：嵌入缩略图的离线检查页。可用 Xftp 下载 HTML 后直接在浏览器打开；预测与概率默认折叠，以便先独立看图。
+- `labels.csv`：人工真值模板，使用 `sample_id` 对齐。只填写 `truth_<slot>` 列，合法值见 YAML 或 HTML 页。空白表示未标注，字符串 `null` 表示仅凭图像无法判断；明确不存在应填 `no` 或 `no_glasses`。可填写 `notes`。保留所有行及 `sample_id`、`dataset`、`image` 列。CSV 使用 UTF-8 BOM，便于表格软件读取。
+- `selection_summary.json`：各数据集的抽样数量、分层数量及覆盖的预测值。
+
+请只依据图像标注真值，不借助 Caption。当前 `upper_clothing_type` 预测固定为 `null`；模板允许预留真值，但本轮评估始终跳过此槽位。
+
+填写并保存 `labels.csv` 后运行：
+
+```bash
+/home/lzf/ldx/envs/tbps-image/bin/python \
+  /home/lzf/ldx/projects/idea-TBPS-test1/scripts/visual_quality_audit.py evaluate \
+  --manifest /home/lzf/ldx/outputs/idea-TBPS-test1/upar/audit-v1/manifest.jsonl \
+  --labels /home/lzf/ldx/outputs/idea-TBPS-test1/upar/audit-v1/labels.csv \
+  --output /home/lzf/ldx/outputs/idea-TBPS-test1/upar/audit-v1/report.json
+```
+
+`report.json` 分别报告三个数据集及合计的每槽位指标，并包含按槽位审核分数段统计的准确率。真值为空的单元格不参与统计；人工真值为 `null` 时记入单独计数，不参与准确率和覆盖率。对于有明确真值的单元格，`accuracy` 是非 `null` 预测中的正确比例，`overall_accuracy` 把模型弃判计作未答对，`non_null_coverage` 和 `null_ratio` 分别是非 `null` 与 `null` 预测比例。分段准确率也只对该段内有明确真值且模型非 `null` 的预测计算。由于验收样本刻意分层，指标用于定位问题，不能直接当作全数据集无偏准确率。
