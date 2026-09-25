@@ -47,6 +47,7 @@ class AttributeGallery:
                 else:
                     masks = self.value_masks[slot]
                     masks[value] = masks.get(value, 0) | bit
+        self.images = frozenset(seen)
         self.size = len(seen)
         self.all_mask = (1 << self.size) - 1
 

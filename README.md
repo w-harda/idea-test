@@ -160,13 +160,16 @@ nohup bash /home/lzf/ldx/projects/idea-TBPS-test1/scripts/run_full_image_extract
 
 ## 属性匹配与判别力计算（Stage 03）
 
-使用阶段 01 的 caption 属性 JSONL 和阶段 02 的图像属性 JSONL。每个数据集分别指定自己的图库，例如：
+对原始标注中的 train、val、test 全部 caption 计算属性判别力。命令必须同时指定数据集、原始标注和该数据集的全量图像属性图库：
 
 ```bash
 /home/lzf/ldx/envs/tbps-text/bin/python scripts/score_attributes.py \
-  --queries outputs/cuhk_train_provenance.jsonl \
+  --dataset cuhk \
+  --annotation /home/lzf/TBPS/Datasets/CUHK-PEDES/reid_raw.json \
   --gallery /home/lzf/ldx/outputs/idea-TBPS-test1/upar/full/cuhk.jsonl \
-  --output /home/lzf/ldx/outputs/idea-TBPS-test1/stage03/cuhk_train_scores.jsonl
+  --output /home/lzf/ldx/outputs/idea-TBPS-test1/stage03/cuhk_all_scores.jsonl
 ```
 
-可用 `--limit 20` 抽查前 20 条 query。输出每行保留文本 `id`，并包含共享属性、图库总数、有效图库数、原候选数和各属性的 `scores`。有效图库按当前 query 中视觉可比较且文本非 `null` 的属性确定一次；图像未知值过半时剔除。候选图像要求无明确冲突且至少有一个明确匹配。`scores[slot]` 是独立删除该属性后新进入候选集的图像数量。当前视觉侧不支持 `upper_clothing_type`，该槽位不参与评分。输出依赖所选图库；换检索 split 时需重新计算。
+ICFG 使用 --dataset icfg、ICFG-PEDES.json 和 icfg.jsonl；RSTP 使用 --dataset rstp、data_captions.json 和 rstp.jsonl。可用 --limit 20 抽查前 20 条 caption。运行前会比较原始标注和图库的完整图像路径集合；不一致时拒绝输出，防止跨数据集混合。图库始终包含所选数据集的全部图片，不按 train、val、test 分割。
+
+每条 JSONL 记录保留 dataset、split、稳定 row_id、原始 annotation_row_index、caption_index、原 id、image、原始 caption、完整 13 槽 attributes，以及 shared_attributes、gallery_count、valid_gallery_count、excluded_gallery_count、candidate_count 和 scores。ICFG 的原 id 可重复，应以 row_id 唯一定位。scores[slot] = S(a_i)，等于删除该属性后新进入候选集的图片数。upper_clothing_type 当前不参与匹配与评分。输出文件属于实验产物，不提交 Git。

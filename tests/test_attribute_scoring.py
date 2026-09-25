@@ -115,24 +115,54 @@ def test_gallery_rejects_duplicate_paths_and_bad_attributes():
         gallery({"gender": "female"})
 
 
-def test_cli_reads_stage_outputs(tmp_path):
+def test_cli_scores_all_splits_and_preserves_duplicate_legacy_id(tmp_path):
     root = Path(__file__).resolve().parents[1]
-    queries = tmp_path / "queries.jsonl"
+    annotation = tmp_path / "annotation.json"
     gallery_path = tmp_path / "gallery.jsonl"
     output = tmp_path / "scores.jsonl"
-    queries.write_text(json.dumps({
-        "id": "x.jpg#0", "attributes": attrs(gender="female", hat="yes")
-    }) + "\n", encoding="utf-8")
+    rows = [
+        {"file_path": "same.jpg", "split": "train", "captions": ["A woman with a hat."]},
+        {"file_path": "same.jpg", "split": "train", "captions": ["A man without a hat."]},
+        {"file_path": "other.jpg", "split": "test", "captions": ["A woman in red."]},
+    ]
+    annotation.write_text(json.dumps(rows), encoding="utf-8")
     gallery_path.write_text("\n".join(json.dumps(record) for record in (
-        {"image": "x.jpg", "attributes": attrs(gender="female", hat="yes")},
-        {"image": "y.jpg", "attributes": attrs(gender="female", hat="no")},
+        {"image": "same.jpg", "attributes": attrs(gender="female", hat="yes")},
+        {"image": "other.jpg", "attributes": attrs(gender="female", hat="no")},
     )) + "\n", encoding="utf-8")
     subprocess.run([
         sys.executable, str(root / "scripts" / "score_attributes.py"),
-        "--queries", str(queries), "--gallery", str(gallery_path),
-        "--output", str(output),
+        "--dataset", "icfg", "--annotation", str(annotation),
+        "--gallery", str(gallery_path), "--output", str(output),
     ], check=True)
-    result = json.loads(output.read_text(encoding="utf-8"))
-    assert result["id"] == "x.jpg#0"
-    assert result["candidate_count"] == 1
-    assert result["scores"] == {"gender": 0, "hat": 1}
+    results = [json.loads(line) for line in output.read_text(encoding="utf-8").splitlines()]
+    assert len(results) == 3
+    assert [row["split"] for row in results] == ["train", "train", "test"]
+    assert [row["row_id"] for row in results] == ["icfg:0:0", "icfg:1:0", "icfg:2:0"]
+    assert results[0]["id"] == results[1]["id"] == "same.jpg#0"
+    assert [row["caption"] for row in results] == [r["captions"][0] for r in rows]
+    assert all(row["dataset"] == "ICFG-PEDES" for row in results)
+    assert all(row["gallery_count"] == 2 for row in results)
+    assert all(tuple(row["attributes"]) == SLOTS for row in results)
+    assert all(row["scores"].keys() == row["shared_attributes"].keys() for row in results)
+
+
+def test_cli_rejects_cross_dataset_gallery_before_writing(tmp_path):
+    root = Path(__file__).resolve().parents[1]
+    annotation = tmp_path / "annotation.json"
+    gallery_path = tmp_path / "wrong_gallery.jsonl"
+    output = tmp_path / "scores.jsonl"
+    annotation.write_text(json.dumps([
+        {"file_path": "cuhk.jpg", "split": "train", "captions": ["A woman."]}
+    ]), encoding="utf-8")
+    gallery_path.write_text(json.dumps({
+        "image": "icfg.jpg", "attributes": attrs(gender="female")
+    }) + "\n", encoding="utf-8")
+    process = subprocess.run([
+        sys.executable, str(root / "scripts" / "score_attributes.py"),
+        "--dataset", "cuhk", "--annotation", str(annotation),
+        "--gallery", str(gallery_path), "--output", str(output),
+    ], capture_output=True, text=True)
+    assert process.returncode != 0
+    assert "different image sets" in process.stderr
+    assert not output.exists()
