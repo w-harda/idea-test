@@ -187,3 +187,30 @@ Stage 04 的 `select_dynamic_topk.py` 保留 Stage 03 整条记录，因此 `pro
 - `infer_gallery` 对各图库图片独立生成并投影到相对原图 `L∞ ≤ 8/255`；`infer_queries` 只调用冻结文本生成器直接选择。`k_star=0` 的文本保持原样。二者不调用 source 或 victim 打分。
 
 具体 `G_I`、`G_T` 与合法字符候选规则须由调用方实现。`G_I` 仅接收单张图像 Tensor；`G_T.distribution(QueryInput)` 返回完整最终文本编辑选项及 logits，`G_T.select(QueryInput)` 返回测试时直接选择的编辑。每个编辑由 `CharacterEdit(slot, offset, replacement)` 表示，框架按 Stage 04 的有序属性与位置映射校验：只在选中属性词内，每个属性最多替换一个字符，允许跳过。
+
+## 第一版属性引导联合攻击 baseline
+
+此 baseline 读取 Stage 04 记录，原样调用 Stage 05 `run_attack`，逐个 `selected_slots` 固定执行 Image → Text。图像回调使用 [TTA 官方仓库](https://github.com/YanGGGL/Transform_to_Transfer_Attack) 的 `attacker_TTA.py:Attack.img_attack`（已核查提交 `fe4f1ece1718d475736d25e14a27b4d430e8f1b8`，文件 SHA-256 固定在适配层），接到现有 Frozen CLIP source。每轮同时用当前完整 caption 和由 M 定位的当前属性词作为官方接口支持的一图多文本监督。官方 `TTAttacker.attack` 还调用其词语替换并执行第二次图像攻击，不符合当前 Stage 05 顺序，故此版只装载原样 `Attack.img_attack`，不复制官方项目。官方模块导入时会读取 GloVe，适配层只编译官方文件中的 `Attack` 和图像路径辅助定义，图像算法仍运行官方实现。需要在仓库外提供该版本的 TTA 源码；图像环境需要 `kornia==0.7.3`。默认图像超参数与官方评测脚本一致：每属性 10 步、每尺度 6 个变换、尺度 `0.5,0.75,1.25,1.5`、步长 `2/255`；每轮均相对同一原图投影到累计 `L∞≤8/255`。
+
+文本回调直接读取该轮 `provenance` 中的属性词 mention，只允许一个字符替换或跳过；候选是 [Unicode UTS #39 confusables](https://www.unicode.org/Public/security/latest/confusables.txt) 中与对应拉丁字母直接映射的单字符形近字。替换保持 caption 长度不变，并更新后续轮次可能重叠的 mention 原文切片。开发阶段的候选选择会使用 Frozen CLIP、当前受攻击图库和已知 ID 计算 soft first-hit rank；这属于开发期候选 oracle，不是冻结模型测试或 victim 评测。
+
+小规模真实样本入口：
+
+```bash
+cd /home/lzf/ldx/projects/idea-TBPS-test1
+git clone https://github.com/YanGGGL/Transform_to_Transfer_Attack.git /home/lzf/ldx/external/Transform_to_Transfer_Attack
+git -C /home/lzf/ldx/external/Transform_to_Transfer_Attack checkout fe4f1ece1718d475736d25e14a27b4d430e8f1b8
+/home/lzf/ldx/envs/tbps-image/bin/python -m pip install -e '.[attack]'
+PYTHONPATH=src /home/lzf/ldx/envs/tbps-image/bin/python scripts/run_joint_baseline_poc.py \
+  --annotation /home/lzf/TBPS/Datasets/CUHK-PEDES/reid_raw.json \
+  --stage04 /home/lzf/ldx/outputs/idea-TBPS-test1/stage04/cuhk_all_topk.jsonl \
+  --image-root /home/lzf/TBPS/Datasets/CUHK-PEDES/imgs \
+  --checkpoint /home/lzf/ldx/cache/clip/ViT-B-16.pt \
+  --tta-root /home/lzf/ldx/external/Transform_to_Transfer_Attack \
+  --output /home/lzf/ldx/outputs/idea-TBPS-test1/joint-baseline/poc-3-official-params.json \
+  --queries 3 --negative-images 20
+```
+
+PoC 只在 CUHK train 记录上做配对图像诊断：为当前 query 攻击其配对图库图片，其余图库图片保持干净；图库保留这几条 query 的全部同 ID 图片，再采 20 张错误 ID 图片。输入图像先按 CLIP 的 resize/center-crop 进入 224×224 攻击空间；`8/255` 约束相对该空间的干净图像。输出 JSON 逐条保存 clean、TTA-only、Text-only、TTA+Text 的真实首次正确 ID 名次、soft rank、累计扰动、字符编辑和固定轮次。该诊断使用配对关系和 ID，结果不能当作冻结图库一次生成或未知测试 query 的迁移攻击成绩；Stage 06 的生成器框架和其测试信息边界保持独立。
+
+已跑通的 3 条真实 query / 29 张图库小样本，官方 10 步、6 个变换、四个附加尺度参数：平均真实名次增量分别为 TTA-only `+0.67`、Text-only `+1.00`、联合 `+1.33`；单条结果存在联合弱于纯文本的情况。这只验证链路与可比较输出，不据此得出稳健的效果结论。
