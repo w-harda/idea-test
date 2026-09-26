@@ -175,3 +175,15 @@ ICFG 使用 --dataset icfg、ICFG-PEDES.json 和 icfg.jsonl；RSTP 使用 --data
 每条 JSONL 记录保留 dataset、split、稳定 row_id、原始 annotation_row_index、caption_index、原 id、image、原始 caption、完整 13 槽 attributes、Stage 01 原样输出的 13 槽 provenance，以及 shared_attributes、gallery_count、valid_gallery_count、excluded_gallery_count、candidate_count 和 scores。ICFG 的原 id 可重复，应以 row_id 唯一定位。scores[slot] = S(a_i)，等于删除该属性后新进入候选集的图片数。upper_clothing_type 当前不参与匹配与评分。输出文件属于实验产物，不提交 Git。
 
 Stage 04 的 `select_dynamic_topk.py` 保留 Stage 03 整条记录，因此 `provenance` 会原样进入 Top-K JSONL。Stage 05 的 `run_attack()` 直接读取该字段定位所选属性，并校验原始文本位置；输入的非零轮记录必须包含有效的 `provenance`。
+
+# Stage 06：生成器训练总框架
+
+训练依赖可在含 CUDA 版 PyTorch 的项目环境中安装：`pip install -e '.[train,dev]'`。`FrozenCLIP` 从调用方指定的本地 OpenAI CLIP 权重加载 source，冻结参数，并对 `[0,1]` RGB Tensor 做可微的 resize、中心裁剪和 CLIP 归一化。权重不随仓库分发，也不会由本模块自动下载。
+
+- `attributes.cuhk_training.load_cuhk_training_index(annotation_path, stage04_path)` 从原始 CUHK-PEDES 标注与 Stage 04 JSONL 关联训练图片、查询和 ID；ID 仅供损失使用。
+- `attributes.rank_objective` 提供 `soft_first_hit_rank`、`query_utility`、`rank_loss`、`exact_first_hit_rank` 和 `calibrate_tau`。`tau` 应从训练集干净 CLIP 分数差校准并在训练期间固定。
+- `attributes.generator_framework.prepare_query` 通过 Stage 05 校验属性顺序和原文位置映射，交给生成器的是不含 ID、配对图片和 split 的 `QueryInput`。
+- `GeneratorTrainer.train_step(TrainingBatch(...))` 先更新图像生成器，再用已扰动图库的候选期望最终排名更新文本生成器。图库子集必须包含查询 ID 的全部图片，并在干净、扰动计算中保持相同成员。
+- `infer_gallery` 对各图库图片独立生成并投影到相对原图 `L∞ ≤ 8/255`；`infer_queries` 只调用冻结文本生成器直接选择。`k_star=0` 的文本保持原样。二者不调用 source 或 victim 打分。
+
+具体 `G_I`、`G_T` 与合法字符候选规则须由调用方实现。`G_I` 仅接收单张图像 Tensor；`G_T.distribution(QueryInput)` 返回完整最终文本编辑选项及 logits，`G_T.select(QueryInput)` 返回测试时直接选择的编辑。每个编辑由 `CharacterEdit(slot, offset, replacement)` 表示，框架按 Stage 04 的有序属性与位置映射校验：只在选中属性词内，每个属性最多替换一个字符，允许跳过。

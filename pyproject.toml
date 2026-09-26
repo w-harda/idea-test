@@ -18,6 +18,11 @@ image = [
     "timm==0.9.8",
     "opencv-python-headless==4.8.1.78",
 ]
+train = [
+    "torch>=2.5,<3",
+    "openai-clip==1.0.1",
+    "setuptools>=68,<81",
+]
 
 [tool.setuptools.packages.find]
 where = ["src"]
