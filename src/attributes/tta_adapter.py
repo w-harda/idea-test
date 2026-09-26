@@ -120,3 +120,36 @@ class TTAImageCallback:
         self.momentum = momentum.detach()
         return ImageAttackResult(image, guidance={"tta_steps": self.steps,
                                                   "attribute_word": word})
+
+
+def vanilla_tta_image_attack(
+    source, official_root: str | Path, original: torch.Tensor, caption: str,
+) -> torch.Tensor:
+    """官方两次图像更新，跳过其文本攻击；全程只用完整原始 caption。
+
+    不接收 Stage 04 记录或 Stage 05 request。两次 img_attack 对应官方
+    TTAttacker 的 Image_1 / Image_2，动量跨次传递，预算始终相对原图。
+    """
+    if not isinstance(caption, str) or not caption:
+        raise ValueError("vanilla TTA needs a nonempty original caption")
+    if (original.ndim != 4 or original.shape[0] != 1 or original.shape[1] != 3
+            or original.shape[-2:] != (source.resolution, source.resolution)
+            or not original.is_floating_point() or not torch.isfinite(original).all()
+            or original.min() < 0 or original.max() > 1):
+        raise ValueError("vanilla TTA expects one finite [0,1] CLIP-size image")
+    attack_type = load_official_attack(official_root)
+    attacker = attack_type(None, _tokenize, imgs_eps=IMAGE_EPSILON,
+                           step_size=2 / 255)
+    attacker.N_trans = 6
+    bridge = _CLIPSourceBridge(source).eval()
+    momentum = torch.zeros_like(original)
+    current = original.detach().clone()
+    for _ in range(2):
+        with torch.enable_grad():
+            proposed, momentum = attacker.img_attack(
+                bridge, [caption], current, original, [0], 10, momentum,
+                original.device, scales=(0.5, 0.75, 1.25, 1.5),
+            )
+        current = project_image(original, proposed.detach()).detach()
+        momentum = momentum.detach()
+    return current

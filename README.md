@@ -214,3 +214,24 @@ PYTHONPATH=src /home/lzf/ldx/envs/tbps-image/bin/python scripts/run_joint_baseli
 PoC 只在 CUHK train 记录上做配对图像诊断：为当前 query 攻击其配对图库图片，其余图库图片保持干净；图库保留这几条 query 的全部同 ID 图片，再采 20 张错误 ID 图片。输入图像先按 CLIP 的 resize/center-crop 进入 224×224 攻击空间；`8/255` 约束相对该空间的干净图像。输出 JSON 逐条保存 clean、TTA-only、Text-only、TTA+Text 的真实首次正确 ID 名次、soft rank、累计扰动、字符编辑和固定轮次。该诊断使用配对关系和 ID，结果不能当作冻结图库一次生成或未知测试 query 的迁移攻击成绩；Stage 06 的生成器框架和其测试信息边界保持独立。
 
 已跑通的 3 条真实 query / 29 张图库小样本，官方 10 步、6 个变换、四个附加尺度参数：平均真实名次增量分别为 TTA-only `+0.67`、Text-only `+1.00`、联合 `+1.33`；单条结果存在联合弱于纯文本的情况。这只验证链路与可比较输出，不据此得出稳健的效果结论。
+
+
+### 同样三条样本的 Vanilla TTA 图像对照
+
+`scripts/run_vanilla_tta_poc.py` 仅从 CUHK 原始 `reid_raw.json` 重建固定的 `cuhk:5:1`、`cuhk:11:0`、`cuhk:20:0` 与同一 29 张图库；图库路径和 ID 顺序按固定 SHA-256 校验。Vanilla 攻击函数只接受干净图片和完整原始 caption，不读取 Stage 04 的 A*、评分或 provenance，也不调用 Stage 05。它按官方 `TTAttacker.attack` 的两个图像阶段各调用一次原样 `Attack.img_attack`，各 10 步、6 个变换、四个附加尺度，沿用第一次的动量和相对原图 `8/255` 预算。为满足本次纯图像对照，省略官方流程中的文本词替换阶段，两次均使用原始 caption；因此这里的 Vanilla TTA 明确指**不改文本的官方图像攻击两阶段基线**，并非官方完整图文联合攻击。
+
+```bash
+cd /home/lzf/ldx/projects/idea-TBPS-test1
+PYTHONPATH=src /home/lzf/ldx/envs/tbps-image/bin/python scripts/run_vanilla_tta_poc.py \
+  --annotation /home/lzf/TBPS/Datasets/CUHK-PEDES/reid_raw.json \
+  --image-root /home/lzf/TBPS/Datasets/CUHK-PEDES/imgs \
+  --checkpoint /home/lzf/ldx/cache/clip/ViT-B-16.pt \
+  --tta-root /home/lzf/ldx/external/Transform_to_Transfer_Attack \
+  --output /home/lzf/ldx/outputs/idea-TBPS-test1/joint-baseline/poc-3-vanilla-tta.json
+/home/lzf/ldx/envs/tbps-image/bin/python scripts/compare_tta_baselines.py \
+  --attribute-report /home/lzf/ldx/outputs/idea-TBPS-test1/joint-baseline/poc-3-official-params.json \
+  --vanilla-report /home/lzf/ldx/outputs/idea-TBPS-test1/joint-baseline/poc-3-vanilla-tta.json \
+  --output /home/lzf/ldx/outputs/idea-TBPS-test1/joint-baseline/poc-3-five-way.json
+```
+
+原报告的 `tta_only` 实际是 **Attribute-guided TTA-only**：每轮从 A* 取属性，经 Stage 05 同时把 caption 和属性词送入图像攻击。五项平均首次正确 ID 名次为 Clean `2.33`、Vanilla TTA `3.00`、Attribute-guided TTA-only `3.00`、Text-only `3.33`、Attribute-guided TTA + Text `3.67`。Vanilla 与属性引导 TTA-only 的三个离散名次相同，但对抗图不相同；在 `cuhk:20:0` 上两者像素最大差约 `0.06275`，配对图与原 caption 的相似度分别约 `-0.0319` 和 `-0.0009`。这组 3 条样本不足以判断属性引导的稳定增益。

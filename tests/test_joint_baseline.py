@@ -118,3 +118,41 @@ def test_tta_callback_projects_every_round_against_original(monkeypatch):
     assert torch.all(callback.momentum == 2)
     assert seen_texts == [(["black pants", "black"], [0, 0], (0.5, 0.75, 1.25, 1.5)),
                           (["black pants", "pants"], [0, 0], (0.5, 0.75, 1.25, 1.5))]
+
+
+def test_vanilla_tta_uses_only_original_caption_and_two_image_passes(monkeypatch):
+    from attributes.tta_adapter import vanilla_tta_image_attack
+
+    calls = []
+
+    class FakeAttack:
+        N_trans = 0
+
+        def __init__(self, *_args, **kwargs):
+            assert kwargs["imgs_eps"] == pytest.approx(8 / 255)
+            assert kwargs["step_size"] == pytest.approx(2 / 255)
+
+        def img_attack(self, _model, texts, imgs, origin, ids, steps,
+                       momentum, _device, scales=None):
+            calls.append((texts, ids, steps, scales, momentum.clone(),
+                          (imgs - origin).abs().max().item(), self.N_trans))
+            return imgs + 0.1, momentum + 1
+
+    monkeypatch.setattr("attributes.tta_adapter.load_official_attack",
+                        lambda _root: FakeAttack)
+
+    class Source:
+        resolution = 2
+
+    original = torch.full((1, 3, 2, 2), 0.5)
+    attacked = vanilla_tta_image_attack(Source(), "/unused", original,
+                                        "black pants")
+    assert len(calls) == 2
+    assert all(call[0] == ["black pants"] and call[1] == [0]
+               and call[2] == 10 and call[3] == (0.5, 0.75, 1.25, 1.5)
+               and call[6] == 6 for call in calls)
+    assert torch.all(calls[0][4] == 0) and torch.all(calls[1][4] == 1)
+    assert calls[1][5] <= 8 / 255 + 1e-6
+    assert (attacked - original).abs().max().item() <= 8 / 255 + 1e-6
+    with pytest.raises(ValueError):
+        vanilla_tta_image_attack(Source(), "/unused", original, "")
