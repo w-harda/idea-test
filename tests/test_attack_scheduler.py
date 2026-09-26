@@ -8,20 +8,22 @@ from attributes.attack_scheduler import (
     plan_attack,
     run_attack,
 )
-from attributes.text_extractor import extract_with_provenance
+from attributes.text_extractor import TextAttributeExtractor, extract_with_provenance
 
 
 CAPTION = "A young woman wears a red shirt and black pants."
 
 
 def make_record(slots=("lower_clothing_color", "upper_clothing_color")):
-    attributes = extract_with_provenance(CAPTION)["attributes"]
+    traced = extract_with_provenance(CAPTION)
+    attributes = traced["attributes"]
     selected = {slot: attributes[slot] for slot in slots}
     assert all(value != "null" for value in selected.values())
     return {
         "row_id": "cuhk:0:0",
         "caption": CAPTION,
         "attributes": attributes,
+        "provenance": traced["provenance"],
         "shared_attributes": selected,
         "scores": {"lower_clothing_color": 1, "upper_clothing_color": 10},
         "k_star": len(slots),
@@ -112,10 +114,44 @@ def test_inconsistent_stage04_selection_is_rejected(change):
         plan_attack(row)
 
 
-def test_stage01_attribute_mismatch_is_rejected_before_callbacks():
+def test_stage05_uses_record_provenance_without_reextracting(monkeypatch):
+    row = make_record(("upper_clothing_color",))
+
+    def fail_extract(_self, _caption):
+        raise AssertionError("Stage 01 must not be called by Stage 05")
+
+    monkeypatch.setattr(TextAttributeExtractor, "extract_with_provenance", fail_extract)
+    result = run_attack(
+        row, image="image",
+        image_attack=lambda request: ImageAttackResult(request.state.image),
+        text_attack=lambda request: TextAttackResult(request.state.text),
+    )
+    assert [item.slot for item in result.completed] == ["upper_clothing_color"]
+
+
+def test_missing_or_inconsistent_provenance_is_rejected_before_callbacks():
     row = make_record()
-    row["attributes"] = {**row["attributes"], "age": "adult"}
-    with pytest.raises(ValueError, match="Stage 01"):
+    del row["provenance"]
+    with pytest.raises(ValueError, match="provenance"):
+        run_attack(
+            row, image="image",
+            image_attack=lambda _: pytest.fail("unexpected image call"),
+            text_attack=lambda _: pytest.fail("unexpected text call"),
+        )
+
+    row = make_record()
+    row["provenance"]["upper_clothing_color"]["canonical"] = "blue"
+    with pytest.raises(ValueError, match="target"):
+        run_attack(
+            row, image="image",
+            image_attack=lambda _: pytest.fail("unexpected image call"),
+            text_attack=lambda _: pytest.fail("unexpected text call"),
+        )
+
+
+    row = make_record()
+    row["provenance"]["upper_clothing_color"]["mentions"][0]["start"] += 1
+    with pytest.raises(ValueError, match="span"):
         run_attack(
             row, image="image",
             image_attack=lambda _: pytest.fail("unexpected image call"),

@@ -8,7 +8,6 @@ from typing import Any, Protocol
 from collections.abc import Mapping, Sequence
 
 from .attribute_scoring import SUPPORTED_SLOTS
-from .text_extractor import extract_with_provenance
 
 
 @dataclass(frozen=True)
@@ -166,11 +165,11 @@ def run_attack(
     if not plan:
         return AttackResult(AttackState(image, text, {}), ())
 
-    traced = extract_with_provenance(text)
-    if traced["attributes"] != record["attributes"]:
-        raise ValueError("Stage 04 attributes differ from Stage 01 extraction")
+    provenance = record.get("provenance")
+    if not isinstance(provenance, Mapping):
+        raise ValueError("Stage 04 provenance must be an object")
     targets = {
-        attribute.slot: deepcopy(traced["provenance"][attribute.slot])
+        attribute.slot: deepcopy(provenance.get(attribute.slot))
         for attribute in plan
     }
     _validate_targets(text, targets, plan)

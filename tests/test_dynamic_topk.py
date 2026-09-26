@@ -83,6 +83,7 @@ def test_cli_preserves_stage03_records_and_all_splits(tmp_path):
         {
             "dataset": "CUHK-PEDES", "split": split, "row_id": f"cuhk:{index}:0",
             "caption": f"caption {index}", "attributes": {"age": "young"},
+            "provenance": {"age": {"canonical": "young", "mentions": [{"raw": "caption", "start": 0, "end": 7}]}},
             "shared_attributes": {"age": "young", "hat": "yes"},
             "scores": {"age": 3, "hat": 1}, "candidate_count": 7,
         }

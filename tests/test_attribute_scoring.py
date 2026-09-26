@@ -7,6 +7,7 @@ from pathlib import Path
 import pytest
 
 from attributes.attribute_scoring import AttributeGallery, SUPPORTED_SLOTS
+from attributes.text_extractor import extract_with_provenance
 from attributes.visual_canonicalizer import SLOTS
 
 
@@ -144,6 +145,10 @@ def test_cli_scores_all_splits_and_preserves_duplicate_legacy_id(tmp_path):
     assert all(row["dataset"] == "ICFG-PEDES" for row in results)
     assert all(row["gallery_count"] == 2 for row in results)
     assert all(tuple(row["attributes"]) == SLOTS for row in results)
+    assert all(
+        row["provenance"] == extract_with_provenance(row["caption"])["provenance"]
+        for row in results
+    )
     assert all(row["scores"].keys() == row["shared_attributes"].keys() for row in results)
 
 

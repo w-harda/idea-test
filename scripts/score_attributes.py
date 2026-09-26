@@ -95,7 +95,8 @@ def score_dataset(
     with output.open("w", encoding="utf-8") as handle:
         for row in rows:
             for caption_index, caption in enumerate(row["captions"]):
-                attributes = extractor.extract(caption)
+                traced = extractor.extract_with_provenance(caption)
+                attributes = traced["attributes"]
                 scored = gallery.score(attributes)
                 result = {
                     "dataset": DATASET_NAMES[dataset],
@@ -107,6 +108,7 @@ def score_dataset(
                     "image": row["image"],
                     "caption": caption,
                     "attributes": attributes,
+                    "provenance": traced["provenance"],
                     **scored,
                 }
                 handle.write(json.dumps(result, ensure_ascii=False) + "\n")

@@ -172,4 +172,6 @@ nohup bash /home/lzf/ldx/projects/idea-TBPS-test1/scripts/run_full_image_extract
 
 ICFG 使用 --dataset icfg、ICFG-PEDES.json 和 icfg.jsonl；RSTP 使用 --dataset rstp、data_captions.json 和 rstp.jsonl。可用 --limit 20 抽查前 20 条 caption。运行前会比较原始标注和图库的完整图像路径集合；不一致时拒绝输出，防止跨数据集混合。图库始终包含所选数据集的全部图片，不按 train、val、test 分割。
 
-每条 JSONL 记录保留 dataset、split、稳定 row_id、原始 annotation_row_index、caption_index、原 id、image、原始 caption、完整 13 槽 attributes，以及 shared_attributes、gallery_count、valid_gallery_count、excluded_gallery_count、candidate_count 和 scores。ICFG 的原 id 可重复，应以 row_id 唯一定位。scores[slot] = S(a_i)，等于删除该属性后新进入候选集的图片数。upper_clothing_type 当前不参与匹配与评分。输出文件属于实验产物，不提交 Git。
+每条 JSONL 记录保留 dataset、split、稳定 row_id、原始 annotation_row_index、caption_index、原 id、image、原始 caption、完整 13 槽 attributes、Stage 01 原样输出的 13 槽 provenance，以及 shared_attributes、gallery_count、valid_gallery_count、excluded_gallery_count、candidate_count 和 scores。ICFG 的原 id 可重复，应以 row_id 唯一定位。scores[slot] = S(a_i)，等于删除该属性后新进入候选集的图片数。upper_clothing_type 当前不参与匹配与评分。输出文件属于实验产物，不提交 Git。
+
+Stage 04 的 `select_dynamic_topk.py` 保留 Stage 03 整条记录，因此 `provenance` 会原样进入 Top-K JSONL。Stage 05 的 `run_attack()` 直接读取该字段定位所选属性，并校验原始文本位置；输入的非零轮记录必须包含有效的 `provenance`。
