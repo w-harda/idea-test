@@ -24,6 +24,12 @@ attack = [
     "Pillow>=10,<12",
     "openai-clip==1.0.1",
 ]
+attack-full = [
+    "gensim==4.3.3",
+    "scipy>=1.13,<1.14",
+    "transformers==4.44.2",
+    "huggingface-hub>=0.34,<1",
+]
 train = [
     "torch>=2.5,<3",
     "openai-clip==1.0.1",

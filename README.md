@@ -235,3 +235,39 @@ PYTHONPATH=src /home/lzf/ldx/envs/tbps-image/bin/python scripts/run_vanilla_tta_
 ```
 
 原报告的 `tta_only` 实际是 **Attribute-guided TTA-only**：每轮从 A* 取属性，经 Stage 05 同时把 caption 和属性词送入图像攻击。五项平均首次正确 ID 名次为 Clean `2.33`、Vanilla TTA `3.00`、Attribute-guided TTA-only `3.00`、Text-only `3.33`、Attribute-guided TTA + Text `3.67`。Vanilla 与属性引导 TTA-only 的三个离散名次相同，但对抗图不相同；在 `cuhk:20:0` 上两者像素最大差约 `0.06275`，配对图与原 caption 的相似度分别约 `-0.0319` 和 `-0.0009`。这组 3 条样本不足以判断属性引导的稳定增益。
+
+### 同样三条样本的 Vanilla TTA 完整图文对照
+
+`scripts/run_full_tta_poc.py` 从原始 CUHK 标注独立重建上述固定 3 条 query 和同一 29 张图库，不读取 Stage 04 记录、A*、S(a_i)、Dynamic Top-K 或 provenance，也不调用 Stage 05。它以完整原始 caption 和配对图像调用官方 `TTAttacker.attack`，保留 **Image_1（10 步）→ Text_1（1 步）→ Image_2（10 步）**。文本攻击采用官方 GloVe 近邻与 BERT masked LM 候选机制，允许词级改写；它与本项目的属性词内单字符替换是不同攻击。图像侧使用四个附加尺度、每尺度 6 个变换、`2/255` 步长，并将最终图像相对原图投影到 `L∞≤8/255`。
+
+装载器按 SHA-256 校验官方 `attacker_TTA.py` 后只编译完整流程所需定义，避免执行上游模块顶层的硬编码 GloVe 加载。上游自带 BERT tokenizer 与当前 Transformers 不兼容，此处使用 `transformers==4.44.2` 的 `BertTokenizer`；CLIP 文本桥按上游方式先解码 BERT IDs 再用 Frozen CLIP tokenizer 编码。此处 GloVe 使用 [fse/glove-wiki-gigaword-300](https://huggingface.co/fse/glove-wiki-gigaword-300) 提供的 Stanford Wikipedia+Gigaword 6B/300d 向量；官方 Google Drive 的 `glove2word2vev300d.model` 无法从服务器获取，因此无法证明两个 Gensim 文件逐字节相同。BERT 使用 `bert-base-uncased`。本机资源 SHA-256：BERT `model.safetensors` 为 `68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3`，GloVe `*.model` 为 `05e50b69f0722ca06b91edba82e043b0e35e1af81c6d94a2e6d90c4d674f2c9c`、`*.vectors.npy` 为 `20dfb1f44719e2d934bfee5d39a6ffb4f248bae2a00a0d59f953ab7d0a39c879`。模型与实验输出均不提交 Git。
+
+```bash
+cd /home/lzf/ldx/projects/idea-TBPS-test1
+/home/lzf/ldx/envs/tbps-image/bin/python -m pip install -e '.[attack,attack-full]'
+HF_HOME=/home/lzf/ldx/cache/huggingface PYTHONPATH=src \
+  /home/lzf/ldx/envs/tbps-image/bin/python scripts/run_full_tta_poc.py \
+  --annotation /home/lzf/TBPS/Datasets/CUHK-PEDES/reid_raw.json \
+  --image-root /home/lzf/TBPS/Datasets/CUHK-PEDES/imgs \
+  --checkpoint /home/lzf/ldx/cache/clip/ViT-B-16.pt \
+  --tta-root /home/lzf/ldx/external/Transform_to_Transfer_Attack \
+  --bert /home/lzf/ldx/cache/tta/bert-base-uncased \
+  --glove /home/lzf/ldx/cache/tta/glove-wiki-gigaword-300/glove-wiki-gigaword-300.model \
+  --output /home/lzf/ldx/outputs/idea-TBPS-test1/joint-baseline/poc-3-full-tta.json
+/home/lzf/ldx/envs/tbps-image/bin/python scripts/compare_tta_baselines.py \
+  --attribute-report /home/lzf/ldx/outputs/idea-TBPS-test1/joint-baseline/poc-3-official-params.json \
+  --vanilla-report /home/lzf/ldx/outputs/idea-TBPS-test1/joint-baseline/poc-3-vanilla-tta.json \
+  --full-report /home/lzf/ldx/outputs/idea-TBPS-test1/joint-baseline/poc-3-full-tta.json \
+  --output /home/lzf/ldx/outputs/idea-TBPS-test1/joint-baseline/poc-3-six-way.json
+```
+
+六项首次正确 ID 名次：
+
+| query | Clean | Vanilla TTA (image-only) | Vanilla TTA (full) | Attribute-guided TTA-only | Text-only | Attribute-guided TTA + Text |
+|---|---:|---:|---:|---:|---:|---:|
+| `cuhk:5:1` | 1 | 1 | 1 | 1 | 1 | 1 |
+| `cuhk:11:0` | 5 | 5 | 4 | 5 | 8 | 7 |
+| `cuhk:20:0` | 1 | 3 | 5 | 3 | 1 | 3 |
+| 平均 | 2.33 | 3.00 | 3.33 | 3.00 | 3.33 | 3.67 |
+
+完整 Vanilla TTA 三条均发生官方词级文本替换，最终配对图像的最大扰动均为约 `8/255`。该表只描述固定 3 条 train query、29 张图库的配对图像开发诊断；样本太少，不能据此推断攻击方法的整体效果。原报告中的 `tta_only` 是 **Attribute-guided TTA-only**，并非 Vanilla。
