@@ -271,3 +271,53 @@ HF_HOME=/home/lzf/ldx/cache/huggingface PYTHONPATH=src \
 | 平均 | 2.33 | 3.00 | 3.33 | 3.00 | 3.33 | 3.67 |
 
 完整 Vanilla TTA 三条均发生官方词级文本替换，最终配对图像的最大扰动均为约 `8/255`。该表只描述固定 3 条 train query、29 张图库的配对图像开发诊断；样本太少，不能据此推断攻击方法的整体效果。原报告中的 `tta_only` 是 **Attribute-guided TTA-only**，并非 Vanilla。
+
+## 同批样本补充 AP-Attack 对照
+
+AP-Attack 来自[官方仓库](https://github.com/yuanbianGit/AP-Attack)及其 [ICCV 2025 论文](https://openaccess.thecvf.com/content/ICCV2025/papers/Bian_Prompt-driven_Transferable_Adversarial_Attack_on_Person_Re-Identification_with_Attribute-aware_Textual_ICCV_2025_paper.pdf)。服务器已有本地复现仓库 `/home/lzf/ldx/projects/AP-Attack`（提交 `db0aac946828ea4a15f2a31d349ccc7303855d4a`）和 DukeMTMC-reID 的 stage2 ReID+attribute-semantic 10/10 生成器权重 `/home/lzf/ldx/outputs/AP-Attack/stage2_reid_semantic_10_10/best_G_V.pth.tar`，权重 SHA-256 为 `9dd2afe66afedc7ad17b43ebd14bfc2349e519bd74dbc5addacf5fad13434692`。生成器源码 `advers/GD.py` SHA-256 为 `a5b5a8a5f3df8bf4137b95ed6e98a1ee2667a6f2b51cbcb4f4c82759546c9342`。原论文中的属性语义机制用于训练，已冻结的 `Generator.forward(image)` 推理时**没有属性或 caption 输入**。该权重是本机按官方代码复现训练的产物，不是作者发布权重。
+
+`AP-Attack (full)` 在独立运行模式下只从原始 CUHK 标注重建固定 3 条 query、29 图库，对每条配对图像调用一次上述完整权重的官方生成器，不读取 Stage 04 或 provenance，也不运行 Stage 05。图像按 AP 官方验证预处理缩放到 256×128、以 `[0.5,0.5,0.5]` 均值/标准差归一化；生成器输出的像素扰动截断到 `±8/255`。为与旧六项对照保持完全相同的 Frozen CLIP 224×224 干净图库，适配层把 AP 原生坐标扰动映射回原图坐标，再使用同一 CLIP resize/crop 映射扰动，加在旧评测的干净 CLIP 图像上；两处都检查累计 `L∞≤8/255`。这是跨 ReID→TBPS retrieval 的图像空间适配，不能当作 AP 原论文目标任务成绩。
+
+`Attribute-guided AP-Attack-only` 和 `Attribute-guided AP-Attack + Text` 读取 Stage 04 有序 A*，经 Stage 05 每属性一轮。图像回调在当前 AP 原生图上逐轮重新调用同一个冻结生成器，每轮对同一原图投影，保证累计预算；**属性只决定调用次数和顺序，生成器并不接收当前属性，故这两组是属性调度 AP 生成器，并非属性条件化 AP 生成器**。前者文本不变；后者固定 Image → Text，并复用 M、现有 Unicode confusable 候选与开发期 source soft rank 选择，每属性最多改一个字符，可跳过。三组都只攻击当前 query 的配对图库图片，其他 28 张保持干净。
+
+```bash
+cd /home/lzf/ldx/projects/idea-TBPS-test1
+PYTHONPATH=src /home/lzf/ldx/envs/tbps-image/bin/python scripts/run_ap_attack_poc.py \
+  --mode full \
+  --annotation /home/lzf/TBPS/Datasets/CUHK-PEDES/reid_raw.json \
+  --image-root /home/lzf/TBPS/Datasets/CUHK-PEDES/imgs \
+  --checkpoint /home/lzf/ldx/cache/clip/ViT-B-16.pt \
+  --ap-root /home/lzf/ldx/projects/AP-Attack \
+  --generator /home/lzf/ldx/outputs/AP-Attack/stage2_reid_semantic_10_10/best_G_V.pth.tar \
+  --output /home/lzf/ldx/outputs/idea-TBPS-test1/joint-baseline/poc-3-ap-full.json
+PYTHONPATH=src /home/lzf/ldx/envs/tbps-image/bin/python scripts/run_ap_attack_poc.py \
+  --mode guided \
+  --annotation /home/lzf/TBPS/Datasets/CUHK-PEDES/reid_raw.json \
+  --stage04 /home/lzf/ldx/outputs/idea-TBPS-test1/stage04/cuhk_all_topk.jsonl \
+  --image-root /home/lzf/TBPS/Datasets/CUHK-PEDES/imgs \
+  --checkpoint /home/lzf/ldx/cache/clip/ViT-B-16.pt \
+  --ap-root /home/lzf/ldx/projects/AP-Attack \
+  --generator /home/lzf/ldx/outputs/AP-Attack/stage2_reid_semantic_10_10/best_G_V.pth.tar \
+  --output /home/lzf/ldx/outputs/idea-TBPS-test1/joint-baseline/poc-3-ap-guided.json
+/home/lzf/ldx/envs/tbps-image/bin/python scripts/compare_ap_baselines.py \
+  --six-report /home/lzf/ldx/outputs/idea-TBPS-test1/joint-baseline/poc-3-six-way.json \
+  --ap-full-report /home/lzf/ldx/outputs/idea-TBPS-test1/joint-baseline/poc-3-ap-full.json \
+  --ap-guided-report /home/lzf/ldx/outputs/idea-TBPS-test1/joint-baseline/poc-3-ap-guided.json \
+  --output /home/lzf/ldx/outputs/idea-TBPS-test1/joint-baseline/poc-3-nine-way.json
+```
+
+固定三条 query 的首次正确 ID 名次（越大表示正确结果越靠后）：
+
+| 方法 | `cuhk:5:1` | `cuhk:11:0` | `cuhk:20:0` | 平均 |
+|---|---:|---:|---:|---:|
+| Clean | 1 | 5 | 1 | 2.33 |
+| Vanilla TTA (image-only) | 1 | 5 | 3 | 3.00 |
+| Vanilla TTA (full) | 1 | 4 | 5 | 3.33 |
+| AP-Attack (full) | 1 | 2 | 1 | 1.33 |
+| Text-only | 1 | 8 | 1 | 3.33 |
+| Attribute-guided TTA-only | 1 | 5 | 3 | 3.00 |
+| Attribute-guided TTA + Text | 1 | 7 | 3 | 3.67 |
+| Attribute-guided AP-Attack-only | 1 | 2 | 1 | 1.33 |
+| Attribute-guided AP-Attack + Text | 1 | 2 | 1 | 1.33 |
+
+AP+Text 三条分别选中 2、2、1 个字符替换；相较 AP-only，soft rank 变化而首次正确 ID 的整数名次未变。当前三条样本上的 AP 结果使平均名次低于 Clean，不能解读为攻击增益。所有方法共用有序图库指纹 `e1505afef38cb62aa5e22dacf9d60a4e62871243763669e4a50e0a492fd88788`；这只是同一 Frozen CLIP source 上的配对图像开发诊断，不代表原论文的图像 ReID 性能、未知查询攻击或完整图库迁移效果。
