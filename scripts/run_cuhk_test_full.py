@@ -22,13 +22,17 @@ from attributes.attack_scheduler import ImageAttackResult, TextAttackResult, pla
 from attributes.confusable_attack import CONFUSABLES, ConfusableTextCallback
 from attributes.frozen_clip import FrozenCLIP
 from attributes.rank_objective import exact_first_hit_rank, soft_first_hit_rank
+from attributes.random_k import apply_random_k, random_k_entry
 from attributes.tta_adapter import TTAImageCallback, vanilla_tta_image_attack
 from attributes.tta_full import FullVanillaTTA
 
-ARMS = ("clean", "text_only", "vanilla_image", "vanilla_full",
-        "attribute_tta_only", "attribute_tta_text")
-GUIDED_ARMS = {"text_only", "attribute_tta_only", "attribute_tta_text"}
-IMAGE_ARMS = {"vanilla_image", "vanilla_full", "attribute_tta_only", "attribute_tta_text"}
+BASE_ARMS = ("clean", "text_only", "vanilla_image", "vanilla_full",
+             "attribute_tta_only", "attribute_tta_text")
+RANDOM_ARMS = ("random_k_tta_only", "random_k_tta_text")
+ARMS = BASE_ARMS + RANDOM_ARMS
+GUIDED_ARMS = {"text_only", "attribute_tta_only", "attribute_tta_text", *RANDOM_ARMS}
+IMAGE_ARMS = {"vanilla_image", "vanilla_full", "attribute_tta_only",
+              "attribute_tta_text", *RANDOM_ARMS}
 SEED = 20260926
 TAU = 0.07774211466312408  # Earlier train PoC calibration; fixed before test.
 EXPECTED_QUERIES = 6156
@@ -166,6 +170,56 @@ def load_query_manifest(path: Path, annotation: Path,
             != data.get("unique_images")):
         raise ValueError("manifest diversity counts differ")
     return tuple(selected)
+
+
+def create_random_k_manifest(args) -> None:
+    if not args.query_manifest or not args.random_k_manifest or not args.stage04:
+        raise ValueError("create-random-k requires query, Random-K and Stage 04 manifests")
+    annotation = Path(args.annotation).resolve()
+    queries, _, _ = load_test_protocol(annotation)
+    selected = load_query_manifest(Path(args.query_manifest), annotation, queries)
+    records = load_stage04_test(Path(args.stage04), queries)
+    entries = [random_k_entry(records[queries[index].row_id], args.seed)
+               for index in selected]
+    path = Path(args.random_k_manifest).resolve()
+    path.parent.mkdir(parents=True, exist_ok=True)
+    content = "".join(json.dumps(entry, ensure_ascii=False) + chr(10)
+                      for entry in entries)
+    if path.exists():
+        if path.read_text(encoding="utf-8") != content:
+            raise ValueError("existing Random-K manifest differs")
+    else:
+        temporary = path.with_suffix(path.suffix + ".tmp")
+        temporary.write_text(content, encoding="utf-8")
+        os.replace(temporary, path)
+    print(json.dumps({
+        "random_k_manifest": str(path), "sha256": _sha256(path),
+        "query_count": len(entries), "seed": args.seed,
+        "k_zero": sum(entry["k_star"] == 0 for entry in entries),
+        "different_selection": sum(
+            set(entry["random_selected_slots"]) != set(entry["topk_selected_slots"])
+            for entry in entries),
+        "different_order": sum(
+            entry["random_attack_order"] != entry["topk_selected_slots"]
+            for entry in entries),
+    }), flush=True)
+
+
+def load_random_k_manifest(path: Path, queries: tuple[Query, ...],
+                           selected: tuple[int, ...], records: dict[str, dict],
+                           seed: int = 42) -> dict[str, dict]:
+    with path.open(encoding="utf-8") as handle:
+        entries = [json.loads(line) for line in handle]
+    if len(entries) != len(selected):
+        raise ValueError("Random-K manifest query count differs")
+    result = {}
+    for index, entry in zip(selected, entries, strict=True):
+        row_id = queries[index].row_id
+        expected = random_k_entry(records[row_id], seed)
+        if entry != expected:
+            raise ValueError(f"Random-K schedule differs: {row_id}")
+        result[row_id] = entry
+    return result
 
 
 def load_stage04_test(path: Path, queries: tuple[Query, ...]) -> dict[str, dict]:
@@ -327,6 +381,25 @@ def _check_manifest_binding(output_dir: Path, arm: str, manifest: Path,
         binding.write_text(digest + chr(10), encoding="ascii")
 
 
+def _random_binding_path(output_dir: Path, arm: str,
+                         manifest: Path) -> Path:
+    return output_dir / "arms" / arm / (manifest.stem + ".random_k.sha256")
+
+
+def _check_random_binding(output_dir: Path, arm: str, manifest: Path,
+                          random_k_manifest: Path, *, create: bool = False) -> None:
+    results = _manifest_result_path(output_dir, arm, manifest)
+    binding = _random_binding_path(output_dir, arm, manifest)
+    digest = _sha256(random_k_manifest)
+    if binding.exists():
+        if binding.read_text(encoding="ascii").strip() != digest:
+            raise ValueError("Random-K manifest changed after results were written")
+    elif results.exists():
+        raise ValueError("Random-K results exist without a SHA-256 binding")
+    elif create:
+        binding.write_text(digest + chr(10), encoding="ascii")
+
+
 def _read_result_map(path: Path, queries: tuple[Query, ...], arm: str,
                      allowed_ids: set[str]) -> dict[str, dict]:
     """按 row_id 读取增量文件；残缺最终行可安全恢复。"""
@@ -361,7 +434,8 @@ def _read_result_map(path: Path, queries: tuple[Query, ...], arm: str,
 
 def available_manifest_rows(output_dir: Path, arm: str,
                             queries: tuple[Query, ...],
-                            manifest: Path, selected: tuple[int, ...]) -> dict[str, dict]:
+                            manifest: Path, selected: tuple[int, ...],
+                            random_k_manifest: Path | None = None) -> dict[str, dict]:
     """合并旧全量前缀和本 manifest 的增量文件，不改旧结果。"""
     full = output_dir / "arms" / arm / "results.jsonl"
     completed = _read_completed(full, queries, arm)
@@ -377,6 +451,10 @@ def available_manifest_rows(output_dir: Path, arm: str,
                         raise ValueError(f"existing result pairing differs: {query.row_id}")
                     rows[row["row_id"]] = row
     _check_manifest_binding(output_dir, arm, manifest)
+    if arm in RANDOM_ARMS:
+        if random_k_manifest is None:
+            raise ValueError("Random-K arm requires its schedule manifest")
+        _check_random_binding(output_dir, arm, manifest, random_k_manifest)
     extra = _read_result_map(
         _manifest_result_path(output_dir, arm, manifest), queries, arm, allowed)
     for row_id, row in extra.items():
@@ -420,12 +498,23 @@ def run_arm(args):
     manifest = Path(args.query_manifest).resolve() if args.query_manifest else None
     selected = load_query_manifest(manifest, annotation, queries) if manifest else None
     records = None
+    random_entries = None
+    random_manifest = None
     if args.arm in GUIDED_ARMS:
         if not args.stage04:
             raise ValueError("guided arm requires --stage04")
         records = load_stage04_test(Path(args.stage04), queries)
     elif args.stage04:
         raise ValueError("vanilla and clean arms must not receive --stage04")
+    if args.arm in RANDOM_ARMS:
+        if not manifest or not args.random_k_manifest:
+            raise ValueError("Random-K run requires both query and schedule manifests")
+        random_manifest = Path(args.random_k_manifest).resolve()
+        random_entries = load_random_k_manifest(
+            random_manifest, queries, selected, records, args.seed)
+        random_manifest_sha = _sha256(random_manifest)
+    elif args.random_k_manifest:
+        raise ValueError("non-Random-K run must not receive --random-k-manifest")
     if not torch.cuda.is_available():
         raise RuntimeError("formal attack requires server GPU")
     device = torch.device("cuda")
@@ -453,8 +542,11 @@ def run_arm(args):
             log.write(message + "\n")
     if manifest:
         _check_manifest_binding(output_dir, args.arm, manifest, create=True)
+        if args.arm in RANDOM_ARMS:
+            _check_random_binding(
+                output_dir, args.arm, manifest, random_manifest, create=True)
         existing = available_manifest_rows(
-            output_dir, args.arm, queries, manifest, selected)
+            output_dir, args.arm, queries, manifest, selected, random_manifest)
         pending = [index for index in selected
                    if queries[index].row_id not in existing]
         completed = len(existing)
@@ -512,6 +604,9 @@ def run_arm(args):
                     attacked, attacked_text = full_attack(image, query.caption)
                 elif args.arm in GUIDED_ARMS:
                     record = records[query.row_id]
+                    if args.arm in RANDOM_ARMS:
+                        record = apply_random_k(
+                            record, random_entries[query.row_id], args.seed)
                     if args.arm == "text_only" or record["k_star"] == 0:
                         image_callback = lambda request: ImageAttackResult(request.state.image)
                     else:
@@ -527,7 +622,7 @@ def run_arm(args):
                             scores = source.encode_texts(texts) @ gallery.T
                             return soft_first_hit_rank(
                                 scores, [query.person_id] * len(texts), gallery_ids, TAU)
-                    if args.arm == "attribute_tta_only":
+                    if args.arm in {"attribute_tta_only", "random_k_tta_only"}:
                         text_callback = lambda request: TextAttackResult(request.state.text)
                     else:
                         text_callback = ConfusableTextCallback(candidate_scores)
@@ -567,6 +662,9 @@ def run_arm(args):
                     "text_changed": attacked_text != query.caption,
                     "text_events": events,
                 }
+                if args.arm in RANDOM_ARMS:
+                    row["random_k_manifest_sha256"] = random_manifest_sha
+                    row["random_attack_order"] = rounds
                 handle.write(json.dumps(row, ensure_ascii=False) + "\n")
                 handle.flush()
                 if processed % 25 == 0 or processed == len(work):
@@ -586,20 +684,54 @@ def run_arm(args):
                       "row_id": queries[index].row_id, "error": repr(exc)})
                 raise
 
+def pairwise_rank_gap(topk_rows: list[dict],
+                      random_rows: list[dict]) -> dict:
+    if len(topk_rows) != len(random_rows):
+        raise ValueError("pairwise arms have different query counts")
+    differences = []
+    for topk, random_row in zip(topk_rows, random_rows, strict=True):
+        if topk["row_id"] != random_row["row_id"]:
+            raise ValueError("pairwise arms have different query IDs")
+        differences.append(topk["rank"] - random_row["rank"])
+    return {
+        "topk_stronger_count": sum(gap > 0 for gap in differences),
+        "same_count": sum(gap == 0 for gap in differences),
+        "random_k_stronger_count": sum(gap < 0 for gap in differences),
+        "mean_rank_gap_topk_minus_random": float(np.mean(differences)),
+        "median_rank_gap_topk_minus_random": float(np.median(differences)),
+    }
+
+
 def summarize(args):
     annotation = Path(args.annotation).resolve()
     queries, paths, gallery_ids = load_test_protocol(annotation)
     output_dir = Path(args.output_dir).resolve()
     rows_by_arm = {}
-    selected_arms = (args.arm,) if args.arm else ARMS
+    selected_arms = ((args.arm,) if args.arm else
+                     (ARMS if args.random_k_manifest else BASE_ARMS))
     to_load = tuple(dict.fromkeys(("clean",) + selected_arms))
     manifest = Path(args.query_manifest).resolve() if args.query_manifest else None
+    random_manifest = (Path(args.random_k_manifest).resolve()
+                       if args.random_k_manifest else None)
+    if any(arm in RANDOM_ARMS for arm in selected_arms):
+        if not manifest or not random_manifest or not args.stage04:
+            raise ValueError("Random-K summary requires query, schedule and Stage 04 manifests")
+    random_entries = None
+    random_manifest_sha = _sha256(random_manifest) if random_manifest else None
+    if random_manifest:
+        if not manifest or not args.stage04:
+            raise ValueError("Random-K summary requires query and Stage 04 manifests")
+        records = load_stage04_test(Path(args.stage04), queries)
+        selected_for_random = load_query_manifest(manifest, annotation, queries)
+        random_entries = load_random_k_manifest(
+            random_manifest, queries, selected_for_random, records, args.seed)
     if manifest:
         selected_indices = load_query_manifest(manifest, annotation, queries)
         selected_queries = [queries[index] for index in selected_indices]
         for arm in to_load:
             available = available_manifest_rows(
-                output_dir, arm, queries, manifest, selected_indices)
+                output_dir, arm, queries, manifest, selected_indices,
+                random_manifest)
             missing = [query.row_id for query in selected_queries
                        if query.row_id not in available]
             if missing:
@@ -620,6 +752,12 @@ def summarize(args):
             if (row["row_id"] != query.row_id or row["person_id"] != query.person_id
                     or row["image"] != query.image or row["clean_rank"] != reference):
                 raise ValueError(f"query or clean reference mismatch: {arm} {query.row_id}")
+            if arm in RANDOM_ARMS:
+                if (row.get("random_k_manifest_sha256") != random_manifest_sha
+                        or row.get("rounds") !=
+                        random_entries[query.row_id]["random_attack_order"]
+                        or row.get("random_attack_order") != row.get("rounds")):
+                    raise ValueError(f"Random-K result schedule differs: {query.row_id}")
     summary = {}
     for arm in selected_arms:
         rows = rows_by_arm[arm]
@@ -662,8 +800,26 @@ def summarize(args):
         report["query_manifest_sha256"] = _sha256(manifest)
         report["unique_person_ids"] = manifest_data["unique_person_ids"]
         report["unique_images"] = manifest_data["unique_images"]
+    if random_manifest:
+        report["random_k_manifest"] = str(random_manifest)
+        report["random_k_manifest_sha256"] = _sha256(random_manifest)
+        report["random_k_seed"] = args.seed
+    if all(arm in rows_by_arm for arm in
+           ("attribute_tta_only", "random_k_tta_only",
+            "attribute_tta_text", "random_k_tta_text")):
+        report["topk_vs_random_k"] = {
+            "image_only": pairwise_rank_gap(
+                rows_by_arm["attribute_tta_only"],
+                rows_by_arm["random_k_tta_only"]),
+            "joint": pairwise_rank_gap(
+                rows_by_arm["attribute_tta_text"],
+                rows_by_arm["random_k_tta_text"]),
+        }
     suffix = ("_" + args.arm) if args.arm else ""
     suffix += ("_" + manifest.stem) if manifest else ""
+    if random_manifest:
+        suffix = ("_8arms_" + manifest.stem) if not args.arm else (
+            suffix + "_random_k")
     path = output_dir / ("summary" + suffix + ".json")
     path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n",
                     encoding="utf-8")
@@ -678,10 +834,19 @@ def status(args):
     manifest = Path(args.query_manifest).resolve()
     selected = load_query_manifest(manifest, annotation, queries)
     output_dir = Path(args.output_dir).resolve()
-    arms = (args.arm,) if args.arm else ARMS
+    arms = ((args.arm,) if args.arm else
+            (ARMS if args.random_k_manifest else BASE_ARMS))
+    random_manifest = (Path(args.random_k_manifest).resolve()
+                       if args.random_k_manifest else None)
+    if any(arm in RANDOM_ARMS for arm in arms):
+        if not random_manifest or not args.stage04:
+            raise ValueError("Random-K status requires schedule and Stage 04 manifests")
+        records = load_stage04_test(Path(args.stage04), queries)
+        load_random_k_manifest(random_manifest, queries, selected, records, args.seed)
     counts = {}
     for arm in arms:
-        existing = available_manifest_rows(output_dir, arm, queries, manifest, selected)
+        existing = available_manifest_rows(
+            output_dir, arm, queries, manifest, selected, random_manifest)
         counts[arm] = {"done": len(existing), "remaining": len(selected) - len(existing)}
     data = json.loads(manifest.read_text(encoding="utf-8"))
     print(json.dumps({"query_manifest": str(manifest), "query_count": len(selected),
@@ -693,7 +858,9 @@ def status(args):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("command", choices=("run", "summarize", "status", "create-manifest"))
+    parser.add_argument(
+        "command",
+        choices=("run", "summarize", "status", "create-manifest", "create-random-k"))
     parser.add_argument("--arm", choices=ARMS)
     parser.add_argument("--annotation", required=True)
     parser.add_argument("--stage04")
@@ -704,6 +871,7 @@ def main():
     parser.add_argument("--glove")
     parser.add_argument("--output-dir", required=True)
     parser.add_argument("--query-manifest")
+    parser.add_argument("--random-k-manifest")
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--batch-size", type=int, default=0,
                         help="本次最多处理多少条剩余 query；0 表示跑完")
@@ -722,8 +890,10 @@ def main():
         summarize(args)
     elif args.command == "status":
         status(args)
-    else:
+    elif args.command == "create-manifest":
         create_sample500_manifest(args)
+    else:
+        create_random_k_manifest(args)
 
 
 if __name__ == "__main__":
