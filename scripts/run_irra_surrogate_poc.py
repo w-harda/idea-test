@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Twenty-query official IRRA white-box attack entry; attacks run only on request."""
+"""Manifest-scoped official IRRA white-box attack entry; attacks run only on request."""
 from __future__ import annotations
 
 import argparse
@@ -25,37 +25,52 @@ from attributes.tta_irra import (
 )
 from scripts.run_cuhk_test_full import (
     ARMS, GUIDED_ARMS, IMAGE_ARMS, RANDOM_ARMS, SEED,
-    _rank, _text_events_are_valid, load_stage04_test,
+    _rank, _text_events_are_valid, load_stage04_test, load_test_protocol,
+    load_query_manifest, load_random_k_manifest,
 )
 from scripts.run_irra_transfer_poc import (
     DEFAULT_ANNOTATION, DEFAULT_BERT, DEFAULT_CHECKPOINT,
     DEFAULT_CONFIG, DEFAULT_GLOVE, DEFAULT_IMAGE_ROOT, DEFAULT_REPO,
-    DEFAULT_STAGE04, DEFAULT_STAGE1, DEFAULT_TTA, FIRST20,
-    checked_paths, first20_random_entries, victim_clean,
+    DEFAULT_STAGE04, DEFAULT_STAGE1, DEFAULT_TTA, victim_clean,
 )
 
 ROOT = Path("/home/lzf/ldx")
-DEFAULT_OUTPUT = ROOT / "outputs/idea-TBPS-test1/irra-surrogate-poc"
+DEFAULT_OUTPUT = ROOT / "outputs/idea-TBPS-test1/irra-surrogate-500"
 TRANSFER_OUTPUT = ROOT / "outputs/idea-TBPS-test1/irra-victim-poc"
+OLD20_OUTPUT = ROOT / "outputs/idea-TBPS-test1/irra-surrogate-poc"
 SOURCE_LABEL = "official_irra_cuhk_white_box"
+TAU_CALIBRATION_COUNT = 20  # Preserve the existing IRRA source objective.
 
 
 def _output_guard(output: Path) -> None:
-    if output.is_relative_to(TRANSFER_OUTPUT):
-        raise ValueError("IRRA surrogate output cannot overwrite CLIP transfer results")
+    if not output.is_relative_to(ROOT):
+        raise ValueError("IRRA experiment output must stay under /home/lzf/ldx")
+    if output.is_relative_to(TRANSFER_OUTPUT) or output.is_relative_to(OLD20_OUTPUT):
+        raise ValueError("IRRA surrogate output cannot overwrite previous results")
+
+
+def protocol_paths(args):
+    output = args.output_dir.resolve()
+    _output_guard(output)
+    annotation = args.annotation.resolve()
+    queries, paths, ids = load_test_protocol(annotation)
+    selected = load_query_manifest(args.query_manifest.resolve(), annotation, queries)
+    return output, queries, paths, ids, selected
 
 
 def _source_tau(query_features: torch.Tensor, gallery_features: torch.Tensor,
                 queries, gallery_ids) -> float:
     """Calibrate the existing soft-rank rule using IRRA clean scores only."""
     with torch.no_grad():
-        scores = query_features[:FIRST20] @ gallery_features.T
+        scores = query_features[:TAU_CALIBRATION_COUNT] @ gallery_features.T
         return calibrate_tau(
-            scores, [item.person_id for item in queries[:FIRST20]], gallery_ids)
+            scores, [item.person_id for item in queries[:TAU_CALIBRATION_COUNT]],
+            gallery_ids)
 
 
 def _prior_rows(path: Path, arm: str, expected_ids: set[str],
-                checkpoint_sha256: str, config_sha256: str):
+                checkpoint_sha256: str, config_sha256: str,
+                manifest_sha256: str):
     prior = {}
     if path.exists():
         for line in path.open(encoding="utf-8"):
@@ -63,15 +78,16 @@ def _prior_rows(path: Path, arm: str, expected_ids: set[str],
             if (row.get("arm") != arm or row.get("row_id") in prior
                     or row.get("attack_source") != SOURCE_LABEL
                     or row.get("checkpoint_sha256") != checkpoint_sha256
-                    or row.get("config_sha256") != config_sha256):
+                    or row.get("config_sha256") != config_sha256
+                    or row.get("query_manifest_sha256") != manifest_sha256):
                 raise ValueError("IRRA surrogate result metadata differs")
             prior[row["row_id"]] = row
     if set(prior) - expected_ids:
-        raise ValueError("IRRA surrogate result contains query outside first 20")
+        raise ValueError("IRRA surrogate result contains query outside manifest")
     return prior
 
 
-def run_one_arm(args, output, queries, paths, ids):
+def run_one_arm(args, output, queries, paths, ids, selected, manifest_sha256):
     if args.arm not in ARMS:
         raise ValueError("unknown arm")
     victim, gallery_features, query_features, validation = victim_clean(
@@ -83,7 +99,8 @@ def run_one_arm(args, output, queries, paths, ids):
     gallery_indices = {path: index for index, path in enumerate(paths)}
     records = load_stage04_test(args.stage04, queries) if args.arm in GUIDED_ARMS else None
     random_entries = (
-        first20_random_entries(args, queries, records)
+        load_random_k_manifest(
+            args.random_manifest, queries, selected, records, 42)
         if args.arm in RANDOM_ARMS else None
     )
     random_sha = file_sha256(args.random_manifest) if args.arm in RANDOM_ARMS else None
@@ -95,10 +112,11 @@ def run_one_arm(args, output, queries, paths, ids):
     arm_dir = output / "arms" / args.arm
     arm_dir.mkdir(parents=True, exist_ok=True)
     result_path = arm_dir / "results.jsonl"
-    expected_ids = {query.row_id for query in queries[:FIRST20]}
+    expected_ids = {queries[index].row_id for index in selected}
     prior = _prior_rows(
         result_path, args.arm, expected_ids,
-        validation["checkpoint_sha256"], validation["config_sha256"])
+        validation["checkpoint_sha256"], validation["config_sha256"],
+        manifest_sha256)
     if args.arm in RANDOM_ARMS and any(
             row.get("random_k_manifest_sha256") != random_sha
             for row in prior.values()):
@@ -106,7 +124,8 @@ def run_one_arm(args, output, queries, paths, ids):
     completed = len(prior)
     started = time.monotonic()
     with result_path.open("a", encoding="utf-8") as handle:
-        for index, query in enumerate(queries[:FIRST20]):
+        for index in selected:
+            query = queries[index]
             if query.row_id in prior:
                 continue
             try:
@@ -196,6 +215,7 @@ def run_one_arm(args, output, queries, paths, ids):
                     "attack_source": SOURCE_LABEL,
                     "checkpoint_sha256": validation["checkpoint_sha256"],
                     "config_sha256": validation["config_sha256"],
+                    "query_manifest_sha256": manifest_sha256,
                     "irra_soft_rank_tau": tau,
                     "image_size": list(IMAGE_SIZE),
                 }
@@ -219,10 +239,10 @@ def run_one_arm(args, output, queries, paths, ids):
                 raise
 
 
-def summarize(output, queries):
+def summarize(output, queries, selected, manifest_sha256):
     validation = json.loads(
         (output / "official_clean_validation.json").read_text(encoding="utf-8"))
-    ids = [query.row_id for query in queries[:FIRST20]]
+    ids = [queries[index].row_id for index in selected]
     by_arm = {}
     for arm in ARMS:
         path = output / "arms" / arm / "results.jsonl"
@@ -232,11 +252,12 @@ def summarize(output, queries):
             if (row.get("row_id") in rows or row.get("arm") != arm
                     or row.get("attack_source") != SOURCE_LABEL
                     or row.get("checkpoint_sha256") != validation["checkpoint_sha256"]
-                    or row.get("config_sha256") != validation["config_sha256"]):
+                    or row.get("config_sha256") != validation["config_sha256"]
+                    or row.get("query_manifest_sha256") != manifest_sha256):
                 raise ValueError(f"{arm} result metadata differs")
             rows[row["row_id"]] = row
         if set(rows) != set(ids):
-            raise ValueError(f"{arm} does not cover exactly the first 20")
+            raise ValueError(f"{arm} does not cover exactly the manifest")
         by_arm[arm] = [rows[row_id] for row_id in ids]
 
     clean = np.array([row["rank"] for row in by_arm["clean"]])
@@ -248,7 +269,7 @@ def summarize(output, queries):
             raise ValueError(f"{arm} IRRA clean ranks differ")
         delta = ranks - clean
         metrics[arm] = {
-            "query_count": FIRST20,
+            "query_count": len(selected),
             "rank1": float((ranks <= 1).mean()),
             "rank5": float((ranks <= 5).mean()),
             "rank10": float((ranks <= 10).mean()),
@@ -269,7 +290,8 @@ def summarize(output, queries):
     result = {
         "victim": "official_irra_cuhk",
         "attack_source": SOURCE_LABEL,
-        "protocol": "reid_raw.json test, 6156 queries, 3074 gallery; first 20 only",
+        "protocol": "reid_raw.json test, 6156 queries, 3074 gallery; manifest only",
+        "query_manifest_sha256": manifest_sha256,
         "query_row_ids": ids,
         "arms": metrics,
         "per_query": [
@@ -277,7 +299,7 @@ def summarize(output, queries):
             for i, row_id in enumerate(ids)
         ],
     }
-    path = output / "summary_20_irra_white_box_8arms.json"
+    path = output / "summary_500_irra_white_box_8arms.json"
     path.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n",
                     encoding="utf-8")
     print(json.dumps(result, ensure_ascii=False), flush=True)
@@ -327,17 +349,17 @@ def main():
     if args.command == "gradient-check":
         gradient_check(args)
         return
-    output, queries, paths, ids = checked_paths(args)
-    _output_guard(output)
+    output, queries, paths, ids, selected = protocol_paths(args)
+    manifest_sha256 = file_sha256(args.query_manifest)
     if args.command == "summarize":
-        summarize(output, queries)
+        summarize(output, queries, selected, manifest_sha256)
     elif args.command == "validate-clean":
         _, _, _, report = victim_clean(args, output, queries, paths, ids)
         print(json.dumps(report), flush=True)
     else:
         if args.arm is None:
             parser.error("run requires --arm")
-        run_one_arm(args, output, queries, paths, ids)
+        run_one_arm(args, output, queries, paths, ids, selected, manifest_sha256)
 
 
 if __name__ == "__main__":

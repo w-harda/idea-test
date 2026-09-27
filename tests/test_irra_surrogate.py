@@ -126,3 +126,92 @@ def test_full_tta_text_bridge_and_output_isolation():
     with pytest.raises(ValueError, match="cannot overwrite"):
         _output_guard(DEFAULT_OUTPUT.parent / "irra-victim-poc")
     _output_guard(DEFAULT_OUTPUT)
+
+def test_irra_500_output_guard_preserves_old_results():
+    from scripts.run_irra_surrogate_poc import OLD20_OUTPUT
+
+    with pytest.raises(ValueError, match="cannot overwrite"):
+        _output_guard(OLD20_OUTPUT)
+    with pytest.raises(ValueError, match="cannot overwrite"):
+        _output_guard(OLD20_OUTPUT / "arms" / "clean")
+    _output_guard(DEFAULT_OUTPUT)
+
+
+def test_irra_manifest_resume_by_row_id(tmp_path):
+    import json
+    from scripts.run_irra_surrogate_poc import _prior_rows, SOURCE_LABEL
+
+    path = tmp_path / "results.jsonl"
+    rows = [
+        {"row_id": "q:12", "arm": "clean", "attack_source": SOURCE_LABEL,
+         "checkpoint_sha256": "checkpoint", "config_sha256": "config",
+         "query_manifest_sha256": "manifest"},
+        {"row_id": "q:3", "arm": "clean", "attack_source": SOURCE_LABEL,
+         "checkpoint_sha256": "checkpoint", "config_sha256": "config",
+         "query_manifest_sha256": "manifest"},
+    ]
+    path.write_text("".join(json.dumps(row) + "\n" for row in rows),
+                    encoding="utf-8")
+    result = _prior_rows(path, "clean", {"q:3", "q:12", "q:99"},
+                         "checkpoint", "config", "manifest")
+    assert set(result) == {"q:12", "q:3"}
+    with pytest.raises(ValueError, match="metadata differs"):
+        _prior_rows(path, "clean", {"q:3", "q:12"},
+                    "checkpoint", "config", "changed")
+    with pytest.raises(ValueError, match="outside manifest"):
+        _prior_rows(path, "clean", {"q:3"},
+                    "checkpoint", "config", "manifest")
+
+
+def test_irra_summary_requires_exact_manifest_rows(tmp_path):
+    import json
+    from scripts.run_cuhk_test_full import ARMS, Query
+    from scripts.run_irra_surrogate_poc import SOURCE_LABEL, summarize
+
+    queries = (
+        Query("q:0", "a.jpg", 1, "first"),
+        Query("q:1", "b.jpg", 2, "second"),
+        Query("q:2", "c.jpg", 3, "third"),
+        Query("q:3", "d.jpg", 4, "fourth"),
+    )
+    selected = (2, 0, 3)
+    (tmp_path / "official_clean_validation.json").write_text(
+        json.dumps({"checkpoint_sha256": "checkpoint",
+                    "config_sha256": "config"}), encoding="utf-8")
+    for arm in ARMS:
+        directory = tmp_path / "arms" / arm
+        directory.mkdir(parents=True)
+        rows = [
+            {"row_id": "q:0", "arm": arm, "attack_source": SOURCE_LABEL,
+             "checkpoint_sha256": "checkpoint", "config_sha256": "config",
+             "query_manifest_sha256": "manifest", "clean_rank": 1,
+             "rank": 1 if arm == "clean" else 2,
+             "text_changed": False, "linf": 0.0},
+            {"row_id": "q:2", "arm": arm, "attack_source": SOURCE_LABEL,
+             "checkpoint_sha256": "checkpoint", "config_sha256": "config",
+             "query_manifest_sha256": "manifest", "clean_rank": 3,
+             "rank": 3 if arm == "clean" else 4,
+             "text_changed": False, "linf": 0.0},
+            {"row_id": "q:3", "arm": arm, "attack_source": SOURCE_LABEL,
+             "checkpoint_sha256": "checkpoint", "config_sha256": "config",
+             "query_manifest_sha256": "manifest", "clean_rank": 4,
+             "rank": 4 if arm == "clean" else 5,
+             "text_changed": False, "linf": 0.0},
+        ]
+        (directory / "results.jsonl").write_text(
+            "".join(json.dumps(row) + "\n" for row in rows), encoding="utf-8")
+    summarize(tmp_path, queries, selected, "manifest")
+    report = json.loads(
+        (tmp_path / "summary_500_irra_white_box_8arms.json").read_text(
+            encoding="utf-8"))
+    assert report["query_row_ids"] == ["q:2", "q:0", "q:3"]
+    assert all(item["query_count"] == 3 for item in report["arms"].values())
+    extra = tmp_path / "arms" / "clean" / "results.jsonl"
+    with extra.open("a", encoding="utf-8") as handle:
+        handle.write(json.dumps({
+            "row_id": "q:1", "arm": "clean", "attack_source": SOURCE_LABEL,
+            "checkpoint_sha256": "checkpoint", "config_sha256": "config",
+            "query_manifest_sha256": "manifest", "clean_rank": 2,
+            "rank": 2, "text_changed": False, "linf": 0.0}) + "\n")
+    with pytest.raises(ValueError, match="exactly the manifest"):
+        summarize(tmp_path, queries, selected, "manifest")
