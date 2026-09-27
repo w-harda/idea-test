@@ -82,6 +82,8 @@ def test_random_schedule_preserves_image_then_text_and_original_record():
     assert original == original_copy
     assert scheduled["selected_slots"] == entry["random_attack_order"]
     assert scheduled["k_star"] == original["k_star"]
+    assert set(scheduled["scores"].values()) == {0}
+    assert original["scores"]["gender"] == 100
     events = []
     def image(request):
         events.append(("image", request.attribute.slot))
@@ -91,6 +93,7 @@ def test_random_schedule_preserves_image_then_text_and_original_record():
         return TextAttackResult(request.state.text)
     result = run_attack(scheduled, image="image", image_attack=image, text_attack=text)
     assert [item.slot for item in result.completed] == entry["random_attack_order"]
+    assert all(item.score == 0 for item in result.completed)
     assert events == [
         (kind, slot) for slot in entry["random_attack_order"]
         for kind in ("image", "text")

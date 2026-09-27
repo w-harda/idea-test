@@ -55,5 +55,7 @@ def apply_random_k(record: Mapping, entry: Mapping, seed: int = 42) -> dict:
     scheduled["selected_attributes"] = {
         slot: record["shared_attributes"][slot] for slot in order
     }
+    # 分数仅留在审计清单；Stage 05 的 Random-K 调度对象不携带原优先级。
+    scheduled["scores"] = {slot: 0 for slot in record["scores"]}
     plan_attack(scheduled)
     return scheduled
