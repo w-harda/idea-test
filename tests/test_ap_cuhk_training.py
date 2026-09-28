@@ -13,7 +13,7 @@ from torch.cuda import amp
 
 from attributes.ap_cuhk_training import (
     AP_SOURCE, TRAIN_HASHES, TrainImages, check_sources, fingerprint,
-    load_resume, make_loader, official_attack_functions, require_selection,
+    load_resume, make_loader, official_attack_functions, validate_fixed_protocol,
     save_resume, train_index,
 )
 from attributes.ap_gallery_baseline import sha256
@@ -70,15 +70,24 @@ def test_official_count_guard(tmp_path):
         train_index(path, root)
 
 
-def test_unresolved_selection_blocks_training():
+def test_default_fixed_protocol_allows_training_without_camera():
     config = read_config(DEFAULT_CONFIG)
-    with pytest.raises(RuntimeError, match="正式训练已阻止"):
-        require_selection(config)
-    config["checkpoint_selection"]["policy"] = "fixed_final_epoch"
-    with pytest.raises(RuntimeError):
-        require_selection(config)
-    config["checkpoint_selection"]["user_accepted_adaptation"] = True
-    require_selection(config)
+    validate_fixed_protocol(config)
+    assert config["checkpoint_selection"]["epochs"] == {
+        "ide": 50, "inversion": 20, "generator": 60}
+    assert config["checkpoint_selection"]["validation"] == "none"
+    assert "user_accepted_adaptation" not in config["checkpoint_selection"]
+
+
+@pytest.mark.parametrize("field,value", [
+    ("validation", "IRRA/test"), ("policy", "camera_aware_best"),
+    ("epochs", {"ide": 50, "inversion": 40, "generator": 60}),
+])
+def test_fixed_protocol_rejects_feedback_selection_and_wrong_epochs(field, value):
+    config = read_config(DEFAULT_CONFIG)
+    config["checkpoint_selection"][field] = value
+    with pytest.raises(ValueError):
+        validate_fixed_protocol(config)
 
 
 def test_cannot_tune_frozen_recipe(tmp_path):
@@ -219,3 +228,117 @@ def test_epoch_checkpoint_export_precedes_resume_and_completed_stage_skips_steps
     monkeypatch.setattr(torch.optim.SGD, "step", lambda *_a, **_k: pytest.fail("已完成阶段不应再训练"))
     restored = runner.train_stage(args, config, [], spec, "ide")
     assert all(torch.equal(v, restored.state_dict()[k]) for k, v in model.state_dict().items())
+
+@pytest.mark.skipif(not AP_SOURCE.exists(), reason="真实 AP scheduler 仅在服务器可用")
+def test_inversion_epoch20_keeps_original_cosine_schedule():
+    from scripts.train_ap_cuhk_baseline import inversion_scheduler
+    config = read_config(DEFAULT_CONFIG)
+    optimizer = torch.optim.SGD([torch.nn.Parameter(torch.ones(2))], lr=.005)
+    scheduler = inversion_scheduler(optimizer, AP_SOURCE, config)
+    assert config["inversion"]["epochs"] == 20
+    assert scheduler.t_initial == 40 and scheduler.warmup_t == 10
+    assert scheduler._get_lr(20)[0] == pytest.approx(.0026)
+
+
+def test_setup_migrates_audit_only_metadata_but_protects_formal_training(tmp_path):
+    import copy
+    import yaml
+    from scripts.train_ap_cuhk_baseline import record_setup
+    config = read_config(DEFAULT_CONFIG)
+    previous = copy.deepcopy(config)
+    previous["checkpoint_selection"] = {"policy": "unresolved_camera_aware_reid"}
+    previous["inversion"]["epochs"] = 40
+    previous_spec = {"dataset": {"training_split": "train"}, "version": "audit-only"}
+    record_setup(tmp_path, previous, previous_spec)
+    (tmp_path / "smoke").mkdir()
+    (tmp_path / "smoke/resume.pt").write_bytes(b"historical smoke")
+    spec = {"dataset": {"training_split": "train"}, "version": "fixed epochs"}
+    record_setup(tmp_path, config, spec)
+    archived = list((tmp_path / "setup-history").glob("*/config.yaml"))
+    assert len(archived) == 1 and yaml.safe_load(archived[0].read_text()) == previous
+    assert yaml.safe_load((tmp_path / "config.yaml").read_text()) == config
+    assert (tmp_path / "smoke/resume.pt").read_bytes() == b"historical smoke"
+    (tmp_path / "ide").mkdir()
+    (tmp_path / "ide/last.pt").write_bytes(b"formal checkpoint")
+    with pytest.raises(ValueError, match="正式训练"):
+        record_setup(tmp_path, previous, previous_spec)
+    assert yaml.safe_load((tmp_path / "config.yaml").read_text()) == config
+
+
+def test_generator_dependencies_reject_wrong_epoch_hash_or_source(tmp_path):
+    from scripts.train_ap_cuhk_baseline import (
+        export_state, generator_dependencies, selected_checkpoints)
+    config = read_config(DEFAULT_CONFIG)
+    spec = {"dataset": {"training_split": "train"}, "project_commit": "unit"}
+    model = torch.nn.Linear(2, 2)
+    paths = selected_checkpoints(tmp_path, config)
+    for stage in ("ide", "inversion"):
+        export_state(paths[stage], model, {
+            "mode": "formal", "stage": stage,
+            "epoch": config["checkpoint_selection"]["epochs"][stage], "spec": spec})
+    dependencies = generator_dependencies(tmp_path, config, spec)
+    assert dependencies["ide"]["epoch"] == 50
+    assert dependencies["inversion"]["epoch"] == 20
+    sidecar = paths["inversion"].with_suffix(".pth.json")
+    original = json.loads(sidecar.read_text())
+    for key, value in (("epoch", 19), ("checkpoint_sha256", "0" * 64),
+                       ("spec", {"dataset": {"training_split": "test"}}),
+                       ("mode", "smoke")):
+        changed = {**original, key: value}
+        sidecar.write_text(json.dumps(changed))
+        with pytest.raises(ValueError, match="依赖"):
+            generator_dependencies(tmp_path, config, spec)
+    sidecar.write_text(json.dumps(original))
+
+
+def test_three_stage_entry_selects_50_20_60_and_exports_complete_provenance(tmp_path, monkeypatch):
+    from types import SimpleNamespace
+    from scripts import train_ap_cuhk_baseline as runner
+    config = read_config(DEFAULT_CONFIG)
+    spec = {
+        "config": config, "project_commit": "unit_mock",
+        "dataset": {"split_image_counts": {"train": 34054},
+                    "split_identity_counts": {"train": 11003}},
+        "unit_mock": True,
+    }
+    calls = []
+    monkeypatch.setattr(runner.torch.cuda, "is_available", lambda: True)
+    monkeypatch.setattr(runner.torch.cuda, "empty_cache", lambda: None)
+    monkeypatch.setattr(runner, "prepare", lambda *_: ([], spec))
+
+    def fake_stage(args, cfg, records, current_spec, stage, dependencies=None):
+        epoch = cfg[stage]["epochs"]
+        path = runner.selected_checkpoints(args.output_dir, cfg)[stage]
+        model = torch.nn.Linear(2, 2)
+        if args.resume:
+            model.load_state_dict(torch.load(path, map_location="cpu", weights_only=True))
+        else:
+            runner.export_state(path, model, {
+                "mode": "formal", "stage": stage, "epoch": epoch,
+                "spec": {**current_spec, "stage": stage, "dependencies": dependencies or {}}})
+        calls.append((stage, epoch, dependencies))
+        return model
+
+    monkeypatch.setattr(runner, "train_stage", fake_stage)
+    args = SimpleNamespace(output_dir=tmp_path, resume=False)
+    runner.train(args, config)
+    assert [(stage, epoch) for stage, epoch, _ in calls] == [
+        ("ide", 50), ("inversion", 20), ("generator", 60)]
+    assert calls[-1][2]["ide"]["epoch"] == 50
+    assert calls[-1][2]["inversion"]["epoch"] == 20
+    metadata = json.loads((tmp_path / "G_CUHK_AP.pth.tar.json").read_text())
+    assert metadata["generator_epoch"] == 60 and metadata["seed"] == 1234
+    assert metadata["train_images"] == 34054 and metadata["train_identities"] == 11003
+    assert metadata["project_commit"] == "unit_mock"
+    assert metadata["surrogate_source"]["epoch"] == 50
+    assert metadata["inversion_source"]["epoch"] == 20
+    assert metadata["semantic_backbone"]["training_dataset"] == "DukeMTMC-reID"
+    assert metadata["training_uses_irra"] is False
+    assert metadata["checkpoint_sha256"] == sha256(tmp_path / "G_CUHK_AP.pth.tar")
+    assert (tmp_path / "G_CUHK_AP.pth.tar").read_bytes() == (tmp_path / "best_G_V.pth.tar").read_bytes()
+    assert runner.training_plan(tmp_path, config)["training_allowed"] is True
+    with pytest.raises(ValueError, match="--resume"):
+        runner.train(args, config)
+    args.resume = True
+    runner.train(args, config)
+    assert len(calls) == 6

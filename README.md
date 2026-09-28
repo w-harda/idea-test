@@ -379,13 +379,13 @@ TMPDIR=/home/lzf/ldx/tmp PYTHONPATH=src:. OMP_NUM_THREADS=4 \
 
 ## AP-Attack CUHK train 基线（Baseline 2）
 
-训练入口只读取 CUHK-PEDES train 图像和 person ID，依次训练 IDE/ResNet50、五个原版 textual inversion 网络、G；IRRA 仅用于之后的独立 Text→Image 评测。核心网络、prompt、`L_norm`、`adv_TripletLoss` 复用已审计 AP 源码。G 的 ReID/semantic 权重为 10/10、预算为 8/255，不使用 CUHK caption。
+训练入口只使用 CUHK-PEDES 原 train split 的图像和 PID，按 IDE_CUHK → Inversion_CUHK → G_CUHK^AP 的顺序执行。核心网络、固定 prompt、L_norm、adv_TripletLoss、10/10 loss 和 8/255 预算复用已审计 AP 体系；caption、IRRA feature/gradient/rank 不进入训练。
 
-**当前正式训练默认被阻止**：Duke recipe 通过 camera-aware image-ReID mAP 选择 IDE/G best checkpoint；CUHK 没有原生 camera ID/query-gallery 协议。配置保留 `unresolved_camera_aware_reid`。固定最终 epoch 的替代规则已准备，但须明确接受这一协议变化后才可启用；不能伪造 camera 或用 CUHK test/IRRA 指标选择模型。
+checkpoint 采用用户确认的固定 epoch：IDE 50、inversion 20、G 60。camera ID 不再作为训练条件，不执行 camera-aware validation，也不使用 CUHK val/test 或 IRRA 指标选模型。inversion 只训练至 epoch 20，其 cosine scheduler 保留原 40-epoch 时间尺度及 10-epoch warmup，保持原 recipe 前 20 轮的学习率轨迹。
 
-已有 Duke CLIP-ReID ViT-B-16 保持为冻结初始化骨干，CUHK inversion 从新建的原 IM2TEXT 网络开始。IDE 分类头改为 11,003 个 train ID；semantic 模型中三个未参与 forward 的类别参数按该数量重新初始化。该设定应表述为 AP-Attack 的 CUHK train 适配，不表示全部预训练组件已转为 CUHK 域。
+已有 Duke CLIP-ReID ViT-B-16 继续作为冻结 semantic backbone，五组 IM2TEXT 在 CUHK train 上新建并重训。IDE 使用 ImageNet 初始化并在 CUHK train 重训，分类头为 11,003 个 PID。G 使用原 weights_init 从头初始化，不加载 G_Duke。三个未参与 semantic forward 的类别参数按 CUHK train ID 数初始化；活跃预训练参数严格匹配。
 
-在服务器项目目录设置：
+服务器命令：
 
 ```bash
 cd /home/lzf/ldx/projects/idea-TBPS-test1
@@ -393,35 +393,40 @@ export PYTHONPATH=src:.
 PY=/home/lzf/ldx/envs/apattack/bin/python
 EVAL_PY=/home/lzf/ldx/envs/tbps-image/bin/python
 
-$PY -B scripts/train_ap_cuhk_baseline.py audit
+# 只读预检与状态：检查固定 epoch、依赖路径、checkpoint 是否存在
+$PY -B scripts/train_ap_cuhk_baseline.py plan
 $PY -B scripts/train_ap_cuhk_baseline.py status
-# 独立单 batch smoke，使用原 P×K sampler 的 2 IDs×4 图。
-# 同一输出目录只允许一次真实 optimizer step；再次执行请读取 smoke/result.json。
-$PY -B scripts/train_ap_cuhk_baseline.py smoke
-# 正式入口；当前 unresolved 配置会在分配模型前明确报错。
+
+# 从头训练；已有正式输出时会要求使用 --resume，防止覆盖
+$PY -B scripts/train_ap_cuhk_baseline.py train
+# 按完整 epoch 恢复；已完成阶段跳过训练
 $PY -B scripts/train_ap_cuhk_baseline.py train --resume
+
+# 独立单 batch 开发 smoke；同目录最多一次真实 G optimizer step
+$PY -B scripts/train_ap_cuhk_baseline.py smoke --output-dir /home/lzf/ldx/outputs/AP-Attack/cuhk_reid_semantic_10_10/fixed-epoch-protocol-smoke-v1
 ```
 
-默认训练输出为 `/home/lzf/ldx/outputs/AP-Attack/cuhk_reid_semantic_10_10/`。正式续跑以完整 epoch 为边界，保存模型、optimizer、AMP、scheduler、Python/NumPy/PyTorch/CUDA RNG 及 IDE loader generator；未完成的 epoch 会重跑。smoke checkpoint 不能用于正式续跑或最终评测。smoke 为避免首次 AMP scale 溢出采用初始 scale=1；正式训练保留原默认 AMP scale。
+默认训练输出为 /home/lzf/ldx/outputs/AP-Attack/cuhk_reid_semantic_10_10/。旧目录只有 audit/smoke 时，允许归档旧 setup metadata 并写入已确认的新配置；已有正式 checkpoint 时拒绝改配置或来源后静默续跑。smoke checkpoint 不能用于正式训练或评测。
 
-训练配置为 `configs/ap_cuhk_original_training.yaml`。已冻结的 recipe：
+配置：/home/lzf/ldx/projects/idea-TBPS-test1/configs/ap_cuhk_original_training.yaml。
 
 | 阶段 | Epoch / batch | Optimizer / LR | 训练行为 |
 |---|---|---|---|
 | IDE | 50 / 128 | SGD；骨干 .01、head .1；momentum .9、WD 5e-4、Nesterov | CE；epoch 40 起 LR×.1；原矩形裁剪+水平翻转，ImageNet 归一化 |
-| Inversion | 40 / 128 | AdamW 5e-3、WD 1e-4；warmup 10；warmup/min LR 2e-4 | .1×双向原 SupCon，temperature=1；PIL bilinear、无增强、mean/std=.5；G 读取 epoch 20 |
-| G | 60 / 48（12 IDs×4） | Adam 2e-4、betas=(.5,.999)、WD=0；无 scheduler | 原反向 triplet margin=.3；10×IDE + 10×五组 token loss 之和；PIL bicubic、无增强、mean/std=.5 |
+| Inversion | 20 / 128 | AdamW 5e-3、WD 1e-4；原 40-epoch cosine、warmup 10、warmup/min LR 2e-4 | .1×双向原 SupCon、temperature=1；bilinear、无增强、mean/std=.5；使用 epoch 20 |
+| G | 60 / 48（12 IDs×4） | Adam 2e-4、betas=(.5,.999)、WD=0；无 scheduler | 原 reverse-triplet margin=.3；10×IDE + 10×五组 token loss 之和；bicubic、无增强、mean/std=.5 |
 
-seed=1234；IDE 的 cuDNN deterministic=True/benchmark=False，inversion/G 为 True/True，G 保留 TF32。source/data/config/实现 hash 绑定 checkpoint，来源改变会拒绝续跑。
+输入为 256×128；G 架构 Generator(3,3,32,norm=bn,n_blocks=6,beta=.1)。seed=1234；原 deterministic/benchmark/TF32 设置保留。正式训练保留默认 CUDA AMP，单 batch smoke 的初始 scale=1。
 
-未来训练完成后的正式导出是 `G_CUHK_AP.pth.tar` 及包含 SHA-256、训练域和选取规则的 JSON；`best_G_V.pth.tar` 仅为兼容原命名的同字节别名。在固定 epoch 协议下，它不代表验证集最优。
+每个阶段的完整 epoch checkpoint 保存模型、optimizer、AMP、scheduler、Python/NumPy/PyTorch/CUDA RNG 和 IDE loader generator；中断的 epoch 从上一边界重跑。G 训练前核验 IDE epoch 50 / inversion epoch 20 的 formal 标记、epoch、SHA 和完整来源；最终导出进一步核验 G epoch 60 及其依赖。
 
-评测 wrapper 直接复用 Baseline 1 的全部生成、缓存和官方 IRRA 指标，不改 Baseline 1 文件或既有结果；它要求正式 CUHK 权重及来源 JSON，并将报告训练域改为 CUHK：
+最终 G_CUHK_AP.pth.tar + JSON 保存 SHA、config、epoch、seed、project commit、dataset/counts、IDE/inversion 的路径与 SHA、冻结 Duke semantic backbone 来源。best_G_V.pth.tar 是同字节兼容别名，元数据明确 fixed_final_epoch，不表示验证集最优。
+
+评测直接复用现有 /home/lzf/ldx/projects/idea-TBPS-test1/scripts/run_ap_cuhk_irra_baseline.py，本轮不修改 Baseline 1 或该 wrapper。训练完成后执行：
 
 ```bash
-# 仅在正式训练完成且权重导出后使用；本轮未执行。
 $EVAL_PY -B scripts/run_ap_cuhk_irra_baseline.py run --scope 500
 $EVAL_PY -B scripts/run_ap_cuhk_irra_baseline.py run --scope full
 ```
 
-两种评测均攻击完整 3074-image gallery，使用相同缓存，分别评测固定 500 / 全部 6156 条干净文本。输出独立保存在 `/home/lzf/ldx/outputs/idea-TBPS-test1/baseline-ap-cuhk-irra/`，包含 R@1/5/10、mAP、mINP、单 victim DR_mAP 和逐 query first-hit rank。
+默认正式 G 为 /home/lzf/ldx/outputs/AP-Attack/cuhk_reid_semantic_10_10/G_CUHK_AP.pth.tar，SHA 从相邻 JSON 核验；输出为 /home/lzf/ldx/outputs/idea-TBPS-test1/baseline-ap-cuhk-irra/。两种 scope 均攻击完整 3074 图库并共享缓存，分别使用固定 500 / 全部 6156 条干净文本，输出官方 IRRA Text→Image 的 R@1/5/10、mAP、mINP、DR_mAP 和 rank diagnostics。本阶段只做实现检查与 smoke，不自动启动长训练或最终评测。

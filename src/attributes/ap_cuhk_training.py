@@ -113,14 +113,19 @@ def train_index(annotation: Path, image_root: Path, *, expected_counts=True):
     return records, metadata
 
 
-def require_selection(config):
-    """缺少原 camera-aware 选取协议时，默认阻止正式训练。"""
+def validate_fixed_protocol(config):
+    """固定 epoch 选取已由用户确认；camera 不参与训练或选取。"""
     selection = config["checkpoint_selection"]
+    epochs = {"ide": 50, "inversion": 20, "generator": 60}
     if (selection.get("policy") != "fixed_final_epoch"
-            or selection.get("user_accepted_adaptation") is not True):
-        raise RuntimeError(
-            "正式训练已阻止：CUHK 没有原 camera-aware ReID checkpoint 选取协议；"
-            "需先确定并明确接受选取 adaptation，不能使用 IRRA/test 或伪造 camera。")
+            or selection.get("epochs") != epochs
+            or selection.get("validation") != "none"):
+        raise ValueError("Baseline 2 必须使用 IDE 50 / inversion 20 / G 60，无 validation")
+    if any(config[stage]["epochs"] != epoch for stage, epoch in epochs.items()):
+        raise ValueError("阶段训练轮数与固定选取 epoch 不一致")
+    if (config["inversion"]["generator_input_epoch"] != 20
+            or config["inversion"]["scheduler_total_epochs"] != 40):
+        raise ValueError("inversion 使用原 40-epoch cosine 的前 20 轮")
 
 
 def check_sources(root: Path):

@@ -1,17 +1,21 @@
-# AP-Attack CUHK train-only；默认禁止正式训练，选取协议待用户确定。
+# AP-Attack CUHK train-only；固定 IDE 50 / inversion 20 / G 60，无 validation。
 schema: 1
 seed: 1234
 workers: 8
-image_size: [256, 128]
+image_size:
+- 256
+- 128
 epsilon: 0.03137254901960784
 training_dataset: CUHK-PEDES/train
 surrogate: IDE/ResNet50
 checkpoint_selection:
-  policy: unresolved_camera_aware_reid
-  user_accepted_adaptation: false
-  original_ide: highest source camera-aware clean ReID mAP every 10 epochs
-  original_generator: lowest source camera-aware attacked ReID mAP every 10 epochs
-  missing: CUHK camera IDs and original source query-gallery protocol
+  policy: fixed_final_epoch
+  epochs:
+    ide: 50
+    inversion: 20
+    generator: 60
+  validation: none
+  reason: user-confirmed CUHK train-only protocol; no camera/test/IRRA selection
 ide:
   epochs: 50
   batch_size: 128
@@ -28,7 +32,7 @@ ide:
   normalization: ImageNet
   save_period: 10
 inversion:
-  epochs: 40
+  epochs: 20
   generator_input_epoch: 20
   batch_size: 128
   optimizer: AdamW
@@ -46,13 +50,16 @@ inversion:
   save_period: 20
   frozen_initialization: existing Duke CLIP-ReID ViT-B-16
   inversion_initialization: fresh original IM2TEXT; no Duke inversion reuse
+  scheduler_total_epochs: 40
 generator:
   epochs: 60
   batch_size: 48
   instances_per_identity: 4
   optimizer: Adam
   lr: 0.0002
-  betas: [0.5, 0.999]
+  betas:
+  - 0.5
+  - 0.999
   weight_decay: 0
   scheduler: none
   architecture: Generator(3,3,32,norm=bn,n_blocks=6,beta=0.1)

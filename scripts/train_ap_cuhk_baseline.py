@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-"""AP-Attack CUHK：audit/status/smoke/train；本阶段默认阻止正式训练。"""
+"""AP-Attack CUHK：audit/plan/status/smoke/train；固定 epoch train-only 协议。"""
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 import os
 import subprocess
@@ -25,16 +24,16 @@ import yaml
 from torch.cuda import amp
 
 from attributes.ap_cuhk_training import (
-    ANNOTATION, AP_SOURCE, CLIP_REID_SHA, IMAGE_ROOT, OUTPUT,
+    ANNOTATION, AP_SOURCE, CLIP_REID, CLIP_REID_SHA, IMAGE_ROOT, OUTPUT,
     atomic_json, atomic_torch, check_sources, fingerprint, generator_loss,
     load_resume, make_loader, official_attack_functions, official_generator,
-    official_ide, official_semantic, package, require_selection,
-    rng_state, save_resume, seed_all, sha256, source_file, train_index, write_path,
+    official_ide, official_semantic, package, validate_fixed_protocol,
+    save_resume, seed_all, sha256, source_file, train_index, write_path,
 )
 import importlib
 
 DEFAULT_CONFIG = Path(__file__).resolve().parents[1] / "configs/ap_cuhk_original_training.yaml"
-FROZEN_RECIPE_SHA = "e2b7842da25ee46aeb1370f0e85e3a27a3515b1ba2cafbd23bc056322cc49570"
+FROZEN_RECIPE_SHA = "ea98e67dd0fe0dc8f1333ace0344b5ddde2d9c36f0ed56cf06ef87e6c2bfc030"
 
 
 def read_config(path):
@@ -48,6 +47,7 @@ def read_config(path):
             raise ValueError(f"禁止改变已冻结 AP recipe: {key}")
     if set(config) != set(original):
         raise ValueError("训练配置字段不匹配")
+    validate_fixed_protocol(config)
     return config
 
 
@@ -78,14 +78,95 @@ def prepare(args, config):
     return records, spec
 
 
+def formal_artifacts(output):
+    """排除审计和 smoke；只有正式阶段/导出状态影响从头训练与配置保护。"""
+    paths = []
+    for stage in ("ide", "inversion", "generator"):
+        directory = output / stage
+        paths.extend(directory.glob("epoch_*.pth"))
+        if (directory / "last.pt").exists():
+            paths.append(directory / "last.pt")
+    for name in ("progress.json", "G_CUHK_AP.pth.tar", "best_G_V.pth.tar"):
+        if (output / name).exists():
+            paths.append(output / name)
+    return paths
+
+
 def record_setup(output, config, spec):
     path = write_path(output / "config.yaml")
     path.parent.mkdir(parents=True, exist_ok=True)
+    artifacts = formal_artifacts(output)
+    metadata_path = output / "run-metadata.json"
     if path.exists() and yaml.safe_load(path.read_text()) != config:
-        raise ValueError("已有训练输出配置不同；使用独立目录")
+        if artifacts:
+            raise ValueError("已有正式训练输出配置不同；不能覆盖 checkpoint 或改变续跑协议")
+        # 旧目录只有审计/单步 smoke 时允许升级已确认的 protocol，并保留旧审计事实。
+        previous = [output / name for name in
+                    ("config.yaml", "dataset-metadata.json", "run-metadata.json")
+                    if (output / name).exists()]
+        key = fingerprint({p.name: sha256(p) for p in previous})[:16]
+        archive = write_path(output / "setup-history" / key)
+        archive.mkdir(parents=True, exist_ok=True)
+        for old in previous:
+            write_path(archive / old.name).write_bytes(old.read_bytes())
+    elif artifacts and metadata_path.exists() and json.loads(metadata_path.read_text()) != spec:
+        raise ValueError("已有正式训练来源不同；配置/数据/实现变化不能静默 resume")
     path.write_text(yaml.safe_dump(config, allow_unicode=True, sort_keys=False), encoding="utf-8")
     atomic_json(output / "dataset-metadata.json", spec["dataset"])
-    atomic_json(output / "run-metadata.json", spec)
+    atomic_json(metadata_path, spec)
+
+
+def selected_checkpoints(output, config):
+    return {stage: output / stage / f"epoch_{epoch}.pth"
+            for stage, epoch in config["checkpoint_selection"]["epochs"].items()}
+
+
+def checkpoint_provenance(path, stage, epoch, spec):
+    metadata = json.loads(path.with_suffix(path.suffix + ".json").read_text())
+    actual = sha256(path)
+    if (metadata.get("mode") != "formal" or metadata.get("stage") != stage
+            or metadata.get("epoch") != epoch
+            or metadata.get("checkpoint_sha256") != actual
+            or any(metadata.get("spec", {}).get(key) != value for key, value in spec.items())):
+        raise ValueError(f"{stage} checkpoint 依赖/来源/epoch/SHA 不匹配")
+    return actual
+
+
+def generator_dependencies(output, config, spec):
+    paths = selected_checkpoints(output, config)
+    dependencies = {}
+    for stage in ("ide", "inversion"):
+        path = paths[stage]
+        epoch = config["checkpoint_selection"]["epochs"][stage]
+        actual = checkpoint_provenance(path, stage, epoch, spec)
+        dependencies[stage] = {
+            "path": str(path), "sha256": actual, "epoch": epoch,
+            "training_dataset": "CUHK-PEDES/train",
+        }
+    return dependencies
+
+
+def training_plan(output, config):
+    """只读预检；不分配模型、不执行训练，也不读取 test/IRRA 结果。"""
+    validate_fixed_protocol(config)
+    paths = selected_checkpoints(output, config)
+    return {
+        "training_allowed": True,
+        "checkpoint_selection": config["checkpoint_selection"],
+        "stages": [{
+            "stage": stage, "epochs": config[stage]["epochs"],
+            "selected_epoch": config["checkpoint_selection"]["epochs"][stage],
+            "selected_checkpoint": str(paths[stage]),
+            "selected_checkpoint_exists": paths[stage].is_file(),
+            "resume_checkpoint": str(output / stage / "last.pt"),
+            "resume_checkpoint_exists": (output / stage / "last.pt").is_file(),
+            "depends_on": ["ide", "inversion"] if stage == "generator" else [],
+        } for stage in ("ide", "inversion", "generator")],
+        "inversion_scheduler_total_epochs": 40,
+        "final_generator": str(output / "G_CUHK_AP.pth.tar"),
+        "formal_artifacts": [str(p) for p in formal_artifacts(output)],
+        "training_uses_irra": False, "training_uses_captions": False,
+    }
 
 
 def append_log(output, row):
@@ -106,7 +187,16 @@ def export_state(path, model, metadata):
     })
 
 
-def stage_objects(stage, root, classes):
+def inversion_scheduler(optimizer, root, config):
+    package(root / "solver", "_ap_cuhk_solver")
+    factory = importlib.import_module("_ap_cuhk_solver.scheduler_factory")
+    inversion = config["inversion"]
+    return factory.create_scheduler(
+        optimizer, inversion["scheduler_total_epochs"], inversion["min_lr"],
+        inversion["warmup_lr"], inversion["warmup_epochs"])
+
+
+def stage_objects(stage, root, classes, config):
     scheduler = None
     extra = {}
     if stage == "ide":
@@ -122,8 +212,7 @@ def stage_objects(stage, root, classes):
         package(root / "solver", "_ap_cuhk_solver")
         helper = importlib.import_module("_ap_cuhk_solver.make_optimizer_prompt")
         optimizer = helper.make_optimizer_textInverse(cfg, model)
-        factory = importlib.import_module("_ap_cuhk_solver.scheduler_factory")
-        scheduler = factory.create_scheduler(optimizer, 40, 2e-4, 2e-4, 10)
+        scheduler = inversion_scheduler(optimizer, root, config)
     else:
         model = official_generator(root).cuda()
         optimizer = torch.optim.Adam(model.parameters(), lr=2e-4, betas=(.5, .999))
@@ -146,7 +235,7 @@ def train_stage(args, config, records, spec, stage, dependencies=None):
                                       map_location="cpu", weights_only=False), strict=True)
         ide.eval().requires_grad_(False)
         original = official_attack_functions(args.ap_source)
-    model, optimizer, scaler, scheduler, extra = stage_objects(stage, args.ap_source, classes)
+    model, optimizer, scaler, scheduler, extra = stage_objects(stage, args.ap_source, classes, config)
     output = write_path(args.output_dir / stage)
     output.mkdir(parents=True, exist_ok=True)
     stage_spec = {**spec, "stage": stage, "initialization": extra,
@@ -224,48 +313,60 @@ def train_stage(args, config, records, spec, stage, dependencies=None):
     return model
 
 
+def export_generator(output, model_state, config, spec, dependencies):
+    path = output / "G_CUHK_AP.pth.tar"
+    atomic_torch(path, model_state)
+    metadata = {
+        "mode": "formal", "training_dataset": "CUHK-PEDES/train",
+        "surrogate": "IDE (ResNet50), retrained on CUHK train",
+        "generator_epoch": 60, "inversion_epoch": 20, "ide_epoch": 50,
+        "epoch": 60, "seed": config["seed"], "project_commit": spec["project_commit"],
+        "train_images": spec["dataset"]["split_image_counts"]["train"],
+        "train_identities": spec["dataset"]["split_identity_counts"]["train"],
+        "surrogate_source": dependencies["ide"],
+        "inversion_source": dependencies["inversion"],
+        "semantic_backbone": {"checkpoint": str(CLIP_REID),
+                              "sha256": CLIP_REID_SHA,
+                              "training_dataset": "DukeMTMC-reID", "frozen": True},
+        "selection": "fixed_final_epoch; no validation mAP best claim",
+        "checkpoint_selection": config["checkpoint_selection"],
+        "checkpoint_sha256": sha256(path), "config": config,
+        "training_uses_irra": False, "training_uses_captions": False, "spec": spec,
+    }
+    atomic_json(path.with_suffix(path.suffix + ".json"), metadata)
+    # 与原命名兼容；同字节别名，元数据明确为固定最终 epoch。
+    alias = write_path(output / "best_G_V.pth.tar")
+    temp = write_path(alias.with_suffix(alias.suffix + ".tmp"))
+    temp.write_bytes(path.read_bytes())
+    temp.replace(alias)
+    atomic_json(output / "best_G_V.pth.tar.json", metadata)
+    atomic_json(output / "progress.json", {
+        "state": "complete", "formal_training_started": True,
+        "generator": str(path), "sha256": sha256(path),
+        "selection": metadata["selection"]})
+
+
 def train(args, config):
-    require_selection(config)  # 先检查，再读取数据、分配 GPU 或创建训练输出。
+    validate_fixed_protocol(config)
+    if formal_artifacts(args.output_dir) and not args.resume:
+        raise ValueError("已有正式训练输出；请使用 --resume，避免从头覆盖")
     if not torch.cuda.is_available():
         raise RuntimeError("AP training 需要 CUDA")
     records, spec = prepare(args, config)
     record_setup(args.output_dir, config, spec)
     atomic_json(args.output_dir / "progress.json", {"state": "initializing",
                 "formal_training_started": True})
+    dependencies = None
     for stage in ("ide", "inversion", "generator"):
-        dependencies = None
         if stage == "generator":
-            paths = {
-                "ide": args.output_dir / "ide/epoch_50.pth",
-                "inversion": args.output_dir / "inversion/epoch_20.pth",
-            }
-            dependencies = {name: {"path": str(p), "sha256": sha256(p)}
-                            for name, p in paths.items()}
+            dependencies = generator_dependencies(args.output_dir, config, spec)
         model = train_stage(args, config, records, spec, stage, dependencies)
         del model
         torch.cuda.empty_cache()
-    g = torch.load(args.output_dir / "generator/epoch_60.pth", map_location="cpu", weights_only=False)
-    path = args.output_dir / "G_CUHK_AP.pth.tar"
-    atomic_torch(path, g)
-    metadata = {
-        "mode": "formal", "training_dataset": "CUHK-PEDES/train",
-        "surrogate": "IDE (ResNet50), retrained on CUHK train",
-        "generator_epoch": 60, "inversion_epoch": 20, "ide_epoch": 50,
-        "selection": "fixed_final_epoch; no validation mAP best claim",
-        "checkpoint_selection": config["checkpoint_selection"],
-        "checkpoint_sha256": sha256(path), "spec": spec,
-    }
-    atomic_json(path.with_suffix(path.suffix + ".json"), metadata)
-    # 兼容原 AP 命名；明确是固定最终轮别名，绝非验证集 best。
-    alias = write_path(args.output_dir / "best_G_V.pth.tar")
-    temp = write_path(alias.with_suffix(alias.suffix + ".tmp"))
-    temp.write_bytes(path.read_bytes())
-    temp.replace(alias)
-    atomic_json(args.output_dir / "best_G_V.pth.tar.json", metadata)
-    atomic_json(args.output_dir / "progress.json", {
-        "state": "complete", "formal_training_started": True,
-        "generator": str(path), "sha256": sha256(path),
-        "selection": metadata["selection"]})
+    g_path = selected_checkpoints(args.output_dir, config)["generator"]
+    checkpoint_provenance(g_path, "generator", 60, {**spec, "dependencies": dependencies})
+    g = torch.load(g_path, map_location="cpu", weights_only=False)
+    export_generator(args.output_dir, g, config, spec, dependencies)
 
 
 def smoke(args, config):
@@ -294,7 +395,7 @@ def smoke(args, config):
     inversion_forward_loss = .1 * (
         contrast(image_features, text_features, ids, ids) +
         contrast(text_features, image_features, ids, ids))
-    g, optimizer, scaler, scheduler, _ = stage_objects("generator", args.ap_source, 11003)
+    g, optimizer, scaler, scheduler, _ = stage_objects("generator", args.ap_source, 11003, config)
     # 诊断只做一次实际 step；避免默认 65536 scale 的首次溢出。正式训练不变。
     scaler = amp.GradScaler(init_scale=1.)
     original = official_attack_functions(args.ap_source)
@@ -360,7 +461,7 @@ def smoke(args, config):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=("audit", "smoke", "train", "status"))
+    parser.add_argument("command", choices=("audit", "plan", "smoke", "train", "status"))
     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
     parser.add_argument("--ap-source", type=Path, default=AP_SOURCE)
     parser.add_argument("--annotation", type=Path, default=ANNOTATION)
@@ -374,13 +475,16 @@ def main():
         train(args, config)
     elif args.command == "smoke":
         smoke(args, config)
+    elif args.command == "plan":
+        _, spec = prepare(args, config)
+        print(json.dumps({**training_plan(args.output_dir, config),
+                         "dataset": spec["dataset"]}, ensure_ascii=False, indent=2))
     elif args.command == "audit":
         _, spec = prepare(args, config)
         record_setup(args.output_dir, config, spec)
         print(json.dumps(spec, ensure_ascii=False, indent=2))
     else:
-        state = {"formal_training_started": False,
-                 "checkpoint_selection": config["checkpoint_selection"]}
+        state = {**training_plan(args.output_dir, config), "formal_training_started": False}
         path = args.output_dir / "progress.json"
         if path.exists():
             state.update(json.loads(path.read_text()))
