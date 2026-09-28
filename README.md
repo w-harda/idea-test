@@ -321,3 +321,58 @@ PYTHONPATH=src /home/lzf/ldx/envs/tbps-image/bin/python scripts/run_ap_attack_po
 | Attribute-guided AP-Attack + Text | 1 | 2 | 1 | 1.33 |
 
 AP+Text 三条分别选中 2、2、1 个字符替换；相较 AP-only，soft rank 变化而首次正确 ID 的整数名次未变。当前三条样本上的 AP 结果使平均名次低于 Clean，不能解读为攻击增益。所有方法共用有序图库指纹 `e1505afef38cb62aa5e22dacf9d60a4e62871243763669e4a50e0a492fd88788`；这只是同一 Frozen CLIP source 上的配对图像开发诊断，不代表原论文的图像 ReID 性能、未知查询攻击或完整图库迁移效果。
+
+## AP-Attack Duke → CUHK-PEDES → IRRA 整图库迁移基线
+
+入口为 `scripts/run_ap_duke_irra_baseline.py`，生成与评测分开。生成器只接收图库图像：官方 256×128 PIL 双线性预处理、0.5 归一化、原样 `Generator(3,3,32,norm="bn",beta=0.1)` 和 CUDA AMP；输出按官方 `L_norm` 等价形式生成像素扰动并限制在 `8/255`。训练权重及 BatchNorm 状态保持冻结，官方 SpectralNorm 的 `u/v` 推理更新原样保留，随图库缓存进度保存，保证中断续跑一致。
+
+默认 G 是 DukeMTMC-reID 本地复现的 ReID + attribute-semantic 10/10 权重：
+`/home/lzf/ldx/outputs/AP-Attack/stage2_reid_semantic_10_10/best_G_V.pth.tar`，
+SHA-256 `9dd2afe66afedc7ad17b43ebd14bfc2349e519bd74dbc5addacf5fad13434692`。
+其训练 surrogate 是 IDE（ResNet50），不是 IRRA。**该权重未被核实为作者发布的 pretrained；本入口不会将本地复现结果标成作者权重成绩。**
+
+生成过程不使用 caption、person ID、IRRA 特征/梯度/排名、TTA 或任何属性调度。正式模式对有序 test gallery 的 3074 张唯一图片各生成一次，500 和 full 使用同一图库。缓存为原生 float32 adversarial pixels，不经过 JPEG/PNG 量化。IRRA 侧使用 `official_clean384 + bilinear(adv256-clean256)` 后截断到 [0,1]；同时报告原生空间和 384×128 空间的 mean/max L∞。这项扰动坐标适配保留官方干净图像基准，既不把 AP 的 256×128 缩放图当作 IRRA Clean，也不增加攻击预算。
+
+TBPS 评测使用干净文本特征乘图像特征，按 person ID 将图库中所有同 ID 图片视为正样本。实现与 IRRA 官方 `utils/metrics.py::rank` 一致，报告 Clean/Adversarial 的 R@1、R@5、R@10、mAP、mINP，以及单 victim 的 `DR_mAP=(mAP_clean-mAP_adv)/mAP_clean`。主指标单位为百分数，逐查询 AP/INP 和 DR_mAP 是 [0,1] 比例；DR 可以为负值。first-hit rank、ΔRank 及正/零/负比例只作诊断。AP 原论文的 aAP/mDR 是多个图像 ReID victim 的汇总，不能用它或 image-query 协议替代当前 TBPS 评测。[原论文 §4.1、式12–13](https://arxiv.org/html/2502.19697v3#S4.SS1)
+
+以下命令在服务器仓库内执行。只选需要的命令运行，`run --scope 500/full` 会生成完整图库并执行对应正式评测：
+
+```bash
+cd /home/lzf/ldx/projects/idea-TBPS-test1
+export PYTHONPATH=src:.
+PY=/home/lzf/ldx/envs/tbps-image/bin/python
+
+# 小规模 smoke：4 张图库、4 条文本，独立输出到 baseline 目录的 smoke/
+$PY -B scripts/run_ap_duke_irra_baseline.py smoke --smoke-gallery 4 --smoke-queries 4
+
+# 固定 sample500_seed42.json，全部 3074 图库
+$PY -B scripts/run_ap_duke_irra_baseline.py run --scope 500
+
+# 官方全量 6156 文本，全部 3074 图库；共享已生成的对抗图库
+$PY -B scripts/run_ap_duke_irra_baseline.py run --scope full
+
+# 从逐查询结果汇总，不创建模型、不生成攻击
+$PY -B scripts/run_ap_duke_irra_baseline.py summary --scope 500
+$PY -B scripts/run_ap_duke_irra_baseline.py summary --scope full
+
+# 只生成完整对抗图库，不加载 IRRA；然后可分别执行 evaluate --scope 500/full
+$PY -B scripts/run_ap_duke_irra_baseline.py generate
+$PY -B scripts/run_ap_duke_irra_baseline.py status
+```
+
+默认输出：`/home/lzf/ldx/outputs/idea-TBPS-test1/baseline-ap-duke-irra/`。
+
+- `adversarial-gallery/gallery_*.pt`、`progress.pt`、`gallery.json`：原生对抗图库、文件哈希、固定有序路径、推理状态与预算。
+- `irra-gallery.pt`、`irra-queries-{500,full}.pt`：独立的 victim 图像/干净文本特征缓存。
+- `evaluations/{500,full}/per-query.jsonl`、`metadata.json`、`summary.json`：逐查询 AP/INP/rank、生成和评测来源、两套主指标与诊断。
+- `smoke/`：仅用于少量图像和文本的链路验证；不计入正式结果。
+
+缓存严格绑定 checkpoint/source/annotation SHA、图库顺序、实现、精度和生成 batch size，配置改变时拒绝混用。部分 `generate --max-images N` 必须停在固定生成 batch 边界；smoke 自动使用独立的小 batch。正式评测拒绝部分对抗图库。支持 `--g-checkpoint/--g-sha256/--g-origin` 显式指定权重及来源，来源参数本身不证明权重是作者发布。更换权重或生成配置时使用独立 `--output-dir`。
+
+相关测试：
+
+```bash
+TMPDIR=/home/lzf/ldx/tmp PYTHONPATH=src:. OMP_NUM_THREADS=4 \
+  /home/lzf/ldx/envs/tbps-image/bin/python -B -m pytest -q tests/test_ap_duke_irra_baseline.py \
+  --basetemp=/home/lzf/ldx/tmp/pytest-ap-duke-irra
+```
