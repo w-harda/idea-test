@@ -1,0 +1,68 @@
+# AP-Attack CUHK train-only；默认禁止正式训练，选取协议待用户确定。
+schema: 1
+seed: 1234
+workers: 8
+image_size: [256, 128]
+epsilon: 0.03137254901960784
+training_dataset: CUHK-PEDES/train
+surrogate: IDE/ResNet50
+checkpoint_selection:
+  policy: unresolved_camera_aware_reid
+  user_accepted_adaptation: false
+  original_ide: highest source camera-aware clean ReID mAP every 10 epochs
+  original_generator: lowest source camera-aware attacked ReID mAP every 10 epochs
+  missing: CUHK camera IDs and original source query-gallery protocol
+ide:
+  epochs: 50
+  batch_size: 128
+  optimizer: SGD
+  base_lr: 0.01
+  head_lr: 0.1
+  momentum: 0.9
+  weight_decay: 0.0005
+  nesterov: true
+  lr_decay_epoch: 40
+  lr_decay: 0.1
+  loss: CrossEntropy
+  augmentation: original RandomSizedRectCrop + RandomHorizontalFlip
+  normalization: ImageNet
+  save_period: 10
+inversion:
+  epochs: 40
+  generator_input_epoch: 20
+  batch_size: 128
+  optimizer: AdamW
+  lr: 0.005
+  weight_decay: 0.0001
+  warmup_epochs: 10
+  warmup_lr: 0.0002
+  min_lr: 0.0002
+  loss: original bidirectional unnormalized SupCon, temperature=1
+  factor: 0.1
+  factor2: 0.0
+  resize: PIL bilinear
+  augmentation: none
+  normalization: mean/std=0.5
+  save_period: 20
+  frozen_initialization: existing Duke CLIP-ReID ViT-B-16
+  inversion_initialization: fresh original IM2TEXT; no Duke inversion reuse
+generator:
+  epochs: 60
+  batch_size: 48
+  instances_per_identity: 4
+  optimizer: Adam
+  lr: 0.0002
+  betas: [0.5, 0.999]
+  weight_decay: 0
+  scheduler: none
+  architecture: Generator(3,3,32,norm=bn,n_blocks=6,beta=0.1)
+  initialization: fresh original weights_init
+  loss: original adv_TripletLoss
+  reid_weight: 10
+  semantic_weight: 10
+  semantic_reduction: sum of 5 token-space losses
+  margin: 0.3
+  resize: PIL bicubic
+  augmentation: none
+  normalization: mean/std=0.5
+  save_period: 10
