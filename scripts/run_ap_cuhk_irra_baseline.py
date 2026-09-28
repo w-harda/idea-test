@@ -26,6 +26,7 @@ def cuhk_provenance(checkpoint, expected_sha=None):
 
 
 def main():
+    baseline.__doc__ = __doc__
     parser = argparse.ArgumentParser(add_help=False)
     parser.add_argument("--g-checkpoint", type=Path, default=DEFAULT_G)
     parser.add_argument("--g-sha256")
