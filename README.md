@@ -430,3 +430,32 @@ $EVAL_PY -B scripts/run_ap_cuhk_irra_baseline.py run --scope full
 ```
 
 默认正式 G 为 /home/lzf/ldx/outputs/AP-Attack/cuhk_reid_semantic_10_10/G_CUHK_AP.pth.tar，SHA 从相邻 JSON 核验；输出为 /home/lzf/ldx/outputs/idea-TBPS-test1/baseline-ap-cuhk-irra/。两种 scope 均攻击完整 3074 图库并共享缓存，分别使用固定 500 / 全部 6156 条干净文本，输出官方 IRRA Text→Image 的 R@1/5/10、mAP、mINP、DR_mAP 和 rank diagnostics。本阶段只做实现检查与 smoke，不自动启动长训练或最终评测。
+
+## AP-Attack + IRRA image surrogate 基线（Baseline 3）
+
+只将 Baseline 2 的 IDE_CUHK 图像特征分支替换为冻结的官方 IRRA image encoder。原 AP semantic backbone、Inversion_CUHK epoch 20、五组 pseudo tokens、reverse-triplet、10/10 权重、全新 G、CUHK train 图像+PID 与固定 epoch 60 保持不变；不使用 caption、IRRA text encoder 或 retrieval/rank loss。
+
+训练同时取得同一 train 图像的 AP bicubic 256×128 视图和官方 IRRA bilinear 384×128 clean 视图。原 AP G 在 256×128 空间生成并约束 ±8/255 扰动，仅将 native 像素扰动可微双线性 resize 后加到 IRRA clean 视图，再走官方 mean/std 归一化、ViT CLS image embedding 与 L2 normalization。IRRA 参数冻结，但 IRRA loss 到 G 的梯度保持。
+
+```bash
+cd /home/lzf/ldx/projects/idea-TBPS-test1
+export PYTHONPATH=src:.
+PY=/home/lzf/ldx/envs/apattack/bin/python
+EVAL_PY=/home/lzf/ldx/envs/tbps-image/bin/python
+
+$PY -B scripts/train_ap_cuhk_irra_baseline.py plan
+$PY -B scripts/train_ap_cuhk_irra_baseline.py status
+$PY -B scripts/train_ap_cuhk_irra_baseline.py train
+$PY -B scripts/train_ap_cuhk_irra_baseline.py train --resume
+```
+
+正式训练默认输出 /home/lzf/ldx/outputs/AP-Attack/cuhk_irra_semantic_10_10/，最终权重为 G_CUHK_IRRA_AP.pth.tar，固定使用 epoch 60；同目录 JSON 记录权重 SHA、数据/来源/配置/commit。smoke 在该输出根的 smoke/ 隔离，只执行一个真实 G step；不可充当正式权重。本阶段不自动执行 60 epoch 长训练。
+
+训练完成后可独立运行：
+
+```bash
+$EVAL_PY -B scripts/run_ap_cuhk_irra_surrogate_baseline.py run --scope 500
+$EVAL_PY -B scripts/run_ap_cuhk_irra_surrogate_baseline.py run --scope full
+```
+
+评测复用 Baseline 1 的整图库/干净文本协议，输出隔离在 /home/lzf/ldx/outputs/idea-TBPS-test1/baseline-ap-cuhk-irra-surrogate/。

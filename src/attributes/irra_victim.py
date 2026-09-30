@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import hashlib
+import pickle
 import sys
 from pathlib import Path
 from types import SimpleNamespace
@@ -63,7 +64,11 @@ class FrozenIRRA(nn.Module):
         self.tokenizer = SimpleTokenizer()
         self.text_length = 77
         model = build_model(SimpleNamespace(**settings), num_classes=11003)
-        state = torch.load(path, map_location="cpu", weights_only=True)["model"]
+        try:
+            state = torch.load(path, map_location="cpu", weights_only=True)["model"]
+        except (TypeError, pickle.UnpicklingError):
+            # 仅对上方 SHA-256 已核验的固定官方权重兼容旧版 PyTorch。
+            state = torch.load(path, map_location="cpu", weights_only=False)["model"]
         result = model.load_state_dict(state, strict=True)
         if result.missing_keys or result.unexpected_keys:
             raise RuntimeError("IRRA state_dict mismatch")
