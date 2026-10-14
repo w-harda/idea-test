@@ -1,0 +1,108 @@
+# 基于 UPAR 的 13 个属性槽位；upper_clothing_type 为本项目新增槽位。
+# null 表示未知或未提取到；no / no_glasses 表示明确判断为没有。
+schema_version: 1
+name: upar_attribute_space
+slot_count: 13
+null_value: "null"
+slots:
+  - key: age
+    label: Age
+    values:
+      - {key: young, label: Young}
+      - {key: adult, label: Adult}
+      - {key: elderly, label: Elderly}
+      - {key: "null", label: "Null"}
+  - key: gender
+    label: Gender
+    values:
+      - {key: male, label: Male}
+      - {key: female, label: Female}
+      - {key: "null", label: "Null"}
+  - key: hair_length
+    label: Hair length
+    values:
+      - {key: short, label: Short}
+      - {key: long, label: Long}
+      - {key: bald, label: Bald}
+      - {key: "null", label: "Null"}
+  - key: upper_clothing_length
+    label: Upper-body clothing length
+    values:
+      - {key: short, label: Short}
+      - {key: long, label: Long}
+      - {key: "null", label: "Null"}
+  - key: upper_clothing_color
+    label: Upper-body clothing color
+    values:
+      - {key: black, label: Black}
+      - {key: blue, label: Blue}
+      - {key: brown, label: Brown}
+      - {key: green, label: Green}
+      - {key: grey, label: Grey}
+      - {key: orange, label: Orange}
+      - {key: pink, label: Pink}
+      - {key: purple, label: Purple}
+      - {key: red, label: Red}
+      - {key: white, label: White}
+      - {key: yellow, label: Yellow}
+      - {key: "null", label: "Null"}
+  - key: upper_clothing_type
+    label: Upper-body clothing type
+    values:
+      - {key: t_shirt_shirt, label: "T-shirt & Shirt"}
+      - {key: hoodie_sweater, label: "Hoodie & Sweater"}
+      - {key: jacket_coat, label: "Jacket & Coat"}
+      - {key: vest_sleeveless, label: "Vest & Sleeveless"}
+      - {key: "null", label: "Null"}
+  - key: lower_clothing_length
+    label: Lower-body clothing length
+    values:
+      - {key: short, label: Short}
+      - {key: long, label: Long}
+      - {key: "null", label: "Null"}
+  - key: lower_clothing_color
+    label: Lower-body clothing color
+    values:
+      - {key: black, label: Black}
+      - {key: blue, label: Blue}
+      - {key: brown, label: Brown}
+      - {key: green, label: Green}
+      - {key: grey, label: Grey}
+      - {key: orange, label: Orange}
+      - {key: pink, label: Pink}
+      - {key: purple, label: Purple}
+      - {key: red, label: Red}
+      - {key: white, label: White}
+      - {key: yellow, label: Yellow}
+      - {key: "null", label: "Null"}
+  - key: lower_clothing_type
+    label: Lower-body clothing type
+    values:
+      - {key: trousers_shorts, label: "Trousers & Shorts"}
+      - {key: skirt_dress, label: "Skirt & Dress"}
+      - {key: "null", label: "Null"}
+  - key: backpack
+    label: Backpack
+    values:
+      - {key: "yes", label: "Yes"}
+      - {key: "no", label: "No"}
+      - {key: "null", label: "Null"}
+  - key: bag
+    label: Bag
+    values:
+      - {key: "yes", label: "Yes"}
+      - {key: "no", label: "No"}
+      - {key: "null", label: "Null"}
+  - key: glasses
+    label: Glasses
+    values:
+      - {key: normal_glasses, label: Normal glasses}
+      - {key: sunglasses, label: Sunglasses}
+      - {key: no_glasses, label: No glasses}
+      - {key: "null", label: "Null"}
+  - key: hat
+    label: Hat
+    values:
+      - {key: "yes", label: "Yes"}
+      - {key: "no", label: "No"}
+      - {key: "null", label: "Null"}

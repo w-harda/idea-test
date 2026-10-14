@@ -1,0 +1,46 @@
+{
+  "schema": "attribute-image-generator-minimal-1",
+  "seed": 42,
+  "architecture": {
+    "width": 32,
+    "blocks": 6,
+    "condition_hidden": 256,
+    "epsilon": 0.03137254901960784
+  },
+  "preparation": {
+    "train_images": 2048,
+    "validation_images": 128,
+    "caption_rule": "first existing v4-split caption per image; SHA256 deterministic order; no result filtering",
+    "gamma": 3,
+    "beta": 1,
+    "kmax": null,
+    "tau": 0.02
+  },
+  "training": {
+    "epochs": 10,
+    "batch_size": 4,
+    "lr": 0.0002,
+    "betas": [
+      0.5,
+      0.999
+    ],
+    "global_weight": 1,
+    "local_weight": 1,
+    "perturbation_weight": 0.001,
+    "tv_weight": 0.001,
+    "num_workers": 0,
+    "checkpoint_selection": "fixed final epoch; no test selection"
+  },
+  "preprocess": {
+    "image_size": [
+      384,
+      128
+    ],
+    "image_range": [
+      0,
+      1
+    ],
+    "generator_image_normalization": "2*image-1",
+    "surrogate": "official frozen IRRA fp32"
+  }
+}

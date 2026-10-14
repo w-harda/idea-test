@@ -1,0 +1,74 @@
+{
+  "kind": "observed_conditional_repeatability",
+  "caption_id": "cuhk:35:1",
+  "all_repeated_runs": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "conditioned_runs": [
+    3,
+    4,
+    5
+  ],
+  "historical_SHA_certified_reconstruction_run": 3,
+  "excluded_from_gate_calibration": [
+    {
+      "run": 1,
+      "reason": "round1 differs from historical condition; remains reported and rejected"
+    },
+    {
+      "run": 2,
+      "reason": "round1 differs from historical condition; remains reported and rejected"
+    }
+  ],
+  "historical_signature": "a17ab7f2ddfc8706a86e34dcf3fadd81405621ce95744a264baa0baf591e9b1c",
+  "tensor_file": "repeatability_reference_35.pt",
+  "execution_contract": {
+    "steps": 10,
+    "transforms": 6,
+    "scales": [
+      0.5,
+      0.75,
+      1.25,
+      1.5
+    ],
+    "epsilon": 0.03137254901960784,
+    "step_size": 0.00784313725490196,
+    "momentum": 0.9,
+    "seed": 42
+  },
+  "metric_bounds": {
+    "paired_cosine": {
+      "min": 0.29642167687416077,
+      "max": 0.2964329719543457,
+      "max_abs": 1.1295080184936523e-05
+    },
+    "paired_soft_rank_F": {
+      "min": 336.98590087890625,
+      "max": 337.0564880371094,
+      "max_abs": 0.070587158203125
+    }
+  },
+  "image_limits": {
+    "max_abs": 0.0156862735748291,
+    "max_l2": 0.033275611248927014,
+    "max_changed_elements": 9,
+    "min_perturbation_cosine": 0.9999947250336625
+  },
+  "provenance": {
+    "/home/lzf/ldx/projects/idea-TBPS-test1/prototypes/attribute_tta_step732_20261004/outputs/repeatability_35/report.json": "9d63cb050929947faf99b38e1696d86f6a3f231c4a319e87c00f8ab189da563c",
+    "/home/lzf/ldx/projects/idea-TBPS-test1/prototypes/attribute_tta_step732_20261004/outputs/repeatability_35/summary.json": "2cacfdc60dda7de90c8f98b5e2442f5df34a8d4f8f556b11458940e8b60c3907",
+    "/home/lzf/ldx/projects/idea-TBPS-test1/prototypes/attribute_tta_step732_20261004/outputs/repeatability_35/run3_tensors.pt": "cd90716032b5f7c68f115c2a247368abf12f76bea77b84b2b72bf7846bd6689b",
+    "/home/lzf/ldx/projects/idea-TBPS-test1/prototypes/attribute_tta_step732_20261004/outputs/repeatability_35/run4_tensors.pt": "838e45b27c104cc62d0668141cdb821fdbbc82662f5a1e0b2c4f6e9821f39cda",
+    "/home/lzf/ldx/projects/idea-TBPS-test1/prototypes/attribute_tta_step732_20261004/outputs/repeatability_35/run5_tensors.pt": "173dafbc88ac4a6d097fcd33db60b230525b1e89766f921b74be5b5d951000b0",
+    "/home/lzf/ldx/projects/idea-TBPS-test1/prototypes/attribute_tta_step732_20261004/outputs/repeatability_35/run3.json": "bc338a3f672423e7947da41ef709d4760e479920035fbefee94ff419cab397cc",
+    "/home/lzf/ldx/projects/idea-TBPS-test1/prototypes/attribute_tta_step732_20261004/outputs/repeatability_35/run4.json": "64c8602b07baa3957069b66fe014bc5810dea21b394f55a397ed3671d120a4e4",
+    "/home/lzf/ldx/projects/idea-TBPS-test1/prototypes/attribute_tta_step732_20261004/outputs/repeatability_35/run5.json": "164b17b6a06b9a36ac340d1f2a9c8e741994cd6c8bb149b94866a1b1b4255759"
+  },
+  "algorithm_unchanged": true,
+  "no_global_tolerance": true,
+  "limitation": "five repeats do not calibrate other captions; larger early numerical branches remain rejected"
+}

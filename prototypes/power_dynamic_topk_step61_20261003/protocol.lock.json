@@ -1,0 +1,26 @@
+{
+  "source_root": "/home/lzf/ldx/projects/idea-TBPS-test1/prototypes/attribute_importance_step51_20261003/outputs/diagnostic",
+  "input_sha256": {
+    "results.json": "ec7c0036a99bcc129961d630e2e885d7a2f52ef8474c63be9a625ee6f7dea0fc",
+    "protocol.json": "5a76506269f714819b1218bffa4ef373b749b4a962cd3d574497c0af014b8ab6",
+    "audit.json": "583cffe2644a6b86b3ec89d408961a00965cf77efea35bce934f9634bcb8491c",
+    "selection.json": "88759e831890567aac3f7f88d4a20c4e4ada1ee37136468d522044baa15c70e8",
+    "completed.json": "6104256992364f850abe0a2de9f051c98ddc35b35a960b7e54f3cc877760b958"
+  },
+  "gammas": [
+    1.0,
+    1.5,
+    2.0,
+    3.0
+  ],
+  "beta": 1.0,
+  "k_max": 4,
+  "cases_before_selection": {
+    "cuhk:35:1": "sharp saved raw distribution",
+    "cuhk:0:0": "relatively uniform saved raw distribution",
+    "cuhk:61:0": "largest saved candidate count m=7",
+    "cuhk:99:1": "user-required",
+    "cuhk:27:1": "user-required"
+  },
+  "sample_rule": "all original fixed25, no resampling; cases fixed before gamma outputs"
+}

@@ -1,0 +1,99 @@
+{
+  "purpose": "严格回归：只接受未修改旧NEW代码直接复现的已审计参考变体；未知图像变化继续失败",
+  "variants": {
+    "cuhk:21:0": [
+      {
+        "reference_id": "step73-unmodified-NEW-repeat-21-round4",
+        "kind": "verified_unmodified_reference_repeat",
+        "reference": {
+          "fixed_sequence": [
+            "6cd1dc16618d0dd7bb6f4eaa",
+            "03e9c2b91ea5d4ab54a9aab8",
+            "e8e2dce377c1a53c6a96cafd",
+            "a894cbb391c0b7aca6e25b23"
+          ],
+          "random_trace": {
+            "categorical_draw_count": 8629,
+            "categorical_trace_sha256": "db73833ba773b06c7289fce115560a78795e7bbc2c4bddce5bdcbf20194db792"
+          },
+          "noise_sha256": [
+            "7ff0d65a601285339e1f8e43d5f501e96f36a5a957ca9dd9ea25fcce4bb1b8c1",
+            "8fe33637856b5cd76dbbf468cfa5db72cb95bfe6ab46d06b45c4810f42506ba5",
+            "28b523c87b664ef81b8fde3603f0602846047b4158335460d9fdf24c775caf6d",
+            "9efdeac08ead1067e4d1fcb3950f9b3292d66527338a2e32b63d1b421832e6f7"
+          ],
+          "rng_end_sha256": "66073ff98679675e34e022afa476745bb57426259c5afbe3efac1f810d98d33c",
+          "states": [
+            {
+              "state_index": 0,
+              "paired_cosine": 0.5320399403572083,
+              "paired_soft_rank_F": 2.7290520668029785,
+              "positive_image_rank": 2,
+              "positive_image_rank_tie_count": 0
+            },
+            {
+              "state_index": 1,
+              "paired_cosine": 0.16852299869060516,
+              "paired_soft_rank_F": 1471.771240234375,
+              "positive_image_rank": 1319,
+              "positive_image_rank_tie_count": 0
+            },
+            {
+              "state_index": 2,
+              "paired_cosine": 0.04959576576948166,
+              "paired_soft_rank_F": 6065.80810546875,
+              "positive_image_rank": 5827,
+              "positive_image_rank_tie_count": 0
+            },
+            {
+              "state_index": 3,
+              "paired_cosine": 0.07790419459342957,
+              "paired_soft_rank_F": 4562.70556640625,
+              "positive_image_rank": 4333,
+              "positive_image_rank_tie_count": 0
+            },
+            {
+              "state_index": 4,
+              "paired_cosine": 0.22807812690734863,
+              "paired_soft_rank_F": 550.0396728515625,
+              "positive_image_rank": 456,
+              "positive_image_rank_tie_count": 0
+            }
+          ],
+          "rounds": [
+            {
+              "post_projection_image_sha256": "5567e4d22340e40b78a7d9fa0b80b142506c617516a4aff6d262bda59fd215a8"
+            },
+            {
+              "post_projection_image_sha256": "bf6f8db19788c5994905051f1f58b2ab8f8c41edee93b7b59e041c5f8384c4b6"
+            },
+            {
+              "post_projection_image_sha256": "c6c747b608384673b3413899c720ed13fa727583269aa022a64b3cf3dd874dca"
+            },
+            {
+              "post_projection_image_sha256": "c74ba0e7264dce7d3c129aa724fffda79dcb0f8d69a83286df6033a29376ce0e"
+            }
+          ]
+        },
+        "provenance": {
+          "report": "/home/lzf/ldx/projects/idea-TBPS-test1/prototypes/attribute_tta_step732_20261004/outputs/regression_live_old_21/report.json",
+          "report_sha256": "ae3ef287dccc4e66aa812262b59bfee0855662123c99bc845182aeb89fce2f23",
+          "tensor_artifact": "/home/lzf/ldx/projects/idea-TBPS-test1/prototypes/attribute_tta_step732_20261004/outputs/regression_live_old_21/tensors.pt",
+          "tensor_artifact_sha256": "dda83ad1de474c241761931ad136cf873af4a525c9ec5c6adb9f194363ffe5a5",
+          "old_source": "/home/lzf/ldx/projects/idea-TBPS-test1/prototypes/attribute_tta_step73_20261004/controlled_tta.py",
+          "old_source_sha256": "cace0619fd91a75869a99b3d3db5ef2fb1ddffba7559e1cf11b612698a5d71ed",
+          "old_history": "/home/lzf/ldx/projects/idea-TBPS-test1/prototypes/attribute_tta_step73_20261004/outputs/diagnostic/results.json",
+          "old_history_sha256": "d8ac54a4d45761596f4b403cdd60c1e7f72d82825954c9022b12c54dab12bf9d",
+          "image_difference_to_historical": {
+            "max_abs": 0.00784313678741455,
+            "l2": 0.00784313678741455,
+            "relative_l2": 5.8166202149837504e-05,
+            "different_elements": 1,
+            "existing_fp32_allclose": false
+          },
+          "no_prefix_attack_or_method_change": true
+        }
+      }
+    ]
+  }
+}

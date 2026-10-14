@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tbps-text-attributes"
+version = "0.1.0"
+description = "TBPS 文本属性提取"
+requires-python = ">=3.10"
+dependencies = ["PyYAML>=6,<7"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7,<9"]
+image = [
+    "numpy>=1.24,<2",
+    "Pillow>=10,<12",
+    "einops>=0.7,<1",
+    "timm==0.9.8",
+    "opencv-python-headless==4.8.1.78",
+]
+attack = [
+    "kornia==0.7.3",
+    "numpy>=1.24,<2",
+    "Pillow>=10,<12",
+    "openai-clip==1.0.1",
+]
+attack-full = [
+    "gensim==4.3.3",
+    "scipy>=1.13,<1.14",
+    "transformers==4.44.2",
+    "huggingface-hub>=0.34,<1",
+]
+train = [
+    "torch>=2.5,<3",
+    "openai-clip==1.0.1",
+    "setuptools>=68,<81",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

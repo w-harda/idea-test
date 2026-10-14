@@ -1,0 +1,26 @@
+schema: 1
+training_dataset: CUHK-PEDES/train
+training_surrogate: IRRA image encoder
+semantic_source: Baseline 2 Inversion_CUHK epoch 20
+seed: 1234
+workers: 8
+generator:
+  epochs: 60
+  batch_size: 48
+  instances_per_identity: 4
+  architecture: Generator(3,3,32,norm=bn,n_blocks=6,beta=0.1)
+  initialization: fresh original weights_init
+  optimizer: Adam
+  lr: 0.0002
+  betas: [0.5, 0.999]
+  weight_decay: 0
+  epsilon: 0.03137254901960784
+  loss: original adv_TripletLoss
+  margin: 0.3
+  irra_weight: 10
+  semantic_weight: 10
+  semantic_reduction: sum of 5 token-space losses
+  native_resize: PIL bicubic 256x128
+  victim_resize: PIL bilinear clean 384x128 + differentiable bilinear native delta
+  validation: none
+  checkpoint_selection: fixed_final_epoch_60
