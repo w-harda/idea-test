@@ -1,5 +1,5 @@
 """独立不可变Epoch checkpoint；SHA/fsync/原子发布，拒绝损坏，不支持step恢复。"""
-import os,random,uuid,sys
+import os,random,uuid,sys,json
 from pathlib import Path
 import numpy as np
 import torch
@@ -41,6 +41,31 @@ def save_epoch(output,generator,optimizer,epoch,contract,progress):
     io.save_json(out/"current.json",{"version":str(final),"epoch":epoch,"sha256":sha})
     return final
 
+def verify_associated_logs(progress,require=False):
+    """在恢复任何状态前验证日志；正式Epoch必须具备样本日志。"""
+    keys=("sample_log_path","sample_log_sha256")
+    if not all(k in progress for k in keys):
+        if require or any(k in progress for k in (*keys,"sample_logs","samples")):
+            raise ValueError("checkpoint missing associated sample log")
+        return
+    path=io.safe(progress["sample_log_path"])
+    try:
+        io.verify({str(path):progress["sample_log_sha256"]})
+        rows=[json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()]
+    except OSError as exc:
+        raise ValueError("checkpoint sample log missing/unreadable") from exc
+    if (len(rows)!=progress["samples"] or io.digest(rows)!=io.digest(progress["sample_logs"])
+        or [r["row_id"] for r in rows]!=progress["sample_order"]
+        or [r["sample_position"] for r in rows]!=list(range(1,len(rows)+1))
+        or any(r["epoch"]!=progress["epoch"] or r["role"]!="train"
+               or r["optimizer_steps"]!=r["K"]+1 or len(r["rounds"])!=r["K"]+1 for r in rows)
+        or sum(r["optimizer_steps"] for r in rows)!=progress["optimizer_steps"]):
+        raise ValueError("checkpoint sample log/progress mismatch")
+    for name,sha in progress.get("supplementary_log_sha256",{}).items():
+        path=io.safe(name)
+        try:io.verify({str(path):sha})
+        except OSError as exc:raise ValueError("checkpoint supplementary log missing/unreadable") from exc
+
 def verify_version(version,contract):
     p=Path(version);side=io.load(p/"checkpoint.json")
     io.verify({str(p/"checkpoint.pt"):side["sha256"]})
@@ -52,6 +77,7 @@ def verify_version(version,contract):
         raise ValueError("checkpoint payload/sidecar mismatch")
     if p.name.startswith("epoch_") and p.name!=f"epoch_{value['completed_epoch']:04d}":
         raise ValueError("checkpoint directory/epoch mismatch")
+    verify_associated_logs(value["progress"],require=contract.get("config",{}).get("scope")=="formal")
     return value
 
 def load_latest(output,contract,generator,optimizer):

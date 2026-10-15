@@ -1,0 +1,42 @@
+{
+  "schema": "gv2-epoch-config-1",
+  "scope": "formal",
+  "epochs": 10,
+  "seed": 42,
+  "device": "cuda",
+  "architecture": {
+    "width": 32,
+    "blocks": 4,
+    "epsilon": 0.03137254901960784
+  },
+  "optimizer": {
+    "lr": 0.0002,
+    "betas": [
+      0.5,
+      0.999
+    ]
+  },
+  "weights": {
+    "lambda_global": 1.0,
+    "lambda_local": 1.0,
+    "lambda_retain": 1.0
+  },
+  "data": {
+    "train": 2048,
+    "validation": 128,
+    "manifest_sha256": "506caf30b8f82b8a29fc35e06df7bb04a5b2bcddc58a1f159b524bb107e7511e",
+    "protocol_sha256": "9ad4903a6de6dc221df1a15af48d9e63e6332d7fcd3a9a62ecd3f11a2ed91c9d"
+  },
+  "surrogate": {
+    "name": "official IRRA",
+    "checkpoint_sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009",
+    "precision": "fp32",
+    "frozen": true
+  },
+  "algorithm": "A",
+  "budget_epsilon": 0.03137254901960784,
+  "entry_source_sha256": {
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/phase26_train.py": "c6e72b9e959cd3cda3268a4f4188272f3c267e073d021f2b3dc59f679939a0ba",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/phase26_support.py": "696876d2789100ebc0207378b4a615cd7da8dff550a80e00d3bc5634a97cc9fe"
+  }
+}
