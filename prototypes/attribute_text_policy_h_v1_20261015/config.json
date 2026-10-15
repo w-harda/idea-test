@@ -1,0 +1,37 @@
+{
+  "schema": "h-v1-constrained-scst-phase1",
+  "policy": {
+    "width": 64,
+    "layers": 2,
+    "heads": 4,
+    "max_bytes": 1024,
+    "dropout": 0,
+    "input": "caption UTF-8 bytes + caption-only canonical/type/source spans"
+  },
+  "selection": {
+    "importance": "H-predicted softplus logits; no paired S_raw at inference",
+    "gamma": 3,
+    "beta": 1,
+    "cap": null,
+    "training": "masked without-replacement sampling plus STOP",
+    "inference": "masked greedy ranking plus STOP"
+  },
+  "editing": {
+    "per_attribute": 1,
+    "per_shared_word": 1,
+    "budget": "at most predicted natural K",
+    "allow_noop": true,
+    "unicode_whitelist": "constraints.CONFUSABLES",
+    "require_model_token_change": true,
+    "allow_truncation": false
+  },
+  "reward": {
+    "lambda_sim": 1,
+    "lambda_rank": 1,
+    "margin": "max same-PID positive similarity - max negative similarity",
+    "synergy": "record adv_sim_drop - clean_sim_drop; no additional objective"
+  },
+  "training": "synthetic CPU tests only; no real trainer/epoch runner",
+  "attack": "untargeted",
+  "seed": 42
+}
