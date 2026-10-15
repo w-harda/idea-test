@@ -9,6 +9,7 @@ from eval_protocol import preflight,read_reference,authorize
 from eval_storage import *
 from eval_metrics import metrics,check_clean,drops,normalized
 from eval_backend import RealBackend,ForwardBudget
+from eval_compat import verify_sources,prepare_compatibility_record
 
 class SafeStop(Exception):pass
 class SignalBoundary:
@@ -23,12 +24,14 @@ class SignalBoundary:
  def __exit__(self,*args):
   for sig,handler in self.old.items():signal.signal(sig,handler)
 
-def evaluate_cached(protocol,out,reference,write=True):
- text,ts,locks=gather(out,"text",protocol,protocol["queries"],protocol["text_batch"])
+def evaluate_cached(protocol,out,reference,write=True,check_stop=None):
+ text,ts,locks=gather(out,"text",protocol,protocol["queries"],protocol["text_batch"],check_stop=check_stop)
  results={};group_stats={}
  for family in GROUPS:
-  features,stats,files=gather(out,family,protocol,protocol["gallery"],protocol["image_batch"]);locks.update(files)
+  features,stats,files=gather(out,family,protocol,protocol["gallery"],protocol["image_batch"],check_stop=check_stop);locks.update(files)
+  if check_stop is not None:check_stop()
   result,sim=metrics(text,features,[q["pid"] for q in protocol["queries"]],[g["pid"] for g in protocol["gallery"]])
+  if check_stop is not None:check_stop()
   if family=="clean":
    expected=protocol["expected_full_clean"] if protocol["mode"]=="full" else metrics(reference[1],reference[0],
     [q["pid"] for q in protocol["queries"]],[g["pid"] for g in protocol["gallery"]])[0]
@@ -54,12 +57,14 @@ def evaluate_cached(protocol,out,reference,write=True):
  return summary
 
 @torch.inference_mode()
-def run_pipeline(protocol,out,backend_factory=RealBackend,reference=None,stop=None):
+def run_pipeline(protocol,out,backend_factory=RealBackend,reference=None,stop=None,storage_fix_compat=False):
  out=safe(out);started=time.perf_counter();budget=ForwardBudget(protocol["gallery_count"],protocol["query_count"])
  reference=read_reference(protocol) if reference is None else reference
  backend=None;context={};files={}
  if stop is None:stop=SignalBoundary()
  with io.output_lock(out):
+  verify_sources(protocol,out,storage_fix_compat)
+  producer=prepare_compatibility_record(protocol,out) if storage_fix_compat else None
   if (out/"protocol.json").exists():
    if io.digest(io.load(out/"protocol.json"))!=io.digest(protocol):raise ValueError("output evaluation protocol changed")
   else:io.save_json(out/"protocol.json",protocol)
@@ -77,7 +82,7 @@ def run_pipeline(protocol,out,backend_factory=RealBackend,reference=None,stop=No
     for index,part in shards(rows,size):
      context={"family":family,"batch_index":index}
      stop.check()
-     saved=load_unit(out,family,index,protocol,part)
+     saved=load_unit(out,family,index,protocol,part,check_stop=stop.check)
      if saved is not None:continue
      begin_unit(out,family,index)
      if protocol["reuse_clean_reference"] and family in ("text","clean"):
@@ -92,13 +97,15 @@ def run_pipeline(protocol,out,backend_factory=RealBackend,reference=None,stop=No
        error=float((feature-ref).abs().max())
        if error>FEATURE_ATOL:raise ValueError("fresh clean/text feature mismatch; never relax tolerance")
        stats["fresh_reference_max_abs"]=error
-     publish(out,family,index,protocol,part,feature,stats)
+     publish(out,family,index,protocol,part,feature,stats,producer=producer)
      print("FEATURE_COMPLETE",family,min((index+1)*size,len(rows)),"/",len(rows),flush=True)
      stop.check()
     if family=="clean":
-     text,_,_=gather(out,"text",protocol,protocol["queries"],protocol["text_batch"])
-     clean,_,_=gather(out,"clean",protocol,protocol["gallery"],protocol["image_batch"])
+     text,_,_=gather(out,"text",protocol,protocol["queries"],protocol["text_batch"],check_stop=stop.check)
+     clean,_,_=gather(out,"clean",protocol,protocol["gallery"],protocol["image_batch"],check_stop=stop.check)
+     stop.check()
      actual,_=metrics(text,clean,[q["pid"] for q in protocol["queries"]],[g["pid"] for g in protocol["gallery"]])
+     stop.check()
      expected=protocol["expected_full_clean"] if protocol["mode"]=="full" else metrics(reference[1],reference[0],
       [q["pid"] for q in protocol["queries"]],[g["pid"] for g in protocol["gallery"]])[0]
      try:errors=check_clean(actual,expected)
@@ -106,8 +113,8 @@ def run_pipeline(protocol,out,backend_factory=RealBackend,reference=None,stop=No
       io.save_json(out/"clean_mismatch.json",{"actual":actual,"expected":expected,"error":str(exc)});raise
      io.save_json(out/"clean_verified.json",{"errors":errors,"passed":True})
    resources=backend.finish() if backend is not None else {"no_model_required":True}
-   summary=evaluate_cached(protocol,out,reference)
-   io.verify(protocol["source_sha256"])
+   summary=evaluate_cached(protocol,out,reference,check_stop=stop.check)
+   verify_sources(protocol,out,storage_fix_compat)
    io.save_json(attempt/"execution.json",{"seconds":time.perf_counter()-started,"samples":budget.samples,"calls":budget.calls,"resources":resources})
    io.save_json(out/"completed.json",{"method_audit_passed":True,"summary_sha256":io.sha(out/"summary.json"),
     "protocol_sha256":io.digest(protocol),"attempt":str(attempt)})
@@ -131,6 +138,7 @@ def parser():
  p.add_argument("--output",type=Path,default=EVAL_OUTPUTS/"smoke10")
  p.add_argument("--image-batch",type=int,default=1);p.add_argument("--text-batch",type=int,default=1)
  p.add_argument("--reuse-clean-reference",action="store_true")
+ p.add_argument("--allow-storage-fix-compat",action="store_true",help="仅恢复此次锁定Full协议；保留旧证据并核验限定源码修复")
  p.add_argument("--user-run-100",action="store_true");p.add_argument("--user-run-full",action="store_true")
  return p
 def main(argv=None):
@@ -145,11 +153,11 @@ def main(argv=None):
   io.verify({str(safe(a.output)/"summary.json"):done["summary_sha256"]})
   with torch.inference_mode():summary=evaluate_cached(protocol,safe(a.output),read_reference(protocol),write=False)
   if io.digest(summary)!=io.digest(io.load(safe(a.output)/"summary.json")):raise ValueError("cached result metric mismatch")
-  io.verify(protocol["source_sha256"]);print("CPU_CACHE_AUDIT",summary["groups"]);return
+  verify_sources(protocol,safe(a.output),a.allow_storage_fix_compat);print("CPU_CACHE_AUDIT",summary["groups"]);return
  with SignalBoundary() as stop,ExitStack() as stack:
   for name in ("backward",):stack.enter_context(patch.object(torch.Tensor,name,side_effect=AssertionError("inference backward forbidden")))
   stack.enter_context(patch.object(torch.autograd,"grad",side_effect=AssertionError("no scoring/JVP")))
   stack.enter_context(patch.object(torch.optim.Optimizer,"__init__",side_effect=AssertionError("no optimizer")))
-  try:run_pipeline(protocol,a.output,stop=stop)
+  try:run_pipeline(protocol,a.output,stop=stop,storage_fix_compat=a.allow_storage_fix_compat)
   except SafeStop:print("SAFE_STOP; resume same exact command/output",flush=True)
 if __name__=="__main__":main()

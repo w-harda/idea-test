@@ -1,0 +1,24 @@
+{
+  "schema": "gv2-storage-fix-release-1",
+  "baseline_commit": "ab3de99a7209923cba23a5ed9f5fc017f70f3d2f",
+  "legacy_protocol_sha256": "1aceae9a0452faea888a2656d318d9084ae0048251fa1cdb084fb47cc8ae721d",
+  "legacy_protocol_file_sha256": "13f8287da3324c578198437a9e8c7d4501f6c2619b741db5f9636804c2aa55dc",
+  "modified_sources": {
+    "prototypes/attribute_image_generator_v2_20261014/evaluation_phase29a/eval_storage.py": {
+      "old_sha256": "01a631618d015ec20b77a4089f1cbf988a5edcf6e67b3b873c2052bbc373e338",
+      "new_sha256": "d0fec1004e552e0a49e0ea550a240ccbd9dfd3ad33a436774d6051710baabeef"
+    },
+    "prototypes/attribute_image_generator_v2_20261014/evaluation_phase29a/eval_protocol.py": {
+      "old_sha256": "1f42c285db35f7dd34e403e2ee7974717ea2886aaa3efb8a835dde8336c3cc2a",
+      "new_sha256": "91fd007367d57c8e66512ebeda0a48d839a90ab3803305df3220a7c08ba43da5"
+    },
+    "prototypes/attribute_image_generator_v2_20261014/evaluation_phase29a/evaluate.py": {
+      "old_sha256": "807acb673351d638dea96045d2c37f955d3f154e775c26065c62c20f5ec1f06a",
+      "new_sha256": "3b359bcc272a2b0ebaec5dfc084b0156215c667c6695592785526c5413a2e8a8"
+    }
+  },
+  "added_sources": {
+    "prototypes/attribute_image_generator_v2_20261014/evaluation_phase29a/eval_compat.py": "d23574cbabf5b35c9673279d5a4cb65e4b701b32d5f53fd00df0ecd9c715bd9a",
+    "prototypes/attribute_image_generator_v2_20261014/evaluation_phase29a/test_storage_fix.py": "935f856a88c9e394add0afc2f202262ef67d9a1ab0a121b7ea4de559ea44ac3f"
+  }
+}

@@ -104,3 +104,68 @@ sha256sum /home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes
 仅一次10+10真实GPU链路：5 PID、每PID2个正例。Text10，Clean/epoch1/epoch3/epoch10各10张IRRA图像编码；三个G各10次，合计G30、IRRA图像40、文本10。11.6636秒（不含外层preflight），peak allocated795.328MiB/reserved874MiB；最大L∞0.0313725471496582≤8/255，所有特征有限/归一化，IRRA/G完整状态SHA保持。
 
 fresh Clean图像与历史参考差0，Text最大差1.75088644e-7；小样本四组五项指标均100%、下降率0，不能据此判断攻击有效或无效。479项来源SHA核验，完成态CPU禁模型/CUDA重入以及只读审计通过，100个缓存文件SHA/mtime保持。GPU已退出，无100+100/Full执行、无重训练/评分/JVP，等待独立审查。详细报告见仓库docs/stages/09_2_9A_gv2_official_test_smoke.md。
+
+
+## Phase 2.9C Storage修复与原地恢复（2026-10-15）
+
+6156条Text/3074条Clean复用缓存曾保存切片背后的完整Storage，导致磁盘约90.3GiB及gather内存膨胀。本次publish与load_unit均显式clone；不改变特征数值、官方IRRA指标、G、Checkpoint、攻击算法或预处理。
+
+原Full输出可原地恢复，不删除/重写旧缓存、metadata、protocol、SHA或回执；旧PID3354580已退出，当前没有Epoch1/3/10缓存或回执，也没有pending批次。无需人工清理。旧文件仍较大，保留其I/O成本。
+
+必须显式传入`--allow-storage-fix-compat`。兼容范围仅原`outputs/evaluation_phase29a/full/`及固定原协议摘要；仅允许storage/evaluate/protocol三个文件的精确修复SHA与新增compat/tests/清单。修复清单及代码必须与已提交Git HEAD一致，旧代码SHA须能从基准ab3de99恢复验证；其余全部原来源、Checkpoint、样本和参数继续严格检查。新参数不写入旧protocol，不允许其他协议/输出目录混用或任意来源变化。
+
+用户启动恢复后，在原输出下新增不可变storage_fix_compatibility_record.json，绑定原协议SHA、修复清单、补丁来源及发布Commit；后续新缓存metadata绑定此记录，旧metadata保持不变。修复前Smoke/100输出也保持不变，此兼容参数不扩大到这些历史scope。
+
+本轮357CPU tests通过（28新增+40评测回归+289历史）；只读抽查旧Text/Clean各1条，clone后Storage均2048字节、特征逐值exact、原SHA/mtime exact。没有运行Full、100+100、GPU Smoke、模型推理或重新编码，也没有创建Full兼容记录；记录只在用户手动恢复时创建。
+
+### 用户手动CPU Preflight
+
+只核对来源与兼容性，不编码、不计算Full检索指标。新发布Commit须已在当前服务器工作树，不能先在未提交补丁上运行。
+
+```bash
+cd /home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/evaluation_phase29a
+env PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 CUDA_VISIBLE_DEVICES="" CUDA_CACHE_PATH=/home/lzf/ldx/cache/cuda XDG_CACHE_HOME=/home/lzf/ldx/cache/xdg TORCH_HOME=/home/lzf/ldx/cache/torch /home/lzf/ldx/envs/tbps-image/bin/python -u evaluate.py \
+  --action preflight --mode full --gallery-count 3074 --query-count 6156 --image-batch 1 --text-batch 1 \
+  --checkpoint1 /home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/train_v2/checkpoints/epoch_0001/checkpoint.pt \
+  --checkpoint3 /home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/train_v2/checkpoints/epoch_0003/checkpoint.pt \
+  --checkpoint10 /home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/train_v2/checkpoints/epoch_0010/checkpoint.pt \
+  --output /home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/evaluation_phase29a/full \
+  --user-run-full --reuse-clean-reference --allow-storage-fix-compat \
+  > /home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/phase29c_full_preflight.log 2>&1
+```
+
+### 用户手动原地恢复Full
+
+```bash
+cd /home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/evaluation_phase29a
+env PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 CUDA_VISIBLE_DEVICES=0 CUDA_CACHE_PATH=/home/lzf/ldx/cache/cuda XDG_CACHE_HOME=/home/lzf/ldx/cache/xdg TORCH_HOME=/home/lzf/ldx/cache/torch /home/lzf/ldx/envs/tbps-image/bin/python -u evaluate.py \
+  --action run --mode full --gallery-count 3074 --query-count 6156 --image-batch 1 --text-batch 1 \
+  --checkpoint1 /home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/train_v2/checkpoints/epoch_0001/checkpoint.pt \
+  --checkpoint3 /home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/train_v2/checkpoints/epoch_0003/checkpoint.pt \
+  --checkpoint10 /home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/train_v2/checkpoints/epoch_0010/checkpoint.pt \
+  --output /home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/evaluation_phase29a/full \
+  --user-run-full --reuse-clean-reference --allow-storage-fix-compat \
+  > /home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/phase29c_full_resume.log 2>&1
+```
+
+### 进度与停止
+
+```bash
+tail -f /home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/phase29c_full_resume.log
+```
+
+旧Text/Clean加载与SHA检查仍有较多磁盘I/O，期间未必有FEATURE_COMPLETE输出；不能仅凭暂时无日志判断内存问题复发。新停止检查覆盖逐条load/gather、拼接和指标阶段边界；Ctrl-C/SIGTERM会在检查点停止，仍不承诺中断正在执行的单个torch.load、hash或官方rank操作。保持输出、batch、参数原样，再执行同一命令恢复。新日志不会覆盖旧phase29a_full_run.log。
+
+### 用户完成后CPU审计
+
+```bash
+cd /home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/evaluation_phase29a
+env PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 CUDA_VISIBLE_DEVICES="" CUDA_CACHE_PATH=/home/lzf/ldx/cache/cuda XDG_CACHE_HOME=/home/lzf/ldx/cache/xdg TORCH_HOME=/home/lzf/ldx/cache/torch /home/lzf/ldx/envs/tbps-image/bin/python -u evaluate.py \
+  --action audit --mode full --gallery-count 3074 --query-count 6156 --image-batch 1 --text-batch 1 \
+  --checkpoint1 /home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/train_v2/checkpoints/epoch_0001/checkpoint.pt \
+  --checkpoint3 /home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/train_v2/checkpoints/epoch_0003/checkpoint.pt \
+  --checkpoint10 /home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/train_v2/checkpoints/epoch_0010/checkpoint.pt \
+  --output /home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/evaluation_phase29a/full \
+  --user-run-full --reuse-clean-reference --allow-storage-fix-compat \
+  > /home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/phase29c_full_audit.log 2>&1
+```

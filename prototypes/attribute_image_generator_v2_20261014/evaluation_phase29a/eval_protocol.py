@@ -8,6 +8,7 @@ from eval_common import *
 from eval_metrics import normalized
 import epoch_checkpoint as ck
 import irra_image_adapter as adapter
+from eval_compat import accept_legacy_protocol
 def authorize(mode,action,gallery_count,query_count,user100=False,userfull=False):
  sizes={"smoke":(10,10),"diagnostic100":(100,100),"full":(3074,6156)}
  if mode not in sizes or (gallery_count,query_count)!=sizes[mode]:raise ValueError("fixed mode sample limits")
@@ -97,7 +98,7 @@ def preflight(args):
   adapter.CLIP_CACHE/"ViT-B-16.pt",OFFICIAL/"data/bpe_simple_vocab_16e6.txt.gz",RAW,
   ROOT/"outputs/phase28/completed.json",ROOT/"outputs/phase28/summary.json",ROOT/"config_phase26.json",TRAIN/"training_protocol.json",
   ROOT/"image_only_generator.py",ROOT/"budget_projection.py",ROOT/"inference_once.py",ROOT/"irra_image_adapter.py",
-  *HERE.glob("*.py"),*[REFERENCE/n for n in REF_SHA]]})
+  *HERE.glob("*.py"),HERE/"storage_fix_compatibility.json",*[REFERENCE/n for n in REF_SHA]]})
  io.verify(locks)
  gs,qs=(gallery,queries) if args.mode=="full" else subset(gallery,queries,args.gallery_count,42)
  locks.update({str(IMAGES/g["image"]):g["image_sha256"] for g in gs})
@@ -116,8 +117,11 @@ def preflight(args):
    "packages":{name:version(name) for name in ("torchvision","numpy","ftfy","regex","prettytable","easydict")}}}
  if type(args.image_batch) is not int or not 1<=args.image_batch<=32 or not 1<=args.text_batch<=128:
   raise ValueError("invalid bounded batch sizes")
+ if getattr(args,"allow_storage_fix_compat",False):
+  if not (output/"protocol.json").exists():raise ValueError("storage fix requires the existing locked Full protocol")
+  return accept_legacy_protocol(io.load(output/"protocol.json"),protocol,output)
  if (output/"protocol.json").exists() and io.digest(io.load(output/"protocol.json"))!=io.digest(protocol):
-  raise ValueError("output protocol/source/checkpoint changed")
+  raise ValueError("output protocol/source/checkpoint changed; locked Full repair requires --allow-storage-fix-compat")
  return protocol
 def read_reference(protocol):
  v=torch.load(REFERENCE/"clean_features.pt",map_location="cpu",weights_only=True)
