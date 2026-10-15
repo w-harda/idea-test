@@ -1,0 +1,20 @@
+{
+  "schema": "hv1-phase2-caption-frontends-reward-interfaces-1",
+  "frontend_sources": {
+    "src/attributes/text_extractor.py": "47deccbf7c86ac6d2d6000ecb7997b8f7f2aff0ebb3c96b814e1cd7c665253b3",
+    "ontology/upar_attribute_space.yaml": "e1f69deffa25842d44f84314696d72bf4fa8b201eff276d6cdc54a42ac823773",
+    "ontology/alias_map.yaml": "f1d2150387a33ec1f0286ee636ca35d2f94b8d9a13c0b996f5fa28be06759663",
+    "prototypes/attribute_unit_v55_interface_20261003/attribute_interface.py": "5ec8d0c9e941b9583deae721ce59c9ba9cf2fa8045fc4f3e041b6b59cf0fdcca",
+    "prototypes/attribute_unit_v54_axis_audit_20261003/axis_audit.py": "ea0481121d004ab059c8656451aa224a55c423a755098cc372cdf763f320d287",
+    "prototypes/attribute_unit_v53_factorized_ontology_20261003/factorized.py": "579d5c71d8d511048ab834925508ec1f9810b3dd22b927a338a37f29e3efdec7"
+  },
+  "cpu_caption_inspection_limit": 16,
+  "seed": 42,
+  "reward_weights": {
+    "lambda_sim": 1.0,
+    "lambda_rank": 1.0
+  },
+  "reward_margin": "best same-PID positive minus maximum negative; unchanged",
+  "real_model_execution_allowed": false,
+  "mock_cache_only": true
+}
