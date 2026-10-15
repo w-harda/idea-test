@@ -1,0 +1,290 @@
+"""受控恢复Epoch4–10；原配置和训练契约不变，默认仅CPU预检。"""
+import argparse,json,os,subprocess,threading,time,traceback,uuid
+from pathlib import Path
+from unittest.mock import patch
+import torch
+import cache_io as io
+import epoch_training as et
+import epoch_checkpoint as ck
+import irra_image_adapter as adapter
+import phase26_train as p26
+from phase26_support import state_hash
+from phase28_analysis import analyze,audit_epoch,validation_comparison,scalar_only,published_epochs,inference_check
+from image_only_generator import ImageOnlyGenerator
+from budget_projection import DEFAULT_EPSILON
+from training_data import checked_cache,make_loader
+
+CACHE=p26.CACHE;OUTPUT=p26.OUTPUT;STAGE=io.OUTPUTS/"phase28"
+EPOCH3_SHA="a42a6dc0fcae269ee2e8efd379b4a3f3c947f22c50181a56d15acf82a8450d02"
+CONFIG_SHA="7e87bd272abfee440afc13109d439507a34b140506a19a132a8f740afe093bc4"
+
+def launch_remaining(runner,cache,output,config,last_completed=3,**kwargs):
+    if config["epochs"]!=10 or type(last_completed) is not int or not 3<=last_completed<10:
+        raise ValueError("target10 and completed Epoch3–9 required")
+    return runner(cache,output,config,resume=True,stop_after_epochs=10-last_completed,**kwargs)
+
+def adam_steps(opt):
+    return sorted({int(s["step"]) for s in opt.state.values()})
+
+def assert_restored(g,opt,value,expected_epoch):
+    if (value["completed_epoch"]!=expected_epoch or value["next_epoch"]!=expected_epoch+1
+        or state_hash(g.state_dict())!=state_hash(value["generator"])
+        or state_hash(opt.state_dict())!=state_hash(value["optimizer"])
+        or state_hash(ck.rng_state())!=state_hash(value["rng"])
+        or adam_steps(opt)!=[expected_epoch*8068]):
+        raise ValueError("G/Adam/RNG boundary restore mismatch")
+
+def preflight():
+    config,m=p26.preflight()
+    io.verify({str(p26.CONFIG):CONFIG_SHA,str(OUTPUT/"frozen_config.json"):CONFIG_SHA,
+               str(OUTPUT/"checkpoints/epoch_0003/checkpoint.pt"):EPOCH3_SHA})
+    contract=et.contract_for(m,CACHE,config)
+    if io.digest(contract)!=io.digest(io.load(OUTPUT/"training_protocol.json")):
+        raise ValueError("original formal training contract mismatch")
+    io.verify(contract["training_source_sha256"]);io.verify(config["entry_source_sha256"])
+    for epoch in published_epochs(OUTPUT):
+        value=ck.verify_version(OUTPUT/"checkpoints"/f"epoch_{epoch:04d}",contract)
+        if (value["next_epoch"]!=epoch+1 or
+            sorted({int(s["step"]) for s in value["optimizer"]["state"].values()})!=[epoch*8068]):
+            raise ValueError("next_epoch/Adam state mismatch")
+    if STAGE.exists():
+        io.verify(io.load(STAGE/"protected_sources.json"))
+        io.verify(io.load(STAGE/"execution_protocol.json")["new_source_sha256"])
+    return config,m,value
+
+def protected_sources():
+    repo=io.ROOT.parent.parent
+    names=subprocess.check_output(["git","ls-files","-z"],cwd=repo).decode().split("\0")
+    paths=[repo/n for n in names if n and (repo/n).is_file()]
+    result=io.load(io.OUTPUTS/"phase27/protected_sources.json")
+    for epoch in (1,2,3):
+        version=OUTPUT/"checkpoints"/f"epoch_{epoch:04d}"
+        value=ck.verify_version(version,io.load(OUTPUT/"training_protocol.json"))
+        paths.extend(version.iterdir())
+        paths.append(Path(value["progress"]["sample_log_path"]))
+        paths.extend(Path(p) for p in value["progress"]["supplementary_log_sha256"])
+        del value
+    result.update({str(p):io.sha(p) for p in paths})
+    return result
+
+def run(*,resume_phase28=False):
+    config,m,previous=preflight();last_completed=previous["completed_epoch"]
+    if last_completed==10:raise ValueError("Epoch10 already complete; use CPU audit only")
+    if STAGE.exists() and not resume_phase28:raise ValueError("existing Phase28 evidence requires explicit --resume-phase28")
+    if not STAGE.exists():
+        if resume_phase28 or last_completed!=3:raise ValueError("new Phase28 must start from Epoch3")
+        STAGE.mkdir();io.save_json(STAGE/"protected_sources.json",protected_sources())
+        io.save_json(STAGE/"execution_protocol.json",{
+            "start_epoch":4,"last_authorized_epoch":10,"persistent_target":10,"original_epoch3_sha256":EPOCH3_SHA,
+            "config_sha256":CONFIG_SHA,"original_contract_sha256":io.digest(previous["contract"]),
+            "new_source_sha256":et.file_contract(("phase28_resume.py","phase28_analysis.py"))})
+    protected=io.load(STAGE/"protected_sources.json")
+    attempt=STAGE/"attempts"/uuid.uuid4().hex;attempt.mkdir(parents=True)
+    io.save_json(attempt/"execution_limit.json",{"resume":True,"last_completed_epoch":last_completed,
+        "next_epoch":last_completed+1,"stop_after_epochs":10-last_completed,"persistent_target":10})
+    previous_validation=previous["progress"]["validation"]
+    del previous
+    loader=make_loader(m,"cuda")
+    handles=[];box={};context={};versions=None;phase="restore";epoch=last_completed
+    counts={};records=[];round_file=None;monitor_stop=None;monitor_thread=None;epoch_start=None
+    completed=[];started=time.perf_counter()
+    old_g=et.ImageOnlyGenerator;old_encoder=adapter.load_official;old_sample=et.train_single_sample
+    old_train=et.train_epoch;old_validate=et.validate_epoch;old_save=et.save_epoch;old_restore=et.load_latest
+    Adam=torch.optim.Adam
+    def before_g(module,args):
+        if phase=="train":
+            counts["train_G"]+=1
+            if (args[0].requires_grad or args[0].grad_fn is not None
+                or state_hash(args[0])!=context["expected_image_sha256"]):
+                raise ValueError("serial detach/original joint input mismatch")
+            if versions is not None and versions!=tuple(p._version for p in module.parameters()):
+                raise ValueError("immediate G update mismatch")
+        elif phase=="validation":counts["validation_G"]+=1
+        else:raise ValueError("unexpected G forward")
+    def before_encoder(module,args):
+        if phase=="train":
+            counts["train_IRRA"]+=1
+            if not args[0].requires_grad:raise ValueError("IRRA image gradient detached")
+            def image_grad(grad):
+                if not torch.isfinite(grad).all():raise ValueError("nonfinite IRRA image gradient")
+                context["image_grad_norm"]=float(grad.double().norm())
+            args[0].register_hook(image_grad)
+        elif phase=="validation":
+            counts["validation_IRRA"]+=1
+            if torch.is_grad_enabled() or args[0].requires_grad:raise ValueError("validation gradients enabled")
+        else:raise ValueError("unexpected IRRA forward")
+    def g_factory(*args,**kwargs):
+        g=old_g(*args,**kwargs);box["g"]=g;handles.append(g.register_forward_pre_hook(before_g));return g
+    def load_encoder(*args,**kwargs):
+        enc=old_encoder(*args,**kwargs);box["encoder"]=enc
+        box["frozen_IRRA"]=state_hash(enc.state_dict());handles.append(enc.register_forward_pre_hook(before_encoder))
+        return enc
+    class AuditAdam(Adam):
+        def __init__(self,*args,**kwargs):
+            super().__init__(*args,**kwargs);box["opt"]=self
+            def backward(grad):
+                if not torch.isfinite(grad).all():raise ValueError("nonfinite G gradient")
+                counts["backward"]+=1
+            handles.append(next(box["g"].parameters()).register_hook(backward))
+        def zero_grad(self,*args,**kwargs):
+            counts["zero_grad"]+=1;return super().zero_grad(*args,**kwargs)
+        def step(self,*args,**kwargs):
+            nonlocal versions
+            with torch.no_grad():
+                before=torch.cat([p.detach().reshape(-1) for p in box["g"].parameters()])
+                result=super().step(*args,**kwargs)
+                after=torch.cat([p.detach().reshape(-1) for p in box["g"].parameters()])
+                if not torch.isfinite(after).all():raise ValueError("nonfinite updated G")
+                context["changed"]=int(torch.count_nonzero(before!=after))
+            counts["step"]+=1;versions=tuple(p._version for p in box["g"].parameters())
+            return result
+    def restore(*args,**kwargs):
+        value=old_restore(*args,**kwargs)
+        assert_restored(box["g"],box["opt"],value,last_completed)
+        io.save_json(attempt/"initial_restore.json",{
+            "G_Adam_RNG_exact":True,"next_epoch":last_completed+1,"Adam_steps":adam_steps(box["opt"]),
+            "G_sha256":state_hash(box["g"].state_dict()),"optimizer_sha256":state_hash(box["opt"].state_dict()),
+            "rng_sha256":state_hash(ck.rng_state())})
+        return value
+    def monitor(path,stop):
+        with path.open("x",encoding="utf-8") as f:
+            while True:
+                row={"epoch":epoch,"seconds":time.perf_counter()-epoch_start,
+                     "samples":counts.get("samples",0),"steps":counts.get("step",0),
+                     "allocated_MiB":torch.cuda.memory_allocated()/2**20,
+                     "reserved_MiB":torch.cuda.memory_reserved()/2**20}
+                try:
+                    for name,query in (("GPU","--query-gpu=index,memory.used,memory.total,utilization.gpu"),
+                                       ("processes","--query-compute-apps=pid,used_memory")):
+                        p=subprocess.run(["nvidia-smi",query,"--format=csv,noheader"],capture_output=True,text=True,timeout=5)
+                        if p.returncode:raise ValueError(p.stderr)
+                        row[name]=p.stdout.strip()
+                except Exception as exc:row["monitor_error"]=repr(exc)
+                f.write(json.dumps(row,allow_nan=False)+"\n");f.flush()
+                if stop.wait(10):break
+            f.flush();os.fsync(f.fileno())
+    def train(g,enc,opt,entries,loader,seed,current_epoch,weights,log_path=None):
+        nonlocal epoch,phase,counts,records,round_file,monitor_stop,monitor_thread,epoch_start
+        epoch=current_epoch
+        if epoch not in range(last_completed+1,11) or adam_steps(opt)!=[(epoch-1)*8068]:raise ValueError("unauthorized epoch/start Adam")
+        phase="train";counts={k:0 for k in ("train_G","train_IRRA","backward","step","zero_grad","validation_G","validation_IRRA","samples")}
+        records=[];epoch_start=time.perf_counter();torch.cuda.reset_peak_memory_stats()
+        box["epoch_G_before"]=state_hash(g.state_dict())
+        round_file=(attempt/f"epoch_{epoch:04d}_round_audit.jsonl").open("x",encoding="utf-8")
+        monitor_stop=threading.Event()
+        monitor_thread=threading.Thread(target=monitor,args=(attempt/f"epoch_{epoch:04d}_resources.jsonl",monitor_stop),daemon=True)
+        monitor_thread.start()
+        result=old_train(g,enc,opt,entries,loader,seed,epoch,weights,log_path)
+        box["train_seconds"]=time.perf_counter()-epoch_start
+        return result
+    def sample(g,encoder,opt,image,c,**kwargs):
+        position=counts["samples"]+1;k=c["K"];before=counts["step"]
+        original_sha=state_hash(image)
+        context.update(row_id=c["row_id"],K=k,expected_image_sha256=original_sha,previous_reference=None)
+        def observe(event):
+            r=event["record"];idx=r["update_index"]-1
+            if r["phase"]=="attribute":
+                if idx:
+                    if (state_hash(event["previous_jvp"])!=state_hash(c["attribute_jvps"][idx-1:idx])
+                        or float(event["previous_reference"][0])!=context["previous_reference"]):
+                        raise ValueError("previous-only Retain mismatch")
+                context["expected_image_sha256"]=original_sha if idx==k-1 else state_hash(event["adversarial"])
+                context["previous_reference"]=r["next_reference_score"]
+            elif state_hash(event["input_image"])!=original_sha:raise ValueError("joint original restart mismatch")
+            record={**r,"epoch":epoch,"row_id":c["row_id"],"K":k,"sample_position":position,
+                    "changed_parameter_count":context["changed"],"IRRA_input_gradient_l2":context["image_grad_norm"]}
+            if record["cumulative_linf"]>DEFAULT_EPSILON:raise ValueError("budget violation")
+            scalar_only(record);scalar_only(context)
+            records.append(record);round_file.write(json.dumps(record,allow_nan=False)+"\n")
+        result=old_sample(g,encoder,opt,image,c,observer=observe,**kwargs)
+        if counts["step"]-before!=k+1:raise ValueError("K+1 step mismatch")
+        counts["samples"]+=1;round_file.flush();os.fsync(round_file.fileno())
+        if position%32==0:print("TRAIN_PROGRESS",epoch,position,"steps",counts["step"],"seconds",time.perf_counter()-epoch_start,flush=True)
+        context.clear()
+        return result
+    def validate(*args,**kwargs):
+        nonlocal phase,previous_validation
+        phase="validation";g=box["g"];opt=box["opt"]
+        before=(state_hash(g.state_dict()),state_hash(opt.state_dict()),state_hash(ck.rng_state()),dict(counts))
+        result=old_validate(*args,**kwargs)
+        if before[:3]!=(state_hash(g.state_dict()),state_hash(opt.state_dict()),state_hash(ck.rng_state())):
+            raise ValueError("validation mutated G/Adam/RNG")
+        if counts["step"]!=before[3]["step"]:raise ValueError("validation optimizer step")
+        box["validation_delta"]=validation_comparison(previous_validation,result)
+        previous_validation=result
+        io.save_json(attempt/f"epoch_{epoch:04d}_validation.json",result);return result
+    def save(out,g,opt,current_epoch,contract,progress):
+        nonlocal phase
+        expected={k:8068 for k in ("train_G","train_IRRA","backward","step","zero_grad")}
+        expected.update(validation_G=128,validation_IRRA=128,samples=2048)
+        if counts!=expected or current_epoch!=epoch or adam_steps(opt)!=[epoch*8068]:
+            raise ValueError("Epoch counts/Adam mismatch")
+        p26.finite_optimizer(opt)
+        if state_hash(box["encoder"].state_dict())!=box["frozen_IRRA"]:raise ValueError("IRRA parameters/buffers changed")
+        round_file.flush();os.fsync(round_file.fileno());round_file.close()
+        monitor_stop.set();monitor_thread.join(timeout=12)
+        if monitor_thread.is_alive():raise ValueError("resource log writer did not stop")
+        io.verify(protected)
+        io.verify(io.load(STAGE/"execution_protocol.json")["new_source_sha256"])
+        result=audit_epoch(progress,m["entries"],records,epoch)
+        progress["supplementary_log_sha256"]={str(attempt/f"epoch_{epoch:04d}_{name}"):io.sha(attempt/f"epoch_{epoch:04d}_{name}")
+            for name in ("round_audit.jsonl","validation.json","resources.jsonl")}
+        final=old_save(out,g,opt,epoch,contract,progress)
+        # 独立新对象恢复；恢复保存时RNG，避免诊断建模消耗RNG影响下一Epoch。
+        phase="boundary_restore"
+        restored_g=ImageOnlyGenerator(**config["architecture"]).to(config["device"])
+        restored_o=Adam(restored_g.parameters(),**config["optimizer"])
+        value=ck.load_latest(out,contract,restored_g,restored_o)
+        assert_restored(restored_g,restored_o,value,epoch)
+        if (state_hash(g.state_dict())!=state_hash(restored_g.state_dict())
+            or state_hash(opt.state_dict())!=state_hash(restored_o.state_dict())):raise ValueError("live/saved state mismatch")
+        result.update(validation_delta=box["validation_delta"],counts=dict(counts),checkpoint_sha256=io.sha(final/"checkpoint.pt"),
+            sample_log_sha256=progress["sample_log_sha256"],Adam_steps=adam_steps(opt),
+            G_Adam_RNG_restore_exact=True,IRRA_parameters_buffers_exact=True,
+            G_changed=box["epoch_G_before"]!=state_hash(g.state_dict()),
+            train_seconds=box["train_seconds"],epoch_seconds=time.perf_counter()-epoch_start,
+            peak_allocated_MiB=torch.cuda.max_memory_allocated()/2**20,peak_reserved_MiB=torch.cuda.max_memory_reserved()/2**20)
+        io.save_json(attempt/f"epoch_{epoch:04d}_summary.json",result);completed.append(result)
+        print("BOUNDARY_VERIFIED",epoch,result["checkpoint_sha256"],"Adam",result["Adam_steps"],flush=True)
+        del restored_g,restored_o,value
+        return final
+    try:
+        with patch.object(et,"ImageOnlyGenerator",new=g_factory),patch.object(adapter,"load_official",new=load_encoder), \
+             patch.object(et.torch.optim,"Adam",new=AuditAdam),patch.object(et,"load_latest",new=restore), \
+             patch.object(et,"train_epoch",new=train),patch.object(et,"train_single_sample",new=sample), \
+             patch.object(et,"validate_epoch",new=validate),patch.object(et,"save_epoch",new=save), \
+             patch.object(torch.autograd,"grad",side_effect=AssertionError("scoring/JVP forbidden")):
+            g,opt,result=launch_remaining(et.run_epochs,CACHE,OUTPUT,config,last_completed,loader=loader)
+        if result["completed_epoch"]!=10 or len(completed)!=10-last_completed or adam_steps(opt)!=[80680]:
+            raise ValueError("controlled final stop mismatch")
+        io.verify(protected)
+        io.verify(io.load(STAGE/"execution_protocol.json")["new_source_sha256"])
+        audit=analyze(CACHE,OUTPUT,STAGE)
+        audit.update(epochs_this_run=list(range(last_completed+1,11)),attempt=str(attempt),
+            total_seconds=time.perf_counter()-started,initial_restore_exact=True,boundary_restores_exact=True)
+        audit["final_inference"]=inference_check(OUTPUT/"checkpoints/epoch_0010/checkpoint.pt")
+        io.save_json(STAGE/"summary.json",audit)
+        io.save_json(STAGE/"completed.json",{"method_audit_passed":True,"summary_sha256":io.sha(STAGE/"summary.json")})
+        print("PHASE28_COMPLETE Epoch10; Adam80680; no Gallery evaluation",flush=True)
+    except BaseException as exc:
+        io.save_json(attempt/"failure.json",{"error":repr(exc),"traceback":traceback.format_exc(),"epoch":epoch,
+            "counts":counts,"sample":{k:v for k,v in context.items() if k in ("row_id","K")},"published_checkpoint_names":sorted(p.name for p in (OUTPUT/"checkpoints").glob("epoch_*")),"algorithm_changed":False})
+        raise
+    finally:
+        if monitor_stop:monitor_stop.set()
+        if monitor_thread:monitor_thread.join(timeout=12)
+        if round_file and not round_file.closed:round_file.close()
+        for handle in handles:handle.remove()
+
+def main(argv=None):
+    p=argparse.ArgumentParser(description=__doc__)
+    p.add_argument("--allow-epochs4-10",action="store_true")
+    p.add_argument("--resume-phase28",action="store_true",help="只从最高完整已发布Epoch继续；保留失败证据")
+    a=p.parse_args(argv)
+    if a.resume_phase28 and not a.allow_epochs4_10:p.error("--resume-phase28 requires explicit GPU authorization")
+    if a.allow_epochs4_10:run(resume_phase28=a.resume_phase28)
+    else:
+        _,m,v=preflight()
+        print("CPU_PREFLIGHT",m["counts"],"next_epoch",v["next_epoch"],"Adam",v["completed_epoch"]*8068,
+              "target10; remaining",10-v["completed_epoch"],"; no GPU/model")
+if __name__=="__main__":main()
