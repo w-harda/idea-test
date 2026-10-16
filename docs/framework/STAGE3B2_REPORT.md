@@ -5,7 +5,7 @@
 基准：`a2988e0ae2a77f41f5416c02e354f4651ed49646`。
 独立分支：`codex/tbps-framework-stage3b2`。
 工作树：`/home/lzf/ldx/projects/idea-test-tbps-framework-stage3b2-20261016`。
-实现Commit由PROJECT_STATE后续文档提交登记。
+实现Commit：4469617ab1d6dac01a65f4bf202c0bba968154ae。
 
 ## CPU前置与唯一新Attempt
 
