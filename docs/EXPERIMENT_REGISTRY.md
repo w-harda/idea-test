@@ -90,3 +90,12 @@ report SHA 50afe401bf57ad244d74a014221825b58a1feb24f07201a42c501404dffecbb6；at
 日志和只读保护审计：/home/lzf/ldx/outputs/tbps-framework-stage3b2/。
 
 332框架+36历史基础CPU tests通过；7991保护文件和原FAIL的17输出SHA/mtime不变。新2362/旧2358来源与回执有效，无pending。只在本固定环境标记VERIFIED；原equivalence_v1保持FAIL，正式Full/消融等资产不变。实现Commit见PROJECT_STATE；详细边界见framework/STAGE3B2_REPORT.md。
+
+## Stage 4A CPU评测基础设施验收（无新攻击实验）
+
+基准0d90e79，独立分支codex/tbps-framework-stage4a，实现Commit见PROJECT_STATE。383框架+36历史基础=419 CPU tests通过，51新增；独立官方rank合成小矩阵索引/五指标exact。未加载真实模型或feature Tensor，未重算Full。
+
+新证据：/home/lzf/ldx/outputs/tbps-framework-stage4a/。
+Joint metadata索引对应旧协议59ffb61a575cbeebf38e06bee5154b96f8967bb165b9b22305fad6c9cc967b48；3074/6156有序身份已对照annotation，仅声明3472 feature文件索引，实际字节仍PENDING。
+
+原Full未记录逐张对抗RGB SHA；metadata桥不能伪造该证据或自动授权新ModelSpace重放。历史G-v2/Joint/消融/AP指标与回执保持原样，7991保护文件SHA/mtime不变。Stage 4B仅有条件预案，尚未执行；详细限制及固定等价阈值见framework/STAGE4A_REPORT.md。

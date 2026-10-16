@@ -91,3 +91,11 @@ Stage 3A原配置及Stage 3B FAIL证据保持原样；新派生配置只增condi
 新增smoke_attacks_gated：先执行Stage 3B-R完整CPU闭包检查，捕获同一实际preflight结果，绑定门禁来源与报告，再交给原smoke_attacks.run_once。默认CPU，唯一授权输出equivalence_v2，已用目录拒绝；原数值比较/工厂/算法不改。
 
 固定2条Train样本、G10/H7、FP32/math/no_tf32下G像素/delta及H完整动作exact，Joint三模式共享组件通过；实际G/H/IRRA前向4/2/0。对应固定环境状态VERIFIED，不改变通用execution_kind保守标签，也不授权全量或跨模型执行。原FAIL及CPU修复证据永久保留。见framework/STAGE3B2_REPORT.md。
+
+## Stage 4A统一只读评测层
+
+engines/{metrics,provenance,evaluation,legacy}消费预先准备的有序表示和来源，原生Adapter负责score，Engine只处理四模式、矩阵/身份与检索指标。没有攻击回调/模型工厂，不把PID、正确配对或目标分数回流给冻结G/H。
+
+Feature/InputBinding→原生ScoreBatch→ScoreRecord→百分数指标/DR→新ArtifactStore原子回执。允许原生局部Token/Fusion、任意维度及显式高/低分方向；分块要求原生Query选择能力和Query独立性，不切分Gallery排名。tie保留官方默认argsort，FP32统一reduce。
+
+旧Joint桥仅metadata索引，feature字节/回执重放未验收。历史Full缺少逐张对抗RGB SHA，不允许用feature SHA替代；后续需单独批准分型历史重放身份，IRRA特征不跨Victim。真实cached scorer/Full加载器未实现，原实验配置继续dry-run。见ADR-0005及framework/STAGE4A_REPORT.md。

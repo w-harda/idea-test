@@ -158,3 +158,9 @@ Stage 3B一次真实尝试因condition_schema来源缺项失败；原FAIL证据�
 ## Stage 3B-2验收索引
 
 固定2条Train样本的G/H/Joint真实等价Smoke已通过，原Stage 3B FAIL和Stage 3B-R CPU证据保留。新入口强制严格CPU门禁，真实前向G4/H2/IRRA0，无训练/Full。[入口与执行记录](STAGE3B2.md)、[数值/Unicode/冻结报告](STAGE3B2_REPORT.md)。本轮单次GPU许可已用完，不能重跑或自动扩大范围。
+
+## Stage 4A统一评测层
+
+缓存输入四模式、原生score、官方排名及新来源/回执存储已完成CPU验收（419项）；没有真实Full重放或GPU入口。[API/CPU命令](STAGE4A.md)、[源码映射/历史缺口/Stage 4B预案](STAGE4A_REPORT.md)、[ADR-0005](../decisions/0005-cached-evaluation-native-ranking.md)。
+
+旧Joint metadata桥仍拒绝执行；历史缺少对抗RGB SHA，不能将feature SHA冒充像素SHA或重标给RaSa/APTM。当前权威状态以PROJECT_STATE为准。
