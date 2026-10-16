@@ -21,3 +21,5 @@
 实现、命令和验证边界见[Stage 3A](../framework/STAGE3A.md)及[报告](../framework/STAGE3A_REPORT.md)。
 
 Stage 3B记录：单次真实尝试在运行来源缺项处失败，未生成输出等价数据，状态仍PENDING。未改本ADR决定、Plugin算法或源清单；严格CPU预检须覆盖实际加载助手的传递导入。见[FAIL报告](../framework/STAGE3B_REPORT.md)。
+
+Stage 3B-R补充：保留原配置和FAIL证据，以parent/derived SHA证明仅新增condition_schema一项。CPU检查按真实工厂入口核对，并覆盖直接文件导入和命名空间恢复，禁止权重恢复/神经实例/前向/CUDA。导入闭包PASS与真实输出VERIFIED严格区分；后者仍待另行授权。未改变原插件或算法决定。

@@ -79,3 +79,9 @@ src/tbps/attacks的base/registry/configuration负责描述、分阶段能力、�
 smoke_attacks提供单次attempt、权重/实际前向计数、完整H动作对照和Joint三模式计划。真实尝试在G加载后因像素读取器间接导入未锁定condition_schema失败，G/H输出均未生成；不改变Plugin等价状态或算法。原部分CPU预检漏查此路径，不能作为完整运行许可。
 
 新增check_attack_runtime是无GPU选项的严格CPU闭包检查，覆盖实际G像素读取与H状态助手链；当前必须拒绝缺项。原执行脚本及来源清单保留，后续修复须单独审查/授权，不能覆盖失败attempt或自动重试。见framework/STAGE3B_REPORT.md。
+
+## Stage 3B-R CPU导入闭包修复
+
+新增runtime_closure，按真实加载工厂AST核对全部7个旧导入入口，解析11个符号并检查CaptionFrontend直接文件加载链。SourceFileLoader在执行前验证来源；整个CPU预检硬性阻断权重反序列化、神经构造/前向、CUDA初始化和导数。旧算法/工厂/Smoke脚本不改。
+
+Stage 3A原配置及Stage 3B FAIL证据保持原样；新派生配置只增condition_schema单项，另有parent/derived SHA与精确增量证明。75项来源核验、33份实际源码执行检查通过，但真实输出等价仍PENDING。默认无GPU执行选项；任何GPU新尝试需要另行授权和新attempt。见framework/STAGE3BR.md及报告。

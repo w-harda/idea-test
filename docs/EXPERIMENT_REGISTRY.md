@@ -71,3 +71,12 @@ SHA-256：ab69946e159054b263bc55619b74c9c6985d77efbc66f70b67fd57ddcb6b0872。
 固定内部Train cuhk:9955:0（可编辑资格）及cuhk:26530:0（固定NOOP），不按攻击效果选择。G10恢复1次、H7未恢复，因缺少condition_schema运行来源锁定停止；真实G/H/IRRA前向均0，无训练/排名。原G/H等价状态保持PENDING。
 
 证据：/home/lzf/ldx/outputs/tbps-framework-stage3b/equivalence_v1/{attempt,result}/；FAIL report SHA e72a65118cb0c216e2fbb0877152d11524b0254f73cc9f2c8547e91900c7a79c。回执及2358来源SHA有效、无pending，7991历史保护文件不变；完成回执不表示验证PASS。GPU尝试仅1次，未重试。详细未完成项和修复建议见framework/STAGE3B_REPORT.md；Commit由PROJECT_STATE登记。
+
+## Stage 3B-R CPU-only修复验收（不是GPU实验）
+
+基准0fb90cd，独立分支codex/tbps-framework-stage3br；实现Commit由PROJECT_STATE登记。仅新增派生来源清单中condition_schema一项，原配置和全部历史实验不变。
+
+CPU证据：/home/lzf/ldx/outputs/tbps-framework-stage3br/cpu_closure_v1/result/。
+report SHA b974a016a61876fa0c4ee40df8faff6d9b83413afc092cf4d1a978be252d4401；Manifest SHA 19434bdcdbda7255ba582190fa5c003b8a0fe98a58fc27e0878cbc8392217f34。323框架+36历史基础CPU测试通过；75项来源、33份实际执行源码与11个符号核验通过，GPU尝试0。
+
+7991历史文件SHA/mtime和原Stage 3B输出17文件不变；FAIL回执与2358来源仍有效。此PASS仅为CPU加载导入闭包，真实G/H/Joint等价仍PENDING；不覆盖或更名原equivalence_v1。完整边界见framework/STAGE3BR_REPORT.md。

@@ -150,3 +150,7 @@ TMPDIR=/home/lzf/ldx/tmp CUDA_VISIBLE_DEVICES="" PYTHONDONTWRITEBYTECODE=1 OMP_N
 ## 后续阶段索引
 
 当前权威状态见../PROJECT_STATE.md。Stage 3A冻结攻击插件已提供独立API、CPU Fixture和只读来源检查，仍无统一Evaluation/Training Engine；本README此前内容是Stage 1边界。接口和命令见[Stage 3A](STAGE3A.md)，依赖与验收见[报告](STAGE3A_REPORT.md)。真实G/H等价须另行授权Stage 3B，不通过默认入口执行。
+
+## Stage 3B-R CPU修复索引
+
+Stage 3B一次真实尝试因condition_schema来源缺项失败；原FAIL证据保留。独立派生清单和严格CPU运行闭包修复已完成，真实G/H输出仍PENDING。[CPU命令与职责](STAGE3BR.md)、[修复报告/保护证据](STAGE3BR_REPORT.md)。本轮没有GPU执行命令；重新尝试须用户单独授权。

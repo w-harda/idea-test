@@ -1,0 +1,16 @@
+{
+  "schema": "tbps-runtime-source-derivation-1",
+  "base_commit": "0fb90cd1b280da886aec08834dc13d28eacd5848",
+  "parent": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage3a-20261016/configs/framework/stage3a_plugins.server.json",
+    "sha256": "d2c01ea7cc70c3c4dd56dceb5de6d654069e129201b54b468e48ff7a2c896123"
+  },
+  "derived": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage3br-20261016/configs/framework/stage3br_plugins.server.json",
+    "sha256": "7f5698fa6c4abf98621c5624faccfaa894ec566c3a20dbfa92147d8ca5c5aba1"
+  },
+  "added_runtime_sources": {
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/condition_schema.py": "f13932c2688cab4e135d063eed6f066016f6ba26e2316cbc201f19b246b298b4"
+  },
+  "reason": "Only add verified unchanged condition_schema.py; all prior pins and fields retained."
+}
