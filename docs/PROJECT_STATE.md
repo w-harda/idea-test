@@ -9,7 +9,7 @@ Stage 1已原则通过审查。Stage 2 CUHK-PEDES Dataset Adapter与IRRA Model A
 - Stage 2基准：61471db976508411aafe58e97113322c14d6bbc7。
 - 分支：codex/tbps-framework-stage2。
 - 开发树：/home/lzf/ldx/projects/idea-test-tbps-framework-stage2-20261016。
-- 实现Commit：STAGE2_IMPLEMENTATION_PENDING（由后续文档提交登记）。
+- 实现Commit：55b83bb48307bebba3e8a3bf8881570091ef1d15（由后续文档提交登记）。
 - 接口、CPU命令及下一步授权方案：[Stage 2说明](framework/STAGE2.md)。
 - 验收范围及证据：[Stage 2报告](framework/STAGE2_REPORT.md)。
 
