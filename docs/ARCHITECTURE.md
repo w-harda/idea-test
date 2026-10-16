@@ -9,7 +9,7 @@
 | prototypes/attribute_image_generator_v2_20261014 | G-v2 image-only、K+1训练、Epoch恢复、IRRA Full；全部冻结 |
 | prototypes/attribute_text_policy_h_v1_20261015 | H/SCST/正式训练/Selection/Joint/消融；全部冻结 |
 | 其他prototypes及_frozen_sources | reader/Canonical/JVP/选择及历史研究闭包；UNKNOWN也保留 |
-| src/tbps | 新框架稳定职责模块，Stage 1只做契约/配置/存储/只读桥 |
+| src/tbps | 新框架稳定职责模块，Stage 1契约/配置/存储/只读桥；Stage 2官方Dataset/IRRA Adapter |
 | configs/framework、tests/framework、docs/framework | 框架专属配置/CPU tests/使用与迁移说明 |
 
 H CaptionFrontend仍依赖text_extractor→v55→v54→v53规则。G2正式训练不导入G1，但缓存来源/JVP准备有历史依赖。Joint复用G2 Full特征，消融复用Joint；不能按目录年代判废弃。
@@ -47,3 +47,15 @@ contracts/config/artifacts/compat.legacy_assets均为独立模块；模块导入
 - Full/消融保留原父/子协议digest；H Selection绑定已有Validation候选结果。没有把旧目录SHA门禁放宽成“任意源码可变”。
 
 详细API、CPU命令、输出及Stage 2建议见[框架README](framework/README.md)。当前实现仅接受JSON配置和all_same_pid数据相关性；未来Adapter扩展其他规则时须明确声明。新存储锁基于Linux flock，Stage 1不承诺Windows写入后端。
+
+## Stage 2 Adapter落地
+
+src/tbps/datasets/cuhk_pedes读取原始有序annotation并输出DatasetManifest/公开输入；historical_membership验证G/H实际成员并提供受限训练奖励绑定。official val与attack_validation不混用；native PID保留原值，分类id-1重编号不进入检索身份。
+
+src/tbps/models/base以原生score为公共契约，允许Fusion/local tokens及不同维度。IRRA专属source/io/view模块提供严格离线来源、官方预处理/Tokenizer、原生编码以及冻结Inference/输入可微Surrogate。模型不在import/dry-run中加载，真正加载要求显式授权及独立进程避免model包碰撞。
+
+缓存按ModelSpace与InputBinding隔离：模型/官方来源/4个相关producer/运行协议，加上Dataset Manifest、有序ID与实际输入SHA。RepresentationRecord/ScoreRecord只存元数据，没有旧缓存重写。旧特征需未来显式桥接验证，不能按512维猜测兼容。
+
+配置仍无Attack Plugin/统一Evaluation Engine可执行；Joint权限为G/H组件并集，图像梯度不错误套到H Unicode。当前未实现RaSa/APTM、ICFG/RSTP。接口、已验证/待验证边界与最小GPU授权方案见framework/STAGE2.md及ADR-0003。
+
+历史根.gitignore的datasets/会忽略新源码；src/tbps/.gitignore仅局部开放Dataset Adapter目录，根规则及真实数据忽略边界不改。

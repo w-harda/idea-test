@@ -18,11 +18,13 @@ ATTACKS = {
                      frozenset({"train_pairs","train_pids","source_rewards"}),
                      frozenset({"captions","caption_attributes"}),"periodic"),
     "joint": AttackSpec("joint","historical-v1",frozenset({"image","text"}),"composite","multi_stage",False,
-                       frozenset({"train_pairs","source_rewards"}),
+                       frozenset({"train_pairs","train_pids","source_gradients","source_rewards"}),
                        frozenset({"public_images","captions","caption_attributes"}),"component"),
     "ap_attack": AttackSpec("ap_attack","historical-baseline",frozenset({"image"}),"generator","offline",False,
                            frozenset({"source_gradients"}),frozenset({"public_images"}),"epoch"),
 }
+JOINT_COMPONENTS=("gv2","hv1")
+
 IRRA = ModelSpec("irra","historical-official",(384,128),
     TokenizerSpec("IRRA Byte-BPE","19b06ade7532bcff961c4b90590197fcac0d466f08d0b6b801d3d19a36568d67",
                   77,"BPE token","retain_and_report"),512,"cosine","l2",
@@ -38,6 +40,12 @@ def validate_access(mode, attack, surrogate, victim, surrogate_sha, victim_sha,
     modes={"white_box":(False,False),"cross_model":(True,False),
            "cross_dataset":(False,True),"cross_model_cross_dataset":(True,True)}
     if mode not in modes: raise ConfigError("explicit supported attack_mode required")
+    components=tuple(ATTACKS[n] for n in JOINT_COMPONENTS) if attack.id=="joint" else (attack,)
+    if attack.id=="joint":
+        train_required=frozenset().union(*(a.train_requirements for a in components))
+        infer_required=frozenset().union(*(a.attack_requirements for a in components))
+        if not train_required<=attack.train_requirements or not infer_required<=attack.attack_requirements or attack.modalities!=frozenset({"image","text"}) or attack.training_kind!="multi_stage":
+            raise ConfigError("incomplete Joint component capability declaration")
     different_model=(surrogate.id,surrogate_sha)!=(victim.id,victim_sha)
     different_data=train_dataset!=test_dataset
     if (different_model,different_data)!=modes[mode]:
@@ -54,10 +62,11 @@ def validate_access(mode, attack, surrogate, victim, surrogate_sha, victim_sha,
     if attack.id in ("gv2","hv1","joint","ap_attack"):
         public=frozenset({"public_images","captions","caption_attributes"})
         if not attack_permissions<=public:raise ConfigError("historical generator/policy inference is public-input only")
-    for phase_permissions in (train_permissions,attack_permissions):
+    for phase_name,phase_permissions in (("train_requirements",train_permissions),("attack_requirements",attack_permissions)):
         for prefix,model in (("source",surrogate),("victim",victim)):
             if prefix+"_gradients" in phase_permissions:
-                required={"differentiable_"+("images" if modality=="image" else "text") for modality in attack.modalities}
+                gradient_modalities=frozenset().union(*(a.modalities for a in components if prefix+"_gradients" in getattr(a,phase_name))) or attack.modalities
+                required={"differentiable_"+("images" if modality=="image" else "text") for modality in gradient_modalities}
                 if not required<=model.capabilities:raise ConfigError(prefix+" lacks declared modality gradients")
             if phase_permissions & {prefix+"_scores",prefix+"_rewards"} and "score" not in model.capabilities:
                 raise ConfigError(prefix+" lacks declared scoring")
@@ -75,7 +84,7 @@ class ValidatedConfig:
     def as_dict(self):
         return json.loads(self.canonical)
     def require_executable(self):
-        raise UnsupportedComponent("Stage 1 has no executable Dataset/Model/Attack adapters")
+        raise UnsupportedComponent("No executable Attack Plugin or Evaluation Engine; explicit Stage 2 Dataset/IRRA APIs only")
     def dry_run(self):
         data=self.as_dict()
         refs=[data[k] for k in ("attack_checkpoint","surrogate_checkpoint","victim_checkpoint")]
@@ -83,7 +92,8 @@ class ValidatedConfig:
         missing=[r["path"] for r in refs if not Path(r["path"]).is_file()]
         return {"schema":"tbps-config-dry-run-1","configuration_valid":True,"executable":False,
                 "asset_path_status":"NOT_READY" if missing else "PRESENT_NOT_SHA_VERIFIED",
-                "missing":missing,"required_adapters":["Dataset","Model","Attack"],
+                "missing":missing,"required_adapters":["Attack","Evaluation Engine"],
+                "available_adapters":{"dataset":["cuhk_pedes"],"model":["irra"],"model_load":"explicit authorization only"},
                 "attack":self.attack.id,"mode":data["attack_mode"],
                 "note":"Only parsing/permissions; no model load, training, encoding or evaluation."}
 
@@ -97,7 +107,7 @@ def parse_config(data):
     for k in ("attack_method","surrogate_model","victim_model"):text(data[k],k)
     if data["attack_method"] not in ATTACKS:raise UnsupportedComponent("unimplemented attack descriptor: "+data["attack_method"])
     if data["surrogate_model"]!="irra" or data["victim_model"]!="irra":
-        raise UnsupportedComponent("Stage 1 only has an IRRA historical descriptor, no RaSa/APTM adapter")
+        raise UnsupportedComponent("Only IRRA is implemented; RaSa/APTM adapters are absent")
     attack=ATTACKS[data["attack_method"]]
     for key,role in (("attack_train_dataset","attack_train"),("attack_validation_dataset","attack_validation"),("attack_test_dataset","test")):
         d=data[key];exact(d,{"id","split","role","manifest"} ,key)

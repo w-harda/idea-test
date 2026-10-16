@@ -41,3 +41,15 @@ SHA-256：ab69946e159054b263bc55619b74c9c6985d77efbc66f70b67fd57ddcb6b0872。
 8个索引均METADATA_VERIFIED，绑定192个唯一文件；H候选Validation和消融trial均保留原协议层次。新目录Manifest/回执另绑定catalog和3个实际producer SHA，不锁整个src/tbps目录。
 
 此处通过范围仅为固定文件字节SHA、schema/关系及已有完成/审计证据。正式Full特征、Checkpoint内部状态与整个训练历史未重新审计。AP只核验metadata/summary关联；不据此宣称所有Baseline与Joint公平同协议，仍需按原pixel mapping、训练来源等逐项判断。旧IRRA特征不自动授权给新模型使用。
+
+## Stage 2来源与身份核验
+
+本阶段没有新攻击实验。固定目录configs/framework/stage2_sources.server.json绑定annotation、G/H内部来源、三份Full协议及IRRA官方来源。
+
+- Test 3074/6156完整有序身份与G-v2/Joint/消融协议一致，未读取Full特征或重算指标。
+- 原2048 Train/128内部Validation实际成员一致，PID交集0；128来自official train，不是official val。
+- 7991个保护文件SHA/mtime不变；历史Checkpoint、Selection、结果及8个资产索引全部保留。
+- Stage 2 CPU Model I/O检查只使用合成数据、Byte-BPE和小型排名Fixture；真实IRRA前向/加载尚未执行。
+- 本阶段日志位于/home/lzf/ldx/tmp/tbps-framework-stage2，属于开发CPU证据，不是新的攻击效果实验，不提交Git。
+
+当前实现及测试Commit统一由PROJECT_STATE登记。

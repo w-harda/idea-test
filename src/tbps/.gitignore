@@ -1,0 +1,2 @@
+# 历史根规则忽略datasets/；仅开放新框架Dataset Adapter目录。
+!datasets/

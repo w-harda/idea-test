@@ -1,5 +1,7 @@
 # Stage 1：基础契约、配置校验与旧资产只读桥
 
+本页为Stage 1验收说明；当前Adapter进展见[PROJECT_STATE](../PROJECT_STATE.md)及[Stage 2](STAGE2.md)。
+
 审计基准：40c7476f92d6bc2458d86029cf7bf8317da0a086。状态唯一入口：[PROJECT_STATE](../PROJECT_STATE.md)；保护规范：[AGENTS](../../AGENTS.md)。本阶段没有训练、模型加载或评测执行引擎。
 
 ## 文件职责
@@ -11,7 +13,7 @@
 | src/tbps/compat/legacy_assets.py | 原路径只读SHA/JSON关联、旧完成证据描述；不加载Checkpoint |
 | src/tbps/artifacts.py | 新输出命名空间的不可变Manifest/回执、原子发布、SHA、CPU Tensor clone |
 | configs/framework/example_irra_gv2.json | 真实服务器路径的配置解析示例，不是可运行训练配置 |
-| configs/framework/legacy_assets.server.json | 8类旧资产、192个唯一文件的Git固定SHA及协议关系 |
+| configs/framework/legacy_assets.server.json | 8个旧资产索引、192个唯一文件的Git固定SHA及协议关系 |
 | tests/framework/ | 合成CPU Fixture、权限/身份/来源/原子性/Storage测试 |
 | docs/decisions/0001、0002 | 冻结只读桥、阶段权限及原生评分边界 |
 

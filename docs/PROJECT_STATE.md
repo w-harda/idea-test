@@ -1,36 +1,40 @@
 # 项目当前状态（唯一权威入口）
 
-本文件记录Git、实际代码及不可变证据支持的当前状态。历史入口见[EXPERIMENT_REGISTRY](EXPERIMENT_REGISTRY.md)；架构见[ARCHITECTURE](ARCHITECTURE.md)。旧README的CURRENT及聊天记忆不是状态依据。
+状态来自Git、实际代码和不可变证据；历史文档不用于推断当前授权。架构见[ARCHITECTURE](ARCHITECTURE.md)，实验来源见[EXPERIMENT_REGISTRY](EXPERIMENT_REGISTRY.md)。
 
 ## 当前阶段
 
-Stage 1基础契约、配置dry-run、历史资产只读桥及独立资产管理已实现并完成CPU验证，等待用户源码审查。未授权Stage 2。
+Stage 1已原则通过审查。Stage 2 CUHK-PEDES Dataset Adapter与IRRA Model Adapter已实现并完成CPU验收，等待用户源码审查；真实GPU等价性尚未授权，未进入Stage 3。
 
-- 审计基准：40c7476f92d6bc2458d86029cf7bf8317da0a086。
-- 独立分支：codex/tbps-framework-stage1。
-- 开发树：/home/lzf/ldx/projects/idea-test-tbps-framework-stage1-20261016。
-- 管理规范提交：16a5e3f3086b633b413cfe149e10bf9fc0b589dd。
-- 实现提交：ffd18dd9029b493defc424668eb943d2ad1d5739（由后续文档提交登记，避免自指SHA）。
-- 交付及使用：[Stage 1报告](framework/STAGE1_REPORT.md)、[README](framework/README.md)。
+- Stage 2基准：61471db976508411aafe58e97113322c14d6bbc7。
+- 分支：codex/tbps-framework-stage2。
+- 开发树：/home/lzf/ldx/projects/idea-test-tbps-framework-stage2-20261016。
+- 实现Commit：STAGE2_IMPLEMENTATION_PENDING（由后续文档提交登记）。
+- 接口、CPU命令及下一步授权方案：[Stage 2说明](framework/STAGE2.md)。
+- 验收范围及证据：[Stage 2报告](framework/STAGE2_REPORT.md)。
 
-## 本轮完成与验证
+## 本轮完成
 
-- src/tbps：不可变身份/输入/预算/能力/产物契约；配置/权限校验；新输出原子存储；旧资产只读桥。
-- configs/framework：真实服务器路径配置示例与Git固定历史来源目录。已知组件仅有描述符，无可执行插件。
-- 114项框架CPU tests + 36项历史基础CPU回归通过，共150项；未声称重跑全部历史prototype tests。
-- 8类资产、192个唯一来源文件完成元数据/直接证据只读描述；不加载权重或特征，不重算排名。
-- 消融日志双标志已从实际文件确认；11个trial子协议绑定父协议。AP B1/B2/B3保持metadata级索引。
-- 555个保护文件SHA及mtime_ns不变，含412个旧tracked文件和核验范围内的历史证据；原实验树HEAD仍40c7476且干净。
-- 未运行GPU、模型forward、旧恢复/prepare、训练或Full指标重算；没有复制、转换或重写旧资产。
+- CUHK官方annotation保持原文、多Caption、原顺序、native PID；Test 3074 Gallery/6156 Query与G-v2、Joint、消融三份协议完整身份一致。
+- G/H实际2048 Train（1861 PID）及128内部Validation（121 PID）绑定annotation/internal split/G metadata/H资格/Gallery/调度；PID交集0。内部Validation来自official train，不是official val。
+- PublicImage/Text无PID/配对/奖励。只有已校验成员工厂可创建AttackPartitions；奖励绑定拒绝角色伪造、未入选Caption及Validation/Test成员。
+- 官方IRRA来源严格SHA；RGB预处理、77-token Byte-BPE、原生编码及冻结Inference/输入可微Surrogate接口。
+- 通用ModelAdapter支持原生score/Fusion Mock，不固定维度或双塔；新缓存身份绑定模型、相关producer、数据、有序成员和实际输入内容。
+- Joint训练权限补齐G/H组件并集，图像梯度只要求G组件所需能力。“8类资产”更正为“8个资产索引”。
 
-## 历史研究完成事实
+## 验证结果
 
-G-v2 10 Epoch及IRRA/CUHK Full；H-v1正式SCST和独立Validation Epoch7 Selection；Joint Full及Joint消融Full均已有完成证据。索引及SHA集中维护在EXPERIMENT_REGISTRY，不在此复制全部指标。
+- 183项框架CPU tests（Stage 1的114项+Stage 2新增69项）全部通过。
+- 36项历史数据/Top-K/生成器/Joint基础CPU回归通过；合计219项，不是全部prototype tests重跑。
+- 10种合成文本Token ID与官方tokenize逐值一致；3组合成PIL预处理误差0；4×12合成排名验证官方定义。
+- 真实来源/成员CPU preflight通过，读取2176份G metadata；未加载condition Tensor或Full特征。
+- 7991份保护文件SHA/mtime_ns不变。原实验树仍40c7476且干净；Stage 1工作树仍61471db且干净。
+- 无真实IRRA模型构造/图像文本前向、GPU、G/H训练、Full排名重算或后台监控。
 
-## 下一阶段与限制
+## 历史完成与下一步
 
-- Stage 2候选：CUHK官方Dataset Adapter、IRRA Model Adapter和原生Score接口；当前未实现、未授权。
-- RaSa/APTM、ICFG/RSTP及未来Baseline不能被标记为可执行；所有真实执行请求在Stage 1拒绝。
-- 旧资产路径在其他主机缺失时返回NOT_READY；METADATA_VERIFIED不等于全特征/内部Adam/RNG/训练轨迹新审计。
-- 不自动处理pending发布、不承诺Step恢复、不提供GPU/训练/评测入口。
-- 新框架只读桥可索引旧结果，实际跨框架特征复用仍需后续Adapter及独立等价验证。
+G-v2完整训练/Full、H-v1正式SCST/Validation Epoch7 Selection、Joint Full和消融均保持冻结，8个历史资产索引保留；Stage 1实现ffd18dd、最终发布61471db。
+
+下一项建议仅授权2张Train图+2条Caption的真实IRRA等价Smoke（最多5个图像样本前向、4个文本样本前向，含1次输入梯度检查），具体阈值及边界见Stage 2说明。当前不授权执行。
+
+没有G/H Attack Plugin、统一Evaluation Engine、RaSa/APTM或ICFG/RSTP Adapter；配置仍不能执行攻击/评测。旧特征不能静默标记为新ModelSpace，真正数值/冻结状态需后续真实Smoke验证。

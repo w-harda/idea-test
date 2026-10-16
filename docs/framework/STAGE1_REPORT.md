@@ -23,7 +23,7 @@
 | src/tbps/artifacts.py | 专属新输出不可变Manifest/回执、原子发布、SHA、紧凑CPU Tensor |
 | src/tbps/compat/legacy_assets.py | 字节/JSON只读桥与缺失/冲突处理，无旧模块import |
 | configs/framework/example_irra_gv2.json | 真实路径配置解析示例 |
-| configs/framework/legacy_assets.server.json | 8类资产固定SHA与协议关系；不含权重/缓存文件 |
+| configs/framework/legacy_assets.server.json | 8个资产索引固定SHA与协议关系；不含权重/缓存文件 |
 | tests/framework/framework_fixtures.py | 小型合成来源/协议Fixture |
 | tests/framework/test_contracts.py | 维度/Tokenizer/fusion/身份/预算/权限契约 |
 | tests/framework/test_config.py | 配置、迁移轴、能力拒绝、导入副作用与CLI |
@@ -42,7 +42,7 @@
 | 历史基础CPU回归 | 36通过：test_dataset_adapter、test_dynamic_topk、test_generator_framework、test_joint_baseline |
 | 合计 | 150通过；不是全prototype历史tests重跑 |
 | 示例配置CPU dry-run | CONFIG_VALID_DRY_RUN；executable=false；路径存在但不冒充权重SHA已验证 |
-| 真实历史桥 | 8类METADATA_VERIFIED，192个唯一文件；无模型/Tensor加载或排名 |
+| 真实历史桥 | 8个资产索引均METADATA_VERIFIED，192个唯一文件；无模型/Tensor加载或排名 |
 | 模块副作用 | 子进程禁止Torch/历史模块导入的检查通过；CPU Tensor tests后CUDA未初始化 |
 | Storage | 合成旧view文件超过500,000字节，clone后返回单行Storage为2048字节；数值逐值一致，新紧凑文件小于10,000字节 |
 | 原子性 | 写入后/回执前/发布前故障、真实子进程os._exit、并发锁、SHA篡改/来源冲突及pending保留均通过 |
