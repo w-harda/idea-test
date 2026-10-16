@@ -9,7 +9,7 @@ Stage 2.5已审查；**Stage 3A G-v2/H-v1/Joint薄插件已完成CPU验收，等
 - 基准：b7aac6966a51adc4c64df477f725bb0710ae86e6。
 - 独立分支：codex/tbps-framework-stage3a。
 - 独立树：/home/lzf/ldx/projects/idea-test-tbps-framework-stage3a-20261016。
-- 实现Commit：待提交后由后续文档提交登记。
+- 实现Commit：487584a0faa36d3b1a559b50558b9cd3179d9195（由本次后续文档提交登记）。
 - [接口、扩展示例和CPU命令](framework/STAGE3A.md)；[真实旧依赖/核验/Stage 3B建议](framework/STAGE3A_REPORT.md)。
 
 ## 本轮完成

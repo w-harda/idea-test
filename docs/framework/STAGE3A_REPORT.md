@@ -4,7 +4,7 @@
 
 G-v2、H-v1和Joint最小Attack Plugin机制已实现，薄兼容层复用原网络、推理、资格检查及Unicode算法。**本轮仅CPU Fixture/Mock、合成Caption前端和旧协议只读检查；真实G/H输出等价性仍待Stage 3B授权验证。**
 
-基准b7aac6966a51adc4c64df477f725bb0710ae86e6；独立分支codex/tbps-framework-stage3a；独立工作树/home/lzf/ldx/projects/idea-test-tbps-framework-stage3a-20261016。先读根AGENTS、PROJECT_STATE、ARCHITECTURE、EXPERIMENT_REGISTRY及ADR-0001/0002/0003。实现Commit由后续文档提交登记。
+基准b7aac6966a51adc4c64df477f725bb0710ae86e6；独立分支codex/tbps-framework-stage3a；独立工作树/home/lzf/ldx/projects/idea-test-tbps-framework-stage3a-20261016。先读根AGENTS、PROJECT_STATE、ARCHITECTURE、EXPERIMENT_REGISTRY及ADR-0001/0002/0003。实现Commit：487584a0faa36d3b1a559b50558b9cd3179d9195；由后续文档提交登记。
 
 ## 真实旧代码调用链
 
