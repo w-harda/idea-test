@@ -80,3 +80,13 @@ CPU证据：/home/lzf/ldx/outputs/tbps-framework-stage3br/cpu_closure_v1/result/
 report SHA b974a016a61876fa0c4ee40df8faff6d9b83413afc092cf4d1a978be252d4401；Manifest SHA 19434bdcdbda7255ba582190fa5c003b8a0fe98a58fc27e0878cbc8392217f34。323框架+36历史基础CPU测试通过；75项来源、33份实际执行源码与11个符号核验通过，GPU尝试0。
 
 7991历史文件SHA/mtime和原Stage 3B输出17文件不变；FAIL回执与2358来源仍有效。此PASS仅为CPU加载导入闭包，真实G/H/Joint等价仍PENDING；不覆盖或更名原equivalence_v1。完整边界见framework/STAGE3BR_REPORT.md。
+
+## Stage 3B-2：固定G/H/Joint真实等价PASS（非攻击效果评测）
+
+一次新受控尝试；内部Train cuhk:9955:0/cuhk:26530:0，固定G10/H7，RTX4090-G/CPU-H，FP32/math/no_tf32。两路径G输入/delta/像素/effective_delta逐值exact；H完整动作exact，K2双编辑及K0 NOOP；Joint三模式共享组件通过。G/H各加载1次，真实前向4/2，IRRA0，无训练/JVP/排名。
+
+新证据：/home/lzf/ldx/outputs/tbps-framework-stage3b/equivalence_v2/{attempt,result}/。
+report SHA 50afe401bf57ad244d74a014221825b58a1feb24f07201a42c501404dffecbb6；attempt Manifest 731e99aa2b8f19cf30ec1d8cdfad9ee78c1bca12d649d45e204269188bc8ec85；result Manifest 26185c4cad3f964c121a4d25d189d8f12dd8db3bfb5bd76dd734bde5c99d1f43。
+日志和只读保护审计：/home/lzf/ldx/outputs/tbps-framework-stage3b2/。
+
+332框架+36历史基础CPU tests通过；7991保护文件和原FAIL的17输出SHA/mtime不变。新2362/旧2358来源与回执有效，无pending。只在本固定环境标记VERIFIED；原equivalence_v1保持FAIL，正式Full/消融等资产不变。实现Commit见PROJECT_STATE；详细边界见framework/STAGE3B2_REPORT.md。

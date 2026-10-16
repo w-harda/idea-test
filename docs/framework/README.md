@@ -154,3 +154,7 @@ TMPDIR=/home/lzf/ldx/tmp CUDA_VISIBLE_DEVICES="" PYTHONDONTWRITEBYTECODE=1 OMP_N
 ## Stage 3B-R CPU修复索引
 
 Stage 3B一次真实尝试因condition_schema来源缺项失败；原FAIL证据保留。独立派生清单和严格CPU运行闭包修复已完成，真实G/H输出仍PENDING。[CPU命令与职责](STAGE3BR.md)、[修复报告/保护证据](STAGE3BR_REPORT.md)。本轮没有GPU执行命令；重新尝试须用户单独授权。
+
+## Stage 3B-2验收索引
+
+固定2条Train样本的G/H/Joint真实等价Smoke已通过，原Stage 3B FAIL和Stage 3B-R CPU证据保留。新入口强制严格CPU门禁，真实前向G4/H2/IRRA0，无训练/Full。[入口与执行记录](STAGE3B2.md)、[数值/Unicode/冻结报告](STAGE3B2_REPORT.md)。本轮单次GPU许可已用完，不能重跑或自动扩大范围。

@@ -85,3 +85,9 @@ smoke_attacks提供单次attempt、权重/实际前向计数、完整H动作对�
 新增runtime_closure，按真实加载工厂AST核对全部7个旧导入入口，解析11个符号并检查CaptionFrontend直接文件加载链。SourceFileLoader在执行前验证来源；整个CPU预检硬性阻断权重反序列化、神经构造/前向、CUDA初始化和导数。旧算法/工厂/Smoke脚本不改。
 
 Stage 3A原配置及Stage 3B FAIL证据保持原样；新派生配置只增condition_schema单项，另有parent/derived SHA与精确增量证明。75项来源核验、33份实际源码执行检查通过，但真实输出等价仍PENDING。默认无GPU执行选项；任何GPU新尝试需要另行授权和新attempt。见framework/STAGE3BR.md及报告。
+
+## Stage 3B-2严格门禁与固定条件等价验收
+
+新增smoke_attacks_gated：先执行Stage 3B-R完整CPU闭包检查，捕获同一实际preflight结果，绑定门禁来源与报告，再交给原smoke_attacks.run_once。默认CPU，唯一授权输出equivalence_v2，已用目录拒绝；原数值比较/工厂/算法不改。
+
+固定2条Train样本、G10/H7、FP32/math/no_tf32下G像素/delta及H完整动作exact，Joint三模式共享组件通过；实际G/H/IRRA前向4/2/0。对应固定环境状态VERIFIED，不改变通用execution_kind保守标签，也不授权全量或跨模型执行。原FAIL及CPU修复证据永久保留。见framework/STAGE3B2_REPORT.md。
