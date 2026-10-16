@@ -73,3 +73,9 @@ src/tbps/attacks的base/registry/configuration负责描述、分阶段能力、�
 插件不输出IRRA Embedding、不持有victim评分回调。H约束Tokenizer属于冻结训练侧策略，目标Tokenizer不改动动作。training_kind描述原方法而不授权训练；training_executable/offline_preparation_executable均False。原统一config仍拒绝执行，无Evaluation Engine。
 
 新插件可在独立模块注册，无需修改G/H；当前冻结生成配置不会把迭代攻击或未实现的RaSa/APTM/Dataset误标可执行。真实G/H权重加载与等价仍未运行；CPU结果和Stage 3B建议见framework/STAGE3A_REPORT.md、ADR-0004。前述Stage 1/2“无Attack Plugin”描述保留当时阶段边界，当前状态以PROJECT_STATE为准。
+
+## Stage 3B一次性验证与当前阻断
+
+smoke_attacks提供单次attempt、权重/实际前向计数、完整H动作对照和Joint三模式计划。真实尝试在G加载后因像素读取器间接导入未锁定condition_schema失败，G/H输出均未生成；不改变Plugin等价状态或算法。原部分CPU预检漏查此路径，不能作为完整运行许可。
+
+新增check_attack_runtime是无GPU选项的严格CPU闭包检查，覆盖实际G像素读取与H状态助手链；当前必须拒绝缺项。原执行脚本及来源清单保留，后续修复须单独审查/授权，不能覆盖失败attempt或自动重试。见framework/STAGE3B_REPORT.md。

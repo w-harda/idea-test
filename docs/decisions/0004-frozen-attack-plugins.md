@@ -19,3 +19,5 @@
 影响：Stage 3A只有CPU Fixture/只读检查；不能据此宣称真实G/H完全等价、可执行Full或跨模型效果。原统一配置仍无Evaluation Engine。未来迭代攻击新增独立插件/阶段权限，不更改G/H。
 
 实现、命令和验证边界见[Stage 3A](../framework/STAGE3A.md)及[报告](../framework/STAGE3A_REPORT.md)。
+
+Stage 3B记录：单次真实尝试在运行来源缺项处失败，未生成输出等价数据，状态仍PENDING。未改本ADR决定、Plugin算法或源清单；严格CPU预检须覆盖实际加载助手的传递导入。见[FAIL报告](../framework/STAGE3B_REPORT.md)。

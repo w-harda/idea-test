@@ -1,0 +1,30 @@
+{
+  "schema": "tbps-gh-equivalence-smoke-1",
+  "dataset_sources": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage3b-20261016/configs/framework/stage2_sources.server.json",
+    "sha256": "9f2da834669c7a1902b3fa9570ce8ab1a2844483ddbfb6e75bb3221a02acf73e"
+  },
+  "attack_sources": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage3a-20261016/configs/framework/stage3a_plugins.server.json",
+    "sha256": "d2c01ea7cc70c3c4dd56dceb5de6d654069e129201b54b468e48ff7a2c896123"
+  },
+  "row_ids": [
+    "cuhk:9955:0",
+    "cuhk:26530:0"
+  ],
+  "expected_eligible": [
+    true,
+    false
+  ],
+  "limits": {
+    "G": 4,
+    "H": 4,
+    "IRRA": 0
+  },
+  "max_abs_error": 1e-06,
+  "seed": 42,
+  "precision": "fp32/math/no_tf32",
+  "physical_gpu": 0,
+  "minimum_free_mib": 8192,
+  "maximum_utilization_percent": 10
+}

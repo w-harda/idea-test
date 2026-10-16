@@ -65,3 +65,9 @@ SHA-256：ab69946e159054b263bc55619b74c9c6985d77efbc66f70b67fd57ddcb6b0872。
 复用注册表中固定G10、H7/Selection、IRRA训练来源；未加载模型。独立分支codex/tbps-framework-stage3a，Commit由PROJECT_STATE登记。285框架+36历史基础=321 CPU tests通过；原前端/Tokenizer只做合成Caption检查，真实G/H/IRRA前向0。
 
 证据：/home/lzf/ldx/outputs/tbps-framework-stage3a/{cpu_verified.log,source_verified.log,frontend_synthetic_cpu_final.log,protection_result.json}。7991份历史保护文件SHA/mtime不变，Stage 2.5回执与关联来源只读核验通过。所有正式G/H/Joint/消融/AP实验及8个资产索引保持原样；不是Full指标或全缓存重新审计。详见framework/STAGE3A_REPORT.md。
+
+## Stage 3B单次真实尝试：FAIL，未生成等价对照
+
+固定内部Train cuhk:9955:0（可编辑资格）及cuhk:26530:0（固定NOOP），不按攻击效果选择。G10恢复1次、H7未恢复，因缺少condition_schema运行来源锁定停止；真实G/H/IRRA前向均0，无训练/排名。原G/H等价状态保持PENDING。
+
+证据：/home/lzf/ldx/outputs/tbps-framework-stage3b/equivalence_v1/{attempt,result}/；FAIL report SHA e72a65118cb0c216e2fbb0877152d11524b0254f73cc9f2c8547e91900c7a79c。回执及2358来源SHA有效、无pending，7991历史保护文件不变；完成回执不表示验证PASS。GPU尝试仅1次，未重试。详细未完成项和修复建议见framework/STAGE3B_REPORT.md；Commit由PROJECT_STATE登记。
