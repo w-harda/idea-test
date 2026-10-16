@@ -5,7 +5,7 @@
 基于审计Commit40c7476f92d6bc2458d86029cf7bf8317da0a086，独立服务器工作树/home/lzf/ldx/projects/idea-test-tbps-framework-stage1-20261016，分支codex/tbps-framework-stage1。两份全仓审计的必要设计结论已纳入ARCHITECTURE及ADR；未迁移任何旧攻击算法。
 
 管理规范提交：16a5e3f3086b633b413cfe149e10bf9fc0b589dd。
-实现提交：IMPLEMENTATION_COMMIT_PENDING（后续文档提交登记）。
+实现提交：ffd18dd9029b493defc424668eb943d2ad1d5739（后续文档提交登记）。
 
 ## 新增文件及职责
 
@@ -63,7 +63,7 @@
 
 本轮CPU证据留在：
 /home/lzf/ldx/tmp/tbps-framework-stage1/{cpu_framework_final.log,cpu_legacy_regression.log,bridge_check_final.log,protection_result.json}。
-这些日志/运行输出不提交Git。git diff --check及最终范围核验在提交前执行。
+这些日志/运行输出不提交Git。git diff --check及提交范围核验已通过；相对审计基准仅新增22个文件，没有修改任何基准tracked文件。
 
 ## 兼容范围及限制
 

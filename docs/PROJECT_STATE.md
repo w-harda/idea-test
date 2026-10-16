@@ -10,7 +10,7 @@ Stage 1基础契约、配置dry-run、历史资产只读桥及独立资产管理
 - 独立分支：codex/tbps-framework-stage1。
 - 开发树：/home/lzf/ldx/projects/idea-test-tbps-framework-stage1-20261016。
 - 管理规范提交：16a5e3f3086b633b413cfe149e10bf9fc0b589dd。
-- 实现提交：IMPLEMENTATION_COMMIT_PENDING（由后续文档提交登记，避免自指SHA）。
+- 实现提交：ffd18dd9029b493defc424668eb943d2ad1d5739（由后续文档提交登记，避免自指SHA）。
 - 交付及使用：[Stage 1报告](framework/STAGE1_REPORT.md)、[README](framework/README.md)。
 
 ## 本轮完成与验证
