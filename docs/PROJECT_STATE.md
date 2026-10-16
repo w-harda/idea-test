@@ -9,7 +9,7 @@
 - 基准：`0fb90cd1b280da886aec08834dc13d28eacd5848`（Stage 3B FAIL发布）。
 - 独立分支：`codex/tbps-framework-stage3br`。
 - 独立树：`/home/lzf/ldx/projects/idea-test-tbps-framework-stage3br-20261016`。
-- 实现Commit：本次提交后由后续文档提交登记。
+- 实现Commit：7acadf64b2d9956c87eb1d26f8f39a88563c1db0（本条由后续文档提交登记）。
 - [文件/CPU命令/停止边界](framework/STAGE3BR.md)；[修复与保护报告](framework/STAGE3BR_REPORT.md)。
 
 ## 本轮完成与验证

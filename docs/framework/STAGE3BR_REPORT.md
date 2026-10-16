@@ -2,7 +2,7 @@
 
 结果：**CPU运行闭包检查PASS；真实G/H/Joint输出等价仍PENDING。** 本轮无GPU尝试，无权重反序列化、真实神经构造/前向、backward、Optimizer、JVP或新条件准备。
 
-基准：`0fb90cd1b280da886aec08834dc13d28eacd5848`。独立分支 `codex/tbps-framework-stage3br`，工作树 `/home/lzf/ldx/projects/idea-test-tbps-framework-stage3br-20261016`。实现Commit由PROJECT_STATE后续文档提交登记。
+基准：`0fb90cd1b280da886aec08834dc13d28eacd5848`。独立分支 `codex/tbps-framework-stage3br`，工作树 `/home/lzf/ldx/projects/idea-test-tbps-framework-stage3br-20261016`。实现Commit：7acadf64b2d9956c87eb1d26f8f39a88563c1db0。
 
 ## 最小修复与来源
 
