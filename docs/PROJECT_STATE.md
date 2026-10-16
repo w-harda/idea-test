@@ -9,7 +9,7 @@ Stage 3A已审查；**Stage 3B唯一一次真实尝试FAIL：旧运行来源闭�
 - 基准：ef835a60a85c30910ef4a3442230882f72a05c44。
 - 独立分支：codex/tbps-framework-stage3b。
 - 独立树：/home/lzf/ldx/projects/idea-test-tbps-framework-stage3b-20261016。
-- 实现Commit：待提交后由后续文档提交登记。
+- 实现Commit：0891e26525483dc22dfab589c3f8d81965f23812（由本次后续文档提交登记）。
 - [入口/CPU命令/禁止重试](framework/STAGE3B.md)；[FAIL证据与最小下一步](framework/STAGE3B_REPORT.md)。
 
 ## 本轮实际执行

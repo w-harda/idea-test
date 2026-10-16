@@ -6,7 +6,7 @@
 
 本轮唯一GPU尝试后正常退出，没有重试、恢复、换权重、调seed、放宽阈值或扩大样本。G/H等价状态保持PENDING/legacy_unverified，IRRA Stage 2.5既有验收不受影响。
 
-基准ef835a60a85c30910ef4a3442230882f72a05c44；独立分支codex/tbps-framework-stage3b；独立树/home/lzf/ldx/projects/idea-test-tbps-framework-stage3b-20261016。实现Commit由后续文档提交登记。
+基准ef835a60a85c30910ef4a3442230882f72a05c44；独立分支codex/tbps-framework-stage3b；独立树/home/lzf/ldx/projects/idea-test-tbps-framework-stage3b-20261016。实现Commit：0891e26525483dc22dfab589c3f8d81965f23812；由后续文档提交登记。
 
 ## 固定样本与来源
 
