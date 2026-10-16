@@ -1,0 +1,73 @@
+{
+  "schema": "tbps-experiment-1",
+  "attack_method": "gv2",
+  "surrogate_model": "irra",
+  "victim_model": "irra",
+  "attack_train_dataset": {
+    "id": "cuhk_pedes",
+    "split": "train",
+    "role": "attack_train",
+    "manifest": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/conditions_full/manifest.json",
+      "sha256": "506caf30b8f82b8a29fc35e06df7bb04a5b2bcddc58a1f159b524bb107e7511e"
+    }
+  },
+  "attack_validation_dataset": {
+    "id": "cuhk_pedes",
+    "split": "train",
+    "role": "attack_validation",
+    "manifest": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/conditions_full/manifest.json",
+      "sha256": "506caf30b8f82b8a29fc35e06df7bb04a5b2bcddc58a1f159b524bb107e7511e"
+    }
+  },
+  "attack_test_dataset": {
+    "id": "cuhk_pedes",
+    "split": "test",
+    "role": "test",
+    "manifest": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/evaluation_phase29a/full/protocol.json",
+      "sha256": "13f8287da3324c578198437a9e8c7d4501f6c2619b741db5f9636804c2aa55dc"
+    }
+  },
+  "attack_checkpoint": {
+    "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/train_v2/checkpoints/epoch_0010/checkpoint.pt",
+    "sha256": "f59bd3b5f9cbbaf8f6acc10c4bdc113ea83cacb2979ea0821b952c8f9a1c658e",
+    "attack_training_dataset": "cuhk_pedes",
+    "surrogate_model": "irra",
+    "surrogate_checkpoint_sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009",
+    "selection_dataset": "cuhk_pedes",
+    "uses_test_selection": false
+  },
+  "surrogate_checkpoint": {
+    "path": "/home/lzf/Attack/IRRA/logs/CUHK-PEDES/best.pth",
+    "sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009",
+    "model_id": "irra",
+    "model_training_dataset": "CUHK-PEDES official train; official released IRRA weights"
+  },
+  "victim_checkpoint": {
+    "path": "/home/lzf/Attack/IRRA/logs/CUHK-PEDES/best.pth",
+    "sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009",
+    "model_id": "irra",
+    "model_training_dataset": "CUHK-PEDES official train; official released IRRA weights"
+  },
+  "attack_mode": "white_box",
+  "attack_budget": {
+    "image": {
+      "norm": "linf",
+      "value": 0.03137254901960784,
+      "pixel_space": "rgb_0_1"
+    },
+    "text": null
+  },
+  "seed": 42,
+  "permissions": {
+    "train": [
+      "train_pairs",
+      "source_gradients"
+    ],
+    "attack_time": [
+      "public_images"
+    ]
+  }
+}

@@ -1,0 +1,2583 @@
+{
+  "schema": "tbps-legacy-catalog-1",
+  "baseline_commit": "40c7476f92d6bc2458d86029cf7bf8317da0a086",
+  "assets": [
+    {
+      "id": "gv2_epoch10",
+      "kind": "gv2_checkpoint",
+      "models": {
+        "G": "f59bd3b5f9cbbaf8f6acc10c4bdc113ea83cacb2979ea0821b952c8f9a1c658e",
+        "IRRA": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+      },
+      "datasets": {
+        "attack_train": "CUHK-PEDES official train: 2048 images, internal role=train",
+        "attack_validation": "CUHK-PEDES official train: 128 images, PID-disjoint validation"
+      },
+      "files": {
+        "protocol": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/train_v2/training_protocol.json",
+          "sha256": "3f9e1fae379e9205c7d1d80224887841f89bc49119a3546740b9340e824a93b2",
+          "format": "json"
+        },
+        "checkpoint": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/train_v2/checkpoints/epoch_0010/checkpoint.pt",
+          "sha256": "f59bd3b5f9cbbaf8f6acc10c4bdc113ea83cacb2979ea0821b952c8f9a1c658e",
+          "format": "opaque"
+        },
+        "sidecar": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/train_v2/checkpoints/epoch_0010/checkpoint.json",
+          "sha256": "e064ae3074cf3c31ecaf70e33ca5656b034789a52e5e9fcd43f39207dbfb3832",
+          "format": "json"
+        },
+        "cache_manifest": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/conditions_full/manifest.json",
+          "sha256": "506caf30b8f82b8a29fc35e06df7bb04a5b2bcddc58a1f159b524bb107e7511e",
+          "format": "json"
+        },
+        "cache_protocol": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/conditions_full/protocol.json",
+          "sha256": "9ad4903a6de6dc221df1a15af48d9e63e6332d7fcd3a9a62ecd3f11a2ed91c9d",
+          "format": "json"
+        },
+        "source_0": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/epoch_training.py",
+          "sha256": "0f567c02d4a891dc0fff109abb03aee5942dc97322c6940f92fdef17dfffba4e",
+          "format": "opaque"
+        },
+        "source_1": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/epoch_checkpoint.py",
+          "sha256": "43ee3f312276f3039e33efe5163830fc6ed46523a4bba5597a0e4802a209ff74",
+          "format": "opaque"
+        },
+        "source_2": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/training_data.py",
+          "sha256": "d1b9717c8eb25d5ff8ee995a1a12b35ed978eb4d2aa5f8edb69e0cb4f9d64ccc",
+          "format": "opaque"
+        },
+        "source_3": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/serial_training.py",
+          "sha256": "e42fa8bd6ea933530bda8e2e67d5149e7059151f4b2caa0b662dbaaa856e105d",
+          "format": "opaque"
+        },
+        "source_4": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/image_only_generator.py",
+          "sha256": "4745e6947308fdc4f5d5496b6a99c9a68699abef8131f2a211e1bd13470eec85",
+          "format": "opaque"
+        },
+        "source_5": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/budget_projection.py",
+          "sha256": "a4c391b5d0f4a1d4ddcac0431431615de86fd982eaaa009a0774c2cc3fbd88c0",
+          "format": "opaque"
+        },
+        "source_6": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/losses.py",
+          "sha256": "d415dfe326cc2f580d202d0220d5bb0c5895ed626115b0828e516b598df8f0b2",
+          "format": "opaque"
+        },
+        "source_7": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/condition_schema.py",
+          "sha256": "f13932c2688cab4e135d063eed6f066016f6ba26e2316cbc201f19b246b298b4",
+          "format": "opaque"
+        },
+        "source_8": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/cache_io.py",
+          "sha256": "63b2973af40a5f654bd0574c7280d5fcef25311332796c1d759ecdb021d26dfe",
+          "format": "opaque"
+        },
+        "source_9": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/irra_image_adapter.py",
+          "sha256": "148d2cfe8749cb8723b00e38ca68ff8dee6f86948f1fe2a15605c792dbb2eba4",
+          "format": "opaque"
+        },
+        "source_10": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/inference_once.py",
+          "sha256": "83d38a6c782581acd53c3d8c5272c24c89ae85a32f5c7da9230edff1a8f97e6a",
+          "format": "opaque"
+        }
+      },
+      "checks": [
+        {
+          "file": "protocol",
+          "pointer": "/training_source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_image_generator_v2_20261014~1epoch_training.py",
+          "equals_file_sha": "source_0"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/training_source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_image_generator_v2_20261014~1epoch_checkpoint.py",
+          "equals_file_sha": "source_1"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/training_source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_image_generator_v2_20261014~1training_data.py",
+          "equals_file_sha": "source_2"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/training_source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_image_generator_v2_20261014~1serial_training.py",
+          "equals_file_sha": "source_3"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/training_source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_image_generator_v2_20261014~1image_only_generator.py",
+          "equals_file_sha": "source_4"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/training_source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_image_generator_v2_20261014~1budget_projection.py",
+          "equals_file_sha": "source_5"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/training_source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_image_generator_v2_20261014~1losses.py",
+          "equals_file_sha": "source_6"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/training_source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_image_generator_v2_20261014~1condition_schema.py",
+          "equals_file_sha": "source_7"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/training_source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_image_generator_v2_20261014~1cache_io.py",
+          "equals_file_sha": "source_8"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/training_source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_image_generator_v2_20261014~1irra_image_adapter.py",
+          "equals_file_sha": "source_9"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/training_source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_image_generator_v2_20261014~1inference_once.py",
+          "equals_file_sha": "source_10"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/config/data/train",
+          "equals": 2048
+        },
+        {
+          "file": "protocol",
+          "pointer": "/config/data/validation",
+          "equals": 128
+        }
+      ],
+      "reuse_scope": "read_only_reporting"
+    },
+    {
+      "id": "hv1_epoch7_selection",
+      "kind": "hv1_selection",
+      "models": {
+        "G": "f59bd3b5f9cbbaf8f6acc10c4bdc113ea83cacb2979ea0821b952c8f9a1c658e",
+        "H": "487f3061b6cba2ddabccdd49745a7b99c8c549f4541781b8814b299ef5f279df",
+        "IRRA": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+      },
+      "datasets": {
+        "attack_train": "CUHK-PEDES official train: 2048 images, internal role=train",
+        "attack_validation": "CUHK-PEDES official train: 128 images, PID-disjoint validation"
+      },
+      "files": {
+        "protocol": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/protocol.json",
+          "sha256": "211497ad1d55438c7c89084ec1272e4dcdd5e5f2eefc76a8c8776248e13c0b9d",
+          "format": "json"
+        },
+        "selection": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/selections/30f573098d28b6af6afe146330823986f724378fc7bd4df9d257fdd2c6f20dd1.json",
+          "sha256": "584e4ba2afc7b17fea3bdfb8501716498b84731fa216558daa2e8e4bb353f757",
+          "format": "json"
+        },
+        "checkpoint": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00014336/checkpoint.pt",
+          "sha256": "487f3061b6cba2ddabccdd49745a7b99c8c549f4541781b8814b299ef5f279df",
+          "format": "opaque"
+        },
+        "sidecar": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00014336/checkpoint.json",
+          "sha256": "3925c9ee6025376e4e701443538bfcc840ffff7a2245b3d046e698fb276ba488",
+          "format": "json"
+        },
+        "intent": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00014336/intent.json",
+          "sha256": "95d2a645eb2edaa7585547ffe3b3a64381aab2ca776075979ad2e2ff7e36e467",
+          "format": "json"
+        },
+        "sample_log": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00014336/steps.jsonl",
+          "sha256": "bb9dc07ce4145d155f9596e9ccc7d7a8bcf106dcc0e3bba5f14b8ee3b3f03eb6",
+          "format": "opaque"
+        },
+        "source_0": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/data/bpe_simple_vocab_16e6.txt.gz",
+          "sha256": "924691ac288e54409236115652ad4aa250f48203de50a9e4722a6ecd48d6804a",
+          "format": "opaque"
+        },
+        "source_1": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/__init__.py",
+          "sha256": "fee17e0309d1d428593ce4f4426c7de36317e54d5df2ea4d9fcdd4d5fd5a0aa0",
+          "format": "opaque"
+        },
+        "source_2": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/bases.py",
+          "sha256": "8e1fc03ea1f32629f209a2c4fabd1c65b8e9162c0323c4092b15f68dd8c7b2b6",
+          "format": "opaque"
+        },
+        "source_3": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/build.py",
+          "sha256": "e99987047a9ba7e396c8fd9ac23da797f01b09f517bec03d7fb1016a5eb477b6",
+          "format": "opaque"
+        },
+        "source_4": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/cuhkpedes.py",
+          "sha256": "5110b7102d0a95dc6818808eacc0c6d5a9eb7e0c18429a533bcb4bf72a95c386",
+          "format": "opaque"
+        },
+        "source_5": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/icfgpedes.py",
+          "sha256": "89ba2acb1dad4779ba27f191f6046d5f245b1cc134d5a104b1c6feae48df7862",
+          "format": "opaque"
+        },
+        "source_6": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/preprocessing.py",
+          "sha256": "624c28b443e7173ddf2ea1eb2c1b7e2ebc609978a33152d222cc59b0be41009d",
+          "format": "opaque"
+        },
+        "source_7": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/rstpreid.py",
+          "sha256": "369d398b0e2123b268c71b8e9f826e36d84c05c182adf2230b79c97e349fbe9d",
+          "format": "opaque"
+        },
+        "source_8": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/sampler.py",
+          "sha256": "d95ee53f729f14b8ec0cbd259a32c50f8b0fe171dba4e14443f2995890c54157",
+          "format": "opaque"
+        },
+        "source_9": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/sampler_ddp.py",
+          "sha256": "da5ad1e918680d477aa66afa1b447b3a2642ab7396b96f4839ff09c88a445ba0",
+          "format": "opaque"
+        },
+        "source_10": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/model/__init__.py",
+          "sha256": "0d8e897820044d180f6af594df5f58666d3ba42737afb6f54ecfeaa411f394d4",
+          "format": "opaque"
+        },
+        "source_11": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/model/build.py",
+          "sha256": "bb8176ab1fc6a88cb49d0cbd8317b1c1aa6ebd4f035988170d60508f5df508b2",
+          "format": "opaque"
+        },
+        "source_12": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/model/clip_model.py",
+          "sha256": "81f9553ff6d4c6a96bcdb1e41451694aab0c208ad84865ac344ef6b6bbd002a9",
+          "format": "opaque"
+        },
+        "source_13": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/model/objectives.py",
+          "sha256": "41c7a683e3e52e60257e4f0b2a780240d567d9cac826d879e70b1c9f0213e283",
+          "format": "opaque"
+        },
+        "source_14": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/processor/__init__.py",
+          "sha256": "dc9ad41ea468de419d5f33b6dd86b1599bfc924a33f59af8383c46c7191c896c",
+          "format": "opaque"
+        },
+        "source_15": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/processor/processor.py",
+          "sha256": "0197dba7fb3268231d48c1adffbb0aaf9edd1554e06ee046bfed998fe92b8c31",
+          "format": "opaque"
+        },
+        "source_16": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/solver/__init__.py",
+          "sha256": "f142c1367f436894f4bd5b2b24f9e64fa0d4372c171c8d410b957a74f52749a8",
+          "format": "opaque"
+        },
+        "source_17": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/solver/build.py",
+          "sha256": "387a5d305df40d5a25fab7e2391638bad5f87633aead5f9df30011f1e2c323bd",
+          "format": "opaque"
+        },
+        "source_18": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/solver/lr_scheduler.py",
+          "sha256": "5f89bb63533ebeabcc038ee49f88efe721e7c4c4521f47b54edd348aeb43bb77",
+          "format": "opaque"
+        },
+        "source_19": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/test.py",
+          "sha256": "c217136f2b036039c81b6d8b766359265151d78c27be2928111dc5f9ca6a3959",
+          "format": "opaque"
+        },
+        "source_20": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/train.py",
+          "sha256": "e77e47b4b029906b823f4c579351e9259ba969bbe0d8936ea303da1f38af5677",
+          "format": "opaque"
+        },
+        "source_21": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/__init__.py",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "format": "opaque"
+        },
+        "source_22": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/checkpoint.py",
+          "sha256": "fdd2821d894b853ac319d6c2370919918c13c314d171e7ab0d366ea181bfdb44",
+          "format": "opaque"
+        },
+        "source_23": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/comm.py",
+          "sha256": "05f7ec76fa049d0ca57a90f028471e2a18203e32f2ab28f9448e7fb89dd34b4e",
+          "format": "opaque"
+        },
+        "source_24": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/iotools.py",
+          "sha256": "13260ab0306929ddcf10a6a209f792b3499590d9e20c785c4eee62d1b3c12c3c",
+          "format": "opaque"
+        },
+        "source_25": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/logger.py",
+          "sha256": "14afe54df8c16abe73d455c786f63999b64c9fe407909b2f00c5f7f91da0f131",
+          "format": "opaque"
+        },
+        "source_26": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/meter.py",
+          "sha256": "0245aa40c9a6ade9a9ac0a0f882d1a1d7b06260c667ea43e2ecb3ba846311796",
+          "format": "opaque"
+        },
+        "source_27": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/metrics.py",
+          "sha256": "94910252a9e42f0820d49c11203b31d3b67951f58624f66abff4bf662500d5fb",
+          "format": "opaque"
+        },
+        "source_28": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/options.py",
+          "sha256": "72b75fec88278c951eea900ede5a9f98514546dbe7afa3f88867b692127d2220",
+          "format": "opaque"
+        },
+        "source_29": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/simple_tokenizer.py",
+          "sha256": "19b06ade7532bcff961c4b90590197fcac0d466f08d0b6b801d3d19a36568d67",
+          "format": "opaque"
+        },
+        "source_30": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/visualize.py",
+          "sha256": "8692cbcf59c7c8ee3b165a6295ae128bf109f2fe60b5fd10fae773eb8975c05d",
+          "format": "opaque"
+        },
+        "source_31": {
+          "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/configs/irra_cuhk_official.yaml",
+          "sha256": "8a9c1921ebcf93babcfdc07d35525a8d13572aeebdec5605e390289c536c5175",
+          "format": "opaque"
+        },
+        "source_32": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/ontology/alias_map.yaml",
+          "sha256": "f1d2150387a33ec1f0286ee636ca35d2f94b8d9a13c0b996f5fa28be06759663",
+          "format": "opaque"
+        },
+        "source_33": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/ontology/upar_attribute_space.yaml",
+          "sha256": "e1f69deffa25842d44f84314696d72bf4fa8b201eff276d6cdc54a42ac823773",
+          "format": "opaque"
+        },
+        "source_34": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/budget_projection.py",
+          "sha256": "a4c391b5d0f4a1d4ddcac0431431615de86fd982eaaa009a0774c2cc3fbd88c0",
+          "format": "opaque"
+        },
+        "source_35": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/cache_io.py",
+          "sha256": "63b2973af40a5f654bd0574c7280d5fcef25311332796c1d759ecdb021d26dfe",
+          "format": "opaque"
+        },
+        "source_36": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/condition_schema.py",
+          "sha256": "f13932c2688cab4e135d063eed6f066016f6ba26e2316cbc201f19b246b298b4",
+          "format": "opaque"
+        },
+        "source_37": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/image_only_generator.py",
+          "sha256": "4745e6947308fdc4f5d5496b6a99c9a68699abef8131f2a211e1bd13470eec85",
+          "format": "opaque"
+        },
+        "source_38": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/inference_once.py",
+          "sha256": "83d38a6c782581acd53c3d8c5272c24c89ae85a32f5c7da9230edff1a8f97e6a",
+          "format": "opaque"
+        },
+        "source_39": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/irra_image_adapter.py",
+          "sha256": "148d2cfe8749cb8723b00e38ca68ff8dee6f86948f1fe2a15605c792dbb2eba4",
+          "format": "opaque"
+        },
+        "source_40": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/config_phase2.json",
+          "sha256": "d5e477af46e5cd607e1f60245856f48fb3dd63178c02cf3d484e0aaa901fc967",
+          "format": "opaque"
+        },
+        "source_41": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/config_phase3.json",
+          "sha256": "f544f31537916b8e2074ee1b55fb51ba79f9bd69dce4066c4162c00cf6ed08ce",
+          "format": "opaque"
+        },
+        "source_42": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/config_phase4.json",
+          "sha256": "eaf9500fa9f8d8ad86e53fb94435c41b3c39a54a83e041ebee73300f5ffc8ce1",
+          "format": "opaque"
+        },
+        "source_43": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/constraints.py",
+          "sha256": "7b9202d2885165302aa1ec475feaefe0150869b12660aa40d4552a0f29759264",
+          "format": "opaque"
+        },
+        "source_44": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/contracts.py",
+          "sha256": "2dc90ad865dcdc9b72b5ebb3fe4772a5b0c4c082f91694d1da244a07b72de0e9",
+          "format": "opaque"
+        },
+        "source_45": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/feature_cache.py",
+          "sha256": "3ad6e801a85d9f6d6c12db9dd196c187ac06583caa703f7603491b8f034f101e",
+          "format": "opaque"
+        },
+        "source_46": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/feedback_backend.py",
+          "sha256": "56c79e6c9f16e050a2dc2724c21c22ba7b36f8622b2a367f0c1de6f2f8ae5e19",
+          "format": "opaque"
+        },
+        "source_47": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/checkpoint.py",
+          "sha256": "b579c18f94c8c5a81075fd36c832002a775d58a4adb3c30992cb9f39a16756a7",
+          "format": "opaque"
+        },
+        "source_48": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/cli.py",
+          "sha256": "d36f41e05b656d1779370bb1ce7b9d8aec0f98d2f8465846bfdc4d7796c01c61",
+          "format": "opaque"
+        },
+        "source_49": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/common.py",
+          "sha256": "d112612cc3d3e7be3fa54db2c3bcd6bf2851d191fb9339c2b006e194ec4ca4cd",
+          "format": "opaque"
+        },
+        "source_50": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/data.py",
+          "sha256": "d4f2c5ba75bea719f9fd82efe17d3e1b38b2283196038159ba0fd6cd1dca8a11",
+          "format": "opaque"
+        },
+        "source_51": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/runtime.py",
+          "sha256": "d68bed7ec961dbf056aa16f3eb4330565588d71041eff36a9ccf8d6835d34ab6",
+          "format": "opaque"
+        },
+        "source_52": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/storage.py",
+          "sha256": "318461db0ea9cb6cbdeaec1d12860aaa04b4a944b08125b6ef0b9021eabdaa8a",
+          "format": "opaque"
+        },
+        "source_53": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/training.py",
+          "sha256": "ed7c8ed903702f0b76f72fe626684e586907a015bd6991a64a46d78264bdb2a0",
+          "format": "opaque"
+        },
+        "source_54": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/inspect_phase2.py",
+          "sha256": "1e401490d8e32f8be5a16a2338451d5f7a05869ebd60af2d52825ef6a716d6a1",
+          "format": "opaque"
+        },
+        "source_55": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase2_sources.py",
+          "sha256": "5afd80d60cb6b6198569b6032f72ef146934ffe20a7a9b6827a359172587b1df",
+          "format": "opaque"
+        },
+        "source_56": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase3_inputs.py",
+          "sha256": "01d022fd517c37a6d5d81697d680d44f99df053e819cd164eb770013791dd9cd",
+          "format": "opaque"
+        },
+        "source_57": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase4_checkpoint.py",
+          "sha256": "9b828efbb0ebfff0aaf670b50094f002433d6f0edec2a7f66944e75c983fa1de",
+          "format": "opaque"
+        },
+        "source_58": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase4_real_reward.py",
+          "sha256": "d4d008a29447f9113b581dbc64beabbcc2b54c4e1babb40b910677e5697eda3c",
+          "format": "opaque"
+        },
+        "source_59": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase4_training.py",
+          "sha256": "649ae6b0e9ac63245c9d77f8cfcbe653b000ec9f466070e79990ece210d0466e",
+          "format": "opaque"
+        },
+        "source_60": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/policy.py",
+          "sha256": "0bbcd430e02eb61c38857b7a812b87f163d1bd0a09f0b147cede23e5712fbed3",
+          "format": "opaque"
+        },
+        "source_61": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/real_feature_cache.py",
+          "sha256": "a49b209d3079d389d63923da048b77b85f63c6067f9aadb502c6d46ed52986e2",
+          "format": "opaque"
+        },
+        "source_62": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/real_feedback.py",
+          "sha256": "b0615a44f26c7286520df37dcd35eb1ff381979e5d873545e4b7c8237c91fe38",
+          "format": "opaque"
+        },
+        "source_63": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/rewards.py",
+          "sha256": "4591d7fbb993eb2fcb5470931ebca4b24b88f92a22e118660b822a9c5fb769df",
+          "format": "opaque"
+        },
+        "source_64": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/scst.py",
+          "sha256": "3edb22ac84791f2cd451a5ef93ea87fc75e88827a3703b5648a51b302b988c36",
+          "format": "opaque"
+        },
+        "source_65": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/test_phase2.py",
+          "sha256": "f9a2b227a403ece3b101fc465993340238a2c9febd3deaec28a959eb2812f270",
+          "format": "opaque"
+        },
+        "source_66": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/test_policy.py",
+          "sha256": "50c5a8d417690a1c55304b059eaf619bb6f793e5480dd948d05589d3b3c2c746",
+          "format": "opaque"
+        },
+        "source_67": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/test_scst.py",
+          "sha256": "2e44765647526d6f1c678fb36be03d870edd93103375eb62b8d56c1e0a8da652",
+          "format": "opaque"
+        },
+        "source_68": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/test_tokenizer_real.py",
+          "sha256": "ed356adbc162d2abfae59315a2ebf1dffeb124b65a5928049bba4cf6086abee5",
+          "format": "opaque"
+        },
+        "source_69": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/text_frontend.py",
+          "sha256": "f9fc38d5bdcb40d77f5a0bfa350ff7a9540f2d51c50f4dc4bea84b1d208e3b6d",
+          "format": "opaque"
+        },
+        "source_70": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/tokenizer_probe.py",
+          "sha256": "38ad32a813e2e2114cd5e549bf0b84042bd472f59b22a0da27a4436701c2d287",
+          "format": "opaque"
+        },
+        "source_71": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/training_inputs.py",
+          "sha256": "cf67a8929abc4777d5531b5977f75de953087acc0ba8787662b299b94f201c93",
+          "format": "opaque"
+        },
+        "source_72": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_unit_v53_factorized_ontology_20261003/factorized.py",
+          "sha256": "579d5c71d8d511048ab834925508ec1f9810b3dd22b927a338a37f29e3efdec7",
+          "format": "opaque"
+        },
+        "source_73": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_unit_v54_axis_audit_20261003/axis_audit.py",
+          "sha256": "ea0481121d004ab059c8656451aa224a55c423a755098cc372cdf763f320d287",
+          "format": "opaque"
+        },
+        "source_74": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_unit_v55_interface_20261003/attribute_interface.py",
+          "sha256": "5ec8d0c9e941b9583deae721ce59c9ba9cf2fa8045fc4f3e041b6b59cf0fdcca",
+          "format": "opaque"
+        },
+        "source_75": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/src/attributes/text_extractor.py",
+          "sha256": "47deccbf7c86ac6d2d6000ecb7997b8f7f2aff0ebb3c96b814e1cd7c665253b3",
+          "format": "opaque"
+        },
+        "candidate_0_protocol": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/validation/0d3f8482cf93d9ac301d8fdab8c4725ee5fd9197974fd443cd150908eb79eb5d/protocol.json",
+          "sha256": "0b98d7b6c67b2284452ebf52efd546160399777d1455e9d98552e8f2d7241404",
+          "format": "json"
+        },
+        "candidate_0_summary": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/validation/0d3f8482cf93d9ac301d8fdab8c4725ee5fd9197974fd443cd150908eb79eb5d/summary.json",
+          "sha256": "343e482a48d3a7d5d32c6cf2a63fcc334edd3c927af5b82ae7a85ece209d5016",
+          "format": "json"
+        },
+        "candidate_0_completed": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/validation/0d3f8482cf93d9ac301d8fdab8c4725ee5fd9197974fd443cd150908eb79eb5d/completed.json",
+          "sha256": "afad921afd23599159861daf8915316e234cf60d2a3e986ae27f06167d1776a6",
+          "format": "json"
+        },
+        "candidate_1_protocol": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/validation/107a021305a748766f24b93f2e25f99587a77e295c964c700de98b1e76ec30eb/protocol.json",
+          "sha256": "22216513583b28c0c3561e4d4090b781258984d37d1c0b7b36812e0cda047d2c",
+          "format": "json"
+        },
+        "candidate_1_summary": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/validation/107a021305a748766f24b93f2e25f99587a77e295c964c700de98b1e76ec30eb/summary.json",
+          "sha256": "17bbc18204f218e3d32a47c8d6c40f968cdd9cf80ed535f78c841eb34f57464d",
+          "format": "json"
+        },
+        "candidate_1_completed": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/validation/107a021305a748766f24b93f2e25f99587a77e295c964c700de98b1e76ec30eb/completed.json",
+          "sha256": "553107491e3c4160da918d352f3e66559f610b4338e8302a53838496a9802819",
+          "format": "json"
+        },
+        "candidate_2_protocol": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/validation/14a83a877009d2b6b28d5b379bb75f64b5c653f4cfd36aadcbe0006237139734/protocol.json",
+          "sha256": "8ce362d3c38c23c470fce5867ff4db9902576a58f6d1c828b0f04cb82f30d371",
+          "format": "json"
+        },
+        "candidate_2_summary": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/validation/14a83a877009d2b6b28d5b379bb75f64b5c653f4cfd36aadcbe0006237139734/summary.json",
+          "sha256": "8e62b189201b6a17a43cc362a570fecae5c07208ef0113768e989c409e50a628",
+          "format": "json"
+        },
+        "candidate_2_completed": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/validation/14a83a877009d2b6b28d5b379bb75f64b5c653f4cfd36aadcbe0006237139734/completed.json",
+          "sha256": "416551e5c3b35dcfdf64ad8c1e65f45a3f4c460782923820e008690a052d51b3",
+          "format": "json"
+        },
+        "candidate_3_protocol": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/validation/487f3061b6cba2ddabccdd49745a7b99c8c549f4541781b8814b299ef5f279df/protocol.json",
+          "sha256": "38644b7ca886514bdce1f6f87ea21a2add159ed08d60ce2251c1d8b063fbc6d5",
+          "format": "json"
+        },
+        "candidate_3_summary": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/validation/487f3061b6cba2ddabccdd49745a7b99c8c549f4541781b8814b299ef5f279df/summary.json",
+          "sha256": "9b63d7c7417aad678fcbf9036c0434ca52a4adb8d3faa11cbe044ff75501e2c0",
+          "format": "json"
+        },
+        "candidate_3_completed": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/validation/487f3061b6cba2ddabccdd49745a7b99c8c549f4541781b8814b299ef5f279df/completed.json",
+          "sha256": "daa56c6d3bc72e53b29e3b7699dd5e98f14c614987dabbad0361e9ffe135f753",
+          "format": "json"
+        },
+        "candidate_4_protocol": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/validation/4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd/protocol.json",
+          "sha256": "fa7c592e5886c936e526808e60bf6e022d4e90e5dc37bc244e72e6e250a122f7",
+          "format": "json"
+        },
+        "candidate_4_summary": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/validation/4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd/summary.json",
+          "sha256": "dc30e2b137f14161b12290e9069207c071ad9d68d4e2adb2bef5a83d73d9a608",
+          "format": "json"
+        },
+        "candidate_4_completed": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/validation/4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd/completed.json",
+          "sha256": "78d77f5d5bced5dcce1c9c2a54ed02f25048879361868e61b605d27eaa344bfb",
+          "format": "json"
+        },
+        "candidate_5_protocol": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/validation/6fcb655e1ef799348e7a7d22128fa75c12fcf89acc4763c6ce0f5cf4ac38fc6b/protocol.json",
+          "sha256": "e467cace15293cc68cafc7f60b30000c6a0deac8c408f1088115ae59c1d569f2",
+          "format": "json"
+        },
+        "candidate_5_summary": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/validation/6fcb655e1ef799348e7a7d22128fa75c12fcf89acc4763c6ce0f5cf4ac38fc6b/summary.json",
+          "sha256": "9e0eca2474d040f17874205afdd6492d174e699b8320f160d0468339f1860519",
+          "format": "json"
+        },
+        "candidate_5_completed": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/validation/6fcb655e1ef799348e7a7d22128fa75c12fcf89acc4763c6ce0f5cf4ac38fc6b/completed.json",
+          "sha256": "d039ef2145d9168f5a0e2055925bbdbfc992308105514fcfd9e8c701ba521b9c",
+          "format": "json"
+        },
+        "candidate_6_protocol": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/validation/adad480049a3b223c0a94a3c56dce15b6bfbeba7863fe562e2b08877a12e7f99/protocol.json",
+          "sha256": "5a90c11dd28bb90ef8278ca0db08289fad50e0886a1902f3fecae73703b879c7",
+          "format": "json"
+        },
+        "candidate_6_summary": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/validation/adad480049a3b223c0a94a3c56dce15b6bfbeba7863fe562e2b08877a12e7f99/summary.json",
+          "sha256": "8fa57734131cc66281b2b0c3c6e416e50c899fb48fe69592c029f9992c349c38",
+          "format": "json"
+        },
+        "candidate_6_completed": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/validation/adad480049a3b223c0a94a3c56dce15b6bfbeba7863fe562e2b08877a12e7f99/completed.json",
+          "sha256": "d44078bc132557988cbf554a7cbac29d7fe0a66f90d0f5ee27d66933df10e406",
+          "format": "json"
+        },
+        "candidate_7_protocol": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/validation/ca3f47ca4d9fb9da82a44b0252251539aa48feaac49dee8328dbd609fd026a79/protocol.json",
+          "sha256": "aeaf650d8a7c76a283d6e8448d80267a7b074f539b2f36577bd13d6c0b66d668",
+          "format": "json"
+        },
+        "candidate_7_summary": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/validation/ca3f47ca4d9fb9da82a44b0252251539aa48feaac49dee8328dbd609fd026a79/summary.json",
+          "sha256": "e29de0e3b2cda1621744fa4d14542c88579d296dbe7f0e6441a655608bd5e4ce",
+          "format": "json"
+        },
+        "candidate_7_completed": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/validation/ca3f47ca4d9fb9da82a44b0252251539aa48feaac49dee8328dbd609fd026a79/completed.json",
+          "sha256": "0881fb68b0f52b8417833df6dfc2f8b9855528dbbd50e88c0c3d1757ebc79dbf",
+          "format": "json"
+        },
+        "candidate_8_protocol": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/validation/de8de5320d87261aa6fc4ef73ca4340048506a21eccab315a4cb0afdc57cc3ac/protocol.json",
+          "sha256": "02f70c32415a14e6b51338aea46b19e3c0527f7e9882494a708c9437f8ea8789",
+          "format": "json"
+        },
+        "candidate_8_summary": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/validation/de8de5320d87261aa6fc4ef73ca4340048506a21eccab315a4cb0afdc57cc3ac/summary.json",
+          "sha256": "87febfb4057c69e52af611c4e444ab95e156bb500f62c20e2d852154823b8d93",
+          "format": "json"
+        },
+        "candidate_8_completed": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/validation/de8de5320d87261aa6fc4ef73ca4340048506a21eccab315a4cb0afdc57cc3ac/completed.json",
+          "sha256": "f7be8d6626a470509fbef5cb1e16c240ab4aa5ec67962175695359ae1e86120b",
+          "format": "json"
+        },
+        "candidate_9_protocol": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/validation/eb4cbbeaf4f5aa71591fbda03bee552766aca69241831b370c56af5f803f7783/protocol.json",
+          "sha256": "14ca47dd82848dafe73c55f61237a40b9c438efe8a25f08d508c114d359507f1",
+          "format": "json"
+        },
+        "candidate_9_summary": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/validation/eb4cbbeaf4f5aa71591fbda03bee552766aca69241831b370c56af5f803f7783/summary.json",
+          "sha256": "b72688e1c0d1f660498161206e0463b3c510dcbdfd0a42ba23efe2b3ba49f51a",
+          "format": "json"
+        },
+        "candidate_9_completed": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/validation/eb4cbbeaf4f5aa71591fbda03bee552766aca69241831b370c56af5f803f7783/completed.json",
+          "sha256": "2dc98f217e6616b506c24666fe225a4db203a9b41d2e644dc1abe74b4083a39d",
+          "format": "json"
+        }
+      },
+      "checks": [
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA-main~1IRRA-main~1data~1bpe_simple_vocab_16e6.txt.gz",
+          "equals_file_sha": "source_0"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA-main~1IRRA-main~1datasets~1__init__.py",
+          "equals_file_sha": "source_1"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA-main~1IRRA-main~1datasets~1bases.py",
+          "equals_file_sha": "source_2"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA-main~1IRRA-main~1datasets~1build.py",
+          "equals_file_sha": "source_3"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA-main~1IRRA-main~1datasets~1cuhkpedes.py",
+          "equals_file_sha": "source_4"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA-main~1IRRA-main~1datasets~1icfgpedes.py",
+          "equals_file_sha": "source_5"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA-main~1IRRA-main~1datasets~1preprocessing.py",
+          "equals_file_sha": "source_6"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA-main~1IRRA-main~1datasets~1rstpreid.py",
+          "equals_file_sha": "source_7"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA-main~1IRRA-main~1datasets~1sampler.py",
+          "equals_file_sha": "source_8"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA-main~1IRRA-main~1datasets~1sampler_ddp.py",
+          "equals_file_sha": "source_9"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA-main~1IRRA-main~1model~1__init__.py",
+          "equals_file_sha": "source_10"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA-main~1IRRA-main~1model~1build.py",
+          "equals_file_sha": "source_11"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA-main~1IRRA-main~1model~1clip_model.py",
+          "equals_file_sha": "source_12"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA-main~1IRRA-main~1model~1objectives.py",
+          "equals_file_sha": "source_13"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA-main~1IRRA-main~1processor~1__init__.py",
+          "equals_file_sha": "source_14"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA-main~1IRRA-main~1processor~1processor.py",
+          "equals_file_sha": "source_15"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA-main~1IRRA-main~1solver~1__init__.py",
+          "equals_file_sha": "source_16"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA-main~1IRRA-main~1solver~1build.py",
+          "equals_file_sha": "source_17"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA-main~1IRRA-main~1solver~1lr_scheduler.py",
+          "equals_file_sha": "source_18"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA-main~1IRRA-main~1test.py",
+          "equals_file_sha": "source_19"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA-main~1IRRA-main~1train.py",
+          "equals_file_sha": "source_20"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA-main~1IRRA-main~1utils~1__init__.py",
+          "equals_file_sha": "source_21"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA-main~1IRRA-main~1utils~1checkpoint.py",
+          "equals_file_sha": "source_22"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA-main~1IRRA-main~1utils~1comm.py",
+          "equals_file_sha": "source_23"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA-main~1IRRA-main~1utils~1iotools.py",
+          "equals_file_sha": "source_24"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA-main~1IRRA-main~1utils~1logger.py",
+          "equals_file_sha": "source_25"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA-main~1IRRA-main~1utils~1meter.py",
+          "equals_file_sha": "source_26"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA-main~1IRRA-main~1utils~1metrics.py",
+          "equals_file_sha": "source_27"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA-main~1IRRA-main~1utils~1options.py",
+          "equals_file_sha": "source_28"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA-main~1IRRA-main~1utils~1simple_tokenizer.py",
+          "equals_file_sha": "source_29"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA-main~1IRRA-main~1visualize.py",
+          "equals_file_sha": "source_30"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1outputs~1idea-TBPS-test1~1stage03-attribute-unit-v2-20261002~1code~1configs~1irra_cuhk_official.yaml",
+          "equals_file_sha": "source_31"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1ontology~1alias_map.yaml",
+          "equals_file_sha": "source_32"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1ontology~1upar_attribute_space.yaml",
+          "equals_file_sha": "source_33"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_image_generator_v2_20261014~1budget_projection.py",
+          "equals_file_sha": "source_34"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_image_generator_v2_20261014~1cache_io.py",
+          "equals_file_sha": "source_35"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_image_generator_v2_20261014~1condition_schema.py",
+          "equals_file_sha": "source_36"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_image_generator_v2_20261014~1image_only_generator.py",
+          "equals_file_sha": "source_37"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_image_generator_v2_20261014~1inference_once.py",
+          "equals_file_sha": "source_38"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_image_generator_v2_20261014~1irra_image_adapter.py",
+          "equals_file_sha": "source_39"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1config_phase2.json",
+          "equals_file_sha": "source_40"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1config_phase3.json",
+          "equals_file_sha": "source_41"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1config_phase4.json",
+          "equals_file_sha": "source_42"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1constraints.py",
+          "equals_file_sha": "source_43"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1contracts.py",
+          "equals_file_sha": "source_44"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1feature_cache.py",
+          "equals_file_sha": "source_45"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1feedback_backend.py",
+          "equals_file_sha": "source_46"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1formal_training~1checkpoint.py",
+          "equals_file_sha": "source_47"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1formal_training~1cli.py",
+          "equals_file_sha": "source_48"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1formal_training~1common.py",
+          "equals_file_sha": "source_49"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1formal_training~1data.py",
+          "equals_file_sha": "source_50"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1formal_training~1runtime.py",
+          "equals_file_sha": "source_51"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1formal_training~1storage.py",
+          "equals_file_sha": "source_52"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1formal_training~1training.py",
+          "equals_file_sha": "source_53"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1inspect_phase2.py",
+          "equals_file_sha": "source_54"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1phase2_sources.py",
+          "equals_file_sha": "source_55"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1phase3_inputs.py",
+          "equals_file_sha": "source_56"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1phase4_checkpoint.py",
+          "equals_file_sha": "source_57"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1phase4_real_reward.py",
+          "equals_file_sha": "source_58"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1phase4_training.py",
+          "equals_file_sha": "source_59"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1policy.py",
+          "equals_file_sha": "source_60"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1real_feature_cache.py",
+          "equals_file_sha": "source_61"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1real_feedback.py",
+          "equals_file_sha": "source_62"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1rewards.py",
+          "equals_file_sha": "source_63"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1scst.py",
+          "equals_file_sha": "source_64"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1test_phase2.py",
+          "equals_file_sha": "source_65"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1test_policy.py",
+          "equals_file_sha": "source_66"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1test_scst.py",
+          "equals_file_sha": "source_67"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1test_tokenizer_real.py",
+          "equals_file_sha": "source_68"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1text_frontend.py",
+          "equals_file_sha": "source_69"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1tokenizer_probe.py",
+          "equals_file_sha": "source_70"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_text_policy_h_v1_20261015~1training_inputs.py",
+          "equals_file_sha": "source_71"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_unit_v53_factorized_ontology_20261003~1factorized.py",
+          "equals_file_sha": "source_72"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_unit_v54_axis_audit_20261003~1axis_audit.py",
+          "equals_file_sha": "source_73"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1prototypes~1attribute_unit_v55_interface_20261003~1attribute_interface.py",
+          "equals_file_sha": "source_74"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1ldx~1projects~1idea-TBPS-test1-github-sync-20261014~1src~1attributes~1text_extractor.py",
+          "equals_file_sha": "source_75"
+        },
+        {
+          "file": "candidate_0_completed",
+          "pointer": "/summary_sha256",
+          "equals_file_sha": "candidate_0_summary"
+        },
+        {
+          "file": "candidate_0_completed",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "candidate_0_protocol"
+        },
+        {
+          "file": "candidate_0_completed",
+          "pointer": "/checkpoint_sha256",
+          "equals": "0d3f8482cf93d9ac301d8fdab8c4725ee5fd9197974fd443cd150908eb79eb5d"
+        },
+        {
+          "file": "candidate_0_summary",
+          "pointer": "/groups",
+          "equals_pointer": {
+            "file": "selection",
+            "pointer": "/candidates/0/groups"
+          }
+        },
+        {
+          "file": "candidate_0_summary",
+          "pointer": "/gallery",
+          "equals": 128
+        },
+        {
+          "file": "candidate_0_summary",
+          "pointer": "/queries",
+          "equals": 128
+        },
+        {
+          "file": "candidate_0_summary",
+          "pointer": "/H_unchanged",
+          "equals": true
+        },
+        {
+          "file": "candidate_0_summary",
+          "pointer": "/all_queries_retained",
+          "equals": true
+        },
+        {
+          "file": "candidate_1_completed",
+          "pointer": "/summary_sha256",
+          "equals_file_sha": "candidate_1_summary"
+        },
+        {
+          "file": "candidate_1_completed",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "candidate_1_protocol"
+        },
+        {
+          "file": "candidate_1_completed",
+          "pointer": "/checkpoint_sha256",
+          "equals": "107a021305a748766f24b93f2e25f99587a77e295c964c700de98b1e76ec30eb"
+        },
+        {
+          "file": "candidate_1_summary",
+          "pointer": "/groups",
+          "equals_pointer": {
+            "file": "selection",
+            "pointer": "/candidates/1/groups"
+          }
+        },
+        {
+          "file": "candidate_1_summary",
+          "pointer": "/gallery",
+          "equals": 128
+        },
+        {
+          "file": "candidate_1_summary",
+          "pointer": "/queries",
+          "equals": 128
+        },
+        {
+          "file": "candidate_1_summary",
+          "pointer": "/H_unchanged",
+          "equals": true
+        },
+        {
+          "file": "candidate_1_summary",
+          "pointer": "/all_queries_retained",
+          "equals": true
+        },
+        {
+          "file": "candidate_2_completed",
+          "pointer": "/summary_sha256",
+          "equals_file_sha": "candidate_2_summary"
+        },
+        {
+          "file": "candidate_2_completed",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "candidate_2_protocol"
+        },
+        {
+          "file": "candidate_2_completed",
+          "pointer": "/checkpoint_sha256",
+          "equals": "14a83a877009d2b6b28d5b379bb75f64b5c653f4cfd36aadcbe0006237139734"
+        },
+        {
+          "file": "candidate_2_summary",
+          "pointer": "/groups",
+          "equals_pointer": {
+            "file": "selection",
+            "pointer": "/candidates/2/groups"
+          }
+        },
+        {
+          "file": "candidate_2_summary",
+          "pointer": "/gallery",
+          "equals": 128
+        },
+        {
+          "file": "candidate_2_summary",
+          "pointer": "/queries",
+          "equals": 128
+        },
+        {
+          "file": "candidate_2_summary",
+          "pointer": "/H_unchanged",
+          "equals": true
+        },
+        {
+          "file": "candidate_2_summary",
+          "pointer": "/all_queries_retained",
+          "equals": true
+        },
+        {
+          "file": "candidate_3_completed",
+          "pointer": "/summary_sha256",
+          "equals_file_sha": "candidate_3_summary"
+        },
+        {
+          "file": "candidate_3_completed",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "candidate_3_protocol"
+        },
+        {
+          "file": "candidate_3_completed",
+          "pointer": "/checkpoint_sha256",
+          "equals": "487f3061b6cba2ddabccdd49745a7b99c8c549f4541781b8814b299ef5f279df"
+        },
+        {
+          "file": "candidate_3_summary",
+          "pointer": "/groups",
+          "equals_pointer": {
+            "file": "selection",
+            "pointer": "/candidates/3/groups"
+          }
+        },
+        {
+          "file": "candidate_3_summary",
+          "pointer": "/gallery",
+          "equals": 128
+        },
+        {
+          "file": "candidate_3_summary",
+          "pointer": "/queries",
+          "equals": 128
+        },
+        {
+          "file": "candidate_3_summary",
+          "pointer": "/H_unchanged",
+          "equals": true
+        },
+        {
+          "file": "candidate_3_summary",
+          "pointer": "/all_queries_retained",
+          "equals": true
+        },
+        {
+          "file": "candidate_4_completed",
+          "pointer": "/summary_sha256",
+          "equals_file_sha": "candidate_4_summary"
+        },
+        {
+          "file": "candidate_4_completed",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "candidate_4_protocol"
+        },
+        {
+          "file": "candidate_4_completed",
+          "pointer": "/checkpoint_sha256",
+          "equals": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd"
+        },
+        {
+          "file": "candidate_4_summary",
+          "pointer": "/groups",
+          "equals_pointer": {
+            "file": "selection",
+            "pointer": "/candidates/4/groups"
+          }
+        },
+        {
+          "file": "candidate_4_summary",
+          "pointer": "/gallery",
+          "equals": 128
+        },
+        {
+          "file": "candidate_4_summary",
+          "pointer": "/queries",
+          "equals": 128
+        },
+        {
+          "file": "candidate_4_summary",
+          "pointer": "/H_unchanged",
+          "equals": true
+        },
+        {
+          "file": "candidate_4_summary",
+          "pointer": "/all_queries_retained",
+          "equals": true
+        },
+        {
+          "file": "candidate_5_completed",
+          "pointer": "/summary_sha256",
+          "equals_file_sha": "candidate_5_summary"
+        },
+        {
+          "file": "candidate_5_completed",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "candidate_5_protocol"
+        },
+        {
+          "file": "candidate_5_completed",
+          "pointer": "/checkpoint_sha256",
+          "equals": "6fcb655e1ef799348e7a7d22128fa75c12fcf89acc4763c6ce0f5cf4ac38fc6b"
+        },
+        {
+          "file": "candidate_5_summary",
+          "pointer": "/groups",
+          "equals_pointer": {
+            "file": "selection",
+            "pointer": "/candidates/5/groups"
+          }
+        },
+        {
+          "file": "candidate_5_summary",
+          "pointer": "/gallery",
+          "equals": 128
+        },
+        {
+          "file": "candidate_5_summary",
+          "pointer": "/queries",
+          "equals": 128
+        },
+        {
+          "file": "candidate_5_summary",
+          "pointer": "/H_unchanged",
+          "equals": true
+        },
+        {
+          "file": "candidate_5_summary",
+          "pointer": "/all_queries_retained",
+          "equals": true
+        },
+        {
+          "file": "candidate_6_completed",
+          "pointer": "/summary_sha256",
+          "equals_file_sha": "candidate_6_summary"
+        },
+        {
+          "file": "candidate_6_completed",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "candidate_6_protocol"
+        },
+        {
+          "file": "candidate_6_completed",
+          "pointer": "/checkpoint_sha256",
+          "equals": "adad480049a3b223c0a94a3c56dce15b6bfbeba7863fe562e2b08877a12e7f99"
+        },
+        {
+          "file": "candidate_6_summary",
+          "pointer": "/groups",
+          "equals_pointer": {
+            "file": "selection",
+            "pointer": "/candidates/6/groups"
+          }
+        },
+        {
+          "file": "candidate_6_summary",
+          "pointer": "/gallery",
+          "equals": 128
+        },
+        {
+          "file": "candidate_6_summary",
+          "pointer": "/queries",
+          "equals": 128
+        },
+        {
+          "file": "candidate_6_summary",
+          "pointer": "/H_unchanged",
+          "equals": true
+        },
+        {
+          "file": "candidate_6_summary",
+          "pointer": "/all_queries_retained",
+          "equals": true
+        },
+        {
+          "file": "candidate_7_completed",
+          "pointer": "/summary_sha256",
+          "equals_file_sha": "candidate_7_summary"
+        },
+        {
+          "file": "candidate_7_completed",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "candidate_7_protocol"
+        },
+        {
+          "file": "candidate_7_completed",
+          "pointer": "/checkpoint_sha256",
+          "equals": "ca3f47ca4d9fb9da82a44b0252251539aa48feaac49dee8328dbd609fd026a79"
+        },
+        {
+          "file": "candidate_7_summary",
+          "pointer": "/groups",
+          "equals_pointer": {
+            "file": "selection",
+            "pointer": "/candidates/7/groups"
+          }
+        },
+        {
+          "file": "candidate_7_summary",
+          "pointer": "/gallery",
+          "equals": 128
+        },
+        {
+          "file": "candidate_7_summary",
+          "pointer": "/queries",
+          "equals": 128
+        },
+        {
+          "file": "candidate_7_summary",
+          "pointer": "/H_unchanged",
+          "equals": true
+        },
+        {
+          "file": "candidate_7_summary",
+          "pointer": "/all_queries_retained",
+          "equals": true
+        },
+        {
+          "file": "candidate_8_completed",
+          "pointer": "/summary_sha256",
+          "equals_file_sha": "candidate_8_summary"
+        },
+        {
+          "file": "candidate_8_completed",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "candidate_8_protocol"
+        },
+        {
+          "file": "candidate_8_completed",
+          "pointer": "/checkpoint_sha256",
+          "equals": "de8de5320d87261aa6fc4ef73ca4340048506a21eccab315a4cb0afdc57cc3ac"
+        },
+        {
+          "file": "candidate_8_summary",
+          "pointer": "/groups",
+          "equals_pointer": {
+            "file": "selection",
+            "pointer": "/candidates/8/groups"
+          }
+        },
+        {
+          "file": "candidate_8_summary",
+          "pointer": "/gallery",
+          "equals": 128
+        },
+        {
+          "file": "candidate_8_summary",
+          "pointer": "/queries",
+          "equals": 128
+        },
+        {
+          "file": "candidate_8_summary",
+          "pointer": "/H_unchanged",
+          "equals": true
+        },
+        {
+          "file": "candidate_8_summary",
+          "pointer": "/all_queries_retained",
+          "equals": true
+        },
+        {
+          "file": "candidate_9_completed",
+          "pointer": "/summary_sha256",
+          "equals_file_sha": "candidate_9_summary"
+        },
+        {
+          "file": "candidate_9_completed",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "candidate_9_protocol"
+        },
+        {
+          "file": "candidate_9_completed",
+          "pointer": "/checkpoint_sha256",
+          "equals": "eb4cbbeaf4f5aa71591fbda03bee552766aca69241831b370c56af5f803f7783"
+        },
+        {
+          "file": "candidate_9_summary",
+          "pointer": "/groups",
+          "equals_pointer": {
+            "file": "selection",
+            "pointer": "/candidates/9/groups"
+          }
+        },
+        {
+          "file": "candidate_9_summary",
+          "pointer": "/gallery",
+          "equals": 128
+        },
+        {
+          "file": "candidate_9_summary",
+          "pointer": "/queries",
+          "equals": 128
+        },
+        {
+          "file": "candidate_9_summary",
+          "pointer": "/H_unchanged",
+          "equals": true
+        },
+        {
+          "file": "candidate_9_summary",
+          "pointer": "/all_queries_retained",
+          "equals": true
+        },
+        {
+          "file": "selection",
+          "pointer": "/cursor",
+          "equals": 14336
+        }
+      ],
+      "reuse_scope": "read_only_reporting"
+    },
+    {
+      "id": "gv2_image_only_full",
+      "kind": "gv2_full",
+      "models": {
+        "G": "f59bd3b5f9cbbaf8f6acc10c4bdc113ea83cacb2979ea0821b952c8f9a1c658e",
+        "IRRA": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+      },
+      "datasets": {
+        "evaluation": "CUHK-PEDES official Test; 3074 Gallery / 6156 Query"
+      },
+      "files": {
+        "protocol": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/evaluation_phase29a/full/protocol.json",
+          "sha256": "13f8287da3324c578198437a9e8c7d4501f6c2619b741db5f9636804c2aa55dc",
+          "format": "json"
+        },
+        "completed": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/evaluation_phase29a/full/completed.json",
+          "sha256": "314d7d9ec2cfc77864de7c7b9bbc89a285b65d977e009d82e2fd4270b7946341",
+          "format": "json"
+        },
+        "summary": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/evaluation_phase29a/full/summary.json",
+          "sha256": "3c99dcd6bd6b3a9658bf631299171995f7a17d6f78ee141003028554d27acf13",
+          "format": "json"
+        },
+        "metrics": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/evaluation_phase29a/full/metrics.csv",
+          "sha256": "b98bd88e79db5fea76d94d02caf156753274c5a035032ec01e5e1479983165c9",
+          "format": "csv"
+        },
+        "clean_verified": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/evaluation_phase29a/full/clean_verified.json",
+          "sha256": "41bfe06d9e512c3e05a203f34e72808bc96fe31ab1c9d7bd3debc2e9a2cffd00",
+          "format": "json"
+        },
+        "compatibility": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/evaluation_phase29a/full/storage_fix_compatibility_record.json",
+          "sha256": "87010f2307ff57990d82b55391a76d88e7f730cb3ed599d9938caf6268050c91",
+          "format": "json"
+        },
+        "execution": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/evaluation_phase29a/full/attempts/25262b1f63b840d9a3f9c88b65a6a148/execution.json",
+          "sha256": "0dc8c062c3700ffcd691bd0956f288dd52f2857e80f3a0d9ef4eb1e633d8c71c",
+          "format": "json"
+        }
+      },
+      "checks": [
+        {
+          "file": "protocol",
+          "pointer": "/gallery_count",
+          "equals": 3074
+        },
+        {
+          "file": "protocol",
+          "pointer": "/query_count",
+          "equals": 6156
+        },
+        {
+          "file": "protocol",
+          "pointer": "/epsilon",
+          "equals": 0.03137254901960784
+        },
+        {
+          "file": "protocol",
+          "pointer": "/source_sha256/~1home~1lzf~1Attack~1IRRA~1logs~1CUHK-PEDES~1best.pth",
+          "equals": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+        }
+      ],
+      "reuse_scope": "read_only_reporting"
+    },
+    {
+      "id": "joint_full",
+      "kind": "joint_full",
+      "models": {
+        "G": "f59bd3b5f9cbbaf8f6acc10c4bdc113ea83cacb2979ea0821b952c8f9a1c658e",
+        "H": "487f3061b6cba2ddabccdd49745a7b99c8c549f4541781b8814b299ef5f279df",
+        "IRRA": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+      },
+      "datasets": {
+        "evaluation": "CUHK-PEDES official Test; 3074 Gallery / 6156 Query"
+      },
+      "files": {
+        "protocol": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/phase5_joint/full/protocol.json",
+          "sha256": "8f505947708e010ea3b9a43bd7830d1aa9101f01a93299fe1d8683d6d0bde86e",
+          "format": "json"
+        },
+        "completed": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/phase5_joint/full/completed.json",
+          "sha256": "94c364ab791f8668cf1655fb80c540cfb8e23db47dce3eabe6ab91c329866a3c",
+          "format": "json"
+        },
+        "summary": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/phase5_joint/full/summary.json",
+          "sha256": "321c666bf9997157ffb1eb02acd0dc48b74dff9431ea85a581218b7346514fb0",
+          "format": "json"
+        },
+        "metrics": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/phase5_joint/full/metrics.csv",
+          "sha256": "f352cc46ca06412a3b1b46d3d5e735531cb22028dd7cf69cedc3563a635ff1a7",
+          "format": "csv"
+        },
+        "baseline_verified": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/phase5_joint/full/baseline_verified.json",
+          "sha256": "6387d70bb063738321c0d4a45cd133b1c46c039d2aab875a74aa2575d52962b8",
+          "format": "json"
+        },
+        "selection": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/selections/30f573098d28b6af6afe146330823986f724378fc7bd4df9d257fdd2c6f20dd1.json",
+          "sha256": "584e4ba2afc7b17fea3bdfb8501716498b84731fa216558daa2e8e4bb353f757",
+          "format": "json"
+        },
+        "historical_protocol": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/evaluation_phase29a/full/protocol.json",
+          "sha256": "13f8287da3324c578198437a9e8c7d4501f6c2619b741db5f9636804c2aa55dc",
+          "format": "json"
+        },
+        "execution": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/phase5_joint/full/attempts/1792133256018362445/execution.json",
+          "sha256": "b6a086e4e95a584bd3b9e94f27a6d9dbf1d6cafaaceb960251dd9bd4f1bf476d",
+          "format": "json"
+        }
+      },
+      "checks": [
+        {
+          "file": "protocol",
+          "pointer": "/gallery_count",
+          "equals": 3074
+        },
+        {
+          "file": "protocol",
+          "pointer": "/query_count",
+          "equals": 6156
+        },
+        {
+          "file": "protocol",
+          "pointer": "/historical_protocol_sha256",
+          "equals_digest": "historical_protocol"
+        },
+        {
+          "file": "completed",
+          "pointer": "/execution_sha256",
+          "equals_file_sha": "execution"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/H_selection/sha256",
+          "equals_file_sha": "selection"
+        },
+        {
+          "file": "protocol",
+          "pointer": "/epsilon",
+          "equals": 0.03137254901960784
+        }
+      ],
+      "reuse_scope": "read_only_reporting"
+    },
+    {
+      "id": "joint_ablation_full",
+      "kind": "ablation_full",
+      "models": {
+        "G": "f59bd3b5f9cbbaf8f6acc10c4bdc113ea83cacb2979ea0821b952c8f9a1c658e",
+        "H": "487f3061b6cba2ddabccdd49745a7b99c8c549f4541781b8814b299ef5f279df",
+        "IRRA": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+      },
+      "datasets": {
+        "evaluation": "CUHK-PEDES official Test; 3074 Gallery / 6156 Query"
+      },
+      "files": {
+        "protocol": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/protocol.json",
+          "sha256": "f5b9394d5ba7b966e3e6a85bf95e2395d7582bd7b819411687bf6beb61ee1039",
+          "format": "json"
+        },
+        "completed": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/completed.json",
+          "sha256": "61d886b16fd0bc07ee3c8fced822272d5fd10913aa850e6048331dcaad7f9a61",
+          "format": "json"
+        },
+        "summary": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/summary.json",
+          "sha256": "d8bd0e2482d86c6ba184762472429d0608633918050b65c48d0815acb3aae9ea",
+          "format": "json"
+        },
+        "metrics": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/metrics.csv",
+          "sha256": "94edfce4f82688dc466d00167b1c99ef823c3bc9e55547d45a39352d64cd6628",
+          "format": "csv"
+        },
+        "aggregate": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/aggregate.csv",
+          "sha256": "5d86379e9958bc80ba86b295ec90b44d8d5e11a0e0ff592a46c65c03cf14d1f7",
+          "format": "csv"
+        },
+        "audit_log": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/logs/ablation_20261016_163457.log",
+          "sha256": "ab69946e159054b263bc55619b74c9c6985d77efbc66f70b67fd57ddcb6b0872",
+          "format": "log"
+        },
+        "joint_protocol": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/phase5_joint/full/protocol.json",
+          "sha256": "8f505947708e010ea3b9a43bd7830d1aa9101f01a93299fe1d8683d6d0bde86e",
+          "format": "json"
+        },
+        "trial_0_summary": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/random_attribute_seed42/summary.json",
+          "sha256": "bee2a1d9b1604af6ca89930a8861000197abcba135cebbe25c198b3ef858165d",
+          "format": "json"
+        },
+        "trial_0_completed": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/random_attribute_seed42/completed.json",
+          "sha256": "b65f1d5dd8e2444fc3cfdff691bdfeff48e543b1ca56f090bb7d50b3618d6c96",
+          "format": "json"
+        },
+        "trial_0_execution": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/random_attribute_seed42/execution.json",
+          "sha256": "a2750ca1ef594ead1d1671a8f10de3386de35ef3e65a9ed746684129e0323f56",
+          "format": "json"
+        },
+        "trial_1_summary": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/random_attribute_seed43/summary.json",
+          "sha256": "acda34594105b18ff8d02072e2ac83ffd66ce9d465c0fb4c9e9c748ed7b0206d",
+          "format": "json"
+        },
+        "trial_1_completed": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/random_attribute_seed43/completed.json",
+          "sha256": "786eefc47cfce829bab15a243cb51aee48db90719b8275c19d2c5b1630a85249",
+          "format": "json"
+        },
+        "trial_1_execution": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/random_attribute_seed43/execution.json",
+          "sha256": "d4b32160b5eaaff02777ccff5dacbc7227b4cb6b4b217ed88d45d24fa1be4aa2",
+          "format": "json"
+        },
+        "trial_2_summary": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/random_attribute_seed44/summary.json",
+          "sha256": "a0d086030f4855e1f392cd8eba5564eef87a26222474b25c0992181345971fc4",
+          "format": "json"
+        },
+        "trial_2_completed": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/random_attribute_seed44/completed.json",
+          "sha256": "25ca08c72a12f133d06a792298bda40a406c29f9ebc6f042edd349bca16b2eb5",
+          "format": "json"
+        },
+        "trial_2_execution": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/random_attribute_seed44/execution.json",
+          "sha256": "99e97f04132709a3294cc233d3e9f71702b65126a1507ba3ed6070b9104d1a7f",
+          "format": "json"
+        },
+        "trial_3_summary": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/random_attribute_seed45/summary.json",
+          "sha256": "a3fb65392809d38c36248c6b1bd9f107f20cda40310d9fed2b8c37bab7dca78e",
+          "format": "json"
+        },
+        "trial_3_completed": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/random_attribute_seed45/completed.json",
+          "sha256": "375ddb83062beb3c240535496bd70f16273f4849b9c245f96df9882c43be9231",
+          "format": "json"
+        },
+        "trial_3_execution": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/random_attribute_seed45/execution.json",
+          "sha256": "dc510d6f6293d6284367623eeb75f43264606a913a74d05c02dbe109c3ed2fec",
+          "format": "json"
+        },
+        "trial_4_summary": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/random_attribute_seed46/summary.json",
+          "sha256": "28ae0b88e000df4243d8be8769550bf04561009a583e1b24222e11b787e0a86e",
+          "format": "json"
+        },
+        "trial_4_completed": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/random_attribute_seed46/completed.json",
+          "sha256": "f026d588ba6aea7edc7f609669cd6df99bbe2bfa7efaf12d132868761705b4ac",
+          "format": "json"
+        },
+        "trial_4_execution": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/random_attribute_seed46/execution.json",
+          "sha256": "96d92a7078bc306916dd3e523abb1e52d7eb32fe3aee187ade3c410593006721",
+          "format": "json"
+        },
+        "trial_5_summary": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/h_selected_seed42/summary.json",
+          "sha256": "ceeb072c946c944b2f18a85df5b874de8eb5723d884326777b49a1444e2aab6c",
+          "format": "json"
+        },
+        "trial_5_completed": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/h_selected_seed42/completed.json",
+          "sha256": "f0874c25eb96dc534bb0eb1f7ea472a192c6c8cb17078a55d2e43d2f5a75013b",
+          "format": "json"
+        },
+        "trial_5_execution": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/h_selected_seed42/execution.json",
+          "sha256": "a00471b3939b6e92ca30019b313b89d9d35bb1b5035e5e10531428416060031e",
+          "format": "json"
+        },
+        "trial_6_summary": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/h_selected_seed43/summary.json",
+          "sha256": "1a42c2b264dae1d024c1f50b3a6638494f910bf5d95a251b4da53a8ee1ae286c",
+          "format": "json"
+        },
+        "trial_6_completed": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/h_selected_seed43/completed.json",
+          "sha256": "5b478f3db8e97e8e74bedc3ae10c80b3fd4bbfafe1c17c5a58ed4df642e3a329",
+          "format": "json"
+        },
+        "trial_6_execution": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/h_selected_seed43/execution.json",
+          "sha256": "cf1c49fc847ab99142320ae87abda315e51de3d900a067d5234bf5ef9dfff117",
+          "format": "json"
+        },
+        "trial_7_summary": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/h_selected_seed44/summary.json",
+          "sha256": "ee770058f9b755615eae5261c3b29c73243b1965f86852865118a448d76cb07c",
+          "format": "json"
+        },
+        "trial_7_completed": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/h_selected_seed44/completed.json",
+          "sha256": "387e5a7447a32fdc72e3050679aa04dc13da86670d8fb96432d6d1f6f250e485",
+          "format": "json"
+        },
+        "trial_7_execution": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/h_selected_seed44/execution.json",
+          "sha256": "567fe03c160b9c21baf4e3ec061ee51f27d0abd414d4b9f6227a93f5a96ae64e",
+          "format": "json"
+        },
+        "trial_8_summary": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/h_selected_seed45/summary.json",
+          "sha256": "dba64f2811f69b98a5b38c188c0267c55e2e7e644b027ad7ed68643f99c5f373",
+          "format": "json"
+        },
+        "trial_8_completed": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/h_selected_seed45/completed.json",
+          "sha256": "1c202255cf6808488fd1afbb13c06f5b9f00c16ce334e212704f29f46f619bb8",
+          "format": "json"
+        },
+        "trial_8_execution": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/h_selected_seed45/execution.json",
+          "sha256": "30a666bebb68c347b80b92a2073b66044045133d5dc4550cdfda40a0be4e603f",
+          "format": "json"
+        },
+        "trial_9_summary": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/h_selected_seed46/summary.json",
+          "sha256": "050ad6f7dfe2f0cb4362ffc4ea859331219f126a6c77e6db3ae95a4394e50afb",
+          "format": "json"
+        },
+        "trial_9_completed": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/h_selected_seed46/completed.json",
+          "sha256": "a9292b412c5d293cfd3c9c0b733031b1b5d8f50ddb9fc2217f79ee0201b7825e",
+          "format": "json"
+        },
+        "trial_9_execution": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/h_selected_seed46/execution.json",
+          "sha256": "ae5a70ff35f321e3c1490c75ad39fee0f180c314b0dba9fbb5bbacc49365dba3",
+          "format": "json"
+        },
+        "trial_10_summary": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/untrained_seed42/summary.json",
+          "sha256": "cf3b8d6a81ef112ca1f83f52c365bd323a0d73c3851b077679ddf8936dd4dabc",
+          "format": "json"
+        },
+        "trial_10_completed": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/untrained_seed42/completed.json",
+          "sha256": "153a69b13b0f6e0f801716ea14c9dfe104341bf4294e9c9d7fb406c59bbfefd4",
+          "format": "json"
+        },
+        "trial_10_execution": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/untrained_seed42/execution.json",
+          "sha256": "399a110af73edd75d670bb7b0c8a63600150b7f2518c4e27d1de89694adc69af",
+          "format": "json"
+        },
+        "execution_0": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/attempts/1792139731076316750/execution.json",
+          "sha256": "f7ffbca92d5d78a417de09b6a0207aefff7c042011e623d17d7c2685063f65ec",
+          "format": "json"
+        },
+        "trial_0_protocol": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/random_attribute_seed42/protocol.json",
+          "sha256": "190fffeabf766d8a4c6c25e31a195ad5a48049b1f33058eca785f2c9a6b50735",
+          "format": "json"
+        },
+        "trial_1_protocol": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/random_attribute_seed43/protocol.json",
+          "sha256": "4a3f3b62823355316b7c563f57e8ddb65dec4130dea45f0801267b01569e2931",
+          "format": "json"
+        },
+        "trial_2_protocol": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/random_attribute_seed44/protocol.json",
+          "sha256": "de1b885a3d8c283c5c3da82b1da495095f164dc60cf950d1b5c223f8de40a4c0",
+          "format": "json"
+        },
+        "trial_3_protocol": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/random_attribute_seed45/protocol.json",
+          "sha256": "b8ec01b5e1217bea377979dff60cc64342e50314ca4e784f2c8fb5b4eed6a4cc",
+          "format": "json"
+        },
+        "trial_4_protocol": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/random_attribute_seed46/protocol.json",
+          "sha256": "65ed11d99ec3ddf7fe64c82b3f8fe87841883f85a1939603ec24df246053cdc7",
+          "format": "json"
+        },
+        "trial_5_protocol": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/h_selected_seed42/protocol.json",
+          "sha256": "f3bb2ff4a9d46236b2a9a94eb0ab79766731e3913bc1d2c8eb08a601c026f79b",
+          "format": "json"
+        },
+        "trial_6_protocol": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/h_selected_seed43/protocol.json",
+          "sha256": "a7a36fbbec1abf926a66799ffd6007c691a8ccba725944a4f94436c3b05c4723",
+          "format": "json"
+        },
+        "trial_7_protocol": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/h_selected_seed44/protocol.json",
+          "sha256": "cf25d1193904ae2154d94139d518977fea2ee93d797a9be8167af8a303e6aa7b",
+          "format": "json"
+        },
+        "trial_8_protocol": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/h_selected_seed45/protocol.json",
+          "sha256": "1bf7f3a6b948dcec87f33faa4ee950d96ac796d85a7754d84701ae9864b23dad",
+          "format": "json"
+        },
+        "trial_9_protocol": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/h_selected_seed46/protocol.json",
+          "sha256": "4ec06b95dff22f6288910226f2473b672cfb71c869c9c1a41c4fb8d764cf96af",
+          "format": "json"
+        },
+        "trial_10_protocol": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/joint_ablation_v1/full/variants/untrained_seed42/protocol.json",
+          "sha256": "de5a7349babaf0017b770209e737bf6a9d50a58fbc3c4b3824013ae41b2b4c4e",
+          "format": "json"
+        }
+      },
+      "checks": [
+        {
+          "file": "protocol",
+          "pointer": "/gallery_count",
+          "equals": 3074
+        },
+        {
+          "file": "protocol",
+          "pointer": "/query_count",
+          "equals": 6156
+        },
+        {
+          "file": "protocol",
+          "pointer": "/full_protocol_sha256",
+          "equals_digest": "joint_protocol"
+        },
+        {
+          "file": "trial_0_completed",
+          "pointer": "/summary_sha256",
+          "equals_file_sha": "trial_0_summary"
+        },
+        {
+          "file": "trial_0_completed",
+          "pointer": "/execution_sha256",
+          "equals_file_sha": "trial_0_execution"
+        },
+        {
+          "file": "trial_0_completed",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "trial_0_protocol"
+        },
+        {
+          "file": "trial_1_completed",
+          "pointer": "/summary_sha256",
+          "equals_file_sha": "trial_1_summary"
+        },
+        {
+          "file": "trial_1_completed",
+          "pointer": "/execution_sha256",
+          "equals_file_sha": "trial_1_execution"
+        },
+        {
+          "file": "trial_1_completed",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "trial_1_protocol"
+        },
+        {
+          "file": "trial_2_completed",
+          "pointer": "/summary_sha256",
+          "equals_file_sha": "trial_2_summary"
+        },
+        {
+          "file": "trial_2_completed",
+          "pointer": "/execution_sha256",
+          "equals_file_sha": "trial_2_execution"
+        },
+        {
+          "file": "trial_2_completed",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "trial_2_protocol"
+        },
+        {
+          "file": "trial_3_completed",
+          "pointer": "/summary_sha256",
+          "equals_file_sha": "trial_3_summary"
+        },
+        {
+          "file": "trial_3_completed",
+          "pointer": "/execution_sha256",
+          "equals_file_sha": "trial_3_execution"
+        },
+        {
+          "file": "trial_3_completed",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "trial_3_protocol"
+        },
+        {
+          "file": "trial_4_completed",
+          "pointer": "/summary_sha256",
+          "equals_file_sha": "trial_4_summary"
+        },
+        {
+          "file": "trial_4_completed",
+          "pointer": "/execution_sha256",
+          "equals_file_sha": "trial_4_execution"
+        },
+        {
+          "file": "trial_4_completed",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "trial_4_protocol"
+        },
+        {
+          "file": "trial_5_completed",
+          "pointer": "/summary_sha256",
+          "equals_file_sha": "trial_5_summary"
+        },
+        {
+          "file": "trial_5_completed",
+          "pointer": "/execution_sha256",
+          "equals_file_sha": "trial_5_execution"
+        },
+        {
+          "file": "trial_5_completed",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "trial_5_protocol"
+        },
+        {
+          "file": "trial_6_completed",
+          "pointer": "/summary_sha256",
+          "equals_file_sha": "trial_6_summary"
+        },
+        {
+          "file": "trial_6_completed",
+          "pointer": "/execution_sha256",
+          "equals_file_sha": "trial_6_execution"
+        },
+        {
+          "file": "trial_6_completed",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "trial_6_protocol"
+        },
+        {
+          "file": "trial_7_completed",
+          "pointer": "/summary_sha256",
+          "equals_file_sha": "trial_7_summary"
+        },
+        {
+          "file": "trial_7_completed",
+          "pointer": "/execution_sha256",
+          "equals_file_sha": "trial_7_execution"
+        },
+        {
+          "file": "trial_7_completed",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "trial_7_protocol"
+        },
+        {
+          "file": "trial_8_completed",
+          "pointer": "/summary_sha256",
+          "equals_file_sha": "trial_8_summary"
+        },
+        {
+          "file": "trial_8_completed",
+          "pointer": "/execution_sha256",
+          "equals_file_sha": "trial_8_execution"
+        },
+        {
+          "file": "trial_8_completed",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "trial_8_protocol"
+        },
+        {
+          "file": "trial_9_completed",
+          "pointer": "/summary_sha256",
+          "equals_file_sha": "trial_9_summary"
+        },
+        {
+          "file": "trial_9_completed",
+          "pointer": "/execution_sha256",
+          "equals_file_sha": "trial_9_execution"
+        },
+        {
+          "file": "trial_9_completed",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "trial_9_protocol"
+        },
+        {
+          "file": "trial_10_completed",
+          "pointer": "/summary_sha256",
+          "equals_file_sha": "trial_10_summary"
+        },
+        {
+          "file": "trial_10_completed",
+          "pointer": "/execution_sha256",
+          "equals_file_sha": "trial_10_execution"
+        },
+        {
+          "file": "trial_10_completed",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "trial_10_protocol"
+        },
+        {
+          "file": "completed",
+          "pointer": "/evidence_files_sha256/attempts~11792139731076316750~1execution.json",
+          "equals": "f7ffbca92d5d78a417de09b6a0207aefff7c042011e623d17d7c2685063f65ec"
+        },
+        {
+          "file": "trial_0_protocol",
+          "pointer": "/parent_sha256",
+          "equals_digest": "protocol"
+        },
+        {
+          "file": "trial_0_protocol",
+          "pointer": "/trial",
+          "equals": {
+            "key": "random_attribute_seed42",
+            "kind": "random_attribute",
+            "seed": 42
+          }
+        },
+        {
+          "file": "trial_0_summary",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "trial_0_protocol"
+        },
+        {
+          "file": "trial_0_summary",
+          "pointer": "/all_queries_retained",
+          "equals": true
+        },
+        {
+          "file": "trial_1_protocol",
+          "pointer": "/parent_sha256",
+          "equals_digest": "protocol"
+        },
+        {
+          "file": "trial_1_protocol",
+          "pointer": "/trial",
+          "equals": {
+            "key": "random_attribute_seed43",
+            "kind": "random_attribute",
+            "seed": 43
+          }
+        },
+        {
+          "file": "trial_1_summary",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "trial_1_protocol"
+        },
+        {
+          "file": "trial_1_summary",
+          "pointer": "/all_queries_retained",
+          "equals": true
+        },
+        {
+          "file": "trial_2_protocol",
+          "pointer": "/parent_sha256",
+          "equals_digest": "protocol"
+        },
+        {
+          "file": "trial_2_protocol",
+          "pointer": "/trial",
+          "equals": {
+            "key": "random_attribute_seed44",
+            "kind": "random_attribute",
+            "seed": 44
+          }
+        },
+        {
+          "file": "trial_2_summary",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "trial_2_protocol"
+        },
+        {
+          "file": "trial_2_summary",
+          "pointer": "/all_queries_retained",
+          "equals": true
+        },
+        {
+          "file": "trial_3_protocol",
+          "pointer": "/parent_sha256",
+          "equals_digest": "protocol"
+        },
+        {
+          "file": "trial_3_protocol",
+          "pointer": "/trial",
+          "equals": {
+            "key": "random_attribute_seed45",
+            "kind": "random_attribute",
+            "seed": 45
+          }
+        },
+        {
+          "file": "trial_3_summary",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "trial_3_protocol"
+        },
+        {
+          "file": "trial_3_summary",
+          "pointer": "/all_queries_retained",
+          "equals": true
+        },
+        {
+          "file": "trial_4_protocol",
+          "pointer": "/parent_sha256",
+          "equals_digest": "protocol"
+        },
+        {
+          "file": "trial_4_protocol",
+          "pointer": "/trial",
+          "equals": {
+            "key": "random_attribute_seed46",
+            "kind": "random_attribute",
+            "seed": 46
+          }
+        },
+        {
+          "file": "trial_4_summary",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "trial_4_protocol"
+        },
+        {
+          "file": "trial_4_summary",
+          "pointer": "/all_queries_retained",
+          "equals": true
+        },
+        {
+          "file": "trial_5_protocol",
+          "pointer": "/parent_sha256",
+          "equals_digest": "protocol"
+        },
+        {
+          "file": "trial_5_protocol",
+          "pointer": "/trial",
+          "equals": {
+            "key": "h_selected_seed42",
+            "kind": "h_selected",
+            "seed": 42
+          }
+        },
+        {
+          "file": "trial_5_summary",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "trial_5_protocol"
+        },
+        {
+          "file": "trial_5_summary",
+          "pointer": "/all_queries_retained",
+          "equals": true
+        },
+        {
+          "file": "trial_6_protocol",
+          "pointer": "/parent_sha256",
+          "equals_digest": "protocol"
+        },
+        {
+          "file": "trial_6_protocol",
+          "pointer": "/trial",
+          "equals": {
+            "key": "h_selected_seed43",
+            "kind": "h_selected",
+            "seed": 43
+          }
+        },
+        {
+          "file": "trial_6_summary",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "trial_6_protocol"
+        },
+        {
+          "file": "trial_6_summary",
+          "pointer": "/all_queries_retained",
+          "equals": true
+        },
+        {
+          "file": "trial_7_protocol",
+          "pointer": "/parent_sha256",
+          "equals_digest": "protocol"
+        },
+        {
+          "file": "trial_7_protocol",
+          "pointer": "/trial",
+          "equals": {
+            "key": "h_selected_seed44",
+            "kind": "h_selected",
+            "seed": 44
+          }
+        },
+        {
+          "file": "trial_7_summary",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "trial_7_protocol"
+        },
+        {
+          "file": "trial_7_summary",
+          "pointer": "/all_queries_retained",
+          "equals": true
+        },
+        {
+          "file": "trial_8_protocol",
+          "pointer": "/parent_sha256",
+          "equals_digest": "protocol"
+        },
+        {
+          "file": "trial_8_protocol",
+          "pointer": "/trial",
+          "equals": {
+            "key": "h_selected_seed45",
+            "kind": "h_selected",
+            "seed": 45
+          }
+        },
+        {
+          "file": "trial_8_summary",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "trial_8_protocol"
+        },
+        {
+          "file": "trial_8_summary",
+          "pointer": "/all_queries_retained",
+          "equals": true
+        },
+        {
+          "file": "trial_9_protocol",
+          "pointer": "/parent_sha256",
+          "equals_digest": "protocol"
+        },
+        {
+          "file": "trial_9_protocol",
+          "pointer": "/trial",
+          "equals": {
+            "key": "h_selected_seed46",
+            "kind": "h_selected",
+            "seed": 46
+          }
+        },
+        {
+          "file": "trial_9_summary",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "trial_9_protocol"
+        },
+        {
+          "file": "trial_9_summary",
+          "pointer": "/all_queries_retained",
+          "equals": true
+        },
+        {
+          "file": "trial_10_protocol",
+          "pointer": "/parent_sha256",
+          "equals_digest": "protocol"
+        },
+        {
+          "file": "trial_10_protocol",
+          "pointer": "/trial",
+          "equals": {
+            "key": "untrained_seed42",
+            "kind": "untrained",
+            "seed": 42
+          }
+        },
+        {
+          "file": "trial_10_summary",
+          "pointer": "/protocol_sha256",
+          "equals_digest": "trial_10_protocol"
+        },
+        {
+          "file": "trial_10_summary",
+          "pointer": "/all_queries_retained",
+          "equals": true
+        }
+      ],
+      "reuse_scope": "read_only_reporting"
+    },
+    {
+      "id": "ap_b1_metadata",
+      "kind": "ap_metadata",
+      "models": {
+        "IRRA": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+      },
+      "datasets": {
+        "evaluation": "CUHK-PEDES official Test",
+        "attacker_training": "Duke AP official"
+      },
+      "files": {
+        "metadata": {
+          "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/baseline-ap-duke-irra/evaluations/full/metadata.json",
+          "sha256": "1ba264c414fa3f4c2b8397ecf58f0a96d4807d4102888426fb5e80c4abd601eb",
+          "format": "json"
+        },
+        "summary": {
+          "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/baseline-ap-duke-irra/evaluations/full/summary.json",
+          "sha256": "b7f9b203346c8966110270037f28d6501ae78e4b8f3fd02d3c68772b5edf035e",
+          "format": "json"
+        }
+      },
+      "checks": [
+        {
+          "file": "metadata",
+          "pointer": "/gallery_count",
+          "equals": 3074
+        },
+        {
+          "file": "metadata",
+          "pointer": "/query_count",
+          "equals": 6156
+        },
+        {
+          "file": "metadata",
+          "pointer": "/gallery_complete",
+          "equals": true
+        },
+        {
+          "file": "metadata",
+          "pointer": "/attack_modality",
+          "equals": "image/gallery"
+        }
+      ],
+      "reuse_scope": "read_only_reporting"
+    },
+    {
+      "id": "ap_b2_metadata",
+      "kind": "ap_metadata",
+      "models": {
+        "IRRA": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+      },
+      "datasets": {
+        "evaluation": "CUHK-PEDES official Test",
+        "attacker_training": "CUHK AP official"
+      },
+      "files": {
+        "metadata": {
+          "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/baseline-ap-cuhk-irra/evaluations/full/metadata.json",
+          "sha256": "42b9f0df34913ee71b3d15e8367842c1b634d22ac52838f584ea047400e8ca96",
+          "format": "json"
+        },
+        "summary": {
+          "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/baseline-ap-cuhk-irra/evaluations/full/summary.json",
+          "sha256": "c4b81158416096e24f5c8704e456acd45e2658cd3ddd531365437a97c3901833",
+          "format": "json"
+        }
+      },
+      "checks": [
+        {
+          "file": "metadata",
+          "pointer": "/gallery_count",
+          "equals": 3074
+        },
+        {
+          "file": "metadata",
+          "pointer": "/query_count",
+          "equals": 6156
+        },
+        {
+          "file": "metadata",
+          "pointer": "/gallery_complete",
+          "equals": true
+        },
+        {
+          "file": "metadata",
+          "pointer": "/attack_modality",
+          "equals": "image/gallery"
+        }
+      ],
+      "reuse_scope": "read_only_reporting"
+    },
+    {
+      "id": "ap_b3_metadata",
+      "kind": "ap_metadata",
+      "models": {
+        "IRRA": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+      },
+      "datasets": {
+        "evaluation": "CUHK-PEDES official Test",
+        "attacker_training": "CUHK frozen IRRA surrogate"
+      },
+      "files": {
+        "metadata": {
+          "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/baseline-ap-cuhk-irra-surrogate/evaluations/full/metadata.json",
+          "sha256": "1e28c0156ff8c672112cd78c1d484931a18cc37daaae0ef661bc951af8a14211",
+          "format": "json"
+        },
+        "summary": {
+          "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/baseline-ap-cuhk-irra-surrogate/evaluations/full/summary.json",
+          "sha256": "515eb484771cdabc245930efc8bc99d6a33c860e519fc08875be27eed4150145",
+          "format": "json"
+        }
+      },
+      "checks": [
+        {
+          "file": "metadata",
+          "pointer": "/gallery_count",
+          "equals": 3074
+        },
+        {
+          "file": "metadata",
+          "pointer": "/query_count",
+          "equals": 6156
+        },
+        {
+          "file": "metadata",
+          "pointer": "/gallery_complete",
+          "equals": true
+        },
+        {
+          "file": "metadata",
+          "pointer": "/attack_modality",
+          "equals": "image/gallery"
+        }
+      ],
+      "reuse_scope": "read_only_reporting"
+    }
+  ]
+}
