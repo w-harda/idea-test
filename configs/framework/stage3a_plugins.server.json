@@ -1,0 +1,139 @@
+{
+  "schema": "tbps-legacy-attack-plugins-1",
+  "legacy_root": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014",
+  "catalog": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage3a-20261016/configs/framework/legacy_assets.server.json",
+    "sha256": "7c97c89f54482ce986626ecc055485a83f7a2e2a5914c6af1e3b9106557bfb65"
+  },
+  "assets": {
+    "gv2": "gv2_epoch10",
+    "hv1": "hv1_epoch7_selection"
+  },
+  "runtime_sources": {
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/ontology/alias_map.yaml": "f1d2150387a33ec1f0286ee636ca35d2f94b8d9a13c0b996f5fa28be06759663",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/ontology/upar_attribute_space.yaml": "e1f69deffa25842d44f84314696d72bf4fa8b201eff276d6cdc54a42ac823773",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/budget_projection.py": "a4c391b5d0f4a1d4ddcac0431431615de86fd982eaaa009a0774c2cc3fbd88c0",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/cache_io.py": "63b2973af40a5f654bd0574c7280d5fcef25311332796c1d759ecdb021d26dfe",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/evaluation_phase29a/eval_backend.py": "aae3fa4f2da8dd4f4563610e0c6a928c90a73f895c113be23ad47484eb706522",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/evaluation_phase29a/eval_common.py": "df16ff51c7aeffd96db0340b6debe71bdce34d481892cd6c6279947367dfb555",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/evaluation_phase29a/eval_compat.py": "d23574cbabf5b35c9673279d5a4cb65e4b701b32d5f53fd00df0ecd9c715bd9a",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/evaluation_phase29a/eval_metrics.py": "5ee30d981edf62a8b8abf57972c9c91a9545b56ef59881d37be709f4a090f637",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/evaluation_phase29a/eval_protocol.py": "91fd007367d57c8e66512ebeda0a48d839a90ab3803305df3220a7c08ba43da5",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/evaluation_phase29a/eval_storage.py": "d0fec1004e552e0a49e0ea550a240ccbd9dfd3ad33a436774d6051710baabeef",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/evaluation_phase29a/evaluate.py": "3b359bcc272a2b0ebaec5dfc084b0156215c667c6695592785526c5413a2e8a8",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/evaluation_phase29a/storage_fix_compatibility.json": "6413c829b238f85d5726874569a62ed08dba54bef8b54d0d7d2f9d21263b44c2",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/evaluation_phase29a/test_evaluation.py": "0d9aea54a057be7fd6b8e3b3820feb44b102936b6f43e6a5dae3d1e0b74eb3d6",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/evaluation_phase29a/test_storage_fix.py": "935f856a88c9e394add0afc2f202262ef67d9a1ab0a121b7ea4de559ea44ac3f",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/image_only_generator.py": "4745e6947308fdc4f5d5496b6a99c9a68699abef8131f2a211e1bd13470eec85",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/inference_once.py": "83d38a6c782581acd53c3d8c5272c24c89ae85a32f5c7da9230edff1a8f97e6a",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/irra_image_adapter.py": "148d2cfe8749cb8723b00e38ca68ff8dee6f86948f1fe2a15605c792dbb2eba4",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/config_phase2.json": "d5e477af46e5cd607e1f60245856f48fb3dd63178c02cf3d484e0aaa901fc967",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/config_phase3.json": "f544f31537916b8e2074ee1b55fb51ba79f9bd69dce4066c4162c00cf6ed08ce",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/config_phase4.json": "eaf9500fa9f8d8ad86e53fb94435c41b3c39a54a83e041ebee73300f5ffc8ce1",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/constraints.py": "7b9202d2885165302aa1ec475feaefe0150869b12660aa40d4552a0f29759264",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/contracts.py": "2dc90ad865dcdc9b72b5ebb3fe4772a5b0c4c082f91694d1da244a07b72de0e9",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/feature_cache.py": "3ad6e801a85d9f6d6c12db9dd196c187ac06583caa703f7603491b8f034f101e",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/feedback_backend.py": "56c79e6c9f16e050a2dc2724c21c22ba7b36f8622b2a367f0c1de6f2f8ae5e19",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/__init__.py": "72cffde59203076c5606a782fe96d28b433109119092fa5b4ae00f3d678c4494",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/checkpoint.py": "b579c18f94c8c5a81075fd36c832002a775d58a4adb3c30992cb9f39a16756a7",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/cli.py": "d36f41e05b656d1779370bb1ce7b9d8aec0f98d2f8465846bfdc4d7796c01c61",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/common.py": "d112612cc3d3e7be3fa54db2c3bcd6bf2851d191fb9339c2b006e194ec4ca4cd",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/data.py": "d4f2c5ba75bea719f9fd82efe17d3e1b38b2283196038159ba0fd6cd1dca8a11",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/runtime.py": "d68bed7ec961dbf056aa16f3eb4330565588d71041eff36a9ccf8d6835d34ab6",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/storage.py": "318461db0ea9cb6cbdeaec1d12860aaa04b4a944b08125b6ef0b9021eabdaa8a",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/test_formal.py": "90b337a57ee118533efeeab451044f508800734e5aa1203f18201a9bf8231a58",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/training.py": "ed7c8ed903702f0b76f72fe626684e586907a015bd6991a64a46d78264bdb2a0",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/validation.py": "2d1c89c4478c999229576b74672b244a00cda5dae05a9223858fcf0bba5b9dc0",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/inspect_phase2.py": "1e401490d8e32f8be5a16a2338451d5f7a05869ebd60af2d52825ef6a716d6a1",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase2_sources.py": "5afd80d60cb6b6198569b6032f72ef146934ffe20a7a9b6827a359172587b1df",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase3_inputs.py": "01d022fd517c37a6d5d81697d680d44f99df053e819cd164eb770013791dd9cd",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase4_audit.py": "406d2de2cfdd103a030eb2506f10983b7aafe4d9e9598d3ef29434d3223088cc",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase4_checkpoint.py": "9b828efbb0ebfff0aaf670b50094f002433d6f0edec2a7f66944e75c983fa1de",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase4_inputs.py": "d02de9eb864c0fe097a1d2757baa6dafee76e2bcc7a2f00bd8d5d7797e0da0a5",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase4_real_reward.py": "d4d008a29447f9113b581dbc64beabbcc2b54c4e1babb40b910677e5697eda3c",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase4_training.py": "649ae6b0e9ac63245c9d77f8cfcbe653b000ec9f466070e79990ece210d0466e",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase5_joint/backend.py": "48280438eb6394c7ae34ebc909ad1147c55951341cf88d13674de99dbeb1dea8",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase5_joint/common.py": "e4f9a8673f704081b5fa791a764fc032bc84c20896a64f7d43144c29e1a81357",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase5_joint/config.json": "cdd9ca471a3601d3aba1ddeae2b1d0575c0516c7dc6ccab02bb12d435e746ca5",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase5_joint/evaluate.py": "a6a13cb33d9d2481416812ab06389607385bb0c192734a0e5ccd8449e69df86b",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase5_joint/protocol.py": "9dfed677cbf0cd006c88d1a96143970414a222d90c2a695041c1f1a343cefd56",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase5_joint/storage.py": "bd71fe6b18dd8782b48390f3fb18a6b77e4deaab24e4c8738291dddadc95775b",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/policy.py": "0bbcd430e02eb61c38857b7a812b87f163d1bd0a09f0b147cede23e5712fbed3",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/real_feature_cache.py": "a49b209d3079d389d63923da048b77b85f63c6067f9aadb502c6d46ed52986e2",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/real_feedback.py": "b0615a44f26c7286520df37dcd35eb1ff381979e5d873545e4b7c8237c91fe38",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/rewards.py": "4591d7fbb993eb2fcb5470931ebca4b24b88f92a22e118660b822a9c5fb769df",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/scst.py": "3edb22ac84791f2cd451a5ef93ea87fc75e88827a3703b5648a51b302b988c36",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/smoke_phase3.py": "d2ddbf5f1a878b95bfb8178d13caaea7876a8588e881e38b4b76e2b1b645aae8",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/test_phase2.py": "f9a2b227a403ece3b101fc465993340238a2c9febd3deaec28a959eb2812f270",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/test_phase3.py": "23ec365430890b35792dea8ac7d9e191836da7c71f1305825e614f78082f0dea",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/test_phase4.py": "469484082230bc41ef4d8e6a46d4d17a0427e87da41e0156cb9bea4c80c65e37",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/test_policy.py": "50c5a8d417690a1c55304b059eaf619bb6f793e5480dd948d05589d3b3c2c746",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/test_scst.py": "2e44765647526d6f1c678fb36be03d870edd93103375eb62b8d56c1e0a8da652",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/test_tokenizer_real.py": "ed356adbc162d2abfae59315a2ebf1dffeb124b65a5928049bba4cf6086abee5",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/text_frontend.py": "f9fc38d5bdcb40d77f5a0bfa350ff7a9540f2d51c50f4dc4bea84b1d208e3b6d",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/tokenizer_probe.py": "38ad32a813e2e2114cd5e549bf0b84042bd472f59b22a0da27a4436701c2d287",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/train_phase4.py": "c7249c384d991100fe0ba6915972655be7daffe34f682a3f1cdde56d67835d6b",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/training_inputs.py": "cf67a8929abc4777d5531b5977f75de953087acc0ba8787662b299b94f201c93",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_unit_v53_factorized_ontology_20261003/factorized.py": "579d5c71d8d511048ab834925508ec1f9810b3dd22b927a338a37f29e3efdec7",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_unit_v54_axis_audit_20261003/axis_audit.py": "ea0481121d004ab059c8656451aa224a55c423a755098cc372cdf763f320d287",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_unit_v55_interface_20261003/attribute_interface.py": "5ec8d0c9e941b9583deae721ce59c9ba9cf2fa8045fc4f3e041b6b59cf0fdcca",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/src/attributes/text_extractor.py": "47deccbf7c86ac6d2d6000ecb7997b8f7f2aff0ebb3c96b814e1cd7c665253b3",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase5_joint/__init__.py": "3ab4fde12a61b501fb341a4d07e97ebc177bcb0b58b2fbf5f78cf3e4cf432dc5",
+    "/home/lzf/Attack/IRRA-main/IRRA-main/data/bpe_simple_vocab_16e6.txt.gz": "924691ac288e54409236115652ad4aa250f48203de50a9e4722a6ecd48d6804a",
+    "/home/lzf/Attack/IRRA-main/IRRA-main/utils/simple_tokenizer.py": "19b06ade7532bcff961c4b90590197fcac0d466f08d0b6b801d3d19a36568d67",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/src/attributes/__init__.py": "41f0e3cef1c985424c4996a8566c67d5999c0f547f14f2d9ff35fa5cb0cdd3b1",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/src/attributes/attribute_scoring.py": "adf87942e8de78b78079bc453c3db4758d2c442fc65fcba38961d144b2de6bc1",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/src/attributes/visual_canonicalizer.py": "7b91d939420bc85f56a41a8980c425b45a551c9d94c66b88c7686c70ff363dc6"
+  },
+  "surrogate_model": "irra",
+  "surrogate_sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009",
+  "image_preprocess": "PIL RGB Resize bilinear(384,128) + ToTensor; no mean/std before G",
+  "text_constraint_tokenizer": {
+    "source": {
+      "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/simple_tokenizer.py",
+      "sha256": "19b06ade7532bcff961c4b90590197fcac0d466f08d0b6b801d3d19a36568d67"
+    },
+    "bpe": {
+      "path": "/home/lzf/Attack/IRRA-main/IRRA-main/data/bpe_simple_vocab_16e6.txt.gz",
+      "sha256": "924691ac288e54409236115652ad4aa250f48203de50a9e4722a6ecd48d6804a"
+    },
+    "context": 77
+  },
+  "execution_status": "explicit-load APIs only; no Stage3A real model execution",
+  "attack_budgets": {
+    "gv2": {
+      "image": {
+        "norm": "linf",
+        "value": 0.03137254901960784,
+        "pixel_space": "rgb_0_1"
+      },
+      "text": null
+    },
+    "hv1": {
+      "image": null,
+      "text": {
+        "unit": "unicode_character",
+        "max_edits": null,
+        "selection_rule": "H-natural-k-gamma3",
+        "constraints_id": "hv1-visual-unicode-tokenizer-mask-v1",
+        "per_attribute": 1,
+        "per_shared_word": 1
+      }
+    },
+    "joint": {
+      "image": {
+        "norm": "linf",
+        "value": 0.03137254901960784,
+        "pixel_space": "rgb_0_1"
+      },
+      "text": {
+        "unit": "unicode_character",
+        "max_edits": null,
+        "selection_rule": "H-natural-k-gamma3",
+        "constraints_id": "hv1-visual-unicode-tokenizer-mask-v1",
+        "per_attribute": 1,
+        "per_shared_word": 1
+      }
+    }
+  }
+}

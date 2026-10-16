@@ -1,43 +1,47 @@
 # 项目当前状态（唯一权威入口）
 
-状态来自Git、实际代码和不可变证据；历史文档是阶段快照，不用于推断当前授权。架构见[ARCHITECTURE](ARCHITECTURE.md)，历史资产见[EXPERIMENT_REGISTRY](EXPERIMENT_REGISTRY.md)。
+状态来自Git、代码和不可变证据；历史文档是阶段快照。架构见[ARCHITECTURE](ARCHITECTURE.md)，历史实验见[EXPERIMENT_REGISTRY](EXPERIMENT_REGISTRY.md)。
 
 ## 当前阶段
 
-Stage 1原则通过、Stage 2已审查；**Stage 2.5唯一一次IRRA真实GPU最小等价Smoke通过**，CPU回归与历史保护核验完成，等待独立审查。未进入Stage 3。
+Stage 2.5已审查；**Stage 3A G-v2/H-v1/Joint薄插件已完成CPU验收，等待独立审查**。未执行真实G/H前向、GPU或Stage 3B。
 
-- 本轮基准：4e2a5838693c5bc04a22b31ab058daa69a987d50。
-- 本轮分支：codex/tbps-framework-stage25。
-- 复用Stage 2独立开发树：/home/lzf/ldx/projects/idea-test-tbps-framework-stage2-20261016。
-- 本轮实现Commit：907fdcb82de1ee8abd6df101f8e8b253c129fb88（由本次后续文档提交登记）。
-- [运行入口/命令与停止语义](framework/STAGE25.md)；[数值/审计报告](framework/STAGE25_REPORT.md)。
+- 基准：b7aac6966a51adc4c64df477f725bb0710ae86e6。
+- 独立分支：codex/tbps-framework-stage3a。
+- 独立树：/home/lzf/ldx/projects/idea-test-tbps-framework-stage3a-20261016。
+- 实现Commit：待提交后由后续文档提交登记。
+- [接口、扩展示例和CPU命令](framework/STAGE3A.md)；[真实旧依赖/核验/Stage 3B建议](framework/STAGE3A_REPORT.md)。
 
-## 本轮已完成
+## 本轮完成
 
-- 新smoke_irra入口、冻结server配置及30项CPU护栏测试；Stage 2既有Adapter、配置和测试未改。
-- 仅内部Train cuhk:9955:0、cuhk:29253:0的两张不同原图与对应原始Caption。实际成员经原2048/128来源核验；无Test/Validation前向、无G/H、无Optimizer。
-- 同一个真实IRRA Backend加载一次。A独立官方预处理/Tokenizer/原生编码路径，B新Adapter；共同FP32/math/no_tf32，阈值预先固定1e-6。
-- Token IDs、原始/归一化像素、[2,512]图像/文本特征及2×2 Score均逐值exact，最大误差0，特征范数均1.0。
-- 总5图像样本前向、4文本样本前向，1次普通输入导数。输入梯度有限非零，L2=0.3470962643623352；模型全部eval/frozen，367个参数Tensor SHA前后相同，无registered buffers。
-- GPU峰值allocated930.5205078125MiB/reserved1060MiB；受控run_once段12.00397365167737s。GPU只执行一次并已退出，无自动重试或恢复。
+- src/tbps/attacks注册/能力、独立公开输入及成员绑定、来源/配置、薄G/H、Joint组合、隔离旧import会话、新产物发布。
+- G复用原ImageOnlyGenerator/load_generator/generate_once/投影，不复制算法。在线只图像，输出原384×128 RGB工作像素/扰动，严格8/255，不读条件/JVP或调用代理模型。
+- H复用原CaptionFrontend、CharacterPolicy、资格检查、TextAttacker/validate_action；保留原Dynamic-K/STOP/NOOP/Unicode/Span及固定训练侧Byte-BPE约束。身份只在产物绑定层，PID/配对/奖励不进策略。
+- Joint直接共享G/H组件和来源bundle，支持image_only/text_only/joint；Gallery/Query独立处理，不强制正确配对。
+- 真实加载默认拒绝；training_executable与offline_preparation_executable均False。条件缓存只读索引不等于执行准备；没有统一Evaluation/Training Engine。
+- 74项明确旧运行来源+14项实际新框架producer锁定；不枚举整个源码目录。G10/H7/Selection及原训练/缓存协议SHA核验通过。
+- src/tbps/config.py只更正插件可用性描述，统一执行仍拒绝；AP历史描述符明确未实现，不把RaSa/APTM声明为可执行。
 
 ## 验证与证据
 
-- 213项框架CPU tests通过：原183+新增30；GPU前后均通过。
-- 36项历史基础CPU回归通过；合计249项不同测试，不代表全部prototype tests重跑。
-- 2236项本轮相关来源SHA/mtime_ns不变；attempt/result不可变Manifest/完成回执CPU只读核验通过。
-- 7991项历史保护文件SHA/mtime_ns不变；原实验树仍40c7476、Stage 1树仍61471db，均干净。
-- 输出只在/home/lzf/ldx/outputs/tbps-framework-stage25/，不提交Git。
-- result/report.json SHA：b27212f576573f13d5129fcb644effb0dcb535bf13bea259ed2e55a0d09897d9。
+- **285框架CPU tests通过**：原213+新增72；另36历史基础tests通过，合计**321项不同测试**，不是全部prototype tests重跑。
+- CPU Mock复用旧纯推理/约束函数，验证预算、冻结、实际调用计数、Span/Unicode、信息隔离、组合和原子产物。
+- 原Caption前端对合成句提取5属性/5精确Span，官方Byte-BPE合成Unicode检查通过；禁止torch.load和nn.Module前向的进程中完成，CUDA未初始化。
+- 条件索引cuhk:9955:0(K3)、cuhk:26530:0(K0)只读通过；未读条件Tensor、未重算S_raw/Top-K/JVP。
+- 7991份历史保护文件SHA/mtime_ns不变；Stage 2.5 attempt/result回执及全部关联来源通过。原实验树40c7476、Stage 1树61471db、Stage 2.5树b7aac69均clean。
+- 证据仅/home/lzf/ldx/outputs/tbps-framework-stage3a/：cpu_verified.log、legacy_cpu.log、source_verified.log、import_only.log、frontend_synthetic_cpu_final.log、protection_result.json。不提交资产。
+- 本轮真实G/H/IRRA模型加载、真实前向、GPU、训练、Optimizer、评分/JVP、Full排名全部0。
 
-## 已完成框架与历史边界
+## 已完成基础与冻结历史
 
-Stage 1实现ffd18dd、发布61471db；Stage 2实现55b83bb48307bebba3e8a3bf8881570091ef1d15、发布4e2a583。原183框架tests和36基础tests通过。Stage 2官方Test 3074 Gallery/6156 Query有序身份与三份历史协议一致；G/H实际2048 Train/128内部Validation PID隔离，成员摘要f1a54c3caa57f2b0c9e1abf5f2a40b6282a1e1b002af383d12f94b370bfbcc66。
+Stage 1实现ffd18dd/发布61471db；Stage 2实现55b83bb/发布4e2a583；Stage 2.5实现907fdcb/发布b7aac69。其真实IRRA最小GPU等价性仅2 Train样本，Token/预处理/图文特征/2×2 Score误差0、输入梯度非零。该结果不等于G/H Plugin等价通过。
 
-G-v2完整训练/Full、H正式SCST/Validation Epoch7 Selection、Joint Full及Joint消融均保持冻结；8个历史资产索引见注册表。Stage 2说明/报告保留当时的CPU验收快照，不用其“GPU未执行”覆盖本轮真实证据。
+Stage 2核验官方Test 3074/6156有序身份与历史三份协议一致，原2048 Train/128内部Validation实际成员PID隔离。G-v2完整训练/Full、H正式SCST及Epoch7 Selection、Joint Full及消融全部冻结，8个历史资产索引保留。
 
-## 未验证与下一步
+## 限制与下一步
 
-本次只验证固定硬件/FP32/2个Train样本及输入导数，不承诺所有输入/截断/batch/精度/设备的逐值一致。没有Full排名重算、G/H Attack Plugin、统一Evaluation Engine、RaSa/APTM或ICFG/RSTP Adapter；配置仍不能执行攻击或评测。
+真实G/H加载和攻击输出仍标legacy_unverified；CPU Fixture不能宣称新旧结果完全等价。Stage 3B仅建议2张内部Train图+2条原Caption、共享冻结G/H、最多4图像/4文本策略样本前向、IRRA/梯度/Optimizer0，需用户另行授权。
 
-历史IRRA特征没有重写或自动重标为新ModelSpace；跨模型不兼容。Stage 3需要另行授权；本轮停止等待用户审查，不自行开始攻击插件、GPU扩大验证或Full评测。
+历史IRRA特征未重写/重标；跨模型攻击接口只声明像素/文本与原生目标评分隔离，不宣称RaSa/APTM或其他Dataset已实现。G工作像素到未来目标预处理的映射仍需验证。
+
+本轮提交推送后停止等待审查，不启动Stage 3B、Full或新训练。

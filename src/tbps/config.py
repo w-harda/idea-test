@@ -84,7 +84,9 @@ class ValidatedConfig:
     def as_dict(self):
         return json.loads(self.canonical)
     def require_executable(self):
-        raise UnsupportedComponent("No executable Attack Plugin or Evaluation Engine; explicit Stage 2 Dataset/IRRA APIs only")
+        if self.attack.id not in ("gv2","hv1","joint"):
+            raise UnsupportedComponent("Attack Plugin is not implemented: "+self.attack.id)
+        raise UnsupportedComponent("No Evaluation Engine; frozen G/H plugins use separate explicit-load APIs")
     def dry_run(self):
         data=self.as_dict()
         refs=[data[k] for k in ("attack_checkpoint","surrogate_checkpoint","victim_checkpoint")]
@@ -92,8 +94,8 @@ class ValidatedConfig:
         missing=[r["path"] for r in refs if not Path(r["path"]).is_file()]
         return {"schema":"tbps-config-dry-run-1","configuration_valid":True,"executable":False,
                 "asset_path_status":"NOT_READY" if missing else "PRESENT_NOT_SHA_VERIFIED",
-                "missing":missing,"required_adapters":["Attack","Evaluation Engine"],
-                "available_adapters":{"dataset":["cuhk_pedes"],"model":["irra"],"model_load":"explicit authorization only"},
+                "missing":missing,"required_adapters":(["Attack"] if self.attack.id not in ("gv2","hv1","joint") else [])+["Evaluation Engine"],
+                "available_adapters":{"dataset":["cuhk_pedes"],"model":["irra"],"attack":["gv2","hv1","joint"],"model_load":"explicit authorization only"},
                 "attack":self.attack.id,"mode":data["attack_mode"],
                 "note":"Only parsing/permissions; no model load, training, encoding or evaluation."}
 

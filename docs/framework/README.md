@@ -146,3 +146,7 @@ TMPDIR=/home/lzf/ldx/tmp CUDA_VISIBLE_DEVICES="" PYTHONDONTWRITEBYTECODE=1 OMP_N
 2. Model Adapter：先IRRA显式像素预处理、原Tokenizer/归一化及官方排名契约；返回带模型空间身份的表示或Score。默认不加载模型，真实执行必须另行授权。
 3. 为RaSa/APTM设计原生融合Score接口后再接真实源码/权重，逐个声明能力；不伪造512维cosine适配。
 4. 新旧特征/指标等价验证通过后再设计薄Attack Plugin；保持G/H算法循环和各自恢复边界，不合并成一个通用训练算法。
+
+## 后续阶段索引
+
+当前权威状态见../PROJECT_STATE.md。Stage 3A冻结攻击插件已提供独立API、CPU Fixture和只读来源检查，仍无统一Evaluation/Training Engine；本README此前内容是Stage 1边界。接口和命令见[Stage 3A](STAGE3A.md)，依赖与验收见[报告](STAGE3A_REPORT.md)。真实G/H等价须另行授权Stage 3B，不通过默认入口执行。

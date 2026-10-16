@@ -59,3 +59,9 @@ SHA-256：ab69946e159054b263bc55619b74c9c6985d77efbc66f70b67fd57ddcb6b0872。
 一次受控RTX 4090验证，仅内部Train cuhk:9955:0、cuhk:29253:0。一个冻结IRRA Backend，官方独立路径与Adapter预处理/Token/图文特征/2×2分数逐值exact；5图像/4文本样本前向，1次输入导数，optimizer=0。
 
 证据：/home/lzf/ldx/outputs/tbps-framework-stage25/irra_equivalence_v1/{attempt,result}/；result/report.json SHA b27212f576573f13d5129fcb644effb0dcb535bf13bea259ed2e55a0d09897d9；Manifest/回执CPU核验通过。7991份历史保护文件SHA/mtime不变；不是Full缓存全量复审。详细数据与未验证范围见framework/STAGE25_REPORT.md，Commit由PROJECT_STATE登记。
+
+## Stage 3A插件CPU验收（没有新攻击实验）
+
+复用注册表中固定G10、H7/Selection、IRRA训练来源；未加载模型。独立分支codex/tbps-framework-stage3a，Commit由PROJECT_STATE登记。285框架+36历史基础=321 CPU tests通过；原前端/Tokenizer只做合成Caption检查，真实G/H/IRRA前向0。
+
+证据：/home/lzf/ldx/outputs/tbps-framework-stage3a/{cpu_verified.log,source_verified.log,frontend_synthetic_cpu_final.log,protection_result.json}。7991份历史保护文件SHA/mtime不变，Stage 2.5回执与关联来源只读核验通过。所有正式G/H/Joint/消融/AP实验及8个资产索引保持原样；不是Full指标或全缓存重新审计。详见framework/STAGE3A_REPORT.md。

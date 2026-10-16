@@ -9,7 +9,7 @@
 | prototypes/attribute_image_generator_v2_20261014 | G-v2 image-only、K+1训练、Epoch恢复、IRRA Full；全部冻结 |
 | prototypes/attribute_text_policy_h_v1_20261015 | H/SCST/正式训练/Selection/Joint/消融；全部冻结 |
 | 其他prototypes及_frozen_sources | reader/Canonical/JVP/选择及历史研究闭包；UNKNOWN也保留 |
-| src/tbps | 新框架稳定职责模块，Stage 1契约/配置/存储/只读桥；Stage 2官方Dataset/IRRA Adapter |
+| src/tbps | 新框架稳定职责模块，Stage 1契约/配置/存储/只读桥；Stage 2官方Dataset/IRRA Adapter；Stage 3A冻结Attack Plugin |
 | configs/framework、tests/framework、docs/framework | 框架专属配置/CPU tests/使用与迁移说明 |
 
 H CaptionFrontend仍依赖text_extractor→v55→v54→v53规则。G2正式训练不导入G1，但缓存来源/JVP准备有历史依赖。Joint复用G2 Full特征，消融复用Joint；不能按目录年代判废弃。
@@ -65,3 +65,11 @@ src/tbps/models/base以原生score为公共契约，允许Fusion/local tokens及
 独立smoke_irra入口默认CPU，仅显式授权时共用一个冻结IRRA Backend，对照官方独立函数路径及Adapter View。固定2图/2文本、总5图像/4文本样本前向、1次输入导数和1e-6阈值；单次attempt及Manifest/回执只写新tbps-framework-stage25命名空间，不提供训练/排名/攻击入口。
 
 本轮数值逐值exact、冻结与非零输入梯度通过；仅覆盖固定Train样本和FP32/math/no_tf32设置。Adapter公共接口未改；旧ModelSpace/缓存不能据此自动重标或跨模型复用。命令与证据见framework/STAGE25.md、STAGE25_REPORT.md。
+
+## Stage 3A攻击侧落地
+
+src/tbps/attacks的base/registry/configuration负责描述、分阶段能力、公开输入/成员绑定和配置；provenance/legacy_runtime负责固定来源、只读条件索引与显式隔离加载；gv2/hv1直接调用原实现；joint只组合同一G/H；storage用新ArtifactStore保存像素/文本与完整动作。
+
+插件不输出IRRA Embedding、不持有victim评分回调。H约束Tokenizer属于冻结训练侧策略，目标Tokenizer不改动动作。training_kind描述原方法而不授权训练；training_executable/offline_preparation_executable均False。原统一config仍拒绝执行，无Evaluation Engine。
+
+新插件可在独立模块注册，无需修改G/H；当前冻结生成配置不会把迭代攻击或未实现的RaSa/APTM/Dataset误标可执行。真实G/H权重加载与等价仍未运行；CPU结果和Stage 3B建议见framework/STAGE3A_REPORT.md、ADR-0004。前述Stage 1/2“无Attack Plugin”描述保留当时阶段边界，当前状态以PROJECT_STATE为准。
