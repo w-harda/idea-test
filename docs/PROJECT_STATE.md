@@ -9,7 +9,7 @@
 - 基准：`0d90e79c08bf313b9085e75531a4226b3b266698`。
 - 独立分支：`codex/tbps-framework-stage4a`。
 - 独立树：`/home/lzf/ldx/projects/idea-test-tbps-framework-stage4a-20261016`。
-- 实现Commit：本次提交后由后续文档提交登记。
+- 实现Commit：47ab2581ac1cd35e39365e870d2693ddce2b6bf1（本条由后续文档提交登记）。
 - [API/CPU命令](framework/STAGE4A.md)、[源码映射/验收/Stage 4B预案](framework/STAGE4A_REPORT.md)、[ADR-0005](decisions/0005-cached-evaluation-native-ranking.md)。
 
 ## 本轮实现

@@ -1,6 +1,6 @@
 # Stage 4A统一评测引擎CPU验收报告
 
-Stage 4A开发/CPU验收完成；**不代表正式Full重放已通过**。基准0d90e79c08bf313b9085e75531a4226b3b266698，独立分支codex/tbps-framework-stage4a、工作树/home/lzf/ldx/projects/idea-test-tbps-framework-stage4a-20261016。实现Commit由PROJECT_STATE后续文档提交登记。
+Stage 4A开发/CPU验收完成；**不代表正式Full重放已通过**。基准0d90e79c08bf313b9085e75531a4226b3b266698，独立分支codex/tbps-framework-stage4a、工作树/home/lzf/ldx/projects/idea-test-tbps-framework-stage4a-20261016。实现Commit：47ab2581ac1cd35e39365e870d2693ddce2b6bf1。
 
 ## 真实旧路径与逐项映射
 
