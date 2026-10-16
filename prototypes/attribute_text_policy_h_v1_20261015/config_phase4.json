@@ -1,0 +1,37 @@
+{
+  "schema": "hv1-phase4-scst32-config-1",
+  "seed": 42,
+  "architecture": {
+    "width": 64,
+    "layers": 2,
+    "heads": 4,
+    "max_bytes": 1024
+  },
+  "optimizer": {
+    "name": "Adam",
+    "lr": 0.0001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0
+  },
+  "batch": 1,
+  "total_steps": 32,
+  "reward_weights": {
+    "lambda_sim": 1.0,
+    "lambda_rank": 1.0
+  },
+  "h_device": "cpu",
+  "reward_device": "cuda",
+  "checkpoint_every_step": 1,
+  "midpoint_reload_step": 16,
+  "query_order": "repeat torch.randperm(10), separate CPU Generator seed42",
+  "sample_generator_seed": 42,
+  "reward_text_policy": "fresh original/sampled/greedy GPU encoding every step; no Phase3 text reuse",
+  "G_new_forward_limit": 0,
+  "IRRA_image_new_forward_limit": 0,
+  "IRRA_text_sample_limit": 96,
+  "not_for_model_selection": true
+}
