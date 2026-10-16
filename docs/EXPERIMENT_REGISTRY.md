@@ -53,3 +53,9 @@ SHA-256：ab69946e159054b263bc55619b74c9c6985d77efbc66f70b67fd57ddcb6b0872。
 - 本阶段日志位于/home/lzf/ldx/tmp/tbps-framework-stage2，属于开发CPU证据，不是新的攻击效果实验，不提交Git。
 
 当前实现及测试Commit统一由PROJECT_STATE登记。
+
+## Stage 2.5 IRRA最小等价性（不是攻击效果实验）
+
+一次受控RTX 4090验证，仅内部Train cuhk:9955:0、cuhk:29253:0。一个冻结IRRA Backend，官方独立路径与Adapter预处理/Token/图文特征/2×2分数逐值exact；5图像/4文本样本前向，1次输入导数，optimizer=0。
+
+证据：/home/lzf/ldx/outputs/tbps-framework-stage25/irra_equivalence_v1/{attempt,result}/；result/report.json SHA b27212f576573f13d5129fcb644effb0dcb535bf13bea259ed2e55a0d09897d9；Manifest/回执CPU核验通过。7991份历史保护文件SHA/mtime不变；不是Full缓存全量复审。详细数据与未验证范围见framework/STAGE25_REPORT.md，Commit由PROJECT_STATE登记。

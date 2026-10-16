@@ -1,0 +1,21 @@
+{
+  "schema": "tbps-irra-smoke-1",
+  "sources": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage2-20261016/configs/framework/stage2_sources.server.json",
+    "sha256": "9f2da834669c7a1902b3fa9570ce8ab1a2844483ddbfb6e75bb3221a02acf73e"
+  },
+  "row_ids": [
+    "cuhk:9955:0",
+    "cuhk:29253:0"
+  ],
+  "limits": {
+    "image": 5,
+    "text": 4
+  },
+  "max_abs_error": 1e-06,
+  "minimum_free_mib": 8192,
+  "maximum_utilization_percent": 10,
+  "precision": "fp32/math/no_tf32",
+  "physical_gpu": 0,
+  "membership_sha256": "f1a54c3caa57f2b0c9e1abf5f2a40b6282a1e1b002af383d12f94b370bfbcc66"
+}

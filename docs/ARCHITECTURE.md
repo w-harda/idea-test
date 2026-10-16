@@ -59,3 +59,9 @@ src/tbps/models/base以原生score为公共契约，允许Fusion/local tokens及
 配置仍无Attack Plugin/统一Evaluation Engine可执行；Joint权限为G/H组件并集，图像梯度不错误套到H Unicode。当前未实现RaSa/APTM、ICFG/RSTP。接口、已验证/待验证边界与最小GPU授权方案见framework/STAGE2.md及ADR-0003。
 
 历史根.gitignore的datasets/会忽略新源码；src/tbps/.gitignore仅局部开放Dataset Adapter目录，根规则及真实数据忽略边界不改。
+
+## Stage 2.5真实等价性验收
+
+独立smoke_irra入口默认CPU，仅显式授权时共用一个冻结IRRA Backend，对照官方独立函数路径及Adapter View。固定2图/2文本、总5图像/4文本样本前向、1次输入导数和1e-6阈值；单次attempt及Manifest/回执只写新tbps-framework-stage25命名空间，不提供训练/排名/攻击入口。
+
+本轮数值逐值exact、冻结与非零输入梯度通过；仅覆盖固定Train样本和FP32/math/no_tf32设置。Adapter公共接口未改；旧ModelSpace/缓存不能据此自动重标或跨模型复用。命令与证据见framework/STAGE25.md、STAGE25_REPORT.md。
