@@ -4,7 +4,7 @@
 
 **PASS：唯一一次真实RTX 4090 Smoke完成，所有官方/Adapter数值对照逐值一致。** 输入梯度有限且非零，模型冻结状态及参数SHA不变。没有GPU重试、G/H、Optimizer、攻击Loss、训练或Full排名。
 
-基准：`4e2a5838693c5bc04a22b31ab058daa69a987d50`。分支：`codex/tbps-framework-stage25`，复用Stage 2独立开发树`/home/lzf/ldx/projects/idea-test-tbps-framework-stage2-20261016`。实现Commit由后续文档提交登记于PROJECT_STATE，避免提交自指。
+基准：`4e2a5838693c5bc04a22b31ab058daa69a987d50`。分支：`codex/tbps-framework-stage25`，复用Stage 2独立开发树`/home/lzf/ldx/projects/idea-test-tbps-framework-stage2-20261016`。实现Commit：907fdcb82de1ee8abd6df101f8e8b253c129fb88；由后续文档提交登记，避免提交自指。
 
 新增3个实现文件：smoke_irra.py、固定server JSON、test_stage25_smoke.py；新增本报告和[运行说明](STAGE25.md)。更新PROJECT_STATE、ARCHITECTURE、EXPERIMENT_REGISTRY与ADR-0003验收状态。Stage 2 Dataset/Model Adapter及全部历史源码、协议、模型和结果均未修改。
 

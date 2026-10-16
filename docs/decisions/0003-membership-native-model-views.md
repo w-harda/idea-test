@@ -1,6 +1,6 @@
 # ADR-0003：实际成员权限与原生Model View
 
-状态：接受（Stage 2实现；Stage 2.5已按单独授权完成2个Train样本的真实GPU数值/输入梯度验收，范围见framework/STAGE25_REPORT.md）。
+状态：接受（Stage 2实现；Stage 2.5已按单独授权完成2个Train样本的真实GPU数值/输入梯度验收，范围见../framework/STAGE25_REPORT.md）。
 
 背景：role字段不能证明样本属于历史攻击Train；官方val不同于official train内部Validation。模型缓存仅按维度/Checkpoint命名也无法区分输入编辑、顺序及Tokenizer变化。融合模型不必提供独立global embedding。
 

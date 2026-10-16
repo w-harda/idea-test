@@ -9,7 +9,7 @@ Stage 1原则通过、Stage 2已审查；**Stage 2.5唯一一次IRRA真实GPU最
 - 本轮基准：4e2a5838693c5bc04a22b31ab058daa69a987d50。
 - 本轮分支：codex/tbps-framework-stage25。
 - 复用Stage 2独立开发树：/home/lzf/ldx/projects/idea-test-tbps-framework-stage2-20261016。
-- 本轮实现Commit：待本轮实现提交后由后续文档提交登记。
+- 本轮实现Commit：907fdcb82de1ee8abd6df101f8e8b253c129fb88（由本次后续文档提交登记）。
 - [运行入口/命令与停止语义](framework/STAGE25.md)；[数值/审计报告](framework/STAGE25_REPORT.md)。
 
 ## 本轮已完成
