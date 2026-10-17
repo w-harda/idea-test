@@ -18,3 +18,9 @@
 ## Stage4C-2实测注记
 
 固定Test两图G RGB与两条历史H Unicode成功物化，未调用全量seal；模型无关产物与目标编码会话之间只传不可变文件。IRRA会话在读取CPU历史动作前初始化CUDA，触发原cpu_only门禁，唯一Attempt FAIL。此结果未改变本ADR的权限/来源/集合契约，IRRA端到端等价仍PENDING。后续启动顺序修复必须保持CPU校验早于CUDA，另行审查/授权，不用放宽旧门禁解决。
+
+## Stage4C-2R原计划只读引用
+
+原FAIL Attempt中已完整提交的G/H单位，可使用独立FrozenPlanReference引用；必须验证原canonical Plan ID、原工作树producer/source SHA、Claim/生成证明及实际像素/Unicode。新工作树Plan可不同，但不得改签或将旧单位伪装成新生成；新IRRA验证回执也不得提升旧整体FAIL。只读桥没有publish/generate接口。
+
+CPU来源/动作/缓存读取必须先于CUDA，退出后检查原隔离函数、命名空间及legacy锁恢复；保留旧门禁。Stage4C-2R CPU通过，IRRA真实等价与资源适用性仍PENDING，新的GPU许可不能由CPU修复自动推导。

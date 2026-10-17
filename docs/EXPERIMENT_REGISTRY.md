@@ -144,3 +144,14 @@ Manifest SHA484605d0501d94dbb4a21315ba0f61c76499e17d283fd2a51c6eb7a1d96c9ce7，1
 - 证据/home/lzf/ldx/outputs/tbps-framework-stage4c2/materialized_smoke_v1/result/manifest.json SHA c1922bdf32935623dc9e85b1aeffe8a817cef2ab42b3ba767f62eda90e45155b。
 - 537 CPU tests；7991历史文件+3472Joint缓存SHA/mtime不变，无pending，旧FAIL/PASS/重放回执保持。后置CPU保护与最终CPU验收分别post_cpu_protection_v1、cpu_verified_v1。
 - [完整数据、来源SHA、失败调用链与未验证边界](framework/STAGE4C2_REPORT.md)。再次GPU需要独立修复审查与新授权。
+
+## Stage4C-2R：CPU-only修复/旧产物审计（无新模型实验）
+
+- 基准fcf097d3，独立codex/tbps-framework-stage4c2r；554 CPU tests，17新增，完整实际Runner时序Fixture通过。
+- 原Stage4C-2两图RGB/delta、两条Unicode/action、原Plan/Claim/生成证明/权重来源严格只读有效；70原Attempt文件SHA/mtime不变，整体FAIL不提升。
+- 新旧Plan明确分开：旧7c0c00da...保留，新e94013ed...只作为新树身份；旧单位不复制、不重签。
+- CPU审计/home/lzf/ldx/outputs/tbps-framework-stage4c2r/cpu_audit_v1/result/，Manifest df0a94bea0bb8b454ba44d9a1e4b02ead859137327a0a6cce5e73250b9f78bf5。
+- 来源75/旧执行33/官方执行5通过，实际CPU准备完成并退出隔离；本轮CUDA、真实模型加载/前向、GPU Attempt、Full排名0。
+- 现有IRRA完整Storage1259.41MiB+模型419.80MiB，再加运行时有明显2GiB风险；保守2.3548GiB，非实测峰值。GPU申请暂停，阈值不变。
+- 7991历史文件+3472Joint缓存SHA/mtime保持，原Stage3B FAIL/Stage3B2 PASS/B2重放/C2 FAIL不变。
+- 真实特征与四组Score等价PENDING；[完整报告与资源/IRRA-only提案](framework/STAGE4C2R_REPORT.md)。

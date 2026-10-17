@@ -131,3 +131,11 @@ src/tbps/materialization的contracts/store/pipeline/generation/legacy_text/audit
 新增materialization/smoke.py与smoke_support.py，父进程先严格CPU闭包/来源校验，显式授权后创建唯一Attempt，G、历史文本、IRRA使用独立子进程。私有阶段需父回执/令牌/前阶段PASS；保存单元和生成证明，不弱化完整集合seal契约。Model Adapter只消费已保存RGB/Unicode，不向G/H传目标评分。
 
 本次两图/两文真实物化验证通过；IRRA child提前初始化CUDA后进入CPU历史动作检查，原cpu_only拒绝，最终FAIL。保持原Runner来源和失败回执，不事后绕过门禁；后续需独立CPU-only调整初始化时序并再次申请小样本GPU许可。特征/Score等价仍PENDING，不能升级为全量或跨模型验证。
+
+## Stage4C-2R：CPU启动隔离与原Plan只读引用
+
+irra_startup在实际Runner中集中CPU准备，保留原Torch权重/神经/CUDA门禁，仅允许固定缓存Tensor；退出后验证函数、命名空间与legacy锁已恢复，才允许初始化CUDA/加载IRRA。真实child控制流程用Fixture/设备Mock验收，未运行真实模型。
+
+retained_inputs用FrozenPlanReference显式只读原FAIL中完整提交的四单位；原protocol canonical digest、原工作树producer fingerprint、原FileRef/生成证明不改。复用原MaterializedStore.load验证逻辑，但没有publish/generate方法，不将旧单位挂到新工作树Plan。audit_retained仅CPU来源/小样本Tensor/动作与checkpoint_layout词法资源检查，没有GPU/Attempt入口。
+
+资源估计仍不能证明现有IRRA eager加载满足2GiB；不修改Model Adapter、不降低门禁。下一步IRRA-only新验证需要先解决资源依据及独立授权。原特征/Score等价PENDING，原Stage4C-2整体FAIL保持。

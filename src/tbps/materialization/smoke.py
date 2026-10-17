@@ -86,12 +86,13 @@ def stage_irra(c,output,report,ledger):
     from ..models.irra_source import IRRASource
     from ..engines.historical_loader import native_action_validator
     from ..smoke_irra import model_snapshot
-    store,legacy=materialized(c,output)
-    historical,feature_refs=selected_features(c)
-    images=[store.load(store.reference(store.plan.binding(key,"image")))[0] for key in GALLERY]
-    with native_action_validator(legacy.config_ref) as validate:
-        texts=[store.load(store.reference(store.plan.binding(key,"text")),validate=validate)[1] for key in QUERY]
-    source=IRRASource.from_dict(read_json(c["dataset_sources"]["path"])["irra"])
+    from .irra_startup import prepare_inputs
+    events=report.setdefault("startup_events",[])
+    inputs,gate=prepare_inputs(c,output,store_factory=materialized,feature_reader=selected_features,emit=events.append)
+    historical,feature_refs=inputs.historical,inputs.feature_refs
+    images,texts,source,store=inputs.images,inputs.texts,inputs.source,inputs.store
+    gate.initialize_cuda()
+    events.append("irra_model_load_entry")
     report["IRRA_load_attempts"]=1
     adapter=IRRAAdapter.from_source(source,device="cuda:0",allow_model_load=True)
     report["IRRA_loads"]=1;backend=adapter._backend
@@ -157,7 +158,7 @@ def child(stage,path,output,token):
             if stage!="text":
                 from ..smoke_irra import gpu_available
                 report["gpu_before"]=gpu_available(c)
-                torch.cuda.reset_peak_memory_stats()
+                if stage=="g":torch.cuda.reset_peak_memory_stats()
             {"g":stage_g,"text":stage_text,"irra":stage_irra}[stage](c,output,report,ledger)
             guard.check();report["status"]="PASS"
     except BaseException as exc:
