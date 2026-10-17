@@ -91,3 +91,5 @@ CPU FP32、Torch2.5.1+cu124、2线程；无GPU初始化、IRRA/G/H模型恢复�
 Manifest SHAd5a59929f48226dd12bf28b7382f619b6b6d19306b1c1cb7b0496e464ebca810；
 report SHA907077ea4bba8af9f88b4b541f2e799628d2af5cc7a0ff5de95baa2aaea3ac78。
 绑定本轮代码/测试/冻结配置、CPU日志和唯一正式重放回执。原实验发布树40c7476、Stage4B1树a4c9387及Stage4A树32f5582仍保持原HEAD且工作树干净。
+
+实现Commit：26f70a480a0eef0c943fb9204afc7cfaeb221986。本条由后续文档提交登记；最终发布HEAD见Git。
