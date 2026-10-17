@@ -9,7 +9,7 @@
 - 基准a5a6f6ae8c9200482ae0c70d228e1873d3ca4dd2。
 - 分支codex/tbps-framework-stage4d1。
 - 工作树/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d1-20261017。
-- 实现/证据Commit在本轮代码提交后由后续文档提交登记。
+- 实现/证据Commit：7f50cd1922d2610703170d3a7e10d8c69ab5255a（本后续文档提交登记，代码与相关报告已共同提交）。
 - [阶段报告](framework/STAGE4D1_REPORT.md)、[接口与实际CPU命令](framework/STAGE4D1.md)。
 
 ## 本轮真实产物与来源

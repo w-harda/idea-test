@@ -1,6 +1,6 @@
 # Stage4D-1阶段报告：全量H历史文本物化与G流式Runner
 
-开发基准a5a6f6ae8c9200482ae0c70d228e1873d3ca4dd2；独立分支codex/tbps-framework-stage4d1，工作树/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d1-20261017。实现Commit由后续文档提交在PROJECT_STATE登记。
+开发基准a5a6f6ae8c9200482ae0c70d228e1873d3ca4dd2；独立分支codex/tbps-framework-stage4d1，工作树/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d1-20261017。实现Commit：7f50cd1922d2610703170d3a7e10d8c69ab5255a；本后续文档提交登记。
 
 本轮只执行历史文本CPU复制与审计。G/H/IRRA真实加载、神经前向、GPU、JVP、Backward、Optimizer和检索排名均为0。不修改历史prototypes、模型、旧Store、投影、Unicode规则、Checkpoint或正式结果。原Stage4C2整体FAIL及Stage4C3小样本PASS保持。
 
