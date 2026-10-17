@@ -72,3 +72,7 @@ generation_v2已恢复G，但在首次像素读取时被Resize误拦截，实际
 ## generation_v3封存后的受害者消费边界
 
 用户完成Image/Joint封存及独立审计后，新IRRA评估只读原Plan中的RGB/Unicode。CPU身份/动作核验先于CUDA，模型评分不反馈给攻击；真实像素SHA与IRRA ModelSpace分离。复用已有Dataset/Model Adapter、EvaluationEngine和官方Ranking，仅新增物化消费/分块缓存接线。其他Victim须独立原生编码同一产物，不借用IRRA特征。CPU测试不提升正式IRRA Full完成状态。
+
+## IRRA评估共享GPU的执行政策修订
+
+用户单独批准当前物化IRRA入口取消独占和固定8192MiB门槛，与现有Ollama共存；仅记录GPU状态，正常CUDA OOM保存完整错误并停止，不干预外部进程或自动重试。此变化只属于独立受害者评估执行层，不修改冻结Stage4D生成配置、攻击产物、模型或指标。一次10+10真实Smoke通过，Full仍需用户另行执行；不将小样本验证推广成正式Full资源保证。

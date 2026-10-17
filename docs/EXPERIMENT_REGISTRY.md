@@ -229,3 +229,9 @@ CPU只读资格证据/home/lzf/ldx/outputs/tbps-framework-stage4d2r2/cpu_audit_v
 独立codex/tbps-irra-materialized-evaluation，默认CPU来源检查，显式用户参数才编码。25项新测试、704项新树回归及原生产树2项来源测试通过；真实CPU Full预检PASS、两个RGB读回、完整身份/Unicode一致，真实模型/GPU/Full排名0。CPU证据/home/lzf/ldx/outputs/tbps-framework-irra-eval-development-cpu/。
 
 四组真实Full及新mAP尚未执行；不将历史23.5532等数值填作本次结果。执行与审计方案见framework/IRRA_MATERIALIZED_EVALUATION.md。当前不接入RaSa/APTM。
+
+## 物化IRRA共享GPU Smoke（10 Gallery + 10 Query）
+
+现有评估工作树的首次attempt-000001通过，未复用或覆盖其他Attempt；此前GPU独占门禁失败未创建输出。读取generation_v3固定RGB/Unicode，IRRA原权重/FP32/math/no_tf32/batch1，真实20图像与20文本样本前向，G/H0。四组小样本mAP依次100.0/93.0/99.16666412353516/90.95238494873047，仅验证链路。
+
+证据：/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/smoke/{protocol,execution-000001,completed}/；summary SHA d9499227e2f785b96af640f8b9bf6ec88285b0c5aac6f2664a5c68c827067f28，execution report SHA 6a4752556488ec311f9856e1d07311cc287430ef811f792110a9e550fca1a84d。参数/buffers exact、无OOM/重试，完整日志/home/lzf/ldx/tmp/irra_materialized_smoke_shared.log。正式Full未启动，资源共享不代表其他硬件/批量均验证。见framework/IRRA_MATERIALIZED_SHARED_GPU_SMOKE.md。

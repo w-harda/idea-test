@@ -1,6 +1,8 @@
-# 已封存generation_v3的官方IRRA四组评估准备
+# 已封存generation_v3的官方IRRA四组评估
 
-本轮基于 `0f5b8838b9ef3d0032f656e5169c74054ddd78cf`，独立分支 `codex/tbps-irra-materialized-evaluation`。只开发和运行CPU测试/只读来源预检；未加载真实模型、初始化CUDA、生成扰动或计算真实Full排名。实现Commit：bc710e5baf807bb8347a51c6071d03b43b2c0245；本后续文档提交登记。
+初版CPU准备基于 `0f5b8838b9ef3d0032f656e5169c74054ddd78cf`，独立分支 `codex/tbps-irra-materialized-evaluation`。只开发和运行CPU测试/只读来源预检；未加载真实模型、初始化CUDA、生成扰动或计算真实Full排名。实现Commit：bc710e5baf807bb8347a51c6071d03b43b2c0245；本后续文档提交登记。
+
+当前更新：已完成一次共享GPU的10+10真实Smoke，未启动Full。共享资源规则、真实指标与证据见[Smoke报告](IRRA_MATERIALIZED_SHARED_GPU_SMOKE.md)。下文初版CPU验证段落保留当时验证边界。
 
 ## 已确认的Stage4D输入
 
@@ -23,7 +25,7 @@
 | 紧凑特征缓存 | ArtifactStore原子发布/SHA/完成回执 | FeatureCache按64行保存，保存/读取真正clone |
 | 历史Clean一致性 | 原Phase5 Joint Full summary/protocol/completed；原G-v2 Clean门槛0.001pp | 只读参考五指标，不读取旧大Storage、不填入历史结果 |
 
-新配置SHA为 `79d33968d343134b8f48329f81fb8282440dfb6e59ff9b2031b84bb13909e56c`。新增仅 `src/tbps/engines/materialized_irra.py`、`materialized_cache.py`、独立配置与CPU测试；没有修改Stage4D、G/H、IRRA、Engine或旧指标源码。生产运行继续使用冻结Stage4D1的PYTHONPATH，保持同一Plan及原生产者路径。
+初版配置SHA为 `79d33968d343134b8f48329f81fb8282440dfb6e59ff9b2031b84bb13909e56c`；共享修订后的当前配置SHA为 `2c1623150b2598eacf326abdc2db331ec79f872f0c7a5d9121ee5aaf9cc99fe2`。新增仅 `src/tbps/engines/materialized_irra.py`、`materialized_cache.py`、独立配置与CPU测试；没有修改Stage4D、G/H、IRRA、Engine或旧指标源码。生产运行继续使用冻结Stage4D1的PYTHONPATH，保持同一Plan及原生产者路径。
 
 ## 四组与执行协议
 
@@ -89,7 +91,7 @@ CUDA_VISIBLE_DEVICES=0 /home/lzf/ldx/envs/tbps-image/bin/python -B -u \
   --action run --scope full --allow-full-evaluation
 ```
 
-建议先单独授权一次10+10新入口Smoke；不是本轮执行内容：
+10+10新入口Smoke命令（本次由用户单独授权一次；完成证据见共享GPU Smoke报告，不要重复执行）：
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 /home/lzf/ldx/envs/tbps-image/bin/python -B -u \
@@ -100,7 +102,7 @@ CUDA_VISIBLE_DEVICES=0 /home/lzf/ldx/envs/tbps-image/bin/python -B -u \
 
 Smoke固定前10 Gallery及其按官方顺序的前10合法Query，不按攻击效果挑选；20图像+20文本IRRA样本前向、G/H=0。小样本指标仅验证接口。NOOP路径在本轮CPU Mock及原Stage4C3固定真实样本中已验证；当前前10子集不保证包含真实NOOP，正式Full保留全部40条。
 
-GPU入口沿用原IRRA资源门禁：GPU0无其他计算进程、空闲≥8192MiB、启动利用率≤10%。本轮未查询GPU资源，未把G生成阶段对Ollama的专属共享许可自动扩展到IRRA。资源不足在创建评估Attempt之前拒绝，不等待或自动重试。
+当前IRRA入口按用户明确授权采用 `shared_observe_only`：仅记录GPU0名称、总量/空闲/已用显存、利用率及计算进程，不要求独占，也不设固定空闲显存或利用率门槛。不终止、卸载或修改Ollama。实际分配失败按原CUDA OOM退出，完整堆栈、加载/前向计数及显存峰值写入日志与execution报告；不自动重试，不改变FP32或batch1。Stage4D冻结生成入口的资源政策不变。
 
 ## 输出、停止、恢复与审计
 
@@ -125,4 +127,4 @@ CUDA_VISIBLE_DEVICES="" /home/lzf/ldx/envs/tbps-image/bin/python -B -u \
 
 成功为MATERIALIZED_IRRA_CPU_AUDIT_PASS full；重新核对Stage4D输入来源、全部特征/Score SHA、summary/CSV/结果内容和最终冻结执行证据。此时不调用官方rank或新Engine.run。
 
-尚需用户实际执行小规模/Full编码及完成后审计。本轮不接入RaSa/APTM；其后只能消费同一物化RGB/Unicode，独立形成各自原生ModelSpace与评分缓存。
+10+10真实Smoke已在单独授权下通过，详见[共享GPU Smoke报告](IRRA_MATERIALIZED_SHARED_GPU_SMOKE.md)；正式Full编码及完成后审计仍由用户执行。本轮不接入RaSa/APTM；其后只能消费同一物化RGB/Unicode，独立形成各自原生ModelSpace与评分缓存。

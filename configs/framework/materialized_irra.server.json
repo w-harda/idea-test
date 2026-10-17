@@ -9,8 +9,6 @@
   "text_batch": 1,
   "cache_chunk": 64,
   "query_chunk": 128,
-  "minimum_free_mib": 8192,
-  "maximum_utilization_percent": 10,
   "materialization_config": {
     "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d1-20261017/configs/framework/stage4d1_materialization.server.json",
     "sha256": "93cea9b45552b049e1303b9f6e1dd5bce423cdeba32031c6f8b2aad360025c21"
@@ -29,7 +27,7 @@
   },
   "output_base": "/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation",
   "entry_sources": {
-    "/home/lzf/ldx/projects/idea-test-tbps-irra-materialized-eval-20261017/src/tbps/engines/materialized_irra.py": "c5680f2085dad330eb06dffee37e7c802a36fcfe13ac974513b534c7323e6a25",
+    "/home/lzf/ldx/projects/idea-test-tbps-irra-materialized-eval-20261017/src/tbps/engines/materialized_irra.py": "8c4c77b762729337925b0de59c8cac754b6520b3e9fcbb9dbeb1fc4346f3c5b2",
     "/home/lzf/ldx/projects/idea-test-tbps-irra-materialized-eval-20261017/src/tbps/engines/materialized_cache.py": "0e3445eacfc0f969eb9d68cbfcb10db208833d9b1811a737abaaab41437e527a"
   },
   "clean_metric_atol_pp": 0.001,
@@ -47,5 +45,6 @@
       "sha256": "94c364ab791f8668cf1655fb80c540cfb8e23db47dce3eabe6ab91c329866a3c"
     }
   },
-  "physical_gpu": 0
+  "physical_gpu": 0,
+  "gpu_policy": "shared_observe_only"
 }

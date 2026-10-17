@@ -2,7 +2,7 @@
 from dataclasses import asdict,replace
 from pathlib import Path
 from contextlib import ExitStack
-import argparse,csv,io,json,os,time,traceback
+import argparse,csv,io,json,os,time,traceback,subprocess,sys
 from unittest.mock import patch
 from tbps.artifacts import ArtifactStore,FileRef,checked,read_json,json_bytes,digest,sha_file
 from tbps.materialization.contracts import need
@@ -18,7 +18,7 @@ from tbps.models.irra import IRRAAdapter
 from tbps.models.base import ModelSpace,InputBinding
 from tbps.engines.evaluation import EvaluationEngine,MODES,publish_result,load_result
 from tbps.engines.provenance import AttackOrigin
-from tbps.smoke_irra import model_snapshot,gpu_available
+from tbps.smoke_irra import model_snapshot
 if __package__:
     from .materialized_cache import FeatureCache,CachedIRRA,FAMILIES,ref
 else:
@@ -31,7 +31,7 @@ def config(path):
     c=read_json(path,"tbps-materialized-irra-evaluation-1")
     fixed={"gallery":3074,"query":6156,"plan_id":PLAN,"precision":"fp32/math/no_tf32",
            "seed":42,"image_batch":1,"text_batch":1,"cache_chunk":64,"query_chunk":128,
-           "physical_gpu":0,"minimum_free_mib":8192,"maximum_utilization_percent":10,"clean_metric_atol_pp":.001}
+           "physical_gpu":0,"gpu_policy":"shared_observe_only","clean_metric_atol_pp":.001}
     need(set(c)==set(fixed)|{"schema","materialization_config","generation_result","materialization_audit",
          "dataset_sources","output_base","entry_sources","legacy_reference"} and all(c[k]==v for k,v in fixed.items()),
          "fixed official Test evaluation configuration")
@@ -67,6 +67,20 @@ def clean_check(actual,expected,tolerance=.001):
     need(set(actual)==set(expected) and all(v<=tolerance for v in errors.values()),
          "official Clean protocol mismatch: "+str(errors))
     return errors
+
+def gpu_available(c):
+    """只记录GPU0状态；不要求独占/最低空闲显存，不干预外部任务。"""
+    def query(fields):
+        return subprocess.run(["nvidia-smi","-i",str(c["physical_gpu"]),"--query-"+fields,
+            "--format=csv,noheader,nounits"],capture_output=True,text=True,check=True,timeout=10).stdout.strip()
+    device=query("gpu=name,memory.total,memory.free,memory.used,utilization.gpu")
+    rows=list(csv.reader(device.splitlines(),skipinitialspace=True))
+    need(len(rows)==1 and len(rows[0])==5,"one physical GPU state row")
+    name,total,free,used,util=rows[0]
+    processes=query("compute-apps=pid,process_name,used_memory")
+    return {"name":name,"total_mib":int(total),"free_mib":int(free),"used_mib":int(used),
+        "utilization_percent":int(util),"compute_processes":processes,
+        "policy":"shared_observe_only","raw_gpu_state":device}
 
 def frozen_library():
     import subprocess
@@ -254,6 +268,7 @@ def run(path,scope,*,authorized=False,resume=False):
     need(not outputs.pending(),"uncommitted feature publication; preserve and inspect")
     need(os.environ.get("CUDA_VISIBLE_DEVICES")=="0","explicit physical GPU0 required")
     gpu=gpu_available(c)
+    print("IRRA_GPU_STATE_BEFORE",json.dumps(gpu),flush=True)
     previous=list(root.glob("attempt-*"))
     for p in previous:need((root/("execution-"+p.name.split("-")[-1])).exists(),"unclosed previous Attempt")
     number=len(previous)+1;attempt="attempt-"+str(number).zfill(6);execution="execution-"+str(number).zfill(6)
@@ -317,9 +332,17 @@ def run(path,scope,*,authorized=False,resume=False):
             sources=(ref(root/"result/manifest.json"),cache.protocol_ref))
         execution_report.update(status="PASS",score_calls=calls,IRRA_frozen=True,backward=0,optimizer=0,JVP=0)
     except BaseException as exc:
-        execution_report.update(status="FAIL",error=str(exc),traceback=traceback.format_exc())
+        execution_report.update(status="FAIL",error=str(exc),exception_type=type(exc).__name__,
+            CUDA_OOM=isinstance(exc,torch.cuda.OutOfMemoryError),traceback=traceback.format_exc())
+        print(execution_report["traceback"],file=sys.stderr,flush=True)
     finally:
         execution_report["elapsed_seconds"]=time.monotonic()-started
+        if torch.cuda.is_initialized():
+            execution_report["gpu_peak_allocated_bytes"]=torch.cuda.max_memory_allocated()
+            execution_report["gpu_peak_reserved_bytes"]=torch.cuda.max_memory_reserved()
+        try:execution_report["GPU_after"]=gpu_available(c)
+        except Exception as exc:execution_report["GPU_after_query_error"]=str(exc)
+        print("IRRA_EXECUTION_REPORT",json.dumps(execution_report),flush=True)
         from tbps.engines.replay_control import rss_bytes
         execution_report["peak_RSS_bytes"]=rss_bytes()
         outputs.publish(execution,{"report.json":json_bytes(execution_report)},{"kind":"IRRA_evaluation_execution"},

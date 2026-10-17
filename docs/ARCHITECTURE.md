@@ -197,3 +197,9 @@ engines/materialized_irra.py是独立绝对脚本，生产PYTHONPATH指向冻结
 materialized_cache提供每64行的ArtifactStore紧凑缓存与无模型CachedIRRA评分薄层；四family独立有序，ModelSpace/输入内容/攻击来源分别绑定。四组复用原EvaluationEngine/Ranking/publish_result/load_result，不增加通用评测框架。正式Full的Clean采用原历史0.001pp一致性门槛；新指标来自实际Score。
 
 本轮CPU测试与真实来源预检通过，真实GPU评估PENDING。原生成结果/源码不修改；后续其他Victim只能另建ModelSpace，不能复用IRRA特征。详见framework/IRRA_MATERIALIZED_EVALUATION.md。
+
+## IRRA物化评估的共享GPU修订与Smoke
+
+仅当前IRRA执行入口采用shared_observe_only并记录GPU状态，不要求GPU独占或固定空闲显存；实际CUDA OOM按正常异常保存完整堆栈与计数，不自动重试。冻结Stage4D生成层的资源政策不变，也不引入新的进程身份绑定。FP32、batch1、原IRRA及Engine/Ranking均保持。
+
+唯一真实10+10 Smoke通过：IRRA加载1次、图像/文本样本前向20/20，G/H与优化操作0，模型摘要exact。当前新入口Full仍PENDING，未执行额外真实测试。证据与资源数据见framework/IRRA_MATERIALIZED_SHARED_GPU_SMOKE.md。

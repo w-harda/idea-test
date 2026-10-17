@@ -241,3 +241,34 @@ def test_actual_runner_CPU_mock_four_modes_counters_NOOP_and_readback(world):
         assert summary["groups"][mode]==expected
     assert not torch.cuda.is_initialized()
     assert ctx["gate"].initialize_cuda.call_count==1
+
+
+def test_shared_GPU_state_records_Ollama_without_exclusive_or_free_memory_gate():
+    device=Mock(stdout="NVIDIA GeForce RTX 4090, 24564, 3865, 20226, 0\n")
+    processes=Mock(stdout="2436556, /usr/local/lib/ollama/llama-server, 20178\n")
+    with patch.object(runner.subprocess,"run",side_effect=[device,processes]) as probe:
+        result=runner.gpu_available({"physical_gpu":0})
+    assert result["free_mib"]==3865 and "2436556" in result["compute_processes"]
+    assert result["policy"]=="shared_observe_only" and probe.call_count==2
+
+def test_shared_GPU_low_free_memory_is_observed_not_preemptively_refused():
+    with patch.object(runner.subprocess,"run",side_effect=[
+        Mock(stdout="NVIDIA GeForce RTX 4090, 24564, 1, 24563, 95\n"),
+        Mock(stdout="2436556, llama-server, 20178\n")]):
+        assert runner.gpu_available({"physical_gpu":0})["free_mib"]==1
+
+def test_CUDA_OOM_saved_printed_and_not_retried(world,capsys):
+    ctx,_,cfile=assembled(world)
+    with patch.dict(os.environ,{"CUDA_VISIBLE_DEVICES":"0"}), \
+         patch.object(runner,"preflight",return_value=ctx), \
+         patch.object(runner,"gpu_available",return_value={"fixture":True}), \
+         patch.object(runner.IRRAAdapter,"from_source",side_effect=torch.cuda.OutOfMemoryError("synthetic CPU OOM test")) as load:
+        assert runner.run(str(cfile),"smoke",authorized=True)==1
+    root=Path(ctx["c"]["output_base"])/"smoke"
+    report=json.loads((root/"execution-000001/report.json").read_text())
+    assert load.call_count==1 and report["CUDA_OOM"] is True
+    assert report["exception_type"]=="OutOfMemoryError" and "synthetic CPU OOM test" in report["traceback"]
+    assert report["counts"]["IRRA_load_attempts"]==1 and report["counts"]["IRRA_loads"]==0
+    assert report["counts"]["IRRA_image_started"]==report["counts"]["IRRA_text_started"]==0
+    assert not (root/"completed").exists()
+    assert "synthetic CPU OOM test" in capsys.readouterr().err
