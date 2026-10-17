@@ -28,13 +28,15 @@ class AttackOrigin:
     budget: AttackBudget
     surrogate_sources_sha256: str
     def __post_init__(self):
-        if self.attack_id not in ("gv2","hv1"):raise ArtifactError("unsupported attack component")
+        if type(self.attack_id)is not str or not self.attack_id.strip():raise ArtifactError("explicit attack component identity")
         if type(self.checkpoint)is not FileRef or type(self.protocol)is not FileRef or type(self.budget)is not AttackBudget:
             raise ArtifactError("typed attack checkpoint/protocol/budget required")
         sha256(self.surrogate_sources_sha256)
-        if (self.attack_id=="gv2" and (self.budget.image is None or self.budget.text is not None)) or (
-            self.attack_id=="hv1" and (self.budget.text is None or self.budget.image is not None)):
-            raise ArtifactError("attack modality/budget conflict")
+        if (self.budget.image is None)==(self.budget.text is None):
+            raise ArtifactError("single-modality attack provenance budget required")
+        if (self.attack_id=="gv2" and self.budget.image is None) or (
+            self.attack_id=="hv1" and self.budget.text is None):
+            raise ArtifactError("known attack modality/budget conflict")
     def verify(self):checked(self.checkpoint);checked(self.protocol)
 
 @dataclass(frozen=True,slots=True)

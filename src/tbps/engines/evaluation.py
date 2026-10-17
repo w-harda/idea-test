@@ -31,6 +31,11 @@ class EvaluationEngine:
                 raise ArtifactError("unimplemented Dataset/Model or unverified cached source")
             if getattr(adapter,"execution_kind",None)!="readonly_cached":
                 raise ArtifactError("explicit model-free cached scoring Adapter required")
+        elif execution=="materialized_native":
+            if (manifest.dataset_id!="cuhk_pedes" or manifest.official_split!="test"
+                or getattr(adapter,"execution_kind",None)!="materialized_native"
+                or getattr(adapter,"source_verified",False)is not True):
+                raise ArtifactError("verified native Adapter and official materialized dataset required")
         elif execution in ("historical_feature_replay","historical_fixture_replay"):
             need_fixture=execution=="historical_fixture_replay"
             if (getattr(adapter,"execution_kind",None)!=execution or getattr(adapter,"source_verified",False)is not True or adapter.space.model_id!=("irra_fixture" if need_fixture else "irra")
@@ -45,7 +50,7 @@ class EvaluationEngine:
         self.manifest,self.adapter,self.direction,self.execution=manifest,adapter,direction,execution
         if type(model_sources)is not tuple or any(type(ref)is not FileRef for ref in model_sources):
             raise ArtifactError("immutable model source FileRefs required")
-        if execution in ("readonly_cached","historical_feature_replay") and not any(ref.sha256==adapter.space.checkpoint_sha256 for ref in model_sources):
+        if execution in ("readonly_cached","historical_feature_replay","materialized_native") and not any(ref.sha256==adapter.space.checkpoint_sha256 for ref in model_sources):
             raise ArtifactError("cached victim checkpoint source required")
         self.model_sources=model_sources
         for ref in self.model_sources:checked(ref)
@@ -80,9 +85,12 @@ class EvaluationEngine:
                 if b.origin is not None or b.inputs.ordered_sha256!=originals[modality]:
                     raise ArtifactError("clean content/source mismatch")
             else:
-                if b.origin is None or b.original_sha256!=originals[modality] or (
-                    b.origin.attack_id!=("gv2" if modality=="image" else "hv1")):
+                if b.origin is None or b.original_sha256!=originals[modality]:
                     raise ArtifactError("adversarial attack/original input provenance conflict")
+                budget=b.origin.budget
+                if (modality=="image" and (budget.image is None or budget.text is not None)) or (
+                    modality=="text" and (budget.text is None or budget.image is not None)):
+                    raise ArtifactError("attack budget/modality provenance conflict")
         checked(self.manifest.annotation)
         for ref in self.model_sources:checked(ref)
 

@@ -157,9 +157,9 @@ class EngineTests(unittest.TestCase):
         b=self.f.inputs["adv_text"];self.f.inputs["adv_text"]=replace(b,original_sha256=(h("wrong"),)*4)
         with self.assertRaisesRegex(ArtifactError,"original"):self.f.engine().run(self.f.inputs)
 
-    def test_attack_origin_modality_and_unknown_attack_rejected(self):
+    def test_attack_origin_modality_and_empty_identity_rejected(self):
         b=self.f.inputs["adv_text"]
-        with self.assertRaises(ArtifactError):replace(b.origin,attack_id="future")
+        with self.assertRaises(ArtifactError):replace(b.origin,attack_id="")
         with self.assertRaises(ArtifactError):replace(b.origin,attack_id="gv2")
 
     def test_payload_mutation_rejected(self):

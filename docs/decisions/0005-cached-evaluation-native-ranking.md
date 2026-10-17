@@ -17,3 +17,9 @@
 理由：保持原评测定义，阻断跨Victim/Tokenizer/内容的缓存混用，避免目标反馈进入攻击，忠实表达历史证据缺口。
 
 影响：Stage 4A可执行小型合成CPU Fixture；目前没有生产级model-free IRRA cached scorer/历史Full加载器或统一真实执行CLI。原实验配置继续dry-run/拒绝直接执行。RaSa/APTM需独立原生Adapter和受审查能力接入，不能只改model_id复用IRRA特征。
+
+## RaSa接入：已验证原生Adapter的执行与缓存
+
+新增materialized_native类别消费源验证完成的实际Adapter及Checkpoint，允许原生融合评分，不按IRRA名称或512维Embedding假定能力。Engine仍只排名，不持有攻击策略或回传目标反馈。结构化特征及分块Score由独立缓存保存；全局候选和最终ITM留在RaSa Adapter，官方argsort/多正例指标保持。RaSa缺失的mINP采用既有Engine定义。
+
+AttackOrigin允许显式组件ID，保留单模态预算与已知G/H规则。来源描述不等于插件可执行；原配置/插件能力拒绝仍有效。后续新攻击样本或Model Adapter可沿用这些边界，当前不实现其他算法/APTM。

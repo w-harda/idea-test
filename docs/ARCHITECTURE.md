@@ -203,3 +203,11 @@ materialized_cache提供每64行的ArtifactStore紧凑缓存与无模型CachedIR
 仅当前IRRA执行入口采用shared_observe_only并记录GPU状态，不要求GPU独占或固定空闲显存；实际CUDA OOM按正常异常保存完整堆栈与计数，不自动重试。冻结Stage4D生成层的资源政策不变，也不引入新的进程身份绑定。FP32、batch1、原IRRA及Engine/Ranking均保持。
 
 唯一真实10+10 Smoke通过：IRRA加载1次、图像/文本样本前向20/20，G/H与优化操作0，模型摘要exact。当前新入口Full仍PENDING，未执行额外真实测试。证据与资源数据见framework/IRRA_MATERIALIZED_SHARED_GPU_SMOKE.md。
+
+## RaSa原生融合接入与可复用边界
+
+models/rasa.py持有官方加载、原生Tokenizer/预处理、全局256维候选与局部Token ITM评分，不包含攻击器或PID。ModelSpec表示fusion、representation_dim=None。Engine增加materialized_native显式执行类别，要求已验证Adapter/Checkpoint/官方身份；仍无攻击生成或模型加载工厂。
+
+materialized_inputs只读封存集合并复用现有读取/身份接线；rasa_eval生产入口固定两个冻结attacks/materialization包路径，保持Stage4D原Plan，其余Adapter/Engine来自新树。NativeFeatureCache存Tensor字典，ChunkCachedScorer按Query块保存原生Score；不固定特征维度/目标模型或攻击ID。AttackOrigin描述显式组件和单模态预算，Engine按模态检查，不把未知ID当成已实现攻击插件。
+
+RaSa官方384×384 BICUBIC、BERT50、Top-128最终ITM保持。现有FP32工作空间已是384×128，因此采用Tensor resize避免量化，不能宣称与从原始文件直接PIL处理相同。Full报告须标注固定物化Clean协议。短时10+10真实Smoke通过，仅10候选；Full及APTM尚未执行。新增模型仍需独立Adapter/来源与薄入口，复用输入桥、缓存和Engine；新增攻击样本不改RaSa。见framework/RASA_MATERIALIZED_EVALUATION.md。

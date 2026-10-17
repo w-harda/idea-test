@@ -1,0 +1,44 @@
+{
+  "materialization_config": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d1-20261017/configs/framework/stage4d1_materialization.server.json",
+    "sha256": "93cea9b45552b049e1303b9f6e1dd5bce423cdeba32031c6f8b2aad360025c21"
+  },
+  "generation_result": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v3/result/manifest.json",
+    "sha256": "fb696a1c0c3235018202118a2d945fa728f6fc06be39738f04a26e6a39fe7634"
+  },
+  "materialization_audit": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v3_cpu_audit_v1/result/manifest.json",
+    "sha256": "5a693b3877a35c6778e79de7c3f9e555f7772191bbd2e3af5624fcef268bdce5"
+  },
+  "dataset_sources": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4c2-20261017/configs/framework/stage2_sources.server.json",
+    "sha256": "9f2da834669c7a1902b3fa9570ce8ab1a2844483ddbfb6e75bb3221a02acf73e"
+  },
+  "schema": "tbps-rasa-materialized-evaluation-1",
+  "image_batch": 1,
+  "text_batch": 1,
+  "fusion_batch": 1,
+  "query_chunk": 128,
+  "cache_chunk": 16,
+  "seed": 42,
+  "precision": "fp32/math/no_tf32",
+  "rasa_source": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-rasa-materialized-eval-20261017/configs/framework/rasa_sources.server.json",
+    "sha256": "af9f55b0abf3ea878a434f07e423d2db95b053577e519bc864dceee211e3ab79"
+  },
+  "output_base": "/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation",
+  "producer_sources": {
+    "/home/lzf/ldx/projects/idea-test-tbps-rasa-materialized-eval-20261017/src/tbps/models/rasa.py": "946e89fe97ec0d189545ff9d98fc348c049ce4002564d8504bc3675d4799ee0b",
+    "/home/lzf/ldx/projects/idea-test-tbps-rasa-materialized-eval-20261017/src/tbps/engines/materialized_rasa.py": "0730ecee07a2fbff57067de4f55eefe697dac477e776d42d9879ca00a3ba1732",
+    "/home/lzf/ldx/projects/idea-test-tbps-rasa-materialized-eval-20261017/src/tbps/engines/materialized_inputs.py": "001e06aec70fb97571a79b30c5d32d63a730fc697aa0d825f541325e2c491a14",
+    "/home/lzf/ldx/projects/idea-test-tbps-rasa-materialized-eval-20261017/src/tbps/engines/native_cache.py": "eacfdfdc19ac4f0c09f503314cd748d84ebb42d29d3a96a476bec0ef2a3b5b1b",
+    "/home/lzf/ldx/projects/idea-test-tbps-rasa-materialized-eval-20261017/src/tbps/engines/native_score_cache.py": "01b8ad3de0dad9655db1c15c7b480d4f3d25f0eb0b7af3d0065661ba51c4533c",
+    "/home/lzf/ldx/projects/idea-test-tbps-rasa-materialized-eval-20261017/src/tbps/engines/evaluation.py": "957eea289a0164c865fb84dd007901e60da82fb1de9bbbae6f946e93b1374124",
+    "/home/lzf/ldx/projects/idea-test-tbps-rasa-materialized-eval-20261017/src/tbps/engines/provenance.py": "d76877f3e13e8e324b4e0f9afdba701a1bd74f115bfca382cbd953cff515b413",
+    "/home/lzf/ldx/projects/idea-test-tbps-rasa-materialized-eval-20261017/src/tbps/engines/metrics.py": "6a09838fa9c17cc95755acf5e2e608af86127bd517b951c050910f24c38459b5",
+    "/home/lzf/ldx/projects/idea-test-tbps-rasa-materialized-eval-20261017/src/tbps/engines/materialized_irra.py": "8c4c77b762729337925b0de59c8cac754b6520b3e9fcbb9dbeb1fc4346f3c5b2",
+    "/home/lzf/ldx/projects/idea-test-tbps-rasa-materialized-eval-20261017/src/tbps/engines/materialized_cache.py": "0e3445eacfc0f969eb9d68cbfcb10db208833d9b1811a737abaaab41437e527a",
+    "/home/lzf/ldx/projects/idea-test-tbps-rasa-materialized-eval-20261017/src/tbps/rasa_eval.py": "c345fb3b9ec0c14cd0cb13c36c9ad0b083e5165ede51d214dd6c81d700f8298c"
+  }
+}

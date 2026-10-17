@@ -235,3 +235,13 @@ CPU只读资格证据/home/lzf/ldx/outputs/tbps-framework-stage4d2r2/cpu_audit_v
 现有评估工作树的首次attempt-000001通过，未复用或覆盖其他Attempt；此前GPU独占门禁失败未创建输出。读取generation_v3固定RGB/Unicode，IRRA原权重/FP32/math/no_tf32/batch1，真实20图像与20文本样本前向，G/H0。四组小样本mAP依次100.0/93.0/99.16666412353516/90.95238494873047，仅验证链路。
 
 证据：/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/smoke/{protocol,execution-000001,completed}/；summary SHA d9499227e2f785b96af640f8b9bf6ec88285b0c5aac6f2664a5c68c827067f28，execution report SHA 6a4752556488ec311f9856e1d07311cc287430ef811f792110a9e550fca1a84d。参数/buffers exact、无OOM/重试，完整日志/home/lzf/ldx/tmp/irra_materialized_smoke_shared.log。正式Full未启动，资源共享不代表其他硬件/批量均验证。见framework/IRRA_MATERIALIZED_SHARED_GPU_SMOKE.md。
+
+## IRRA Materialized Full完成（用户执行，独立CPU审计PASS）
+
+Git b51d9e55190e96b6422f0c87952471ad6ac12bed；固定generation_v3 RGB/Unicode，3074/6156四组原生IRRA重新编码。四组mAP66.09744262695312/32.28228759765625/51.471561431884766/23.553220748901367，历史Joint Full20项指标exact。IRRA加载1次、图像6148/文本12312，G/H0。证据/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/completed/summary.json，SHA4530f3f97156d6e9f65c07b0775588324c39679feb0f16ae66b356692b017eb0；/home/lzf/ldx/tmp/irra_materialized_full_status.log含SUCCESS | IRRA_FULL_AND_CPU_AUDIT，audit日志含MATERIALIZED_IRRA_CPU_AUDIT_PASS full。本轮只读引用，未重跑。
+
+## RaSa固定攻击产物迁移Smoke（非正式Full结论）
+
+官方RaSa代码bd16aa1、CUHK权重bc85da09...，独立原生空间/缓存。同一generation_v3前10 Gallery/前10正例覆盖Query，20图像/20文本/400融合pair，模型加载1，G/H/IRRA0；唯一attempt-000001 PASS。四组mAP100.0/95.88888549804688/99.16666412353516/91.44444274902344，不解释为正式迁移成功率。
+
+证据/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/smoke/；summary SHA036ca6df1ffc793dfb39e36cc7b38294b12655f0f23975dc005822829c04aa61，execution SHA8a9b7bcc0b73017f3cc85a8809b530c4a21e55ca071ab0242291f39d7c989995。参数/buffers exact、无OOM/重试。Full保持Top-128，当前仅10候选Smoke；固定384×128物化RGB到384×384 Tensor预处理区别于官方原始图片PIL基线。正式Full尚未执行，等待用户手动运行。见framework/RASA_SMOKE_REPORT.md。
