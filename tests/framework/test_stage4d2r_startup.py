@@ -403,6 +403,22 @@ class ChildFlowTests(unittest.TestCase):
 
 
 class DerivedControlTests(unittest.TestCase):
+    def parent_control(self,path):
+        # 历史v2配置必须继续由其原入口验证；新v3入口另有独立测试。
+        import importlib.util
+        from tbps.artifacts import FileRef,checked
+        cfg=read_json(path)
+        sources=cfg["entry_sources"]
+        def load(name,filename):
+            source=next(p for p in sources if Path(p).name==filename)
+            checked(FileRef(source,sources[source]))
+            spec=importlib.util.spec_from_file_location(name,source)
+            module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+            return module
+        safety=load("_frozen_stage4d2r_safety","gpu_safety.py")
+        with patch.dict(sys.modules,{"gpu_safety":safety}):
+            entry=load("_frozen_stage4d2r_entry","full_gpu.py")
+        return entry.control(path)
     def test_derived_config_preserves_scope_plan_and_resources(self):
         root = Path(__file__).resolve().parents[2]
         parent = read_json(root / "configs/framework/stage4d2_generation.server.json")
@@ -410,7 +426,7 @@ class DerivedControlTests(unittest.TestCase):
         self.assertEqual({k:v for k,v in parent.items() if k not in ("output","entry_sources")},
                          {k:v for k,v in child.items() if k not in ("output","entry_sources")})
         self.assertTrue(child["output"].endswith("/generation_v2"))
-        self.assertEqual(runner.control(root / "configs/framework/stage4d2r_generation.server.json"), child)
+        self.assertEqual(self.parent_control(root / "configs/framework/stage4d2r_generation.server.json"), child)
         self.assertNotEqual(parent["output"], child["output"])
 
     def test_parent_v1_config_cannot_start_repaired_v2_entry(self):

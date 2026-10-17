@@ -1,0 +1,48 @@
+{
+  "schema": "tbps-g-full-generation-1",
+  "frozen_root": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d1-20261017",
+  "plan_id": "7ac4fefd0abaa10df085be3ec3ed56c4b38c782a21bfc44473f40b90965447d5",
+  "output": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v3",
+  "gallery": 3074,
+  "query": 6156,
+  "batch": 1,
+  "seed": 42,
+  "precision": "fp32/math/no_tf32",
+  "max_seconds": 7200,
+  "minimum_available_ram_bytes": 8589934592,
+  "system_ram_reserve_bytes": 2147483648,
+  "minimum_disk_bytes": 10737418240,
+  "runtime_disk_reserve_bytes": 2147483648,
+  "minimum_inodes": 100000,
+  "physical_gpu": 0,
+  "minimum_free_mib": 8192,
+  "maximum_utilization_percent": 10,
+  "frozen_config": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d1-20261017/configs/framework/stage4d1_materialization.server.json",
+    "sha256": "93cea9b45552b049e1303b9f6e1dd5bce423cdeba32031c6f8b2aad360025c21"
+  },
+  "entry_sources": {
+    "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d2r2-20261017/src/tbps/materialization/full_gpu.py": "d0a4040021128066eace97448cd7d61e33d65a797aabd0ec896d2a413b17bc8c",
+    "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d2r2-20261017/src/tbps/materialization/gpu_safety.py": "dbb1e9f0dcff994aebe096e9a04b4f3cea1cd8dde9aa21a48877705016d2b409",
+    "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d2r2-20261017/src/tbps/materialization/full_gpu_audit.py": "9006c6eec3e10ad8aa380e5e6fa9bc3581384e625e5ada2615b9d590052cc628",
+    "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d2r2-20261017/src/tbps/materialization/claim_recovery.py": "2c97f50c93abcc8152d10eb06fbc05f6d230687edfc6dfe3b6a1a5533639f334"
+  },
+  "recovery": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d2r2-20261017/configs/framework/stage4d2r2_recovery.server.json",
+    "sha256": "429209225c9a947b1dd254b51addbf41c9ef5a5e8dc0532ea7dfbc3396604bd6"
+  },
+  "preprocess_sources": {
+    "backend": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d1-20261017/src/tbps/attacks/legacy_runtime.py",
+      "sha256": "d328c5b7b188610896aa330f72c68d18aa699634a6f633fbf64691bc4cf99476"
+    },
+    "pixel_reader": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/irra_image_adapter.py",
+      "sha256": "148d2cfe8749cb8723b00e38ca68ff8dee6f86948f1fe2a15605c792dbb2eba4"
+    },
+    "torchvision": {
+      "path": "/home/lzf/ldx/envs/tbps-image/lib/python3.10/site-packages/torchvision/transforms/transforms.py",
+      "sha256": "791214af42358bb04caab5e6e31b012506181a9bc8903aff54cb1cb50388d0ce"
+    }
+  }
+}

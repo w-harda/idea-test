@@ -77,10 +77,12 @@ def g_load_only(checkpoint,artifact_root,counts):
     with patch.object(torch,"load",new=load):yield
 
 class GObservation:
-    def __init__(self,expected,old_pixels=None,on_mismatch=None):
+    def __init__(self,expected,old_pixels=None,on_mismatch=None,*,image_sources=None,preprocess_sources=None):
         self.expected=tuple(expected);self.started=0;self.completed=0;self.active=None
         self.old_pixels=old_pixels or {};self.comparisons={};self.records=[]
         self.current_started=None;self.on_mismatch=on_mismatch
+        self.image_sources=image_sources;self.preprocess_sources=preprocess_sources
+        self.preprocess_calls=0
     def before(self,module,args):
         import torch
         need(self.active is not None and len(args)==1 and len(args[0])==1,"one bound Gallery image")
@@ -92,10 +94,62 @@ class GObservation:
     @contextmanager
     def attach(self,plugin):
         import torch
+        from tbps.artifacts import checked,FileRef
+        from tbps.attacks.legacy_runtime import _LegacyG
+        import inspect
         allowed=set(plugin.backend.model.modules());original_call=torch.nn.Module._call_impl
-        original=plugin.generate
+        original=plugin.generate;original_reader=plugin.backend.load_pixels
+        reading=[None];resize_type=None;resize_forward=None
+        if self.preprocess_sources is not None:
+            from torchvision import transforms
+            sources=self.preprocess_sources
+            need(self.image_sources is not None and set(sources)=={"backend","pixel_reader","torchvision"},
+                 "explicit verified preprocessing sources/inputs required")
+            for value in sources.values():checked(FileRef(**value))
+            need(type(plugin.backend) is _LegacyG and original_reader.__func__ is _LegacyG.load_pixels
+                 and inspect.getsourcefile(_LegacyG)==sources["backend"]["path"],
+                 "only original verified image reader backend")
+            need(plugin.backend.pixel_reader.__name__=="pixels_from_pil"
+                 and inspect.getsourcefile(plugin.backend.pixel_reader)==sources["pixel_reader"]["path"],
+                 "only pinned original pixels_from_pil")
+            resize_type=transforms.Resize;resize_forward=resize_type.forward
+            need(inspect.getsourcefile(resize_type)==sources["torchvision"]["path"]
+                 and inspect.getsourcefile(resize_forward)==sources["torchvision"]["path"]
+                 and resize_forward.__qualname__=="Resize.forward",
+                 "pinned torchvision Resize source required")
+        def read(path):
+            if resize_type is None:return original_reader(path)
+            need(reading[0] is None,"nested image preprocessing forbidden")
+            p=Path(path).resolve()
+            matched=[(k,v) for k,v in self.image_sources.items() if Path(v.path).resolve()==p]
+            need(len(matched)==1,"preprocessing image must be a bound Gallery member")
+            key,source=matched[0]
+            need(self.started<len(self.expected) and key==self.expected[self.started]
+                 and self.active in (None,key),"preprocessing input/order mismatch")
+            before=checked(source);reading[0]=key
+            try:
+                value=original_reader(path)
+                need(value.shape==(1,3,384,128) and value.dtype==torch.float32 and
+                     bool(torch.isfinite(value).all()) and bool(((value>=0)&(value<=1)).all()),
+                     "preprocessing must return original FP32 RGB")
+                need(checked(source)==before,"image changed during preprocessing")
+                return value
+            finally:reading[0]=None
         def module_call(module,*a,**kw):
-            need(module in allowed,"non-G neural forward forbidden")
+            if module in allowed:
+                need(reading[0] is None,"G forward forbidden inside pixel reader")
+            else:
+                from PIL import Image
+                from torchvision.transforms import InterpolationMode
+                need(reading[0] is not None and type(module) is resize_type and not kw and len(a)==1
+                     and isinstance(a[0],Image.Image) and a[0].mode=="RGB"
+                     and type(module.size) in (tuple,list) and tuple(module.size)==(384,128) and module.interpolation is InterpolationMode.BILINEAR
+                     and module.max_size is None and module.antialias is True
+                     and "forward" not in vars(module) and type(module).forward is resize_forward
+                     and not module._forward_hooks and not module._forward_pre_hooks
+                     and not module._backward_hooks and not list(module.parameters()) and not list(module.buffers()),
+                     "non-G neural forward forbidden")
+                self.preprocess_calls+=1
             return original_call(module,*a,**kw)
         def generate(request):
             need(self.active is None,"nested G generation")
@@ -121,9 +175,10 @@ class GObservation:
         a=plugin.backend.model.register_forward_pre_hook(self.before)
         b=plugin.backend.model.register_forward_hook(self.after)
         try:
-            with patch.object(torch.nn.Module,"_call_impl",new=module_call),patch.object(plugin,"generate",new=generate):
+            with patch.object(torch.nn.Module,"_call_impl",new=module_call),patch.object(plugin,"generate",new=generate),patch.object(plugin.backend,"load_pixels",new=read):
                 yield
         finally:a.remove();b.remove()
     def report(self):
         return {"started":self.started,"completed":self.completed,"records":self.records,
+                "verified_preprocess_Resize_calls":self.preprocess_calls,
                 "historical_two_image_comparisons":self.comparisons}

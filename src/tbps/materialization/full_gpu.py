@@ -28,12 +28,14 @@ from tbps.smoke_irra import gpu_available,model_snapshot
 from tbps.models.irra import fp32_runtime
 if __package__:
     from .gpu_safety import FullGuard,GObservation,no_optimization,g_load_only,own_gpu_only,ram
+    from .claim_recovery import FirstClaimRecovery,stream_with_recovery
 else:
     from gpu_safety import FullGuard,GObservation,no_optimization,g_load_only,own_gpu_only,ram
+    from claim_recovery import FirstClaimRecovery,stream_with_recovery
 
 FROZEN="/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d1-20261017"
 BASE="/home/lzf/ldx/outputs/tbps-framework-stage4d2"
-OUTPUT=BASE+"/generation_v2"
+OUTPUT=BASE+"/generation_v3"
 PLAN="7ac4fefd0abaa10df085be3ec3ed56c4b38c782a21bfc44473f40b90965447d5"
 GALLERY=("cuhk:37132:0","cuhk:37147:0")
 TEXT_RECEIPT="a149a57fc7e8c87a389ede80c7e2eaedafec9d3ffc81dff9a7275915040c615f"
@@ -63,18 +65,33 @@ def control(path):
         "system_ram_reserve_bytes":2*1024**3,"minimum_disk_bytes":10*1024**3,
         "runtime_disk_reserve_bytes":2*1024**3,"minimum_inodes":100000,
         "physical_gpu":0,"minimum_free_mib":8192,"maximum_utilization_percent":10}
-    need(set(c)==set(fixed)|{"frozen_config","entry_sources"} and all(c[k]==v for k,v in fixed.items()),
+    need(set(c)==set(fixed)|{"frozen_config","entry_sources","recovery","preprocess_sources"} and all(c[k]==v for k,v in fixed.items()),
          "fixed Stage4D2 scope/resources/precision")
     checked(FileRef(**c["frozen_config"]))
     need(c["frozen_config"]["path"]==FROZEN+"/configs/framework/stage4d1_materialization.server.json",
          "use original producer paths/config, never reconstruct in new tree")
     expected={str(Path(__file__).resolve()),str(Path(__file__).with_name("gpu_safety.py").resolve()),
-              str(Path(__file__).with_name("full_gpu_audit.py").resolve())}
+              str(Path(__file__).with_name("full_gpu_audit.py").resolve()),
+              str(Path(__file__).with_name("claim_recovery.py").resolve())}
     need(set(c["entry_sources"])==expected,"complete separately bound new entry/supervisor/audit sources")
     for p,sha in c["entry_sources"].items():checked(FileRef(p,sha))
+    checked(FileRef(**c["recovery"]))
+    need(c["recovery"]["path"]==str(Path(__file__).resolve().parents[3]/"configs/framework/stage4d2r2_recovery.server.json"),
+         "explicit generation_v2 first-Claim recovery contract")
+    need(set(c["preprocess_sources"])=={"backend","pixel_reader","torchvision"},"preprocess source fields")
+    expected_reader=FROZEN+"/src/tbps/attacks/legacy_runtime.py"
+    need(c["preprocess_sources"]["backend"]["path"]==expected_reader and
+         c["preprocess_sources"]["pixel_reader"]["path"]==
+         "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/irra_image_adapter.py" and
+         c["preprocess_sources"]["torchvision"]["path"]==
+         "/home/lzf/ldx/envs/tbps-image/lib/python3.10/site-packages/torchvision/transforms/transforms.py",
+         "fixed native preprocessing source paths")
+    for value in c["preprocess_sources"].values():checked(FileRef(**value))
     return c
 
-def fresh_images(store):
+def fresh_images(store,recovery=None):
+    if recovery is not None:
+        return FirstClaimRecovery(FileRef(**recovery)).verify(store)
     need(not store.store.pending(),"pending store; no GPU loading")
     for g in store.plan.manifest.gallery:
         binding=store.image_request(g.image_id).binding;unit=store.unit_id(binding)
@@ -111,7 +128,7 @@ def preflight(path,*,require_fresh=True):
         need(plan.id==PLAN,"original materialization Plan must remain exact")
         store=StreamingMaterializedStore(ArtifactStore(Path(FULL)/"artifacts",new_base=OLD_BASE),plan)
         store.verify_plan(force=True)
-        if require_fresh:fresh_images(store)
+        if require_fresh:fresh_images(store,c.get("recovery"))
         for row in plan.manifest.gallery:checked(store.image_request(row.image_id).public.content)
         memory=ram();disk=fs_resources(FULL)
         need(memory["MemAvailable"]>=c["minimum_available_ram_bytes"],"actual available RAM insufficient")
@@ -127,6 +144,7 @@ def preflight(path,*,require_fresh=True):
         "text_audit":text_report,"GH_runtime_source_count":closure["runtime_source_count"],
         "GH_executed_files":len(closure["executed_sources"]),"GH_status":closure["status"],
         "CPU_contexts_restored":gate.exited,"CUDA_initialized":False,"G_H_IRRA_loads":0,
+        "claim_recovery":c.get("recovery"),"verified_preprocess_sources":c.get("preprocess_sources"),
         "old_pixel_reference":expected,"retained_reference":old,"RAM":memory,"GPU":gpu,"disk":disk,
         "gallery_order_sha256":digest([g.image_id for g in plan.manifest.gallery]),
         "query_order_sha256":digest([q.query_id for q in plan.manifest.queries])}
@@ -153,7 +171,7 @@ def child(path,token):
         _,plan,legacy,_,_=prepare(c["frozen_config"]["path"])
         need(plan.id==PLAN,"child original Plan identity")
         store=StreamingMaterializedStore(ArtifactStore(Path(FULL)/"artifacts",new_base=OLD_BASE),plan)
-        fresh_images(store)
+        fresh_images(store,c.get("recovery"))
         need(ram()["MemAvailable"]>=c["minimum_available_ram_bytes"],"RAM changed before GPU")
     gate.checked();gate.exit_checked()
     gpu=gpu_available(c)
@@ -167,7 +185,11 @@ def child(path,token):
         record.publish("pixel-mismatch",{"pixels.pt":stream.getvalue(),
             "comparison.json":json_bytes({"image_id":image_id,**comparison,"trace":value.trace()})},
             {"kind":"failed_pixel_comparison_evidence"},sources=(ref(Path(OUTPUT)/"attempt/manifest.json"),))
-    observation=GObservation([g.image_id for g in plan.manifest.gallery],pre["old_pixel_reference"],mismatch)
+    options={}
+    if c.get("preprocess_sources"):
+        options={"image_sources":{g.image_id:store.image_request(g.image_id).public.content
+                                  for g in plan.manifest.gallery},"preprocess_sources":c["preprocess_sources"]}
+    observation=GObservation([g.image_id for g in plan.manifest.gallery],pre["old_pixel_reference"],mismatch,**options)
     report={"status":"RUNNING","plan_id":PLAN,"H_loads":0,"H_forwards":0,"IRRA_loads":0,
             "IRRA_forwards":0,"backward":0,"optimizer":0,"JVP":0,"GPU_before":gpu}
     guard=FullGuard(c,FULL);guard.seconds=max(.01,c["max_seconds"]-(time.time()-ctl["started_unix"]))
@@ -208,8 +230,12 @@ def child(path,token):
                         "GPU_reserved_bytes":torch.cuda.memory_reserved(),"disk":guard.disk}
                     print("G_FULL_PROGRESS",json.dumps(metrics,separators=(",",":")),flush=True);last[0]=now
                 with fp32_runtime():
-                    report["stream"]=stream_images(store,factory,allow_real_generation=True,
-                                                    resource_check=resource,progress=progress)
+                    if c.get("recovery"):
+                        report["stream"]=stream_with_recovery(store,factory,
+                            FirstClaimRecovery(FileRef(**c["recovery"])),record,resource_check=resource,progress=progress)
+                    else:
+                        report["stream"]=stream_images(store,factory,allow_real_generation=True,
+                                                       resource_check=resource,progress=progress)
                 need(observation.started==observation.completed==3074 and report["stream"]["generated"]==3074
                      and report["stream"]["skipped"]==0 and counts["G_load_attempts"]==counts["G_loads"]==1,
                      "exact 3074 generation / one restoration")

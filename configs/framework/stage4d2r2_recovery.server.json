@@ -1,0 +1,229 @@
+{
+  "schema": "tbps-zero-forward-first-claim-1",
+  "plan_id": "7ac4fefd0abaa10df085be3ec3ed56c4b38c782a21bfc44473f40b90965447d5",
+  "image_id": "cuhk:37132:0",
+  "unit_id": "50b19770bb01c5c7e52237a4af73e4186342e77ccafe06204a8c3c91ecbfe3b7",
+  "failed_attempt": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2",
+  "failed_files": {
+    "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/.writer.lock": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/.writer.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "mtime_ns": 1792231165490205917
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/gpu.log": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/gpu.log",
+      "sha256": "4f8e9e45f8a9e1843b81eaf3bdf52a6b778d415d23bf985774a9d34a43f69bd5",
+      "size": 5,
+      "mtime_ns": 1792231201262499194
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/gpu-result/manifest.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/gpu-result/manifest.json",
+      "sha256": "b868c60ed1eea25d4507731e55114753c05f0776271c928aed91ab776170085c",
+      "size": 585,
+      "mtime_ns": 1792231201230832665
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/gpu-result/report.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/gpu-result/report.json",
+      "sha256": "176ae52ffc1851a3d710c445268569a987baaed912d95696941ec7e73c052d13",
+      "size": 3636,
+      "mtime_ns": 1792231201224159720
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/gpu-result/completed.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/gpu-result/completed.json",
+      "sha256": "3129bf7c81791a451ca31d19b475856bb22c4f6df84099ad4c57013d08367a1d",
+      "size": 121,
+      "mtime_ns": 1792231201237907765
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/gpu-start/manifest.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/gpu-start/manifest.json",
+      "sha256": "7b18ba2fd819a50529c4c2cf5eb1e105873c34af2b292ca15636e8dc5bb7366f",
+      "size": 573,
+      "mtime_ns": 1792231185285710735
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/gpu-start/claim.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/gpu-start/claim.json",
+      "sha256": "e6e9c993b4e0c0af14b5283f7c1cf37a44595534bf713650742685618419a859",
+      "size": 114,
+      "mtime_ns": 1792231185280905378
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/gpu-start/completed.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/gpu-start/completed.json",
+      "sha256": "7e32975a136e06a91aa4e8e9fcdeac9926cc7e85ddbbada7aa96239a9b5b874b",
+      "size": 121,
+      "mtime_ns": 1792231185290660120
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/attempt/manifest.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/attempt/manifest.json",
+      "sha256": "40778bdc08e9729202c83bb442353013d6a7bc854cbca13992b27a806af889d6",
+      "size": 1606,
+      "mtime_ns": 1792231165679579747
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/attempt/preflight.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/attempt/preflight.json",
+      "sha256": "40042a70d7c1516176bf2fa0f0f2074a46ccf108c3ff115fc8a9354096cd6581",
+      "size": 9625,
+      "mtime_ns": 1792231165505999090
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/attempt/completed.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/attempt/completed.json",
+      "sha256": "a3d60f45c9166c7a96cdd155f22b2e71f9d2938d3b3bb1477a81fa088f26fca6",
+      "size": 121,
+      "mtime_ns": 1792231165688434343
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/attempt/old_files.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/attempt/old_files.json",
+      "sha256": "ed2c18d9e64715419d488ea0ac764586486e719aa9e39b4c38e743e5740dd163",
+      "size": 13678041,
+      "mtime_ns": 1792231165510264625
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/attempt/control.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/attempt/control.json",
+      "sha256": "f34a4ba41c71449dd7d9298227bdc227baceb0b8a476e869ec90a90dccd60456",
+      "size": 331,
+      "mtime_ns": 1792231165654431112
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/result/manifest.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/result/manifest.json",
+      "sha256": "9b2dae20980ce9e1943fcaada80e2d73539fd09fb9ea3d4ada106e077d79efa9",
+      "size": 916,
+      "mtime_ns": 1792231201817915073
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/result/report.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/result/report.json",
+      "sha256": "cc74d06286cea3730077129ba86bb7e82a74b9b416c69d0175ba12b57194d202",
+      "size": 1020,
+      "mtime_ns": 1792231201794879267
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/result/completed.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/result/completed.json",
+      "sha256": "3e2fe0314af75622baf99434c9693af75acae3eb41f9f82dcdf560783f397084",
+      "size": 121,
+      "mtime_ns": 1792231201835061068
+    }
+  },
+  "claim_files": {
+    "/home/lzf/ldx/outputs/tbps-framework-stage4d1/materialized_full_v1/artifacts/generation-claim-50b19770bb01c5c7e52237a4af73e4186342e77ccafe06204a8c3c91ecbfe3b7/manifest.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d1/materialized_full_v1/artifacts/generation-claim-50b19770bb01c5c7e52237a4af73e4186342e77ccafe06204a8c3c91ecbfe3b7/manifest.json",
+      "sha256": "21ed14c935fdde887cfc6afcbdb67b6e6c6687085f6b8a46e8c3aed5ad5ea1e0",
+      "size": 814,
+      "mtime_ns": 1792231199589364058
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-stage4d1/materialized_full_v1/artifacts/generation-claim-50b19770bb01c5c7e52237a4af73e4186342e77ccafe06204a8c3c91ecbfe3b7/generation.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d1/materialized_full_v1/artifacts/generation-claim-50b19770bb01c5c7e52237a4af73e4186342e77ccafe06204a8c3c91ecbfe3b7/generation.json",
+      "sha256": "a5350683261a01f4f280dfdd4d405076df22aecef6f85fbb5ae8f28f44910565",
+      "size": 449,
+      "mtime_ns": 1792231199583870069
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-stage4d1/materialized_full_v1/artifacts/generation-claim-50b19770bb01c5c7e52237a4af73e4186342e77ccafe06204a8c3c91ecbfe3b7/completed.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d1/materialized_full_v1/artifacts/generation-claim-50b19770bb01c5c7e52237a4af73e4186342e77ccafe06204a8c3c91ecbfe3b7/completed.json",
+      "sha256": "2f949a68a4646328c144568e794e9e2264c19293c483f051987d588d5cccde10",
+      "size": 121,
+      "mtime_ns": 1792231199595410679
+    }
+  },
+  "baseline_files": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v2/attempt/old_files.json",
+    "sha256": "ed2c18d9e64715419d488ea0ac764586486e719aa9e39b4c38e743e5740dd163"
+  },
+  "prior_failed_files": {
+    "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1": {
+      "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/.writer.lock": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/.writer.lock",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0,
+        "mtime_ns": 1792229140163903356
+      },
+      "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/gpu.log": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/gpu.log",
+        "sha256": "4f8e9e45f8a9e1843b81eaf3bdf52a6b778d415d23bf985774a9d34a43f69bd5",
+        "size": 5,
+        "mtime_ns": 1792229160150089233
+      },
+      "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/gpu-result/manifest.json": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/gpu-result/manifest.json",
+        "sha256": "19f4ec556e62ac67b2579d6d8cdbf5eb1e9261d70193adf589f7eed1ad637631",
+        "size": 584,
+        "mtime_ns": 1792229160120191716
+      },
+      "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/gpu-result/report.json": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/gpu-result/report.json",
+        "sha256": "1fcc0b7cf487043d0b4b5762057ad6380308dd753f231673da555b2ed9388c26",
+        "size": 1556,
+        "mtime_ns": 1792229160113381148
+      },
+      "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/gpu-result/completed.json": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/gpu-result/completed.json",
+        "sha256": "493165d77042358febd9bb2a32ba0787ee13d290c3f1266b3c119e52420f64ff",
+        "size": 121,
+        "mtime_ns": 1792229160127685914
+      },
+      "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/gpu-start/manifest.json": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/gpu-start/manifest.json",
+        "sha256": "d14e86c6921d927c09eec7e4240acc48f6ca10c47ac65ead7e05debb00a9c4d1",
+        "size": 572,
+        "mtime_ns": 1792229160071236164
+      },
+      "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/gpu-start/claim.json": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/gpu-start/claim.json",
+        "sha256": "e6e9c993b4e0c0af14b5283f7c1cf37a44595534bf713650742685618419a859",
+        "size": 114,
+        "mtime_ns": 1792229160066407557
+      },
+      "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/gpu-start/completed.json": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/gpu-start/completed.json",
+        "sha256": "cd4ee9e439462d1eccd3822dc1d39a3f791eb67812112887a6f58aecccf2f42f",
+        "size": 121,
+        "mtime_ns": 1792229160075776634
+      },
+      "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/attempt/manifest.json": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/attempt/manifest.json",
+        "sha256": "97208f29d78ef656069cab51aba9a2f1f64f2c51400fe256783233d4eba4889d",
+        "size": 1601,
+        "mtime_ns": 1792229140346961566
+      },
+      "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/attempt/preflight.json": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/attempt/preflight.json",
+        "sha256": "28cbf85f9d90261d6d451995b73ab9328a5ed04330e6191a5739c3759e74deb5",
+        "size": 9625,
+        "mtime_ns": 1792229140181354696
+      },
+      "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/attempt/completed.json": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/attempt/completed.json",
+        "sha256": "d8cc44354825dafcc0736780fd4539ab4b02cc19c737ecab47960714905f8f86",
+        "size": 121,
+        "mtime_ns": 1792229140355541382
+      },
+      "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/attempt/old_files.json": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/attempt/old_files.json",
+        "sha256": "ed2c18d9e64715419d488ea0ac764586486e719aa9e39b4c38e743e5740dd163",
+        "size": 13678041,
+        "mtime_ns": 1792229140186532816
+      },
+      "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/attempt/control.json": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/attempt/control.json",
+        "sha256": "1fa59f06596024d6652b4ffbff2faea6cf7a99ad8eab6934090d84984258706c",
+        "size": 329,
+        "mtime_ns": 1792229140337745586
+      },
+      "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/result/manifest.json": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/result/manifest.json",
+        "sha256": "de017a15233cc57184108c5a10aaa6effe34f49e7afb736f7b76de3833ec8174",
+        "size": 915,
+        "mtime_ns": 1792229160388095324
+      },
+      "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/result/report.json": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/result/report.json",
+        "sha256": "5abc3bfade296ffa1cea093043d2b965b2d2614fccda472824d957986d6d702a",
+        "size": 1019,
+        "mtime_ns": 1792229160368091261
+      },
+      "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/result/completed.json": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/result/completed.json",
+        "sha256": "4d39db88f48dcd9e6613e26efe8cb41604d33b07721230f9666db31c125b5431",
+        "size": 121,
+        "mtime_ns": 1792229160407402262
+      }
+    }
+  }
+}

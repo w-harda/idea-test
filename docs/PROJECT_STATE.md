@@ -1,46 +1,39 @@
 # 项目当前状态（唯一权威入口）
 
-状态依据Git、实际源码及不可变证据。历史阶段报告是当时快照；架构、实验来源见ARCHITECTURE、EXPERIMENT_REGISTRY及ADR。
+当前状态来自Git、源码及不可变证据；历史阶段报告仅为当时快照。架构、实验与决策见ARCHITECTURE、EXPERIMENT_REGISTRY及ADR。
 
-## 当前阶段：Stage4D-2R CPU-only修复与验收通过，GPU待授权
+## 当前阶段：generation_v2 FAIL后的CPU最小修复
 
-基准883c4be59284b79f475412eb40ea6d96e8b1742a，独立codex/tbps-framework-stage4d2r；工作树/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d2r-20261017。代码实现Commit：e5cc20d26196a20e7137fa34fefcdc51cb5e6e17；本后续文档提交登记。
+基准dd0a213f2ac1b787412b755372c378ad49f31f9c；独立codex/tbps-framework-stage4d2r2，工作树/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d2r2-20261017。代码Commit由后续文档提交登记。
 
-full_gpu.child改为CPU校验/隔离退出/快照恢复→资源及原线程/seed/精度设置→initialize_cuda→立即安装两项GPU安全包装→G工厂。原CPUStartupGate、算法、权重、投影、预处理、加载/Hook计数、优化禁令、Stage4D1源码不改。
+generation_v2已FAIL：G10恢复1次、实际前向started/completed=0/0、新图像0。原_LegacyG像素读取中的torchvision Resize被非G模块保护误拒绝。原Store有唯一首图Claim、Proof0、pending0；两次generation_v1/v2 FAIL永久保留。
 
-新增stage4d2r_generation.server.json及derivation，仅绑定generation_v2和修复入口来源SHA；原config保留。原Plan保持7ac4fefd0abaa10df085be3ec3ed56c4b38c782a21bfc44473f40b90965447d5，旧6156文本不重签。完整方案/未来命令见[STAGE4D2R](framework/STAGE4D2R.md)，[验收报告](framework/STAGE4D2R_REPORT.md)。
+## 本轮实现
 
-## 已完成验证
+- GObservation仅在经过来源/图像身份核验的原像素读取作用域中允许必要Resize，维持原RGB、bilinear384×128、ToTensor。作用域外Resize、其他网络、错误读取器/来源/图像及异常参数继续拒绝；G Hook和优化禁令保留。
+- FirstClaimRecovery绑定generation_v2完整FAIL及来源、零实际前向、唯一cuhk:37132:0 Claim、原30797文件快照＋3 Claim文件。其他Claim、Proof、图像、pending或未知新增/篡改拒绝。
+- CPU预检、fresh_images、原generate_image_once局部恢复和冻结stream_images的调度衔接全部覆盖。旧Claim不删除或覆盖，新Attempt额外绑定恢复Start/Proof；原正常生成Proof不改。
+- 新入口固定generation_v3；独立配置绑定4项执行源码、恢复证据与3项预处理来源。原Stage4D1源码/Plan/6156文本、G10/H7、预算和全部攻击算法不改。
+- 已完成647 CPU tests，84.36秒、退出0：原626项＋新增21项。含实际child/门禁/真实Resize-ToTensor/CPU Mock G/首图事务及3074顺序调度。
+- 真实CPU来源/恢复资格审计PASS：75来源、33导入文件；30797原发布文件＋3 Claim、7991历史文件、3472缓存、70旧FAIL及v1/v2各16文件SHA/mtime保持。
+- 证据/home/lzf/ldx/outputs/tbps-framework-stage4d2r2/cpu_audit_v2/result/，Manifest SHA73d895b065cac4d3abe9316478811fa5a6cc1fa6eb9414b2f8532668d54e61fc，report SHA030bbdedf5f51becdbaec613219a556a923f3442ee061643da03deca41e4ca7c。
+- 首次CPU核验拒绝新清单缺path字段；补正新清单并新增拒绝测试后第二次通过，失败日志保留。本次不查询GPU、不运行正式CPU预检入口或GPU Attempt。
 
-- 626 CPU tests通过，65.47秒，退出0：原611项+新增15项实际child组合时序/禁止操作/异常恢复/Fixture封存测试。
-- 严格CPU来源闭包PASS：75固定来源、33实际导入文件；全3074原图/6156文本及原Plan核验通过。
-- 30797原Stage4D1文件、7991历史文件、3472缓存、70旧FAIL及16个Stage4D2 FAIL文件SHA/mtime保持。
-- 原Stage4D2工作树HEAD、4份未提交Markdown及未跟踪执行报告SHA/mtime/Git状态原样保留。报告完整字节exact收录新分支，SHA dca03f00ccc8333e1c13eec310f24d5601fa37eb9c00f45a9adc12cff1a9c143。
-- 只读审计STAGE4D2R_CPU_REPAIR_SOURCES_AND_PROTECTION_VERIFIED，142.45755676925182秒，CPU上下文/函数/导入/锁恢复。
-- 本轮真实G/H/IRRA加载/前向、CUDA初始化、GPU Attempt、新图像生成均0；GPU资源未查询。
-- git diff --check及提交范围检查完成；仅提交授权的11个源码/配置/测试/文档文件；原资产和日志不提交，发布分支codex/tbps-framework-stage4d2r。
+[执行说明与未来命令](framework/STAGE4D2R2.md)；[完整修复与证据报告](framework/STAGE4D2R2_REPORT.md)。
 
-CPU证据/home/lzf/ldx/outputs/tbps-framework-stage4d2r/cpu_audit_v1/result/，
-Manifest SHA24a39edf72666ae9279009e4e97751d51c268787a29a0a35f5944d987a690461，
-report SHA381f1434f5e0df5a49fc5a4ab58a6cb95726ca4dcf63fe142c620b7fb0246682。
+## 当前真实产物与授权
 
-## 原失败与当前边界
+原H Text 6156/6156保持TEXT_FULL_MATERIALIZED（6116编辑/40 NOOP/13537替换）。Image0/3074、Joint全量PENDING。原首图Claim的3文件保留，尚未实际恢复生成。
 
-generation_v1唯一正式Attempt已消费，永久FAIL，不复用、不覆盖。原报错为安全包装在初始化门禁前改变torch.load/autograd函数快照；G恢复/前向0、新图像0。[原正式FAIL报告](framework/STAGE4D2_EXECUTION_REPORT.md)已保留完整内容及证据。
+本轮真实G/H/IRRA加载/前向、CUDA初始化、GPU Attempt和新图像均0；generation_v3尚未创建。CPU资格验证不等于FIRST_CLAIM_RECOVERED或Image/Joint完成。
 
-原H Text 6156/6156保持TEXT_FULL_MATERIALIZED，6116编辑/40 NOOP/13537替换。Image 0/3074；Image/Joint全量、旧两图新输出对照及正式独立Joint审计均PENDING。Fixture封存不提升真实完成状态。
-
-## 下一步与授权
-
-等待源码审查及用户明确授权新的generation_v2唯一GPU Attempt；届时重新完整CPU与资源预检，绑定修复Runner SHA，原Stage4D1库/Plan/文本不变。当前v2不存在，无生成进度需要恢复，无旧文本或Claim需要清理。
-
-本轮完成后停止；不得自动生成3074图、封存正式Joint、执行IRRA Full/RaSa/APTM或训练。CPU修复通过不表示GPU数值、全量或跨模型成功。
+下一步仅在用户审查并另行授权后，通过原资源门限和完整CPU预检启动唯一generation_v3。无需人工清理旧Claim或旧文本；失败保存现场，不自动重试。禁止自动IRRA Full、RaSa/APTM、训练或其他阶段。
 
 ## 历史索引
 
-- Stage4D2原CPU实现424b9683162e96da2f9a3ee9151946c02b7b124e，文档基准883c4be；资源阻断快照见[原报告](framework/STAGE4D2_REPORT.md)。
-- Stage4D2 generation_v1 FAIL：result Manifest de017a15233cc57184108c5a10aaa6effe34f49e7afb736f7b76de3833ec8174；旧只读保护审计通过，不能替代生成验收。
-- Stage4D1：82fe88a5a74955838fc6341c1ed9a46921c94d7c，6156历史文本物化/独立CPU审计通过。
-- Stage4C3：a5a6f6ae8c9200482ae0c70d228e1873d3ca4dd2，固定两图两文IRRA端到端等价PASS。
-- Stage4C2：fcf097d3ab31785381947289a680e5f5ccbf9d42，原整体FAIL/局部G-H PASS保持。
-- Stage4B2：c09754e6afc8cf53a6c0c6e8715b6d4eace80946，历史IRRA特征指标重放通过，不是新RGB生成。
+- generation_v2：原FAIL结果Manifest SHA9b2dae20980ce9e1943fcaada80e2d73539fd09fb9ea3d4ada106e077d79efa9；gpu-result/report SHA176ae52ffc1851a3d710c445268569a987baaed912d95696941ec7e73c052d13。
+- 原首图Claim Manifest SHA21ed14c935fdde887cfc6afcbdb67b6e6c6687085f6b8a46e8c3aed5ad5ea1e0，unit_id50b19770bb01c5c7e52237a4af73e4186342e77ccafe06204a8c3c91ecbfe3b7。
+- Stage4D2R：dd0a213f2ac1b787412b755372c378ad49f31f9c，启动顺序CPU修复/626测试通过，报告是当时v2尚未执行的历史快照。
+- generation_v1：整体FAIL、G前向0，原报告STAGE4D2_EXECUTION_REPORT.md及旧原树未提交文档保持。
+- Stage4D1：82fe88a5a74955838fc6341c1ed9a46921c94d7c，6156历史文本物化/独立审计通过。
+- Stage4C3：a5a6f6ae8c9200482ae0c70d228e1873d3ca4dd2，固定两图两文IRRA物化端到端等价PASS；不代表Full或跨模型。

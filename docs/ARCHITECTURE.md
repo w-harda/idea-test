@@ -175,3 +175,11 @@ full_audit独立只读逐条UTF8/完整动作/trace/官方顺序与固定历史�
 独立分支仅调整full_gpu.child的初始化/安全包装嵌套：CPUStartupGate快照和锁恢复后先initialize_cuda，再立即安装no_optimization与g_load_only，两项成功才允许G工厂。资源guard仍覆盖全程；原Gate/监督器/冻结Stage4D1/算法不改。
 
 新树入口固定generation_v2；新派生配置仅改output及entry_sources，原v1/config/Plan/文本保持。实际child组合CPU Fixture通过，真实GPU未运行。原FAIL报告完整收录新分支但旧工作树脏文档不改；CPU通过不升级正式Image/Joint状态。见framework/STAGE4D2R_REPORT.md。
+
+## generation_v2 FAIL后的受限预处理与首图Claim恢复
+
+gpu_safety将图像读取限定为原_LegacyG/pixels_from_pil及显式绑定输入；只有该作用域内原Resize的PIL RGB/bilinear384×128前向可通过。ToTensor仍由原函数执行，无通用非G网络白名单。G Hook、单次恢复、推理冻结和优化阻断保持。
+
+claim_recovery是独立零前向证据契约，不修改Stage4D1 generation/full_runner：先验证原v2 FAIL和唯一首图旧Claim，在原generate_image_once的单线程局部_prepare中允许一次恢复，原_finish发布正常Proof；独立Start/Proof记录依据。同一G工厂保持打开，其余图仍用冻结stream_images。新公开计数包含恢复首图，另记录原Runner内部跳过该刚完成首图1次。
+
+新入口generation_v3绑定独立源码/证据/预处理来源SHA，原Plan及6156文本不重签。当前仅CPU代码与恢复资格，未生成真实图像。见framework/STAGE4D2R2_REPORT.md。

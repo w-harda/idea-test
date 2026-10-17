@@ -17,8 +17,10 @@ from tbps.engines.historical_loader import feature_only_cpu,native_action_valida
 from tbps.engines.replay_control import historical_snapshot,unchanged,rss_bytes
 from tbps.runtime_closure import cpu_only
 if __package__:
+    from .claim_recovery import FirstClaimRecovery,verify_recovery_completion
     from .full_gpu import control,frozen_identity,ref,verify_subset,BASE,OUTPUT,PLAN,GALLERY,records
 else:
+    from claim_recovery import FirstClaimRecovery,verify_recovery_completion
     from full_gpu import control,frozen_identity,ref,verify_subset,BASE,OUTPUT,PLAN,GALLERY,records
 
 def collection_units(store,name):
@@ -95,6 +97,9 @@ def audit(path):
         _,plan,legacy,sources,_=prepare(c["frozen_config"]["path"])
         need(plan.id==PLAN,"same frozen Plan")
         store=StreamingMaterializedStore(ArtifactStore(Path(FULL)/"artifacts",new_base=OLD_BASE),plan)
+        recovery_check=verify_recovery_completion(store,FirstClaimRecovery(FileRef(**c["recovery"])),rec)
+        need(report["stream"]["recovered_first"]==1 and report["stream"]["legacy_stream_generated"]==3073
+             and report["stream"]["legacy_stream_skipped"]==1,"exact single recovered Claim accounting")
         before=snapshot(FULL)
         _,image_core,images,_=collection_units(store,"image-full")
         _,text_core,_,texts=collection_units(store,"text-full")
@@ -120,9 +125,12 @@ def audit(path):
         need(not store.store.pending(),"pending after full audit")
         counts={"data_files":sum(p.is_file() for p in Path(FULL).rglob("*"))}
         result={"status":"JOINT_FULL_CPU_AUDIT_PASS","plan_id":PLAN,"images":image,"text":text,
+            "first_claim_recovery":recovery_check,
             "G_loads":1,"actual_G_forwards":3074,"generated":3074,"skipped":0,"H_loads":0,"H_forwards":0,
             "IRRA_loads":0,"IRRA_forwards":0,"backward":0,"optimizer":0,"JVP":0,
-            "old_Stage4D1_files_SHA_mtime_unchanged":preserved,"historical_files_unchanged":len(protected),
+            "old_Stage4D1_files_SHA_mtime_unchanged":preserved,
+            "original_text_store_files_preserved":len(read_json(FirstClaimRecovery(FileRef(**c["recovery"])).spec["baseline_files"]["path"])),
+            "preexisting_first_claim_files_preserved":3,"historical_files_unchanged":len(protected),
             "historical_cache_files_unchanged":caches,"old_FAIL_files_unchanged":fail,"pending":[],
             "read_only_full_files_unchanged":len(before),"full_file_snapshot_digest":digest(before),
             "old_two_images_exact":True,"elapsed_seconds":time.perf_counter()-started,"peak_RSS_bytes":rss_bytes(),

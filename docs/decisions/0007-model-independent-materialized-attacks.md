@@ -56,3 +56,11 @@ GPU会话与CPU文本核验/Joint封存分进程，防止在CUDA初始化后进�
 CPU-only最小修复保留原门禁：退出CPU上下文、确认函数/导入/锁恢复及资源设置后，先initialize_cuda，再立即安装全部GPU权重/优化保护，安装成功前禁止G工厂。真实child组合CPU Fixture覆盖正确/错误顺序及失败恢复，不能用取消门禁解决冲突。
 
 派生配置固定独立generation_v2与修复入口SHA，原Plan/6156文本、generation_v1整体FAIL与原工作树脏报告保持。当前只有CPU代码与来源验收，不包含新的GPU授权；正式Image/Joint完成仍须后续独立Attempt及全量CPU验收。
+
+## 零实际前向的唯一首图Claim例外
+
+generation_v2已恢复G，但在首次像素读取时被Resize误拦截，实际G Hook为0/0。原Claim表示“可能已经生成”，不得删除或把所有未完成Claim改为可恢复。
+
+仅在完整固定FAIL、来源、0/0实际前向、唯一首图Claim、无Proof/图像/pending、原库存只多3 Claim文件及准确身份均通过时，接受独立一次恢复能力。原Claim不改签，正常生成Proof照常绑定旧Claim，新的恢复Start/Proof保留此次例外依据；其他Claim维持拒绝。新Attempt固定v3，失败不自动再试。
+
+预处理例外同样只限已核验原读取函数、固定图像和原Resize参数；其他非G网络继续禁止。该决定不改变攻击方法、预算、权重、原Plan或目标反馈隔离；CPU测试与资格不授权真实GPU执行。
