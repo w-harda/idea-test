@@ -1,6 +1,6 @@
 # 已封存generation_v3的官方IRRA四组评估准备
 
-本轮基于 `0f5b8838b9ef3d0032f656e5169c74054ddd78cf`，独立分支 `codex/tbps-irra-materialized-evaluation`。只开发和运行CPU测试/只读来源预检；未加载真实模型、初始化CUDA、生成扰动或计算真实Full排名。实现Commit由后续文档提交登记。
+本轮基于 `0f5b8838b9ef3d0032f656e5169c74054ddd78cf`，独立分支 `codex/tbps-irra-materialized-evaluation`。只开发和运行CPU测试/只读来源预检；未加载真实模型、初始化CUDA、生成扰动或计算真实Full排名。实现Commit：bc710e5baf807bb8347a51c6071d03b43b2c0245；本后续文档提交登记。
 
 ## 已确认的Stage4D输入
 

@@ -4,7 +4,7 @@
 
 ## 当前任务：generation_v3物化输入的官方IRRA评估准备（CPU-only）
 
-基准0f5b8838b9ef3d0032f656e5169c74054ddd78cf；独立codex/tbps-irra-materialized-evaluation，工作树/home/lzf/ldx/projects/idea-test-tbps-irra-materialized-eval-20261017。实现Commit由后续文档提交登记。
+基准0f5b8838b9ef3d0032f656e5169c74054ddd78cf；独立codex/tbps-irra-materialized-evaluation，工作树/home/lzf/ldx/projects/idea-test-tbps-irra-materialized-eval-20261017。实现Commit：bc710e5baf807bb8347a51c6071d03b43b2c0245；本后续文档提交登记。
 
 Stage4D generation_v3已由用户完成GPU生成/Joint封存及独立CPU审计，实际文件确认JOINT_FULL_MATERIALIZED和JOINT_FULL_CPU_AUDIT_PASS。3074图/6156文，同一Plan7ac4fefd...；G恢复1、前向3074，最大L∞0.0313725471496582；6116编辑/40 NOOP/13537替换。原v1/v2 FAIL和首图Claim保持，不改签旧文本或结果。
 
