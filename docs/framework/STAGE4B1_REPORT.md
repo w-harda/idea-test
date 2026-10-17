@@ -86,3 +86,5 @@ clean_gallery→clean_gallery；image_gallery→adv_gallery；clean_text/adv_tex
 Manifest SHA80c3446cd9f149d54e7d3a403bfb5121f95b39b01498c8bfb851379e624e44ba，
 report SHA4dc8a6d87c94830a246b84e0d99edb7ba69f2eb73653ada82ba713ad2331b8a8。
 绑定本轮代码/配置/测试、测试日志、保护记录和最终特征验证回执；不包含新的真实分数或指标。
+
+实现Commit：23579855273f85f1ed3cf3ca9abad8260341bddd。本条在后续文档提交登记；发布最终HEAD见Git。

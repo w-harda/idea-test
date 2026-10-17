@@ -9,7 +9,7 @@
 - 基准：32f55827c94c6512b81d32a9aa478b1d14c70b92。
 - 独立分支：codex/tbps-framework-stage4b1。
 - 独立树：/home/lzf/ldx/projects/idea-test-tbps-framework-stage4b1-20261017。
-- 实现Commit：待本轮提交后由后续文档提交登记。
+- 实现Commit：23579855273f85f1ed3cf3ca9abad8260341bddd（由本次后续文档提交登记）。
 - [接口/CPU命令](framework/STAGE4B1.md)、[验收报告](framework/STAGE4B1_REPORT.md)、[ADR-0006](decisions/0006-explicit-historical-feature-replay.md)。
 
 ## 本轮实现及验证
