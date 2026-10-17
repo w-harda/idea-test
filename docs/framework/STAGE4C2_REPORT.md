@@ -103,3 +103,5 @@ G10 SHAf59bd3b5f9cbbaf8f6acc10c4bdc113ea83cacb2979ea0821b952c8f9a1c658e；H7 SHA
 全量物化前至少需要：单独批准CPU-only时序修复、审查后批准新的两样本GPU验证、确认特征/Score阈值通过、核验实际IRRA加载资源；之后再独立批准G-only流式3074张物化及历史6156文本复用。全量入口应保持逐单元Claim/不可变证明、完成项严格校验跳过、未提交前向不自动重做；目标评分与攻击产物分离，不向策略反馈。
 
 本轮停止，不进入全量物化、Stage5、RaSa/APTM或训练。
+
+实现与FAIL证据登记Commit：2960f2baf3f6350513b7fd7d9e0ef0f08ddc821a；最终发布HEAD由后续文档提交登记，远端以Git核验。

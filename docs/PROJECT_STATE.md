@@ -9,7 +9,7 @@
 - 基准：4d3bc025a7da593368ebd22cc05db1ebe787b446。
 - 分支：codex/tbps-framework-stage4c2。
 - 工作树：/home/lzf/ldx/projects/idea-test-tbps-framework-stage4c2-20261017。
-- 实现Commit由后续文档提交登记。
+- 实现/CPU测试/唯一GPU FAIL Commit：2960f2baf3f6350513b7fd7d9e0ef0f08ddc821a（本条由后续文档提交登记）。
 - [接口/命令与边界](framework/STAGE4C2.md)、[完整FAIL报告](framework/STAGE4C2_REPORT.md)、[ADR-0007](decisions/0007-model-independent-materialized-attacks.md)。
 
 ## 已确认结果
