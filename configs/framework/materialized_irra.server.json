@@ -1,0 +1,51 @@
+{
+  "schema": "tbps-materialized-irra-evaluation-1",
+  "gallery": 3074,
+  "query": 6156,
+  "plan_id": "7ac4fefd0abaa10df085be3ec3ed56c4b38c782a21bfc44473f40b90965447d5",
+  "precision": "fp32/math/no_tf32",
+  "seed": 42,
+  "image_batch": 1,
+  "text_batch": 1,
+  "cache_chunk": 64,
+  "query_chunk": 128,
+  "minimum_free_mib": 8192,
+  "maximum_utilization_percent": 10,
+  "materialization_config": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d1-20261017/configs/framework/stage4d1_materialization.server.json",
+    "sha256": "93cea9b45552b049e1303b9f6e1dd5bce423cdeba32031c6f8b2aad360025c21"
+  },
+  "generation_result": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v3/result/manifest.json",
+    "sha256": "fb696a1c0c3235018202118a2d945fa728f6fc06be39738f04a26e6a39fe7634"
+  },
+  "materialization_audit": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v3_cpu_audit_v1/result/manifest.json",
+    "sha256": "5a693b3877a35c6778e79de7c3f9e555f7772191bbd2e3af5624fcef268bdce5"
+  },
+  "dataset_sources": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4c2-20261017/configs/framework/stage2_sources.server.json",
+    "sha256": "9f2da834669c7a1902b3fa9570ce8ab1a2844483ddbfb6e75bb3221a02acf73e"
+  },
+  "output_base": "/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation",
+  "entry_sources": {
+    "/home/lzf/ldx/projects/idea-test-tbps-irra-materialized-eval-20261017/src/tbps/engines/materialized_irra.py": "c5680f2085dad330eb06dffee37e7c802a36fcfe13ac974513b534c7323e6a25",
+    "/home/lzf/ldx/projects/idea-test-tbps-irra-materialized-eval-20261017/src/tbps/engines/materialized_cache.py": "0e3445eacfc0f969eb9d68cbfcb10db208833d9b1811a737abaaab41437e527a"
+  },
+  "clean_metric_atol_pp": 0.001,
+  "legacy_reference": {
+    "summary": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/phase5_joint/full/summary.json",
+      "sha256": "321c666bf9997157ffb1eb02acd0dc48b74dff9431ea85a581218b7346514fb0"
+    },
+    "protocol": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/phase5_joint/full/protocol.json",
+      "sha256": "8f505947708e010ea3b9a43bd7830d1aa9101f01a93299fe1d8683d6d0bde86e"
+    },
+    "completed": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/phase5_joint/full/completed.json",
+      "sha256": "94c364ab791f8668cf1655fb80c540cfb8e23db47dce3eabe6ab91c329866a3c"
+    }
+  },
+  "physical_gpu": 0
+}

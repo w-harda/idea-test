@@ -217,3 +217,15 @@ CPU只读资格证据/home/lzf/ldx/outputs/tbps-framework-stage4d2r2/cpu_audit_v
 基准029a081，独立codex/tbps-generation-v3-gpu-sharing。仅当前Runner允许已绑定Ollama PID2436556共存，启动3584MiB/≤10%、运行1024MiB安全余量，身份变化或未知计算进程立即拒绝。本轮无正式GPU Attempt、模型加载/前向或新图像；generation_v3仍未创建，Image/Joint不提升。
 
 687 CPU回归/88.78秒＋最终40项共享复核/2.54秒通过。CPU证据/home/lzf/ldx/outputs/tbps-generation-v3-sharing-cpu/；原R2树580文件、旧FAIL与Claim35文件SHA/mtime和原Store30800成员/size/mtime保持，冻结Stage4D1 clean。完整历史内容审核引用R2既有CPU证据，不伪称本轮重跑。用户手动执行说明见framework/GENERATION_V3_GPU_SHARING.md。
+
+## generation_v3正式全量物化及独立审计（用户执行完成）
+
+实际核对generation_v3/result/report.json=JOINT_FULL_MATERIALIZED、generation_v3_cpu_audit_v1/result/report.json=JOINT_FULL_CPU_AUDIT_PASS。3074图/6156文、G真实前向3074/恢复1、最大L∞0.0313725471496582，H新加载/前向0；6116编辑/40 NOOP/13537替换。原7991历史文件、3472缓存及70旧FAIL的保护由此已完成审计记录，不是新的检索指标。
+
+生成结果Manifest fb696a1c0c3235018202118a2d945fa728f6fc06be39738f04a26e6a39fe7634；独立审计Manifest 5a693b3877a35c6778e79de7c3f9e555f7772191bbd2e3af5624fcef268bdce5。原Plan/Store和v1/v2 FAIL保持不变。
+
+## 官方IRRA物化四组评估准备（无新GPU结果）
+
+独立codex/tbps-irra-materialized-evaluation，默认CPU来源检查，显式用户参数才编码。25项新测试、704项新树回归及原生产树2项来源测试通过；真实CPU Full预检PASS、两个RGB读回、完整身份/Unicode一致，真实模型/GPU/Full排名0。CPU证据/home/lzf/ldx/outputs/tbps-framework-irra-eval-development-cpu/。
+
+四组真实Full及新mAP尚未执行；不将历史23.5532等数值填作本次结果。执行与审计方案见framework/IRRA_MATERIALIZED_EVALUATION.md。当前不接入RaSa/APTM。

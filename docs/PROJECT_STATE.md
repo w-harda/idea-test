@@ -1,26 +1,26 @@
 # 项目当前状态（唯一权威入口）
 
-当前状态来自Git、源码及不可变证据；历史阶段报告为当时快照。架构、实验与决策见ARCHITECTURE、EXPERIMENT_REGISTRY及ADR。
+当前状态来自Git、源码及不可变证据；历史报告是当时快照。架构、实验与决策见ARCHITECTURE、EXPERIMENT_REGISTRY及ADR。
 
-## 当前任务：generation_v3固定Ollama身份的GPU共享许可（CPU-only）
+## 当前任务：generation_v3物化输入的官方IRRA评估准备（CPU-only）
 
-基准029a0817f764b8241ca1790bbf335fdd144ed9a9；独立codex/tbps-generation-v3-gpu-sharing，工作树/home/lzf/ldx/projects/idea-test-tbps-generation-v3-sharing-20261017。代码Commit：94495bf88d9bfc6f09d4c96ed9216730003d019d；本后续文档提交登记。
+基准0f5b8838b9ef3d0032f656e5169c74054ddd78cf；独立codex/tbps-irra-materialized-evaluation，工作树/home/lzf/ldx/projects/idea-test-tbps-irra-materialized-eval-20261017。实现Commit由后续文档提交登记。
 
-仅当前full_gpu/gpu_safety及独立树配置调整。启动空闲显存3584MiB、利用率≤10%；共享仅固定Ollama PID2436556，绑定boot、start_ticks、UID/GID、完整命令行SHA、cgroup、父进程和二进制SHA。运行每秒监测，仅允许该Ollama与当前GPU子进程，空闲低于1024MiB或身份/来源/未知进程异常即停止，无自动重试。
+Stage4D generation_v3已由用户完成GPU生成/Joint封存及独立CPU审计，实际文件确认JOINT_FULL_MATERIALIZED和JOINT_FULL_CPU_AUDIT_PASS。3074图/6156文，同一Plan7ac4fefd...；G恢复1、前向3074，最大L∞0.0313725471496582；6116编辑/40 NOOP/13537替换。原v1/v2 FAIL和首图Claim保持，不改签旧文本或结果。
 
-原Stage4D1源码/Plan/6156文本、G10/H7、8/255、图像预处理及FirstClaimRecovery代码保持不变。原v1/v2 FAIL及首图旧Claim永久保留；generation_v3尚未创建，不另建v4。完整CPU来源/历史保护预检仍在用户正式入口运行时执行，本轮不运行该入口或GPU。
+本轮只新增官方IRRA物化评估入口、紧凑特征缓存/只读评分薄层、配置及测试。复用冻结Stage4D1 Plan/Store/Unicode校验、官方Dataset Adapter、IRRAAdapter、EvaluationEngine及原Ranking；不调用G/H、不改变攻击或指标。默认CPU预检，真实GPU需显式参数。
 
-CPU回归687项通过/88.78秒；最终共享安全停止补充40项复核通过/2.54秒，原定向57项通过。原R2树580文件、v1/v2和Claim35文件SHA/mtime相同；原Store30800文件成员/size/mtime相同，冻结Stage4D1 HEAD/clean不变。本轮不重复整个Store内容SHA或7991/3472完整历史审计，引用原R2证据。
+新增25项最终CPU测试通过；新树704项回归通过，2项绝对生产路径来源检查在原生成工作树通过，未改签旧配置。真实CPU预检退出0：官方3074/6156身份、全部Unicode与两个RGB读回通过，CUDA和真实模型加载0。原生成/审计26文件SHA/mtime、61555物化文件成员/size/mtime保持，冻结生产树clean；新正式输出仍未创建。完整保护结果及命令见[评估说明](framework/IRRA_MATERIALIZED_EVALUATION.md)。
 
-证据/home/lzf/ldx/outputs/tbps-generation-v3-sharing-cpu/。详细身份、来源SHA、边界及用户nohup/预检/审计命令见[共享执行说明](framework/GENERATION_V3_GPU_SHARING.md)。
+## 当前产物与验证边界
 
-## 当前真实产物与授权
+- Joint真实攻击数据已就绪；当前新IRRA四组评估仍PENDING，没有新GPU编码或正式mAP。
+- CPU Mock执行四组完整接线，10x10合成Score与独立官方rank指标exact；不能作为真实攻击效果。
+- generation_v3/result Manifest fb696a1c0c3235018202118a2d945fa728f6fc06be39738f04a26e6a39fe7634。
+- 独立Stage4D审计Manifest 5a693b3877a35c6778e79de7c3f9e555f7772191bbd2e3af5624fcef268bdce5。
+- 新正式评估输出预定/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/，本轮未创建；CPU开发证据独立于此目录。
 
-H历史Text6156保持TEXT_FULL_MATERIALIZED（6116编辑/40 NOOP/13537替换）；Image0/3074、Joint全量PENDING，旧首图Claim尚未实际恢复。
-
-本轮真实模型恢复/前向、CUDA初始化、GPU Attempt及新图像均0。只读一次资源查询与CPU Mock测试不等于GPU执行通过；没有轮询或等待资源。实际GPU共享稳定性待用户手动唯一generation_v3验证。
-
-下一步用户审查后自行运行；PID退出/重启、共享身份或显存不满足即拒绝，不自动替换PID或降低门限。禁止自动生成、IRRA Full、RaSa/APTM或训练。
+用户下一步可先授权/手动10+10 Smoke，再正式Full四组；本轮不执行GPU、不监控、不自动恢复、不重训、不进入RaSa/APTM。IRRA入口仍采用原独占≥8192MiB门禁，G阶段专属共享许可没有自动扩展。
 
 ## 历史索引
 

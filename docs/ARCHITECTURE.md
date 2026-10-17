@@ -189,3 +189,11 @@ claim_recovery是独立零前向证据契约，不修改Stage4D1 generation/full
 当前Runner的gpu_safety独立提供共享资源检查，不修改冻结Stage4D1通用GPU门禁或生成算法。仅配置明确绑定的Ollama PID2436556可与本GPU子进程共存；proc启动/boot/命令行/服务父身份、可读二进制SHA和GPU报告路径联合验证。启动3584MiB/≤10%，运行1024MiB安全余量；子进程FullGuard每秒采样，异常转为安全停止。父进程不把自己创建的GPU子进程误当外部任务。
 
 配置和入口SHA属于独立执行层，原Plan、文本、Claim恢复及旧FAIL不改签。GPU共享运行尚未验证；具体命令及限制见framework/GENERATION_V3_GPU_SHARING.md。
+
+## 封存物化输入的官方IRRA评估接线
+
+engines/materialized_irra.py是独立绝对脚本，生产PYTHONPATH指向冻结Stage4D1，保持原Plan路径和Store来源。CPU阶段校验generation_v3封存/独立审计、完整官方Manifest及历史Unicode，退出隔离后才允许IRRA恢复。原FP32 RGB直接执行IRRA normalize_pixels，文本送官方Tokenizer，不生成攻击。
+
+materialized_cache提供每64行的ArtifactStore紧凑缓存与无模型CachedIRRA评分薄层；四family独立有序，ModelSpace/输入内容/攻击来源分别绑定。四组复用原EvaluationEngine/Ranking/publish_result/load_result，不增加通用评测框架。正式Full的Clean采用原历史0.001pp一致性门槛；新指标来自实际Score。
+
+本轮CPU测试与真实来源预检通过，真实GPU评估PENDING。原生成结果/源码不修改；后续其他Victim只能另建ModelSpace，不能复用IRRA特征。详见framework/IRRA_MATERIALIZED_EVALUATION.md。

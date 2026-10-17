@@ -68,3 +68,7 @@ generation_v2已恢复G，但在首次像素读取时被Resize误拦截，实际
 ## generation_v3共享资源许可的显式修订
 
 用户明确授权仅将本次Runner改为与已核验Ollama PID2436556共享GPU；此前独占8192MiB为旧执行配置快照，旧工作树/配置/失败证据不改。新执行配置启动3584MiB且利用率≤10%，运行余量1024MiB，完整进程身份与来源绑定，未知进程或身份变化失败即停。保留generation_v3、原Plan、唯一首图恢复及全部算法契约；CPU开发不自动授予Codex正式GPU执行权限。
+
+## generation_v3封存后的受害者消费边界
+
+用户完成Image/Joint封存及独立审计后，新IRRA评估只读原Plan中的RGB/Unicode。CPU身份/动作核验先于CUDA，模型评分不反馈给攻击；真实像素SHA与IRRA ModelSpace分离。复用已有Dataset/Model Adapter、EvaluationEngine和官方Ranking，仅新增物化消费/分块缓存接线。其他Victim须独立原生编码同一产物，不借用IRRA特征。CPU测试不提升正式IRRA Full完成状态。
