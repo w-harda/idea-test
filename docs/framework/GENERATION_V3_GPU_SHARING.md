@@ -1,6 +1,6 @@
 # generation_v3：固定Ollama身份的最小GPU共享修改
 
-基于Stage4D2R2 Commit `029a0817f764b8241ca1790bbf335fdd144ed9a9`，独立分支 `codex/tbps-generation-v3-gpu-sharing`。这只是当前Runner的资源许可修改，不新增攻击方法或工程阶段。本轮只进行CPU开发与测试，未执行正式预检入口、GPU生成或全量审计；generation_v3仍未创建。
+基于Stage4D2R2 Commit `029a0817f764b8241ca1790bbf335fdd144ed9a9`，独立分支 `codex/tbps-generation-v3-gpu-sharing`。实现Commit：`94495bf88d9bfc6f09d4c96ed9216730003d019d`。这只是当前Runner的资源许可修改，不新增攻击方法或工程阶段。本轮只进行CPU开发与测试，未执行正式预检入口、GPU生成或全量审计；generation_v3仍未创建。
 
 ## 修改边界
 

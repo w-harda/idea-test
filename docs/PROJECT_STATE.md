@@ -4,7 +4,7 @@
 
 ## 当前任务：generation_v3固定Ollama身份的GPU共享许可（CPU-only）
 
-基准029a0817f764b8241ca1790bbf335fdd144ed9a9；独立codex/tbps-generation-v3-gpu-sharing，工作树/home/lzf/ldx/projects/idea-test-tbps-generation-v3-sharing-20261017。代码Commit在后续文档提交登记。
+基准029a0817f764b8241ca1790bbf335fdd144ed9a9；独立codex/tbps-generation-v3-gpu-sharing，工作树/home/lzf/ldx/projects/idea-test-tbps-generation-v3-sharing-20261017。代码Commit：94495bf88d9bfc6f09d4c96ed9216730003d019d；本后续文档提交登记。
 
 仅当前full_gpu/gpu_safety及独立树配置调整。启动空闲显存3584MiB、利用率≤10%；共享仅固定Ollama PID2436556，绑定boot、start_ticks、UID/GID、完整命令行SHA、cgroup、父进程和二进制SHA。运行每秒监测，仅允许该Ollama与当前GPU子进程，空闲低于1024MiB或身份/来源/未知进程异常即停止，无自动重试。
 
