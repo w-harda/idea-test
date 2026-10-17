@@ -210,7 +210,7 @@ class ChildFlowTests(unittest.TestCase):
             p(runner, "StreamingMaterializedStore", return_value=self.store)
             p(runner, "gpu_available", side_effect=lambda c: (
                 self.fail("resource") or {"fixture": True}))
-            p(runner, "own_gpu_only", return_value=[])
+            p(runner, "own_gpu_only", side_effect=lambda *a, **kw: getattr(self, "runtime_gpu_check", lambda: [])())
             p(runner, "ram", return_value={"MemAvailable": 0 if self.fault == "ram" else 2**40})
             p(runner, "no_optimization", new=self.no_opt)
             p(runner, "g_load_only", new=self.only_g)

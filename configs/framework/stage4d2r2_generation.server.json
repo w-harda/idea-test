@@ -15,20 +15,20 @@
   "runtime_disk_reserve_bytes": 2147483648,
   "minimum_inodes": 100000,
   "physical_gpu": 0,
-  "minimum_free_mib": 8192,
+  "minimum_free_mib": 3584,
   "maximum_utilization_percent": 10,
   "frozen_config": {
     "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d1-20261017/configs/framework/stage4d1_materialization.server.json",
     "sha256": "93cea9b45552b049e1303b9f6e1dd5bce423cdeba32031c6f8b2aad360025c21"
   },
   "entry_sources": {
-    "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d2r2-20261017/src/tbps/materialization/full_gpu.py": "d0a4040021128066eace97448cd7d61e33d65a797aabd0ec896d2a413b17bc8c",
-    "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d2r2-20261017/src/tbps/materialization/gpu_safety.py": "dbb1e9f0dcff994aebe096e9a04b4f3cea1cd8dde9aa21a48877705016d2b409",
-    "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d2r2-20261017/src/tbps/materialization/full_gpu_audit.py": "9006c6eec3e10ad8aa380e5e6fa9bc3581384e625e5ada2615b9d590052cc628",
-    "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d2r2-20261017/src/tbps/materialization/claim_recovery.py": "2c97f50c93abcc8152d10eb06fbc05f6d230687edfc6dfe3b6a1a5533639f334"
+    "/home/lzf/ldx/projects/idea-test-tbps-generation-v3-sharing-20261017/src/tbps/materialization/full_gpu.py": "6e4b3aaf264c468762315f498cd4c8651dc0871e5b970352fbc1257d983614bc",
+    "/home/lzf/ldx/projects/idea-test-tbps-generation-v3-sharing-20261017/src/tbps/materialization/gpu_safety.py": "b756d61a3b0d66340508c695d3211c842eefd7ef4bbbd36de7536b97a1e1dc86",
+    "/home/lzf/ldx/projects/idea-test-tbps-generation-v3-sharing-20261017/src/tbps/materialization/full_gpu_audit.py": "9006c6eec3e10ad8aa380e5e6fa9bc3581384e625e5ada2615b9d590052cc628",
+    "/home/lzf/ldx/projects/idea-test-tbps-generation-v3-sharing-20261017/src/tbps/materialization/claim_recovery.py": "2c97f50c93abcc8152d10eb06fbc05f6d230687edfc6dfe3b6a1a5533639f334"
   },
   "recovery": {
-    "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d2r2-20261017/configs/framework/stage4d2r2_recovery.server.json",
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-generation-v3-sharing-20261017/configs/framework/stage4d2r2_recovery.server.json",
     "sha256": "429209225c9a947b1dd254b51addbf41c9ef5a5e8dc0532ea7dfbc3396604bd6"
   },
   "preprocess_sources": {
@@ -44,5 +44,55 @@
       "path": "/home/lzf/ldx/envs/tbps-image/lib/python3.10/site-packages/torchvision/transforms/transforms.py",
       "sha256": "791214af42358bb04caab5e6e31b012506181a9bc8903aff54cb1cb50388d0ce"
     }
+  },
+  "gpu_sharing": {
+    "boot_id": "7dfd95b7-da6b-447d-b7f6-c0fecccdd9da",
+    "process": {
+      "pid": 2436556,
+      "uid": [
+        997,
+        997,
+        997,
+        997
+      ],
+      "gid": [
+        984,
+        984,
+        984,
+        984
+      ],
+      "comm": "llama-server",
+      "ppid": 277892,
+      "start_ticks": 2238557017,
+      "cgroup": "0::/system.slice/ollama.service\n",
+      "cmdline_sha256": "4c3a78373828e4dca4be144a048728da46ea2bcb3555442c56e56325e5eea4c6",
+      "argv0": "/usr/local/lib/ollama/llama-server"
+    },
+    "parent": {
+      "pid": 277892,
+      "uid": [
+        997,
+        997,
+        997,
+        997
+      ],
+      "gid": [
+        984,
+        984,
+        984,
+        984
+      ],
+      "comm": "ollama",
+      "ppid": 1,
+      "start_ticks": 1787729494,
+      "cgroup": "0::/system.slice/ollama.service\n",
+      "cmdline_sha256": "43ea211dfaaabef88b9b29cf2ed8012c946e0a93c971d12e4157216a0797cd61",
+      "argv0": "/usr/local/bin/ollama"
+    },
+    "executable": {
+      "path": "/usr/local/lib/ollama/llama-server",
+      "sha256": "234b05b2138264f8fb263c3205e85f4c290e8afe5067e280a4f6f90cdac5696b"
+    },
+    "runtime_minimum_free_mib": 1024
   }
 }

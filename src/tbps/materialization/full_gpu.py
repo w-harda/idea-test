@@ -24,13 +24,13 @@ from tbps.engines.historical_loader import feature_only_cpu,native_action_valida
 from tbps.runtime_closure import cpu_only,source_execution_audit
 from tbps.check_attack_runtime import check as runtime_check
 from tbps.attacks.legacy_runtime import load_legacy_plugins
-from tbps.smoke_irra import gpu_available,model_snapshot
+from tbps.smoke_irra import model_snapshot
 from tbps.models.irra import fp32_runtime
 if __package__:
-    from .gpu_safety import FullGuard,GObservation,no_optimization,g_load_only,own_gpu_only,ram
+    from .gpu_safety import FullGuard,GObservation,no_optimization,g_load_only,own_gpu_only,ram,gpu_available,sharing_policy
     from .claim_recovery import FirstClaimRecovery,stream_with_recovery
 else:
-    from gpu_safety import FullGuard,GObservation,no_optimization,g_load_only,own_gpu_only,ram
+    from gpu_safety import FullGuard,GObservation,no_optimization,g_load_only,own_gpu_only,ram,gpu_available,sharing_policy
     from claim_recovery import FirstClaimRecovery,stream_with_recovery
 
 FROZEN="/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d1-20261017"
@@ -64,9 +64,10 @@ def control(path):
         "max_seconds":7200,"minimum_available_ram_bytes":8*1024**3,
         "system_ram_reserve_bytes":2*1024**3,"minimum_disk_bytes":10*1024**3,
         "runtime_disk_reserve_bytes":2*1024**3,"minimum_inodes":100000,
-        "physical_gpu":0,"minimum_free_mib":8192,"maximum_utilization_percent":10}
-    need(set(c)==set(fixed)|{"frozen_config","entry_sources","recovery","preprocess_sources"} and all(c[k]==v for k,v in fixed.items()),
+        "physical_gpu":0,"minimum_free_mib":3584,"maximum_utilization_percent":10}
+    need(set(c)==set(fixed)|{"frozen_config","entry_sources","recovery","preprocess_sources","gpu_sharing"} and all(c[k]==v for k,v in fixed.items()),
          "fixed Stage4D2 scope/resources/precision")
+    sharing_policy(c)
     checked(FileRef(**c["frozen_config"]))
     need(c["frozen_config"]["path"]==FROZEN+"/configs/framework/stage4d1_materialization.server.json",
          "use original producer paths/config, never reconstruct in new tree")
@@ -192,7 +193,7 @@ def child(path,token):
     observation=GObservation([g.image_id for g in plan.manifest.gallery],pre["old_pixel_reference"],mismatch,**options)
     report={"status":"RUNNING","plan_id":PLAN,"H_loads":0,"H_forwards":0,"IRRA_loads":0,
             "IRRA_forwards":0,"backward":0,"optimizer":0,"JVP":0,"GPU_before":gpu}
-    guard=FullGuard(c,FULL);guard.seconds=max(.01,c["max_seconds"]-(time.time()-ctl["started_unix"]))
+    guard=FullGuard(c,FULL,**({"gpu_check":lambda:own_gpu_only(c)} if c.get("gpu_sharing") else {}));guard.seconds=max(.01,c["max_seconds"]-(time.time()-ctl["started_unix"]))
     last=[time.perf_counter()];last_gpu=[0]
     try:
         with guard:
@@ -214,7 +215,7 @@ def child(path,token):
                     report["runtime_import_files"]=sorted(imports)
                 def resource():
                     guard.check()
-                    if time.monotonic()-last_gpu[0]>=10:
+                    if not c.get("gpu_sharing") and time.monotonic()-last_gpu[0]>=10:
                         own_gpu_only();last_gpu[0]=time.monotonic()
                 def progress(n,elapsed,stats):
                     now=time.perf_counter()
@@ -227,7 +228,8 @@ def child(path,token):
                         "linf":md["pixels"]["linf"],"pixel_file_sha256":unit.data.sha256,
                         "adversarial_pixels_sha256":unit.content_sha256,"RSS_bytes":guard.peak,
                         "GPU_allocated_bytes":torch.cuda.memory_allocated(),
-                        "GPU_reserved_bytes":torch.cuda.memory_reserved(),"disk":guard.disk}
+                        "GPU_reserved_bytes":torch.cuda.memory_reserved(),"disk":guard.disk,
+                        "GPU_sharing":dict(guard.gpu) if c.get("gpu_sharing") else None}
                     print("G_FULL_PROGRESS",json.dumps(metrics,separators=(",",":")),flush=True);last[0]=now
                 with fp32_runtime():
                     if c.get("recovery"):

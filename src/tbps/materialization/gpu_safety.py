@@ -3,6 +3,9 @@ from pathlib import Path
 from contextlib import ExitStack,contextmanager
 from unittest.mock import patch
 import os
+import hashlib
+import csv
+import threading
 import signal
 import subprocess
 import time
@@ -14,11 +17,14 @@ from tbps.materialization.contracts import need
 
 class FullGuard(ResourceGuard):
     """实际可用系统RAM/磁盘/时间监测，无进程RSS硬上限。"""
-    def __init__(self,c,root,*,memory=ram,sample=rss_bytes,clock=time.monotonic):
+    def __init__(self,c,root,*,memory=ram,sample=rss_bytes,clock=time.monotonic,gpu_check=None):
+        self.gpu_check=gpu_check;self.gpu={};self.minimum_gpu_free_mib=None
+        self.last_gpu=None;self.gpu_lock=threading.Lock()
         self.c,self.root,self.memory=c,root,memory
         self.minimum_available=None;self.last_disk=0;self.disk={}
         super().__init__(0,c["max_seconds"],sample=sample,clock=clock)
     def check(self):
+        if self.reason:raise ResourceLimit(self.reason)
         self.peak=max(self.peak,self.sample())
         available=self.memory()["MemAvailable"]
         self.minimum_available=available if self.minimum_available is None else min(available,self.minimum_available)
@@ -28,14 +34,121 @@ class FullGuard(ResourceGuard):
             self.disk=fs_resources(self.root);self.last_disk=self.clock()
         if self.disk["available_bytes"]<self.c["runtime_disk_reserve_bytes"]:self.reason="disk safety reserve"
         if self.disk["available_inodes"]<1000:self.reason="inode safety reserve"
+        if self.gpu_check is not None and self.gpu_lock.acquire(blocking=False):
+            try:
+                if self.last_gpu is None or self.clock()-self.last_gpu>=1:
+                    self.gpu=self.gpu_check();self.last_gpu=self.clock()
+                    free=self.gpu["free_mib"]
+                    self.minimum_gpu_free_mib=free if self.minimum_gpu_free_mib is None else min(self.minimum_gpu_free_mib,free)
+            except Exception as exc:
+                self.reason="GPU sharing safety check: "+str(exc)
+            finally:self.gpu_lock.release()
         if self.reason:raise ResourceLimit(self.reason)
     def snapshot(self):
         return {"peak_rss_bytes":self.peak,"elapsed_seconds":self.clock()-self.started,
             "rss_hard_limit_bytes":None,"minimum_system_available_bytes":self.minimum_available,
-            "max_seconds":self.seconds,"stop_reason":self.reason,"disk":dict(self.disk)}
+            "max_seconds":self.seconds,"stop_reason":self.reason,"disk":dict(self.disk),
+            "GPU":dict(self.gpu),"minimum_gpu_free_mib":self.minimum_gpu_free_mib}
 
-def own_gpu_only():
-    """运行中只允许本GPU子进程；不抢占、不终止其他任务。"""
+PROCESS_FIELDS={"pid","uid","gid","comm","ppid","start_ticks","cgroup","cmdline_sha256","argv0"}
+
+def sharing_policy(c):
+    """仅本次固定Ollama身份；无按进程名或UID通配的共享许可。"""
+    share=c["gpu_sharing"]
+    need(set(share)=={"boot_id","process","parent","executable","runtime_minimum_free_mib"},
+         "GPU sharing policy fields")
+    p,parent=share["process"],share["parent"]
+    need(set(p)==PROCESS_FIELDS and set(parent)==PROCESS_FIELDS,"complete pinned process identities")
+    need(p["pid"]==2436556 and p["comm"]=="llama-server"
+         and p["argv0"]=="/usr/local/lib/ollama/llama-server"
+         and p["cgroup"]=="0::/system.slice/ollama.service\n"
+         and parent["comm"]=="ollama" and parent["argv0"]=="/usr/local/bin/ollama"
+         and parent["cgroup"]==p["cgroup"] and parent["pid"]==p["ppid"]
+         and parent["ppid"]==1 and p["uid"]==parent["uid"]==[997]*4
+         and p["gid"]==parent["gid"]==[984]*4,"only pinned Ollama service may share GPU")
+    for value in (p,parent):
+        need(type(value["start_ticks"]) is int and value["start_ticks"]>0 and
+             type(value["pid"]) is int and value["pid"]>0 and
+             len(value["cmdline_sha256"])==64 and
+             all(x in "0123456789abcdef" for x in value["cmdline_sha256"]),"process start/argv identity")
+    need(set(share["executable"])=={"path","sha256"} and
+         share["executable"]["path"]==p["argv0"] and len(share["boot_id"])==36,
+         "pinned Ollama executable/boot identity")
+    need(c["physical_gpu"]==0 and c["minimum_free_mib"]==3584 and
+         c["maximum_utilization_percent"]==10 and
+         type(share["runtime_minimum_free_mib"]) is int and share["runtime_minimum_free_mib"]==1024,
+         "fixed shared GPU resource policy")
+    return share
+
+def process_identity(pid,proc_root=Path("/proc")):
+    """读取跨UID可访问的proc身份；不读取受限exe链接，不启动CUDA。"""
+    p=Path(proc_root)/str(pid)
+    fields=dict(line.split(":",1) for line in (p/"status").read_text().splitlines() if ":" in line)
+    stat=(p/"stat").read_text().rsplit(")",1)[1].split()
+    cmd=(p/"cmdline").read_bytes()
+    result={"pid":pid,"uid":[int(x) for x in fields["Uid"].split()],
+        "gid":[int(x) for x in fields["Gid"].split()],"comm":(p/"comm").read_text().strip(),
+        "ppid":int(fields["PPid"]),"start_ticks":int(stat[19]),
+        "cgroup":(p/"cgroup").read_text(),"cmdline_sha256":hashlib.sha256(cmd).hexdigest(),
+        "argv0":cmd.split(b"\0")[0].decode("utf-8")}
+    need(int((p/"stat").read_text().rsplit(")",1)[1].split()[19])==result["start_ticks"],
+         "process changed during identity read")
+    return result
+
+def verify_shared_process(c,*,proc_root=Path("/proc")):
+    from tbps.artifacts import checked,FileRef,digest
+    share=sharing_policy(c)
+    try:
+        need((Path(proc_root)/"sys/kernel/random/boot_id").read_text().strip()==share["boot_id"],
+             "GPU sharing boot identity changed")
+        for key in ("process","parent"):
+            wanted=share[key]
+            need(process_identity(wanted["pid"],proc_root)==wanted,"GPU sharing "+key+" identity changed")
+        # nvidia-smi中的可执行路径也必须吻合；proc/exe跨UID不可读时不伪造验证。
+        checked(FileRef(**share["executable"]))
+    except (OSError,ValueError,KeyError,IndexError,UnicodeError) as exc:
+        raise ArtifactError("cannot verify pinned Ollama process: "+str(exc)) from exc
+    return digest(share)
+
+def gpu_available(c,*,runtime=False):
+    """一次外部资源快照；仅允许固定Ollama及运行中的自身GPU子进程。"""
+    if "gpu_sharing" not in c:
+        from tbps.smoke_irra import gpu_available as exclusive
+        need(not runtime,"runtime shared check requires explicit sharing policy")
+        return exclusive(c)
+    identity=verify_shared_process(c)
+    def rows(query):
+        result=subprocess.run(["nvidia-smi","-i","0","--query-"+query,
+            "--format=csv,noheader,nounits"],capture_output=True,text=True,check=True,timeout=10)
+        return [r for r in csv.reader(result.stdout.splitlines(),skipinitialspace=True) if r]
+    device=rows("gpu=name,memory.free,memory.used,utilization.gpu")
+    need(len(device)==1 and len(device[0])==4,"one GPU0 resource row required")
+    name,free,used,util=[x.strip() for x in device[0]]
+    need("RTX 4090" in name,"fixed RTX4090 GPU required")
+    free,used,util=int(free),int(used),int(util)
+    apps=rows("compute-apps=pid,process_name,used_memory")
+    p=c["gpu_sharing"]["process"];seen=set();processes=[]
+    for row in apps:
+        need(len(row)==3,"valid GPU process metadata required")
+        pid=int(row[0]);executable=row[1].strip()
+        need(pid not in seen,"duplicate GPU process row");seen.add(pid)
+        need(pid==p["pid"] or (runtime and pid==os.getpid()),"unknown GPU compute process; stop")
+        if pid==p["pid"]:need(executable==p["argv0"],"Ollama GPU executable identity mismatch")
+        processes.append({"pid":pid,"process_name":executable,"used_mib":int(row[2])})
+    need(p["pid"] in seen,"pinned Ollama GPU process absent; recheck sharing authorization")
+    # 双读身份防止资源查询过程中进程退出、重启或PID复用。
+    need(verify_shared_process(c)==identity,"GPU sharing identity changed during resource query")
+    minimum=c["gpu_sharing"]["runtime_minimum_free_mib"] if runtime else c["minimum_free_mib"]
+    need(free>=minimum,"GPU free memory below "+("runtime safety reserve" if runtime else "startup minimum")+
+         ": observed "+str(free)+"MiB, required "+str(minimum)+"MiB")
+    if not runtime:need(util<=c["maximum_utilization_percent"],"GPU startup utilization too high")
+    return {"name":name,"free_mib":free,"used_mib":used,"utilization_percent":util,
+        "compute_processes":processes,"sharing_identity_sha256":identity,
+        "minimum_required_free_mib":minimum,"runtime":runtime}
+
+def own_gpu_only(c=None):
+    """共享仅接受显式固定许可；其他调用保留独占语义。"""
+    if c is not None and "gpu_sharing" in c:return gpu_available(c,runtime=True)
     rows=subprocess.run(["nvidia-smi","-i","0","--query-compute-apps=pid",
         "--format=csv,noheader,nounits"],capture_output=True,text=True,check=True).stdout.splitlines()
     pids=[int(r.strip()) for r in rows if r.strip()]

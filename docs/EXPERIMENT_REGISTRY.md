@@ -211,3 +211,9 @@ generation_v1仍FAIL；generation_v2尚不存在，真实G/H/IRRA加载/前向�
 独立codex/tbps-framework-stage4d2r2仅CPU修复/647测试：受限原预处理、零前向首图恢复、正常与独立恢复Proof、实际child组合及3074顺序Mock。正式generation_v3未创建，真实模型/前向/CUDA/新图像0，原v1/v2 FAIL不提升，Image/Joint仍PENDING。CPU只读证据及边界见framework/STAGE4D2R2_REPORT.md。
 
 CPU只读资格证据/home/lzf/ldx/outputs/tbps-framework-stage4d2r2/cpu_audit_v2/result/，Manifest73d895b065cac4d3abe9316478811fa5a6cc1fa6eb9414b2f8532668d54e61fc、report030bbdedf5f51becdbaec613219a556a923f3442ee061643da03deca41e4ca7c。原30797＋3 Claim、7991历史文件、3472缓存、70旧FAIL、v1/v2各16文件SHA/mtime保持；75来源/33导入PASS。首次CPU清单结构拒绝及修正记录保留，无新增GPU尝试。
+
+## generation_v3共享许可CPU开发（无新GPU实验）
+
+基准029a081，独立codex/tbps-generation-v3-gpu-sharing。仅当前Runner允许已绑定Ollama PID2436556共存，启动3584MiB/≤10%、运行1024MiB安全余量，身份变化或未知计算进程立即拒绝。本轮无正式GPU Attempt、模型加载/前向或新图像；generation_v3仍未创建，Image/Joint不提升。
+
+687 CPU回归/88.78秒＋最终40项共享复核/2.54秒通过。CPU证据/home/lzf/ldx/outputs/tbps-generation-v3-sharing-cpu/；原R2树580文件、旧FAIL与Claim35文件SHA/mtime和原Store30800成员/size/mtime保持，冻结Stage4D1 clean。完整历史内容审核引用R2既有CPU证据，不伪称本轮重跑。用户手动执行说明见framework/GENERATION_V3_GPU_SHARING.md。

@@ -183,3 +183,9 @@ gpu_safety将图像读取限定为原_LegacyG/pixels_from_pil及显式绑定输�
 claim_recovery是独立零前向证据契约，不修改Stage4D1 generation/full_runner：先验证原v2 FAIL和唯一首图旧Claim，在原generate_image_once的单线程局部_prepare中允许一次恢复，原_finish发布正常Proof；独立Start/Proof记录依据。同一G工厂保持打开，其余图仍用冻结stream_images。新公开计数包含恢复首图，另记录原Runner内部跳过该刚完成首图1次。
 
 新入口generation_v3绑定独立源码/证据/预处理来源SHA，原Plan及6156文本不重签。当前仅CPU代码与恢复资格，未生成真实图像。见framework/STAGE4D2R2_REPORT.md。
+
+## generation_v3固定身份GPU共享（CPU实现）
+
+当前Runner的gpu_safety独立提供共享资源检查，不修改冻结Stage4D1通用GPU门禁或生成算法。仅配置明确绑定的Ollama PID2436556可与本GPU子进程共存；proc启动/boot/命令行/服务父身份、可读二进制SHA和GPU报告路径联合验证。启动3584MiB/≤10%，运行1024MiB安全余量；子进程FullGuard每秒采样，异常转为安全停止。父进程不把自己创建的GPU子进程误当外部任务。
+
+配置和入口SHA属于独立执行层，原Plan、文本、Claim恢复及旧FAIL不改签。GPU共享运行尚未验证；具体命令及限制见framework/GENERATION_V3_GPU_SHARING.md。

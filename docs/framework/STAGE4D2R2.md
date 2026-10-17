@@ -1,5 +1,7 @@
 # Stage4D-2 generation_v2失败后的CPU修复与generation_v3执行说明
 
+> 本文保留原R2独占资源命令作为历史说明。generation_v3当前共享许可、独立工作目录及新配置SHA以[GENERATION_V3_GPU_SHARING.md](GENERATION_V3_GPU_SHARING.md)为准；不要使用本文旧树命令启动共享模式。
+
 基准dd0a213f2ac1b787412b755372c378ad49f31f9c，独立codex/tbps-framework-stage4d2r2。当前仅完成代码和CPU验证；下列GPU与全量审计命令供用户后续手动执行，本轮未运行。
 
 ## 修复与恢复边界

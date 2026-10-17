@@ -1,33 +1,26 @@
 # 项目当前状态（唯一权威入口）
 
-当前状态来自Git、源码及不可变证据；历史阶段报告仅为当时快照。架构、实验与决策见ARCHITECTURE、EXPERIMENT_REGISTRY及ADR。
+当前状态来自Git、源码及不可变证据；历史阶段报告为当时快照。架构、实验与决策见ARCHITECTURE、EXPERIMENT_REGISTRY及ADR。
 
-## 当前阶段：generation_v2 FAIL后的CPU最小修复
+## 当前任务：generation_v3固定Ollama身份的GPU共享许可（CPU-only）
 
-基准dd0a213f2ac1b787412b755372c378ad49f31f9c；独立codex/tbps-framework-stage4d2r2，工作树/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d2r2-20261017。代码实现Commit：cd6c222fc6751e4dbefc44bb7869a9c08d93a680；本后续文档提交登记。
+基准029a0817f764b8241ca1790bbf335fdd144ed9a9；独立codex/tbps-generation-v3-gpu-sharing，工作树/home/lzf/ldx/projects/idea-test-tbps-generation-v3-sharing-20261017。代码Commit在后续文档提交登记。
 
-generation_v2已FAIL：G10恢复1次、实际前向started/completed=0/0、新图像0。原_LegacyG像素读取中的torchvision Resize被非G模块保护误拒绝。原Store有唯一首图Claim、Proof0、pending0；两次generation_v1/v2 FAIL永久保留。
+仅当前full_gpu/gpu_safety及独立树配置调整。启动空闲显存3584MiB、利用率≤10%；共享仅固定Ollama PID2436556，绑定boot、start_ticks、UID/GID、完整命令行SHA、cgroup、父进程和二进制SHA。运行每秒监测，仅允许该Ollama与当前GPU子进程，空闲低于1024MiB或身份/来源/未知进程异常即停止，无自动重试。
 
-## 本轮实现
+原Stage4D1源码/Plan/6156文本、G10/H7、8/255、图像预处理及FirstClaimRecovery代码保持不变。原v1/v2 FAIL及首图旧Claim永久保留；generation_v3尚未创建，不另建v4。完整CPU来源/历史保护预检仍在用户正式入口运行时执行，本轮不运行该入口或GPU。
 
-- GObservation仅在经过来源/图像身份核验的原像素读取作用域中允许必要Resize，维持原RGB、bilinear384×128、ToTensor。作用域外Resize、其他网络、错误读取器/来源/图像及异常参数继续拒绝；G Hook和优化禁令保留。
-- FirstClaimRecovery绑定generation_v2完整FAIL及来源、零实际前向、唯一cuhk:37132:0 Claim、原30797文件快照＋3 Claim文件。其他Claim、Proof、图像、pending或未知新增/篡改拒绝。
-- CPU预检、fresh_images、原generate_image_once局部恢复和冻结stream_images的调度衔接全部覆盖。旧Claim不删除或覆盖，新Attempt额外绑定恢复Start/Proof；原正常生成Proof不改。
-- 新入口固定generation_v3；独立配置绑定4项执行源码、恢复证据与3项预处理来源。原Stage4D1源码/Plan/6156文本、G10/H7、预算和全部攻击算法不改。
-- 已完成647 CPU tests，84.36秒、退出0：原626项＋新增21项。含实际child/门禁/真实Resize-ToTensor/CPU Mock G/首图事务及3074顺序调度。
-- 真实CPU来源/恢复资格审计PASS：75来源、33导入文件；30797原发布文件＋3 Claim、7991历史文件、3472缓存、70旧FAIL及v1/v2各16文件SHA/mtime保持。
-- 证据/home/lzf/ldx/outputs/tbps-framework-stage4d2r2/cpu_audit_v2/result/，Manifest SHA73d895b065cac4d3abe9316478811fa5a6cc1fa6eb9414b2f8532668d54e61fc，report SHA030bbdedf5f51becdbaec613219a556a923f3442ee061643da03deca41e4ca7c。
-- 首次CPU核验拒绝新清单缺path字段；补正新清单并新增拒绝测试后第二次通过，失败日志保留。本次不查询GPU、不运行正式CPU预检入口或GPU Attempt。
+CPU回归687项通过/88.78秒；最终共享安全停止补充40项复核通过/2.54秒，原定向57项通过。原R2树580文件、v1/v2和Claim35文件SHA/mtime相同；原Store30800文件成员/size/mtime相同，冻结Stage4D1 HEAD/clean不变。本轮不重复整个Store内容SHA或7991/3472完整历史审计，引用原R2证据。
 
-[执行说明与未来命令](framework/STAGE4D2R2.md)；[完整修复与证据报告](framework/STAGE4D2R2_REPORT.md)。
+证据/home/lzf/ldx/outputs/tbps-generation-v3-sharing-cpu/。详细身份、来源SHA、边界及用户nohup/预检/审计命令见[共享执行说明](framework/GENERATION_V3_GPU_SHARING.md)。
 
 ## 当前真实产物与授权
 
-原H Text 6156/6156保持TEXT_FULL_MATERIALIZED（6116编辑/40 NOOP/13537替换）。Image0/3074、Joint全量PENDING。原首图Claim的3文件保留，尚未实际恢复生成。
+H历史Text6156保持TEXT_FULL_MATERIALIZED（6116编辑/40 NOOP/13537替换）；Image0/3074、Joint全量PENDING，旧首图Claim尚未实际恢复。
 
-本轮真实G/H/IRRA加载/前向、CUDA初始化、GPU Attempt和新图像均0；generation_v3尚未创建。CPU资格验证不等于FIRST_CLAIM_RECOVERED或Image/Joint完成。
+本轮真实模型恢复/前向、CUDA初始化、GPU Attempt及新图像均0。只读一次资源查询与CPU Mock测试不等于GPU执行通过；没有轮询或等待资源。实际GPU共享稳定性待用户手动唯一generation_v3验证。
 
-下一步仅在用户审查并另行授权后，通过原资源门限和完整CPU预检启动唯一generation_v3。无需人工清理旧Claim或旧文本；失败保存现场，不自动重试。禁止自动IRRA Full、RaSa/APTM、训练或其他阶段。
+下一步用户审查后自行运行；PID退出/重启、共享身份或显存不满足即拒绝，不自动替换PID或降低门限。禁止自动生成、IRRA Full、RaSa/APTM或训练。
 
 ## 历史索引
 
