@@ -24,3 +24,7 @@
 原FAIL Attempt中已完整提交的G/H单位，可使用独立FrozenPlanReference引用；必须验证原canonical Plan ID、原工作树producer/source SHA、Claim/生成证明及实际像素/Unicode。新工作树Plan可不同，但不得改签或将旧单位伪装成新生成；新IRRA验证回执也不得提升旧整体FAIL。只读桥没有publish/generate接口。
 
 CPU来源/动作/缓存读取必须先于CUDA，退出后检查原隔离函数、命名空间及legacy锁恢复；保留旧门禁。Stage4C-2R CPU通过，IRRA真实等价与资源适用性仍PENDING，新的GPU许可不能由CPU修复自动推导。
+
+## Stage4C-3固定环境验收
+
+明确新授权取消旧2GiB进程RSS上限后，唯一IRRA-only Attempt复用原四单位，G/H加载/前向0，IRRA一次恢复/图像4/文本4；真实保存RGB/Unicode到IRRA特征和四组2×2 Score误差≤1e-6，模型状态保持。仅固定两图两文环境标记IRRA_MATERIALIZED_SMOKE_VERIFIED，不提升原整体FAIL、不生成全量集合、不推导Full或跨模型结果。旧资源协议保持，新的系统RAM资源策略单独绑定新Attempt。

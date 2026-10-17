@@ -1,0 +1,36 @@
+{
+  "schema": "tbps-irra-only-smoke-1",
+  "source_config": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4c2r-20261017/configs/framework/stage4c2_smoke.server.json",
+    "sha256": "53bff22055444492de77d2310fe7d76bb17da516b95d67a2afc31f62eb6c370d"
+  },
+  "cpu_repair_receipt": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-stage4c2r/cpu_audit_v1/result/manifest.json",
+    "sha256": "df0a94bea0bb8b454ba44d9a1e4b02ead859137327a0a6cce5e73250b9f78bf5"
+  },
+  "original_root": "/home/lzf/ldx/outputs/tbps-framework-stage4c2/materialized_smoke_v1",
+  "gallery": [
+    "cuhk:37132:0",
+    "cuhk:37147:0"
+  ],
+  "query": [
+    "cuhk:37132:0",
+    "cuhk:37147:1"
+  ],
+  "limits": {
+    "G": 0,
+    "H": 0,
+    "IRRA_image": 4,
+    "IRRA_text": 4
+  },
+  "threshold": 1e-06,
+  "precision": "fp32/math/no_tf32",
+  "seed": 42,
+  "rss_hard_limit_bytes": null,
+  "minimum_available_ram_bytes": 8589934592,
+  "system_ram_reserve_bytes": 2147483648,
+  "max_seconds": 300,
+  "physical_gpu": 0,
+  "minimum_free_mib": 8192,
+  "maximum_utilization_percent": 10
+}

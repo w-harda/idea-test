@@ -155,3 +155,13 @@ Manifest SHA484605d0501d94dbb4a21315ba0f61c76499e17d283fd2a51c6eb7a1d96c9ce7，1
 - 现有IRRA完整Storage1259.41MiB+模型419.80MiB，再加运行时有明显2GiB风险；保守2.3548GiB，非实测峰值。GPU申请暂停，阈值不变。
 - 7991历史文件+3472Joint缓存SHA/mtime保持，原Stage3B FAIL/Stage3B2 PASS/B2重放/C2 FAIL不变。
 - 真实特征与四组Score等价PENDING；[完整报告与资源/IRRA-only提案](framework/STAGE4C2R_REPORT.md)。
+
+## Stage4C-3：固定两图两文IRRA物化端到端PASS
+
+基准9f1f943e，独立codex/tbps-framework-stage4c3。唯一irra_only_v1退出0、IRRA_MATERIALIZED_SMOKE_VERIFIED，原Stage4C-2整体FAIL保持。只读原RGB/Unicode，不生成G/H、不做排名/Full或训练。
+
+IRRA恢复1、图像4/文本4；G/H加载/前向0，Backward/Optimizer/JVP0。原/Adv Gallery特征bitwise exact；原/Adv文本最大误差1.9371509552001953e-07。Score Clean/Image-only/Text-only/Joint误差分别7.450580596923828e-08/1.0151416063308716e-07/8.940696716308594e-08/1.0151416063308716e-07，均≤固定1e-6；模型状态exact。
+
+证据/home/lzf/ldx/outputs/tbps-framework-stage4c3/irra_only_v1/，result Manifest e6aa5f89e9fce861bfd900c5160629b6f54bc196a858b43ee341116539062f70，report c85ffc5a315dcfe233a2c44459400f2489059bedcc2ead6ca6aaf728436de98f。原Plan 7c0c00da...和70旧文件不变。
+
+568 CPU tests，7991历史文件/3472Joint缓存SHA/mtime exact，后置CPU审计通过。新授权取消旧RSS上限，实测RSS2.350719451904297GiB、GPU allocated922.380859375/reserved1002MiB，执行段24.73483756557107秒，未重试。仅该固定样本/环境VERIFIED，Full/跨模型仍未覆盖；[完整原始Score与资源](framework/STAGE4C3_REPORT.md)。

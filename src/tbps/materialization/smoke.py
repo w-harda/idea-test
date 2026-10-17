@@ -80,7 +80,7 @@ def stage_text(c,output,report,ledger):
     report["texts"]=[selected[k] for k in QUERY];report["H_loads"]=0
     store.verify_plan(force=True)
 
-def stage_irra(c,output,report,ledger):
+def stage_irra(c,output,report,ledger,*,store_factory=None,result_store=None,on_cpu_ready=None):
     import torch
     from ..models.irra import IRRAAdapter,fp32_runtime
     from ..models.irra_source import IRRASource
@@ -88,9 +88,10 @@ def stage_irra(c,output,report,ledger):
     from ..smoke_irra import model_snapshot
     from .irra_startup import prepare_inputs
     events=report.setdefault("startup_events",[])
-    inputs,gate=prepare_inputs(c,output,store_factory=materialized,feature_reader=selected_features,emit=events.append)
+    inputs,gate=prepare_inputs(c,output,store_factory=store_factory or materialized,feature_reader=selected_features,emit=events.append)
     historical,feature_refs=inputs.historical,inputs.feature_refs
     images,texts,source,store=inputs.images,inputs.texts,inputs.source,inputs.store
+    if on_cpu_ready is not None:on_cpu_ready(inputs,gate)
     gate.initialize_cuda()
     events.append("irra_model_load_entry")
     report["IRRA_load_attempts"]=1
@@ -113,7 +114,7 @@ def stage_irra(c,output,report,ledger):
     report["feature_comparisons"]={}
     for family in actual:
         x=actual[family]
-        record_store(output).publish("features-"+family,{"features.pt":tensor_bytes(x)},
+        (result_store or record_store(output)).publish("features-"+family,{"features.pt":tensor_bytes(x)},
             {"kind":"small_smoke_native_representation","family":family,"model_space":asdict(adapter.space)},
             sources=tuple(feature_refs))
         report["feature_comparisons"][family]=compare(x,historical[family])

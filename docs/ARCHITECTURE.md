@@ -139,3 +139,11 @@ irra_startup在实际Runner中集中CPU准备，保留原Torch权重/神经/CUDA
 retained_inputs用FrozenPlanReference显式只读原FAIL中完整提交的四单位；原protocol canonical digest、原工作树producer fingerprint、原FileRef/生成证明不改。复用原MaterializedStore.load验证逻辑，但没有publish/generate方法，不将旧单位挂到新工作树Plan。audit_retained仅CPU来源/小样本Tensor/动作与checkpoint_layout词法资源检查，没有GPU/Attempt入口。
 
 资源估计仍不能证明现有IRRA eager加载满足2GiB；不修改Model Adapter、不降低门禁。下一步IRRA-only新验证需要先解决资源依据及独立授权。原特征/Score等价PENDING，原Stage4C-2整体FAIL保持。
+
+## Stage4C-3：IRRA-only物化输入等价PASS
+
+新增materialization/irra_only.py默认CPU预检，新独立Attempt只恢复官方IRRA；通过RetainedInputs原Plan只读引用与CPUStartupGate保证隔离退出后才初始化CUDA。stage_irra仅增加显式store_factory/result_store/on_cpu_ready注入，编码/归一化/比较循环复用，不重新实现攻击或IRRA编码。观察器核验实际收到的像素与已保存Tensor逐值exact；Tokenizer ID与历史before/after审计exact。
+
+新representation有IRRA ModelSpace、旧物化单元/历史参考批次SHA和独立新Manifest，结果回执绑定四family特征Manifest。旧Plan、原四攻击单位和整体FAIL不重签。IRRA两图/两文8样本前向、参数冻结及1e-6等价已在固定环境验证；没有Full排名或跨模型证明。
+
+用户本轮取消旧2GiB RSS硬限制；独立新资源策略监视系统可用RAM与RSS/耗时，不修改旧资源协议或官方加载器。唯一Attempt已完成并拒绝重入，后续全量/其他Victim仍需独立授权。
