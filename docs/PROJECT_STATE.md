@@ -9,7 +9,7 @@
 - 基准：c09754e6afc8cf53a6c0c6e8715b6d4eace80946。
 - 独立分支：codex/tbps-framework-stage4c1。
 - 独立树：/home/lzf/ldx/projects/idea-test-tbps-framework-stage4c1-20261017。
-- 实现Commit：待本轮提交后由后续文档提交登记。
+- 实现Commit：256140a7ac5794174c57eb3ca2e4cfbebc50a05c（由后续文档提交登记）。
 - [接口/CPU命令](framework/STAGE4C1.md)、[来源/存储/成本/下一阶段方案](framework/STAGE4C1_REPORT.md)、[ADR-0007](decisions/0007-model-independent-materialized-attacks.md)。
 
 ## 本轮结果与边界

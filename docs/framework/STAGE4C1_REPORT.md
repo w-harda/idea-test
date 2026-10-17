@@ -115,3 +115,5 @@ H单元保存original.txt/adversarial.txt及完整action/来源JSON；UTF-8内�
 Manifest SHA0f96f115d5a8d1b3c81a9e067b5c524041f4362c84f85483bdb3977300bf01da；
 report SHAf10fbc4276e80048b59316b15ba8018824ac8a03cc2b5e34de0e2322714a10e5。
 绑定包括generation.py在内的全部7个新模块、43项新测试源码、CPU日志、真实只读源检查与保护证据；不是实际攻击物化完成回执。
+
+实现Commit：256140a7ac5794174c57eb3ca2e4cfbebc50a05c。本条由后续文档提交登记，最终发布HEAD见Git。
