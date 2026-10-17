@@ -1,0 +1,29 @@
+{
+  "schema": "tbps-g-full-generation-1",
+  "frozen_root": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d1-20261017",
+  "plan_id": "7ac4fefd0abaa10df085be3ec3ed56c4b38c782a21bfc44473f40b90965447d5",
+  "output": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1",
+  "gallery": 3074,
+  "query": 6156,
+  "batch": 1,
+  "seed": 42,
+  "precision": "fp32/math/no_tf32",
+  "max_seconds": 7200,
+  "minimum_available_ram_bytes": 8589934592,
+  "system_ram_reserve_bytes": 2147483648,
+  "minimum_disk_bytes": 10737418240,
+  "runtime_disk_reserve_bytes": 2147483648,
+  "minimum_inodes": 100000,
+  "physical_gpu": 0,
+  "minimum_free_mib": 8192,
+  "maximum_utilization_percent": 10,
+  "frozen_config": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d1-20261017/configs/framework/stage4d1_materialization.server.json",
+    "sha256": "93cea9b45552b049e1303b9f6e1dd5bce423cdeba32031c6f8b2aad360025c21"
+  },
+  "entry_sources": {
+    "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d2-20261017/src/tbps/materialization/full_gpu.py": "c45bff0ab18f9f40f6c12ba8429bdeaaac9bbde2c5bed1b125201fa1547dc4b8",
+    "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d2-20261017/src/tbps/materialization/gpu_safety.py": "b92ec88aa71b3ce014674e3fec8e532d630e8b8005ebfed6713d140bfbaf3db9",
+    "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d2-20261017/src/tbps/materialization/full_gpu_audit.py": "5bde77ade3919c3e5d09f3fb5e28fcf83751e0e99a03b9348b0326fc42ce9e5f"
+  }
+}

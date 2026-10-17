@@ -175,3 +175,13 @@ IRRA恢复1、图像4/文本4；G/H加载/前向0，Backward/Optimizer/JVP0。�
 独立full_audit_v1/result/ Manifest 913b87ecf0620730e537a33f96858e4dff41fbb6de8fa233b085da077fbbc9a2、report114857db1ca8c29b7a44cf592ab11693feeab0c823dc3f87bac6a3543143866f，TEXT_FULL_CPU_AUDIT_PASS。6156全文/action exact，有序摘要afe9b2a7302a4c135984768aa07a33d175ed18d3200dc08f970c137ae555f868；30797新文件、7991历史文件、3472Joint缓存、70原FAIL文件SHA/mtime保持，8个保护工作树HEAD/clean未变。
 
 591 CPU tests通过；全量记录879.7607615217566秒/RSS607948800 bytes，独立审计110.86877850443125秒/RSS607436800 bytes。原Stage4C2整体FAIL不提升，原C3小样本PASS保持；没有新mAP/Score或跨模型结果。详细SHA、吞吐限制与Stage4D-2待授权方案见framework/STAGE4D1_REPORT.md、STAGE4D1.md。
+
+## Stage4D-2：G全量入口CPU开发/资源阻断（无新GPU实验）
+
+基准82fe88a，独立codex/tbps-framework-stage4d2，实现Commit由PROJECT_STATE登记。预检最终因GPU已有PID2209695/显存20164MiB、空闲3879MiB被拒绝；退出1，无CUDA/G/H/IRRA恢复，无正式generation_v1、GPU Attempt0。没有等待后自动重试或抢占；Image/Joint全量PENDING。
+
+611 CPU tests通过（52.47秒，20新增）；完整源检查与历史保护单独CPU通过：75来源/33旧执行文件、3074原图/原顺序、6156 H文本/action、6116编辑/40 NOOP/13537替换均核验；原30797文件快照SHA/mtime、7991历史文件、3472缓存、70旧FAIL文件保持。冻结Stage4D1库/原Plan不改，旧两图像素来源只读有效，新生成对照未执行。
+
+证据/home/lzf/ldx/outputs/tbps-framework-stage4d2/cpu_source_verified_v1/result/，Manifest SHA5e5d7ac9a22992fbb1f0559d85acb390596a111a56e1293286459d7adb3984e1，report SHA55870922aebc9d02ebd4190c232ce27ef911e8a0ac2574b93fd8945f991e1729；CPU_SOURCES_AND_HISTORY_VERIFIED_GPU_RESOURCE_BLOCKED。原资源拒绝日志/home/lzf/ldx/tmp/stage4d2_cpu_preflight_v1.log SHA b1f9cacd38a46b83ee1a315a26e5b22d25019b8effa355b00e69f6f3d289185e。
+
+未产生新G像素、Image/Joint完成回执、mAP/Score或GPU成本数据；原H文本完成/原C3小样本PASS及旧FAIL保持。GPU资源就绪后须用户指示继续，不能据CPU Fixture/源核验自动启动。见framework/STAGE4D2_REPORT.md、STAGE4D2.md。

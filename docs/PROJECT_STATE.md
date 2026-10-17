@@ -1,57 +1,61 @@
 # 项目当前状态（唯一权威入口）
 
-状态来自Git、实际代码及不可变证据。历史报告为当时快照；架构见ARCHITECTURE，实验见EXPERIMENT_REGISTRY，设计边界见ADR。
+状态以Git、实际代码和不可变证据为准。历史README/报告为阶段快照；架构与实验来源见ARCHITECTURE、EXPERIMENT_REGISTRY及ADR。
 
-## 当前阶段
+## 当前阶段：Stage4D-2 CPU开发完成，GPU资源阻断
 
-**Stage4D-1完成：TEXT_FULL_MATERIALIZED，独立TEXT_FULL_CPU_AUDIT_PASS。** 历史H7的6156条CUHK官方Test文本已物化；Image Collection和Joint全量仍PENDING。本轮G/H/IRRA真实模型加载、神经前向、GPU、Backward、Optimizer、JVP、检索排名均为0。
+**尚未执行3074图真实G生成，Image/Joint全量PENDING。** 资源预检最终退出1：GPU has existing compute processes; safe stop。未初始化CUDA、未恢复G/H/IRRA、未创建正式generation_v1，GPU Attempt为0。没有等待资源后自动重试、抢占、终止外部进程或降低门禁。
 
-- 基准a5a6f6ae8c9200482ae0c70d228e1873d3ca4dd2。
-- 分支codex/tbps-framework-stage4d1。
-- 工作树/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d1-20261017。
-- 实现/证据Commit：7f50cd1922d2610703170d3a7e10d8c69ab5255a（本后续文档提交登记，代码与相关报告已共同提交）。
-- [阶段报告](framework/STAGE4D1_REPORT.md)、[接口与实际CPU命令](framework/STAGE4D1.md)。
+- 基准82fe88a5a74955838fc6341c1ed9a46921c94d7c。
+- 独立分支codex/tbps-framework-stage4d2。
+- 工作树/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d2-20261017。
+- 实现Commit由本轮代码提交后的文档提交登记。
+- [阶段报告](framework/STAGE4D2_REPORT.md)、[实际命令与停止策略](framework/STAGE4D2.md)。
 
-## 本轮真实产物与来源
+检查时RTX4090空闲3879MiB/已用20212MiB，已有PID2209695占用20164MiB；GPU利用率0%不代表可抢占。固定启动条件为无外部计算进程且空闲至少8192MiB。本轮不再查询等待GPU释放。
 
-统一Plan ID：7ac4fefd0abaa10df085be3ec3ed56c4b38c782a21bfc44473f40b90965447d5。官方Test Gallery3074/Query6156完整原顺序；H文本复用原Joint Full，不调用H、不选择新字符、不用目标反馈。冻结G10/H7/Selection及C1/C3审计来源SHA。
+## 已完成代码与CPU验证
 
-唯一全量CPU Attempt退出0：6156/6156，6116编辑、40 NOOP、13537次替换。逐条原文/Adv UTF8、完整Span/Unicode动作/Tokenizer审计及旧来源读回通过。用时879.7607615217566秒，Peak RSS607948800 bytes，最终30797文件/89401019内容bytes；已分配blocks194134016 bytes，无pending、无重试。
+新增full_gpu.py、gpu_safety.py、full_gpu_audit.py及配置/20项CPU tests。生产必须显式从冻结Stage4D1库导入stream_images、Store和原G插件，核对实际模块路径、旧Git身份与原Plan；新入口源码另行SHA绑定，不改变旧Plan/文本产物。
 
-根目录/home/lzf/ldx/outputs/tbps-framework-stage4d1/materialized_full_v1/：
+执行链设计为CPU预检→独立一次G GPU子进程→GPU退出后CPU H再核验/Joint引用封存→独立CPU验收。真实G根模块Hook、单次权重加载、逐图日志及Claim/Proof独立计数；旧两图SHA不一致停止并保留证据；只管理本入口创建的子进程。7200秒预算与系统可用RAM/磁盘监测，无2GiB进程RSS硬上限。
 
-- result/manifest.json SHA a149a57fc7e8c87a389ede80c7e2eaedafec9d3ffc81dff9a7275915040c615f。
-- artifacts/text-full/text_collection.json SHA 9ab8881dab9f82bd31cc31c0a7cc478e3beca9b2f9b940443603efa54d21069b。
-- protocol文件SHA ac77b8d0f8abb3918f7daa8194c8929ee3e504a29bd502b312ad812deb25a9f6。
-- 真实像素没有在此全量Store生成，不能将历史IRRA特征当RGB或宣称Joint全量完成。
+最终611 CPU tests通过，52.47秒；新增20项覆盖路径隔离、单次加载/实际前向、顺序/预算/Claim/Proof、历史像素异常停止、资源/中断与只读保护。CPU Fixture不是全量GPU路径已验证。
 
-## CPU验收与历史保护
+## 独立CPU来源与保护证据
 
-591 CPU tests通过（23新增+568既有，69.90秒）；新增审计保护代码的4项针对回归通过。严格GH_RUNTIME_PREFLIGHT_PASS、退出0，75来源/33旧执行文件、无模型反序列化/CUDA/神经前向。
+/home/lzf/ldx/outputs/tbps-framework-stage4d2/cpu_source_verified_v1/result/：
 
-独立全文审计退出0，110.86877850443125秒、Peak RSS607436800 bytes。6156条字符串/完整action/trace及官方顺序exact；动作摘要afe9b2a7302a4c135984768aa07a33d175ed18d3200dc08f970c137ae555f868与C1一致。30797新文件SHA/mtime不变；7991历史文件、3472Joint缓存、70原FAIL文件及8个保护工作树HEAD/clean保持。
+- status=CPU_SOURCES_AND_HISTORY_VERIFIED_GPU_RESOURCE_BLOCKED。
+- Manifest SHA5e5d7ac9a22992fbb1f0559d85acb390596a111a56e1293286459d7adb3984e1。
+- report SHA55870922aebc9d02ebd4190c232ce27ef911e8a0ac2574b93fd8945f991e1729。
+- 原Stage4D1 30797文件快照digest ed2c18d9e64715419d488ea0ac764586486e719aa9e39b4c38e743e5740dd163，SHA/mtime不变。
+- 6156 H文本及完整动作/顺序：6116编辑、40 NOOP、13537替换，动作摘要与C1一致；没有新H推理。
+- 严格闭包PASS，75来源/33旧执行文件；3074原图SHA及原官方顺序通过。
+- 7991历史文件、3472Joint缓存、70原FAIL文件保持；Stage4D1冻结库HEAD/clean和原八保护工作树保持。
+- 原Stage4C2两图RGB/Adv/effective_delta及生成证明只读有效；本轮新生成像素对照PENDING。
+- G/H/IRRA加载、前向、GPU、Backward、Optimizer、JVP均0。
 
-审计证据/home/lzf/ldx/outputs/tbps-framework-stage4d1/full_audit_v1/result/：
+原预检失败日志/home/lzf/ldx/tmp/stage4d2_cpu_preflight_v1.log，SHA b1f9cacd38a46b83ee1a315a26e5b22d25019b8effa355b00e69f6f3d289185e。CPU来源保护日志stage4d2_cpu_source_protection.log、全套测试stage4d2_final_cpu_tests.log均在/home/lzf/ldx/tmp/，不入Git。
 
-- Manifest SHA913b87ecf0620730e537a33f96858e4dff41fbb6de8fa233b085da077fbbc9a2。
-- report SHA114857db1ca8c29b7a44cf592ab11693feeab0c823dc3f87bac6a3543143866f。
+## 原已完成资产保持
 
-原Stage3B FAIL、Stage3B2 PASS、Stage4B2指标重放、Stage4C2整体FAIL及Stage4C3小样本PASS不修改、不提升旧状态。
+Stage4D1 H文本仍TEXT_FULL_MATERIALIZED及TEXT_FULL_CPU_AUDIT_PASS。固定Plan7ac4fefd0abaa10df085be3ec3ed56c4b38c782a21bfc44473f40b90965447d5；原Store/home/lzf/ldx/outputs/tbps-framework-stage4d1/materialized_full_v1/保持，未追加图像或Joint。
 
-## G Runner与下一阶段
+旧result Manifest a149a57fc7e8c87a389ede80c7e2eaedafec9d3ffc81dff9a7275915040c615f；text_collection SHA9ab8881dab9f82bd31cc31c0a7cc478e3beca9b2f9b940443603efa54d21069b；原独立CPU审计Manifest913b87ecf0620730e537a33f96858e4dff41fbb6de8fa233b085da077fbbc9a2。
 
-新G全量Runner仅CPU Fixture通过：工厂一次、16图Mock事务/读回/生成证明7.8663秒，真实G加载/前向0。先Claim后前向、已完成验证跳过，未提交Claim/pending在加载前拒绝，复用原G算法与像素读取，未实现GPU CLI。
+G10/H7/IRRA权重、Stage3B FAIL、Stage3B2 PASS、Stage4B2指标重放、Stage4C2整体FAIL及Stage4C3两图两文PASS均不改。本阶段未完成任何新的攻击效果评测。
 
-局部优化只在新路径添加Manifest索引、有限来源SHA/stat缓存与64条完整动作验证缓存；首/集合强制边界/尾完整SHA、未知/输出完整SHA、原子fsync/不可变发布不变。Fixture减少重复SHA读取，未证明墙钟加速；fsync仍主要瓶颈。
+## 下一步与权限
 
-3074图三FP32 Tensor纯数据5.0657958984375GiB，建议至少10GiB空闲及100000 inode；Mock存储调度线性量级约25.2分钟，非GPU实测。真实GPU资源/时限须Stage4D-2另行授权冻结，不设旧2GiB进程RSS上限。固定Plan绑定本轮producer路径，后续不能在新树重计算Plan并改签已完成H集合。
+资源就绪后由用户明确指示继续，使用同一入口重新完成全部预检。正式Attempt未消费，无需删除/转换任何缓存、Claim或回执。不得自动等待、重试或后台启动。
 
-本轮已完成授权文本物化及CPU审计，提交推送后停止。未授权Stage4D-2真实G生成、IRRA Full、RaSa/APTM或训练。
+真实G全量生成、旧两图新输出对照、Image/Joint封存和独立CPU全量验收仍待执行；IRRA Full、RaSa/APTM、训练均未授权。当前代码提交推送后停止等待审查。
 
 ## 既往阶段索引
 
-- Stage4C-3：a5a6f6ae8c9200482ae0c70d228e1873d3ca4dd2；[两图两文IRRA真实物化端到端PASS](framework/STAGE4C3_REPORT.md)，仅固定小样本VERIFIED。
-- Stage4C-2R：9f1f943ed8486a8c2889ab272764e5707a431552；[CPU时序修复/旧产物审计](framework/STAGE4C2R_REPORT.md)。
-- Stage4C-2：fcf097d3ab31785381947289a680e5f5ccbf9d42；[原唯一Attempt FAIL](framework/STAGE4C2_REPORT.md)，两图G/两文H局部PASS保持。
-- Stage4C-1：4d3bc025a7da593368ebd22cc05db1ebe787b446；[来源与物化契约](framework/STAGE4C1_REPORT.md)。
-- Stage4B-2：c09754e6afc8cf53a6c0c6e8715b6d4eace80946，METRICS_REPLAY_VERIFIED仅历史IRRA特征排名重放。
+- Stage4D1：82fe88a5a74955838fc6341c1ed9a46921c94d7c，[完整H物化/CPU报告](framework/STAGE4D1_REPORT.md)。
+- Stage4C3：a5a6f6ae8c9200482ae0c70d228e1873d3ca4dd2，[固定两图两文IRRA端到端PASS](framework/STAGE4C3_REPORT.md)。
+- Stage4C2R：9f1f943ed8486a8c2889ab272764e5707a431552，[CPU修复](framework/STAGE4C2R_REPORT.md)。
+- Stage4C2：fcf097d3ab31785381947289a680e5f5ccbf9d42，[原整体FAIL/局部G-H PASS](framework/STAGE4C2_REPORT.md)。
+- Stage4B2：c09754e6afc8cf53a6c0c6e8715b6d4eace80946，METRICS_REPLAY_VERIFIED仅旧IRRA特征重放。

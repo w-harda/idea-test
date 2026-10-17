@@ -36,3 +36,11 @@ CPU来源/动作/缓存读取必须先于CUDA，退出后检查原隔离函数�
 只对新全量路径添加索引与作用域来源验证缓存；原通用Store和历史代码不改。有限缓存仅接受已锁定FileRef，首/强制集合边界/尾完整SHA，直接来源每次stat，全部来源stat扫描至多间隔1秒；未知/输出仍完整SHA，异常恢复原模块和锁。相同Caption+完整action的原生验证结果有限缓存，不改变字符决策。fsync和不可变事务不以吞吐为由关闭。
 
 G未来需同一Plan流式生成：一次冻结工厂、每图先Claim再一次G、原/Adv/effective_delta紧凑FP32保存及读回，未提交前向不得自动重做。Stage4D-2资源策略另行授权，不能据CPU Fixture推导GPU许可。H完成不代表Joint已完成或跨模型效果已验证。
+
+## Stage4D-2：同Plan追加与独立执行授权
+
+新入口必须从冻结Stage4D1公共库执行stream_images/Store/原G插件，以实际文件路径和旧Git身份核验；新入口及监督器另行SHA绑定，不更改旧Plan、producer路径或旧H单位。旧TEXT_FULL回执中的历史PENDING不重写，新Joint回执单独表达完整集合。
+
+GPU会话与CPU文本核验/Joint封存分进程，防止在CUDA初始化后进入严格CPU隔离上下文。一次Attempt/权重加载/实际前向/Claim/Proof与日志分别计数，旧两图内容SHA不一致则保存现场并停止。父进程只管理自己创建的子进程。
+
+本轮GPU资源门禁拒绝外部计算进程/显存不足，实际GPU Attempt为0；不降低条件、等待重试或伪造Image/Joint完成状态。CPU开发与来源保护证据单独发布，完整生成和独立Joint验收PENDING。

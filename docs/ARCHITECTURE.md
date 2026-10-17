@@ -155,3 +155,11 @@ materialization/full_prepare绑定同一个3074 Gallery/6156 Query完整Plan，�
 bulk_session新增StreamingMaterializedStore成员索引及有限作用域来源缓存，不改原ArtifactStore/MaterializedStore。首、集合强制边界、尾完整SHA；直接使用来源每次stat、全来源stat最多1秒间隔，输出/未知文件仍完整SHA。原子fsync、Claim/pending、内容SHA和不可变回执保留。真实H仅复用旧Joint Unicode/action；全量语义TEXT_FULL_MATERIALIZED明确不等于Image/Joint完成。
 
 full_audit独立只读逐条UTF8/完整动作/trace/官方顺序与固定历史摘要，并检查历史保护清单；无模型、Embedding或排名。后续不同Victim只消费同一物化RGB/Unicode，不能反馈目标Tokenizer/Score改变已冻结产物。固定Plan绑定本轮producer路径，跨工作树不得直接重新计算Plan并重签已有H单位。接口/命令见framework/STAGE4D1.md。
+
+## Stage4D-2：冻结库执行桥与资源阻断
+
+新增full_gpu/gpu_safety/full_gpu_audit，生产绝对脚本的PYTHONPATH仅指向Stage4D1冻结库；运行时核验实际模块路径与原Git HEAD/clean，保持原MaterializationPlan，新增入口SHA另行绑定。旧图文Store只允许追加，既有H文本单位与回执不改签。
+
+父CPU预检→单次G GPU子进程→GPU退出后CPU文本再核验/Joint引用封存→独立CPU验收。实际G Hook/逐图日志/Claim/Proof相互绑定；只允许一次G权重反序列化，禁止其他模型与优化。资源使用系统实际可用RAM、磁盘和GPU冲突检查及7200秒时限，无进程RSS硬上限。
+
+本轮预检被外部GPU进程和空闲显存不足阻断；正式Attempt未创建、G全量/Joint封存未执行。CPU Fixture通过不能升级为真实执行验证。冻结库桥已实现，但新GPU执行路径仍PENDING，详见framework/STAGE4D2_REPORT.md。
