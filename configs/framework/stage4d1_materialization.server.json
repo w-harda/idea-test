@@ -1,0 +1,29 @@
+{
+  "schema": "tbps-full-materialization-preparation-1",
+  "source_config": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4c3-20261017/configs/framework/stage4c2_smoke.server.json",
+    "sha256": "53bff22055444492de77d2310fe7d76bb17da516b95d67a2afc31f62eb6c370d"
+  },
+  "c1_receipt": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-stage4c1/source_audit_v2/result/manifest.json",
+    "sha256": "484605d0501d94dbb4a21315ba0f61c76499e17d283fd2a51c6eb7a1d96c9ce7"
+  },
+  "c3_receipt": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-stage4c3/irra_only_v1/result/manifest.json",
+    "sha256": "e6aa5f89e9fce861bfd900c5160629b6f54bc196a858b43ee341116539062f70"
+  },
+  "gallery": 3074,
+  "query": 6156,
+  "text_statistics": {
+    "edited": 6116,
+    "NOOP": 40,
+    "edits": 13537
+  },
+  "image_size": [
+    384,
+    128
+  ],
+  "image_epsilon": 0.03137254901960784,
+  "pilot_queries": 16,
+  "GPU_generation_authorized": false
+}

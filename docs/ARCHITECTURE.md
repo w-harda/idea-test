@@ -147,3 +147,11 @@ retained_inputs用FrozenPlanReference显式只读原FAIL中完整提交的四单
 新representation有IRRA ModelSpace、旧物化单元/历史参考批次SHA和独立新Manifest，结果回执绑定四family特征Manifest。旧Plan、原四攻击单位和整体FAIL不重签。IRRA两图/两文8样本前向、参数冻结及1e-6等价已在固定环境验证；没有Full排名或跨模型证明。
 
 用户本轮取消旧2GiB RSS硬限制；独立新资源策略监视系统可用RAM与RSS/耗时，不修改旧资源协议或官方加载器。唯一Attempt已完成并拒绝重入，后续全量/其他Victim仍需独立授权。
+
+## Stage4D-1：流式全量物化与历史文本集合
+
+materialization/full_prepare绑定同一个3074 Gallery/6156 Query完整Plan，默认CPU预检，显式历史文本物化没有GPU选项。full_runner只调度原插件与原生成事务，不复制G/H算法；G流式Runner须由未来单独授权的入口注入冻结工厂和资源策略。
+
+bulk_session新增StreamingMaterializedStore成员索引及有限作用域来源缓存，不改原ArtifactStore/MaterializedStore。首、集合强制边界、尾完整SHA；直接使用来源每次stat、全来源stat最多1秒间隔，输出/未知文件仍完整SHA。原子fsync、Claim/pending、内容SHA和不可变回执保留。真实H仅复用旧Joint Unicode/action；全量语义TEXT_FULL_MATERIALIZED明确不等于Image/Joint完成。
+
+full_audit独立只读逐条UTF8/完整动作/trace/官方顺序与固定历史摘要，并检查历史保护清单；无模型、Embedding或排名。后续不同Victim只消费同一物化RGB/Unicode，不能反馈目标Tokenizer/Score改变已冻结产物。固定Plan绑定本轮producer路径，跨工作树不得直接重新计算Plan并重签已有H单位。接口/命令见framework/STAGE4D1.md。

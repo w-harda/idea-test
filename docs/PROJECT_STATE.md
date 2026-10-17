@@ -4,65 +4,54 @@
 
 ## 当前阶段
 
-**Stage4C-3唯一IRRA-only GPU Attempt PASS：IRRA_MATERIALIZED_SMOKE_VERIFIED。** 仅固定两张CUHK官方Test Gallery及两条Query，复用旧真实RGB/Unicode，不重新生成G/H。真实物化输入→IRRA特征/四组2×2 Score等价通过；不代表Full或跨模型攻击成功。
+**Stage4D-1完成：TEXT_FULL_MATERIALIZED，独立TEXT_FULL_CPU_AUDIT_PASS。** 历史H7的6156条CUHK官方Test文本已物化；Image Collection和Joint全量仍PENDING。本轮G/H/IRRA真实模型加载、神经前向、GPU、Backward、Optimizer、JVP、检索排名均为0。
 
-- 基准9f1f943ed8486a8c2889ab272764e5707a431552。
-- 分支codex/tbps-framework-stage4c3。
-- 工作树/home/lzf/ldx/projects/idea-test-tbps-framework-stage4c3-20261017。
-- 实现/唯一GPU PASS Commit：bef5f407be75e7aa0dc6550e74185012deb3b06a（由后续文档提交登记）。
-- [完整特征/Score原始数值、资源、证据和边界](framework/STAGE4C3_REPORT.md)。
+- 基准a5a6f6ae8c9200482ae0c70d228e1873d3ca4dd2。
+- 分支codex/tbps-framework-stage4d1。
+- 工作树/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d1-20261017。
+- 实现/证据Commit在本轮代码提交后由后续文档提交登记。
+- [阶段报告](framework/STAGE4D1_REPORT.md)、[接口与实际CPU命令](framework/STAGE4D1.md)。
 
-## 固定输入与来源
+## 本轮真实产物与来源
 
-Gallery cuhk:37132:0/index0、cuhk:37147:0/index15；Query cuhk:37132:0/index0历史2编辑、cuhk:37147:1/index31固定NOOP/K0。
+统一Plan ID：7ac4fefd0abaa10df085be3ec3ed56c4b38c782a21bfc44473f40b90965447d5。官方Test Gallery3074/Query6156完整原顺序；H文本复用原Joint Full，不调用H、不选择新字符、不用目标反馈。冻结G10/H7/Selection及C1/C3审计来源SHA。
 
-RetainedInputs只读原/home/lzf/ldx/outputs/tbps-framework-stage4c2/materialized_smoke_v1/四单位；原Plan ID 7c0c00daf022bfcba94d6e3583c6de26c89b58c0e9c6696449cdbadb1ab7072d、Claim/生成证明、完整动作和原整体FAIL保持，不复制或重签旧产物。两图预算0.0313725471496582≤8/255。IRRA实际消费的四份原/Adv FP32 RGB与保存Tensor逐值exact；四条文本Tokenizer ID与旧审计exact。
+唯一全量CPU Attempt退出0：6156/6156，6116编辑、40 NOOP、13537次替换。逐条原文/Adv UTF8、完整Span/Unicode动作/Tokenizer审计及旧来源读回通过。用时879.7607615217566秒，Peak RSS607948800 bytes，最终30797文件/89401019内容bytes；已分配blocks194134016 bytes，无pending、无重试。
 
-G10/H7本次恢复/前向均0，仅SHA核验原来源；IRRA官方Checkpoint 9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009恢复1次，eval/inference、参数冻结，未修改官方加载器。
+根目录/home/lzf/ldx/outputs/tbps-framework-stage4d1/materialized_full_v1/：
 
-## 实测数值与执行
+- result/manifest.json SHA a149a57fc7e8c87a389ede80c7e2eaedafec9d3ffc81dff9a7275915040c615f。
+- artifacts/text-full/text_collection.json SHA 9ab8881dab9f82bd31cc31c0a7cc478e3beca9b2f9b940443603efa54d21069b。
+- protocol文件SHA ac77b8d0f8abb3918f7daa8194c8929ee3e504a29bd502b312ad812deb25a9f6。
+- 真实像素没有在此全量Store生成，不能将历史IRRA特征当RGB或宣称Joint全量完成。
 
-- clean_gallery/image_gallery两组[2,512] FP32特征误差0、bitwise exact。
-- clean_text/adv_text两组最大误差均1.9371509552001953e-07；非bitwise exact，满足固定1e-6。
-- Score最大误差：Clean7.450580596923828e-08、Image-only1.0151416063308716e-07、Text-only8.940696716308594e-08、Joint1.0151416063308716e-07；均≤1e-6。
-- IRRA图像/文本样本前向4/4，8次batch1，started=completed；G/H0，Backward/Optimizer/JVP0。
-- IRRA 367参数Tensor及0 buffers前后摘要exact，参数grad=None。
-- 没有Ranking、mAP、Full计算、训练、OOM、中断或重试；GPU进程已退出。
+## CPU验收与历史保护
 
-## 资源授权与实测
+591 CPU tests通过（23新增+568既有，69.90秒）；新增审计保护代码的4项针对回归通过。严格GH_RUNTIME_PREFLIGHT_PASS、退出0，75来源/33旧执行文件、无模型反序列化/CUDA/神经前向。
 
-本轮用户明确取消旧2GiB进程RSS硬限制，旧配置/证据不改；新配置rss_hard_limit_bytes=null。系统可用RAM预检≥8GiB、运行时整机可用RAM低于2GiB才安全停止，300秒时限保留。此处2GiB是整机安全余量，不是进程上限。
+独立全文审计退出0，110.86877850443125秒、Peak RSS607436800 bytes。6156条字符串/完整action/trace及官方顺序exact；动作摘要afe9b2a7302a4c135984768aa07a33d175ed18d3200dc08f970c137ae555f868与C1一致。30797新文件SHA/mtime不变；7991历史文件、3472Joint缓存、70原FAIL文件及8个保护工作树HEAD/clean保持。
 
-初始可用RAM123902926848 bytes、GPU空闲24051MiB/无进程；峰值进程RSS2524065792 bytes=2.350719451904297GiB，GPU allocated922.380859375MiB/reserved1002MiB；资源监视26.17609791457653秒，无异常。未执行Stage4C-2M、未优化或替换IRRA加载器。
+审计证据/home/lzf/ldx/outputs/tbps-framework-stage4d1/full_audit_v1/result/：
 
-Stage4C-2R的资源阻断是旧授权/旧上限下的历史结论，已由本轮明确新授权取代；其原记录不重写。
+- Manifest SHA913b87ecf0620730e537a33f96858e4dff41fbb6de8fa233b085da077fbbc9a2。
+- report SHA114857db1ca8c29b7a44cf592ab11693feeab0c823dc3f87bac6a3543143866f。
 
-## CPU与保护
+原Stage3B FAIL、Stage3B2 PASS、Stage4B2指标重放、Stage4C2整体FAIL及Stage4C3小样本PASS不修改、不提升旧状态。
 
-532框架+36历史基础=568 CPU tests通过，14新增，38.11秒。严格CPU闭包75项G/H固定来源、33个旧实际执行文件、5个官方IRRA文件通过，CPUStartupGate隔离退出后才初始化CUDA。原启动流程Mock回归通过。
+## G Runner与下一阶段
 
-后置CPU审计PASS：7991历史文件、3472Joint Full缓存、原FAIL Attempt70文件SHA/mtime exact；7个受保护旧工作树HEAD/clean保持；新回执及四个feature Artifact完整，无pending。未改变原FAIL为PASS。
+新G全量Runner仅CPU Fixture通过：工厂一次、16图Mock事务/读回/生成证明7.8663秒，真实G加载/前向0。先Claim后前向、已完成验证跳过，未提交Claim/pending在加载前拒绝，复用原G算法与像素读取，未实现GPU CLI。
 
-## 不可变证据
+局部优化只在新路径添加Manifest索引、有限来源SHA/stat缓存与64条完整动作验证缓存；首/集合强制边界/尾完整SHA、未知/输出完整SHA、原子fsync/不可变发布不变。Fixture减少重复SHA读取，未证明墙钟加速；fsync仍主要瓶颈。
 
-/home/lzf/ldx/outputs/tbps-framework-stage4c3/irra_only_v1/：
+3074图三FP32 Tensor纯数据5.0657958984375GiB，建议至少10GiB空闲及100000 inode；Mock存储调度线性量级约25.2分钟，非GPU实测。真实GPU资源/时限须Stage4D-2另行授权冻结，不设旧2GiB进程RSS上限。固定Plan绑定本轮producer路径，后续不能在新树重计算Plan并改签已完成H集合。
 
-- attempt/manifest.json SHA0787cce4deb3038cedc1cc55dbc448dfcb321d529222d1520714dfcea6c27035。
-- result/manifest.json SHAe6aa5f89e9fce861bfd900c5160629b6f54bc196a858b43ee341116539062f70。
-- result/report.json SHAc85ffc5a315dcfe233a2c44459400f2489059bedcc2ead6ca6aaf728436de98f。
-- 四family features-*各保存实际[2,512]新特征和独立来源Manifest，详细SHA见报告。
-- CPU后置审计/home/lzf/ldx/outputs/tbps-framework-stage4c3/cpu_verified_v1/result/manifest.json SHA40e4308c251dfcb42ad9f29b4d631c5e93dd598f4c7e4521ae601859f56963c4。
-- stage4c3_gpu_attempt_v1.log及CPU测试日志在/home/lzf/ldx/tmp/，仅资产，不入Git。
-
-## 下一步与权限
-
-固定环境/两图两文的IRRA物化端到端等价由PENDING更新为VERIFIED；全量3074 Gallery物化、6156 Query端到端、Full排名、RaSa/APTM及新训练仍未验证、未授权。唯一irra_only_v1已消费，入口拒绝重试，没有resume或扩规模参数。
-
-完成提交推送后停止，等待审查；不自动开始下一阶段。
+本轮已完成授权文本物化及CPU审计，提交推送后停止。未授权Stage4D-2真实G生成、IRRA Full、RaSa/APTM或训练。
 
 ## 既往阶段索引
 
-- Stage4C-2R：9f1f943ed8486a8c2889ab272764e5707a431552，[CPU顺序修复/旧产物审计报告](framework/STAGE4C2R_REPORT.md)。
-- Stage4C-2：fcf097d3ab31785381947289a680e5f5ccbf9d42，[原唯一Attempt FAIL报告](framework/STAGE4C2_REPORT.md)，整体状态永久FAIL、G/H物化局部PASS。
-- Stage4C-1：4d3bc025a7da593368ebd22cc05db1ebe787b446，[来源与存储验收](framework/STAGE4C1_REPORT.md)。
-- Stage4B-2：c09754e6afc8cf53a6c0c6e8715b6d4eace80946，历史Full特征METRICS_REPLAY_VERIFIED，区别于新物化端到端小样本证明。
+- Stage4C-3：a5a6f6ae8c9200482ae0c70d228e1873d3ca4dd2；[两图两文IRRA真实物化端到端PASS](framework/STAGE4C3_REPORT.md)，仅固定小样本VERIFIED。
+- Stage4C-2R：9f1f943ed8486a8c2889ab272764e5707a431552；[CPU时序修复/旧产物审计](framework/STAGE4C2R_REPORT.md)。
+- Stage4C-2：fcf097d3ab31785381947289a680e5f5ccbf9d42；[原唯一Attempt FAIL](framework/STAGE4C2_REPORT.md)，两图G/两文H局部PASS保持。
+- Stage4C-1：4d3bc025a7da593368ebd22cc05db1ebe787b446；[来源与物化契约](framework/STAGE4C1_REPORT.md)。
+- Stage4B-2：c09754e6afc8cf53a6c0c6e8715b6d4eace80946，METRICS_REPLAY_VERIFIED仅历史IRRA特征排名重放。

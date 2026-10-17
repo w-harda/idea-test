@@ -28,3 +28,11 @@ CPU来源/动作/缓存读取必须先于CUDA，退出后检查原隔离函数�
 ## Stage4C-3固定环境验收
 
 明确新授权取消旧2GiB进程RSS上限后，唯一IRRA-only Attempt复用原四单位，G/H加载/前向0，IRRA一次恢复/图像4/文本4；真实保存RGB/Unicode到IRRA特征和四组2×2 Score误差≤1e-6，模型状态保持。仅固定两图两文环境标记IRRA_MATERIALIZED_SMOKE_VERIFIED，不提升原整体FAIL、不生成全量集合、不推导Full或跨模型结果。旧资源协议保持，新的系统RAM资源策略单独绑定新Attempt。
+
+## Stage4D-1：全量集合与吞吐约束
+
+本轮只授权历史6156条H文本CPU物化及G流式Runner的CPU Fixture。H模型加载/前向必须为0，6116编辑、40 NOOP和13537字符替换按历史原样保留。完整文本语义回执在所有单位、官方顺序、历史来源和会话最终SHA核验通过后发布；Image及Joint全量仍PENDING。
+
+只对新全量路径添加索引与作用域来源验证缓存；原通用Store和历史代码不改。有限缓存仅接受已锁定FileRef，首/强制集合边界/尾完整SHA，直接来源每次stat，全部来源stat扫描至多间隔1秒；未知/输出仍完整SHA，异常恢复原模块和锁。相同Caption+完整action的原生验证结果有限缓存，不改变字符决策。fsync和不可变事务不以吞吐为由关闭。
+
+G未来需同一Plan流式生成：一次冻结工厂、每图先Claim再一次G、原/Adv/effective_delta紧凑FP32保存及读回，未提交前向不得自动重做。Stage4D-2资源策略另行授权，不能据CPU Fixture推导GPU许可。H完成不代表Joint已完成或跨模型效果已验证。

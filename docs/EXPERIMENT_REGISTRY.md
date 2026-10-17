@@ -165,3 +165,13 @@ IRRA恢复1、图像4/文本4；G/H加载/前向0，Backward/Optimizer/JVP0。�
 证据/home/lzf/ldx/outputs/tbps-framework-stage4c3/irra_only_v1/，result Manifest e6aa5f89e9fce861bfd900c5160629b6f54bc196a858b43ee341116539062f70，report c85ffc5a315dcfe233a2c44459400f2489059bedcc2ead6ca6aaf728436de98f。原Plan 7c0c00da...和70旧文件不变。
 
 568 CPU tests，7991历史文件/3472Joint缓存SHA/mtime exact，后置CPU审计通过。新授权取消旧RSS上限，实测RSS2.350719451904297GiB、GPU allocated922.380859375/reserved1002MiB，执行段24.73483756557107秒，未重试。仅该固定样本/环境VERIFIED，Full/跨模型仍未覆盖；[完整原始Score与资源](framework/STAGE4C3_REPORT.md)。
+
+## Stage4D-1：6156历史H7文本全量物化（非新攻击效果实验）
+
+基准a5a6f6a，独立codex/tbps-framework-stage4d1，实现Commit由PROJECT_STATE登记。唯一正式CPU物化退出0、TEXT_FULL_MATERIALIZED；6156 Query原顺序，6116编辑/40 NOOP/13537字符替换，H/G/IRRA模型加载/前向/GPU/训练/排名0。G流式Runner仅16图CPU Mock，未恢复G10、未生成3074真实图像，Image/Joint全量PENDING。
+
+证据/home/lzf/ldx/outputs/tbps-framework-stage4d1/materialized_full_v1/：result Manifest a149a57fc7e8c87a389ede80c7e2eaedafec9d3ffc81dff9a7275915040c615f，text-full/text_collection.json内容SHA9ab8881dab9f82bd31cc31c0a7cc478e3beca9b2f9b940443603efa54d21069b。Plan7ac4fefd0abaa10df085be3ec3ed56c4b38c782a21bfc44473f40b90965447d5绑定C1/C3及原模型/Selection/数据来源。完整原文与Unicode/action独立物化，不是新H推理或旧Embedding转RGB。
+
+独立full_audit_v1/result/ Manifest 913b87ecf0620730e537a33f96858e4dff41fbb6de8fa233b085da077fbbc9a2、report114857db1ca8c29b7a44cf592ab11693feeab0c823dc3f87bac6a3543143866f，TEXT_FULL_CPU_AUDIT_PASS。6156全文/action exact，有序摘要afe9b2a7302a4c135984768aa07a33d175ed18d3200dc08f970c137ae555f868；30797新文件、7991历史文件、3472Joint缓存、70原FAIL文件SHA/mtime保持，8个保护工作树HEAD/clean未变。
+
+591 CPU tests通过；全量记录879.7607615217566秒/RSS607948800 bytes，独立审计110.86877850443125秒/RSS607436800 bytes。原Stage4C2整体FAIL不提升，原C3小样本PASS保持；没有新mAP/Score或跨模型结果。详细SHA、吞吐限制与Stage4D-2待授权方案见framework/STAGE4D1_REPORT.md、STAGE4D1.md。
