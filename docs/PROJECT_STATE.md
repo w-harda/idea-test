@@ -9,7 +9,7 @@
 - 基准82fe88a5a74955838fc6341c1ed9a46921c94d7c。
 - 独立分支codex/tbps-framework-stage4d2。
 - 工作树/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d2-20261017。
-- 实现Commit由本轮代码提交后的文档提交登记。
+- 实现Commit：424b9683162e96da2f9a3ee9151946c02b7b124e（本后续文档提交登记）。
 - [阶段报告](framework/STAGE4D2_REPORT.md)、[实际命令与停止策略](framework/STAGE4D2.md)。
 
 检查时RTX4090空闲3879MiB/已用20212MiB，已有PID2209695占用20164MiB；GPU利用率0%不代表可抢占。固定启动条件为无外部计算进程且空闲至少8192MiB。本轮不再查询等待GPU释放。

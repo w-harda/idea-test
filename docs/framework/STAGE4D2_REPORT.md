@@ -1,6 +1,6 @@
 # Stage4D-2：G全量入口开发与GPU资源阻断报告
 
-基准82fe88a5a74955838fc6341c1ed9a46921c94d7c；独立分支codex/tbps-framework-stage4d2，工作树/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d2-20261017。实现Commit由后续文档提交在PROJECT_STATE登记。
+基准82fe88a5a74955838fc6341c1ed9a46921c94d7c；独立分支codex/tbps-framework-stage4d2，工作树/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d2-20261017。实现Commit：424b9683162e96da2f9a3ee9151946c02b7b124e；本后续文档提交登记。
 
 **本轮没有执行3074图GPU生成。** 严格预检在GPU资源门禁拒绝：GPU has existing compute processes; safe stop。正式generation_v1未创建，GPU Attempt、G/H/IRRA加载/前向均0；Image/Joint全量PENDING。没有重试GPU检查、抢占或终止外部进程，也没有降低资源条件。其后仅完成CPU测试、来源保护和文档。
 
