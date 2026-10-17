@@ -2,6 +2,8 @@
 
 状态：PASS。独立分支 `codex/tbps-rasa-materialized-evaluation`，基准 `b51d9e55190e96b6422f0c87952471ad6ac12bed`。只执行一次短时真实Smoke，未启动RaSa Full、APTM、新攻击生成或训练。
 
+实现Commit：`5869fa59cbdc005f6bbf58276c96070c5e1548b4`。代码、配置、测试及本报告同批提交；本后续文档提交登记。
+
 ## 来源与实现
 
 官方仓库 `https://github.com/Flame-Chasers/RaSa` 固定Commit `bd16aa1a15f149548a90d196fcf10a27d7ab7c66`，只读部署于 `/home/lzf/ldx/external/RaSa`。用户上传 `/home/lzf/ldx/checkpoints/RaSa/rasa_cuhk_checkpoint.pth`，大小1816575847字节，SHA `bc85da09c2991d5de503c2c2ac4f032e20cc536fec5094f0acff45e93d0104d2`。与官方CUHK下载文件名称相符，内容仅model，严格恢复849项State；未含Epoch/Optimizer元数据，不推断具体训练Epoch。

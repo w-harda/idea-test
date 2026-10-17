@@ -4,7 +4,7 @@
 
 ## 当前任务：RaSa跨模型Adapter与10+10真实Smoke完成，Full待用户执行
 
-基准b51d9e55190e96b6422f0c87952471ad6ac12bed，独立分支codex/tbps-rasa-materialized-evaluation，工作树/home/lzf/ldx/projects/idea-test-tbps-rasa-materialized-eval-20261017。本轮实现Commit由后续文档提交登记。
+基准b51d9e55190e96b6422f0c87952471ad6ac12bed，独立分支codex/tbps-rasa-materialized-evaluation，工作树/home/lzf/ldx/projects/idea-test-tbps-rasa-materialized-eval-20261017。本轮实现Commit：5869fa59cbdc005f6bbf58276c96070c5e1548b4；本后续文档提交登记。
 
 用户上传官方RaSa CUHK权重，SHA bc85da09c2991d5de503c2c2ac4f032e20cc536fec5094f0acff45e93d0104d2；官方代码固定bd16aa1a15f149548a90d196fcf10a27d7ab7c66。只读复用generation_v3固定3074图/6156文，不重新生成/优化G/H，不复用IRRA Embedding。复用原Dataset/Engine/指标/存储，仅补RaSa原生局部表示、Top-128 ITM、结构化缓存与薄入口。原生模型加载保持strict849项，旧Transformers兼容仅在Adapter初始化边界。
 
