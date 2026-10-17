@@ -4,7 +4,7 @@
 
 ## 当前阶段：generation_v2 FAIL后的CPU最小修复
 
-基准dd0a213f2ac1b787412b755372c378ad49f31f9c；独立codex/tbps-framework-stage4d2r2，工作树/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d2r2-20261017。代码Commit由后续文档提交登记。
+基准dd0a213f2ac1b787412b755372c378ad49f31f9c；独立codex/tbps-framework-stage4d2r2，工作树/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d2r2-20261017。代码实现Commit：cd6c222fc6751e4dbefc44bb7869a9c08d93a680；本后续文档提交登记。
 
 generation_v2已FAIL：G10恢复1次、实际前向started/completed=0/0、新图像0。原_LegacyG像素读取中的torchvision Resize被非G模块保护误拒绝。原Store有唯一首图Claim、Proof0、pending0；两次generation_v1/v2 FAIL永久保留。
 

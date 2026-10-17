@@ -1,6 +1,6 @@
 # generation_v2失败后的最小修复与首图Claim恢复：CPU验收报告
 
-基准dd0a213f2ac1b787412b755372c378ad49f31f9c；独立codex/tbps-framework-stage4d2r2，工作树/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d2r2-20261017。代码Commit由后续文档提交登记。
+基准dd0a213f2ac1b787412b755372c378ad49f31f9c；独立codex/tbps-framework-stage4d2r2，工作树/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d2r2-20261017。代码实现Commit：cd6c222fc6751e4dbefc44bb7869a9c08d93a680；本后续文档提交登记。
 
 **修复、647项CPU回归及真实来源/恢复资格审计通过。未运行GPU，generation_v3尚不存在。** 当前仍是Image0、Claim1、Proof0、pending0；CPU资格通过不等于首图已恢复或Joint已完成。
 
