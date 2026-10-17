@@ -99,3 +99,15 @@ report SHA 50afe401bf57ad244d74a014221825b58a1feb24f07201a42c501404dffecbb6；at
 Joint metadata索引对应旧协议59ffb61a575cbeebf38e06bee5154b96f8967bb165b9b22305fad6c9cc967b48；3074/6156有序身份已对照annotation，仅声明3472 feature文件索引，实际字节仍PENDING。
 
 原Full未记录逐张对抗RGB SHA；metadata桥不能伪造该证据或自动授权新ModelSpace重放。历史G-v2/Joint/消融/AP指标与回执保持原样，7991保护文件SHA/mtime不变。Stage 4B仅有条件预案，尚未执行；详细限制及固定等价阈值见framework/STAGE4A_REPORT.md。
+
+## Stage 4B-1历史Joint特征接入验收（非新攻击实验）
+
+基准32f55827，独立codex/tbps-framework-stage4b1，实现Commit见PROJECT_STATE。412框架+36历史基础=448 CPU tests通过，29新增；合成历史路径与正常路径score/五指标/DR exact。
+
+只读原Joint Full四family：clean_gallery49批/3074，image_gallery49/3074，clean_text385/6156，adv_text385/6156。3472文件SHA/回执/结构/身份和6156条原生H动作合法性核验通过。METADATA_VERIFIED、FEATURES_VERIFIED；METRICS_REPLAY_VERIFIED=PENDING，真实Full scores/rank/metrics和模型前向均0。
+
+证据：/home/lzf/ldx/outputs/tbps-framework-stage4b1/features_final/result/；
+report SHA7d8dd8364df3537471658a0d3ce3c30f5e4609f700bb75a68e2f68e0fdc979bf；
+Manifest SHA5cd8dcf0e8ccbc61b58adc7dae37e26e51f361369e15f6fefa77c9465bfc1370，绑定6720唯一来源。首轮features_v1核验也通过且保留，最终版补全新检查证据来源绑定后再次只读验证。
+
+7991历史保护文件、3472Joint缓存SHA/mtime不变；原Stage3B FAIL、Stage3B-2 PASS、Stage4A回执继续有效。缺失对抗RGB SHA仍UNKNOWN；不冒充新攻击、不同Victim特征或完成Full指标重放。下阶段固定环境及阈值见Stage4B1报告，须另行授权。

@@ -99,3 +99,11 @@ engines/{metrics,provenance,evaluation,legacy}消费预先准备的有序表示�
 Feature/InputBinding→原生ScoreBatch→ScoreRecord→百分数指标/DR→新ArtifactStore原子回执。允许原生局部Token/Fusion、任意维度及显式高/低分方向；分块要求原生Query选择能力和Query独立性，不切分Gallery排名。tie保留官方默认argsort，FP32统一reduce。
 
 旧Joint桥仅metadata索引，feature字节/回执重放未验收。历史Full缺少逐张对抗RGB SHA，不允许用feature SHA替代；后续需单独批准分型历史重放身份，IRRA特征不跨Victim。真实cached scorer/Full加载器未实现，原实验配置继续dry-run。见ADR-0005及framework/STAGE4A_REPORT.md。
+
+## Stage 4B-1显式历史特征重放
+
+historical_contracts提供独立ReplayIdentity/FeatureBinding/Representation，不继承或放宽严格materialized InputBinding/BoundRepresentation。历史对抗像素SHA=UNKNOWN；身份只对原IRRA/CUHK官方Test、固定G10/H7、原协议/Selection/完成回执/文件SHA成立，不能作为新RGB或新攻击产物。
+
+historical_sources独立核对annotation有序成员、原来源与全部文件声明并显式映射ModelSpace；historical_loader只读Joint四family，每批detach().clone/原生H动作审计。无模型加载，权重只SHA。irra_cached实现原IRRA FP32归一化点积，evaluation显式历史分支复用同一排名/指标循环，正常materialized分支保持。
+
+状态分METADATA_VERIFIED、FEATURES_VERIFIED、METRICS_REPLAY_VERIFIED。本轮真实四family仅到FEATURES_VERIFIED，真实分数/排名0；默认Scorer和核验CLI拒绝真实评分。Stage4B-2环境/资源/阈值冻结但未授权执行。跨Victim仍需独立Adapter/编码，不重标IRRA特征。见[接口](framework/STAGE4B1.md)、[报告](framework/STAGE4B1_REPORT.md)、ADR-0006。

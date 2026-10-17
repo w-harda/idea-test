@@ -164,3 +164,7 @@ Stage 3B一次真实尝试因condition_schema来源缺项失败；原FAIL证据�
 缓存输入四模式、原生score、官方排名及新来源/回执存储已完成CPU验收（419项）；没有真实Full重放或GPU入口。[API/CPU命令](STAGE4A.md)、[源码映射/历史缺口/Stage 4B预案](STAGE4A_REPORT.md)、[ADR-0005](../decisions/0005-cached-evaluation-native-ranking.md)。
 
 旧Joint metadata桥仍拒绝执行；历史缺少对抗RGB SHA，不能将feature SHA冒充像素SHA或重标给RaSa/APTM。当前权威状态以PROJECT_STATE为准。
+
+## Stage 4B-1历史IRRA只读特征桥
+
+显式历史重放身份与严格materialized产物分离，像素SHA保持UNKNOWN；原Joint四family来源与全部特征已通过CPU只读验证，尚未计算真实Full分数/排名。[接口与CPU命令](STAGE4B1.md)、[验收及下阶段固定条件](STAGE4B1_REPORT.md)、[ADR-0006](../decisions/0006-explicit-historical-feature-replay.md)。默认真实评分拒绝，无本轮Full命令；当前权威状态见PROJECT_STATE。

@@ -31,12 +31,21 @@ class EvaluationEngine:
                 raise ArtifactError("unimplemented Dataset/Model or unverified cached source")
             if getattr(adapter,"execution_kind",None)!="readonly_cached":
                 raise ArtifactError("explicit model-free cached scoring Adapter required")
+        elif execution in ("historical_feature_replay","historical_fixture_replay"):
+            need_fixture=execution=="historical_fixture_replay"
+            if (getattr(adapter,"execution_kind",None)!=execution or getattr(adapter,"source_verified",False)is not True or adapter.space.model_id!=("irra_fixture" if need_fixture else "irra")
+                or manifest.dataset_id!="cuhk_pedes" or manifest.official_split!="test"):
+                raise ArtifactError("invalid historical IRRA/CUHK replay execution")
+            if need_fixture and max(len(manifest.gallery),len(manifest.queries))>64:
+                raise ArtifactError("small historical fixture only")
+            if not need_fixture and (len(manifest.gallery),len(manifest.queries))!=(3074,6156):
+                raise ArtifactError("historical Full identity size")
         else:raise ArtifactError("unknown evaluation execution; no model/attack loading engine")
         if getattr(adapter,"input_gradients",False):raise ArtifactError("Surrogate/gradient view forbidden")
         self.manifest,self.adapter,self.direction,self.execution=manifest,adapter,direction,execution
         if type(model_sources)is not tuple or any(type(ref)is not FileRef for ref in model_sources):
             raise ArtifactError("immutable model source FileRefs required")
-        if execution=="readonly_cached" and not any(ref.sha256==adapter.space.checkpoint_sha256 for ref in model_sources):
+        if execution in ("readonly_cached","historical_feature_replay") and not any(ref.sha256==adapter.space.checkpoint_sha256 for ref in model_sources):
             raise ArtifactError("cached victim checkpoint source required")
         self.model_sources=model_sources
         for ref in self.model_sources:checked(ref)
@@ -52,6 +61,11 @@ class EvaluationEngine:
             raise ArtifactError("explicit unique evaluation modes and inputs")
         required={k for m in modes for k in MODES[m]}
         if set(inputs)!=required:raise ArtifactError("missing/extra representation family")
+        if self.execution in ("historical_feature_replay","historical_fixture_replay"):
+            from .historical_contracts import validate_replay_inputs
+            validate_replay_inputs(self,inputs,modes)
+            for ref in self.model_sources:checked(ref)
+            return
         import hashlib
         originals={"image":tuple(g.image_sha256 for g in self.manifest.gallery),
                    "text":tuple(hashlib.sha256(q.caption.encode("utf-8")).hexdigest() for q in self.manifest.queries)}
@@ -74,6 +88,9 @@ class EvaluationEngine:
 
     def run(self,inputs,*,modes=tuple(MODES),query_chunk=None,check_stop=None):
         self._validate(inputs,modes)
+        if self.execution=="historical_feature_replay":
+            if query_chunk!=128 or not self.adapter.allow_full_scoring:
+                raise ArtifactError("real replay scoring disabled; requires Stage 4B-2 and chunk=128")
         if query_chunk is not None and (type(query_chunk)is not int or query_chunk<1):
             raise ArtifactError("positive query chunk size")
         callback=check_stop or (lambda:None)
@@ -149,6 +166,13 @@ def publish_result(store,artifact_id,protocol,report,scores,*,sources=(),fault=N
         stream=io.BytesIO();torch.save(value.detach().cpu().clone(),stream)
         name="scores/"+mode+".pt";data=stream.getvalue();files[name]=data
         q,g=(protocol["inputs"][k] for k in MODES[mode])
+        if protocol["execution"] in ("historical_feature_replay","historical_fixture_replay"):
+            records[mode]={"kind":"historical_feature_replay_score","query_binding":q["binding"],
+                "gallery_binding":g["binding"],"query_replay":q["identity"],"gallery_replay":g["identity"],
+                "model_space":protocol["model_space"],"direction":protocol["direction"],
+                "content":asdict(FileRef(str(store.root/artifact_id/name),hashlib.sha256(data).hexdigest())),
+                "adversarial_pixel_sha256":"UNKNOWN","not_a_new_attack":True}
+            continue
         artifact=ScoreArtifact(mode,protocol["model_space"]["checkpoint_sha256"],
             digest({"model_space":digest(protocol["model_space"]),
                     "native_scoring_protocol":protocol["model_space"]["scoring_protocol_sha256"]}),
@@ -165,6 +189,12 @@ def publish_result(store,artifact_id,protocol,report,scores,*,sources=(),fault=N
     for bound in protocol["inputs"].values():
         for v in bound["cache_sources"]:
             ref=FileRef(**v);refs[ref.path]=ref
+        if bound.get("kind")=="historical_feature_replay":
+            identity=bound["identity"]
+            for key in ("protocol","summary","completed","selection"):
+                ref=FileRef(**identity[key]);refs[ref.path]=ref
+            for _,v in identity["models"]:
+                ref=FileRef(**v);refs[ref.path]=ref
         if bound["origin"]:
             for key in ("checkpoint","protocol"):
                 ref=FileRef(**bound["origin"][key]);refs[ref.path]=ref
@@ -191,6 +221,20 @@ def load_result(store,artifact_id,*,expected_protocol_sha256):
     for mode in report["groups"]:
         if mode not in MODES:raise ArtifactError("unknown persisted mode")
         item=records[mode]
+        if protocol["execution"] in ("historical_feature_replay","historical_fixture_replay"):
+            q,g=(protocol["inputs"][k] for k in MODES[mode])
+            if (item.get("kind")!="historical_feature_replay_score"
+                or item["query_binding"]!=q["binding"] or item["gallery_binding"]!=g["binding"]
+                or item["query_replay"]!=q["identity"] or item["gallery_replay"]!=g["identity"]
+                or item["model_space"]!=protocol["model_space"] or item["direction"]!=protocol["direction"]
+                or item["adversarial_pixel_sha256"]!="UNKNOWN" or item["not_a_new_attack"]is not True):
+                raise ArtifactError("historical score source mismatch")
+            content=FileRef(**item["content"]);checked(content)
+            if Path(content.path)!=root/"scores"/(mode+".pt"):raise ArtifactError("historical score reference escape")
+            x=torch.load(content.path,map_location="cpu",weights_only=True).detach().clone()
+            if payload_digest(x)!=report["scores_sha256"][mode]:raise ArtifactError("historical score payload mismatch")
+            scores[mode]=x
+            continue
         q,g=(protocol["inputs"][k]["inputs"] for k in MODES[mode])
         a=item["artifact"]
         if (a["query_order"]!=q["ordered_ids"] or a["gallery_order"]!=g["ordered_ids"]

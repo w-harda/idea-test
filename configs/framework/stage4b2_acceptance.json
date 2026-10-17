@@ -1,0 +1,21 @@
+{
+  "schema": "tbps-historical-replay-acceptance-1",
+  "execution_authorized": false,
+  "torch": "2.5.1+cu124",
+  "device": "cpu",
+  "dtype": "torch.float32",
+  "cpu_threads": 2,
+  "query_chunk": 128,
+  "gallery_count": 3074,
+  "query_count": 6156,
+  "max_rss_bytes": 2147483648,
+  "max_seconds": 1800,
+  "feature_values": "exact",
+  "score_max_abs_error": 1e-06,
+  "official_ranking_indices": "exact",
+  "metric_atol_percentage_points": 1e-05,
+  "DR_atol_percentage_points": 1e-05,
+  "ranking_change_or_tolerance_relaxation": false,
+  "adversarial_pixel_sha256": "UNKNOWN",
+  "new_attack_generated": false
+}

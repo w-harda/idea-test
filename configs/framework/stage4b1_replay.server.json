@@ -1,0 +1,17 @@
+{
+  "schema": "tbps-historical-replay-sources-1",
+  "profile": "real",
+  "root": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/phase5_joint/full",
+  "stage4a_sources": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4a-20261016/configs/framework/stage4a_legacy.server.json",
+    "sha256": "0319c30079c846acdef7b0ff142c628fd4be96a22e6d587ea80a834fedd0d993"
+  },
+  "attack_sources": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage3br-20261016/configs/framework/stage3br_plugins.server.json",
+    "sha256": "7f5698fa6c4abf98621c5624faccfaa894ec566c3a20dbfa92147d8ca5c5aba1"
+  },
+  "expected_counts": {
+    "gallery": 3074,
+    "query": 6156
+  }
+}
