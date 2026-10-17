@@ -4,7 +4,7 @@
 
 ## 当前任务：物化IRRA共享GPU 10+10 Smoke已通过
 
-现有独立分支 `codex/tbps-irra-materialized-evaluation`，工作树 `/home/lzf/ldx/projects/idea-test-tbps-irra-materialized-eval-20261017`；本轮基准 `01dd2ac199b6357473959e63012ef2e265dbd325`。原评估实现Commit为bc710e5baf807bb8347a51c6071d03b43b2c0245；共享修订实现SHA由后续文档提交登记。
+现有独立分支 `codex/tbps-irra-materialized-evaluation`，工作树 `/home/lzf/ldx/projects/idea-test-tbps-irra-materialized-eval-20261017`；本轮基准 `01dd2ac199b6357473959e63012ef2e265dbd325`。原评估实现Commit为bc710e5baf807bb8347a51c6071d03b43b2c0245；共享修订实现Commit：a6875e53c7581cf747e02eda1882259b7df7de6f；本后续文档提交登记。
 
 用户授权只修改本评估入口为shared_observe_only，取消独占及固定8192MiB门槛，记录GPU状态、保留正常OOM与完整堆栈，不干预Ollama或自动重试。Stage4D1及G/H源码、权重、Plan、数据、FP32/math/no_tf32、batch1和指标均不变。
 

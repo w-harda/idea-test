@@ -2,6 +2,8 @@
 
 本轮在现有独立工作树 `/home/lzf/ldx/projects/idea-test-tbps-irra-materialized-eval-20261017`、分支 `codex/tbps-irra-materialized-evaluation` 上开发，基准 `01dd2ac199b6357473959e63012ef2e265dbd325`。仅执行用户授权的一次10 Gallery + 10 Query真实Smoke；正式Full未启动。
 
+实现Commit：`a6875e53c7581cf747e02eda1882259b7df7de6f`。代码、配置、测试及本报告同批提交；本后续文档提交登记其完整SHA。
+
 ## 最小修改
 
 - `materialized_irra.py` 使用本入口自己的 `shared_observe_only` GPU状态查询，移除独占、8192MiB和启动利用率拒绝条件。记录GPU名称、总量/空闲/已用显存、利用率和计算进程，不修改或终止Ollama，不增加进程身份绑定或后台监控。
