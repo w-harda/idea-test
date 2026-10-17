@@ -14,3 +14,7 @@
 - 目标Adapter后续只读取同一FP32 RGB/Unicode，用自身原生预处理/Tokenizer/评分；Representation/Score缓存按目标ModelSpace与实际输入SHA隔离，不重用IRRA特征，也不回传反馈给攻击器。
 
 影响：本轮只完成CPU来源、Fixture和存储验证。真实RGB仍NOT_MATERIALIZED，H来源TEXT_SOURCE_VERIFIED不等于新文本单元已发布。Stage4C-2和全量物化须另行授权，现有历史特征重放状态不替代端到端验收。
+
+## Stage4C-2实测注记
+
+固定Test两图G RGB与两条历史H Unicode成功物化，未调用全量seal；模型无关产物与目标编码会话之间只传不可变文件。IRRA会话在读取CPU历史动作前初始化CUDA，触发原cpu_only门禁，唯一Attempt FAIL。此结果未改变本ADR的权限/来源/集合契约，IRRA端到端等价仍PENDING。后续启动顺序修复必须保持CPU校验早于CUDA，另行审查/授权，不用放宽旧门禁解决。

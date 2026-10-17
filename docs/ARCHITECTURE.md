@@ -125,3 +125,9 @@ src/tbps/materialization的contracts/store/pipeline/generation/legacy_text/audit
 中断前置Claim避免前向后未发布被静默重做；完整单元可验证后跳过，未完成Claim/回执须人工审查。来源摘要缓存以完整SHA及inode/size/mtime/ctime变更拒绝支撑，不放宽materialized身份。
 
 真实RGB/端到端尚未验证，历史UNKNOWN像素身份不被升级。RaSa/APTM原生Adapter及GPU Runner留待单独授权，不能重标IRRA特征。见framework/STAGE4C1.md及报告、ADR-0007。
+
+## Stage4C-2受控物化Smoke与当前FAIL边界
+
+新增materialization/smoke.py与smoke_support.py，父进程先严格CPU闭包/来源校验，显式授权后创建唯一Attempt，G、历史文本、IRRA使用独立子进程。私有阶段需父回执/令牌/前阶段PASS；保存单元和生成证明，不弱化完整集合seal契约。Model Adapter只消费已保存RGB/Unicode，不向G/H传目标评分。
+
+本次两图/两文真实物化验证通过；IRRA child提前初始化CUDA后进入CPU历史动作检查，原cpu_only拒绝，最终FAIL。保持原Runner来源和失败回执，不事后绕过门禁；后续需独立CPU-only调整初始化时序并再次申请小样本GPU许可。特征/Score等价仍PENDING，不能升级为全量或跨模型验证。

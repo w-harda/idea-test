@@ -134,3 +134,13 @@ Manifest SHA484605d0501d94dbb4a21315ba0f61c76499e17d283fd2a51c6eb7a1d96c9ce7，1
 文本动作摘要afe9b2a7302a4c135984768aa07a33d175ed18d3200dc08f970c137ae555f868。
 
 7991历史文件和3472Joint特征SHA/mtime不变，原4B1/4B2回执有效。真实像素NOT_MATERIALIZED，历史文本TEXT_SOURCE_VERIFIED不等于新完整产物已发布；不能据Fixture宣称Test端到端或跨模型攻击通过。下一阶段仅有提案，未执行。
+
+## Stage4C-2：固定Test物化Smoke（FAIL，未重试）
+
+- 基准4d3bc025a7da593368ebd22cc05db1ebe787b446，独立codex/tbps-framework-stage4c2。
+- 两图cuhk:37132:0、cuhk:37147:0真实G10物化PASS；两条Query cuhk:37132:0编辑、cuhk:37147:1 NOOP历史H7复用PASS。
+- G10加载1/前向2，H加载0/前向0，IRRA加载0/图文前向0；Backward/Optimizer/JVP=0。L∞0.0313725471496582；原/Adv/delta读回bitwise exact。
+- IRRA会话提前初始化CUDA后进入历史CPU校验，错误isolated CPU process required；最终FAIL，特征与2×2 Score对照PENDING，不是新Full检索结果。
+- 证据/home/lzf/ldx/outputs/tbps-framework-stage4c2/materialized_smoke_v1/result/manifest.json SHA c1922bdf32935623dc9e85b1aeffe8a817cef2ab42b3ba767f62eda90e45155b。
+- 537 CPU tests；7991历史文件+3472Joint缓存SHA/mtime不变，无pending，旧FAIL/PASS/重放回执保持。后置CPU保护与最终CPU验收分别post_cpu_protection_v1、cpu_verified_v1。
+- [完整数据、来源SHA、失败调用链与未验证边界](framework/STAGE4C2_REPORT.md)。再次GPU需要独立修复审查与新授权。

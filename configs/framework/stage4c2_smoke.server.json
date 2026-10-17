@@ -1,0 +1,53 @@
+{
+  "schema": "tbps-materialized-smoke-1",
+  "gallery": [
+    "cuhk:37132:0",
+    "cuhk:37147:0"
+  ],
+  "query": [
+    "cuhk:37132:0",
+    "cuhk:37147:1"
+  ],
+  "gallery_indices": [
+    0,
+    15
+  ],
+  "limits": {
+    "G": 2,
+    "H": 0,
+    "IRRA_image": 4,
+    "IRRA_text": 4
+  },
+  "threshold": 1e-06,
+  "rss_bytes": 2147483648,
+  "seconds": 300,
+  "seed": 42,
+  "precision": "fp32/math/no_tf32",
+  "physical_gpu": 0,
+  "minimum_free_mib": 8192,
+  "maximum_utilization_percent": 10,
+  "replay_config": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4c2-20261017/configs/framework/stage4b1_replay.server.json",
+    "sha256": "b8948f559167d720b54125d266cecfc42b41b927d10ceab01c09fa20732ea424"
+  },
+  "dataset_sources": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4c2-20261017/configs/framework/stage2_sources.server.json",
+    "sha256": "9f2da834669c7a1902b3fa9570ce8ab1a2844483ddbfb6e75bb3221a02acf73e"
+  },
+  "gh_config": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4c2-20261017/configs/framework/stage3br_preflight.server.json",
+    "sha256": "be183cb77e4e0d34f44878c1cef4bc5bb0022269504157e25e55915a445b5f52"
+  },
+  "derivation": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4c2-20261017/configs/framework/stage3br_derivation.server.json",
+    "sha256": "22fab74e19a1ffaeda96ea4f30750cadb03cfe9562f6604c83e432cd97d0fb45"
+  },
+  "c1_result": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-stage4c1/source_audit_v2/result/manifest.json",
+    "sha256": "484605d0501d94dbb4a21315ba0f61c76499e17d283fd2a51c6eb7a1d96c9ce7"
+  },
+  "b2_result": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-stage4b2/replay_v1/result/manifest.json",
+    "sha256": "f11b7af27e4c87d4c4f9be4e30f908d8e0afbd68f3db547759ce191f6cb0a39a"
+  }
+}
