@@ -16,7 +16,7 @@
 
 等待器新增21项CPU流程测试，加36项APTM接口和10项原RaSa等待器回归共67项通过；bash -n通过。13项APTM原运行源码和原配置SHA不变，RaSa工作树clean。原RaSa成功行尾为RASA_FULL_AND_CPU_AUDIT_SUCCESS，CPU审计仅有日志PASS；新等待器严格核验所有原证据并写自己的rasa_verified.json，不补造旧审计回执。
 
-脚本src/tbps/engines/wait_aptm_full_chain.sh，控制目录/home/lzf/ldx/tmp/aptm_full_wait/；部署PID/独立会话一次性确认待本轮完成，详见[后台执行说明](framework/APTM_GPU_WAIT.md)。此处等待状态不代表真实Smoke或Full已通过；部署后Codex结束，不持续监控。
+脚本src/tbps/engines/wait_aptm_full_chain.sh，控制目录/home/lzf/ldx/tmp/aptm_full_wait/；等待器实现Commit 568eba1fd08407b7d6daabba8e47f1735c9cd98d；2026-10-18 02:20:36+0800由nohup独立session部署PID3701987，一次性确认PPID=1/SID3701987/无TTY/stdin=/dev/null。启动状态WAITING_RASA 0/3，RaSa RUNNING_FULL（GPU进程3372976，利用率69%，空闲21503MiB）；triggered及APTM Smoke/Full输出均不存在。此为启动快照，后续以日志为准，详见[后台执行说明](framework/APTM_GPU_WAIT.md)。此处等待状态不代表真实Smoke或Full已通过；部署后Codex结束，不持续监控。
 
 ## RaSa此前部署记录（启动时快照，不代表当前后台状态）
 

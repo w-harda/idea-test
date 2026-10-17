@@ -81,3 +81,7 @@ esac
 21项新增真实Bash流程Fixture全部通过；模型、nvidia-smi、sleep使用Mock，回执由合成JSON和真实SHA校验。覆盖全部四阶段失败、缺标志、RaSa失败/未完成、坏回执/错误规模/进程未退出、两种显式成功标志、GPU阈值/连续3次重置/图形例外/查询失败、第二次GPU门槛、重复输出/进程/flock、取消及RaSa源文件SHA/mtime保持。
 
 bash -n通过；另回归36项APTM接口与10项RaSa等待器测试。新脚本不改变13项已锁定APTM运行源码及原配置SHA；不以等待器部署状态声称Smoke或Full已完成。
+
+## 本轮实际部署
+
+实现Commit：568eba1fd08407b7d6daabba8e47f1735c9cd98d。2026-10-18 02:20:36+0800独立nohup后台PID3701987；一次性确认PPID=1、SID=3701987、TTY=?、stdin=/dev/null、stdout/stderr=nohup.log。首次WAITING_RASA 0/3，RaSa RUNNING_FULL，GPU进程3372976/利用率69%/空闲21503MiB。未触发APTM，Smoke/Full输出均不存在。之后由后台进程独立执行；该快照不代表后续实时状态，Codex不持续监控。
