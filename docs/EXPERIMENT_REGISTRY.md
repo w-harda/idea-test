@@ -185,3 +185,21 @@ IRRA恢复1、图像4/文本4；G/H加载/前向0，Backward/Optimizer/JVP0。�
 证据/home/lzf/ldx/outputs/tbps-framework-stage4d2/cpu_source_verified_v1/result/，Manifest SHA5e5d7ac9a22992fbb1f0559d85acb390596a111a56e1293286459d7adb3984e1，report SHA55870922aebc9d02ebd4190c232ce27ef911e8a0ac2574b93fd8945f991e1729；CPU_SOURCES_AND_HISTORY_VERIFIED_GPU_RESOURCE_BLOCKED。原资源拒绝日志/home/lzf/ldx/tmp/stage4d2_cpu_preflight_v1.log SHA b1f9cacd38a46b83ee1a315a26e5b22d25019b8effa355b00e69f6f3d289185e。
 
 未产生新G像素、Image/Joint完成回执、mAP/Score或GPU成本数据；原H文本完成/原C3小样本PASS及旧FAIL保持。GPU资源就绪后须用户指示继续，不能据CPU Fixture/源核验自动启动。见framework/STAGE4D2_REPORT.md、STAGE4D2.md。
+
+## Stage4D-2资源就绪后唯一正式Attempt：FAIL
+
+基准883c4be59284b79f475412eb40ea6d96e8b1742a，复用原代码和配置。资源及CPU来源预检通过；generation_v1/gpu-start已发布，随后因安全包装改变CPUStartupGate快照而在CUDA初始化前拒绝。G加载尝试/恢复/前向0，H/IRRA及优化0；未发布任何图像/逐图Claim/Proof或Image/Joint集合。原H6156完成保持，不能宣称Joint就绪。
+
+证据/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v1/：attempt Manifest97208f29d78ef656069cab51aba9a2f1f64f2c51400fe256783233d4eba4889d，gpu-result/report SHA1fcc0b7cf487043d0b4b5762057ad6380308dd753f231673da555b2ed9388c26，result Manifestde017a15233cc57184108c5a10aaa6effe34f49e7afb736f7b76de3833ec8174。整体/子结果FAIL，正式Attempt1，不得重跑原目录。
+
+failed_attempt_cpu_audit_v1/result/ Manifest86bbeda8a4e24aa840ec0343d9e2eafebc7b658628f045ae931b700452667420，FAILED_ATTEMPT_READONLY_PROTECTION_VERIFIED：30797旧文件、7991历史文件、3472缓存、70旧FAIL文件及16新失败文件SHA/mtime不变，无pending。611 CPU tests仍通过（51.03秒），不替代真实GPU验收；无新像素/mAP/Score。报告framework/STAGE4D2_EXECUTION_REPORT.md。
+
+本次按“全部通过后提交推送”的条件未commit/push，必要Markdown为工作副本更新；源码HEAD883c4be不变。旧资源阻断记录、旧H回执及此前全部FAIL/PASS证据保留。
+
+## Stage4D-2R：CPU-only启动修复（非GPU实验）
+
+基准883c4be，独立codex/tbps-framework-stage4d2r。626 CPU tests通过（611原+15新增），实际child组合门禁/包装/Hook/Claim/Fixture封存及故障恢复验证。75来源/33导入闭包PASS；30797原物化文件、7991历史文件、3472缓存、70旧FAIL及16新FAIL SHA/mtime不变。
+
+证据/home/lzf/ldx/outputs/tbps-framework-stage4d2r/cpu_audit_v1/result/，Manifest SHA24a39edf72666ae9279009e4e97751d51c268787a29a0a35f5944d987a690461，report SHA381f1434f5e0df5a49fc5a4ab58a6cb95726ca4dcf63fe142c620b7fb0246682；STAGE4D2R_CPU_REPAIR_SOURCES_AND_PROTECTION_VERIFIED。原执行报告字节SHA dca03f00ccc8333e1c13eec310f24d5601fa37eb9c00f45a9adc12cff1a9c143完整收录，原树文件SHA/mtime与未提交状态保留。
+
+generation_v1仍FAIL；generation_v2尚不存在，真实G/H/IRRA加载/前向及CUDA初始化0。原Text完成、Image/Joint PENDING，无新攻击效果或跨模型结果；下一次GPU必须单独授权。完整边界见framework/STAGE4D2R_REPORT.md。

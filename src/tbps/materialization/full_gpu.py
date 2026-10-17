@@ -33,7 +33,7 @@ else:
 
 FROZEN="/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d1-20261017"
 BASE="/home/lzf/ldx/outputs/tbps-framework-stage4d2"
-OUTPUT=BASE+"/generation_v1"
+OUTPUT=BASE+"/generation_v2"
 PLAN="7ac4fefd0abaa10df085be3ec3ed56c4b38c782a21bfc44473f40b90965447d5"
 GALLERY=("cuhk:37132:0","cuhk:37147:0")
 TEXT_RECEIPT="a149a57fc7e8c87a389ede80c7e2eaedafec9d3ffc81dff9a7275915040c615f"
@@ -173,49 +173,51 @@ def child(path,token):
     guard=FullGuard(c,FULL);guard.seconds=max(.01,c["max_seconds"]-(time.time()-ctl["started_unix"]))
     last=[time.perf_counter()];last_gpu=[0]
     try:
-        with guard,no_optimization() as blocked,g_load_only(plan.g.checkpoint.path,store.store.root,counts):
+        with guard:
             torch.set_num_threads(2);torch.manual_seed(42)
             torch.backends.cuda.matmul.allow_tf32=False;torch.backends.cudnn.allow_tf32=False
             gate.initialize_cuda()
-            @contextmanager
-            def factory():
-                with source_execution_audit(legacy) as imports,load_legacy_plugins(
-                     legacy,components=("gv2",),device="cuda:0",allow_model_load=True) as plugins:
-                    counts["G_loads"]+=1;need(counts["G_loads"]==1,"one restored G")
-                    plugin=plugins["gv2"];report["model_before"]=model_snapshot(plugin.backend.model)
-                    with observation.attach(plugin):
-                        yield plugin
-                    report["model_after"]=model_snapshot(plugin.backend.model)
-                    need(report["model_before"]==report["model_after"],"G parameters/buffers changed")
-                report["runtime_import_files"]=sorted(imports)
-            def resource():
-                guard.check()
-                if time.monotonic()-last_gpu[0]>=10:
-                    own_gpu_only();last_gpu[0]=time.monotonic()
-            def progress(n,elapsed,stats):
-                now=time.perf_counter()
-                need(observation.started==observation.completed==stats["generated"],"actual hook/readback accounting")
-                q=store.plan.manifest.gallery[n-1];unit=store.reference(store.image_request(q.image_id).binding)
-                md=read_json(unit.metadata.path)
-                metrics={"completed":n,"G_forward_started":observation.started,
-                    "G_forward_completed":observation.completed,"image_id":q.image_id,
-                    "unit_seconds":now-last[0],"elapsed_seconds":elapsed,"readback_SHA_verified":True,
-                    "linf":md["pixels"]["linf"],"pixel_file_sha256":unit.data.sha256,
-                    "adversarial_pixels_sha256":unit.content_sha256,"RSS_bytes":guard.peak,
-                    "GPU_allocated_bytes":torch.cuda.memory_allocated(),
-                    "GPU_reserved_bytes":torch.cuda.memory_reserved(),"disk":guard.disk}
-                print("G_FULL_PROGRESS",json.dumps(metrics,separators=(",",":")),flush=True);last[0]=now
-            with fp32_runtime():
-                report["stream"]=stream_images(store,factory,allow_real_generation=True,
-                                                resource_check=resource,progress=progress)
-            need(observation.started==observation.completed==3074 and report["stream"]["generated"]==3074
-                 and report["stream"]["skipped"]==0 and counts["G_load_attempts"]==counts["G_loads"]==1,
-                 "exact 3074 generation / one restoration")
-            need(set(observation.comparisons)==set(GALLERY) and
-                 all(v["exact"] for v in observation.comparisons.values()),"two historical comparisons")
-            report["forbidden_operations"]=dict(blocked)
-            verify_subset(before);store.verify_plan(force=True)
-            report["status"]="IMAGE_FULL_MATERIALIZED"
+            # CPU门禁通过后立即安装限制；两项均成功才可进入G工厂。
+            with no_optimization() as blocked,g_load_only(plan.g.checkpoint.path,store.store.root,counts):
+                @contextmanager
+                def factory():
+                    with source_execution_audit(legacy) as imports,load_legacy_plugins(
+                         legacy,components=("gv2",),device="cuda:0",allow_model_load=True) as plugins:
+                        counts["G_loads"]+=1;need(counts["G_loads"]==1,"one restored G")
+                        plugin=plugins["gv2"];report["model_before"]=model_snapshot(plugin.backend.model)
+                        with observation.attach(plugin):
+                            yield plugin
+                        report["model_after"]=model_snapshot(plugin.backend.model)
+                        need(report["model_before"]==report["model_after"],"G parameters/buffers changed")
+                    report["runtime_import_files"]=sorted(imports)
+                def resource():
+                    guard.check()
+                    if time.monotonic()-last_gpu[0]>=10:
+                        own_gpu_only();last_gpu[0]=time.monotonic()
+                def progress(n,elapsed,stats):
+                    now=time.perf_counter()
+                    need(observation.started==observation.completed==stats["generated"],"actual hook/readback accounting")
+                    q=store.plan.manifest.gallery[n-1];unit=store.reference(store.image_request(q.image_id).binding)
+                    md=read_json(unit.metadata.path)
+                    metrics={"completed":n,"G_forward_started":observation.started,
+                        "G_forward_completed":observation.completed,"image_id":q.image_id,
+                        "unit_seconds":now-last[0],"elapsed_seconds":elapsed,"readback_SHA_verified":True,
+                        "linf":md["pixels"]["linf"],"pixel_file_sha256":unit.data.sha256,
+                        "adversarial_pixels_sha256":unit.content_sha256,"RSS_bytes":guard.peak,
+                        "GPU_allocated_bytes":torch.cuda.memory_allocated(),
+                        "GPU_reserved_bytes":torch.cuda.memory_reserved(),"disk":guard.disk}
+                    print("G_FULL_PROGRESS",json.dumps(metrics,separators=(",",":")),flush=True);last[0]=now
+                with fp32_runtime():
+                    report["stream"]=stream_images(store,factory,allow_real_generation=True,
+                                                    resource_check=resource,progress=progress)
+                need(observation.started==observation.completed==3074 and report["stream"]["generated"]==3074
+                     and report["stream"]["skipped"]==0 and counts["G_load_attempts"]==counts["G_loads"]==1,
+                     "exact 3074 generation / one restoration")
+                need(set(observation.comparisons)==set(GALLERY) and
+                     all(v["exact"] for v in observation.comparisons.values()),"two historical comparisons")
+                report["forbidden_operations"]=dict(blocked)
+                verify_subset(before);store.verify_plan(force=True)
+                report["status"]="IMAGE_FULL_MATERIALIZED"
     except BaseException as exc:
         report.update(status="FAIL",error=str(exc),traceback=traceback.format_exc())
     finally:

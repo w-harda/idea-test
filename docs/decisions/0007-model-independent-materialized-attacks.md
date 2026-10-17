@@ -44,3 +44,15 @@ G未来需同一Plan流式生成：一次冻结工厂、每图先Claim再一次G
 GPU会话与CPU文本核验/Joint封存分进程，防止在CUDA初始化后进入严格CPU隔离上下文。一次Attempt/权重加载/实际前向/Claim/Proof与日志分别计数，旧两图内容SHA不一致则保存现场并停止。父进程只管理自己创建的子进程。
 
 本轮GPU资源门禁拒绝外部计算进程/显存不足，实际GPU Attempt为0；不降低条件、等待重试或伪造Image/Joint完成状态。CPU开发与来源保护证据单独发布，完整生成和独立Joint验收PENDING。
+
+## Stage4D-2正式执行失败注记
+
+新的单次Attempt在模型加载前，因GPU安全包装改变StartupGate快照而被拒绝。先退出CPU隔离并不够，还需在CUDA初始化检查前保持快照中的函数身份；优化/权重限制包装应在初始化门禁通过之后、模型加载之前安装。此处仅记录待修复结论，本轮不修改冻结门禁、入口或算法。
+
+原generation_v1永久保留FAIL，G前向为0也不能自动重试。原Plan/6156文本与全部历史保护通过；新的CPU-only修复和独立GPU Attempt须用户单独授权，不能用现有611项Fixture通过升级为真实成功。
+
+## Stage4D-2R：启动快照与安全包装的顺序
+
+CPU-only最小修复保留原门禁：退出CPU上下文、确认函数/导入/锁恢复及资源设置后，先initialize_cuda，再立即安装全部GPU权重/优化保护，安装成功前禁止G工厂。真实child组合CPU Fixture覆盖正确/错误顺序及失败恢复，不能用取消门禁解决冲突。
+
+派生配置固定独立generation_v2与修复入口SHA，原Plan/6156文本、generation_v1整体FAIL与原工作树脏报告保持。当前只有CPU代码与来源验收，不包含新的GPU授权；正式Image/Joint完成仍须后续独立Attempt及全量CPU验收。

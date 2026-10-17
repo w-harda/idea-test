@@ -1,0 +1,18 @@
+{
+  "schema": "tbps-g-startup-repair-derivation-1",
+  "base_commit": "883c4be59284b79f475412eb40ea6d96e8b1742a",
+  "parent": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d2-20261017/configs/framework/stage4d2_generation.server.json",
+    "sha256": "0947c2d70803c9033dae6c940af990e1efc3ad69800c667558457dcd7d27a21e"
+  },
+  "derived": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d2r-20261017/configs/framework/stage4d2r_generation.server.json",
+    "sha256": "d4b802d9962baf4061f7ffe1ec2c4127746b7c3721793e19d07e3eab3869cbca"
+  },
+  "changed_fields": [
+    "output",
+    "entry_sources"
+  ],
+  "GPU_execution_authorized": false,
+  "reason": "仅启动顺序修复及新Attempt来源绑定；原Plan/资源/算法不变"
+}

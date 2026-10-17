@@ -163,3 +163,15 @@ full_audit独立只读逐条UTF8/完整动作/trace/官方顺序与固定历史�
 父CPU预检→单次G GPU子进程→GPU退出后CPU文本再核验/Joint引用封存→独立CPU验收。实际G Hook/逐图日志/Claim/Proof相互绑定；只允许一次G权重反序列化，禁止其他模型与优化。资源使用系统实际可用RAM、磁盘和GPU冲突检查及7200秒时限，无进程RSS硬上限。
 
 本轮预检被外部GPU进程和空闲显存不足阻断；正式Attempt未创建、G全量/Joint封存未执行。CPU Fixture通过不能升级为真实执行验证。冻结库桥已实现，但新GPU执行路径仍PENDING，详见framework/STAGE4D2_REPORT.md。
+
+## Stage4D-2正式Attempt实测FAIL
+
+资源就绪后唯一generation_v1在CUDA初始化前失败。新入口先安装no_optimization/g_load_only，改变CPUStartupGate快照中的autograd/torch.load函数，随后initialize_cuda严格检查拒绝。G恢复/前向0，没有图像单元或Joint；原门禁、算法、Plan及源码不改。
+
+建议后续CPU-only调整为“CPU退出→gate初始化CUDA→GPU安全包装→模型加载/前向”，保留资源guard并补实际child组合时序测试。本轮未授权自动修复/重试，失败源码/配置必须冻结。当前611项CPU测试不覆盖该组合，详见framework/STAGE4D2_EXECUTION_REPORT.md。
+
+## Stage4D-2R：CPU启动顺序修复与派生Attempt
+
+独立分支仅调整full_gpu.child的初始化/安全包装嵌套：CPUStartupGate快照和锁恢复后先initialize_cuda，再立即安装no_optimization与g_load_only，两项成功才允许G工厂。资源guard仍覆盖全程；原Gate/监督器/冻结Stage4D1/算法不改。
+
+新树入口固定generation_v2；新派生配置仅改output及entry_sources，原v1/config/Plan/文本保持。实际child组合CPU Fixture通过，真实GPU未运行。原FAIL报告完整收录新分支但旧工作树脏文档不改；CPU通过不升级正式Image/Joint状态。见framework/STAGE4D2R_REPORT.md。
