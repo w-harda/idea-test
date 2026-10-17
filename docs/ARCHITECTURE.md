@@ -211,3 +211,7 @@ models/rasa.py持有官方加载、原生Tokenizer/预处理、全局256维候�
 materialized_inputs只读封存集合并复用现有读取/身份接线；rasa_eval生产入口固定两个冻结attacks/materialization包路径，保持Stage4D原Plan，其余Adapter/Engine来自新树。NativeFeatureCache存Tensor字典，ChunkCachedScorer按Query块保存原生Score；不固定特征维度/目标模型或攻击ID。AttackOrigin描述显式组件和单模态预算，Engine按模态检查，不把未知ID当成已实现攻击插件。
 
 RaSa官方384×384 BICUBIC、BERT50、Top-128最终ITM保持。现有FP32工作空间已是384×128，因此采用Tensor resize避免量化，不能宣称与从原始文件直接PIL处理相同。Full报告须标注固定物化Clean协议。短时10+10真实Smoke通过，仅10候选；Full及APTM尚未执行。新增模型仍需独立Adapter/来源与薄入口，复用输入桥、缓存和Engine；新增攻击样本不改RaSa。见framework/RASA_MATERIALIZED_EVALUATION.md。
+
+## 轻量RaSa GPU等待执行层
+
+wait_rasa_full.sh为独立Bash监督器，不修改任何Adapter/Engine/模型或配置。60秒GPU快照、连续3次资源门槛、flock与一次性triggered避免重复启动；满足后只调用已有Full及CPU审计，失败不重试。由用户明确授权nohup独立session部署，Codex不保持会话或后台监控。运行日志与正式结果隔离，见framework/RASA_GPU_WAIT.md。

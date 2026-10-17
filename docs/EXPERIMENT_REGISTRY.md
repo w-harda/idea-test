@@ -245,3 +245,7 @@ Git b51d9e55190e96b6422f0c87952471ad6ac12bed；固定generation_v3 RGB/Unicode�
 官方RaSa代码bd16aa1、CUHK权重bc85da09...，独立原生空间/缓存。同一generation_v3前10 Gallery/前10正例覆盖Query，20图像/20文本/400融合pair，模型加载1，G/H/IRRA0；唯一attempt-000001 PASS。四组mAP100.0/95.88888549804688/99.16666412353516/91.44444274902344，不解释为正式迁移成功率。
 
 证据/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/smoke/；summary SHA036ca6df1ffc793dfb39e36cc7b38294b12655f0f23975dc005822829c04aa61，execution SHA8a9b7bcc0b73017f3cc85a8809b530c4a21e55ca071ab0242291f39d7c989995。参数/buffers exact、无OOM/重试。Full保持Top-128，当前仅10候选Smoke；固定384×128物化RGB到384×384 Tensor预处理区别于官方原始图片PIL基线。正式Full尚未执行，等待用户手动运行。见framework/RASA_SMOKE_REPORT.md。
+
+## RaSa Full GPU等待器部署授权
+
+用户明确授权独立nohup进程等待GPU0资源：每60秒、连续3次≥8192MiB/≤10%/无其他计算进程后单次Full，成功后CPU审计。等待状态不表示Full已执行；真实启动/结束以/home/lzf/ldx/tmp/rasa_full_wait/{poll,status,launch}.log及正式Full回执为准。开发仅10项CPU Fixture通过，不新增真实GPU测试。现有RaSa Smoke、IRRA Full及generation_v3保持。

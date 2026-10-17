@@ -2,9 +2,9 @@
 
 状态来自Git、实际代码与不可变证据；历史报告为当时快照。
 
-## 当前任务：RaSa跨模型Adapter与10+10真实Smoke完成，Full待用户执行
+## 当前任务：RaSa Full一次性GPU等待器（按用户明确授权部署）
 
-基准b51d9e55190e96b6422f0c87952471ad6ac12bed，独立分支codex/tbps-rasa-materialized-evaluation，工作树/home/lzf/ldx/projects/idea-test-tbps-rasa-materialized-eval-20261017。本轮实现Commit：5869fa59cbdc005f6bbf58276c96070c5e1548b4；本后续文档提交登记。
+基准b51d9e55190e96b6422f0c87952471ad6ac12bed，独立分支codex/tbps-rasa-materialized-evaluation，工作树/home/lzf/ldx/projects/idea-test-tbps-rasa-materialized-eval-20261017。RaSa实现Commit：5869fa59cbdc005f6bbf58276c96070c5e1548b4，发布HEAD d2fbdfbe30b1356746743b2bc1c7be168f652534。
 
 用户上传官方RaSa CUHK权重，SHA bc85da09c2991d5de503c2c2ac4f032e20cc536fec5094f0acff45e93d0104d2；官方代码固定bd16aa1a15f149548a90d196fcf10a27d7ab7c66。只读复用generation_v3固定3074图/6156文，不重新生成/优化G/H，不复用IRRA Embedding。复用原Dataset/Engine/指标/存储，仅补RaSa原生局部表示、Top-128 ITM、结构化缓存与薄入口。原生模型加载保持strict849项，旧Transformers兼容仅在Adapter初始化边界。
 
@@ -19,9 +19,10 @@ CPU127项通过：125项必要回归＋原树1项绝对路径测试＋独立官�
 - IRRA证据：/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/；summary SHA4530f3f97156d6e9f65c07b0775588324c39679feb0f16ae66b356692b017eb0；用户日志SUCCESS | IRRA_FULL_AND_CPU_AUDIT。本轮只读引用，不重新评测。
 - RaSa Smoke：/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/smoke/；summary SHA036ca6df1ffc793dfb39e36cc7b38294b12655f0f23975dc005822829c04aa61；report SHA8a9b7bcc0b73017f3cc85a8809b530c4a21e55ca071ab0242291f39d7c989995。
 - 历史生成/审计26文件SHA/mtime、61555物化文件成员/size/mtime、IRRA正式结果3关键文件SHA及冻结工作树保持；没有重复7991文件/旧Full重审。
-- **RaSa Full PENDING**；full目录未创建。首次Full约315万融合pair，局部Token纯数据约11.91GiB，建议20GiB磁盘/30GiB RAM余量。由用户手动启动，不后台代跑或监控。
+- **RaSa Full PENDING**；本轮启动前确认full目录未创建。用户新授权独立Bash后台等待器，每60秒采样，连续3次空闲≥8192MiB/利用率≤10%/无计算进程后单次启动原Full，成功后CPU审计；不干预Ollama、失败不重试。
+- 等待器10项CPU测试及bash -n通过，未在测试中访问真实GPU。后台部署状态待本轮一次性启动确认，运行证据在/home/lzf/ldx/tmp/rasa_full_wait/；详见framework/RASA_GPU_WAIT.md。
 
-具体代码、限制和命令见[RaSa执行说明](framework/RASA_MATERIALIZED_EVALUATION.md)及[真实Smoke报告](framework/RASA_SMOKE_REPORT.md)。本轮不进入APTM、其他算法或训练。
+具体代码、限制和命令见[RaSa执行说明](framework/RASA_MATERIALIZED_EVALUATION.md)及[真实Smoke报告](framework/RASA_SMOKE_REPORT.md)。本轮不进入APTM、其他算法或训练；Codex在启动等待器并确认脱离会话后结束，不持续监控。
 
 ## 历史索引
 
