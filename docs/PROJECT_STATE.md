@@ -2,9 +2,9 @@
 
 状态来自Git、实际代码与不可变证据；历史报告为当时快照。
 
-## 当前任务：APTM跨模型物化评估接入（CPU就绪，GPU PENDING）
+## 当前任务：APTM一次性自动实验链（部署等待中）
 
-基准174eb51f4c346a6d74ace3f61f1ea170aeccf00b；独立分支codex/tbps-aptm-materialized-evaluation，工作树/home/lzf/ldx/projects/idea-test-tbps-aptm-materialized-eval-20261018。本轮不监控/修改RaSa等待器，不启动APTM GPU或Full。实现Commit：2f21e910d9e560aa96ae29adcdb3d712c38dd4d6。
+基准174eb51f4c346a6d74ace3f61f1ea170aeccf00b；独立分支codex/tbps-aptm-materialized-evaluation，工作树/home/lzf/ldx/projects/idea-test-tbps-aptm-materialized-eval-20261018。接入阶段未执行APTM GPU；本轮用户明确授权独立nohup等待器在RaSa完成及资源满足后自动执行Smoke、CPU审计、Full、CPU审计，不修改RaSa监督器。实现Commit：2f21e910d9e560aa96ae29adcdb3d712c38dd4d6。
 
 官方APTM代码b20025445471eb4b743164a6faec29a9eccfb293与官方CUHK权重已准备。权重/home/lzf/ldx/checkpoints/APTM/aptm_cuhk_checkpoint_best.pth，SHA521c9bf784e7e821ade471deaafa2f25e2501950591e574dc60ca177e9be5a2c；CPU官方构造/629项strict恢复成功，214456629参数，CUDA未初始化。33项官方/BERT来源和13项本次运行源码显式锁定，数据/权重不进Git。
 
@@ -12,7 +12,11 @@
 
 140项必要CPU测试通过（36项APTM新增；新树139＋原IRRA所属树1项绝对路径来源检查）。官方完整evaluation及五指标独立合成对照通过，129 Query跨128块、原生来源/Unicode/Storage/缓存篡改/权限测试通过。Full CPU preflight确认3074/6156、原Plan、6116编辑/40 NOOP/13537替换；10+10 CPU preflight固定成员及无CUDA通过。原RaSa11项producer SHA不变，RaSa/IRRA/Stage4D1 worktree clean。
 
-真实APTM GPU加载/编码/评分、GPU峰值、迁移Full均未执行，不能据CPU结果宣布真实等价或攻击成功。APTM输出目录尚不存在。用户确认RaSa结束并授权/手动执行固定10+10 Smoke后，才决定Full；不自动进入其他模型或训练。准确命令与差异见[APTM执行说明](framework/APTM_MATERIALIZED_EVALUATION.md)。CPU证据/home/lzf/ldx/tmp/aptm_development/，仅新文档/源码提交；旧实验不变。
+真实APTM GPU加载/编码/评分、GPU峰值、迁移Full均未执行，不能据CPU结果宣布真实等价或攻击成功。部署前APTM输出目录尚不存在。本轮自动链必须先核验RaSa正式完成/审计日志与回执、进程退出，再连续3次GPU空闲≥20000MiB/利用率≤10%/无计算进程启动Smoke；Smoke审计后重新从0等待3次才启动Full。任一失败停链，不重试、不覆盖；不进入其他模型或训练。准确命令与差异见[APTM执行说明](framework/APTM_MATERIALIZED_EVALUATION.md)。CPU证据/home/lzf/ldx/tmp/aptm_development/，仅新文档/源码提交；旧实验不变。
+
+等待器新增21项CPU流程测试，加36项APTM接口和10项原RaSa等待器回归共67项通过；bash -n通过。13项APTM原运行源码和原配置SHA不变，RaSa工作树clean。原RaSa成功行尾为RASA_FULL_AND_CPU_AUDIT_SUCCESS，CPU审计仅有日志PASS；新等待器严格核验所有原证据并写自己的rasa_verified.json，不补造旧审计回执。
+
+脚本src/tbps/engines/wait_aptm_full_chain.sh，控制目录/home/lzf/ldx/tmp/aptm_full_wait/；部署PID/独立会话一次性确认待本轮完成，详见[后台执行说明](framework/APTM_GPU_WAIT.md)。此处等待状态不代表真实Smoke或Full已通过；部署后Codex结束，不持续监控。
 
 ## RaSa此前部署记录（启动时快照，不代表当前后台状态）
 

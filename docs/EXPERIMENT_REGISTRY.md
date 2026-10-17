@@ -257,3 +257,9 @@ Git b51d9e55190e96b6422f0c87952471ad6ac12bed；固定generation_v3 RGB/Unicode�
 CPU官方模型629状态strict匹配，GPU未初始化；140项必要CPU测试、完整身份/来源预检与10+10成员预检通过。证据/home/lzf/ldx/tmp/aptm_development/{cpu_tests_final,full_cpu_preflight,smoke_cpu_preflight}.log。预期正式输出/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/{smoke,full}/，本轮未创建，无APTM真实mAP或迁移结论。
 
 RaSa后台任务不由本任务监控/修改。先由用户确认资源与RaSa任务结束，再执行APTM Smoke；Full需Smoke验收后手动运行。源码/CPU通过不授予新GPU许可。
+
+## APTM一次性自动链部署授权（尚非GPU实验结果）
+
+基准e7d28861cf5a91a801e47b699d58ac9389900f4b。用户授权独立nohup链等待RaSa Full/CPU审计/进程退出及GPU≥20000MiB/≤10%/无计算进程连续3次后执行APTM Smoke；Smoke CPU审计通过后独立重新等3次，再Full与CPU审计。失败不重试，保留现场，不改G/H/RaSa/IRRA。
+
+21项新控制流程CPU测试与46项相关回归共67通过，模型命令/资源均Fixture；部署阶段不声称真实APTM mAP或Full完成。实际阶段以/home/lzf/ldx/tmp/aptm_full_wait/{phase,status.log,launch.log}与正式APTM输出为准。旧RaSa没有独立JSON CPU审计回执，显式核对旧成功行及CPU PASS日志、正式完成/执行SHA后仅在新控制目录写只读确认。

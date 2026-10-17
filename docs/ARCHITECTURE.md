@@ -223,3 +223,9 @@ models/aptm只负责官方来源、Swin/BERT编码、CUHK预处理和原始ITM/g
 APTM原始Score归一化依赖完整Query集合，因此Adapter明确query_independent_scores=False。APTMSetScorer先按128 Query缓存原始ITM/global（来源绑定完整Query/Gallery），再完整集合归一化，之后才提供固定上下文的Score切片给原Engine。最终缓存绑定所有原始Score Manifest，不逐块minmax或复用RaSa分数；单模式额外最终矩阵缓存避免每块重复读全矩阵。
 
 不同受害者ModelSpace/Token/Score独立，仍消费相同FP32 RGB与Unicode。当前输入桥绑定generation_v3；后续攻击方法替换物化输入桥，不修改APTM原生评分。CPU Fixture及真实权重结构验证不代表APTM真实GPU或Full已通过。详见framework/APTM_MATERIALIZED_EVALUATION.md。
+
+## APTM自动执行控制层
+
+wait_aptm_full_chain.sh只编排原APTM CLI：RaSa完成证据→GPU连续3次空闲→Smoke→CPU audit→独立重新等待3次→Full→CPU audit。与Model Adapter/Engine/配置完全分离，不引入训练、攻击生成或其他模型。RaSa旧成功标志/日志回执通过显式只读确认桥兼容，确认文件只写APTM控制目录。
+
+flock、输出/进程检查和不可重入trigger限制单链；各阶段退出码和精确PASS共同决定推进。控制日志不等于正式评估结果；不修改旧Rasa监督器，不重算旧指标。用户明确授权后台链，Codex部署确认后退出。见framework/APTM_GPU_WAIT.md。
