@@ -4,7 +4,7 @@
 
 ## 当前任务：APTM跨模型物化评估接入（CPU就绪，GPU PENDING）
 
-基准174eb51f4c346a6d74ace3f61f1ea170aeccf00b；独立分支codex/tbps-aptm-materialized-evaluation，工作树/home/lzf/ldx/projects/idea-test-tbps-aptm-materialized-eval-20261018。本轮不监控/修改RaSa等待器，不启动APTM GPU或Full。
+基准174eb51f4c346a6d74ace3f61f1ea170aeccf00b；独立分支codex/tbps-aptm-materialized-evaluation，工作树/home/lzf/ldx/projects/idea-test-tbps-aptm-materialized-eval-20261018。本轮不监控/修改RaSa等待器，不启动APTM GPU或Full。实现Commit：2f21e910d9e560aa96ae29adcdb3d712c38dd4d6。
 
 官方APTM代码b20025445471eb4b743164a6faec29a9eccfb293与官方CUHK权重已准备。权重/home/lzf/ldx/checkpoints/APTM/aptm_cuhk_checkpoint_best.pth，SHA521c9bf784e7e821ade471deaafa2f25e2501950591e574dc60ca177e9be5a2c；CPU官方构造/629项strict恢复成功，214456629参数，CUDA未初始化。33项官方/BERT来源和13项本次运行源码显式锁定，数据/权重不进Git。
 

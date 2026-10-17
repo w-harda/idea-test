@@ -119,3 +119,5 @@ Full预期6148图像编码、12312文本编码和3151872融合pair；实际数�
 结构化图文特征纯Tensor约3.14GiB，四组原始ITM/global及最终/result Score约1.13GiB；还需绑定JSON、SHA、不可变回执及加载临时空间，建议至少10GiB独立可用磁盘、16GiB可用系统RAM。流式编码不缓存所有RGB；原生Token在CPU保存并按pair送GPU。最终Score只保留一个当前模式的额外缓存副本。
 
 耗时主要由约315万融合pair决定；尚无真实APTM GPU吞吐，不给出伪精确Full时长，待10+10实测更新。6156 Query不等于6156 Gallery。无新训练或其他攻击方法接入。
+
+实现Commit：2f21e910d9e560aa96ae29adcdb3d712c38dd4d6。后续文档提交只登记此SHA，不改变已锁定的运行源码/配置。
