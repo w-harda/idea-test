@@ -121,3 +121,16 @@ Manifest SHA5cd8dcf0e8ccbc61b58adc7dae37e26e51f361369e15f6fefa77c9465bfc1370，�
 证据：/home/lzf/ldx/outputs/tbps-framework-stage4b2/replay_v1/{attempt,evaluation,result}/；result Manifest f11b7af27e4c87d4c4f9be4e30f908d8e0afbd68f3db547759ce191f6cb0a39a，report SHA8c13994ab049ad7f76dbe380b6647887387b9be9e8be78f16382bfacf8a96f89。每套Manifest绑定6740来源，统一Score/指标读回通过。
 
 471 CPU tests通过；7991历史保护文件及3472缓存SHA/mtime保持。峰值RSS1862.4453125MiB、总发布用时98.56915779039264秒；模型加载/前向/GPU/训练0。没有新RGB证明，像素SHA仍UNKNOWN；不是RaSa/APTM或新端到端攻击实验。原FAIL及旧验收证据保留，唯一许可已用完。完整五指标/DR和验收范围见framework/STAGE4B2_REPORT.md。
+
+## Stage4C-1物化基础设施与历史来源检查（非新攻击实验）
+
+基准c09754e，独立codex/tbps-framework-stage4c1；实现Commit见PROJECT_STATE。514 CPU tests（43新增）通过，真实模型加载/前向/GPU/JVP/排名/真实单元发布全部0。
+
+G2 Test纯G(I)无需条件，3074原图SHA就绪；2176训练监督无Test成员。旧G1 3074条件仅只读校验，不供G2使用。H7原Joint Full 6156字符串/完整动作、385批1155元数据文件通过；6116编辑/40 NOOP/13537字符替换，固定可复用文本，不重新生成。
+
+证据：/home/lzf/ldx/outputs/tbps-framework-stage4c1/source_audit_v2/result/；
+report SHA37d244e6ec250a5d536e4a4e06832005a9e896233cc9b908f88e9b83365bf6e7；
+Manifest SHA484605d0501d94dbb4a21315ba0f61c76499e17d283fd2a51c6eb7a1d96c9ce7，10570项来源。
+文本动作摘要afe9b2a7302a4c135984768aa07a33d175ed18d3200dc08f970c137ae555f868。
+
+7991历史文件和3472Joint特征SHA/mtime不变，原4B1/4B2回执有效。真实像素NOT_MATERIALIZED，历史文本TEXT_SOURCE_VERIFIED不等于新完整产物已发布；不能据Fixture宣称Test端到端或跨模型攻击通过。下一阶段仅有提案，未执行。

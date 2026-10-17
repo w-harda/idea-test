@@ -1,55 +1,54 @@
 # 项目当前状态（唯一权威入口）
 
-状态来自Git、实际代码和不可变证据；历史文档仅为阶段快照。架构见[ARCHITECTURE](ARCHITECTURE.md)，实验来源见[EXPERIMENT_REGISTRY](EXPERIMENT_REGISTRY.md)。
+状态来自Git、实际代码和不可变证据；历史文档是阶段快照。架构见[ARCHITECTURE](ARCHITECTURE.md)，实验来源见[EXPERIMENT_REGISTRY](EXPERIMENT_REGISTRY.md)。
 
 ## 当前阶段
 
-**Stage4B-2唯一一次历史IRRA Full特征CPU重放PASS，METRICS_REPLAY_VERIFIED。** 全部原3074 Gallery/6156 Query及四模式参与；这仅证明原IRRA历史特征的指标重放，不表示重新生成对抗RGB或完成新的端到端攻击。
+**Stage4C-1真实RGB/Unicode物化基础设施CPU验收完成。** G原图输入READY（3074/3074 SHA）；历史H文本TEXT_SOURCE_VERIFIED（6156/6156）；真实G RGB及新文本单元未全量物化。没有真实模型加载/前向、GPU、JVP、训练或排名。
 
-- 基准：a4c938743aae246b541bbb303c2a2d8053566c28。
-- 独立分支：codex/tbps-framework-stage4b2。
-- 独立树：/home/lzf/ldx/projects/idea-test-tbps-framework-stage4b2-20261017。
-- 实现Commit：26f70a480a0eef0c943fb9204afc7cfaeb221986（由后续文档提交登记）。
-- [接口与已执行命令](framework/STAGE4B2.md)、[完整精度结果/验收报告](framework/STAGE4B2_REPORT.md)。
+- 基准：c09754e6afc8cf53a6c0c6e8715b6d4eace80946。
+- 独立分支：codex/tbps-framework-stage4c1。
+- 独立树：/home/lzf/ldx/projects/idea-test-tbps-framework-stage4c1-20261017。
+- 实现Commit：待本轮提交后由后续文档提交登记。
+- [接口/CPU命令](framework/STAGE4C1.md)、[来源/存储/成本/下一阶段方案](framework/STAGE4C1_REPORT.md)、[ADR-0007](decisions/0007-model-independent-materialized-attacks.md)。
 
-## 本轮实现与实际验收
+## 本轮结果与边界
 
-新增CPU受控入口、独立历史点积/官方rank数值仪器、RSS/耗时保护及23项合成测试；evaluation仅补强历史Score读回类型/shape/FP32/有限性，Ranking/指标/DR代码及冻结配置未改。默认只预检，独立显式参数授权真实计算，固定replay_v1目录拒绝重复执行。stage4b2_acceptance.json execution_authorized仍false；本次一次性授权已使用。
+G-v2真实Test推理是G(I)，无需Test条件/JVP；3074原图及冻结G10来源就绪，必需条件数0/缺口0。2176缓存均official train训练监督，不供Test生成输入。旧G-v1的3074 Test条件及6148数据/metadata文件SHA核验通过，仅作为历史索引，未混用于G-v2，也未反序列化。
 
-Stage4B1不可变FEATURES_VERIFIED回执及6740项完整来源通过；四family868批/3472文件内容二次独立读取exact。新评分196次、独立历史点积196次，新Ranking/官方rank各4次；四组score误差0、完整索引exact、五指标对原summary误差0，DR最大误差1.4210854715202004e-14个百分点，全部固定阈值通过。
+历史Joint Full的6156条H7文本/动作及1155个metadata/intent/receipt通过原Canonical/Span/Unicode/Tokenizer校验：6116有编辑、40 NOOP、13537字符替换。可显式复用，不再运行H，不读取features.pt；本轮没有发布新的真实文本单元。
 
-| 组 | mAP（%） | DR_mAP（%） |
-| --- | ---: | ---: |
-| Clean | 66.09744262695312 | 0.0 |
-| Image-only | 32.28228759765625 | 51.15955124034977 |
-| Text-only | 51.471561431884766 | 22.12775655726238 |
-| Joint | 23.553220748901367 | 64.36591218538784 |
+新materialization命名空间复用G/H薄插件与ArtifactStore，保存FP32原/Adv/delta和独立文件/像素SHA，保存真实UTF-8及完整动作；Joint只组合引用。可恢复入口先发布Claim，前向后未发布的中断拒绝自动重复。缓存计划摘要只计算一次，来源首/尾完整SHA及会话stat变更拒绝保持。已有源码/算法/模型/Checkpoint/缓存/正式结果不修改。
 
-统一publish_result/load_result的四组6156×3074 CPU FP32 Score、指标/来源回执读回exact。435框架+36历史基础=471 CPU tests通过。唯一正式Attempt退出码0、无failure/pending/中断；开发预检元组/JSON列表误拒绝在正式运行前修复并保留旧日志，不是正式重试。
+**478框架+36历史基础=514 CPU tests通过，43新增。** 真实源检查61.10218879207969秒/peakRSS566.703125MiB，模型加载及G/H/IRRA前向、JVP、Feature Tensor载入、排名、真实单元发布全部0。早期CPU源检查重复Manifest摘要导致性能问题，安全中断自有CPU进程后修复，日志保留；没有GPU或真实生成失败重试。
 
-CPU FP32/Torch2.5.1+cu124/2线程；峰值RSS1952915456 bytes（1862.4453125 MiB），发布完成98.56915779039264秒，低于2GiB/1800秒。真实IRRA/G/H模型加载/前向、GPU初始化、Optimizer更新、Backward、JVP、攻击生成均0。
+7991旧保护文件及3472Joint特征文件SHA/mtime不变，后者完整快照摘要与Stage4B1原记录exact；原Stage4B1/4B2完成回执/绑定来源有效。原实验发布树及4B1/4B2树保持原HEAD/clean。
 
-## 不可变证据与保护
+## 不可变CPU来源证据
 
-目录：/home/lzf/ldx/outputs/tbps-framework-stage4b2/replay_v1/。
+/home/lzf/ldx/outputs/tbps-framework-stage4c1/source_audit_v2/result/：
 
-- attempt Manifest：44202a5d829b51045bbbd0ef499154c047a04b79d0d17383341799b8033fe01e。
-- evaluation Manifest：0d0f69173d313e697b62a7b9a3531cbf20366789e3bca210082f8c53dfb108b5。
-- result Manifest：f11b7af27e4c87d4c4f9be4e30f908d8e0afbd68f3db547759ce191f6cb0a39a。
-- report：8c13994ab049ad7f76dbe380b6647887387b9be9e8be78f16382bfacf8a96f89。
-- 总时长在同一replay_v1.log最终resource_after_result_publication；result/report资源时间94.109630048275秒明确不含最终回执发布。
+- report SHA37d244e6ec250a5d536e4a4e06832005a9e896233cc9b908f88e9b83365bf6e7。
+- Manifest SHA484605d0501d94dbb4a21315ba0f61c76499e17d283fd2a51c6eb7a1d96c9ce7，10570来源FileRef。
+- plan.json是准备协议，不是已经生成3074 RGB或6156新文本单元的完成证明。
+- ordered_text_action_digest=afe9b2a7302a4c135984768aa07a33d175ed18d3200dc08f970c137ae555f868。
+- CPU日志cpu_framework_verified.log/cpu_legacy.log及protection_result.json；前置Claim模块另由最终CPU回执绑定。
 
-7991旧保护文件、3472Joint缓存文件SHA/mtime不变。Stage4B1回执及绑定来源继续有效；Stage3B原FAIL、其他历史验证/实验结果保留。原Checkpoint/Selection/算法/Tokenizer/数据及正式结果未改。
+## 下一步（须另行授权）
 
-## 历史与权限边界
+Stage4C-2最小建议：Test Gallery cuhk:37132:0/cuhk:37147:0，Query cuhk:37132:0/cuhk:37147:1，覆盖编辑与固定NOOP；G≤2、H0（复用）、IRRA image≤4/text≤4。只验物化读回、原生编码/2×2 score与冻结，不做Full排名。GPU/资源/阈值和一次Attempt需用户另行批准。
 
-Stage1 61471db；Stage2 4e2a583；Stage2.5 b7aac69；Stage3A ef835a6；Stage3B 0fb90cd保持FAIL；Stage3B-R a2988e0；Stage3B-2 0d90e79固定两Train样本真实G/H输出等价通过。Stage4A 32f5582统一CPU引擎；Stage4B1 a4c9387（实现2357985）建立独立历史分型并完成FEATURES_VERIFIED，本轮在其基础上完成指标验收。
+全量三份FP32 RGB纯数据5.0657958984375GiB，建议磁盘8–10GiB、流式CPU≤2GiB；G-only显存建议空闲≥1GiB。10–60分钟只是未实测工程估算，SHA/fsync/慢磁盘可能主导，须小样本后修订。本轮没有GPU或全量命令。
 
-历史adversarial_pixel_sha256仍UNKNOWN；严格materialized契约未放宽，IRRA特征不能重标RaSa/APTM。没有验证新的像素生成、其他环境/模型/数据集或跨模型迁移。正式G/H/Joint/消融/AP及8个历史资产索引继续冻结。
+RaSa/APTM将读取相同冻结RGB/Unicode，自身原生预处理/Tokenizer/评分并隔离ModelSpace缓存，不能回传反馈改样本或复用IRRA Embedding。真实Adapter、跨主机迁移及统一GPU Runner尚未实现。
 
-完成提交推送后停止等待审查；不自动Stage4C、GPU Full、RaSa/APTM或新训练。唯一正式CPU Attempt许可已经使用，不得重跑、自动恢复或换目录绕过单次门禁。
+## 冻结历史
 
-本轮CPU验收回执：/home/lzf/ldx/outputs/tbps-framework-stage4b2/cpu_verified_v1/result/；
-Manifest SHAd5a59929f48226dd12bf28b7382f619b6b6d19306b1c1cb7b0496e464ebca810；
-report SHA907077ea4bba8af9f88b4b541f2e799628d2af5cc7a0ff5de95baa2aaea3ac78。
-绑定本轮代码/测试/冻结配置、CPU日志和唯一正式重放回执。原实验发布树40c7476、Stage4B1树a4c9387及Stage4A树32f5582仍保持原HEAD且工作树干净。
+Stage1 61471db；Stage2 4e2a583；Stage2.5 b7aac69；Stage3A ef835a6；Stage3B 0fb90cd保持FAIL；Stage3B-R a2988e0；Stage3B-2 0d90e79固定G/H最小等价通过；Stage4A 32f5582；Stage4B1 a4c9387完成FEATURES_VERIFIED；Stage4B2 c09754e（实现26f70a4）唯一CPU重放METRICS_REPLAY_VERIFIED。
+
+历史IRRA特征的对抗像素SHA仍UNKNOWN，不被本轮Fixture升级成真实RGB证明。G/H/Joint/消融/AP及8个旧资产索引全部冻结。提交推送后停止，不自动Stage4C-2、GPU、Full、Stage5或训练。
+
+最终CPU验收：/home/lzf/ldx/outputs/tbps-framework-stage4c1/cpu_verified_v1/result/；
+Manifest SHA0f96f115d5a8d1b3c81a9e067b5c524041f4362c84f85483bdb3977300bf01da；
+report SHAf10fbc4276e80048b59316b15ba8018824ac8a03cc2b5e34de0e2322714a10e5。
+绑定包括generation.py在内的全部7个新模块、43项新测试源码、CPU日志、真实只读源检查与保护证据；不是实际攻击物化完成回执。

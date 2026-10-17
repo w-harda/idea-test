@@ -172,3 +172,7 @@ Stage 3B一次真实尝试因condition_schema来源缺项失败；原FAIL证据�
 ## Stage4B-2历史CPU指标重放验收
 
 唯一一次真实CPU重放通过：四组新旧Score误差0、Ranking索引exact、五指标对原Joint summary误差0，METRICS_REPLAY_VERIFIED。默认入口仍仅预检，冻结配置未改，唯一Attempt许可已使用，不能自动重跑。[入口/命令与停止规则](STAGE4B2.md)、[完整精度指标/资源/来源证据](STAGE4B2_REPORT.md)。不是新攻击或跨模型评测。
+
+## Stage4C-1真实RGB/Unicode物化准备
+
+模型无关FP32像素/UTF-8产物、严格SHA/预算/动作、前置生成Claim和只读H来源桥已CPU验收。G2无需Test条件，3074输入就绪；6156旧H文本来源可复用；真实RGB/端到端尚未执行。[接口与CPU来源命令](STAGE4C1.md)、[来源/存储/成本及Stage4C-2提案](STAGE4C1_REPORT.md)、[ADR-0007](../decisions/0007-model-independent-materialized-attacks.md)。没有本轮真实生成或GPU命令。

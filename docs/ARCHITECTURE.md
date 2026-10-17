@@ -115,3 +115,13 @@ replay_cpu默认无评分预检；固定旧FEATURES_VERIFIED回执和完整来�
 replay_oracle在Engine原ranking调用处做数值仪器：独立原128块点积、独立官方rank及完整索引exact比较，原Stage4A排名/指标循环不变。四组原生评分/指标统一publish_result/load_result；历史Score读回补齐Tensor/shape/FP32/有限性检查。临时官方Score/Ranking逐模式释放，不另建Full算法。
 
 唯一正式Attempt通过：METRICS_REPLAY_VERIFIED仅同IRRA历史特征重放，UNKNOWN像素身份/严格materialized边界保持。实际资源和完整误差见[报告](framework/STAGE4B2_REPORT.md)，执行许可已用完；不扩展成端到端攻击或跨模型等价。
+
+## Stage4C-1模型无关物化层
+
+src/tbps/materialization的contracts/store/pipeline/generation/legacy_text/audit_sources提供冻结计划、FP32 RGB/Unicode单元、前置生成Claim、独立Gallery/Query集合与只读H来源。复用原G/H插件和ArtifactStore，无新网络/Loss/投影/字符规则，没有真实生成CLI。
+
+真实G2生成不读训练条件缓存；3074原图SHA READY。历史H7完整文本/动作可TEXT_SOURCE_VERIFIED复用，不读Embedding。G保存原/Adv/delta及文件/像素SHA，H保存UTF-8原字节和完整action；Joint只引用已有两类产物。计划无目标Model/Score，ModelSpace只在后续Representation/Score绑定引入。
+
+中断前置Claim避免前向后未发布被静默重做；完整单元可验证后跳过，未完成Claim/回执须人工审查。来源摘要缓存以完整SHA及inode/size/mtime/ctime变更拒绝支撑，不放宽materialized身份。
+
+真实RGB/端到端尚未验证，历史UNKNOWN像素身份不被升级。RaSa/APTM原生Adapter及GPU Runner留待单独授权，不能重标IRRA特征。见framework/STAGE4C1.md及报告、ADR-0007。
