@@ -168,3 +168,7 @@ Stage 3B一次真实尝试因condition_schema来源缺项失败；原FAIL证据�
 ## Stage 4B-1历史IRRA只读特征桥
 
 显式历史重放身份与严格materialized产物分离，像素SHA保持UNKNOWN；原Joint四family来源与全部特征已通过CPU只读验证，尚未计算真实Full分数/排名。[接口与CPU命令](STAGE4B1.md)、[验收及下阶段固定条件](STAGE4B1_REPORT.md)、[ADR-0006](../decisions/0006-explicit-historical-feature-replay.md)。默认真实评分拒绝，无本轮Full命令；当前权威状态见PROJECT_STATE。
+
+## Stage4B-2历史CPU指标重放验收
+
+唯一一次真实CPU重放通过：四组新旧Score误差0、Ranking索引exact、五指标对原Joint summary误差0，METRICS_REPLAY_VERIFIED。默认入口仍仅预检，冻结配置未改，唯一Attempt许可已使用，不能自动重跑。[入口/命令与停止规则](STAGE4B2.md)、[完整精度指标/资源/来源证据](STAGE4B2_REPORT.md)。不是新攻击或跨模型评测。

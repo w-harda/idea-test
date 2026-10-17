@@ -231,7 +231,13 @@ def load_result(store,artifact_id,*,expected_protocol_sha256):
                 raise ArtifactError("historical score source mismatch")
             content=FileRef(**item["content"]);checked(content)
             if Path(content.path)!=root/"scores"/(mode+".pt"):raise ArtifactError("historical score reference escape")
-            x=torch.load(content.path,map_location="cpu",weights_only=True).detach().clone()
+            raw=torch.load(content.path,map_location="cpu",weights_only=True)
+            if not isinstance(raw,torch.Tensor):raise ArtifactError("invalid historical persisted score type")
+            x=raw.detach().clone();del raw
+            expected_shape=(len(protocol["dataset_manifest"]["queries"]),len(protocol["dataset_manifest"]["gallery"]))
+            if (x.shape!=expected_shape or x.shape!=(report["query_count"],report["gallery_count"])
+                or x.dtype!=torch.float32 or x.device.type!="cpu" or x.requires_grad or not torch.isfinite(x).all()):
+                raise ArtifactError("invalid historical persisted score shape/dtype/finite")
             if payload_digest(x)!=report["scores_sha256"][mode]:raise ArtifactError("historical score payload mismatch")
             scores[mode]=x
             continue

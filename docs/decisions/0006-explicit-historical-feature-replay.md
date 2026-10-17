@@ -16,3 +16,9 @@
 理由：忠实表达历史证据能证明和不能证明的范围，保留新框架强身份约束，避免历史特征跨Victim/Tokenizer混用及目标反馈回流攻击。
 
 影响：本阶段可CPU检查真实特征和小型合成排名。真实Full排名另行授权；RaSa/APTM需要独立原生编码和评分，不能利用本桥重标IRRA特征。旧缓存/协议/源码保持原样，Stage 4A文档作为当时快照保留。
+
+## Stage4B-2执行与验收补充
+
+用户单独授权的一次历史IRRA CPU Full重放已通过；原Stage4B1设计及UNKNOWN像素分型保持。冻结配置execution_authorized=false不修改：验收计划与单次命令授权分离，后者由固定排他Attempt/完整回执记录，许可使用后不可自动重试或换目录恢复。
+
+METRICS_REPLAY_VERIFIED只对本次固定环境/原IRRA特征成立，不代表RGB重新生成或其他Victim能力。原排名/指标/阈值未变，四组Score/排名/指标独立官方对照通过。详见framework/STAGE4B2_REPORT.md；历史“未授权”描述保留其原阶段时点。

@@ -107,3 +107,11 @@ historical_contracts提供独立ReplayIdentity/FeatureBinding/Representation，�
 historical_sources独立核对annotation有序成员、原来源与全部文件声明并显式映射ModelSpace；historical_loader只读Joint四family，每批detach().clone/原生H动作审计。无模型加载，权重只SHA。irra_cached实现原IRRA FP32归一化点积，evaluation显式历史分支复用同一排名/指标循环，正常materialized分支保持。
 
 状态分METADATA_VERIFIED、FEATURES_VERIFIED、METRICS_REPLAY_VERIFIED。本轮真实四family仅到FEATURES_VERIFIED，真实分数/排名0；默认Scorer和核验CLI拒绝真实评分。Stage4B-2环境/资源/阈值冻结但未授权执行。跨Victim仍需独立Adapter/编码，不重标IRRA特征。见[接口](framework/STAGE4B1.md)、[报告](framework/STAGE4B1_REPORT.md)、ADR-0006。
+
+## Stage4B-2受控CPU重放验收
+
+replay_cpu默认无评分预检；固定旧FEATURES_VERIFIED回执和完整来源、冻结Torch环境/条件后，独立显式授权只可Claim一次replay_v1。replay_control监视当前进程RSS/耗时、恢复信号/线程并保留失败证据；配置execution_authorized=false原样保持。
+
+replay_oracle在Engine原ranking调用处做数值仪器：独立原128块点积、独立官方rank及完整索引exact比较，原Stage4A排名/指标循环不变。四组原生评分/指标统一publish_result/load_result；历史Score读回补齐Tensor/shape/FP32/有限性检查。临时官方Score/Ranking逐模式释放，不另建Full算法。
+
+唯一正式Attempt通过：METRICS_REPLAY_VERIFIED仅同IRRA历史特征重放，UNKNOWN像素身份/严格materialized边界保持。实际资源和完整误差见[报告](framework/STAGE4B2_REPORT.md)，执行许可已用完；不扩展成端到端攻击或跨模型等价。

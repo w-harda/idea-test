@@ -111,3 +111,13 @@ report SHA7d8dd8364df3537471658a0d3ce3c30f5e4609f700bb75a68e2f68e0fdc979bf；
 Manifest SHA5cd8dcf0e8ccbc61b58adc7dae37e26e51f361369e15f6fefa77c9465bfc1370，绑定6720唯一来源。首轮features_v1核验也通过且保留，最终版补全新检查证据来源绑定后再次只读验证。
 
 7991历史保护文件、3472Joint缓存SHA/mtime不变；原Stage3B FAIL、Stage3B-2 PASS、Stage4A回执继续有效。缺失对抗RGB SHA仍UNKNOWN；不冒充新攻击、不同Victim特征或完成Full指标重放。下阶段固定环境及阈值见Stage4B1报告，须另行授权。
+
+## Stage4B-2：历史Joint Full CPU指标重放PASS（非新攻击实验）
+
+基准a4c9387；独立codex/tbps-framework-stage4b2，实现Commit见PROJECT_STATE。唯一正式Attempt/replay_v1退出码0、METRICS_REPLAY_VERIFIED，旧Full/G/H/Selection及原Stage4B1回执未改。
+
+原Joint四family868批、3472文件独立内容exact；全部3074 Gallery/6156 Query。新/旧评分各196次，新/官方Ranking各4次，score误差0/索引exact/五指标对原summary误差0，DR最大误差1.4210854715202004e-14个百分点。mAP Clean66.09744262695312、Image-only32.28228759765625、Text-only51.471561431884766、Joint23.553220748901367，来自本次真实计算。
+
+证据：/home/lzf/ldx/outputs/tbps-framework-stage4b2/replay_v1/{attempt,evaluation,result}/；result Manifest f11b7af27e4c87d4c4f9be4e30f908d8e0afbd68f3db547759ce191f6cb0a39a，report SHA8c13994ab049ad7f76dbe380b6647887387b9be9e8be78f16382bfacf8a96f89。每套Manifest绑定6740来源，统一Score/指标读回通过。
+
+471 CPU tests通过；7991历史保护文件及3472缓存SHA/mtime保持。峰值RSS1862.4453125MiB、总发布用时98.56915779039264秒；模型加载/前向/GPU/训练0。没有新RGB证明，像素SHA仍UNKNOWN；不是RaSa/APTM或新端到端攻击实验。原FAIL及旧验收证据保留，唯一许可已用完。完整五指标/DR和验收范围见framework/STAGE4B2_REPORT.md。
