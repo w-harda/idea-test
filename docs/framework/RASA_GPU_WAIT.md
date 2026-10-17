@@ -59,3 +59,7 @@ echo $!
 ## CPU验证
 
 bash -n通过。10项合成CPU测试通过（0.57秒）：所有nvidia-smi/模型命令使用Fixture，未运行真实GPU或Full；验证阈值边界、连续计数重置、查询失败、图形例外、已有输出/Full、flock、失败不重试和取消自身sleep。评估算法及已锁定producer SHA保持不变。
+
+## 本轮部署记录
+
+代码Commit：8e4a4ab3d53df1fa940a509e6937b346e5cda91a。2026-10-17 23:45:13+0800启动PID3297416；一次性确认PPID=1、SID=3297416、TTY=?、stdin=/dev/null，stdout/stderr为nohup.log。首条检查WAITING 0/3，GPU空闲3865MiB、利用率100%、Ollama PID2436556；Full目录与triggered尚不存在。此记录仅为启动快照，不代表Full完成；后续由独立后台进程执行，Codex不持续监控。

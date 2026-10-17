@@ -20,7 +20,7 @@ CPU127项通过：125项必要回归＋原树1项绝对路径测试＋独立官�
 - RaSa Smoke：/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/smoke/；summary SHA036ca6df1ffc793dfb39e36cc7b38294b12655f0f23975dc005822829c04aa61；report SHA8a9b7bcc0b73017f3cc85a8809b530c4a21e55ca071ab0242291f39d7c989995。
 - 历史生成/审计26文件SHA/mtime、61555物化文件成员/size/mtime、IRRA正式结果3关键文件SHA及冻结工作树保持；没有重复7991文件/旧Full重审。
 - **RaSa Full PENDING**；本轮启动前确认full目录未创建。用户新授权独立Bash后台等待器，每60秒采样，连续3次空闲≥8192MiB/利用率≤10%/无计算进程后单次启动原Full，成功后CPU审计；不干预Ollama、失败不重试。
-- 等待器10项CPU测试及bash -n通过，未在测试中访问真实GPU。后台部署状态待本轮一次性启动确认，运行证据在/home/lzf/ldx/tmp/rasa_full_wait/；详见framework/RASA_GPU_WAIT.md。
+- 等待器10项CPU测试及bash -n通过，未在测试中访问真实GPU。等待器代码Commit 8e4a4ab3d53df1fa940a509e6937b346e5cda91a；2026-10-17 23:45:13+0800通过nohup独立session启动，PID3297416。一次性确认PPID=1、SID=3297416、无TTY、stdin=/dev/null，当前WAITING 0/3；首条快照空闲3865MiB/利用率100%/Ollama PID2436556，Full目录及triggered均不存在。运行证据在/home/lzf/ldx/tmp/rasa_full_wait/；详见framework/RASA_GPU_WAIT.md。以上为部署时快照，后续状态以运行日志为准。
 
 具体代码、限制和命令见[RaSa执行说明](framework/RASA_MATERIALIZED_EVALUATION.md)及[真实Smoke报告](framework/RASA_SMOKE_REPORT.md)。本轮不进入APTM、其他算法或训练；Codex在启动等待器并确认脱离会话后结束，不持续监控。
 
