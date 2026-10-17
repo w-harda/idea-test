@@ -11,7 +11,7 @@
 - 基准fcf097d3ab31785381947289a680e5f5ccbf9d42。
 - 分支codex/tbps-framework-stage4c2r。
 - 工作树/home/lzf/ldx/projects/idea-test-tbps-framework-stage4c2r-20261017。
-- 实现Commit由后续文档提交登记。
+- 实现/CPU测试Commit：bc6356822dc34095bcf9aa8d38ed7431275ca4cb（由后续文档提交登记）。
 - [修复diff、时序测试、只读复用、资源与后续方案](framework/STAGE4C2R_REPORT.md)。
 
 ## 已完成与验证
