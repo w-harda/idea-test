@@ -174,3 +174,5 @@ CUDA_VISIBLE_DEVICES="" TMPDIR=/home/lzf/ldx/tmp PYTHONDONTWRITEBYTECODE=1 OMP_N
 本固定两图两文的物化IRRA端到端状态从PENDING更新为VERIFIED；不推广到Full、其他样本、硬件、模型或Tokenizer。没有验证全量3074张物化、6156条全量新编码、Full排名或跨模型；没有新的G/H训练或Checkpoint选优。
 
 提交推送后停止等待审查，不自动进入全量物化、Stage5、RaSa/APTM或新训练。
+
+实现/CPU测试/唯一GPU PASS Commit：bef5f407be75e7aa0dc6550e74185012deb3b06a。本条由后续文档提交登记，最终远端HEAD以Git核验。

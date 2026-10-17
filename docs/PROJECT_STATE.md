@@ -9,7 +9,7 @@
 - 基准9f1f943ed8486a8c2889ab272764e5707a431552。
 - 分支codex/tbps-framework-stage4c3。
 - 工作树/home/lzf/ldx/projects/idea-test-tbps-framework-stage4c3-20261017。
-- 实现Commit由后续文档提交登记。
+- 实现/唯一GPU PASS Commit：bef5f407be75e7aa0dc6550e74185012deb3b06a（由后续文档提交登记）。
 - [完整特征/Score原始数值、资源、证据和边界](framework/STAGE4C3_REPORT.md)。
 
 ## 固定输入与来源
