@@ -215,3 +215,11 @@ RaSa官方384×384 BICUBIC、BERT50、Top-128最终ITM保持。现有FP32工作�
 ## 轻量RaSa GPU等待执行层
 
 wait_rasa_full.sh为独立Bash监督器，不修改任何Adapter/Engine/模型或配置。60秒GPU快照、连续3次资源门槛、flock与一次性triggered避免重复启动；满足后只调用已有Full及CPU审计，失败不重试。由用户明确授权nohup独立session部署，Codex不保持会话或后台监控。运行日志与正式结果隔离，见framework/RASA_GPU_WAIT.md。
+
+## APTM原生评分接入（仅CPU验证）
+
+models/aptm只负责官方来源、Swin/BERT编码、CUHK预处理和原始ITM/global；不依赖G/H、PID、目标奖励。engines/materialized_aptm复用物化encode/bound_inputs、NativeFeatureCache、EvaluationEngine和结果存储，生产入口aptm_eval只把attacks/materialization包指向冻结Stage4D1以保留Plan。
+
+APTM原始Score归一化依赖完整Query集合，因此Adapter明确query_independent_scores=False。APTMSetScorer先按128 Query缓存原始ITM/global（来源绑定完整Query/Gallery），再完整集合归一化，之后才提供固定上下文的Score切片给原Engine。最终缓存绑定所有原始Score Manifest，不逐块minmax或复用RaSa分数；单模式额外最终矩阵缓存避免每块重复读全矩阵。
+
+不同受害者ModelSpace/Token/Score独立，仍消费相同FP32 RGB与Unicode。当前输入桥绑定generation_v3；后续攻击方法替换物化输入桥，不修改APTM原生评分。CPU Fixture及真实权重结构验证不代表APTM真实GPU或Full已通过。详见framework/APTM_MATERIALIZED_EVALUATION.md。

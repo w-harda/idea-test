@@ -2,7 +2,19 @@
 
 状态来自Git、实际代码与不可变证据；历史报告为当时快照。
 
-## 当前任务：RaSa Full一次性GPU等待器（按用户明确授权部署）
+## 当前任务：APTM跨模型物化评估接入（CPU就绪，GPU PENDING）
+
+基准174eb51f4c346a6d74ace3f61f1ea170aeccf00b；独立分支codex/tbps-aptm-materialized-evaluation，工作树/home/lzf/ldx/projects/idea-test-tbps-aptm-materialized-eval-20261018。本轮不监控/修改RaSa等待器，不启动APTM GPU或Full。
+
+官方APTM代码b20025445471eb4b743164a6faec29a9eccfb293与官方CUHK权重已准备。权重/home/lzf/ldx/checkpoints/APTM/aptm_cuhk_checkpoint_best.pth，SHA521c9bf784e7e821ade471deaafa2f25e2501950591e574dc60ca177e9be5a2c；CPU官方构造/629项strict恢复成功，214456629参数，CUDA未初始化。33项官方/BERT来源和13项本次运行源码显式锁定，数据/权重不进Git。
+
+新增APTMAdapter及完整Query集合Score缓存/薄CLI，复用原Dataset、物化读取、NativeFeatureCache、EvaluationEngine和指标。APTM原生Swin-B 384×128/CUHK Normalize/BERT56；Top128 ITM填充后，完整矩阵minmax(ITM)+.002*minmax(global)，不能套RaSa评分或逐Query块归一化。攻击输入不依赖目标评分，无G/H重新生成。
+
+140项必要CPU测试通过（36项APTM新增；新树139＋原IRRA所属树1项绝对路径来源检查）。官方完整evaluation及五指标独立合成对照通过，129 Query跨128块、原生来源/Unicode/Storage/缓存篡改/权限测试通过。Full CPU preflight确认3074/6156、原Plan、6116编辑/40 NOOP/13537替换；10+10 CPU preflight固定成员及无CUDA通过。原RaSa11项producer SHA不变，RaSa/IRRA/Stage4D1 worktree clean。
+
+真实APTM GPU加载/编码/评分、GPU峰值、迁移Full均未执行，不能据CPU结果宣布真实等价或攻击成功。APTM输出目录尚不存在。用户确认RaSa结束并授权/手动执行固定10+10 Smoke后，才决定Full；不自动进入其他模型或训练。准确命令与差异见[APTM执行说明](framework/APTM_MATERIALIZED_EVALUATION.md)。CPU证据/home/lzf/ldx/tmp/aptm_development/，仅新文档/源码提交；旧实验不变。
+
+## RaSa此前部署记录（启动时快照，不代表当前后台状态）
 
 基准b51d9e55190e96b6422f0c87952471ad6ac12bed，独立分支codex/tbps-rasa-materialized-evaluation，工作树/home/lzf/ldx/projects/idea-test-tbps-rasa-materialized-eval-20261017。RaSa实现Commit：5869fa59cbdc005f6bbf58276c96070c5e1548b4，发布HEAD d2fbdfbe30b1356746743b2bc1c7be168f652534。
 

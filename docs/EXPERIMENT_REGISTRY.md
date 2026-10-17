@@ -249,3 +249,11 @@ Git b51d9e55190e96b6422f0c87952471ad6ac12bed；固定generation_v3 RGB/Unicode�
 ## RaSa Full GPU等待器部署授权
 
 用户明确授权独立nohup进程等待GPU0资源：每60秒、连续3次≥8192MiB/≤10%/无其他计算进程后单次Full，成功后CPU审计。等待状态不表示Full已执行；真实启动/结束以/home/lzf/ldx/tmp/rasa_full_wait/{poll,status,launch}.log及正式Full回执为准。开发仅10项CPU Fixture通过，不新增真实GPU测试。现有RaSa Smoke、IRRA Full及generation_v3保持。
+
+## APTM迁移评估代码准备（非真实GPU实验）
+
+官方Commit b20025445471eb4b743164a6faec29a9eccfb293；官方CUHK checkpoint SHA521c9bf784e7e821ade471deaafa2f25e2501950591e574dc60ca177e9be5a2c。冻结generation_v3 3074/6156输入原样复用；APTM独立模型空间，Swin384×128、BERT56、完整集合归一化Top128 ITM＋.002 global。
+
+CPU官方模型629状态strict匹配，GPU未初始化；140项必要CPU测试、完整身份/来源预检与10+10成员预检通过。证据/home/lzf/ldx/tmp/aptm_development/{cpu_tests_final,full_cpu_preflight,smoke_cpu_preflight}.log。预期正式输出/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/{smoke,full}/，本轮未创建，无APTM真实mAP或迁移结论。
+
+RaSa后台任务不由本任务监控/修改。先由用户确认资源与RaSa任务结束，再执行APTM Smoke；Full需Smoke验收后手动运行。源码/CPU通过不授予新GPU许可。

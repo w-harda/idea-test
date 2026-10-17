@@ -1,0 +1,60 @@
+{
+  "schema": "tbps-aptm-source-1",
+  "root": "/home/lzf/ldx/external/APTM",
+  "official_commit": "b20025445471eb4b743164a6faec29a9eccfb293",
+  "checkpoint": {
+    "path": "/home/lzf/ldx/checkpoints/APTM/aptm_cuhk_checkpoint_best.pth",
+    "sha256": "521c9bf784e7e821ade471deaafa2f25e2501950591e574dc60ca177e9be5a2c"
+  },
+  "bert": "/home/lzf/.cache/huggingface/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594",
+  "checkpoint_release": "https://drive.google.com/file/d/1dokRhjYL71VbzFfLfyyDmh7MXUOyBySf/view",
+  "training_origin": {
+    "victim_pretraining": "MALS; BERT/Swin initialization per official release",
+    "victim_finetuning": "CUHK-PEDES official train",
+    "attack_training": "not part of APTM; frozen materialized inputs only"
+  },
+  "files": {
+    "/home/lzf/ldx/external/APTM/trains.py": "7ca8fbf88d151c032d3520445b2db10f523d5fe4ce06c4d0c313645c07daca0e",
+    "/home/lzf/ldx/external/APTM/train_tools.py": "8d9a76a19822d6ed70eb6a6b05c357cbf498b98c38e314ecd416f5fb6ad2982b",
+    "/home/lzf/ldx/external/APTM/scheduler.py": "e0e5f2b87fff92d10dd8ee6e1b6f3a67dc5a18cf10d697d26337ab086eb54556",
+    "/home/lzf/ldx/external/APTM/train_pa100ks.py": "d8a4a3489747c47eb028695aa8a0052a3d97e2c713dce9381126600b49e95da4",
+    "/home/lzf/ldx/external/APTM/optim.py": "4f74d7ff11d5fcfb8b54161cf71e87e98a48b59efa35e750d3bdf967425d418e",
+    "/home/lzf/ldx/external/APTM/Retrieval.py": "fb49de21f81ac1cf43bc9de69178b35a55580cc1a64175790cae80b4597d8fbd",
+    "/home/lzf/ldx/external/APTM/run.py": "f48a8d8de300cb077104cb8deee4cf5c3f6e87c2ed23f085be0c9b32ec3cc48e",
+    "/home/lzf/ldx/external/APTM/reTools.py": "dfe74aef73a79e9f4ebfafcbbbc9fe0bb2fd935e801f611dfa532aa635f04adc",
+    "/home/lzf/ldx/external/APTM/configs/config_bert.json": "d66b3e5c536558fe666a1b81a7c81ccb50cf375e92b7427ac20c278b4f260653",
+    "/home/lzf/ldx/external/APTM/configs/Retrieval_gene.yaml": "941f5b38f6205baaefe039fce7b297d828db9ec59ca2566d9cb0593b437a84ac",
+    "/home/lzf/ldx/external/APTM/configs/Retrieval_cuhk.yaml": "310baed31594048695cbf2539cbf19e3ee20b08c4999ff63ff28f5e0efa60873",
+    "/home/lzf/ldx/external/APTM/configs/Retrieval_rstp.yaml": "2f6544a0cf65bd0a33a238d75e0ee85e960c28971f01e4d21c1d7add9d4bc021",
+    "/home/lzf/ldx/external/APTM/configs/Retrieval_pa100k.yaml": "235f5bd0b663951a23eb547429f830a78ef5c9069eb5c4138924cc05dc88ec09",
+    "/home/lzf/ldx/external/APTM/configs/config_swinB_384.json": "99783b8df98e178151b5f688a6613494e9bd88e6dcbb7c7a4c4b364d75c27fb8",
+    "/home/lzf/ldx/external/APTM/configs/Retrieval_icfg.yaml": "61404717e127e538326db9f9ee6caaa0c7ede3f2dd16bacb59efe78d58252b7c",
+    "/home/lzf/ldx/external/APTM/dataset/re_dataset.py": "7d13c637a32f5640ed9dc2b5b5229e2593b78f09cb0b5f133f416d40589d9e69",
+    "/home/lzf/ldx/external/APTM/dataset/utils.py": "c5b37d420b6547631bab92c45c85c6f4e8da6a5d5e9b585e814af6d99d27a50e",
+    "/home/lzf/ldx/external/APTM/dataset/random_erasing.py": "8d982abc070e53c9bded140d98012bda490c4152bb592e2dc9c447c3f24e4c65",
+    "/home/lzf/ldx/external/APTM/dataset/eda.py": "0d19a50c0022307b6c7a5ce32a8d25ef463960285cb65d2c0e18c0e7c29f1ecb",
+    "/home/lzf/ldx/external/APTM/dataset/randaugment.py": "9685d968c3530b9324a79e8cd6aa7f55a7e3b3cb5c4924fde4aca9d0c1b1fc01",
+    "/home/lzf/ldx/external/APTM/dataset/__init__.py": "982294f350e5c3df2a3e9ba0cf0a0748979fb180a4e4ee2faa34b2e2ba367dbd",
+    "/home/lzf/ldx/external/APTM/utils/__init__.py": "06a948b5fcf69586879d60af4ab6e148b73c377f838e20dbb241880bbd2e412f",
+    "/home/lzf/ldx/external/APTM/models/aptm.py": "1d2b21566c9b282a8fe47ab1142ee1f466c70fcc9f512051fcddc080b0b0e9cd",
+    "/home/lzf/ldx/external/APTM/models/tokenization_bert.py": "3010acb7000bd94b46fdc0a69b75b91a3813959acf9374312d26fccc651ccd50",
+    "/home/lzf/ldx/external/APTM/models/bert.py": "f8231c74ba835652b922cc12fb2307e848b2c07901876c11ca4811bdade8aa3c",
+    "/home/lzf/ldx/external/APTM/models/swin_transformer.py": "389cbbd5536e30084c328b7daaaebd83ce1ab2b4ab013cb7aaaaee44d620d521",
+    "/home/lzf/ldx/external/APTM/models/model_retrieval.py": "d6c272b943ea3dbca93238a28ee83506b298556c8b32fbf7880521731a462db0",
+    "/home/lzf/ldx/external/APTM/models/__init__.py": "78d7dcfe56ce05ed11a4b6953d52ffb3f5b20f28fb9589541ee9f007b59c4dcd",
+    "/home/lzf/.cache/huggingface/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/config.json": "7160e1553ad2ca51d8c1cb066be533db31826e12d173824c1bb0cb1a4f187d20",
+    "/home/lzf/.cache/huggingface/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/model.safetensors": "68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3",
+    "/home/lzf/.cache/huggingface/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/tokenizer_config.json": "a025160ef0431f1a392f6f050c1310f4c5d9fb6f275932dbccba73c4d214bf10",
+    "/home/lzf/.cache/huggingface/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/tokenizer.json": "ce64fce797c24f68df90b40a3f74f579b336a493db14bd583fd520ea0d8c9a98",
+    "/home/lzf/.cache/huggingface/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+  },
+  "runtime_versions": {
+    "torch": "2.5.1+cu124",
+    "torchvision": "0.20.1+cu124",
+    "transformers": "4.44.2",
+    "timm": "0.9.8",
+    "nltk": "3.10.3",
+    "scipy": "1.13.1",
+    "PyYAML": "6.0.3"
+  }
+}
