@@ -1,6 +1,6 @@
 # Stage4D-2R：GPU启动顺序最小修复与CPU验收报告
 
-基准883c4be59284b79f475412eb40ea6d96e8b1742a；独立codex/tbps-framework-stage4d2r，工作树/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d2r-20261017。实现Commit由后续文档提交登记。
+基准883c4be59284b79f475412eb40ea6d96e8b1742a；独立codex/tbps-framework-stage4d2r，工作树/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d2r-20261017。代码实现Commit：e5cc20d26196a20e7137fa34fefcdc51cb5e6e17；本后续文档提交登记。
 
 **CPU修复与验收通过；真实GPU仍未重试。** 本轮真实G/H/IRRA加载及前向、CUDA初始化、新GPU Attempt、新图像生成均0。generation_v1永久FAIL；generation_v2尚不存在；Image/Joint全量仍PENDING。
 

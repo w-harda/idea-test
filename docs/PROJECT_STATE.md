@@ -4,7 +4,7 @@
 
 ## 当前阶段：Stage4D-2R CPU-only修复与验收通过，GPU待授权
 
-基准883c4be59284b79f475412eb40ea6d96e8b1742a，独立codex/tbps-framework-stage4d2r；工作树/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d2r-20261017。实现Commit由后续文档提交登记。
+基准883c4be59284b79f475412eb40ea6d96e8b1742a，独立codex/tbps-framework-stage4d2r；工作树/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d2r-20261017。代码实现Commit：e5cc20d26196a20e7137fa34fefcdc51cb5e6e17；本后续文档提交登记。
 
 full_gpu.child改为CPU校验/隔离退出/快照恢复→资源及原线程/seed/精度设置→initialize_cuda→立即安装两项GPU安全包装→G工厂。原CPUStartupGate、算法、权重、投影、预处理、加载/Hook计数、优化禁令、Stage4D1源码不改。
 
@@ -18,7 +18,7 @@ full_gpu.child改为CPU校验/隔离退出/快照恢复→资源及原线程/see
 - 原Stage4D2工作树HEAD、4份未提交Markdown及未跟踪执行报告SHA/mtime/Git状态原样保留。报告完整字节exact收录新分支，SHA dca03f00ccc8333e1c13eec310f24d5601fa37eb9c00f45a9adc12cff1a9c143。
 - 只读审计STAGE4D2R_CPU_REPAIR_SOURCES_AND_PROTECTION_VERIFIED，142.45755676925182秒，CPU上下文/函数/导入/锁恢复。
 - 本轮真实G/H/IRRA加载/前向、CUDA初始化、GPU Attempt、新图像生成均0；GPU资源未查询。
-- git diff --check及提交范围检查完成；提交状态由最终发布记录登记。
+- git diff --check及提交范围检查完成；仅提交授权的11个源码/配置/测试/文档文件；原资产和日志不提交，发布分支codex/tbps-framework-stage4d2r。
 
 CPU证据/home/lzf/ldx/outputs/tbps-framework-stage4d2r/cpu_audit_v1/result/，
 Manifest SHA24a39edf72666ae9279009e4e97751d51c268787a29a0a35f5944d987a690461，
