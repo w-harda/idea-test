@@ -4,6 +4,8 @@
 
 ## 当前阶段：B3共享GPU后台链已准备，等待用户手动启动
 
+实现及CPU验证Commit：d229e6ea5e9c2f5a764d4fbb297f8397c48e9fed（后续仅补充此发布索引）。
+
 2026-10-18，基准097c96d9deec68c1bfc71b74a2fba5f98e3e81c1，独立分支codex/tbps-b3-shared-run，工作树/home/lzf/ldx/projects/idea-test-tbps-b3-shared-run-20261018。
 
 用户已授权手动一次性启动Smoke→审计→Full→审计，无需在Smoke后再次确认Full；Codex本轮仅修改代码与CPU验证，未部署nohup、未查询真实GPU状态、未执行模型或生成攻击。当前正式运行状态PENDING_MANUAL_START，不是GPU轮询等待。

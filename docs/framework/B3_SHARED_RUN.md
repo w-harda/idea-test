@@ -80,3 +80,5 @@ fi
 - 本轮不执行resources真实查询、Smoke、Full、全量RGB映射或后台部署。正式控制目录与新评估输出均尚不存在；仍待用户手动启动。
 
 历史保护复核：101份旧B3证据的SHA/inode/size/mtime全部一致；12203份既有资产的inode/size/mtime全部一致。原B3工作树仍为097c96d9deec68c1bfc71b74a2fba5f98e3e81c1且干净。bash -n与git diff --check通过。
+
+实现及CPU验证Commit：d229e6ea5e9c2f5a764d4fbb297f8397c48e9fed；当前发布只补充Git索引，不改变已绑定Runner/Shell/配置。
