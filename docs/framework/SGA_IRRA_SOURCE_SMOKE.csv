@@ -1,0 +1,13 @@
+Target Model,Mode,R@1,R@5,R@10,mAP,Scope
+IRRA,Clean,100.00,N/A,N/A,100.00,SMOKE 2 Gallery + 4 Query
+IRRA,Image-only,100.00,N/A,N/A,100.00,SMOKE 2 Gallery + 4 Query
+IRRA,Text-only,100.00,N/A,N/A,100.00,SMOKE 2 Gallery + 4 Query
+IRRA,Joint,50.00,N/A,N/A,75.00,SMOKE 2 Gallery + 4 Query
+RaSa,Clean,100.00,N/A,N/A,100.00,SMOKE 2 Gallery + 4 Query
+RaSa,Image-only,100.00,N/A,N/A,100.00,SMOKE 2 Gallery + 4 Query
+RaSa,Text-only,100.00,N/A,N/A,100.00,SMOKE 2 Gallery + 4 Query
+RaSa,Joint,100.00,N/A,N/A,100.00,SMOKE 2 Gallery + 4 Query
+APTM,Clean,100.00,N/A,N/A,100.00,SMOKE 2 Gallery + 4 Query
+APTM,Image-only,100.00,N/A,N/A,100.00,SMOKE 2 Gallery + 4 Query
+APTM,Text-only,100.00,N/A,N/A,100.00,SMOKE 2 Gallery + 4 Query
+APTM,Joint,100.00,N/A,N/A,100.00,SMOKE 2 Gallery + 4 Query

@@ -2,21 +2,19 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：官方SGA算法忠实性重审完成；旧白盒结果归类额外适配
+## 当前阶段：官方SGA算法/IRRA Source最小移植与三目标Smoke完成，Full未执行
 
-审查及归类文档内容Commit：b505fd19efc7974b8b8e307de079ad92a17628fb；本次文档提交补充发布索引。
+独立分支codex/tbps-sga-irra-source，基准04bddc407a59763118cdd3b1200231ec6c2d8e8e。代码提交SHA由后续文档提交登记。
 
-用户明确纠正Baseline目标。历史SGA-TBPS White-box并非官方严格复现：权限、图文流程、预算及RaSa/APTM目标均发生改变；它作为额外白盒适配保留，不再占官方SGA Baseline位置。旧源码/Full/CSV/审计/FAIL及Commit6f89b799…、3a4ab6f…均原样保留；其数据完整性PASS不代表方法忠实性PASS。
+按用户最新授权固定IRRA为唯一Source，直接调用官方f49e6926…的文本→图像→文本；原Loss、MLM、KL、增强、2/255、10轮、0.5/255、batch8/seed42保留。新增BERT→IRRA Byte-BPE接口，Source隔离原核心版本环境；目标环境与旧源码不改。ALBEF推荐仅是前次静态审查快照，不再是当前执行方案。
 
-当前主方法为G-v2 + H-v1 Joint。官方SGA固定f49e6926cd13148e49bdbc2c3e537660e096230c，状态NOT_REPRODUCED：只完成源码、来源与资源静态审查，没有CPU单元测试、模型加载、GPU或Full。详见[完整审查与最小方案](framework/SGA_OFFICIAL_REPRODUCTION_REVIEW.md)、[资源证据](framework/SGA_OFFICIAL_RESOURCE_AUDIT.json)、[ADR-0009](decisions/0009-official-baseline-fidelity.md)。
+固定Test两图四文：源攻击PASS；初始IRRA目标在编码后被R@10至少10图门禁拒绝，原FAIL保留。CPU复用完整IRRA特征、独立两图评分桥后，IRRA/RaSa/APTM四组原生Score及独立CPU审计PASS，无攻击/IRRA重跑。两图R@5/R@10不适用。IRRA Joint R@1=50/mAP75，其余组100，仅链路测试。
 
-已核验本地CLIP ViT-B/16实际SHA与官方一致；BERT snapshot/MLM文件头具备，加载兼容性PENDING。ALBEF公开Flickr权重HEAD200/838449862bytes，本地限定目录未发现、未下载；TCL公开下载未确认。原requirements环境与当前TBPS环境不同，未改环境。
+实际官方FP32投影边界通过；实数L∞0.007843166589736938，比数学2/255多2.93348e-8，不声称严格实数上界通过，没有二次投影。SourceIRRA/MLM与RaSa/APTM前后冻结摘要exact；初次IRRA目标异常前未写出最终冻结摘要/实际前向计数，状态未完整记录。
 
-CUHK3074/6156原序可接官方任意长度Caption组；3073图各2 Caption、1图10 Caption。官方pre_caption会改变6137条、截断876条；ALBEF384×384/CLIP224中心裁剪与旧384×128不同。源模型、图像桥、文本预处理及Matched Clean需要先冻结，不能直接拼用旧Joint Raw Clean或擅自传输delta/回填文本。
+18+9+119=146项适用CPU测试通过；2项旧工作树绝对路径锁定测试显式排除，不改旧证据。Full仅CPU3074/6156 preflight通过，无Full模型前向、排名或后台任务。Full前须确认浮点预算口径、Matched Clean比较方式及batch8容量；尚未授权。
 
-最小建议先ALBEF Flickr源＋原SGAttacker完整文本→图像→文本＋2/255、10轮、0.5/255、官方五尺度；生成一次固定图文产物，三个target仅原生黑盒评估。不得新增ITM等Loss、扩大预算、替换Unicode策略、修改RNG或为更强攻击挑选source。未来比较明确SGA Test配对访问与H Caption-only差异。
-
-当前仅文档分支codex/tbps-sga-official-review，基准3a4ab6f。145读取文件SHA/stat及67380旧Full/FAIL文件stat保护记录；旧报告保留历史身份，待方案审查后另行授权CPU测试/小GPU验证。本轮不开始VLPTAttack。
+详见[实施报告](framework/SGA_IRRA_SOURCE_SMOKE_REPORT.md)、[命令](framework/SGA_IRRA_SOURCE.md)、[来源与实际结果](framework/SGA_IRRA_SOURCE_SMOKE_EVIDENCE.json)、[ADR-0010](decisions/0010-sga-official-irra-source.md)。旧白盒/Joint/G/H/B3与原FAIL均保留。
 
 ## 历史额外实验：SGA-TBPS White-box三模型Full及CPU审计完成
 

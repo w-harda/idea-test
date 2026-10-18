@@ -251,3 +251,9 @@ baselines/sga_attack调用固定官方ImageAttacker的五尺度增强，持有�
 旧sga_attack/SGASurrogate/Full保持冻结，归类额外白盒适配。官方SGA后续只允许薄I/O入口调用固定官方SGAttacker本体，保留两次img_guided_attack和原ImageAttacker Loss/更新；不复用旧自写攻击循环或ITM目标。官方源模型与三个target职责隔离，source产物生成一次，target仅执行原生预处理/评分。
 
 现有ArtifactStore/Model Adapter/Engine可复用，旧G/H MaterializationPlan不改签。官方source canvas及pre_caption不同于历史物化空间，必须另行冻结输入桥/Matched Clean后才能与主方法Joint比较。当前仅静态审查，无官方攻击新代码或执行状态升级；见framework/SGA_OFFICIAL_REPRODUCTION_REVIEW.md。
+
+## 官方SGA / IRRA Source最小移植（ADR-0010）
+
+source wrapper只转换原生IRRA输入/特征；官方SGAttacker/ImageAttacker/TextAttacker保持只读并实际调用。Source与Target分别子进程，冻结产物隔离目标反馈。Matched Clean绑定pre_caption30及384×128源RGB，不复用旧Raw Clean数值。BERT定制Tokenizer→文本→IRRA Byte-BPE逐行保真，额外截断拒绝。
+
+Full仍复用原EvaluationEngine/原生融合Scorer。固定两图Smoke另用限定评分桥和官方rank(max_rank2)，不放宽Full R@10门禁；保留原IRRA排名FAIL、CPU只读复用其完整特征。算法/预算/预处理差异及资源见framework/SGA_IRRA_SOURCE_SMOKE_REPORT.md。官方FP32边界舍入超实数epsilon公开记录，未引入二次投影。

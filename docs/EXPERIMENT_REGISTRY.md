@@ -330,3 +330,13 @@ IRRA、RaSa、APTM正式Full与独立CPU审计均PASS；每模型首次正式Att
 此前SGA-TBPS White-box全部结果、源码与审计保留为额外白盒适配，不能作为原论文SGA Baseline。旧表数值未改，旧Full执行PASS仅证明该适配实验完整。官方SGA固定f49e6926cd13148e49bdbc2c3e537660e096230c，当前NOT_REPRODUCED/静态审查阶段，无新CPU单元测试、模型/GPU/Full或下载。
 
 主方法明确G-v2 + H-v1 Joint。源ALBEF建议、CLIP/BERT实际资源SHA、原文本→图像→文本与2/255参数、CUHK2/10 Caption组、输入预处理/Matched Clean及权限差异见[审查报告](framework/SGA_OFFICIAL_REPRODUCTION_REVIEW.md)。新官方结果不得引用旧白盒指标填表，不自动继承其PASS；本轮尚无官方SGA-on-CUHK实验指标。
+
+## 官方SGA算法 / IRRA Source固定两图四文Smoke（2026-10-19，非Full）
+
+唯一攻击源IRRA，固定官方SGA f49e6926…原完整流程及2/255/10轮/0.5/255/五尺度，G/H均未使用。Source/MLM各加载1次，实际源图像105/文本265（含一次额外输入梯度检查）；2张对抗图、4条最终词编辑。IRRA同源评分，RaSa/APTM同一产物黑盒原生评分，各32融合pair。原IRRA目标编码后R@10门禁FAIL保留，CPU复用缓存恢复R@1/mAP；IRRA目标最终冻结摘要及实际forward日志未完整记录。
+
+独立两图Score CPU审计及真实像素/词编辑CPU审计PASS；SourceIRRA/MLM及RaSa/APTM参数buffers摘要exact。原pipeline exit1没有改签。两图R@5/R@10为N/A，实数L∞高于数学2/255约2.93e-8、官方FP32投影边界exact，不宣称严格实数预算PASS或正式攻击效果。
+
+产物根/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/smoke/；正式完成证据分source、irra_smoke_scores、rasa、aptm、smoke_audit、source_cpu_audit。原irra/execution FAIL和全部旧白盒/Full证据保留。详情framework/SGA_IRRA_SOURCE_SMOKE_EVIDENCE.json及SGA_IRRA_SOURCE_SMOKE_REPORT.md。
+
+Full仅CPU预检3074/6156通过；未授权或执行Full。当前主方法仍G-v2+H-v1 Joint。原论文ALBEF实验、R²TUA同协议复现、batch8 Full容量及Matched Clean与历史Raw Clean数值等价均未验证。

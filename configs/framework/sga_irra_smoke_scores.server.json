@@ -1,0 +1,13 @@
+{
+  "schema": "tbps-sga-two-gallery-smoke-1",
+  "source_config": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-sga-irra-source-20261019/configs/framework/sga_irra_source.server.json",
+    "sha256": "c3b5e8607935f80ec5d9cc594a88d9e40fd644005eea1a8a71aa8ae3fbb82b72"
+  },
+  "producers": {
+    "/home/lzf/ldx/projects/idea-test-tbps-sga-irra-source-20261019/src/tbps/baselines/sga_irra_smoke_scores.py": "c805c5503e02e544578e24918fb7ab67691f4163ad064d83e7744e6073c77509"
+  },
+  "scope": "2 Gallery + 4 Query",
+  "R@5_R@10": "NOT_APPLICABLE",
+  "original_failed_irra_encoding": "read-only complete feature reuse; never rerun Source or IRRA"
+}
