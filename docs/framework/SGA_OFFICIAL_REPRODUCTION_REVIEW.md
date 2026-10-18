@@ -1,5 +1,7 @@
 # SGA官方算法复现审查与最小CUHK-PEDES接线方案
 
+审查与来源内容Commit：b505fd19efc7974b8b8e307de079ad92a17628fb；分支codex/tbps-sga-official-review。
+
 ## 结论与历史归类更正
 
 此前SGA-TBPS White-box的Full数值和缓存审计有效，但**不是固定官方SGA算法的严格复现**。复用官方get_scaled_imgs不足以构成完整SGA；目标权限、图文流程、部分损失、预算及数值执行方式已经改变。它应保留为“额外白盒适配实验”，不再占据正式原始SGA Baseline位置。原源码、6f89b799922ac54f041dabd3cd8e9d444735b146、原Full、报告/CSV、FAIL与独立CPU审计均原样保留。

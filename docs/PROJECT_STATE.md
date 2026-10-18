@@ -4,6 +4,8 @@
 
 ## 当前阶段：官方SGA算法忠实性重审完成；旧白盒结果归类额外适配
 
+审查及归类文档内容Commit：b505fd19efc7974b8b8e307de079ad92a17628fb；本次文档提交补充发布索引。
+
 用户明确纠正Baseline目标。历史SGA-TBPS White-box并非官方严格复现：权限、图文流程、预算及RaSa/APTM目标均发生改变；它作为额外白盒适配保留，不再占官方SGA Baseline位置。旧源码/Full/CSV/审计/FAIL及Commit6f89b799…、3a4ab6f…均原样保留；其数据完整性PASS不代表方法忠实性PASS。
 
 当前主方法为G-v2 + H-v1 Joint。官方SGA固定f49e6926cd13148e49bdbc2c3e537660e096230c，状态NOT_REPRODUCED：只完成源码、来源与资源静态审查，没有CPU单元测试、模型加载、GPU或Full。详见[完整审查与最小方案](framework/SGA_OFFICIAL_REPRODUCTION_REVIEW.md)、[资源证据](framework/SGA_OFFICIAL_RESOURCE_AUDIT.json)、[ADR-0009](decisions/0009-official-baseline-fidelity.md)。
