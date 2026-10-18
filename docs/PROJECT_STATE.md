@@ -4,7 +4,7 @@
 
 ## 当前阶段：AP-Attack B3三模型Baseline接线（GPU Smoke待资源）
 
-2026-10-18，独立codex/tbps-baseline-b3，基准7bff515185efabcabff7a3e21a1002878178ff9c。
+2026-10-18，独立codex/tbps-baseline-b3，基准7bff515185efabcabff7a3e21a1002878178ff9c。代码/测试/报告Commit：72f41e2bb8cfe5915cb4eb5fbbb6a7e555950331。
 
 B3来源、3074图历史FP32缓存及三模型Full CPU预检PASS；10图CPU像素物化预算合法。32项新增CPU测试通过，修复后相关回归132通过。首次全框架798通过、4个旧配置绝对工作树路径测试失败，在未修改基准同样复现；未改冻结配置。
 

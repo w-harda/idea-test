@@ -2,6 +2,8 @@
 
 2026-10-18，基准7bff515185efabcabff7a3e21a1002878178ff9c，独立分支codex/tbps-baseline-b3，工作树/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018。
 
+代码与测试Commit：72f41e2bb8cfe5915cb4eb5fbbb6a7e555950331。
+
 ## 结论
 
 代码、CPU测试、B3来源审计及Full CPU预检完成。**三模型真实GPU Smoke尚未执行成功，当前为PENDING_RESOURCE_GATE**；没有本轮B3检索指标，不能标记正式Full就绪已验收。用户确认Full前，必须先完成三模型Smoke及各自CPU审计，Full脚本强制检查此条件。
