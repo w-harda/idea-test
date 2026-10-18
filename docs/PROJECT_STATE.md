@@ -2,19 +2,19 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：SGA三模型白盒TBPS适配与10图Smoke通过，Full待用户手动启动
+## 当前阶段：SGA三模型正式Full及独立CPU审计完成，四方法结果已只读整理
 
-实现及Smoke报告Commit：d6e719a2cccc5a2d3e01f2465600464358a013fa（本次文档提交补充发布索引）。
+冻结执行Commit6f89b799922ac54f041dabd3cd8e9d444735b146保持；三模型正式SGA Full和独立CPU审计PASS，监督器最终SUCCESS | SGA_THREE_MODEL_FULL_AND_CPU_AUDIT（2026-10-18 22:19:11 +08:00）。旧SGA开发/Smoke报告中的Full PENDING是历史快照。SGA/B3/G-v2/IRRA/RaSa/APTM算法、权重和旧结果均未修改。
 
-独立分支codex/tbps-sga-whitebox-fixed，工作树/home/lzf/ldx/projects/idea-test-tbps-sga-whitebox-fixed-20261018。官方SGA固定f49e6926cd13148e49bdbc2c3e537660e096230c；复用原生三模型Adapter/Engine/旧输入来源，新增image-only集合攻击薄层，没有修改旧算法或结果。[Smoke报告](framework/SGA_SMOKE_REPORT.md)、[运行命令](framework/SGA_WHITEBOX.md)、[来源证据](framework/SGA_SMOKE_EVIDENCE.json)、ADR-0008。
+独立结果分支codex/tbps-sga-full-results，基准6f89b79；报告与两个CSV唯一入口：[四方法三模型Full对比](framework/results/sga_three_model_full_20261018/REPORT.md)，同目录metrics_2dp.csv、full_precision.csv、evidence.json。模型IRRA→RaSa→APTM，方法Clean→AP-Attack B3→G-v2 Image-only→SGA-TBPS White-box，仅R@1/R@5/R@10/mAP，百分数两位小数。
 
-IRRA/RaSa/APTM各10 Gallery/10 Query Smoke及独立CPU审计PASS；各模型恢复1次、视觉前向510、神经文本前向0，融合pair0/1200/1200，G/H及Optimizer/属性JVP为0。严格8/255、输入梯度有限非零、模型参数/buffers exact。小图库SGA mAP39.98/46.60/67.94仅链路检查，不是正式Full结果。
+按上述方法顺序mAP：IRRA66.10/40.43/32.28/0.54，RaSa69.18/39.99/35.05/1.46，APTM64.13/42.39/39.66/1.39。SGA四指标均最低，但它是对每个目标独立优化的白盒攻击；B3/G-v2在RaSa/APTM上是冻结IRRA训练攻击器迁移。不能标作等权限/等成本公平比较。SGA仍为image-only TBPS适配，APTM局部ITM代理不等于最终排名全链导数。
 
-121 CPU tests通过（42新增＋79相关），5项旧绝对路径检查未运行。2491旧文件SHA/stat、4工作树、18初始FAIL文件、12203历史stat保护均通过。初始IRRA预算舍入FAIL保持80361ec及原证据；派生v2精确边界修复未放宽预算。正式Full与后台控制目录尚不存在，没有部署后台任务。
+CPU标准库结果核验：12行48值、24历史控制值exact，完整3074/6156官方顺序/身份/Caption及三目标ModelSpace匹配；9222个SGA图像/Claim元数据与全部轮次记录通过。58711份实际读取文件SHA/stat不变。只读确认已有审计PASS，没有新GPU、模型、排名或重复Tensor缓存审计。
 
-SGA-TBPS保留官方五尺度/噪声/集合迭代；原多模态文本攻击未实施，预算从官方2/255改为统一8/255。RaSa/APTM使用本模型原生ITM可微目标，APTM不是最终集合归一化排名全链导数；环境/顺序尺度/随机调度差异见报告。三个目标分别生成自己的白盒像素，不与G/B3冻结迁移权限混淆。
+实际Full从17:27:02到22:19:11，墙钟4小时52分09秒；每目标156774视觉样本前向、文本0、模型加载1，模型摘要exact。Full来源tbps-framework-sga-whitebox-v2/full/{irra,rasa,aptm}/，原FAIL和历史资产保留。
 
-后续仅用户审阅后手动运行三模型Full，预计共享GPU6–10小时、磁盘至少35GiB；未授权自动启动其他Baseline/新训练。B3及已有三模型Full状态不变。
+当前任务完成；等待审查和下一Baseline VLPTAttack（ECCV2024/DRA）的独立授权，不自动开始适配或实验。
 
 ## 已完成：AP-Attack B3三模型Full及CPU审计完成，结果已只读汇总
 

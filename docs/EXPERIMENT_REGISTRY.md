@@ -312,3 +312,13 @@ IRRA、RaSa、APTM正式Full与独立CPU审计均PASS；每模型首次正式Att
 原初始IRRA Smoke FAIL另存tbps-framework-sga-whitebox/smoke/irra/，冻结源码80361ec1fdb7c4c96e4ec68fa256742cc8188566。Claim1/图像0，异常未持久化Hook计数，实际视觉数UNKNOWN（5..50）。预算精确边界派生修复后使用新v2输出，不覆盖旧FAIL。保护2491 SHA/stat＋4工作树＋18FAIL＋12203历史stat均不变；121相关CPU tests通过。
 
 当前适配为image-only，不等同原多模态SGA；RaSa/APTM用原生ITM可微代理，最终评估使用原生排名。Full预定tbps-framework-sga-whitebox-v2/full/{irra,rasa,aptm}/，仅提供用户手动nohup命令，无后台部署或Full结果。
+
+## SGA-TBPS三模型正式Full与独立CPU审计完成（2026-10-18）
+
+冻结执行Commit6f89b799922ac54f041dabd3cd8e9d444735b146，官方SGA f49e6926cd13148e49bdbc2c3e537660e096230c。正式输出/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/{irra,rasa,aptm}/，各completed及execution回执PASS，监督器status.log最终2026-10-18T22:19:11+08:00 SUCCESS | SGA_THREE_MODEL_FULL_AND_CPU_AUDIT。各独立审计/home/lzf/ldx/tmp/sga_whitebox_full_v2/<model>-full-audit.log，SGA_TBPS_CPU_AUDIT_PASS full <model>。
+
+三个目标分别白盒优化完整3074 Gallery，6156 Query原文不变，L∞≤8/255、10轮5尺度。SGA R@1/mAP：IRRA0.49/0.54、RaSa1.61/1.46、APTM1.71/1.39。当前image-only TBPS适配及APTM局部ITM代理边界不变；SGA对白盒目标的权限不同于冻结G/B3迁移，不能解释为等预算公平优势。
+
+四方法正式表、原精度CSV和关键来源：[报告](framework/results/sga_three_model_full_20261018/REPORT.md)。模型IRRA→RaSa→APTM；方法Clean→AP-Attack B3→G-v2 Image-only→SGA-TBPS White-box；仅四指标。SGA指标来自实际Full；Clean/B3/G-v2复用此前已审计正式Full且24项控制值exact。上文开发/Smoke阶段的Full PENDING保持历史快照属性。
+
+本轮仅标准库CPU核验12行48值、完整身份/ModelSpace及9222单元/Claim元数据；58711实际读取文件SHA/stat不变。未运行新GPU、模型、排名或完整Tensor审计，不修改旧实验、原FAIL、Checkpoint或攻击器。下一Baseline未开始。
