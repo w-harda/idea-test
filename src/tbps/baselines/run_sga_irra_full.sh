@@ -2,13 +2,13 @@
 # 仅在另行批准Full后启动；无轮询、无重试，不修改冻结算法。
 set -Eeuo pipefail
 [[ "$#" == 1 && "$1" == "--allow-full" ]] || { echo "需要明确 --allow-full；默认不启动实验"; exit 2; }
-ROOT=/home/lzf/ldx/projects/idea-test-tbps-sga-batch8-capacity-20261019
+ROOT=/home/lzf/ldx/projects/idea-test-tbps-sga-full-launch-fix-20261019
 FROZEN=/home/lzf/ldx/projects/idea-test-tbps-sga-irra-source-20261019
 SOURCE_PY=/home/lzf/ldx/envs/sga-irra-source/bin/python
 TARGET_PY=/home/lzf/ldx/envs/tbps-image/bin/python
 CONFIG="$FROZEN/configs/framework/sga_irra_source.full.server.json"
 OUT=/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full
-CONTROL=/home/lzf/ldx/tmp/sga_official_irra_full_v1
+CONTROL=/home/lzf/ldx/tmp/sga_official_irra_full_v2
 mkdir -p "$CONTROL"
 exec 9>"$CONTROL/supervisor.lock"
 flock -n 9 || { echo "已有同一Full监督器；拒绝重复启动"; exit 3; }
@@ -38,9 +38,9 @@ stage() {
 stage CPU_PREFLIGHT "$CONTROL/preflight.log" SGA_OFFICIAL_FULL_LAUNCH_PREFLIGHT_PASS env CUDA_VISIBLE_DEVICES="" "$TARGET_PY" -B -u -m tbps.baselines.sga_full_execution
 nvidia-smi > "$CONTROL/gpu_start.log"
 free -b > "$CONTROL/ram_start.log"
-df -B1 "$OUT/.." > "$CONTROL/disk_start.log"
-df -i "$OUT/.." > "$CONTROL/inodes_start.log"
-available=$(df -B1 --output=avail "$OUT/.." | tail -n 1 | tr -d ' ')
+df -B1 "$(dirname "$OUT")" > "$CONTROL/disk_start.log"
+df -i "$(dirname "$OUT")" > "$CONTROL/inodes_start.log"
+available=$(df -B1 --output=avail "$(dirname "$OUT")" | tail -n 1 | tr -d ' ')
 [[ "$available" -ge 37580963840 ]] || failure 6
 ram_kib=$(awk '/MemAvailable:/{print $2}' /proc/meminfo)
 [[ "$ram_kib" -ge 50331648 ]] || failure 7

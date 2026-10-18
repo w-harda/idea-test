@@ -346,3 +346,7 @@ Full仅CPU预检3074/6156通过；未授权或执行Full。当前主方法仍G-v
 一次Source-only实际Attempt，前8张官方Test图cuhk:37132:0至cuhk:37139:0与全部16句。batch8及全部原官方参数/流程不变；IRRA/MLM各加载1次、实际图像417/文本1026，目标评分0。SGA_BATCH8_CAPACITY_PASS，独立CPU读回PASS；攻击9.02253秒，GPU allocated6.3714GiB/reserved10.6270GiB、Peak RSS2.2802GiB，无OOM。参数buffers前后exact，官方FP32预算边界PASS，实数舍入差2.93348e-8，未声称严格数学上界通过。
 
 证据根/home/lzf/ldx/outputs/tbps-framework-sga-irra-capacity/batch8_v1/source/；日志/home/lzf/ldx/tmp/sga_batch8_capacity_v1.log。SHA/实测数据见framework/SGA_BATCH8_CAPACITY_EVIDENCE.json。164旧Smoke文件与历史来源/结果保护，不重写旧完成回执。Full监督器/进度入口已完成CPU测试但未运行；正式Full输出、started及后台任务均未创建。
+
+## SGA官方IRRA Source Full v1启动FAIL与v2修复
+
+v1控制目录/home/lzf/ldx/tmp/sga_official_irra_full_v1/，CPU预检PASS后df不存在路径失败，Source/Target均未执行，正式Full输出无。全部13个证据文件保留，不能改签成功。v2仅修Bash父目录检查、独立ROOT/CONTROL；8项CPU测试PASS，算法/模型/配置字节不改；实际启动核验见framework/SGA_FULL_LAUNCH_V2.md，不能把启动成功当成Full完成。

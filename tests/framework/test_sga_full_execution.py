@@ -55,9 +55,9 @@ def test_actual_bash_chain_fixture(tmp_path,failed):
       "df":"if [[ \"$*\" == *--output=avail* ]]; then printf 'Avail\\n999999999999\\n'; else echo 'fixture disk'; fi",
       "awk":"echo 999999999"}.items():
         f=bin/name;f.write_text("#!/usr/bin/env bash\n"+body+"\n");f.chmod(0o755)
-    text=SCRIPT.read_text().replace("ROOT=/home/lzf/ldx/projects/idea-test-tbps-sga-batch8-capacity-20261019","ROOT="+str(root)).replace("FROZEN=/home/lzf/ldx/projects/idea-test-tbps-sga-irra-source-20261019","FROZEN="+str(frozen))
+    text=SCRIPT.read_text().replace("ROOT=/home/lzf/ldx/projects/idea-test-tbps-sga-full-launch-fix-20261019","ROOT="+str(root)).replace("FROZEN=/home/lzf/ldx/projects/idea-test-tbps-sga-irra-source-20261019","FROZEN="+str(frozen))
     text=text.replace("SOURCE_PY=/home/lzf/ldx/envs/sga-irra-source/bin/python","SOURCE_PY="+str(fake)).replace("TARGET_PY=/home/lzf/ldx/envs/tbps-image/bin/python","TARGET_PY="+str(fake))
-    text=text.replace("OUT=/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full","OUT="+str(out)).replace("CONTROL=/home/lzf/ldx/tmp/sga_official_irra_full_v1","CONTROL="+str(control))
+    text=text.replace("OUT=/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full","OUT="+str(out)).replace("CONTROL=/home/lzf/ldx/tmp/sga_official_irra_full_v2","CONTROL="+str(control))
     script=tmp_path/"run.sh";script.write_text(text)
     env={**os.environ,"PATH":str(bin)+":"+os.environ["PATH"],"FAIL_MODEL":failed}
     first=subprocess.run(["bash",str(script),"--allow-full"],env=env,capture_output=True,text=True)
@@ -73,3 +73,24 @@ def test_actual_bash_chain_fixture(tmp_path,failed):
 def test_bash_default_no_run():
     p=subprocess.run(["bash",str(SCRIPT)],capture_output=True,text=True)
     assert p.returncode==2
+
+
+def test_real_df_before_full_output_exists(tmp_path):
+    out=tmp_path/"full"
+    control=tmp_path/"control";control.mkdir()
+    assert not out.exists()
+    commands=[line for line in SCRIPT.read_text().splitlines()
+              if line.startswith("df ") or line.startswith("available=$(df ")]
+    assert len(commands)==3
+    assert all('"$(dirname "$OUT")"' in line for line in commands)
+    code='set -e\nOUT="$TEST_OUT"\nCONTROL="$TEST_CONTROL"\n'+'\n'.join(commands)+'\n[[ "$available" -gt 0 ]]'
+    p=subprocess.run(["bash","-c",code],env={**os.environ,"TEST_OUT":str(out),"TEST_CONTROL":str(control)},capture_output=True,text=True)
+    assert p.returncode==0,p.stderr
+    assert (control/"disk_start.log").stat().st_size>0 and (control/"inodes_start.log").stat().st_size>0
+    assert not out.exists()
+
+def test_v2_control_root_isolation():
+    text=SCRIPT.read_text()
+    assert "CONTROL=/home/lzf/ldx/tmp/sga_official_irra_full_v2" in text
+    assert "sga_official_irra_full_v1" not in text
+    assert "ROOT="+str(ROOT) in text
