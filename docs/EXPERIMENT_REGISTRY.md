@@ -292,3 +292,11 @@ IRRA、RaSa、APTM正式Full与独立CPU审计均PASS；每模型首次正式Att
 ## B3共享GPU正式链准备（2026-10-18，尚未启动）
 
 基准097c96d，codex/tbps-b3-shared-run。49项B3 CPU/149项相关回归PASS，Full CPU预检3074/6156、97历史批、CUDA=false。旧B3来源与正式三模型结果保持只读；新正式输出预定/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation，当前不存在。用户手动nohup+setsid启动后依次Smoke/审计/Full/审计，共享Ollama，单次资源快照、无轮询、不重试。监督目录预定/home/lzf/ldx/tmp/b3_shared_run，当前未部署，无新的GPU实验结果。入口/日志/停止命令见framework/B3_SHARED_RUN.md。
+
+## AP-Attack B3三模型Full结果（用户执行完成，本轮只读汇总）
+
+正式输出/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/{irra,rasa,aptm}/completed/；三模型Full和独立CPU审计PASS，监督status.log含SUCCESS | B3_THREE_MODEL_FULL_AND_CPU_AUDIT。冻结B3 E60 SHA c1c637e2e5346a3011f23006bb77bad60e4bd4bc28eb746d5f6bfcd881ba4ebb，G-v2 E10及三个受害者来源不变。
+
+仅四指标、Clean→AP-Attack B3→G-v2 Image-only：IRRA mAP66.10/40.43/32.28、RaSa69.18/39.99/35.05、APTM64.13/42.39/39.66。控制组与历史Full原精度exact；新增B3目标编码，不重新生成攻击。IRRA同模型、RaSa/APTM迁移；训练预算/文本监督/辅助来源未对齐，不标作等预算对比。
+
+[正式报告与CSV/证据](framework/results/b3_three_model_full_20261018/REPORT.md)。本轮9行36指标、完成回执、完整身份/ModelSpace及五Checkpoint实际SHA只读核验，82读取文件前后不变，无GPU/排名/新审计。上文准备阶段PENDING保留历史快照属性，当前以该完成证据为准。

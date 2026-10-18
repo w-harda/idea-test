@@ -2,21 +2,17 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：B3共享GPU后台链已准备，等待用户手动启动
+## 当前阶段：AP-Attack B3三模型Full及CPU审计完成，结果已只读汇总
 
-实现及CPU验证Commit：d229e6ea5e9c2f5a764d4fbb297f8397c48e9fed（后续仅补充此发布索引）。
+基准2047fb4c61f6ecfde32a148a593e87fe268462de；独立文档分支codex/tbps-b3-full-results。用户已手动执行共享GPU链，三个Full/独立CPU审计PASS，status.log最终SUCCESS | B3_THREE_MODEL_FULL_AND_CPU_AUDIT（2026-10-18 14:38:41 +08:00）。此前B3_STAGE_REPORT/B3_SHARED_RUN中的PENDING/尚未启动属于历史快照。
 
-2026-10-18，基准097c96d9deec68c1bfc71b74a2fba5f98e3e81c1，独立分支codex/tbps-b3-shared-run，工作树/home/lzf/ldx/projects/idea-test-tbps-b3-shared-run-20261018。
+正式报告：[B3与G-v2三模型对比](framework/results/b3_three_model_full_20261018/REPORT.md)，同目录metrics_2dp.csv、full_precision.csv、evidence.json。方法顺序固定Clean → AP-Attack B3 → G-v2 Image-only，仅R@1/5/10/mAP，百分数两位小数，不新增指标或下降率。
 
-用户已授权手动一次性启动Smoke→审计→Full→审计，无需在Smoke后再次确认Full；Codex本轮仅修改代码与CPU验证，未部署nohup、未查询真实GPU状态、未执行模型或生成攻击。当前正式运行状态PENDING_MANUAL_START，不是GPU轮询等待。
+mAP按上述方法顺序：IRRA 66.10/40.43/32.28，RaSa 69.18/39.99/35.05，APTM 64.13/42.39/39.66。G-v2四指标均低于B3；IRRA是同模型，RaSa/APTM是冻结IRRA训练攻击器产物的跨模型迁移。训练规模与监督来源不同，不能宣称等训练预算下优势。
 
-shared_observe_only：去掉瞬时利用率和Ollama存在限制；保留3072MiB最低启动空闲显存检查。全链只做一次GPU/其他B3进程快照；后续真实CUDA OOM/异常记录并停止，不重试、不干预Ollama。原run_b3_full.sh依次执行三个10+10 Smoke及审计，全部PASS后才执行三模型Full及审计；flock/一次性started/既有输出检查防重入，setsid独立进程组支持完整停止。
+本次仅标准库CPU读取与整理：9行36指标/24项历史控制数值exact、完整Manifest/ModelSpace、完成回执与五份Checkpoint SHA核验。82份实际读取文件SHA/inode/size/mtime不变；未启动GPU、重新生成、排名或重复独立CPU审计。Clean/G-v2为历史已审计Full显式复用，B3每模型实际新增3074图像编码，文本编码0。
 
-49项B3 CPU测试（17新增+32原有）和149项相关回归通过，6项旧配置路径测试按既定筛选未执行。Full严格CPU来源预检PASS，3074 Gallery/6156 Query、97批历史B3、CUDA=false。运行文档：[B3共享后台链](framework/B3_SHARED_RUN.md)。
-
-只读复用原B3历史图像、generation_v3及三模型对照；G/H加载/前向0，无训练或重新生成扰动。新配置绑定新源码/Shell SHA，新结果将写tbps-framework-b3-shared-evaluation，旧097源码树、FAIL/ready产物不改。四项结果固定Clean → AP-Attack B3 → G-v2 Image-only，R@1/5/10/mAP百分数两位小数。
-
-旧B3开发、训练来源与CPU产物证据见framework/B3_STAGE_REPORT.md、framework/B3_SOURCE_AUDIT.json；其中资源门禁PENDING为原阶段快照，本次运行政策以B3_SHARED_RUN.md为准。VLPTAttack官方身份已确认，本轮不扩展其他Baseline。
+旧源码、原共享运行树2047fb4、Checkpoint、generation_v3、B3像素及全部正式Full不变。等待用户审阅结果，不自行启动下一Baseline或新实验。
 
 ## 已完成：三受害者正式Full及独立CPU审计结果整理
 

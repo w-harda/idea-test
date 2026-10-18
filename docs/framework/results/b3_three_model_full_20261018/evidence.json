@@ -1,0 +1,474 @@
+{
+  "schema": "tbps-b3-full-results-summary-1",
+  "execution_commit": "2047fb4c61f6ecfde32a148a593e87fe268462de",
+  "scope": "full",
+  "models": {
+    "irra": {
+      "root": "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/irra",
+      "summary_sha256": "d119f94130b9b193f5418d7c7c2f49ea17893c9ec3b98ddd17f44354d04fc176",
+      "completed_manifest_sha256": "c52c6ac4322e2b2829fdfa97ae272bb18e151c713447a7169b400704593376fe",
+      "execution_report_sha256": "1c0469b85c49275620d4193344e4fc188efab63e86d99c8cdf599a8859235454",
+      "cpu_audit_log": "/home/lzf/ldx/tmp/b3_shared_run/logs/irra_full_audit.log",
+      "cpu_audit_log_sha256": "76ac3541d8d5613f5e9354b3e645576db6685f7f84087beb1ceee1c0c54d3edf",
+      "Full_PASS": true,
+      "CPU_audit_PASS": true,
+      "Clean_Gv2_reference_exact": true,
+      "ordered_manifest_exact": true,
+      "model_space_exact": true,
+      "B3_checkpoint": {
+        "path": "/home/lzf/ldx/outputs/AP-Attack/cuhk_irra_semantic_10_10/G_CUHK_IRRA_AP.pth.tar",
+        "sha256": "c1c637e2e5346a3011f23006bb77bad60e4bd4bc28eb746d5f6bfcd881ba4ebb"
+      },
+      "victim_checkpoint": {
+        "path": "/home/lzf/Attack/IRRA/logs/CUHK-PEDES/best.pth",
+        "sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+      },
+      "counts": {
+        "fusion_pairs": 0,
+        "image_samples": 3074,
+        "text_samples": 0
+      },
+      "victim_loads": 1,
+      "model_frozen": true,
+      "G_H_loads": 0,
+      "G_H_forwards": 0,
+      "elapsed_seconds": 193.94588739797473,
+      "reference_root": "/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full"
+    },
+    "rasa": {
+      "root": "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/rasa",
+      "summary_sha256": "9628e0e2540354958a33b581b188556f809a6378b9d3d7bf56dea256d0a7cae2",
+      "completed_manifest_sha256": "aee106ce339de6e80d154d4bd7c00d27040aa981b77d3ca313d8dccac0a64991",
+      "execution_report_sha256": "9666cbf6e43c9b715295adc1589a6e0c4f000dd1fc740582ecf68d58c07c8a86",
+      "cpu_audit_log": "/home/lzf/ldx/tmp/b3_shared_run/logs/rasa_full_audit.log",
+      "cpu_audit_log_sha256": "7a7eefe8b1efa427f806398f8b4cdf2e899dccd03aa3369db3c1874213a6eca6",
+      "Full_PASS": true,
+      "CPU_audit_PASS": true,
+      "Clean_Gv2_reference_exact": true,
+      "ordered_manifest_exact": true,
+      "model_space_exact": true,
+      "B3_checkpoint": {
+        "path": "/home/lzf/ldx/outputs/AP-Attack/cuhk_irra_semantic_10_10/G_CUHK_IRRA_AP.pth.tar",
+        "sha256": "c1c637e2e5346a3011f23006bb77bad60e4bd4bc28eb746d5f6bfcd881ba4ebb"
+      },
+      "victim_checkpoint": {
+        "path": "/home/lzf/ldx/checkpoints/RaSa/rasa_cuhk_checkpoint.pth",
+        "sha256": "bc85da09c2991d5de503c2c2ac4f032e20cc536fec5094f0acff45e93d0104d2"
+      },
+      "counts": {
+        "fusion_pairs": 787968,
+        "image_samples": 3074,
+        "score_calls": 49,
+        "text_samples": 0
+      },
+      "victim_loads": 1,
+      "model_frozen": true,
+      "G_H_loads": 0,
+      "G_H_forwards": 0,
+      "elapsed_seconds": 2870.954909399152,
+      "reference_root": "/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full"
+    },
+    "aptm": {
+      "root": "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/aptm",
+      "summary_sha256": "204c41f42a39e8fa7443d5438713bf63f61a726391cea73f174f8508deb309b7",
+      "completed_manifest_sha256": "c6cf70cbcdd41ab53f70d7ea0f271fc9715c7b0ccbe622a38f2fc8f5bd0514dc",
+      "execution_report_sha256": "46f8432b88574208f500e9e49c60f1abf46f01111191be0843facf272eaca46d",
+      "cpu_audit_log": "/home/lzf/ldx/tmp/b3_shared_run/logs/aptm_full_audit.log",
+      "cpu_audit_log_sha256": "3b6a69001a2abb029e606b87500ca062b9c4e9e6ab5dc10e2367fb2c693d1fa8",
+      "Full_PASS": true,
+      "CPU_audit_PASS": true,
+      "Clean_Gv2_reference_exact": true,
+      "ordered_manifest_exact": true,
+      "model_space_exact": true,
+      "B3_checkpoint": {
+        "path": "/home/lzf/ldx/outputs/AP-Attack/cuhk_irra_semantic_10_10/G_CUHK_IRRA_AP.pth.tar",
+        "sha256": "c1c637e2e5346a3011f23006bb77bad60e4bd4bc28eb746d5f6bfcd881ba4ebb"
+      },
+      "victim_checkpoint": {
+        "path": "/home/lzf/ldx/checkpoints/APTM/aptm_cuhk_checkpoint_best.pth",
+        "sha256": "521c9bf784e7e821ade471deaafa2f25e2501950591e574dc60ca177e9be5a2c"
+      },
+      "counts": {
+        "fusion_pairs": 787968,
+        "image_samples": 3074,
+        "score_calls": 49,
+        "text_samples": 0
+      },
+      "victim_loads": 1,
+      "model_frozen": true,
+      "G_H_loads": 0,
+      "G_H_forwards": 0,
+      "elapsed_seconds": 2305.433728951961,
+      "reference_root": "/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full"
+    }
+  },
+  "checks": {
+    "metric_rows": 9,
+    "metric_values": 36,
+    "Clean_Gv2_reference_values_exact": 24,
+    "rounded_csv_exact": true,
+    "three_ordered_manifests_exact": true,
+    "completed_and_execution_receipts_SHA_verified": true,
+    "checkpoints_actual_SHA_verified": 5,
+    "source_files_SHA_size_mtime_inode_unchanged": 82,
+    "new_GPU_model_forward_or_rank_calls": 0,
+    "audit_scope": "只读引用既有独立CPU审计PASS；本轮未再次执行完整缓存/排名审计"
+  },
+  "Gv2_checkpoint": {
+    "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/train_v2/checkpoints/epoch_0010/checkpoint.pt",
+    "sha256": "f59bd3b5f9cbbaf8f6acc10c4bdc113ea83cacb2979ea0821b952c8f9a1c658e"
+  },
+  "B3_training": {
+    "images": 34054,
+    "PIDs": 11003,
+    "epochs": 60,
+    "seed": 1234,
+    "captions_used": false,
+    "IRRA_text_used": false,
+    "config": {
+      "path": "/home/lzf/ldx/outputs/AP-Attack/cuhk_irra_semantic_10_10/config.json",
+      "sha256": "3be9a35ea22d8042445b7ecde0053fc76af681ab98265fd9596d372847000a5d"
+    }
+  },
+  "Gv2_training": {
+    "images": 2048,
+    "validation": 128,
+    "epochs": 10,
+    "seed": 42,
+    "protocol": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/train_v2/training_protocol.json",
+      "sha256": "3f9e1fae379e9205c7d1d80224887841f89bc49119a3546740b9340e824a93b2",
+      "format": "json"
+    }
+  },
+  "sources": {
+    "/home/lzf/Attack/IRRA/logs/CUHK-PEDES/best.pth": {
+      "sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009",
+      "size_bytes": 1320992076
+    },
+    "/home/lzf/ldx/checkpoints/APTM/aptm_cuhk_checkpoint_best.pth": {
+      "sha256": "521c9bf784e7e821ade471deaafa2f25e2501950591e574dc60ca177e9be5a2c",
+      "size_bytes": 859801179
+    },
+    "/home/lzf/ldx/checkpoints/RaSa/rasa_cuhk_checkpoint.pth": {
+      "sha256": "bc85da09c2991d5de503c2c2ac4f032e20cc536fec5094f0acff45e93d0104d2",
+      "size_bytes": 1816575847
+    },
+    "/home/lzf/ldx/outputs/AP-Attack/cuhk_irra_semantic_10_10/G_CUHK_IRRA_AP.pth.tar": {
+      "sha256": "c1c637e2e5346a3011f23006bb77bad60e4bd4bc28eb746d5f6bfcd881ba4ebb",
+      "size_bytes": 7964513
+    },
+    "/home/lzf/ldx/outputs/AP-Attack/cuhk_irra_semantic_10_10/G_CUHK_IRRA_AP.pth.tar.json": {
+      "sha256": "a9de09356d879c94bb0bb4c036f41e10ae919e857b9cede774ef546efa3437c7",
+      "size_bytes": 9326
+    },
+    "/home/lzf/ldx/outputs/AP-Attack/cuhk_irra_semantic_10_10/config.json": {
+      "sha256": "3be9a35ea22d8042445b7ecde0053fc76af681ab98265fd9596d372847000a5d",
+      "size_bytes": 938
+    },
+    "/home/lzf/ldx/outputs/AP-Attack/cuhk_irra_semantic_10_10/progress.json": {
+      "sha256": "0d0932e514615eae8406044dd2c030ed4486c19d62992d217aaf65586ba719dc",
+      "size_bytes": 254
+    },
+    "/home/lzf/ldx/outputs/idea-TBPS-test1/baseline-ap-cuhk-irra-surrogate/adversarial-gallery/gallery.json": {
+      "sha256": "e6c013dfaa452653d15ce37842530362c52a67b9dabeca855407adbcef137f19",
+      "size_bytes": 211453
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/completed/manifest.json": {
+      "sha256": "1c577586605588b4887c66ee56dbffaae6c1447bb68006c2b05794342679e242",
+      "size_bytes": 685
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/completed/summary.json": {
+      "sha256": "8944ea0cd29e5c9f4410bf9ad7ccc65f67e3c26ad8a794e2a8af6915bca36d18",
+      "size_bytes": 1835
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/execution-000001/report.json": {
+      "sha256": "1311d1bd73da0939f0fa09265c1f641443183c59ec2f2546b9d3fb12ba7ad507",
+      "size_bytes": 1755
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/protocol/manifest.json": {
+      "sha256": "21a39645e329ed91e444721c42c1e9a66752eee3a04849dd7913da8453c8b360",
+      "size_bytes": 1011
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/protocol/protocol.json": {
+      "sha256": "5d5a34eb10f4e8c97022427a99aeed8294ea7d7046c78287f4e35b4c7ab862e6",
+      "size_bytes": 4030648
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/result/manifest.json": {
+      "sha256": "414dcd3ef0011a36d7a2ad6d1e94f520730324d8a81b20e8d35a6406b8c6c71d",
+      "size_bytes": 222502
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/result/protocol.json": {
+      "sha256": "f2dc3d3e7c23e07f992a037ddfe9630e2c6031a3d1fe4fd5aa73ca7d73943ae6",
+      "size_bytes": 4871217
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/aptm/attempt/manifest.json": {
+      "sha256": "a950ae97128e49c0ab760ccb8c3a4de5c4838e93c59f2d809915721b47ae615e",
+      "size_bytes": 768
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/aptm/completed/completed.json": {
+      "sha256": "29c16726a00abdb6bec2baeae21e822cb113ecf4e8475ba298f29089cf84f082",
+      "size_bytes": 121
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/aptm/completed/manifest.json": {
+      "sha256": "c6cf70cbcdd41ab53f70d7ea0f271fc9715c7b0ccbe622a38f2fc8f5bd0514dc",
+      "size_bytes": 556
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/aptm/completed/metrics.csv": {
+      "sha256": "e1f9b0216d6ff42f59f729666b21f986a4aea4549d25ce554041732c55d72c32",
+      "size_bytes": 287
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/aptm/completed/metrics_2dp.csv": {
+      "sha256": "9784a0e7d5592c0901dead9d1f4e126f4aeb6fe2ecdaf991f2c734272b7c4d68",
+      "size_bytes": 142
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/aptm/completed/summary.json": {
+      "sha256": "204c41f42a39e8fa7443d5438713bf63f61a726391cea73f174f8508deb309b7",
+      "size_bytes": 1083
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/aptm/execution/completed.json": {
+      "sha256": "1f9f9b9447b982813fd95824d78c593c32604754b873fe0f769f798288fbdf8b",
+      "size_bytes": 121
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/aptm/execution/manifest.json": {
+      "sha256": "efadb26a938e8afa37a3aa112907c5421f7ece9e2fed513653c02fe59b9225a6",
+      "size_bytes": 378
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/aptm/execution/report.json": {
+      "sha256": "46f8432b88574208f500e9e49c60f1abf46f01111191be0843facf272eaca46d",
+      "size_bytes": 1481
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/aptm/protocol/completed.json": {
+      "sha256": "1bb9fe84e05b3387088efdb7a99e08a2a03e9e2a3f445b4e7d79e290b9ac3d95",
+      "size_bytes": 121
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/aptm/protocol/manifest.json": {
+      "sha256": "bce497284bbdb54325f1f71bd387423883252b4702be31cde1d681cefd38b109",
+      "size_bytes": 913
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/aptm/protocol/protocol.json": {
+      "sha256": "ba93c3e7e9a518d65c3ddbaaa64b476a78ec8b2601a0c4bf18290d989e6dcb46",
+      "size_bytes": 2515216
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/irra/attempt/manifest.json": {
+      "sha256": "70a10901abc30048e9ab78ca487d1430064ff1cb3c87b0d3334d05d11842b4bd",
+      "size_bytes": 768
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/irra/completed/completed.json": {
+      "sha256": "139a49ef8b3001a623e885eb36d3a132eaf5b3fc34fbb2a78259e3f06f7bf52d",
+      "size_bytes": 121
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/irra/completed/manifest.json": {
+      "sha256": "c52c6ac4322e2b2829fdfa97ae272bb18e151c713447a7169b400704593376fe",
+      "size_bytes": 556
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/irra/completed/metrics.csv": {
+      "sha256": "f084c7d355e2d5a1707f9908e5772356f51573846807683910d35d63bd96e7b6",
+      "size_bytes": 287
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/irra/completed/metrics_2dp.csv": {
+      "sha256": "66b5a9cb3a431b4f3e74e9a47ce2ede669590009948b82ff35ce39b726827cee",
+      "size_bytes": 142
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/irra/completed/summary.json": {
+      "sha256": "d119f94130b9b193f5418d7c7c2f49ea17893c9ec3b98ddd17f44354d04fc176",
+      "size_bytes": 1069
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/irra/execution/completed.json": {
+      "sha256": "9d274c666287ff99ee955a96437e5aacd0c7b830aae6da538ddb18796a307664",
+      "size_bytes": 121
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/irra/execution/manifest.json": {
+      "sha256": "d118f8bacdd400a3669d247856232c5c84edfb1c674730a2f7e0d2cdce4a348d",
+      "size_bytes": 378
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/irra/execution/report.json": {
+      "sha256": "1c0469b85c49275620d4193344e4fc188efab63e86d99c8cdf599a8859235454",
+      "size_bytes": 1457
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/irra/protocol/completed.json": {
+      "sha256": "356754da7b19924cddc2acd7d78f0e53158a296adf4d8f2956e8246f7f72993c",
+      "size_bytes": 121
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/irra/protocol/manifest.json": {
+      "sha256": "ba0c6e75db02b69268da8511708fc7fa70dc86a2b702dffe66f440e765cb1a07",
+      "size_bytes": 899
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/irra/protocol/protocol.json": {
+      "sha256": "3a4d27f85a644ca28604a188152be96309175c7c2d5d2301d22e9260e8871430",
+      "size_bytes": 2515216
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/pixels/collection/collection.json": {
+      "sha256": "0c2b33bcd32f472b188a30964286231203caec3f51fac63d63ccb5d7ae8c52a6",
+      "size_bytes": 46247
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/pixels/collection/completed.json": {
+      "sha256": "125bed2e94f8213f9c8279455bf291da3dda4c56a89a0757428e97f00c72d70e",
+      "size_bytes": 121
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/pixels/collection/manifest.json": {
+      "sha256": "fafe49d18a215897d6f22232080356e19f3dc490d2b6e850da5cfcee8991ecbf",
+      "size_bytes": 394
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/pixels/protocol/manifest.json": {
+      "sha256": "e9d02008067cf13a3f24b62b84ea5a6d1c848de14ee164286d2638e0f7315c59",
+      "size_bytes": 581
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/rasa/attempt/manifest.json": {
+      "sha256": "cd432cab37465adf43a1c962ad867e044295aefbb8a63a1f5b2e995063a8e52a",
+      "size_bytes": 768
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/rasa/completed/completed.json": {
+      "sha256": "d6627d297ba2ada160f4aaf3553637feef9217fb40ccfd379817b536548efeca",
+      "size_bytes": 121
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/rasa/completed/manifest.json": {
+      "sha256": "aee106ce339de6e80d154d4bd7c00d27040aa981b77d3ca313d8dccac0a64991",
+      "size_bytes": 556
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/rasa/completed/metrics.csv": {
+      "sha256": "83848a1c0fd0b66ef4f7c01062c1f9205297ef18dac5d19b386643260d31ce85",
+      "size_bytes": 286
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/rasa/completed/metrics_2dp.csv": {
+      "sha256": "5581d867ab28982d493e78f9b2c807ac6243e1a35a3ebb2fbb9afeaa1235cf4b",
+      "size_bytes": 142
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/rasa/completed/summary.json": {
+      "sha256": "9628e0e2540354958a33b581b188556f809a6378b9d3d7bf56dea256d0a7cae2",
+      "size_bytes": 1077
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/rasa/execution/completed.json": {
+      "sha256": "cf3e83a2f1687e57f0d0e5de0eecbd57358a03049654b90ba2f56ea9d5021626",
+      "size_bytes": 121
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/rasa/execution/manifest.json": {
+      "sha256": "a8c24b096fc87a578207d60bda0a7bd8f61bb1fa8b39091cde07bdaa2ea0ccd2",
+      "size_bytes": 378
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/rasa/execution/report.json": {
+      "sha256": "9666cbf6e43c9b715295adc1589a6e0c4f000dd1fc740582ecf68d58c07c8a86",
+      "size_bytes": 1480
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/rasa/protocol/completed.json": {
+      "sha256": "44a4123e624126eef5087218f6aeb6964d7c9eb965b736b329651e2f7334b58b",
+      "size_bytes": 121
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/rasa/protocol/manifest.json": {
+      "sha256": "343fa22a527d32e6162bda4fe52fe5886d0775e94bfacdc3d4619ee16c41abef",
+      "size_bytes": 908
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation/full/rasa/protocol/protocol.json": {
+      "sha256": "dee9ee5f1e4d2b56a6fc77e7b601c63499f0f2fe2b5002d16cb5316128fb28d5",
+      "size_bytes": 2515216
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/completed/manifest.json": {
+      "sha256": "10cd2ebb890225ec8bf38cb5e7bfb1505ca10a51148fb356e58b18a76eee650e",
+      "size_bytes": 683
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/completed/summary.json": {
+      "sha256": "4530f3f97156d6e9f65c07b0775588324c39679feb0f16ae66b356692b017eb0",
+      "size_bytes": 1843
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/execution-000001/report.json": {
+      "sha256": "a620c28466d4ecdbee2c03fe60262cdb53b23d67a1156fbc02888b2bcdc77ec5",
+      "size_bytes": 1665
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/protocol/manifest.json": {
+      "sha256": "c46d43c9aa2fd90eb4a502836d13a33c396e3545344d1027840319e2c864e9d7",
+      "size_bytes": 797
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/protocol/protocol.json": {
+      "sha256": "6d6b64246a932f424a68646bd67da4a8a95bd3996b698c6581702aafb0e06b91",
+      "size_bytes": 4029917
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/result/manifest.json": {
+      "sha256": "39da91d0f7faf99d97f409287247e1df560ef092bd12f5f7349788dbcd52f291",
+      "size_bytes": 58116
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/result/protocol.json": {
+      "sha256": "e0ca1f4602a04daa95a1fbbd40b39432c22cc238d61c16264f856d6a0c019b4c",
+      "size_bytes": 4706739
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/completed/manifest.json": {
+      "sha256": "9e02d0c9ab18be84f1de381beec7182ab5561e795d307d2f9c8922e986ee4e06",
+      "size_bytes": 685
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/completed/summary.json": {
+      "sha256": "12b3a90ca761c632bdf7781e7d52b43b753ddb5e7bdf36ad53e65515d7fc37ac",
+      "size_bytes": 1841
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/execution-000001/report.json": {
+      "sha256": "3cc96dd373be51dd54b2a2fcf65e50b421a250fe5ba33434883637e3c5e42fff",
+      "size_bytes": 1637
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/protocol/manifest.json": {
+      "sha256": "ea9bc7436732e289504f7093a8731c94d6a6bb77f50cc68b56188a6255ccbdae",
+      "size_bytes": 1006
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/protocol/protocol.json": {
+      "sha256": "96dbd05654d8f9487e0aba71220e2b80143367c6d29a2dda1276673251bd5686",
+      "size_bytes": 4030534
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/result/manifest.json": {
+      "sha256": "fec499ff3d63b787bea25fea2421057fda1b0d3ced171b60c57704a6bb29a3a3",
+      "size_bytes": 222497
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/result/protocol.json": {
+      "sha256": "dedaf009cfe2854bc4b790c74ba1bc61210599be39f752825712887bb0b96e38",
+      "size_bytes": 4871202
+    },
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/conditions_full/manifest.json": {
+      "sha256": "506caf30b8f82b8a29fc35e06df7bb04a5b2bcddc58a1f159b524bb107e7511e",
+      "size_bytes": 1994621
+    },
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/train_v2/checkpoints/epoch_0010/checkpoint.pt": {
+      "sha256": "f59bd3b5f9cbbaf8f6acc10c4bdc113ea83cacb2979ea0821b952c8f9a1c658e",
+      "size_bytes": 18674174
+    },
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/train_v2/training_protocol.json": {
+      "sha256": "3f9e1fae379e9205c7d1d80224887841f89bc49119a3546740b9340e824a93b2",
+      "size_bytes": 3991
+    },
+    "/home/lzf/ldx/projects/idea-test-tbps-b3-full-results-20261018/configs/framework/legacy_assets.server.json": {
+      "sha256": "7c97c89f54482ce986626ecc055485a83f7a2e2a5914c6af1e3b9106557bfb65",
+      "size_bytes": 117000
+    },
+    "/home/lzf/ldx/projects/idea-test-tbps-b3-shared-run-20261018/configs/framework/baseline_b3_shared.server.json": {
+      "sha256": "3205dac34c1600c1a8c261187f1b00626246a2e5126e4a39b5452ca0f7979144",
+      "size_bytes": 21749
+    },
+    "/home/lzf/ldx/tmp/b3_shared_run/logs/aptm_full.log": {
+      "sha256": "02bf76048448951ce6e099ab738ba24cb83bbac8990dec8860bcf4f80f93a5a6",
+      "size_bytes": 14090
+    },
+    "/home/lzf/ldx/tmp/b3_shared_run/logs/aptm_full_audit.log": {
+      "sha256": "3b6a69001a2abb029e606b87500ca062b9c4e9e6ab5dc10e2367fb2c693d1fa8",
+      "size_bytes": 28
+    },
+    "/home/lzf/ldx/tmp/b3_shared_run/logs/irra_full.log": {
+      "sha256": "c8affa33865c6084ee01dee635c356d40a628ceead32dabe6fd45f8f85524f55",
+      "size_bytes": 10191
+    },
+    "/home/lzf/ldx/tmp/b3_shared_run/logs/irra_full_audit.log": {
+      "sha256": "76ac3541d8d5613f5e9354b3e645576db6685f7f84087beb1ceee1c0c54d3edf",
+      "size_bytes": 28
+    },
+    "/home/lzf/ldx/tmp/b3_shared_run/logs/rasa_full.log": {
+      "sha256": "5add8311f73435b7d1c15523e2a7023f142804c2d01b93d327d6df88230f773f",
+      "size_bytes": 13602
+    },
+    "/home/lzf/ldx/tmp/b3_shared_run/logs/rasa_full_audit.log": {
+      "sha256": "7a7eefe8b1efa427f806398f8b4cdf2e899dccd03aa3369db3c1874213a6eca6",
+      "size_bytes": 28
+    },
+    "/home/lzf/ldx/tmp/b3_shared_run/phase": {
+      "sha256": "1f513d4ecec4e91ddd48da1a59b6d96f1b76c374dc1da641980782a34f43b102",
+      "size_bytes": 8
+    },
+    "/home/lzf/ldx/tmp/b3_shared_run/status.log": {
+      "sha256": "a581f44c6da258402efd087c414295603a192c002ac4a4677c235cb48a3d7d46",
+      "size_bytes": 2419
+    }
+  }
+}
