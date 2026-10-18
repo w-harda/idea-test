@@ -257,3 +257,7 @@ baselines/sga_attack调用固定官方ImageAttacker的五尺度增强，持有�
 source wrapper只转换原生IRRA输入/特征；官方SGAttacker/ImageAttacker/TextAttacker保持只读并实际调用。Source与Target分别子进程，冻结产物隔离目标反馈。Matched Clean绑定pre_caption30及384×128源RGB，不复用旧Raw Clean数值。BERT定制Tokenizer→文本→IRRA Byte-BPE逐行保真，额外截断拒绝。
 
 Full仍复用原EvaluationEngine/原生融合Scorer。固定两图Smoke另用限定评分桥和官方rank(max_rank2)，不放宽Full R@10门禁；保留原IRRA排名FAIL、CPU只读复用其完整特征。算法/预算/预处理差异及资源见framework/SGA_IRRA_SOURCE_SMOKE_REPORT.md。官方FP32边界舍入超实数epsilon公开记录，未引入二次投影。
+
+## SGA官方Batch8容量与Full执行管理（不改攻击）
+
+sga_batch8_capacity只在独立作用域限定Dataset为官方前8图/全部Caption，委托冻结source_run；新输出tbps-framework-sga-irra-capacity不污染Full。原算法/Full源码和配置不改。run_sga_irra_full.sh及sga_full_execution只增加一次性监督、PID/PGID/phase与编码标量进度，委托原Source/Target/Audit，不改原生评分。容量实测PASS，后台全链仅CPU Fixture验证；Full未启动。见framework/SGA_BATCH8_CAPACITY.md。

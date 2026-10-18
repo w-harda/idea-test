@@ -2,7 +2,17 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：官方SGA算法/IRRA Source最小移植与三目标Smoke完成，Full未执行
+## 当前阶段：官方SGA Batch8容量测试PASS，Full后台入口就绪，尚未启动
+
+独立分支codex/tbps-sga-batch8-capacity，基准9e15291a6d6601a72cdb3deff247b0e2066d26a6；代码Commit待后续文档提交登记。
+
+一次实际Source-only容量Attempt：官方Test前8图/全部16 Caption，完整原SGAttacker三阶段/五尺度/10轮/2/255/步长0.5/255/global seed42/batch8，IRRA与MLM各恢复1次。攻击9.02253秒，会话19.15762秒；allocated6.3714GiB/reserved10.6270GiB、CPU Peak RSS2.2802GiB，无OOM。模型及buffers前后exact；官方FP32预算边界PASS，实数差2.93348e-8公开报告，未改投影。没有目标评分或Full。
+
+容量入口仅限定原source_run的数据范围和独立输出；原Full及算法字节未改。新增Bash薄监督器和原生编码标量进度，记录PID/PGID/phase/日志、一次启动/失败即停，仍调用原Source和三个Target与CPU audit。32项必要CPU tests PASS，后台链仅用CPU Fixture验证。正式Full输出及控制目录未创建；没有部署nohup。
+
+详见[实测及可授权启动命令](framework/SGA_BATCH8_CAPACITY.md)、[实际证据](framework/SGA_BATCH8_CAPACITY_EVIDENCE.json)。维持原Full20GiB空闲显存门禁，不轮询或结束其他进程；预计6–8小时，后续batch/外部任务仍有资源波动风险。Matched Clean单列，主方法为G-v2+H-v1 Joint；旧白盒结果不冒充官方SGA。完成后停止，等待Full授权。
+
+## 已完成：官方SGA算法/IRRA Source最小移植与三目标Smoke，Full未执行
 
 独立分支codex/tbps-sga-irra-source，基准04bddc407a59763118cdd3b1200231ec6c2d8e8e。代码及验证提交：2e1359034eb63a2db7cf9c21db095ea99f23dc11；当前文档提交登记该不可变代码版本。
 

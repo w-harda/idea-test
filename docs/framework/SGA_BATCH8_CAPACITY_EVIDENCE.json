@@ -1,0 +1,182 @@
+{
+  "schema": "SGA-batch8-capacity-evidence-1",
+  "status": "PASS",
+  "report": {
+    "GPU_peak_allocated_bytes": 6841224192,
+    "GPU_peak_reserved_bytes": 11410604032,
+    "GPU_start": {
+      "compute_processes": "",
+      "free_mib": 24051,
+      "name": "NVIDIA GeForce RTX 4090",
+      "policy": "shared_observe_only",
+      "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 24051, 40, 0",
+      "total_mib": 24564,
+      "used_mib": 40,
+      "utilization_percent": 0
+    },
+    "G_H_loads": 0,
+    "MLM_after": {
+      "buffers": {
+        "sha256": "2c7271c8f96758c7cd878895c2e5968f7183fba1de300f50cd51ad77b0769d0e",
+        "tensor_count": 2
+      },
+      "eval": true,
+      "parameter_grads_none": true,
+      "parameters": {
+        "sha256": "09415ccb8d4c1ca4d4a7a22c2be1ca0fdad5830ec3b47960bdd9d70558bb9b60",
+        "tensor_count": 202
+      },
+      "requires_grad": false
+    },
+    "MLM_before": {
+      "buffers": {
+        "sha256": "2c7271c8f96758c7cd878895c2e5968f7183fba1de300f50cd51ad77b0769d0e",
+        "tensor_count": 2
+      },
+      "eval": true,
+      "parameter_grads_none": true,
+      "parameters": {
+        "sha256": "09415ccb8d4c1ca4d4a7a22c2be1ca0fdad5830ec3b47960bdd9d70558bb9b60",
+        "tensor_count": 202
+      },
+      "requires_grad": false
+    },
+    "MLM_counts": {
+      "calls": 4,
+      "samples": 80
+    },
+    "MLM_loads": 1,
+    "elapsed_seconds": 19.157618556171656,
+    "gradient_check_counts": {
+      "BERT_truncated_rows": 0,
+      "UNK_rows": 0,
+      "bridge_rows": 1,
+      "image_samples": 1,
+      "text_samples": 1
+    },
+    "input_gradient_check": {
+      "finite": true,
+      "norm": 0.2208087146282196,
+      "shape": [
+        1,
+        3,
+        384,
+        128
+      ]
+    },
+    "max_real_linf": 0.007843166589736938,
+    "model_after": {
+      "buffers": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tensor_count": 0
+      },
+      "eval": true,
+      "parameter_grads_none": true,
+      "parameters": {
+        "sha256": "b0f0c4e01e6601eb280698f8ee5a3304d9ed117e22968db9f7be17f453330d0f",
+        "tensor_count": 367
+      },
+      "requires_grad": false
+    },
+    "model_before": {
+      "buffers": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tensor_count": 0
+      },
+      "eval": true,
+      "parameter_grads_none": true,
+      "parameters": {
+        "sha256": "b0f0c4e01e6601eb280698f8ee5a3304d9ed117e22968db9f7be17f453330d0f",
+        "tensor_count": 367
+      },
+      "requires_grad": false
+    },
+    "official_commit": "f49e6926cd13148e49bdbc2c3e537660e096230c",
+    "optimizer": 0,
+    "peak_RSS_bytes": 2448379904,
+    "runtime_versions": {
+      "ftfy": "6.1.1",
+      "timm": "0.6.13",
+      "tokenizers": "0.13.3",
+      "torch": "2.0.0+cu118",
+      "torchvision": "0.15.0+cu118",
+      "transformers": "4.28.1"
+    },
+    "scope": "batch8_v1",
+    "source_counts": {
+      "BERT_truncated_rows": 206,
+      "UNK_rows": 750,
+      "bridge_rows": 1026,
+      "image_samples": 417,
+      "text_samples": 1026
+    },
+    "source_frozen": true,
+    "source_model_loads": 1,
+    "status": "PASS",
+    "target_models_in_generation": []
+  },
+  "attack_seconds": 9.022531121969223,
+  "budget": {
+    "official_FP32_bounds_exact": true,
+    "real_linf": 0.007843166589736938,
+    "mathematical_epsilon": 0.00784313725490196,
+    "roundoff_above_real_epsilon": 2.9334834977801094e-08,
+    "extra_projection": false
+  },
+  "gallery_ids": [
+    "cuhk:37132:0",
+    "cuhk:37133:0",
+    "cuhk:37134:0",
+    "cuhk:37135:0",
+    "cuhk:37136:0",
+    "cuhk:37137:0",
+    "cuhk:37138:0",
+    "cuhk:37139:0"
+  ],
+  "query_ids": [
+    "cuhk:37132:0",
+    "cuhk:37132:1",
+    "cuhk:37133:0",
+    "cuhk:37133:1",
+    "cuhk:37134:0",
+    "cuhk:37134:1",
+    "cuhk:37135:0",
+    "cuhk:37135:1",
+    "cuhk:37136:0",
+    "cuhk:37136:1",
+    "cuhk:37137:0",
+    "cuhk:37137:1",
+    "cuhk:37138:0",
+    "cuhk:37138:1",
+    "cuhk:37139:0",
+    "cuhk:37139:1"
+  ],
+  "full_executed": false,
+  "target_scoring": false,
+  "cpu_readback": "PASS",
+  "evidence_sha256": {
+    "/home/lzf/ldx/outputs/tbps-framework-sga-irra-capacity/batch8_v1/source/execution/manifest.json": "96562be70a15c57bf85fdf5acdcbda696f733175b369a56b29ecdd696155e078",
+    "/home/lzf/ldx/outputs/tbps-framework-sga-irra-capacity/batch8_v1/source/completed/manifest.json": "ea8f8646d1849eee0c3a91878004a107b0ed87c63a2778a22dbd9239ebfabaf8",
+    "/home/lzf/ldx/outputs/tbps-framework-sga-irra-capacity/batch8_v1/source/protocol/manifest.json": "a676f063fb61bc5a66a78118275e10ddf1145d99bc073d4938f8a6b05a20a0fd",
+    "/home/lzf/ldx/outputs/tbps-framework-sga-irra-capacity/batch8_v1/source/batch-000000/manifest.json": "507fb130cc70067379cabfdcfb29cd291588f92ad23f33093065a3f22d3d8369",
+    "/home/lzf/ldx/outputs/tbps-framework-sga-irra-capacity/batch8_v1/source/official_flow.jsonl": "d44fe883c22a61678298f00aa5f19e5d54db2106d32729bbb6dc8a52863190ad",
+    "/home/lzf/ldx/outputs/tbps-framework-sga-irra-capacity/batch8_v1/source/bridge_trace.jsonl": "9e5df1c8c564391fd43dd0b46455385028ca79c30af37c3bde828106a5b0e8ba",
+    "/home/lzf/ldx/tmp/sga_batch8_capacity_v1.log": "5b8faa7ef287406f5c4ac556f96422b18c3e62cdd2dcf2a52420e4b9931c07ec"
+  },
+  "protection": {
+    "source_SHA_stat_files": 145,
+    "historical_result_stat_files": 67380,
+    "old_trees": 4,
+    "old_smoke_SHA_stat_files": 164,
+    "errors": [],
+    "frozen_source_worktree_HEAD": "9e15291a6d6601a72cdb3deff247b0e2066d26a6",
+    "frozen_source_worktree_clean": true
+  },
+  "tests": {
+    "capacity_and_algorithm_CPU": 26,
+    "full_execution_CPU": 6,
+    "bash_syntax": "PASS"
+  },
+  "full_output_exists": false,
+  "full_control_exists": false
+}
