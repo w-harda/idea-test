@@ -4,6 +4,8 @@
 
 ## 当前阶段：SGA三模型白盒TBPS适配与10图Smoke通过，Full待用户手动启动
 
+实现及Smoke报告Commit：d6e719a2cccc5a2d3e01f2465600464358a013fa（本次文档提交补充发布索引）。
+
 独立分支codex/tbps-sga-whitebox-fixed，工作树/home/lzf/ldx/projects/idea-test-tbps-sga-whitebox-fixed-20261018。官方SGA固定f49e6926cd13148e49bdbc2c3e537660e096230c；复用原生三模型Adapter/Engine/旧输入来源，新增image-only集合攻击薄层，没有修改旧算法或结果。[Smoke报告](framework/SGA_SMOKE_REPORT.md)、[运行命令](framework/SGA_WHITEBOX.md)、[来源证据](framework/SGA_SMOKE_EVIDENCE.json)、ADR-0008。
 
 IRRA/RaSa/APTM各10 Gallery/10 Query Smoke及独立CPU审计PASS；各模型恢复1次、视觉前向510、神经文本前向0，融合pair0/1200/1200，G/H及Optimizer/属性JVP为0。严格8/255、输入梯度有限非零、模型参数/buffers exact。小图库SGA mAP39.98/46.60/67.94仅链路检查，不是正式Full结果。

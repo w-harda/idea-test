@@ -1,5 +1,7 @@
 # SGA三模型白盒TBPS适配与真实Smoke报告
 
+实现及证据Commit：d6e719a2cccc5a2d3e01f2465600464358a013fa；分支codex/tbps-sga-whitebox-fixed。
+
 本阶段完成三个受害者的10 Gallery / 10 Query真实GPU Smoke和独立CPU审计。121项相关CPU测试通过；正式3074 Gallery / 6156 Query Full未运行，也未部署后台任务。本文的小图库指标仅验证攻击、梯度和评分链路，不能用作正式Full对比或攻击成功率。
 
 ## 来源、算法与适配边界

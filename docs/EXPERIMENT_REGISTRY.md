@@ -303,6 +303,8 @@ IRRA、RaSa、APTM正式Full与独立CPU审计均PASS；每模型首次正式Att
 
 ## SGA-TBPS三目标白盒真实Smoke（2026-10-18，非Full）
 
+实现与报告Commit：d6e719a2cccc5a2d3e01f2465600464358a013fa；分支codex/tbps-sga-whitebox-fixed。
+
 官方SGA f49e6926cd13148e49bdbc2c3e537660e096230c；IRRA/RaSa/APTM分别使用自己的冻结Checkpoint和输入梯度，10张Test Gallery的全部20 Caption作集合，评估10条Clean Query。每目标独立生成10图；预算8/255、10轮、5尺度。三个Smoke与独立CPU审计PASS，Full未运行。
 
 正式Smoke证据/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/{irra,rasa,aptm}/；审计/home/lzf/ldx/tmp/sga_fixed_smoke_<model>_audit.log。SGA四项小指标见[报告](framework/SGA_SMOKE_REPORT.md)，原始来源SHA索引SGA_SMOKE_EVIDENCE.json。各目标受害者加载1、视觉510、文本0、融合pair0/1200/1200；模型摘要exact、无G/H/Optimizer/属性JVP。小指标不得放入正式Full比较表。
