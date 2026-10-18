@@ -2,7 +2,7 @@
 
 基准Commit：9e15291a6d6601a72cdb3deff247b0e2066d26a6。独立分支codex/tbps-sga-batch8-capacity；工作树/home/lzf/ldx/projects/idea-test-tbps-sga-batch8-capacity-20261019。
 
-**结论：一次真实Batch=8 Source-only测试PASS，无OOM；本轮未启动正式Full。** 代码提交SHA由PROJECT_STATE后续登记。实际报告及证据SHA见[JSON](SGA_BATCH8_CAPACITY_EVIDENCE.json)。
+**结论：一次真实Batch=8 Source-only测试PASS，无OOM；本轮未启动正式Full。** 代码及实际验证Commit：28677244c98057c7ae93460b7364af0c0c8341f0。实际报告及证据SHA见[JSON](SGA_BATCH8_CAPACITY_EVIDENCE.json)。
 
 ## 1. 固定输入与复用方式
 

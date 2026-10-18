@@ -4,7 +4,7 @@
 
 ## 当前阶段：官方SGA Batch8容量测试PASS，Full后台入口就绪，尚未启动
 
-独立分支codex/tbps-sga-batch8-capacity，基准9e15291a6d6601a72cdb3deff247b0e2066d26a6；代码Commit待后续文档提交登记。
+独立分支codex/tbps-sga-batch8-capacity，基准9e15291a6d6601a72cdb3deff247b0e2066d26a6；代码及实际验证Commit：28677244c98057c7ae93460b7364af0c0c8341f0；本次文档提交登记。
 
 一次实际Source-only容量Attempt：官方Test前8图/全部16 Caption，完整原SGAttacker三阶段/五尺度/10轮/2/255/步长0.5/255/global seed42/batch8，IRRA与MLM各恢复1次。攻击9.02253秒，会话19.15762秒；allocated6.3714GiB/reserved10.6270GiB、CPU Peak RSS2.2802GiB，无OOM。模型及buffers前后exact；官方FP32预算边界PASS，实数差2.93348e-8公开报告，未改投影。没有目标评分或Full。
 
