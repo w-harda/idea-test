@@ -324,3 +324,9 @@ IRRA、RaSa、APTM正式Full与独立CPU审计均PASS；每模型首次正式Att
 四方法正式表、原精度CSV和关键来源：[报告](framework/results/sga_three_model_full_20261018/REPORT.md)。模型IRRA→RaSa→APTM；方法Clean→AP-Attack B3→G-v2 Image-only→SGA-TBPS White-box；仅四指标。SGA指标来自实际Full；Clean/B3/G-v2复用此前已审计正式Full且24项控制值exact。上文开发/Smoke阶段的Full PENDING保持历史快照属性。
 
 本轮仅标准库CPU核验12行48值、完整身份/ModelSpace及9222单元/Claim元数据；58711实际读取文件SHA/stat不变。未运行新GPU、模型、排名或完整Tensor审计，不修改旧实验、原FAIL、Checkpoint或攻击器。下一Baseline未开始。
+
+## SGA实验归类纠正：官方Baseline尚未复现（ADR-0009）
+
+此前SGA-TBPS White-box全部结果、源码与审计保留为额外白盒适配，不能作为原论文SGA Baseline。旧表数值未改，旧Full执行PASS仅证明该适配实验完整。官方SGA固定f49e6926cd13148e49bdbc2c3e537660e096230c，当前NOT_REPRODUCED/静态审查阶段，无新CPU单元测试、模型/GPU/Full或下载。
+
+主方法明确G-v2 + H-v1 Joint。源ALBEF建议、CLIP/BERT实际资源SHA、原文本→图像→文本与2/255参数、CUHK2/10 Caption组、输入预处理/Matched Clean及权限差异见[审查报告](framework/SGA_OFFICIAL_REPRODUCTION_REVIEW.md)。新官方结果不得引用旧白盒指标填表，不自动继承其PASS；本轮尚无官方SGA-on-CUHK实验指标。

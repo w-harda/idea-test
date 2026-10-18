@@ -245,3 +245,9 @@ baselines/sga_attack调用固定官方ImageAttacker的五尺度增强，持有�
 复用原Dataset输入桥、B3的只读FullReference/模型加载工具、三个Model Adapter、ArtifactStore和原生缓存/Score/EvaluationEngine。只调用公共工具，不使用B3攻击像素或Generator。各目标单独白盒生成，Clean Query保持原文；Full控制指标与Clean文本仅引用同空间已审计历史缓存。新输出tbps-framework-sga-whitebox-v2与原失败/所有正式Full隔离。
 
 三模型10+10 GPU Smoke/CPU审计通过；随后三模型正式3074/6156 Full及独立CPU审计均完成。正式来源与四方法表见framework/results/sga_three_model_full_20261018/REPORT.md。原SGA文本攻击、原环境和APTM最终排名全链求导不在当前验证范围。原生目标与适配差异、资源及一次性手动Full链见framework/SGA_SMOKE_REPORT.md、ADR-0008。CPU通过不等于SGA原论文全流程复现。
+
+## 官方SGA审查与旧白盒适配隔离（ADR-0009）
+
+旧sga_attack/SGASurrogate/Full保持冻结，归类额外白盒适配。官方SGA后续只允许薄I/O入口调用固定官方SGAttacker本体，保留两次img_guided_attack和原ImageAttacker Loss/更新；不复用旧自写攻击循环或ITM目标。官方源模型与三个target职责隔离，source产物生成一次，target仅执行原生预处理/评分。
+
+现有ArtifactStore/Model Adapter/Engine可复用，旧G/H MaterializationPlan不改签。官方source canvas及pre_caption不同于历史物化空间，必须另行冻结输入桥/Matched Clean后才能与主方法Joint比较。当前仅静态审查，无官方攻击新代码或执行状态升级；见framework/SGA_OFFICIAL_REPRODUCTION_REVIEW.md。

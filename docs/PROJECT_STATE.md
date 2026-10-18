@@ -2,21 +2,23 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：SGA三模型正式Full及独立CPU审计完成，四方法结果已只读整理
+## 当前阶段：官方SGA算法忠实性重审完成；旧白盒结果归类额外适配
 
-报告与CSV内容Commit：a3a33be0cbb6c06fda7bdbdaf7a529b11aa583e6；本次文档提交补充发布索引。
+用户明确纠正Baseline目标。历史SGA-TBPS White-box并非官方严格复现：权限、图文流程、预算及RaSa/APTM目标均发生改变；它作为额外白盒适配保留，不再占官方SGA Baseline位置。旧源码/Full/CSV/审计/FAIL及Commit6f89b799…、3a4ab6f…均原样保留；其数据完整性PASS不代表方法忠实性PASS。
 
-冻结执行Commit6f89b799922ac54f041dabd3cd8e9d444735b146保持；三模型正式SGA Full和独立CPU审计PASS，监督器最终SUCCESS | SGA_THREE_MODEL_FULL_AND_CPU_AUDIT（2026-10-18 22:19:11 +08:00）。旧SGA开发/Smoke报告中的Full PENDING是历史快照。SGA/B3/G-v2/IRRA/RaSa/APTM算法、权重和旧结果均未修改。
+当前主方法为G-v2 + H-v1 Joint。官方SGA固定f49e6926cd13148e49bdbc2c3e537660e096230c，状态NOT_REPRODUCED：只完成源码、来源与资源静态审查，没有CPU单元测试、模型加载、GPU或Full。详见[完整审查与最小方案](framework/SGA_OFFICIAL_REPRODUCTION_REVIEW.md)、[资源证据](framework/SGA_OFFICIAL_RESOURCE_AUDIT.json)、[ADR-0009](decisions/0009-official-baseline-fidelity.md)。
 
-独立结果分支codex/tbps-sga-full-results，基准6f89b79；报告与两个CSV唯一入口：[四方法三模型Full对比](framework/results/sga_three_model_full_20261018/REPORT.md)，同目录metrics_2dp.csv、full_precision.csv、evidence.json。模型IRRA→RaSa→APTM，方法Clean→AP-Attack B3→G-v2 Image-only→SGA-TBPS White-box，仅R@1/R@5/R@10/mAP，百分数两位小数。
+已核验本地CLIP ViT-B/16实际SHA与官方一致；BERT snapshot/MLM文件头具备，加载兼容性PENDING。ALBEF公开Flickr权重HEAD200/838449862bytes，本地限定目录未发现、未下载；TCL公开下载未确认。原requirements环境与当前TBPS环境不同，未改环境。
 
-按上述方法顺序mAP：IRRA66.10/40.43/32.28/0.54，RaSa69.18/39.99/35.05/1.46，APTM64.13/42.39/39.66/1.39。SGA四指标均最低，但它是对每个目标独立优化的白盒攻击；B3/G-v2在RaSa/APTM上是冻结IRRA训练攻击器迁移。不能标作等权限/等成本公平比较。SGA仍为image-only TBPS适配，APTM局部ITM代理不等于最终排名全链导数。
+CUHK3074/6156原序可接官方任意长度Caption组；3073图各2 Caption、1图10 Caption。官方pre_caption会改变6137条、截断876条；ALBEF384×384/CLIP224中心裁剪与旧384×128不同。源模型、图像桥、文本预处理及Matched Clean需要先冻结，不能直接拼用旧Joint Raw Clean或擅自传输delta/回填文本。
 
-CPU标准库结果核验：12行48值、24历史控制值exact，完整3074/6156官方顺序/身份/Caption及三目标ModelSpace匹配；9222个SGA图像/Claim元数据与全部轮次记录通过。58711份实际读取文件SHA/stat不变。只读确认已有审计PASS，没有新GPU、模型、排名或重复Tensor缓存审计。
+最小建议先ALBEF Flickr源＋原SGAttacker完整文本→图像→文本＋2/255、10轮、0.5/255、官方五尺度；生成一次固定图文产物，三个target仅原生黑盒评估。不得新增ITM等Loss、扩大预算、替换Unicode策略、修改RNG或为更强攻击挑选source。未来比较明确SGA Test配对访问与H Caption-only差异。
 
-实际Full从17:27:02到22:19:11，墙钟4小时52分09秒；每目标156774视觉样本前向、文本0、模型加载1，模型摘要exact。Full来源tbps-framework-sga-whitebox-v2/full/{irra,rasa,aptm}/，原FAIL和历史资产保留。
+当前仅文档分支codex/tbps-sga-official-review，基准3a4ab6f。145读取文件SHA/stat及67380旧Full/FAIL文件stat保护记录；旧报告保留历史身份，待方案审查后另行授权CPU测试/小GPU验证。本轮不开始VLPTAttack。
 
-当前任务完成；等待审查和下一Baseline VLPTAttack（ECCV2024/DRA）的独立授权，不自动开始适配或实验。
+## 历史额外实验：SGA-TBPS White-box三模型Full及CPU审计完成
+
+冻结实现6f89b799922ac54f041dabd3cd8e9d444735b146，结果整理3a4ab6f40bbf66451e803d9b1d0651a4dd1f4daa。原[四方法表与CSV](framework/results/sga_three_model_full_20261018/REPORT.md)内容保持；其中SGA-TBPS White-box不能改名为SGA原算法复现，也不再作为官方Baseline主表依据。原Full与独立审计PASS、48值核验及历史保护是该额外实验的执行证据。
 
 ## 已完成：AP-Attack B3三模型Full及CPU审计完成，结果已只读汇总
 

@@ -1,0 +1,1004 @@
+{
+  "schema": "tbps-sga-official-static-review-1",
+  "review_base_commit": "3a4ab6f40bbf66451e803d9b1d0651a4dd1f4daa",
+  "official_SGA_commit": "f49e6926cd13148e49bdbc2c3e537660e096230c",
+  "official_root": "/home/lzf/ldx/projects/SGA-official",
+  "official_checkout_clean": true,
+  "official_tracked_files_count": 93,
+  "resources": {
+    "CLIP_ViT_B16": {
+      "status": "LOCAL_BYTES_VERIFIED_LOAD_PENDING",
+      "file": {
+        "path": "/home/lzf/.cache/clip/ViT-B-16.pt",
+        "sha256": "5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f"
+      },
+      "expected_official_sha256": "5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f",
+      "official_loader": "SGA models/clip_model/clip.py; modified model supports inference_image/inference_text/set_tokenizer"
+    },
+    "bert_base_uncased": {
+      "status": "LOCAL_FILES_AND_MLM_HEADER_PRESENT_LOAD_PENDING",
+      "snapshot": "86b5e0934494bd15c9632b12f734a8a67f723594",
+      "files": {
+        "config.json": {
+          "path": "/home/lzf/.cache/huggingface/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/config.json",
+          "sha256": "7160e1553ad2ca51d8c1cb066be533db31826e12d173824c1bb0cb1a4f187d20"
+        },
+        "model.safetensors": {
+          "path": "/home/lzf/.cache/huggingface/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/model.safetensors",
+          "sha256": "68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3"
+        },
+        "vocab.txt": {
+          "path": "/home/lzf/.cache/huggingface/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/vocab.txt",
+          "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+        },
+        "tokenizer_config.json": {
+          "path": "/home/lzf/.cache/huggingface/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/tokenizer_config.json",
+          "sha256": "a025160ef0431f1a392f6f050c1310f4c5d9fb6f275932dbccba73c4d214bf10"
+        },
+        "tokenizer.json": {
+          "path": "/home/lzf/.cache/huggingface/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/tokenizer.json",
+          "sha256": "ce64fce797c24f68df90b40a3f74f579b336a493db14bd583fd520ea0d8c9a98"
+        }
+      },
+      "header_tensor_count": 206,
+      "architecture": "BertForMaskedLM"
+    },
+    "ALBEF_Flickr": {
+      "status": "LOCAL_NOT_FOUND_PUBLIC_HEAD_200_NOT_DOWNLOADED",
+      "official_url": "https://storage.googleapis.com/sfr-pcl-data-research/ALBEF/flickr30k.pth",
+      "HEAD_status": 200,
+      "content_length": 838449862,
+      "sha256": "UNKNOWN_NOT_DOWNLOADED"
+    },
+    "TCL_Flickr": {
+      "status": "LOCAL_NOT_FOUND_PUBLIC_DOWNLOAD_NOT_CONFIRMED",
+      "official_readme": "https://github.com/uta-smile/TCL",
+      "release_page": "https://drive.google.com/file/d/1eHinvFP7TnZYAL2Ft-M8rPott7mpVN2R/view?usp=sharing",
+      "server_HEAD": "URLError timed out; no retry"
+    },
+    "search_scope": [
+      "/home/lzf/ldx/checkpoints",
+      "/home/lzf/ldx/projects/SGA-official/checkpoint",
+      "/home/lzf/.cache/clip",
+      "/home/lzf/.cache/huggingface/hub/models--bert-base-uncased",
+      "top-level related model names in /home/lzf/ldx/external, /home/lzf/Attack, /home/lzf/ldx/outputs"
+    ],
+    "installed_tbps_image": {
+      "torch": "2.5.1+cu124",
+      "torchvision": "0.20.1+cu124",
+      "transformers": "4.44.2",
+      "timm": "0.9.8",
+      "ftfy": "6.3.1",
+      "ruamel_yaml": "no distribution metadata/module candidate found; PyYAML installed"
+    },
+    "official_requirements": {
+      "torch": "2.0.0",
+      "torchvision": "0.15.0",
+      "transformers": "4.28.1",
+      "timm": "0.6.13",
+      "ftfy": "6.1.1",
+      "ruamel_yaml": "0.15.80"
+    }
+  },
+  "CUHK_CPU_annotation_read": {
+    "Gallery": 3074,
+    "Query": 6156,
+    "caption_count_distribution": {
+      "2": 3073,
+      "10": 1
+    },
+    "ten_caption_image_id": "cuhk:38920:0",
+    "pre_caption_changes": 6137,
+    "pre_caption_word_truncation_count": 876,
+    "note": "pure JSON/regex source-audit statistics, no tokenizer/neural tests"
+  },
+  "classification": {
+    "sga_tbps_whitebox": "COMPLETED_EXTRA_WHITEBOX_ADAPTATION_NOT_OFFICIAL_BASELINE",
+    "sga_official_on_cuhk": "NOT_REPRODUCED_STATIC_REVIEW_ONLY",
+    "primary_method": "G-v2 + H-v1 Joint"
+  },
+  "current_authorized_execution": {
+    "unit_tests": 0,
+    "CPU_model_loads": 0,
+    "GPU_model_loads": 0,
+    "model_forwards": 0,
+    "Full_runs": 0,
+    "downloads": 0
+  },
+  "historical_trees": {
+    "/home/lzf/ldx/projects/SGA-official": {
+      "HEAD": "f49e6926cd13148e49bdbc2c3e537660e096230c",
+      "status": ""
+    },
+    "/home/lzf/ldx/projects/idea-test-tbps-sga-whitebox-fixed-20261018": {
+      "HEAD": "6f89b799922ac54f041dabd3cd8e9d444735b146",
+      "status": ""
+    },
+    "/home/lzf/ldx/projects/idea-test-tbps-sga-full-results-20261018": {
+      "HEAD": "3a4ab6f40bbf66451e803d9b1d0651a4dd1f4daa",
+      "status": ""
+    },
+    "/home/lzf/ldx/projects/idea-test-tbps-sga-whitebox-20261018": {
+      "HEAD": "80361ec1fdb7c4c96e4ec68fa256742cc8188566",
+      "status": ""
+    }
+  },
+  "read_files": {
+    "/home/lzf/ldx/projects/SGA-official/LICENSE": {
+      "sha256": "3e68afa626f673287ebc53b16786fb95a9b419d77b9752efd76e8af9597fde43",
+      "size_bytes": 1070,
+      "inode": 239020204,
+      "mtime_ns": 1792306491594186551
+    },
+    "/home/lzf/ldx/projects/SGA-official/README.md": {
+      "sha256": "fe5c04bd4235102d4e5215c4236fb65732904f3e4426f020eedd8a6b33ca0be0",
+      "size_bytes": 9752,
+      "inode": 239020219,
+      "mtime_ns": 1792306491594186551
+    },
+    "/home/lzf/ldx/projects/SGA-official/attacker.py": {
+      "sha256": "79384bb914824c59c2a7c65c9b3b565cebac9c3b469a7a15d8f21b5ebf110a30",
+      "size_bytes": 20591,
+      "inode": 239020220,
+      "mtime_ns": 1792306491594186551
+    },
+    "/home/lzf/ldx/projects/SGA-official/configs/Retrieval_coco.yaml": {
+      "sha256": "672fe1b61ee05347bff24742b14a21dfc733764886e0c02b70b754338c3c5081",
+      "size_bytes": 536,
+      "inode": 239020222,
+      "mtime_ns": 1792306491595186561
+    },
+    "/home/lzf/ldx/projects/SGA-official/configs/Retrieval_flickr.yaml": {
+      "sha256": "d20c615416ddbb6d050ce02dfb4f14053d64add6be99c3b324eb91782217b8a3",
+      "size_bytes": 557,
+      "inode": 239020223,
+      "mtime_ns": 1792306491595186561
+    },
+    "/home/lzf/ldx/projects/SGA-official/configs/config_bert.json": {
+      "sha256": "9889156dd010b7c60ad36990428ce30ac3d6446ec838b496524c62bca35d44ed",
+      "size_bytes": 499,
+      "inode": 239020224,
+      "mtime_ns": 1792306491595186561
+    },
+    "/home/lzf/ldx/projects/SGA-official/data_annotation/coco_test.json": {
+      "sha256": "5b202a235ee2a4e13f82b984ef9293b8e2d34f9b1f92147bf8340580f20faf15",
+      "size_bytes": 1735468,
+      "inode": 239020226,
+      "mtime_ns": 1792306491605186658
+    },
+    "/home/lzf/ldx/projects/SGA-official/data_annotation/flickr30k_test.json": {
+      "sha256": "5d2a8e7365ff2220cf885e3fb656dd33b72b3a8f8c761067deebb0b22718806d",
+      "size_bytes": 396858,
+      "inode": 239020227,
+      "mtime_ns": 1792306491606186668
+    },
+    "/home/lzf/ldx/projects/SGA-official/dataset.py": {
+      "sha256": "037958f468c22a88930aa1490a6860ea96fae2f368ab93500f1d653bf6ccf119",
+      "size_bytes": 2047,
+      "inode": 239020228,
+      "mtime_ns": 1792306491606186668
+    },
+    "/home/lzf/ldx/projects/SGA-official/eval_albef2clip-vit_flickr.py": {
+      "sha256": "76e66a1c6f5ffa6504ceb481c887555bc6543cf394db49d63eae944bf3f1e013",
+      "size_bytes": 15082,
+      "inode": 239020229,
+      "mtime_ns": 1792306491606186668
+    },
+    "/home/lzf/ldx/projects/SGA-official/eval_albef2tcl_flickr.py": {
+      "sha256": "3a47b821d2d1c371949f12f42a61a8ba485cb037ddbd4a053ca68f5c932a0f11",
+      "size_bytes": 15906,
+      "inode": 239020230,
+      "mtime_ns": 1792306491607186677
+    },
+    "/home/lzf/ldx/projects/SGA-official/eval_clip-vit2albef_flickr.py": {
+      "sha256": "1e14caeea9ce32aa55de834e9227ba80d3e7f9133a2767f49be7060e26164c48",
+      "size_bytes": 15107,
+      "inode": 239020231,
+      "mtime_ns": 1792306491607186677
+    },
+    "/home/lzf/ldx/projects/SGA-official/eval_clip-vit2clip-cnn.py": {
+      "sha256": "1c4cd9bd5eb7505a7ae2fa6c1b1254a54318583d68692c59350bd66fad163da0",
+      "size_bytes": 14194,
+      "inode": 239020232,
+      "mtime_ns": 1792306491607186677
+    },
+    "/home/lzf/ldx/projects/SGA-official/imgs/sga.png": {
+      "sha256": "46c9c0774148ac88695bc93268422350ead14459d82718577cc47932210efb1f",
+      "size_bytes": 221230,
+      "inode": 239020234,
+      "mtime_ns": 1792306491608186687
+    },
+    "/home/lzf/ldx/projects/SGA-official/imgs/visualization.png": {
+      "sha256": "e57726e29bfd2f49b03d4a38b032297b1b6dea6340309b55ea6ac1769faa5c2b",
+      "size_bytes": 5714047,
+      "inode": 239020235,
+      "mtime_ns": 1792306491615186755
+    },
+    "/home/lzf/ldx/projects/SGA-official/models/__init__.py": {
+      "sha256": "a670f79361064b9fa372388523d63f33384361bca699883cf102d5aba75d950a",
+      "size_bytes": 29,
+      "inode": 239020237,
+      "mtime_ns": 1792306491615186755
+    },
+    "/home/lzf/ldx/projects/SGA-official/models/__pycache__/__init__.cpython-310.pyc": {
+      "sha256": "15ecf226b8b02f245eacc782f44f7d2a495d882181daae13f5ee48545a75f809",
+      "size_bytes": 225,
+      "inode": 239020239,
+      "mtime_ns": 1792306491616301728
+    },
+    "/home/lzf/ldx/projects/SGA-official/models/__pycache__/__init__.cpython-38.pyc": {
+      "sha256": "65b6d50d1fbd68c9b0f78ca9b46dabe8084257461aa3542f346011b57ca0ec36",
+      "size_bytes": 223,
+      "inode": 239020240,
+      "mtime_ns": 1792306491616319113
+    },
+    "/home/lzf/ldx/projects/SGA-official/models/__pycache__/model_retrieval.cpython-310.pyc": {
+      "sha256": "dfcb78c4e88088a7eb09a1bf9d8798553579e604eab03329aa72ae964cb7a0e6",
+      "size_bytes": 7564,
+      "inode": 239020241,
+      "mtime_ns": 1792306491616319113
+    },
+    "/home/lzf/ldx/projects/SGA-official/models/__pycache__/model_retrieval.cpython-38.pyc": {
+      "sha256": "540793e1a24abc6784d2b4537a4b2342246fce82bc0640c09166d9c03499be0e",
+      "size_bytes": 7544,
+      "inode": 239020242,
+      "mtime_ns": 1792306491616319113
+    },
+    "/home/lzf/ldx/projects/SGA-official/models/__pycache__/model_ve.cpython-38.pyc": {
+      "sha256": "984cfc7febe793161678ab8e827b5731f0b0824f49a3a5a36eae1de3a2ff7513",
+      "size_bytes": 4044,
+      "inode": 239020243,
+      "mtime_ns": 1792306491616319113
+    },
+    "/home/lzf/ldx/projects/SGA-official/models/__pycache__/tokenization_bert.cpython-310.pyc": {
+      "sha256": "3f9e1752003418a5b1b6f12b87e540a710dd0886311b44cce4ab9bb5176ee88b",
+      "size_bytes": 20005,
+      "inode": 239020244,
+      "mtime_ns": 1792306491616319113
+    },
+    "/home/lzf/ldx/projects/SGA-official/models/__pycache__/tokenization_bert.cpython-38.pyc": {
+      "sha256": "02a2d036bf910780505ef8b36cd07b8e6a31ea2c01f9d0f572432f1ada90b57a",
+      "size_bytes": 19606,
+      "inode": 239020245,
+      "mtime_ns": 1792306491616319113
+    },
+    "/home/lzf/ldx/projects/SGA-official/models/__pycache__/vit.cpython-310.pyc": {
+      "sha256": "e4fdf93a32167b83dbcd436a3f972cfcc9eba7a34ef3bd5452f38ccb4fa87527",
+      "size_bytes": 8253,
+      "inode": 239020246,
+      "mtime_ns": 1792306491616319113
+    },
+    "/home/lzf/ldx/projects/SGA-official/models/__pycache__/vit.cpython-38.pyc": {
+      "sha256": "eef884612be76bcdcfd666dd49195fb5eba39e511fae90e8a78c13f0b2348bd4",
+      "size_bytes": 8293,
+      "inode": 239020247,
+      "mtime_ns": 1792306491616319113
+    },
+    "/home/lzf/ldx/projects/SGA-official/models/__pycache__/xbert.cpython-310.pyc": {
+      "sha256": "6b8e864ad28f38015d67da3a9236c01134ecb6f788cd83903b5907a799376710",
+      "size_bytes": 54504,
+      "inode": 239020248,
+      "mtime_ns": 1792306491616319113
+    },
+    "/home/lzf/ldx/projects/SGA-official/models/__pycache__/xbert.cpython-38.pyc": {
+      "sha256": "0259e896f1efadb3ea5da710c90b7b16d784e9e3dc6b3d2b78304c752489cd1c",
+      "size_bytes": 55065,
+      "inode": 239020249,
+      "mtime_ns": 1792306491616319113
+    },
+    "/home/lzf/ldx/projects/SGA-official/models/clip_model/__init__": {
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1,
+      "inode": 239020251,
+      "mtime_ns": 1792306491616319113
+    },
+    "/home/lzf/ldx/projects/SGA-official/models/clip_model/__pycache__/clip.cpython-310.pyc": {
+      "sha256": "20fe1d90a20048ef0e63b8f4bf48a2478d001fb9091960376111e9e95516f2a1",
+      "size_bytes": 8424,
+      "inode": 239020253,
+      "mtime_ns": 1792306491617258049
+    },
+    "/home/lzf/ldx/projects/SGA-official/models/clip_model/__pycache__/clip.cpython-38.pyc": {
+      "sha256": "76367d1f8de46ceb9ac2dc304a56160946f3118e24d9b3e7a011abcbc779e294",
+      "size_bytes": 8324,
+      "inode": 239020254,
+      "mtime_ns": 1792306491617324760
+    },
+    "/home/lzf/ldx/projects/SGA-official/models/clip_model/__pycache__/model.cpython-310.pyc": {
+      "sha256": "ce97ac067539b42e94ff7aba228bb35061a7042057ff636494b04c18ad6f725c",
+      "size_bytes": 16750,
+      "inode": 239020255,
+      "mtime_ns": 1792306491617324760
+    },
+    "/home/lzf/ldx/projects/SGA-official/models/clip_model/__pycache__/model.cpython-38.pyc": {
+      "sha256": "7733f5676c3314d647defc74fc60c7d1b795faa185959bfd8fda18d2f96f4b83",
+      "size_bytes": 16552,
+      "inode": 239020256,
+      "mtime_ns": 1792306491617324760
+    },
+    "/home/lzf/ldx/projects/SGA-official/models/clip_model/__pycache__/simple_tokenizer.cpython-310.pyc": {
+      "sha256": "25be4d05bc98d277320b092757c53b6da2e94e2a522bc2817d5d8ad8fe958a12",
+      "size_bytes": 5748,
+      "inode": 239020257,
+      "mtime_ns": 1792306491617324760
+    },
+    "/home/lzf/ldx/projects/SGA-official/models/clip_model/__pycache__/simple_tokenizer.cpython-38.pyc": {
+      "sha256": "1704c825077cdd02dbab0cf520b3168115f424c474041b18e6068f622f70894a",
+      "size_bytes": 5843,
+      "inode": 239020258,
+      "mtime_ns": 1792306491617324760
+    },
+    "/home/lzf/ldx/projects/SGA-official/models/clip_model/bpe_simple_vocab_16e6.txt.gz": {
+      "sha256": "924691ac288e54409236115652ad4aa250f48203de50a9e4722a6ecd48d6804a",
+      "size_bytes": 1356917,
+      "inode": 239020259,
+      "mtime_ns": 1792306491618186784
+    },
+    "/home/lzf/ldx/projects/SGA-official/models/clip_model/clip.py": {
+      "sha256": "f6a01a95931bdf6d89fbb81bd1ccaf4c7bc7c833cc68f674cbab0b90f28f0895",
+      "size_bytes": 9070,
+      "inode": 239020260,
+      "mtime_ns": 1792306491618186784
+    },
+    "/home/lzf/ldx/projects/SGA-official/models/clip_model/model.py": {
+      "sha256": "fdee6baa5df31d5efe33aea0e11ba605a1a48067bb1e82f856baa4fd47b240aa",
+      "size_bytes": 19760,
+      "inode": 239020261,
+      "mtime_ns": 1792306491618186784
+    },
+    "/home/lzf/ldx/projects/SGA-official/models/clip_model/simple_tokenizer.py": {
+      "sha256": "acf0cda10cad73193af7a0d7184364cca3139b7de464f163fd4953bf2648c608",
+      "size_bytes": 4764,
+      "inode": 239020262,
+      "mtime_ns": 1792306491618186784
+    },
+    "/home/lzf/ldx/projects/SGA-official/models/model_pretrain.py": {
+      "sha256": "477cf4ea4fb79c175a8777f39d9f8778bb8742b91c5ac2974812a06f81bd4632",
+      "size_bytes": 14116,
+      "inode": 239020263,
+      "mtime_ns": 1792306491618186784
+    },
+    "/home/lzf/ldx/projects/SGA-official/models/model_retrieval.py": {
+      "sha256": "eb9bfcdbfbc03b810c7f41a16c0030f43fc0d18c04b3d34e874d0816e8c60984",
+      "size_bytes": 12523,
+      "inode": 239020264,
+      "mtime_ns": 1792306491618186784
+    },
+    "/home/lzf/ldx/projects/SGA-official/models/tokenization_bert.py": {
+      "sha256": "7723a9acc1a44bfe0eb435cb9d49a36677700e87cf572e7347329763c41cdfbf",
+      "size_bytes": 25293,
+      "inode": 239020265,
+      "mtime_ns": 1792306491618186784
+    },
+    "/home/lzf/ldx/projects/SGA-official/models/vit.py": {
+      "sha256": "35a5b704f731468563b51a2b2899e1f2b8169aec83b3c4f7009861b37794c1bf",
+      "size_bytes": 8760,
+      "inode": 239020266,
+      "mtime_ns": 1792306491618186784
+    },
+    "/home/lzf/ldx/projects/SGA-official/models/xbert.py": {
+      "sha256": "4a023085d857af9af899db2ec97b4ba41074af3664726f4841c16d7e0c1e327f",
+      "size_bytes": 84148,
+      "inode": 239020267,
+      "mtime_ns": 1792306491618186784
+    },
+    "/home/lzf/ldx/projects/SGA-official/requirements.txt": {
+      "sha256": "63d76138121ea229d4e3397e0e4e1dfb83e7bbe99eab8e700fb495c78703114e",
+      "size_bytes": 99,
+      "inode": 239020268,
+      "mtime_ns": 1792306491618186784
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/flickr30k/ALBEF_ir10_rank_index.npy": {
+      "sha256": "abf7c07c968abe31900aa7923517476bf0a1a5bb63111ed659f75838426c4939",
+      "size_bytes": 39696,
+      "inode": 239020271,
+      "mtime_ns": 1792306491619444483
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/flickr30k/ALBEF_ir1_rank_index.npy": {
+      "sha256": "a4b1bc8fc61695578c992355e7d8d6d14529ed8037c2c74fd26832ae575d1082",
+      "size_bytes": 34336,
+      "inode": 239020272,
+      "mtime_ns": 1792306491619904357
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/flickr30k/ALBEF_ir5_rank_index.npy": {
+      "sha256": "d2ffa450c8fd1b98539605c3bfda309c39d9b2c762a42aa808f5caa84e94226b",
+      "size_bytes": 39136,
+      "inode": 239020273,
+      "mtime_ns": 1792306491619904357
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/flickr30k/ALBEF_tr10_rank_index.npy": {
+      "sha256": "6e4b27e656d5e4eb5f601d9dec147a60cbf00b78ea8b1d4d999fdb776daafb76",
+      "size_bytes": 8128,
+      "inode": 239020274,
+      "mtime_ns": 1792306491619904357
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/flickr30k/ALBEF_tr1_rank_index.npy": {
+      "sha256": "c2041b2bc3f5ea6e3f3220c87f6bbc830913d9d74b27a9f998549a5ca90de244",
+      "size_bytes": 7800,
+      "inode": 239020275,
+      "mtime_ns": 1792306491619904357
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/flickr30k/ALBEF_tr5_rank_index.npy": {
+      "sha256": "605594da44a5499797920b892ed0032837a6ad5444469ae6dbebd9513ac9a296",
+      "size_bytes": 8112,
+      "inode": 239020276,
+      "mtime_ns": 1792306491619904357
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/flickr30k/CLIP_CNN_ir10_rank_index.npy": {
+      "sha256": "5ecf6648411b0952ac839e7c9536644388b973edf9a9a27210c6b86b7f90eafa",
+      "size_bytes": 35544,
+      "inode": 239020277,
+      "mtime_ns": 1792306491619904357
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/flickr30k/CLIP_CNN_ir1_rank_index.npy": {
+      "sha256": "f516db466b718994ea88afae03a1f1aaababc6908743ba8e04db55aa763fd312",
+      "size_bytes": 23448,
+      "inode": 239020278,
+      "mtime_ns": 1792306491619904357
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/flickr30k/CLIP_CNN_ir5_rank_index.npy": {
+      "sha256": "be6944db7e0cf013feafc6f87e8157d4cfa11b10f0c6fea2a004bfe91a6bfea4",
+      "size_bytes": 33104,
+      "inode": 239020279,
+      "mtime_ns": 1792306491619904357
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/flickr30k/CLIP_CNN_tr10_rank_index.npy": {
+      "sha256": "7621c98a173af5cd8f5e94b147e0fce7d66853d1bd31eb0dcbd4c464c55f76db",
+      "size_bytes": 7896,
+      "inode": 239020280,
+      "mtime_ns": 1792306491619904357
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/flickr30k/CLIP_CNN_tr1_rank_index.npy": {
+      "sha256": "974e5255a3731d7093add2b850dee9797cc1629a960e129c537945250191f3a8",
+      "size_bytes": 6392,
+      "inode": 239020281,
+      "mtime_ns": 1792306491619904357
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/flickr30k/CLIP_CNN_tr5_rank_index.npy": {
+      "sha256": "9826838798ce5575c513d80487cf64a70b2c5b87c7f7dbdd3a201f242c56cb24",
+      "size_bytes": 7696,
+      "inode": 239020282,
+      "mtime_ns": 1792306491619904357
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/flickr30k/CLIP_ViT_ir10_rank_index.npy": {
+      "sha256": "26670e45ac50e45fc4f8eea95e8e610f128665d7cd96d726905d84339ae16fb1",
+      "size_bytes": 36816,
+      "inode": 239020283,
+      "mtime_ns": 1792306491619904357
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/flickr30k/CLIP_ViT_ir1_rank_index.npy": {
+      "sha256": "ffd120dfebe7b8b026dce5273fb75a87903c5b6ecf9d52666e9299782f4c5bae",
+      "size_bytes": 24960,
+      "inode": 239020284,
+      "mtime_ns": 1792306491619904357
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/flickr30k/CLIP_ViT_ir5_rank_index.npy": {
+      "sha256": "ed1079ff9bdc072da493e62aac4d8a17f7c30317a3670e2c2f9f3d890fe60000",
+      "size_bytes": 34376,
+      "inode": 239020285,
+      "mtime_ns": 1792306491619904357
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/flickr30k/CLIP_ViT_tr10_rank_index.npy": {
+      "sha256": "0084082433b770ce405c8033cacc908c5d4f2d0effd68a9629acbaf79aa488c3",
+      "size_bytes": 8000,
+      "inode": 239020286,
+      "mtime_ns": 1792306491619904357
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/flickr30k/CLIP_ViT_tr1_rank_index.npy": {
+      "sha256": "fe074ef5b32d200db202bc4f6b0604facaa91ab581d9e61bebaab15a6c0fba16",
+      "size_bytes": 6648,
+      "inode": 239020287,
+      "mtime_ns": 1792306491619904357
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/flickr30k/CLIP_ViT_tr5_rank_index.npy": {
+      "sha256": "29c240bffef85dfdd7ac30b8c7737b9ef639a751a97c354895706c2085c2a57b",
+      "size_bytes": 7832,
+      "inode": 239020288,
+      "mtime_ns": 1792306491619904357
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/flickr30k/TCL_ir10_rank_index.npy": {
+      "sha256": "c8f30ca2ca6c999be219792390f283f15814416bbdd0267e1cac0fa68d65ec45",
+      "size_bytes": 39520,
+      "inode": 239020289,
+      "mtime_ns": 1792306491619904357
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/flickr30k/TCL_ir1_rank_index.npy": {
+      "sha256": "4d4fa77914f05963b5a07647ca411bee6a7bc7621032b73b09e2428e82506a50",
+      "size_bytes": 33728,
+      "inode": 239020290,
+      "mtime_ns": 1792306491619904357
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/flickr30k/TCL_ir5_rank_index.npy": {
+      "sha256": "fa0e04e5ecf46f2de586d3968e310ff677a2ba89f067037968fea3695741cf61",
+      "size_bytes": 38824,
+      "inode": 239020291,
+      "mtime_ns": 1792306491619904357
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/flickr30k/TCL_tr10_rank_index.npy": {
+      "sha256": "8ae0e507f6a4685e69f3915c691e57d7e7ecf6469ed5e6ef3a1ebf00f0e773b1",
+      "size_bytes": 8112,
+      "inode": 239020292,
+      "mtime_ns": 1792306491619904357
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/flickr30k/TCL_tr1_rank_index.npy": {
+      "sha256": "5170975c03ed3dcd4b8e4be9dba60e84c0607ce739f278d25228d44de69d0590",
+      "size_bytes": 7720,
+      "inode": 239020293,
+      "mtime_ns": 1792306491619904357
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/flickr30k/TCL_tr5_rank_index.npy": {
+      "sha256": "14c6bcdcec448d418259db215f9518cb710917679f7faec428f5499dde9c23e2",
+      "size_bytes": 8088,
+      "inode": 239020294,
+      "mtime_ns": 1792306491620186803
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/mscoco/ALBEF_ir10_rank_index.npy": {
+      "sha256": "3385ada1eeeaa39e9e41a55cfb9fba5f0ec3c076bad36400d3e7d1a5b007e0e7",
+      "size_bytes": 181224,
+      "inode": 239020296,
+      "mtime_ns": 1792306491620186803
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/mscoco/ALBEF_ir1_rank_index.npy": {
+      "sha256": "5bce156a2972ca2a85d0dd54fed923cd52515539234a98ac6f0aa648a78dbf9a",
+      "size_bytes": 121520,
+      "inode": 239020297,
+      "mtime_ns": 1792306491620684648
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/mscoco/ALBEF_ir5_rank_index.npy": {
+      "sha256": "c7a69b2898c3639944b11754bcbf331571786095f6e786d3f77655fc363ba0fd",
+      "size_bytes": 168864,
+      "inode": 239020298,
+      "mtime_ns": 1792306491620684648
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/mscoco/ALBEF_tr10_rank_index.npy": {
+      "sha256": "9e9d67273d0b54faf72445c7d60e4b3ad07ab69168a34e05ab037aa0e7aafb35",
+      "size_bytes": 38992,
+      "inode": 239020299,
+      "mtime_ns": 1792306491620684648
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/mscoco/ALBEF_tr1_rank_index.npy": {
+      "sha256": "b25655d4ecc3d4564c69e967b3d100d3bcf4117e495269488b85853c6560847a",
+      "size_bytes": 31160,
+      "inode": 239020300,
+      "mtime_ns": 1792306491620684648
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/mscoco/ALBEF_tr5_rank_index.npy": {
+      "sha256": "83832b16601a37c5a32e866d51e2ac74612540bfc49fd224060e3398d8093d2c",
+      "size_bytes": 37832,
+      "inode": 239020301,
+      "mtime_ns": 1792306491620684648
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/mscoco/CLIP_CNN_ir10_rank_index.npy": {
+      "sha256": "0923a8d4c2494be3b5c3b24c2a1659bfdde605d6de5b26640b345503ed825243",
+      "size_bytes": 132264,
+      "inode": 239020302,
+      "mtime_ns": 1792306491620684648
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/mscoco/CLIP_CNN_ir1_rank_index.npy": {
+      "sha256": "5d05d8bb85ad9c6e4436cc6b779bc36c115480934f8da0e8ff9753d04cd6db48",
+      "size_bytes": 60928,
+      "inode": 239020303,
+      "mtime_ns": 1792306491621186813
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/mscoco/CLIP_CNN_ir5_rank_index.npy": {
+      "sha256": "992a461219299a783713e2fe74432d78c48703c5f62998125cb2580b95f09cf9",
+      "size_bytes": 110680,
+      "inode": 239020304,
+      "mtime_ns": 1792306491621186813
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/mscoco/CLIP_CNN_tr10_rank_index.npy": {
+      "sha256": "6acb2aae984a35b732107317ac49f7a8d701d0d8ae2b8a5f960a34d8ad9ae42c",
+      "size_bytes": 33096,
+      "inode": 239020305,
+      "mtime_ns": 1792306491621186813
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/mscoco/CLIP_CNN_tr1_rank_index.npy": {
+      "sha256": "addd9d2d8475481a052e831ba7935c73e4b8f5ec3b14c1e79b4381f04ad5eec8",
+      "size_bytes": 19704,
+      "inode": 239020306,
+      "mtime_ns": 1792306491621186813
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/mscoco/CLIP_CNN_tr5_rank_index.npy": {
+      "sha256": "ac9b2de856d44f88687d1c8fffcb293792cd41f0d123a2d62fc2973b3c7c998a",
+      "size_bytes": 29544,
+      "inode": 239020307,
+      "mtime_ns": 1792306491621186813
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/mscoco/CLIP_ViT_ir10_rank_index.npy": {
+      "sha256": "74f545b4ed50d2e5a2dce4700e711b285affe86a1b0fa6698fe511293f1d451b",
+      "size_bytes": 137856,
+      "inode": 239020308,
+      "mtime_ns": 1792306491621186813
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/mscoco/CLIP_ViT_ir1_rank_index.npy": {
+      "sha256": "fc7e6709eafe1b0aac975b5f773af3fa9f9511accbffa9e3eab0e93324410d76",
+      "size_bytes": 66200,
+      "inode": 239020309,
+      "mtime_ns": 1792306491621186813
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/mscoco/CLIP_ViT_ir5_rank_index.npy": {
+      "sha256": "b9542edd1cc9b41bb865e3961bb697660f3c8b3728cff812f763aa7b148d14da",
+      "size_bytes": 116488,
+      "inode": 239020310,
+      "mtime_ns": 1792306491621186813
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/mscoco/CLIP_ViT_tr10_rank_index.npy": {
+      "sha256": "0eae874f954dcbe11345e82407a080dbcd14f56439cd7c5daf85a68a93c330b3",
+      "size_bytes": 33896,
+      "inode": 239020311,
+      "mtime_ns": 1792306491621186813
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/mscoco/CLIP_ViT_tr1_rank_index.npy": {
+      "sha256": "b5dbd10d38cf6e956cb8fbdbe24caf51e92df5c486b1ac2697b809c34791f22f",
+      "size_bytes": 21096,
+      "inode": 239020312,
+      "mtime_ns": 1792306491621186813
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/mscoco/CLIP_ViT_tr5_rank_index.npy": {
+      "sha256": "e66e6539119424fa9c90859d3eba739ac644fba893a112f186819d0ea2db1441",
+      "size_bytes": 30704,
+      "inode": 239020313,
+      "mtime_ns": 1792306491622186823
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/mscoco/TCL_ir10_rank_index.npy": {
+      "sha256": "f1fd6a4537bc084cb740316e0ff40aa73ac929eafccacafa1c4c25e99278de1c",
+      "size_bytes": 179936,
+      "inode": 239020314,
+      "mtime_ns": 1792306491622186823
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/mscoco/TCL_ir1_rank_index.npy": {
+      "sha256": "accdc1839c81418274b36c42c597d4e20497924e0faf22a48084fbc8fbdb63b0",
+      "size_bytes": 118144,
+      "inode": 239020315,
+      "mtime_ns": 1792306491622186823
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/mscoco/TCL_ir5_rank_index.npy": {
+      "sha256": "fa56e5749131749af391035be57b385824b4370a4a3b0b020f493b15a6d7c322",
+      "size_bytes": 166528,
+      "inode": 239020316,
+      "mtime_ns": 1792306491622186823
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/mscoco/TCL_tr10_rank_index.npy": {
+      "sha256": "50078f52ceb8e9985c3e02d6f779643752f275e62ec3ef17f8c5aa59cd32a131",
+      "size_bytes": 38800,
+      "inode": 239020317,
+      "mtime_ns": 1792306491622186823
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/mscoco/TCL_tr1_rank_index.npy": {
+      "sha256": "ed9cfb0822f9358afc73cf9859772c22a38e9a5d4073d53b77ca34146eb32899",
+      "size_bytes": 30368,
+      "inode": 239020318,
+      "mtime_ns": 1792306491622186823
+    },
+    "/home/lzf/ldx/projects/SGA-official/std_eval_idx/mscoco/TCL_tr5_rank_index.npy": {
+      "sha256": "ab38dccee1f3f2f3cd2afed653cfb17d5ff58adfa2ceea9400f11b9756ce8e09",
+      "size_bytes": 37232,
+      "inode": 239020319,
+      "mtime_ns": 1792306491622186823
+    },
+    "/home/lzf/ldx/projects/SGA-official/utils.py": {
+      "sha256": "dcfb7e8de9c806c2df0321188e42caf39bbab728a3fe3d922490dfc3f03f43a3",
+      "size_bytes": 7878,
+      "inode": 239020320,
+      "mtime_ns": 1792306491622186823
+    },
+    "/home/lzf/ldx/projects/idea-test-tbps-sga-whitebox-fixed-20261018/src/tbps/baselines/sga_attack.py": {
+      "sha256": "83289d7f418f0994b52f09cb76abd04fcadf320dae57eac6e9903d144db23823",
+      "size_bytes": 4445,
+      "inode": 239020947,
+      "mtime_ns": 1792307234285749882
+    },
+    "/home/lzf/ldx/projects/idea-test-tbps-sga-whitebox-fixed-20261018/src/tbps/baselines/sga_whitebox.py": {
+      "sha256": "96f217e31f0e47a4116db2a961a4cba8ee33545c0f3f88b74a6bcf7977bd93f8",
+      "size_bytes": 21640,
+      "inode": 239020948,
+      "mtime_ns": 1792307234285982292
+    },
+    "/home/lzf/ldx/projects/idea-test-tbps-sga-whitebox-fixed-20261018/src/tbps/models/sga_surrogate.py": {
+      "sha256": "31daea9dee81d3cce9ca3eb0490b3b9a3c992a7d03a0145e44cef89a85a8dfb5",
+      "size_bytes": 3366,
+      "inode": 239021016,
+      "mtime_ns": 1792307211772191576
+    },
+    "/home/lzf/ldx/projects/idea-test-tbps-sga-whitebox-fixed-20261018/src/tbps/sga_eval.py": {
+      "sha256": "7e6741d5afa8708c361477689fea118bc4f1202ee5ab8fcb2dc259d143c30db1",
+      "size_bytes": 548,
+      "inode": 239021020,
+      "mtime_ns": 1792307211772191576
+    },
+    "/home/lzf/ldx/projects/idea-test-tbps-sga-whitebox-fixed-20261018/src/tbps/baselines/run_sga_full.sh": {
+      "sha256": "09856e0199a8a61cbeb05a53bafdf2a6a47b0a172a0fddc5e834a2c15142fd08",
+      "size_bytes": 2269,
+      "inode": 239020946,
+      "mtime_ns": 1792307234286059349
+    },
+    "/home/lzf/ldx/projects/idea-test-tbps-sga-whitebox-fixed-20261018/configs/framework/sga_whitebox.server.json": {
+      "sha256": "0ace2d29a339ea02f55e5152bfc7e5ef04870865903cf54beb648ede40c2f410",
+      "size_bytes": 24363,
+      "inode": 239020396,
+      "mtime_ns": 1792307234293544127
+    },
+    "/home/lzf/ldx/projects/idea-test-tbps-sga-whitebox-fixed-20261018/docs/framework/SGA_WHITEBOX.md": {
+      "sha256": "7cceccf2d796c42a9391b6d4d1f15b14b4e8c758631a5e1c33a845a54ee903bc",
+      "size_bytes": 10107,
+      "inode": 239020447,
+      "mtime_ns": 1792312560935041442
+    },
+    "/home/lzf/ldx/projects/idea-test-tbps-sga-whitebox-fixed-20261018/docs/framework/SGA_SMOKE_REPORT.md": {
+      "sha256": "ea08dfdabb9c67942f23dade83f7a9bf349c6ae74490030a91c58fcf32573054",
+      "size_bytes": 10391,
+      "inode": 239021587,
+      "mtime_ns": 1792312601610903800
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/irra/completed/manifest.json": {
+      "sha256": "793901e9b1a5c6a09c821a8c641b3bd4395e4516492ef33463e3ca1ea5751a7f",
+      "size_bytes": 541,
+      "inode": 242357997,
+      "mtime_ns": 1792317964928239218
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/irra/completed/completed.json": {
+      "sha256": "19d1940db3e9374dfd978d6e44c6aa0410746a70bc155a8bc5c62ba5ccc9bdbb",
+      "size_bytes": 121,
+      "inode": 242357998,
+      "mtime_ns": 1792317964934853970
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/irra/completed/summary.json": {
+      "sha256": "621b79bad782099dadd2235e2be3a15cb7f7577e3a5c3fd1e6bb86f5a2cb9244",
+      "size_bytes": 550,
+      "inode": 242357994,
+      "mtime_ns": 1792317964910240344
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/irra/completed/metrics.csv": {
+      "sha256": "ecbac6bfda68b6aca28ff3398b02f8898c803e9170abc9b6c4b4188fc8ab1b82",
+      "size_bytes": 203,
+      "inode": 242357995,
+      "mtime_ns": 1792317964916032453
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/irra/completed/metrics_2dp.csv": {
+      "sha256": "b4d39709005c61ef920d7ead54d47c2a474c5799e3de9bef0456a0faa363c384",
+      "size_bytes": 100,
+      "inode": 242357996,
+      "mtime_ns": 1792317964921618148
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/irra/execution/manifest.json": {
+      "sha256": "56d4a08d73a1b6e624a8ae9fa2295665422bbde0873170e132feef208a6ce9af",
+      "size_bytes": 374,
+      "inode": 242358001,
+      "mtime_ns": 1792317964984248925
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/irra/execution/completed.json": {
+      "sha256": "56b4acd37d3a7268695cd22f33ada51ac6d5b02c83eebeb6e4196830f8e85f43",
+      "size_bytes": 121,
+      "inode": 242358002,
+      "mtime_ns": 1792317964995262553
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/irra/execution/report.json": {
+      "sha256": "e289638a00e1f358a2ee35c7af2c2f4ac734e1ae7291fdb06548fcedead34955",
+      "size_bytes": 1104,
+      "inode": 242358000,
+      "mtime_ns": 1792317964972878012
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/irra/protocol/manifest.json": {
+      "sha256": "7461c5e036cee53968278e8bf161aac8dc8a60bdc0e6d6a07dab35897e0c4466",
+      "size_bytes": 719,
+      "inode": 239021600,
+      "mtime_ns": 1792315730806220131
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/irra/protocol/completed.json": {
+      "sha256": "89ac41f2f62abb4e3e4f69e794241ff87e5786ac55f59b4a8c651b1af9c9df38",
+      "size_bytes": 121,
+      "inode": 239021601,
+      "mtime_ns": 1792315730817787889
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/irra/protocol/protocol.json": {
+      "sha256": "4f0a6d15605d396452685ac0b70eb01ca7dc71a628aaf12ac1515bed84f6a8d7",
+      "size_bytes": 2515039,
+      "inode": 239021599,
+      "mtime_ns": 1792315730773324370
+    },
+    "/home/lzf/ldx/tmp/sga_whitebox_full_v2/irra-full-audit.log": {
+      "sha256": "bbd6bc3811cd77c1effcb3d2fa3ff003dc6060036cb2c2e2351e15de564a97e8",
+      "size_bytes": 34,
+      "inode": 235998091,
+      "mtime_ns": 1792317996186530063
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/rasa/completed/manifest.json": {
+      "sha256": "15978e8f14eed63e0ac75fa6bbe54891a9a490bb520419af1f46a5f1c1416ac1",
+      "size_bytes": 541,
+      "inode": 242483377,
+      "mtime_ns": 1792325518513470086
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/rasa/completed/completed.json": {
+      "sha256": "c91bfa103c31ecb4a2d254f638acd7590807189c27fe37d859e7121479e7757d",
+      "size_bytes": 121,
+      "inode": 242483378,
+      "mtime_ns": 1792325518521564280
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/rasa/completed/summary.json": {
+      "sha256": "0beedac31ef119c1506186215be78ef0b0db0d315721481fb099277551aba1c0",
+      "size_bytes": 557,
+      "inode": 242483374,
+      "mtime_ns": 1792325518495148884
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/rasa/completed/metrics.csv": {
+      "sha256": "a0e17b076e95f3c8cf441d9db79d8c43603cf0b8a9ce6a28919fef23585f7709",
+      "size_bytes": 201,
+      "inode": 242483375,
+      "mtime_ns": 1792325518500911174
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/rasa/completed/metrics_2dp.csv": {
+      "sha256": "5206e72d3664edc06789aa58eddd29c1f9879533d7a7f650e18766e79d267fe9",
+      "size_bytes": 100,
+      "inode": 242483376,
+      "mtime_ns": 1792325518506494215
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/rasa/execution/manifest.json": {
+      "sha256": "0f36e18bf398400025cbc25def43c3ef476d73c79b299baec397f57c2290d0c2",
+      "size_bytes": 374,
+      "inode": 242483381,
+      "mtime_ns": 1792325518573780970
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/rasa/execution/completed.json": {
+      "sha256": "647aa542151779071b66fb0acfc6a664127db2127af6591f260be818a1132a13",
+      "size_bytes": 121,
+      "inode": 242483382,
+      "mtime_ns": 1792325518585398438
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/rasa/execution/report.json": {
+      "sha256": "bb8a6b908a3440968e55aa20368069c02bc0f356cb6a174a7729dc7f942ac677",
+      "size_bytes": 1117,
+      "inode": 242483380,
+      "mtime_ns": 1792325518562311764
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/rasa/protocol/manifest.json": {
+      "sha256": "9da3f9cf7572cccbf001cfbf2083559c8c495013e4d96c0d661caa272154ea45",
+      "size_bytes": 728,
+      "inode": 242358012,
+      "mtime_ns": 1792318123791926727
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/rasa/protocol/completed.json": {
+      "sha256": "4e130b42c4222e308b903879c0d45658588cb31ef54242c555dcd5ac68ad5713",
+      "size_bytes": 121,
+      "inode": 242358013,
+      "mtime_ns": 1792318123806986663
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/rasa/protocol/protocol.json": {
+      "sha256": "42eeb1e340fff1978b351b68bb584e916d4fc3e62c766674f057506a0880b2f6",
+      "size_bytes": 2515061,
+      "inode": 242358011,
+      "mtime_ns": 1792318123755472876
+    },
+    "/home/lzf/ldx/tmp/sga_whitebox_full_v2/rasa-full-audit.log": {
+      "sha256": "d9f193cd29e50582dad7a642cb4a1900a5ed8f9017ede58850832463ba91531b",
+      "size_bytes": 34,
+      "inode": 235998093,
+      "mtime_ns": 1792325553720235791
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/aptm/completed/manifest.json": {
+      "sha256": "507fa4f47d84345e3aedad26a2773630da8755f31c2eabf5c8a9a6a206e4c02b",
+      "size_bytes": 541,
+      "inode": 242560521,
+      "mtime_ns": 1792333120195241146
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/aptm/completed/completed.json": {
+      "sha256": "469d9c1d2e0654c7d2f2fc7ba7f87c2d3d704d118c8fdbe4d6eecd3690d304a2",
+      "size_bytes": 121,
+      "inode": 242560522,
+      "mtime_ns": 1792333120201186506
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/aptm/completed/summary.json": {
+      "sha256": "6c94082f5775fa0c5f2a93afd66680e7bdb4c6919ef615bc7c6b31b04ed54698",
+      "size_bytes": 562,
+      "inode": 242560518,
+      "mtime_ns": 1792333120180622107
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/aptm/completed/metrics.csv": {
+      "sha256": "b2d555f1db2f2b5b949a18f340924ee051fa0c0b1d40fd6d2246d753363bd03a",
+      "size_bytes": 201,
+      "inode": 242560519,
+      "mtime_ns": 1792333120185215689
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/aptm/completed/metrics_2dp.csv": {
+      "sha256": "9389bda0420b7ccc1637ea5a7c3e50d1314466e5b21a99a6e9010938a3c1f9cd",
+      "size_bytes": 100,
+      "inode": 242560520,
+      "mtime_ns": 1792333120190047048
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/aptm/execution/manifest.json": {
+      "sha256": "e407da48405124e4e3177c72f3f9982fa7544827f77a4d2d63508ed78b8db2ba",
+      "size_bytes": 374,
+      "inode": 242560525,
+      "mtime_ns": 1792333120240746731
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/aptm/execution/completed.json": {
+      "sha256": "bfd78a1c00476ead4c8f3d6dfc889aa1f69917c13a722ad616c508ec10457b2b",
+      "size_bytes": 121,
+      "inode": 242560526,
+      "mtime_ns": 1792333120247897728
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/aptm/execution/report.json": {
+      "sha256": "20a99b166d303c6c94a3a416d0dbeee02a4f7c07ab7cdfaa1431780a42a89412",
+      "size_bytes": 1118,
+      "inode": 242560524,
+      "mtime_ns": 1792333120233005896
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/aptm/protocol/manifest.json": {
+      "sha256": "7374064cc6ef116786a4526e8df9eaf23d80a5bca1aa3484aac47364c71a35da",
+      "size_bytes": 733,
+      "inode": 242483392,
+      "mtime_ns": 1792325732505032074
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/aptm/protocol/completed.json": {
+      "sha256": "f1ad225175d6b4b7de78581c1c76261dc0cd5ca1ce9804fc2c01c2caf7f03e8f",
+      "size_bytes": 121,
+      "inode": 242483393,
+      "mtime_ns": 1792325732511255777
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/aptm/protocol/protocol.json": {
+      "sha256": "1f56798181832fdf20a0f7f1f13904bc6e0b7f23704ba934c58db8b7674abd8b",
+      "size_bytes": 2515083,
+      "inode": 242483391,
+      "mtime_ns": 1792325732477301925
+    },
+    "/home/lzf/ldx/tmp/sga_whitebox_full_v2/aptm-full-audit.log": {
+      "sha256": "4dcadca91feccac72d89d3d5c3e453d6520e186e88c45aebd3cb7518042c6389",
+      "size_bytes": 34,
+      "inode": 235998095,
+      "mtime_ns": 1792333151312211990
+    },
+    "/home/lzf/ldx/tmp/sga_whitebox_full_v2/status.log": {
+      "sha256": "dfcc11e3c3adf2d8cbf4612ab51aaf0ea4f180e0af3398bf49b2e373ded697e7",
+      "size_bytes": 510,
+      "inode": 235998086,
+      "mtime_ns": 1792333151641215291
+    },
+    "/home/lzf/.cache/clip/ViT-B-16.pt": {
+      "sha256": "5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f",
+      "size_bytes": 350837078,
+      "inode": 222237464,
+      "mtime_ns": 1763012884618122261
+    },
+    "/home/lzf/.cache/huggingface/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/config.json": {
+      "sha256": "7160e1553ad2ca51d8c1cb066be533db31826e12d173824c1bb0cb1a4f187d20",
+      "size_bytes": 570,
+      "inode": 222970171,
+      "mtime_ns": 1765430741692969890
+    },
+    "/home/lzf/.cache/huggingface/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/model.safetensors": {
+      "sha256": "68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3",
+      "size_bytes": 440449768,
+      "inode": 222970174,
+      "mtime_ns": 1765430783816143861
+    },
+    "/home/lzf/.cache/huggingface/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/vocab.txt": {
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "size_bytes": 231508,
+      "inode": 222970172,
+      "mtime_ns": 1765430742663925885
+    },
+    "/home/lzf/.cache/huggingface/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/tokenizer_config.json": {
+      "sha256": "a025160ef0431f1a392f6f050c1310f4c5d9fb6f275932dbccba73c4d214bf10",
+      "size_bytes": 48,
+      "inode": 222970170,
+      "mtime_ns": 1765430741069998168
+    },
+    "/home/lzf/.cache/huggingface/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/tokenizer.json": {
+      "sha256": "ce64fce797c24f68df90b40a3f74f579b336a493db14bd583fd520ea0d8c9a98",
+      "size_bytes": 466062,
+      "inode": 222970173,
+      "mtime_ns": 1765430743818873655
+    },
+    "/home/lzf/TBPS/Datasets/CUHK-PEDES/reid_raw.json": {
+      "sha256": "fc3d15542f91dd70e23028c2cb40171a8f41734a39afddb9505e352e396cabf0",
+      "size_bytes": 30051967,
+      "inode": 222380578,
+      "mtime_ns": 1681127516000000000
+    }
+  },
+  "historical_protection": {
+    "SHA_stat_verified_files": 145,
+    "Full_and_initial_FAIL_stat_files": 67380,
+    "changed": 0,
+    "note": "full large tensor SHA not re-audited; stat inventory only"
+  }
+}

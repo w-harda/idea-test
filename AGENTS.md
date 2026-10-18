@@ -28,6 +28,7 @@
 - Checkpoint、数据、缓存、outputs、日志、临时证据不提交Git。只提交代码、测试、必要配置及本轮影响的文档。
 - Tensor view需紧凑Storage时真正clone；不要仅用contiguous。SHA/协议不匹配拒绝，不静默fallback。
 - 分别记录模型训练数据、攻击训练/Validation/Test、代理/受害者权重、访问权限、提交更新和实际执行数量。
+- Baseline默认复现原论文/固定官方Commit的算法、完整流程、损失和参数；接口接线不得暗改攻击。需要算法修改时先报告并另行授权、单独命名适配。执行/缓存审计PASS不等于原算法复现PASS；SGA归类以ADR-0009为准。
 
 ## 每次结束任务
 
