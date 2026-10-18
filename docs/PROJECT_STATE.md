@@ -2,7 +2,11 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：AP-Attack B3三模型Full及CPU审计完成，结果已只读汇总
+## 当前阶段：SGA初始IRRA Smoke数值投影FAIL，已停止GPU链
+
+CPU来源/算法对照通过；首图严格预算检查拒绝，无成功像素。原失败与代码冻结，见[SGA初始FAIL](framework/SGA_INITIAL_FAIL.md)。B3三模型已完成结果保持。
+
+## 已完成：AP-Attack B3三模型Full及CPU审计完成，结果已只读汇总
 
 报告与CSV内容Commit：0da6d30caf7a1224f9c734b3d607ea0843fb749d（后续仅补充发布索引）。
 
