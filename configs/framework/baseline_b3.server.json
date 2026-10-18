@@ -1,0 +1,253 @@
+{
+  "schema": "tbps-b3-comparison-1",
+  "models": [
+    "irra",
+    "rasa",
+    "aptm"
+  ],
+  "image_batch": 1,
+  "fusion_batch": 1,
+  "query_chunk": 128,
+  "seed": 42,
+  "precision": "fp32/math/no_tf32",
+  "metrics": [
+    "R@1",
+    "R@5",
+    "R@10",
+    "mAP"
+  ],
+  "output_base": "/home/lzf/ldx/outputs/tbps-framework-b3-comparison",
+  "inputs": {
+    "materialization_config": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4d1-20261017/configs/framework/stage4d1_materialization.server.json",
+      "sha256": "93cea9b45552b049e1303b9f6e1dd5bce423cdeba32031c6f8b2aad360025c21"
+    },
+    "generation_result": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v3/result/manifest.json",
+      "sha256": "fb696a1c0c3235018202118a2d945fa728f6fc06be39738f04a26e6a39fe7634"
+    },
+    "materialization_audit": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-stage4d2/generation_v3_cpu_audit_v1/result/manifest.json",
+      "sha256": "5a693b3877a35c6778e79de7c3f9e555f7772191bbd2e3af5624fcef268bdce5"
+    },
+    "dataset_sources": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4c2-20261017/configs/framework/stage2_sources.server.json",
+      "sha256": "9f2da834669c7a1902b3fa9570ce8ab1a2844483ddbfb6e75bb3221a02acf73e"
+    }
+  },
+  "victim_sources": {
+    "rasa": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-rasa-materialized-eval-20261017/configs/framework/rasa_sources.server.json",
+      "sha256": "af9f55b0abf3ea878a434f07e423d2db95b053577e519bc864dceee211e3ab79"
+    },
+    "aptm": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-aptm-materialized-eval-20261018/configs/framework/aptm_sources.server.json",
+      "sha256": "812ca6c763d33de595796587ff7102433613d18230b6f56d9c677e6c2ec1812f"
+    }
+  },
+  "references": {
+    "irra": {
+      "root": "/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full",
+      "files": {
+        "protocol/protocol.json": {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/protocol/protocol.json",
+          "sha256": "6d6b64246a932f424a68646bd67da4a8a95bd3996b698c6581702aafb0e06b91"
+        },
+        "protocol/manifest.json": {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/protocol/manifest.json",
+          "sha256": "c46d43c9aa2fd90eb4a502836d13a33c396e3545344d1027840319e2c864e9d7"
+        },
+        "completed/summary.json": {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/completed/summary.json",
+          "sha256": "4530f3f97156d6e9f65c07b0775588324c39679feb0f16ae66b356692b017eb0"
+        },
+        "completed/manifest.json": {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/completed/manifest.json",
+          "sha256": "10cd2ebb890225ec8bf38cb5e7bfb1505ca10a51148fb356e58b18a76eee650e"
+        },
+        "execution-000001/report.json": {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/execution-000001/report.json",
+          "sha256": "a620c28466d4ecdbee2c03fe60262cdb53b23d67a1156fbc02888b2bcdc77ec5"
+        },
+        "result/protocol.json": {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/result/protocol.json",
+          "sha256": "e0ca1f4602a04daa95a1fbbd40b39432c22cc238d61c16264f856d6a0c019b4c"
+        },
+        "result/manifest.json": {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/result/manifest.json",
+          "sha256": "39da91d0f7faf99d97f409287247e1df560ef092bd12f5f7349788dbcd52f291"
+        }
+      }
+    },
+    "rasa": {
+      "root": "/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full",
+      "files": {
+        "protocol/protocol.json": {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/protocol/protocol.json",
+          "sha256": "96dbd05654d8f9487e0aba71220e2b80143367c6d29a2dda1276673251bd5686"
+        },
+        "protocol/manifest.json": {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/protocol/manifest.json",
+          "sha256": "ea9bc7436732e289504f7093a8731c94d6a6bb77f50cc68b56188a6255ccbdae"
+        },
+        "completed/summary.json": {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/completed/summary.json",
+          "sha256": "12b3a90ca761c632bdf7781e7d52b43b753ddb5e7bdf36ad53e65515d7fc37ac"
+        },
+        "completed/manifest.json": {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/completed/manifest.json",
+          "sha256": "9e02d0c9ab18be84f1de381beec7182ab5561e795d307d2f9c8922e986ee4e06"
+        },
+        "execution-000001/report.json": {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/execution-000001/report.json",
+          "sha256": "3cc96dd373be51dd54b2a2fcf65e50b421a250fe5ba33434883637e3c5e42fff"
+        },
+        "result/protocol.json": {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/result/protocol.json",
+          "sha256": "dedaf009cfe2854bc4b790c74ba1bc61210599be39f752825712887bb0b96e38"
+        },
+        "result/manifest.json": {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/result/manifest.json",
+          "sha256": "fec499ff3d63b787bea25fea2421057fda1b0d3ced171b60c57704a6bb29a3a3"
+        }
+      }
+    },
+    "aptm": {
+      "root": "/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full",
+      "files": {
+        "protocol/protocol.json": {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/protocol/protocol.json",
+          "sha256": "5d5a34eb10f4e8c97022427a99aeed8294ea7d7046c78287f4e35b4c7ab862e6"
+        },
+        "protocol/manifest.json": {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/protocol/manifest.json",
+          "sha256": "21a39645e329ed91e444721c42c1e9a66752eee3a04849dd7913da8453c8b360"
+        },
+        "completed/summary.json": {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/completed/summary.json",
+          "sha256": "8944ea0cd29e5c9f4410bf9ad7ccc65f67e3c26ad8a794e2a8af6915bca36d18"
+        },
+        "completed/manifest.json": {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/completed/manifest.json",
+          "sha256": "1c577586605588b4887c66ee56dbffaae6c1447bb68006c2b05794342679e242"
+        },
+        "execution-000001/report.json": {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/execution-000001/report.json",
+          "sha256": "1311d1bd73da0939f0fa09265c1f641443183c59ec2f2546b9d3fb12ba7ad507"
+        },
+        "result/protocol.json": {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/result/protocol.json",
+          "sha256": "f2dc3d3e7c23e07f992a037ddfe9630e2c6031a3d1fe4fd5aa73ca7d73943ae6"
+        },
+        "result/manifest.json": {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/result/manifest.json",
+          "sha256": "414dcd3ef0011a36d7a2ad6d1e94f520730324d8a81b20e8d35a6406b8c6c71d"
+        }
+      }
+    }
+  },
+  "b3": {
+    "checkpoint": {
+      "path": "/home/lzf/ldx/outputs/AP-Attack/cuhk_irra_semantic_10_10/G_CUHK_IRRA_AP.pth.tar",
+      "sha256": "c1c637e2e5346a3011f23006bb77bad60e4bd4bc28eb746d5f6bfcd881ba4ebb"
+    },
+    "metadata": {
+      "path": "/home/lzf/ldx/outputs/AP-Attack/cuhk_irra_semantic_10_10/G_CUHK_IRRA_AP.pth.tar.json",
+      "sha256": "a9de09356d879c94bb0bb4c036f41e10ae919e857b9cede774ef546efa3437c7"
+    },
+    "config": {
+      "path": "/home/lzf/ldx/outputs/AP-Attack/cuhk_irra_semantic_10_10/config.json",
+      "sha256": "3be9a35ea22d8042445b7ecde0053fc76af681ab98265fd9596d372847000a5d"
+    },
+    "progress": {
+      "path": "/home/lzf/ldx/outputs/AP-Attack/cuhk_irra_semantic_10_10/progress.json",
+      "sha256": "0d0932e514615eae8406044dd2c030ed4486c19d62992d217aaf65586ba719dc"
+    },
+    "gallery": {
+      "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/baseline-ap-cuhk-irra-surrogate/adversarial-gallery/gallery.json",
+      "sha256": "e6c013dfaa452653d15ce37842530362c52a67b9dabeca855407adbcef137f19"
+    },
+    "module": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/attributes/ap_gallery_baseline.py",
+      "sha256": "88041946242332523f337bb03f353342dd649529c7c455cb79c4e9d654e1adca"
+    },
+    "ap_source": "/home/lzf/ldx/projects/AP-Attack",
+    "image_root": "/home/lzf/TBPS/Datasets/CUHK-PEDES/imgs"
+  },
+  "producers": {
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/artifacts.py": "b7d7486df6b401705157a604daec236c7bc9ce79a8518ccf2c3df5e07c61c940",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/attacks/__init__.py": "278854696782f31a17141ee937f96cc22bcd0a24cf15e5920873539a43b54e47",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/attacks/base.py": "5c3693244bc121db8234cae46b036e235d53dfa87fc77b5c16a2632fc8982823",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/attacks/configuration.py": "f225c7eae2a2e8c14ac1883e0b4512932bc5058deef858aff7fd3bae731d9cf1",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/attacks/gv2.py": "e72685a12f65549210b2ae005219b7fa38c787f0c7a1af0a875ab672fefe4b12",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/attacks/hv1.py": "51b60e0e4b5ee1a822598f9342a7afca1509b7360e0fe2d5987e679b2ab4b25d",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/attacks/joint.py": "6b375e5390b35651f67d74a1a3d21e97237015c8c920a65706849aa8a07b4a1f",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/attacks/legacy_runtime.py": "d328c5b7b188610896aa330f72c68d18aa699634a6f633fbf64691bc4cf99476",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/attacks/provenance.py": "051b3717b32ab3a57d50fde45bb17f6a8f4e99c30d9d28b1f60f6ce941a4ff07",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/attacks/registry.py": "739b22531b4855f184733da7806ba1a4a7cc7b52a28cfd539594dd757d541b62",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/attacks/storage.py": "7158cf935bafb1192a1afb8e881fb6f4b07907e5361cfe528f836a43215d7773",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/b3_eval.py": "57fd328637e636659ad70472763cb659c652e6fc245d8c0bfaf949ef2d306ae1",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/baselines/__init__.py": "86e3dd9402c6cd505cc41954c0c9b02f4ee9cb42b7475ac7f75b89f56d59579a",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/baselines/ap_b3.py": "86f4049317984bbccf0de41d9c2910f57853c931166a013a35d33a895e04c82a",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/baselines/comparison.py": "ba3ed6b1f4330b52296214ae3d63c50cb8461e77f3bc2072e3ebf71fd4b4f1bb",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/config.py": "2546fbf969c533fc2a50b9f7a7a4c880053cb056599612c3dfaa6f5691eac70f",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/contracts.py": "2049faf65bf6bd99de3c9c50263451d0fbfd2d2fe2741891f9fb0b220de64fed",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/datasets/__init__.py": "5002fe92b67ac786ead8b87ceb2f0993bbc57d98d5051c54900b529fe66f17db",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/datasets/cuhk_pedes.py": "3d7cc570430ede48533728c103d49d6bd0e1fe8596f6c112fe3b5e5358b2b968",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/datasets/historical_membership.py": "9622f342b2259091d437b29f75004b7b5e458b85606b4c9ed97f34e7ec49b31a",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/engines/__init__.py": "7acfc64557fa446bc5346fb045a50a4ee15b66c65acbd9aaddb68c5e874e784f",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/engines/aptm_score_cache.py": "3126c2c7e51f5f86534aae349ee5d5914df8a5a615e035eff2abff7eb79392bf",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/engines/evaluation.py": "957eea289a0164c865fb84dd007901e60da82fb1de9bbbae6f946e93b1374124",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/engines/historical_contracts.py": "167f03a553ba8db4aa34fcbfdd574f35609df085ca83aee7a8365791e57dce89",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/engines/historical_loader.py": "64a5d95f0bba16c81c31a39b420caa1dd0af4bb8a65f616643728f2b2e527239",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/engines/historical_sources.py": "e9b3eadd6a1fba4be93ddc75d49168a8c38be50511b84d150f7ee43c377a4986",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/engines/legacy.py": "3f730b4f3bdb1858614a4337369aee1e33134f35cf3f3d179c08eeb9e72c7465",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/engines/materialized_aptm.py": "9d1acd5ead14869070c3843529c6ed126ef225eddc60c6c22cc718932ec51411",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/engines/materialized_cache.py": "0e3445eacfc0f969eb9d68cbfcb10db208833d9b1811a737abaaab41437e527a",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/engines/materialized_inputs.py": "001e06aec70fb97571a79b30c5d32d63a730fc697aa0d825f541325e2c491a14",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/engines/materialized_irra.py": "8c4c77b762729337925b0de59c8cac754b6520b3e9fcbb9dbeb1fc4346f3c5b2",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/engines/materialized_rasa.py": "0730ecee07a2fbff57067de4f55eefe697dac477e776d42d9879ca00a3ba1732",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/engines/metrics.py": "6a09838fa9c17cc95755acf5e2e608af86127bd517b951c050910f24c38459b5",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/engines/native_cache.py": "eacfdfdc19ac4f0c09f503314cd748d84ebb42d29d3a96a476bec0ef2a3b5b1b",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/engines/native_score_cache.py": "01b8ad3de0dad9655db1c15c7b480d4f3d25f0eb0b7af3d0065661ba51c4533c",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/engines/provenance.py": "d76877f3e13e8e324b4e0f9afdba701a1bd74f115bfca382cbd953cff515b413",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/engines/replay_acceptance.py": "c7abf7c77bc3eaecb6f89c1c65e8a4cd77b3d42d50e801184baea05a118a3d1a",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/engines/replay_control.py": "c5b6c3dc90bde5bf8bf8d2a145a191e19bc017a9e1eec84dfa4cbcffe9298306",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/engines/replay_cpu.py": "385e35d6cc6df9d4d5c57431fee8d01bde86e6c63881b9ada5b87d665e748eb9",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/engines/replay_oracle.py": "2024187d02dac1a0fd4b6b8573888a8e5e6a6353949a2737183e1b81328f9d4e",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/materialization/__init__.py": "2028561dfd64b76d92d53f7b2508dc3d94d03ffafbb8e54301db23e44eb4da3b",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/materialization/audit_retained.py": "3beadbc5d31b482d848aa730d931f86fb8fc2fadbc1e19b255a632c7fc1b3cac",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/materialization/audit_sources.py": "f1a1bc2bf08c087956e1bb42b4ce910911cbfe2f26103aeda25238b4f9fbbe3c",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/materialization/bulk_session.py": "b74a37584a3748ac6c97d9f50dc4fa1537d6e320c25f3bcdcd340ecb147143d4",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/materialization/checkpoint_layout.py": "e6a3724c2330723525bde196038a700c8ac9db1ecf063690b3fc52a7778408fa",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/materialization/claim_recovery.py": "2c97f50c93abcc8152d10eb06fbc05f6d230687edfc6dfe3b6a1a5533639f334",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/materialization/contracts.py": "671cba96eac0a9cec263c361dde116ee29db566c21dd1e66275033b637e5d7af",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/materialization/full_audit.py": "97c49b23f139dc677a359538e82775460ee2d2c7bc289a418d9485daab9ba8b3",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/materialization/full_gpu.py": "6e4b3aaf264c468762315f498cd4c8651dc0871e5b970352fbc1257d983614bc",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/materialization/full_gpu_audit.py": "9006c6eec3e10ad8aa380e5e6fa9bc3581384e625e5ada2615b9d590052cc628",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/materialization/full_prepare.py": "d530625c41c7e2d5ab9cb0067a962fb98a26f0f105c4a78412b62cbb403a25ae",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/materialization/full_runner.py": "c2607cfe2d3ad172d7be7b42e6bee29448a4fbbe52697d135f3c3ce90d92d908",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/materialization/generation.py": "d550de127a713382540f3dc202d552750b237f473e3d1fb22b109733bdbfe0bd",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/materialization/gpu_safety.py": "b756d61a3b0d66340508c695d3211c842eefd7ef4bbbd36de7536b97a1e1dc86",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/materialization/irra_only.py": "5629af052e5db23e4532eac5cd37f0fd35911fd34af1963b4213cd32f7304eec",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/materialization/irra_startup.py": "eb5f0bb0993ae96055e9ec95b8b5c46e110e1bcaed1d4619f1bb9d222a78106a",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/materialization/legacy_text.py": "e33e952ced95e1e5a173afd50a5225199b230ccb52593ef84e4d7898e30e50ea",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/materialization/pipeline.py": "c347df5b8281c7b3d966c1dd918a579d271e907dd2460ab81c9409aa72bcaf9d",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/materialization/retained_inputs.py": "e6bf371da7a405f888bec5521bc37ccd5a657294b7784502e3d351e8e207deb1",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/materialization/smoke.py": "19d5564d143c07bedc1c3d7741dec77dca7af641d4e0b91b4917a75a7bf40de7",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/materialization/smoke_support.py": "7f2089f6bd51be6fbedb795115399d3b37504e07948a497c01e5c4f4dff85cd8",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/materialization/store.py": "378d3477822922a99576a8b9542e23574ccf482313bdb4173c099952327e8a9d",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/materialization/throughput.py": "dbb12c468ad474a529061c442ba9a4a4c0f622a1a2e5b3472120c0613a57f729",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/models/__init__.py": "cb584e9a6b181426679b38a7488bb570ff8f3bfc7abc27eadd6d44e2f3b36221",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/models/aptm.py": "daa85058a2d4d66795a4e1ab8be03c608c857fc4a48ead160c012c299c600341",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/models/base.py": "e74baa789b6d1a4e671870e3155ff7792eb3e381bfbf967283d1dcad211cd8f5",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/models/irra.py": "424e1dcd20b34061e3199d969f05eb34ca8aa3a6655e00a0e77770ee17fef0b2",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/models/irra_cached.py": "3e30643619250c8ba7d6e09c12a0c23f49fb336a84cd5027c4e358ab90c0e122",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/models/irra_cpu_checks.py": "b953dde85322baf0b87330c198e0303049d23b4d0c39d7c6c768d346bc83eecf",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/models/irra_io.py": "3bd668f28fe788659296af7d1d4c31e4131c23eb96b266887e356f9b32376205",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/models/irra_source.py": "fcf22ad01836804bc40fdce6c1817de2ff1941fd302b549a765e15f5287dd0b6",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/models/rasa.py": "946e89fe97ec0d189545ff9d98fc348c049ce4002564d8504bc3675d4799ee0b",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/runtime_closure.py": "6ca4824108d71985963aa59d3b16181ee72d7963f079e3a36816bf57b77450e5",
+    "/home/lzf/ldx/projects/idea-test-tbps-baseline-b3-20261018/src/tbps/smoke_irra.py": "e3b28a08e22259a1603fdc354cee54c231fba3f95328a1cfe4430bb4f259044f"
+  }
+}

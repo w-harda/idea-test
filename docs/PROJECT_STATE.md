@@ -2,7 +2,19 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前完成：三受害者正式Full及独立CPU审计结果整理
+## 当前阶段：AP-Attack B3三模型Baseline接线（GPU Smoke待资源）
+
+2026-10-18，独立codex/tbps-baseline-b3，基准7bff515185efabcabff7a3e21a1002878178ff9c。
+
+B3来源、3074图历史FP32缓存及三模型Full CPU预检PASS；10图CPU像素物化预算合法。32项新增CPU测试通过，修复后相关回归132通过。首次全框架798通过、4个旧配置绝对工作树路径测试失败，在未修改基准同样复现；未改冻结配置。
+
+GPU Smoke为PENDING_RESOURCE_GATE：Ollama占用20178MiB，资源检查利用率22%（随后只读92%），在ready Attempt之前拒绝；真实受害者/G/H加载与前向0，无可报告Smoke指标。初次CPU启动快照FAIL保留，通过新launch将首次torchvision CPU导入移到门禁前；原门禁、历史代码/权重/Plan/结果不改。
+
+仅B3，不检查/评估B1/B2。新比较固定Clean → AP-Attack B3 → G-v2 Image-only，只输出R@1/5/10/mAP；Full复用已审计同模型Clean/G-v2结果与Clean文本表示，仅编码/评分B3 Gallery。完整来源及权限见[阶段报告](framework/B3_STAGE_REPORT.md)、[运行文档](framework/AP_B3_COMPARISON.md)、[七Baseline可行性](framework/BASELINE_FEASIBILITY.md)。用户已确认VLPTAttack对应ECCV2024 DRA官方代码，表名保持VLPTAttack。
+
+三模型真实Smoke及CPU审计完成之前，Full脚本强制拒绝。Full、重新训练、新攻击及后台轮询均未执行；历史12203文件stat保护通过。等待资源与审查，不扩大实验。
+
+## 已完成：三受害者正式Full及独立CPU审计结果整理
 
 2026-10-18，IRRA、RaSa、APTM的CUHK-PEDES Test正式Full及各自独立CPU审计均已完成。当前任务只读提取、来源验证、标量统计及文档发布，无新GPU/模型/攻击生成/排名/独立审计运行。
 

@@ -229,3 +229,7 @@ APTM原始Score归一化依赖完整Query集合，因此Adapter明确query_indep
 wait_aptm_full_chain.sh只编排原APTM CLI：RaSa完成证据→GPU连续3次空闲→Smoke→CPU audit→独立重新等待3次→Full→CPU audit。与Model Adapter/Engine/配置完全分离，不引入训练、攻击生成或其他模型。RaSa旧成功标志/日志回执通过显式只读确认桥兼容，确认文件只写APTM控制目录。
 
 flock、输出/进程检查和不可重入trigger限制单链；各阶段退出码和精确PASS共同决定推进。控制日志不等于正式评估结果；不修改旧Rasa监督器，不重算旧指标。用户明确授权后台链，Codex部署确认后退出。见framework/APTM_GPU_WAIT.md。
+
+## B3独立Baseline桥
+
+src/tbps/baselines只读接入B3历史像素，复用MaterializedStore原图与严格image_checks、ArtifactStore、三个原生Adapter和EvaluationEngine。旧MaterializationPlan固定gv2/hv1，不为B3放宽旧类型；B3Pixels为独立目标无关FP32物化薄桥。Full引用严格同空间/同顺序的既有Clean文本表示和Clean/G-v2已审计指标，新增B3图像表示及原生评分。攻击器不接收目标反馈，不复制检索算法。对外结果投影为四项指标，固定Clean/B3/G-v2顺序。launch在严格CPU启动快照前导入torchvision，GPU资源拒绝不会创建Attempt；当前真实GPU验证PENDING。见framework/AP_B3_COMPARISON.md。

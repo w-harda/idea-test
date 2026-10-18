@@ -280,3 +280,11 @@ IRRA、RaSa、APTM正式Full与独立CPU审计均PASS；每模型首次正式Att
 - APTM：/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/completed/summary.json，SHA 8944ea0cd29e5c9f4410bf9ad7ccc65f67e3c26ad8a794e2a8af6915bca36d18；CPU审计/home/lzf/ldx/tmp/aptm_full_wait/full_audit.log，精确PASS标志存在。
 
 本轮12行/60指标/45DR与完整来源核对通过，5份Checkpoint实际SHA匹配；原2682已读取文件保持，报告不包含Smoke数值。尚未开展新的训练、跨数据集或额外方法实验。
+
+## AP-Attack B3三模型对比准备（2026-10-18）
+
+- 冻结B3 E60：/home/lzf/ldx/outputs/AP-Attack/cuhk_irra_semantic_10_10/G_CUHK_IRRA_AP.pth.tar，SHA c1c637e2e5346a3011f23006bb77bad60e4bd4bc28eb746d5f6bfcd881ba4ebb；只索引B3。
+- 历史3074图/97批缓存：/home/lzf/ldx/outputs/idea-TBPS-test1/baseline-ap-cuhk-irra-surrogate/adversarial-gallery/，SHA/顺序核验通过；现有IRRA旧Full不是本轮新结果。
+- 新CPU物化10图：/home/lzf/ldx/outputs/tbps-framework-b3-comparison-ready/smoke/pixels/，最大L∞ .031372129917144775，G/H前向0。
+- 新三模型GPU Smoke及正式Full均PENDING；ready仅资源拒绝、无模型Attempt。初次CPU门禁FAIL保留在/home/lzf/ldx/outputs/tbps-framework-b3-comparison/smoke/irra/execution/。
+- Full CPU预检PASS，来源摘要framework/B3_SOURCE_AUDIT.json，阶段报告framework/B3_STAGE_REPORT.md。既有三个受害者Full及generation_v3仍不可变，不更新其指标。
