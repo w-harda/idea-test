@@ -315,6 +315,8 @@ IRRA、RaSa、APTM正式Full与独立CPU审计均PASS；每模型首次正式Att
 
 ## SGA-TBPS三模型正式Full与独立CPU审计完成（2026-10-18）
 
+正式报告与CSV内容Commit：a3a33be0cbb6c06fda7bdbdaf7a529b11aa583e6；结果分支codex/tbps-sga-full-results。
+
 冻结执行Commit6f89b799922ac54f041dabd3cd8e9d444735b146，官方SGA f49e6926cd13148e49bdbc2c3e537660e096230c。正式输出/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/{irra,rasa,aptm}/，各completed及execution回执PASS，监督器status.log最终2026-10-18T22:19:11+08:00 SUCCESS | SGA_THREE_MODEL_FULL_AND_CPU_AUDIT。各独立审计/home/lzf/ldx/tmp/sga_whitebox_full_v2/<model>-full-audit.log，SGA_TBPS_CPU_AUDIT_PASS full <model>。
 
 三个目标分别白盒优化完整3074 Gallery，6156 Query原文不变，L∞≤8/255、10轮5尺度。SGA R@1/mAP：IRRA0.49/0.54、RaSa1.61/1.46、APTM1.71/1.39。当前image-only TBPS适配及APTM局部ITM代理边界不变；SGA对白盒目标的权限不同于冻结G/B3迁移，不能解释为等预算公平优势。

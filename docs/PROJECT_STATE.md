@@ -4,6 +4,8 @@
 
 ## 当前阶段：SGA三模型正式Full及独立CPU审计完成，四方法结果已只读整理
 
+报告与CSV内容Commit：a3a33be0cbb6c06fda7bdbdaf7a529b11aa583e6；本次文档提交补充发布索引。
+
 冻结执行Commit6f89b799922ac54f041dabd3cd8e9d444735b146保持；三模型正式SGA Full和独立CPU审计PASS，监督器最终SUCCESS | SGA_THREE_MODEL_FULL_AND_CPU_AUDIT（2026-10-18 22:19:11 +08:00）。旧SGA开发/Smoke报告中的Full PENDING是历史快照。SGA/B3/G-v2/IRRA/RaSa/APTM算法、权重和旧结果均未修改。
 
 独立结果分支codex/tbps-sga-full-results，基准6f89b79；报告与两个CSV唯一入口：[四方法三模型Full对比](framework/results/sga_three_model_full_20261018/REPORT.md)，同目录metrics_2dp.csv、full_precision.csv、evidence.json。模型IRRA→RaSa→APTM，方法Clean→AP-Attack B3→G-v2 Image-only→SGA-TBPS White-box，仅R@1/R@5/R@10/mAP，百分数两位小数。

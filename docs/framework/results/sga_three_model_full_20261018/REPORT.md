@@ -1,5 +1,7 @@
 # SGA-TBPS White-box、AP-Attack B3与G-v2：三受害者正式Full对比
 
+报告、CSV与来源内容Commit：a3a33be0cbb6c06fda7bdbdaf7a529b11aa583e6；独立分支codex/tbps-sga-full-results。
+
 冻结SGA执行Commit：6f89b799922ac54f041dabd3cd8e9d444735b146。本报告在独立分支codex/tbps-sga-full-results整理真实正式Full文件；本轮仅标准库CPU读取、SHA/身份核验及表格整理，没有GPU、模型恢复、攻击生成、排名重算或重复独立缓存审计。
 
 ## 正式结果
