@@ -350,3 +350,5 @@ Full仅CPU预检3074/6156通过；未授权或执行Full。当前主方法仍G-v
 ## SGA官方IRRA Source Full v1启动FAIL与v2修复
 
 v1控制目录/home/lzf/ldx/tmp/sga_official_irra_full_v1/，CPU预检PASS后df不存在路径失败，Source/Target均未执行，正式Full输出无。全部13个证据文件保留，不能改签成功。v2仅修Bash父目录检查、独立ROOT/CONTROL；8项CPU测试PASS，算法/模型/配置字节不改；实际启动核验见framework/SGA_FULL_LAUNCH_V2.md，不能把启动成功当成Full完成。
+
+v2实际启动核验（2026-10-19 00:51:54 +08:00）：修复代码f8d3431b4f51d4fb117cf031f6d827bb89fab69c，独立nohup/setsid监督器PID/PGID/SID=3001120、PPID1/无TTY。CPU预检PASS，当前RUNNING_SOURCE、IRRA初始化已有日志；尚非Full完成。资源及startup_verified证据路径见SGA_FULL_LAUNCH_V2.md。v1十三文件保护未变。Codex未持续监控。

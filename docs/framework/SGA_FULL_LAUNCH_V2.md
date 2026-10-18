@@ -20,7 +20,13 @@ bash -n与git diff --check PASS。8项CPU测试PASS，新增真实df回归覆盖
 
 ## v2执行
 
-用户明确授权本次验证通过后直接启动Full；尚待一次资源检查和实际启动核验，后续文档提交登记真实状态。资源门限仍为20GiB空闲显存、48GiB可用RAM、35GiB磁盘；不轮询、不结束其他进程、不自动重试。
+用户明确授权验证后直接启动Full。修复代码Commit：f8d3431b4f51d4fb117cf031f6d827bb89fab69c。一次即时资源检查通过后，2026-10-19 00:51:36 +08:00以nohup setsid启动；00:51:42 CPU Preflight PASS并进入RUNNING_SOURCE；00:51:54核验监督器存活。资源门限仍为20GiB空闲显存、48GiB可用RAM、35GiB磁盘；不轮询、不结束其他进程、不自动重试。
+
+启动核验：PID=3001120、PGID=3001120、SID=3001120、PPID=1、TTY=?，已脱离SSH。Source日志已出现SGA_IRRA_CPU_PREFLIGHT_PASS full 3074 6156及IRRA原生初始化记录。没有再次启动、重复Smoke或容量测试。
+
+即时资源：GPU空闲24051MiB、利用率0%、无计算进程；RAM119788152KiB（约114.2GiB）、磁盘6414560399360bytes（约5.83TiB）。资源快照/home/lzf/ldx/tmp/sga_official_full_v2_start_resources.json；正式启动证明/home/lzf/ldx/tmp/sga_official_irra_full_v2/startup_verified.json。v1全部13文件SHA/mtime/inode再次核验不变，原4363e3a工作树干净。首次启动尚未产生Source输出，因此本次没有重执行任何已完成Source批次。
+
+这是启动时快照，不表示Full、Target或独立CPU审计已完成；后台独立运行，Codex结束后不持续轮询。
 
 正式输出：/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full/。
 控制日志：/home/lzf/ldx/tmp/sga_official_irra_full_v2/。

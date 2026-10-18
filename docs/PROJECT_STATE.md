@@ -2,13 +2,13 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：官方SGA Full v1启动失败保留，v2最小修复通过，待资源检查启动
+## 当前阶段：官方SGA Full v2已独立后台启动，RUNNING_SOURCE（未完成）
 
 用户已明确授权验证后直接启动v2。独立分支codex/tbps-sga-full-launch-fix，基准4363e3afebab4eadfeaa9652bfd9d5e50bfcb891；原工作树保持不变。
 
 v1在CPU预检PASS后因df对不存在的full/..解析失败退出，Source生成0、正式输出无；13份失败文件完整保留。仅修三处df父目录路径及ROOT/CONTROL，v2控制目录隔离，Full输出与算法/模型/配置/预算不变。8项CPU测试、真实df三项回归、bash -n、diff --check通过；其他src/configs逐字节exact。没有重复GPU Smoke或Batch8。
 
-启动后的真实PID/PGID/SID、预检及RUNNING_SOURCE状态由后续文档登记；目前不宣称已完成Full。见[修复与执行记录](framework/SGA_FULL_LAUNCH_V2.md)。不自动重试、修改算法或终止其他进程。
+修复Commit f8d3431b4f51d4fb117cf031f6d827bb89fab69c。2026-10-19 00:51:36 +08:00启动v2；00:51:42 CPU Preflight PASS并进入RUNNING_SOURCE，00:51:54核验PID/PGID/SID=3001120、PPID=1、无TTY，Source日志出现IRRA初始化。即时GPU空闲24051MiB、RAM119788152KiB、磁盘6414560399360bytes，均满足条件。启动证据/home/lzf/ldx/tmp/sga_official_irra_full_v2/startup_verified.json；v1全部13文件SHA/stat不变。仅确认启动，不宣称Full完成，Codex不持续监控。见[修复与执行记录](framework/SGA_FULL_LAUNCH_V2.md)。不自动重试、修改算法或终止其他进程。
 
 ## 已完成：官方SGA Batch8容量测试PASS与Full后台入口准备
 
