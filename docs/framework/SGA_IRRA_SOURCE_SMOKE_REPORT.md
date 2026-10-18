@@ -1,6 +1,6 @@
 # 官方SGA / IRRA Source 最小复现实施报告
 
-日期：2026-10-19。开发基准 `04bddc407a59763118cdd3b1200231ec6c2d8e8e`，独立分支 `codex/tbps-sga-irra-source`。发布代码Commit由PROJECT_STATE后续文档提交登记。
+日期：2026-10-19。开发基准 `04bddc407a59763118cdd3b1200231ec6c2d8e8e`，独立分支 `codex/tbps-sga-irra-source`。代码及验证Commit：2e1359034eb63a2db7cf9c21db095ea99f23dc11。
 
 **结论：官方攻击完整流程在IRRA Source上实际跑通；固定两图四文的三模型原生Score和独立CPU审计通过。Full未执行。** 初始pipeline在IRRA编码后因两图不满足R@10门禁退出1；原FAIL保留，CPU复用已编码IRRA特征恢复小样本评分，未重跑攻击或IRRA。该事实不能简写成“原pipeline一次全PASS”。
 

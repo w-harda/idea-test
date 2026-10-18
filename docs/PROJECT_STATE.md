@@ -4,7 +4,7 @@
 
 ## 当前阶段：官方SGA算法/IRRA Source最小移植与三目标Smoke完成，Full未执行
 
-独立分支codex/tbps-sga-irra-source，基准04bddc407a59763118cdd3b1200231ec6c2d8e8e。代码提交SHA由后续文档提交登记。
+独立分支codex/tbps-sga-irra-source，基准04bddc407a59763118cdd3b1200231ec6c2d8e8e。代码及验证提交：2e1359034eb63a2db7cf9c21db095ea99f23dc11；当前文档提交登记该不可变代码版本。
 
 按用户最新授权固定IRRA为唯一Source，直接调用官方f49e6926…的文本→图像→文本；原Loss、MLM、KL、增强、2/255、10轮、0.5/255、batch8/seed42保留。新增BERT→IRRA Byte-BPE接口，Source隔离原核心版本环境；目标环境与旧源码不改。ALBEF推荐仅是前次静态审查快照，不再是当前执行方案。
 
