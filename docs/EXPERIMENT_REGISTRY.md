@@ -263,3 +263,20 @@ RaSa后台任务不由本任务监控/修改。先由用户确认资源与RaSa�
 基准e7d28861cf5a91a801e47b699d58ac9389900f4b。用户授权独立nohup链等待RaSa Full/CPU审计/进程退出及GPU≥20000MiB/≤10%/无计算进程连续3次后执行APTM Smoke；Smoke CPU审计通过后独立重新等3次，再Full与CPU审计。失败不重试，保留现场，不改G/H/RaSa/IRRA。
 
 21项新控制流程CPU测试与46项相关回归共67通过，模型命令/资源均Fixture；部署阶段不声称真实APTM mAP或Full完成。实际阶段以/home/lzf/ldx/tmp/aptm_full_wait/{phase,status.log,launch.log}与正式APTM输出为准。旧RaSa没有独立JSON CPU审计回执，显式核对旧成功行及CPU PASS日志、正式完成/执行SHA后仅在新控制目录写只读确认。
+
+
+## 三模型物化Full完成与只读结果汇总（2026-10-18）
+
+IRRA、RaSa、APTM正式Full与独立CPU审计均PASS；每模型首次正式Attempt，6148图像/12312文本样本前向，受害者加载1次，RaSa/APTM融合pair各3151872。G/H新加载/前向及优化0。报告：[三模型正式结果](framework/results/three_model_full_20261018/REPORT.md)，原精度full_precision.csv及来源evidence.json同目录。
+
+以下mAP均按Clean → H-v1 Text-only → G-v2 Image-only → G-v2 + H-v1 Joint排列：
+- IRRA：66.09744262695312 / 51.471561431884766 / 32.28228759765625 / 23.553220748901367；同模型评估。
+- RaSa：69.18406677246094 / 32.85859298706055 / 35.04695129394531 / 17.202625274658203；跨模型迁移。
+- APTM：64.12683868408203 / 51.801902770996094 / 39.662025451660156 / 30.490341186523438；跨模型迁移。
+
+三者同一3074 Gallery/6156 Query及generation_v3内容，官方身份/排序/配对和G10/H7来源一致；各自原生预处理/Tokenizer/评分与ModelSpace独立。本轮只读提取和标量统计，不重跑审计或排名。关键证据：
+- IRRA：/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/completed/summary.json，SHA 4530f3f97156d6e9f65c07b0775588324c39679feb0f16ae66b356692b017eb0；CPU审计/home/lzf/ldx/tmp/irra_materialized_full_audit.log，精确PASS标志存在。
+- RaSa：/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/completed/summary.json，SHA 12b3a90ca761c632bdf7781e7d52b43b753ddb5e7bdf36ad53e65515d7fc37ac；CPU审计/home/lzf/ldx/tmp/rasa_full_wait/cpu_audit.log，精确PASS标志存在。
+- APTM：/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/completed/summary.json，SHA 8944ea0cd29e5c9f4410bf9ad7ccc65f67e3c26ad8a794e2a8af6915bca36d18；CPU审计/home/lzf/ldx/tmp/aptm_full_wait/full_audit.log，精确PASS标志存在。
+
+本轮12行/60指标/45DR与完整来源核对通过，5份Checkpoint实际SHA匹配；原2682已读取文件保持，报告不包含Smoke数值。尚未开展新的训练、跨数据集或额外方法实验。

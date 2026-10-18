@@ -210,19 +210,19 @@ models/rasa.py持有官方加载、原生Tokenizer/预处理、全局256维候�
 
 materialized_inputs只读封存集合并复用现有读取/身份接线；rasa_eval生产入口固定两个冻结attacks/materialization包路径，保持Stage4D原Plan，其余Adapter/Engine来自新树。NativeFeatureCache存Tensor字典，ChunkCachedScorer按Query块保存原生Score；不固定特征维度/目标模型或攻击ID。AttackOrigin描述显式组件和单模态预算，Engine按模态检查，不把未知ID当成已实现攻击插件。
 
-RaSa官方384×384 BICUBIC、BERT50、Top-128最终ITM保持。现有FP32工作空间已是384×128，因此采用Tensor resize避免量化，不能宣称与从原始文件直接PIL处理相同。Full报告须标注固定物化Clean协议。短时10+10真实Smoke通过，仅10候选；Full及APTM尚未执行。新增模型仍需独立Adapter/来源与薄入口，复用输入桥、缓存和Engine；新增攻击样本不改RaSa。见framework/RASA_MATERIALIZED_EVALUATION.md。
+RaSa官方384×384 BICUBIC、BERT50、Top-128最终ITM保持。现有FP32工作空间已是384×128，因此采用Tensor resize避免量化，不能宣称与从原始文件直接PIL处理相同。Full报告须标注固定物化Clean协议。历史10+10 Smoke仅覆盖10候选；当前RaSa与APTM的正式Full及CPU审计均已完成。新增模型仍需独立Adapter/来源与薄入口，复用输入桥、缓存和Engine；新增攻击样本不改RaSa。见framework/RASA_MATERIALIZED_EVALUATION.md。
 
 ## 轻量RaSa GPU等待执行层
 
 wait_rasa_full.sh为独立Bash监督器，不修改任何Adapter/Engine/模型或配置。60秒GPU快照、连续3次资源门槛、flock与一次性triggered避免重复启动；满足后只调用已有Full及CPU审计，失败不重试。由用户明确授权nohup独立session部署，Codex不保持会话或后台监控。运行日志与正式结果隔离，见framework/RASA_GPU_WAIT.md。
 
-## APTM原生评分接入（仅CPU验证）
+## APTM原生评分接入（正式Full与CPU审计已验证）
 
 models/aptm只负责官方来源、Swin/BERT编码、CUHK预处理和原始ITM/global；不依赖G/H、PID、目标奖励。engines/materialized_aptm复用物化encode/bound_inputs、NativeFeatureCache、EvaluationEngine和结果存储，生产入口aptm_eval只把attacks/materialization包指向冻结Stage4D1以保留Plan。
 
 APTM原始Score归一化依赖完整Query集合，因此Adapter明确query_independent_scores=False。APTMSetScorer先按128 Query缓存原始ITM/global（来源绑定完整Query/Gallery），再完整集合归一化，之后才提供固定上下文的Score切片给原Engine。最终缓存绑定所有原始Score Manifest，不逐块minmax或复用RaSa分数；单模式额外最终矩阵缓存避免每块重复读全矩阵。
 
-不同受害者ModelSpace/Token/Score独立，仍消费相同FP32 RGB与Unicode。当前输入桥绑定generation_v3；后续攻击方法替换物化输入桥，不修改APTM原生评分。CPU Fixture及真实权重结构验证不代表APTM真实GPU或Full已通过。详见framework/APTM_MATERIALIZED_EVALUATION.md。
+不同受害者ModelSpace/Token/Score独立，仍消费相同FP32 RGB与Unicode。当前输入桥绑定generation_v3；后续攻击方法替换物化输入桥，不修改APTM原生评分。原CPU阶段不代表真实GPU；当前APTM正式Full与独立CPU审计已完成，来源及结果见framework/results/three_model_full_20261018/REPORT.md，仅覆盖固定模型/输入/协议，不推广到其他组合。
 
 ## APTM自动执行控制层
 

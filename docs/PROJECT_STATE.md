@@ -1,50 +1,33 @@
 # 项目当前状态（唯一权威入口）
 
-状态来自Git、实际代码与不可变证据；历史报告为当时快照。
+状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前任务：APTM一次性自动实验链（部署等待中）
+## 当前完成：三受害者正式Full及独立CPU审计结果整理
 
-基准174eb51f4c346a6d74ace3f61f1ea170aeccf00b；独立分支codex/tbps-aptm-materialized-evaluation，工作树/home/lzf/ldx/projects/idea-test-tbps-aptm-materialized-eval-20261018。接入阶段未执行APTM GPU；本轮用户明确授权独立nohup等待器在RaSa完成及资源满足后自动执行Smoke、CPU审计、Full、CPU审计，不修改RaSa监督器。实现Commit：2f21e910d9e560aa96ae29adcdb3d712c38dd4d6。
+2026-10-18，IRRA、RaSa、APTM的CUHK-PEDES Test正式Full及各自独立CPU审计均已完成。当前任务只读提取、来源验证、标量统计及文档发布，无新GPU/模型/攻击生成/排名/独立审计运行。
 
-官方APTM代码b20025445471eb4b743164a6faec29a9eccfb293与官方CUHK权重已准备。权重/home/lzf/ldx/checkpoints/APTM/aptm_cuhk_checkpoint_best.pth，SHA521c9bf784e7e821ade471deaafa2f25e2501950591e574dc60ca177e9be5a2c；CPU官方构造/629项strict恢复成功，214456629参数，CUDA未初始化。33项官方/BERT来源和13项本次运行源码显式锁定，数据/权重不进Git。
+结果报告与原精度数据唯一索引：[三模型正式Full报告](framework/results/three_model_full_20261018/REPORT.md)。所有新导出固定模型IRRA→RaSa→APTM；方法固定Clean→H-v1 Text-only→G-v2 Image-only→G-v2 + H-v1 Joint，不改变原文件的历史保存顺序。
 
-新增APTMAdapter及完整Query集合Score缓存/薄CLI，复用原Dataset、物化读取、NativeFeatureCache、EvaluationEngine和指标。APTM原生Swin-B 384×128/CUHK Normalize/BERT56；Top128 ITM填充后，完整矩阵minmax(ITM)+.002*minmax(global)，不能套RaSa评分或逐Query块归一化。攻击输入不依赖目标评分，无G/H重新生成。
+- IRRA：同训练来源模型评估，Full目录/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/；GPU与CPU审计PASS，监督日志SUCCESS | IRRA_FULL_AND_CPU_AUDIT。
+- RaSa：冻结IRRA训练攻击器的跨模型迁移，Full目录/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/；phase=SUCCESS、GPU/CPU审计PASS，监督器最终RASA_FULL_AND_CPU_AUDIT_SUCCESS。
+- APTM：冻结IRRA训练攻击器的跨模型迁移，Full目录/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/；phase=SUCCESS、GPU/CPU审计PASS，监督日志SUCCESS | APTM_FULL_AND_CPU_AUDIT。
+- 每模型Full为首次正式Attempt，参数/buffers摘要保持；G/H新加载/前向、Backward/Optimizer/JVP为0。独立CPU审计状态引用已完成真实日志，本轮没有重跑。
+- 同一generation_v3物化输入3074图/6156文、G10/H7及Plan不变；三组Manifest、PID配对、有序成员、四类输入内容SHA和攻击来源exact。IRRA特征不跨受害者复用，RaSa/APTM保留原生融合评分。
 
-140项必要CPU测试通过（36项APTM新增；新树139＋原IRRA所属树1项绝对路径来源检查）。官方完整evaluation及五指标独立合成对照通过，129 Query跨128块、原生来源/Unicode/Storage/缓存篡改/权限测试通过。Full CPU preflight确认3074/6156、原Plan、6116编辑/40 NOOP/13537替换；10+10 CPU preflight固定成员及无CUDA通过。原RaSa11项producer SHA不变，RaSa/IRRA/Stage4D1 worktree clean。
+当前结果：Joint五指标均低于各模型的单模态；相较G-v2 Image-only，Joint mAP额外下降IRRA 8.7291、RaSa 17.8443、APTM 9.1717个百分点。IRRA不能称作跨模型黑盒迁移。不同模型Clean是统一物化输入下的原生目标基线，不等同论文原始输入Clean；当前不推导跨数据集、多seed或因果性模块贡献。
 
-真实APTM GPU加载/编码/评分、GPU峰值、迁移Full均未执行，不能据CPU结果宣布真实等价或攻击成功。部署前APTM输出目录尚不存在。本轮自动链必须先核验RaSa正式完成/审计日志与回执、进程退出，再连续3次GPU空闲≥20000MiB/利用率≤10%/无计算进程启动Smoke；Smoke审计后重新从0等待3次才启动Full。任一失败停链，不重试、不覆盖；不进入其他模型或训练。准确命令与差异见[APTM执行说明](framework/APTM_MATERIALIZED_EVALUATION.md)。CPU证据/home/lzf/ldx/tmp/aptm_development/，仅新文档/源码提交；旧实验不变。
+## 本轮数据验证与发布边界
 
-等待器新增21项CPU流程测试，加36项APTM接口和10项原RaSa等待器回归共67项通过；bash -n通过。13项APTM原运行源码和原配置SHA不变，RaSa工作树clean。原RaSa成功行尾为RASA_FULL_AND_CPU_AUDIT_SUCCESS，CPU审计仅有日志PASS；新等待器严格核验所有原证据并写自己的rasa_verified.json，不补造旧审计回执。
+独立文档分支codex/tbps-three-model-full-results，基准525488a1a7de7f3258d71e195019c2bdc0a79e8f；工作树/home/lzf/ldx/projects/idea-test-tbps-three-model-results-20261018。
 
-脚本src/tbps/engines/wait_aptm_full_chain.sh，控制目录/home/lzf/ldx/tmp/aptm_full_wait/；等待器实现Commit 568eba1fd08407b7d6daabba8e47f1735c9cd98d；2026-10-18 02:20:36+0800由nohup独立session部署PID3701987，一次性确认PPID=1/SID3701987/无TTY/stdin=/dev/null。启动状态WAITING_RASA 0/3，RaSa RUNNING_FULL（GPU进程3372976，利用率69%，空闲21503MiB）；triggered及APTM Smoke/Full输出均不存在。此为启动快照，后续以日志为准，详见[后台执行说明](framework/APTM_GPU_WAIT.md)。此处等待状态不代表真实Smoke或Full已通过；部署后Codex结束，不持续监控。
+标准库CPU核验12行/60项指标、45项DR、三个完整有序Manifest及5份Checkpoint实际SHA。CSV和summary/result metrics一致；DR最大尾差1.4210854715202004e-14个百分点。2682个已读取来源文件SHA/size/mtime/inode保护核验通过；完整保护清单仅留服务器tmp，Git发布关键来源evidence.json和派生报告/CSV，不提交旧日志、模型或特征缓存。
 
-## RaSa此前部署记录（启动时快照，不代表当前后台状态）
+导出metrics_4dp.csv、dr_4dp.csv、full_precision.csv和evidence.json；原实验文件、Checkpoint、模型/生成/评估源码均不修改。报告与导出排序/原精度/四位小数逐项检查通过。当前无阻塞；等待用户审阅结果，未授权新的训练/消融/模型或实验。
 
-基准b51d9e55190e96b6422f0c87952471ad6ac12bed，独立分支codex/tbps-rasa-materialized-evaluation，工作树/home/lzf/ldx/projects/idea-test-tbps-rasa-materialized-eval-20261017。RaSa实现Commit：5869fa59cbdc005f6bbf58276c96070c5e1548b4，发布HEAD d2fbdfbe30b1356746743b2bc1c7be168f652534。
+## 实现与历史索引
 
-用户上传官方RaSa CUHK权重，SHA bc85da09c2991d5de503c2c2ac4f032e20cc536fec5094f0acff45e93d0104d2；官方代码固定bd16aa1a15f149548a90d196fcf10a27d7ab7c66。只读复用generation_v3固定3074图/6156文，不重新生成/优化G/H，不复用IRRA Embedding。复用原Dataset/Engine/指标/存储，仅补RaSa原生局部表示、Top-128 ITM、结构化缓存与薄入口。原生模型加载保持strict849项，旧Transformers兼容仅在Adapter初始化边界。
-
-CPU127项通过：125项必要回归＋原树1项绝对路径测试＋独立官方RaSa itm_eval对照1项。一次真实10 Gallery/10 Query Smoke PASS，RaSa加载1次，Hook核实20图像/20文本/400融合pair，G/H/IRRA及优化0，模型冻结exact。峰值allocated1900.05859375MiB、reserved2082MiB，RSS约4.069GiB；执行28.283271秒、含预检总121.416593秒，GPU退出、空闲3865MiB。没有OOM或重试。
-
-四组Smoke mAP为100.0/95.88888549804688/99.16666412353516/91.44444274902344，仅链路验证。10候选Smoke不冒充Full Top-128。目标384×384 Tensor BICUBIC来自固定384×128 FP32物化输入，不宣称与原始图片PIL直接预处理的论文基线逐值相同。
-
-## 当前正式产物与证据
-
-- generation_v3 Joint全量攻击数据已封存并审计：Plan7ac4fefd0abaa10df085be3ec3ed56c4b38c782a21bfc44473f40b90965447d5；3074 Gallery/6156 Query，6116编辑/40 NOOP/13537替换。
-- **IRRA Materialized Full已由用户完成并独立CPU审计PASS**：Clean/Image-only/Text-only/Joint mAP分别66.09744262695312/32.28228759765625/51.471561431884766/23.553220748901367；与历史Joint Full四组20项指标exact。
-- IRRA证据：/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/；summary SHA4530f3f97156d6e9f65c07b0775588324c39679feb0f16ae66b356692b017eb0；用户日志SUCCESS | IRRA_FULL_AND_CPU_AUDIT。本轮只读引用，不重新评测。
-- RaSa Smoke：/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/smoke/；summary SHA036ca6df1ffc793dfb39e36cc7b38294b12655f0f23975dc005822829c04aa61；report SHA8a9b7bcc0b73017f3cc85a8809b530c4a21e55ca071ab0242291f39d7c989995。
-- 历史生成/审计26文件SHA/mtime、61555物化文件成员/size/mtime、IRRA正式结果3关键文件SHA及冻结工作树保持；没有重复7991文件/旧Full重审。
-- **RaSa Full PENDING**；本轮启动前确认full目录未创建。用户新授权独立Bash后台等待器，每60秒采样，连续3次空闲≥8192MiB/利用率≤10%/无计算进程后单次启动原Full，成功后CPU审计；不干预Ollama、失败不重试。
-- 等待器10项CPU测试及bash -n通过，未在测试中访问真实GPU。等待器代码Commit 8e4a4ab3d53df1fa940a509e6937b346e5cda91a；2026-10-17 23:45:13+0800通过nohup独立session启动，PID3297416。一次性确认PPID=1、SID=3297416、无TTY、stdin=/dev/null，当前WAITING 0/3；首条快照空闲3865MiB/利用率100%/Ollama PID2436556，Full目录及triggered均不存在。运行证据在/home/lzf/ldx/tmp/rasa_full_wait/；详见framework/RASA_GPU_WAIT.md。以上为部署时快照，后续状态以运行日志为准。
-
-具体代码、限制和命令见[RaSa执行说明](framework/RASA_MATERIALIZED_EVALUATION.md)及[真实Smoke报告](framework/RASA_SMOKE_REPORT.md)。本轮不进入APTM、其他算法或训练；Codex在启动等待器并确认脱离会话后结束，不持续监控。
-
-## 历史索引
-
-- generation_v2：原FAIL结果Manifest SHA9b2dae20980ce9e1943fcaada80e2d73539fd09fb9ea3d4ada106e077d79efa9；gpu-result/report SHA176ae52ffc1851a3d710c445268569a987baaed912d95696941ec7e73c052d13。
-- 原首图Claim Manifest SHA21ed14c935fdde887cfc6afcbdb67b6e6c6687085f6b8a46e8c3aed5ad5ea1e0，unit_id50b19770bb01c5c7e52237a4af73e4186342e77ccafe06204a8c3c91ecbfe3b7。
-- Stage4D2R：dd0a213f2ac1b787412b755372c378ad49f31f9c，启动顺序CPU修复/626测试通过，报告是当时v2尚未执行的历史快照。
-- generation_v1：整体FAIL、G前向0，原报告STAGE4D2_EXECUTION_REPORT.md及旧原树未提交文档保持。
-- Stage4D1：82fe88a5a74955838fc6341c1ed9a46921c94d7c，6156历史文本物化/独立审计通过。
-- Stage4C3：a5a6f6ae8c9200482ae0c70d228e1873d3ca4dd2，固定两图两文IRRA物化端到端等价PASS；不代表Full或跨模型。
+- 冻结Stage4D1 Plan及generation_v3 Image/Joint封存：见framework/STAGE4D1.md、framework/GENERATION_V3_GPU_SHARING.md及已完成生成/CPU审计回执。
+- IRRA物化评估：b51d9e55190e96b6422f0c87952471ad6ac12bed，见framework/IRRA_MATERIALIZED_EVALUATION.md。
+- RaSa实现及等待器：174eb51f4c346a6d74ace3f61f1ea170aeccf00b，见framework/RASA_MATERIALIZED_EVALUATION.md、framework/RASA_GPU_WAIT.md。
+- APTM实现：2f21e910d9e560aa96ae29adcdb3d712c38dd4d6；自动链实现568eba1fd08407b7d6daabba8e47f1735c9cd98d、部署文档525488a1a7de7f3258d71e195019c2bdc0a79e8f，见framework/APTM_MATERIALIZED_EVALUATION.md、framework/APTM_GPU_WAIT.md。其中“尚未执行”保留原阶段快照属性，最新完成状态以本文及正式结果报告为准。
+- Stage3B/4C/4D旧FAIL证据与历史源码/缓存永久保留，本轮没有改签或清理。
