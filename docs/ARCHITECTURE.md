@@ -233,3 +233,7 @@ flock、输出/进程检查和不可重入trigger限制单链；各阶段退出�
 ## B3独立Baseline桥
 
 src/tbps/baselines只读接入B3历史像素，复用MaterializedStore原图与严格image_checks、ArtifactStore、三个原生Adapter和EvaluationEngine。旧MaterializationPlan固定gv2/hv1，不为B3放宽旧类型；B3Pixels为独立目标无关FP32物化薄桥。Full引用严格同空间/同顺序的既有Clean文本表示和Clean/G-v2已审计指标，新增B3图像表示及原生评分。攻击器不接收目标反馈，不复制检索算法。对外结果投影为四项指标，固定Clean/B3/G-v2顺序。launch在严格CPU启动快照前导入torchvision，GPU资源拒绝不会创建Attempt；当前真实GPU验证PENDING。见framework/AP_B3_COMPARISON.md。
+
+## B3共享后台链修订
+
+comparison.py新增一次性shared_observe_only启动快照：记录利用率/外部进程而不据此阻塞，保留3072MiB内存底限与B3重复执行检查。脚本将快照传给各子进程，不增加GPU轮询。run_b3_full.sh仅编排原CLI：三个Smoke/审计全部PASS后再Full/审计；不可重入标记和独立会话控制一次启动及安全停止。算法/Adapter/Ranking不改，新来源配置和输出与旧097证据隔离；详见framework/B3_SHARED_RUN.md。

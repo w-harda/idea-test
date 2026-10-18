@@ -288,3 +288,7 @@ IRRA、RaSa、APTM正式Full与独立CPU审计均PASS；每模型首次正式Att
 - 新CPU物化10图：/home/lzf/ldx/outputs/tbps-framework-b3-comparison-ready/smoke/pixels/，最大L∞ .031372129917144775，G/H前向0。
 - 新三模型GPU Smoke及正式Full均PENDING；ready仅资源拒绝、无模型Attempt。初次CPU门禁FAIL保留在/home/lzf/ldx/outputs/tbps-framework-b3-comparison/smoke/irra/execution/。
 - Full CPU预检PASS，来源摘要framework/B3_SOURCE_AUDIT.json，阶段报告framework/B3_STAGE_REPORT.md。既有三个受害者Full及generation_v3仍不可变，不更新其指标。
+
+## B3共享GPU正式链准备（2026-10-18，尚未启动）
+
+基准097c96d，codex/tbps-b3-shared-run。49项B3 CPU/149项相关回归PASS，Full CPU预检3074/6156、97历史批、CUDA=false。旧B3来源与正式三模型结果保持只读；新正式输出预定/home/lzf/ldx/outputs/tbps-framework-b3-shared-evaluation，当前不存在。用户手动nohup+setsid启动后依次Smoke/审计/Full/审计，共享Ollama，单次资源快照、无轮询、不重试。监督目录预定/home/lzf/ldx/tmp/b3_shared_run，当前未部署，无新的GPU实验结果。入口/日志/停止命令见framework/B3_SHARED_RUN.md。

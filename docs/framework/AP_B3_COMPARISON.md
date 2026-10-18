@@ -1,5 +1,7 @@
 # AP-Attack B3三模型对比接线
 
+> 当前用户授权的共享GPU后台链和命令见[B3_SHARED_RUN.md](B3_SHARED_RUN.md)。本文保留097阶段的来源与开发快照；旧资源利用率门禁及旧启动命令不作为当前执行入口。
+
 本阶段只使用B3。冻结CUHK-PEDES/IRRA ReID+Semantic Generator，不重新训练，不运行B1/B2，不使用目标RaSa/APTM反馈调整攻击。正式Full尚未执行，等待用户确认。
 
 ## 来源与复用

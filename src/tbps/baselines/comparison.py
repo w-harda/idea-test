@@ -37,6 +37,8 @@ def configuration(path):
     need(c["models"]==["irra","rasa","aptm"] and c["image_batch"]==c["fusion_batch"]==1
          and c["query_chunk"]==128 and c["seed"]==42 and c["precision"]=="fp32/math/no_tf32"
          and c["metrics"]==list(KEYS),"fixed native B3 comparison")
+    need(c.get("gpu_policy")=="shared_observe_only" and c.get("minimum_free_mib")==3072,"fixed shared GPU policy")
+    need(ref(Path(__file__).with_name("run_b3_full.sh")).sha256==c.get("launcher_sha256"),"bound B3 pipeline source changed")
     root=Path(__file__).resolve().parents[3]
     expected={str(p) for d in ("models","engines","baselines","materialization","attacks","datasets") for p in (root/"src/tbps"/d).rglob("*.py")}
     expected|={str(root/"src/tbps"/n) for n in ("b3_eval.py","artifacts.py","contracts.py","config.py","runtime_closure.py","smoke_irra.py")}
@@ -212,6 +214,46 @@ def evaluate_one(ctx,adapter,checkpoint,model,inputs,store,reference,method):
     del scores
     return value
 
+def other_b3_processes():
+    """只检查B3执行者，不把Ollama或其他计算进程本身当作冲突。"""
+    import subprocess
+    own={os.getpid(),os.getppid()};found=[]
+    rows=subprocess.check_output(["ps","-eo","pid=,args="],text=True,timeout=10)
+    for line in rows.splitlines():
+        fields=line.strip().split(None,1)
+        if len(fields)!=2 or not fields[0].isdigit():continue
+        pid,command=int(fields[0]),fields[1]
+        if pid in own:continue
+        if ("run_b3_full.sh" in command or
+            ("tbps.baselines.launch" in command and "--action run" in command) or
+            ("tbps.b3_eval" in command and "--action run" in command) or
+            "run_ap_cuhk_irra_surrogate_baseline.py" in command):
+            found.append({"pid":pid,"command":command})
+    return found
+
+def resource_snapshot(path,c):
+    """一次nvidia-smi资源快照；利用率和外部进程仅记录，不等待。"""
+    from datetime import datetime,timezone
+    gpu=gpu_available({"physical_gpu":0});others=other_b3_processes()
+    reason=("existing B3 execution" if others else
+            "insufficient free GPU memory: need at least 3072 MiB" if gpu["free_mib"]<c["minimum_free_mib"] else None)
+    return {"schema":"tbps-b3-shared-resource-1","created_at_utc":datetime.now(timezone.utc).isoformat(),
+        "config_sha256":ref(path).sha256,"policy":"shared_observe_only","minimum_free_mib":c["minimum_free_mib"],
+        "GPU":gpu,"other_B3_processes":others,"ready":reason is None,"reason":reason}
+
+def startup_gpu(path,c):
+    """后台链复用启动快照；后续实际资源变化由CUDA错误处理，不轮询。"""
+    snapshot_path=os.environ.get("TBPS_B3_GPU_SNAPSHOT")
+    if snapshot_path:
+        snapshot=read_json(snapshot_path,"tbps-b3-shared-resource-1")
+        need(snapshot["config_sha256"]==ref(path).sha256 and snapshot["policy"]=="shared_observe_only"
+             and snapshot["minimum_free_mib"]==c["minimum_free_mib"],"startup GPU snapshot/config mismatch")
+    else:snapshot=resource_snapshot(path,c)
+    need(snapshot["ready"] is True and not snapshot["other_B3_processes"] and
+         snapshot["GPU"]["free_mib"]>=c["minimum_free_mib"],"shared GPU startup rejected: "+str(snapshot.get("reason")))
+    return {**snapshot["GPU"],"snapshot_created_at_utc":snapshot["created_at_utc"],
+        "snapshot_policy":"single startup observation; no polling or utilization gate"}
+
 def run(path,scope,model,*,authorized=False,resume=False):
     need(authorized,"explicit --allow-smoke / --allow-full-evaluation required")
     need(model in ("irra","rasa","aptm"),"explicit native target")
@@ -222,8 +264,7 @@ def run(path,scope,model,*,authorized=False,resume=False):
     need(not store.pending() and not (root/"failure").exists(),"pending/failed Attempt: preserve; no automatic retry")
     b3pixels=pixels(ctx,scope);reference=ctx["references"][model]
     need(os.environ.get("CUDA_VISIBLE_DEVICES")=="0","explicit GPU0")
-    gpu=gpu_available({"physical_gpu":0});print("B3_GPU_STATE",json.dumps(gpu),flush=True)
-    need(gpu["free_mib"]>=3072 and gpu["utilization_percent"]<=10,"insufficient idle GPU for short controlled evaluation")
+    gpu=startup_gpu(path,c);print("B3_GPU_STATE",json.dumps(gpu),flush=True)
     store.publish("attempt",{"preflight.json":json_bytes(ctx["report"])},{"scope":scope,"model":model},
         sources=(ref(path),reference.protocol_ref,b3pixels.protocol_ref))
     counts={};report={"status":"RUNNING","GPU_before":gpu,"scope":scope,"model":model,"G_H_loads":0,
@@ -312,11 +353,19 @@ def audit(path,scope,model):
 def main(argv=None):
     p=argparse.ArgumentParser(description="B3 only; default CPU; no GPU at import")
     p.add_argument("--config",required=True);p.add_argument("--scope",choices=("smoke","full"),default="smoke")
-    p.add_argument("--action",choices=("preflight","pixels","run","audit"),default="preflight")
+    p.add_argument("--action",choices=("preflight","resources","pixels","run","audit"),default="preflight")
     p.add_argument("--model",choices=("irra","rasa","aptm"))
     p.add_argument("--allow-smoke",action="store_true");p.add_argument("--allow-full-evaluation",action="store_true")
     p.add_argument("--allow-full-pixel-transport",action="store_true");p.add_argument("--resume",action="store_true")
     a=p.parse_args(argv)
+    if a.action=="resources":
+        need(not(a.allow_smoke or a.allow_full_evaluation or a.allow_full_pixel_transport or a.resume),"resource snapshot has no model execution flags")
+        snapshot=resource_snapshot(a.config,configuration(a.config))
+        print(json.dumps(snapshot),flush=True)
+        if snapshot["ready"] is not True:
+            print("B3_RESOURCE_REJECTED: "+str(snapshot["reason"]),file=__import__("sys").stderr,flush=True)
+            return 1
+        return 0
     if a.action=="preflight":
         need(not(a.allow_smoke or a.allow_full_evaluation or a.allow_full_pixel_transport or a.resume),"CPU preflight no execution flags")
         preflight(a.config,a.scope,a.model);return 0

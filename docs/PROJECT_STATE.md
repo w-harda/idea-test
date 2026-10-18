@@ -2,17 +2,19 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：AP-Attack B3三模型Baseline接线（GPU Smoke待资源）
+## 当前阶段：B3共享GPU后台链已准备，等待用户手动启动
 
-2026-10-18，独立codex/tbps-baseline-b3，基准7bff515185efabcabff7a3e21a1002878178ff9c。代码/测试/报告Commit：72f41e2bb8cfe5915cb4eb5fbbb6a7e555950331。
+2026-10-18，基准097c96d9deec68c1bfc71b74a2fba5f98e3e81c1，独立分支codex/tbps-b3-shared-run，工作树/home/lzf/ldx/projects/idea-test-tbps-b3-shared-run-20261018。
 
-B3来源、3074图历史FP32缓存及三模型Full CPU预检PASS；10图CPU像素物化预算合法。32项新增CPU测试通过，修复后相关回归132通过。首次全框架798通过、4个旧配置绝对工作树路径测试失败，在未修改基准同样复现；未改冻结配置。
+用户已授权手动一次性启动Smoke→审计→Full→审计，无需在Smoke后再次确认Full；Codex本轮仅修改代码与CPU验证，未部署nohup、未查询真实GPU状态、未执行模型或生成攻击。当前正式运行状态PENDING_MANUAL_START，不是GPU轮询等待。
 
-GPU Smoke为PENDING_RESOURCE_GATE：Ollama占用20178MiB，资源检查利用率22%（随后只读92%），在ready Attempt之前拒绝；真实受害者/G/H加载与前向0，无可报告Smoke指标。初次CPU启动快照FAIL保留，通过新launch将首次torchvision CPU导入移到门禁前；原门禁、历史代码/权重/Plan/结果不改。
+shared_observe_only：去掉瞬时利用率和Ollama存在限制；保留3072MiB最低启动空闲显存检查。全链只做一次GPU/其他B3进程快照；后续真实CUDA OOM/异常记录并停止，不重试、不干预Ollama。原run_b3_full.sh依次执行三个10+10 Smoke及审计，全部PASS后才执行三模型Full及审计；flock/一次性started/既有输出检查防重入，setsid独立进程组支持完整停止。
 
-仅B3，不检查/评估B1/B2。新比较固定Clean → AP-Attack B3 → G-v2 Image-only，只输出R@1/5/10/mAP；Full复用已审计同模型Clean/G-v2结果与Clean文本表示，仅编码/评分B3 Gallery。完整来源及权限见[阶段报告](framework/B3_STAGE_REPORT.md)、[运行文档](framework/AP_B3_COMPARISON.md)、[七Baseline可行性](framework/BASELINE_FEASIBILITY.md)。用户已确认VLPTAttack对应ECCV2024 DRA官方代码，表名保持VLPTAttack。
+49项B3 CPU测试（17新增+32原有）和149项相关回归通过，6项旧配置路径测试按既定筛选未执行。Full严格CPU来源预检PASS，3074 Gallery/6156 Query、97批历史B3、CUDA=false。运行文档：[B3共享后台链](framework/B3_SHARED_RUN.md)。
 
-三模型真实Smoke及CPU审计完成之前，Full脚本强制拒绝。Full、重新训练、新攻击及后台轮询均未执行；历史12203文件stat保护通过。等待资源与审查，不扩大实验。
+只读复用原B3历史图像、generation_v3及三模型对照；G/H加载/前向0，无训练或重新生成扰动。新配置绑定新源码/Shell SHA，新结果将写tbps-framework-b3-shared-evaluation，旧097源码树、FAIL/ready产物不改。四项结果固定Clean → AP-Attack B3 → G-v2 Image-only，R@1/5/10/mAP百分数两位小数。
+
+旧B3开发、训练来源与CPU产物证据见framework/B3_STAGE_REPORT.md、framework/B3_SOURCE_AUDIT.json；其中资源门禁PENDING为原阶段快照，本次运行政策以B3_SHARED_RUN.md为准。VLPTAttack官方身份已确认，本轮不扩展其他Baseline。
 
 ## 已完成：三受害者正式Full及独立CPU审计结果整理
 
