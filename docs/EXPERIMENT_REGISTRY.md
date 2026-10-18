@@ -300,3 +300,13 @@ IRRA、RaSa、APTM正式Full与独立CPU审计均PASS；每模型首次正式Att
 仅四指标、Clean→AP-Attack B3→G-v2 Image-only：IRRA mAP66.10/40.43/32.28、RaSa69.18/39.99/35.05、APTM64.13/42.39/39.66。控制组与历史Full原精度exact；新增B3目标编码，不重新生成攻击。IRRA同模型、RaSa/APTM迁移；训练预算/文本监督/辅助来源未对齐，不标作等预算对比。
 
 [正式报告与CSV/证据](framework/results/b3_three_model_full_20261018/REPORT.md)。本轮9行36指标、完成回执、完整身份/ModelSpace及五Checkpoint实际SHA只读核验，82读取文件前后不变，无GPU/排名/新审计。上文准备阶段PENDING保留历史快照属性，当前以该完成证据为准。
+
+## SGA-TBPS三目标白盒真实Smoke（2026-10-18，非Full）
+
+官方SGA f49e6926cd13148e49bdbc2c3e537660e096230c；IRRA/RaSa/APTM分别使用自己的冻结Checkpoint和输入梯度，10张Test Gallery的全部20 Caption作集合，评估10条Clean Query。每目标独立生成10图；预算8/255、10轮、5尺度。三个Smoke与独立CPU审计PASS，Full未运行。
+
+正式Smoke证据/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/{irra,rasa,aptm}/；审计/home/lzf/ldx/tmp/sga_fixed_smoke_<model>_audit.log。SGA四项小指标见[报告](framework/SGA_SMOKE_REPORT.md)，原始来源SHA索引SGA_SMOKE_EVIDENCE.json。各目标受害者加载1、视觉510、文本0、融合pair0/1200/1200；模型摘要exact、无G/H/Optimizer/属性JVP。小指标不得放入正式Full比较表。
+
+原初始IRRA Smoke FAIL另存tbps-framework-sga-whitebox/smoke/irra/，冻结源码80361ec1fdb7c4c96e4ec68fa256742cc8188566。Claim1/图像0，异常未持久化Hook计数，实际视觉数UNKNOWN（5..50）。预算精确边界派生修复后使用新v2输出，不覆盖旧FAIL。保护2491 SHA/stat＋4工作树＋18FAIL＋12203历史stat均不变；121相关CPU tests通过。
+
+当前适配为image-only，不等同原多模态SGA；RaSa/APTM用原生ITM可微代理，最终评估使用原生排名。Full预定tbps-framework-sga-whitebox-v2/full/{irra,rasa,aptm}/，仅提供用户手动nohup命令，无后台部署或Full结果。

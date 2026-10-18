@@ -3,11 +3,11 @@
 set -Eeuo pipefail
 [[ "$#" == 1 ]] || { echo "需要显式 --allow-full"; exit 2; }
 [[ "$1" == "--allow-full" ]] || exit 2
-WORK=/home/lzf/ldx/projects/idea-test-tbps-sga-whitebox-20261018
+WORK=/home/lzf/ldx/projects/idea-test-tbps-sga-whitebox-fixed-20261018
 PY=/home/lzf/ldx/envs/tbps-image/bin/python
 CFG="$WORK/configs/framework/sga_whitebox.server.json"
-CONTROL=/home/lzf/ldx/tmp/sga_whitebox_full
-BASE=/home/lzf/ldx/outputs/tbps-framework-sga-whitebox
+CONTROL=/home/lzf/ldx/tmp/sga_whitebox_full_v2
+BASE=/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2
 mkdir -p "$CONTROL"
 exec 9>"$CONTROL/pipeline.lock"
 flock -n 9 || { echo "已有SGA Full链"; exit 3; }

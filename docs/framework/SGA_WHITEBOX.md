@@ -1,6 +1,6 @@
 # SGA的TBPS三模型白盒适配
 
-代码基准8254c6db06203d9ba7ac99eda9a7206000e36878；独立分支codex/tbps-sga-whitebox，工作树/home/lzf/ldx/projects/idea-test-tbps-sga-whitebox-20261018。SGA正式Full尚未执行；本轮仅开发、CPU验证与资源允许时固定10图真实Smoke。
+代码基准8254c6db06203d9ba7ac99eda9a7206000e36878；独立分支codex/tbps-sga-whitebox-fixed，工作树/home/lzf/ldx/projects/idea-test-tbps-sga-whitebox-fixed-20261018。SGA正式Full尚未执行；本轮仅开发、CPU验证与资源允许时固定10图真实Smoke。
 
 ## 官方依据与算法边界
 
@@ -44,43 +44,43 @@ SGA Store独立于原固定G/H MaterializationPlan，按模型、scope、像素�
 
 统一环境：
 ~~~bash
-cd /home/lzf/ldx/projects/idea-test-tbps-sga-whitebox-20261018
-export PYTHONPATH=/home/lzf/ldx/projects/idea-test-tbps-sga-whitebox-20261018/src
+cd /home/lzf/ldx/projects/idea-test-tbps-sga-whitebox-fixed-20261018
+export PYTHONPATH=/home/lzf/ldx/projects/idea-test-tbps-sga-whitebox-fixed-20261018/src
 export PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 TMPDIR=/home/lzf/ldx/tmp TOKENIZERS_PARALLELISM=false HF_HUB_OFFLINE=1
 ~~~
 
 默认CPU预检（将irra替换成rasa/aptm即可）：
 ~~~bash
-CUDA_VISIBLE_DEVICES="" /home/lzf/ldx/envs/tbps-image/bin/python -B -m tbps.sga_eval --config /home/lzf/ldx/projects/idea-test-tbps-sga-whitebox-20261018/configs/framework/sga_whitebox.server.json --action preflight --scope full --model irra
+CUDA_VISIBLE_DEVICES="" /home/lzf/ldx/envs/tbps-image/bin/python -B -m tbps.sga_eval --config /home/lzf/ldx/projects/idea-test-tbps-sga-whitebox-fixed-20261018/configs/framework/sga_whitebox.server.json --action preflight --scope full --model irra
 ~~~
 预期SGA_CPU_PREFLIGHT_PASS full irra；不得触发GPU、模型加载或Full排名。
 
 真实10图Smoke（已有成功输出后不要重复执行）：
 ~~~bash
-CUDA_VISIBLE_DEVICES=0 /home/lzf/ldx/envs/tbps-image/bin/python -B -m tbps.sga_eval --config /home/lzf/ldx/projects/idea-test-tbps-sga-whitebox-20261018/configs/framework/sga_whitebox.server.json --action run --scope smoke --model irra --allow-smoke
+CUDA_VISIBLE_DEVICES=0 /home/lzf/ldx/envs/tbps-image/bin/python -B -m tbps.sga_eval --config /home/lzf/ldx/projects/idea-test-tbps-sga-whitebox-fixed-20261018/configs/framework/sga_whitebox.server.json --action run --scope smoke --model irra --allow-smoke
 ~~~
 成功标志SGA_TBPS_EVALUATION_PASS smoke irra。每目标10图、10轮、5尺度，500个攻击视觉样本前向+10个最终编码；Clean文本和Clean图像特征从已审计历史缓存读取。模型只恢复1次。
 
 独立CPU审计：
 ~~~bash
-CUDA_VISIBLE_DEVICES="" /home/lzf/ldx/envs/tbps-image/bin/python -B -m tbps.sga_eval --config /home/lzf/ldx/projects/idea-test-tbps-sga-whitebox-20261018/configs/framework/sga_whitebox.server.json --action audit --scope smoke --model irra
+CUDA_VISIBLE_DEVICES="" /home/lzf/ldx/envs/tbps-image/bin/python -B -m tbps.sga_eval --config /home/lzf/ldx/projects/idea-test-tbps-sga-whitebox-fixed-20261018/configs/framework/sga_whitebox.server.json --action audit --scope smoke --model irra
 ~~~
 成功标志SGA_TBPS_CPU_AUDIT_PASS smoke irra；不重排完整指标。其他两个目标相同参数替换。
 
 **用户审阅后手动启动三模型Full的一条命令；Codex本轮不执行：**
 ~~~bash
-mkdir -p /home/lzf/ldx/tmp/sga_whitebox_full && { nohup setsid bash /home/lzf/ldx/projects/idea-test-tbps-sga-whitebox-20261018/src/tbps/baselines/run_sga_full.sh --allow-full >> /home/lzf/ldx/tmp/sga_whitebox_full/launcher.log 2>&1 < /dev/null & echo "启动器PID=$!"; }
+mkdir -p /home/lzf/ldx/tmp/sga_whitebox_full_v2 && { nohup setsid bash /home/lzf/ldx/projects/idea-test-tbps-sga-whitebox-fixed-20261018/src/tbps/baselines/run_sga_full.sh --allow-full >> /home/lzf/ldx/tmp/sga_whitebox_full_v2/launcher.log 2>&1 < /dev/null & echo "启动器PID=$!"; }
 ~~~
 
 脚本首先要求三个Smoke的完整CPU审计均PASS，再依次IRRA Full→审计、RaSa Full→审计、APTM Full→审计；每目标生成自己的3074图像。仅四指标R@1/R@5/R@10/mAP，两位小数。Full Clean显式复用同模型已审计Full数值及原Clean文本表示，不谎称重新编码控制组。尚无成功Smoke的目标不能绕过检查进入Full。
 
 查看阶段/日志/结果：
 ~~~bash
-cat /home/lzf/ldx/tmp/sga_whitebox_full/phase
-tail -n 30 /home/lzf/ldx/tmp/sga_whitebox_full/status.log
-tail -n 30 /home/lzf/ldx/tmp/sga_whitebox_full/irra-full.log
+cat /home/lzf/ldx/tmp/sga_whitebox_full_v2/phase
+tail -n 30 /home/lzf/ldx/tmp/sga_whitebox_full_v2/status.log
+tail -n 30 /home/lzf/ldx/tmp/sga_whitebox_full_v2/irra-full.log
 for m in irra rasa aptm; do
-  cat "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox/full/$m/completed/metrics_2dp.csv"
+  cat "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/full/$m/completed/metrics_2dp.csv"
 done
 ~~~
 
@@ -88,8 +88,18 @@ SSH关闭后nohup会继续。需要停止时仅终止本任务独立进程组；
 
 ## 输出与资源约束
 
-新输出/home/lzf/ldx/outputs/tbps-framework-sga-whitebox/{smoke,full}/{irra,rasa,aptm}/，所有旧结果只读。GPU共享只观察一次即时资源，不等待Ollama退出、不抢占；最低空闲3584MiB，不足明确停止，实际OOM保留完整错误，不调精度、batch或算法。
+新输出/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/{smoke,full}/{irra,rasa,aptm}/，所有旧结果只读。GPU共享只观察一次即时资源，不等待Ollama退出、不抢占；最低空闲3584MiB，不足明确停止，实际OOM保留完整错误，不调精度、batch或算法。
 
 源配置、官方Commit、完整ModelSpace、文本表示缓存来源、Caption集合、原图与对抗内容SHA全部绑定。CPU门禁/输入核验先于CUDA，模型加载次数、真实视觉/融合Hook、梯度次数、峰值显存/RSS/耗时在execution/report.json；逐图10轮记录在pixels/image-*/metadata.json。
 
 固定Full攻击视觉样本数每目标153700（3074×10×5），另3074次最终编码；融合目标攻击pair总数307800（6156×10×5），还需原生最终Top128评分。CPU文本特征可复用，真实文本前向0。Full像素每目标约5.066GiB（三FP32 Tensor），原生特征/Score会增加约数GiB，三目标需预留至少35GiB并根据实际缓存核算。完成时间/峰值需以本轮Smoke实测更新，不能用Generator一次前向耗时估计迭代攻击。
+
+## 原始运行环境差异
+
+官方requirements.txt为Torch2.0.0、Torchvision0.15.0、Transformers4.28.1；本适配沿用已验证TBPS环境{"torch": "2.5.1+cu124", "torchvision": "0.20.1+cu124", "numpy": "1.26.4", "Pillow": "11.3.0", "transformers": "4.44.2", "timm": "0.9.8"}。官方Resize未显式传antialias，Tensor默认行为可能随Torchvision版本变化；这里直接使用当前固定环境调用官方源码，不能声称与原requirements环境或论文数值bitwise等价。CPU官方对照也限于同一当前环境，不修改三个Victim的已冻结环境。
+
+## 初始数值失败与派生修复
+
+初始IRRA尝试因FP32低端预算舍入FAIL，原树/Commit80361ec1fdb7c4c96e4ec68fa256742cc8188566、原输出tbps-framework-sga-whitebox/smoke/irra/和Claim保持。详见SGA_INITIAL_FAIL.md。派生树只将边界先以FP64计算再转FP32、完善失败计数；最终RGB/模型仍FP32、8/255无容差。配置和输出改为独立v2，不覆盖旧来源。121项CPU测试通过（42SGA+79相关；5项旧路径测试筛选未运行）。当前正式Full目录仍不存在。
+
+三个目标真实Smoke及CPU审计均PASS，数值与边界见[Smoke报告](SGA_SMOKE_REPORT.md)。仅当前固定10+10范围，正式Full仍PENDING。

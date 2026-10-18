@@ -2,9 +2,17 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：SGA初始IRRA Smoke数值投影FAIL，已停止GPU链
+## 当前阶段：SGA三模型白盒TBPS适配与10图Smoke通过，Full待用户手动启动
 
-CPU来源/算法对照通过；首图严格预算检查拒绝，无成功像素。原失败与代码冻结，见[SGA初始FAIL](framework/SGA_INITIAL_FAIL.md)。B3三模型已完成结果保持。
+独立分支codex/tbps-sga-whitebox-fixed，工作树/home/lzf/ldx/projects/idea-test-tbps-sga-whitebox-fixed-20261018。官方SGA固定f49e6926cd13148e49bdbc2c3e537660e096230c；复用原生三模型Adapter/Engine/旧输入来源，新增image-only集合攻击薄层，没有修改旧算法或结果。[Smoke报告](framework/SGA_SMOKE_REPORT.md)、[运行命令](framework/SGA_WHITEBOX.md)、[来源证据](framework/SGA_SMOKE_EVIDENCE.json)、ADR-0008。
+
+IRRA/RaSa/APTM各10 Gallery/10 Query Smoke及独立CPU审计PASS；各模型恢复1次、视觉前向510、神经文本前向0，融合pair0/1200/1200，G/H及Optimizer/属性JVP为0。严格8/255、输入梯度有限非零、模型参数/buffers exact。小图库SGA mAP39.98/46.60/67.94仅链路检查，不是正式Full结果。
+
+121 CPU tests通过（42新增＋79相关），5项旧绝对路径检查未运行。2491旧文件SHA/stat、4工作树、18初始FAIL文件、12203历史stat保护均通过。初始IRRA预算舍入FAIL保持80361ec及原证据；派生v2精确边界修复未放宽预算。正式Full与后台控制目录尚不存在，没有部署后台任务。
+
+SGA-TBPS保留官方五尺度/噪声/集合迭代；原多模态文本攻击未实施，预算从官方2/255改为统一8/255。RaSa/APTM使用本模型原生ITM可微目标，APTM不是最终集合归一化排名全链导数；环境/顺序尺度/随机调度差异见报告。三个目标分别生成自己的白盒像素，不与G/B3冻结迁移权限混淆。
+
+后续仅用户审阅后手动运行三模型Full，预计共享GPU6–10小时、磁盘至少35GiB；未授权自动启动其他Baseline/新训练。B3及已有三模型Full状态不变。
 
 ## 已完成：AP-Attack B3三模型Full及CPU审计完成，结果已只读汇总
 

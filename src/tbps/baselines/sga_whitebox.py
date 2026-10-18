@@ -213,7 +213,7 @@ def run(path,scope,model):
         torch.set_num_threads(2);torch.manual_seed(c["seed"])
         ctx["gate"].initialize_cuda()
         with fp32_runtime(),load_model(c,model,scope) as (adapter,backend,checkpoint,counts):
-            ctx["checkpoint"]=checkpoint;report["victim_loads"]=1;before=model_snapshot(backend)
+            ctx["checkpoint"]=checkpoint;report["victim_loads"]=1;before=model_snapshot(backend);report["model_before"]=before
             need(adapter.space==ctx["reference"].space,"same native historical ModelSpace required")
             protocol={"schema":"tbps-sga-native-1","config":asdict(ref(path)),"manifest":asdict(ctx["manifest"]),
               "model_space":asdict(adapter.space),"whitebox_target":model,"objective":c["objectives"][model],
@@ -246,6 +246,8 @@ def run(path,scope,model):
         report.update(status="FAIL",error=str(exc),traceback=traceback.format_exc())
         print(report["traceback"],flush=True)
     finally:
+        if "adapter" in locals():
+            report.setdefault("actual_neural_counts",dict(counts if model=="irra" else adapter.neural_counts))
         report["elapsed_seconds"]=time.monotonic()-start
         from tbps.engines.replay_control import rss_bytes
         report["peak_RSS_bytes"]=rss_bytes()

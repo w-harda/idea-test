@@ -237,3 +237,11 @@ src/tbps/baselines只读接入B3历史像素，复用MaterializedStore原图与�
 ## B3共享后台链修订
 
 comparison.py新增一次性shared_observe_only启动快照：记录利用率/外部进程而不据此阻塞，保留3072MiB内存底限与B3重复执行检查。脚本将快照传给各子进程，不增加GPU轮询。run_b3_full.sh仅编排原CLI：三个Smoke/审计全部PASS后再Full/审计；不可重入标记和独立会话控制一次启动及安全停止。算法/Adapter/Ranking不改，新来源配置和输出与旧097证据隔离；详见framework/B3_SHARED_RUN.md。
+
+## SGA目标专属白盒薄适配
+
+baselines/sga_attack调用固定官方ImageAttacker的五尺度增强，持有集合目标、迭代和统一像素预算；models/sga_surrogate只提供原生可微图像路径/ITM融合目标。sga_whitebox负责来源CPU门禁、逐图Claim/FP32物化、实际Hook/梯度计数及原生评估编排，不重新实现Ranking。SGAPixels独立绑定victim Checkpoint和像素来源；旧固定G/H MaterializationPlan不放宽、不改签。
+
+复用原Dataset输入桥、B3的只读FullReference/模型加载工具、三个Model Adapter、ArtifactStore和原生缓存/Score/EvaluationEngine。只调用公共工具，不使用B3攻击像素或Generator。各目标单独白盒生成，Clean Query保持原文；Full控制指标与Clean文本仅引用同空间已审计历史缓存。新输出tbps-framework-sga-whitebox-v2与原失败/所有正式Full隔离。
+
+三模型10+10 GPU Smoke/CPU审计通过；完整Full未运行。原SGA文本攻击、原环境和APTM最终排名全链求导不在当前验证范围。原生目标与适配差异、资源及一次性手动Full链见framework/SGA_SMOKE_REPORT.md、ADR-0008。CPU通过不等于SGA原论文全流程复现。

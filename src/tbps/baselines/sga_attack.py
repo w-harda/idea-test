@@ -28,7 +28,8 @@ def sample_seed(image_id,seed=42):
 
 def project(clean,value,epsilon=EPSILON):
     """只把FP32边界向原图内侧舍入，严格满足实数8/255，无STE。"""
-    low=(clean-epsilon).clamp(0,1);high=(clean+epsilon).clamp(0,1)
+    low=(clean.double()-epsilon).clamp(0,1).to(clean.dtype)
+    high=(clean.double()+epsilon).clamp(0,1).to(clean.dtype)
     low=torch.where(clean.double()-low.double()>epsilon,torch.nextafter(low,clean),low)
     high=torch.where(high.double()-clean.double()>epsilon,torch.nextafter(high,clean),high)
     return torch.maximum(torch.minimum(value,high),low)

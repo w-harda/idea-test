@@ -236,3 +236,51 @@ def test_3074_gallery_many_caption_grouping_complete_order():
     groups=caption_groups(manifest)
     assert list(groups)==[g.image_id for g in gallery] and sum(map(len,groups.values()))==6156
     assert all(len(v)==(3 if i<8 else 2) for i,v in enumerate(groups.values()))
+
+@pytest.mark.parametrize("value",[-1.,2.])
+def test_projection_all_8bit_levels_strict_including_near_epsilon(value):
+    x=(torch.arange(256,dtype=torch.float32)/255).view(1,1,1,256)
+    got=project(x,torch.full_like(x,value))
+    assert (got.double()-x.double()).abs().max()<=EPSILON
+    assert got.min()>=0 and got.max()<=1
+    if value<0:assert got[0,0,0,8]>0  # FP32 clean(8/255)稍大于数学epsilon，不能投影到0。
+
+def test_projection_random_endpoints_no_fp32_budget_leak():
+    torch.manual_seed(123);x=torch.rand(1,3,384,128)
+    for z in (torch.full_like(x,-2),torch.full_like(x,2)):
+        got=project(x,z)
+        assert (got.double()-x.double()).abs().max()<=EPSILON
+
+@pytest.mark.parametrize("failure",[None,"run:rasa","audit:aptm"])
+def test_full_shell_real_cpu_stub_order_and_stop(tmp_path,failure):
+    import subprocess,os
+    w=Path(__file__).resolve().parents[2];workspace=tmp_path/"work";workspace.mkdir()
+    control=tmp_path/"control";base=tmp_path/"base";calls=tmp_path/"calls"
+    stub=tmp_path/"stub"
+    stub.write_text("#!/usr/bin/env python3\n"+'''
+import sys,os
+a=sys.argv
+get=lambda k:a[a.index(k)+1]
+model,action,scope=get("--model"),get("--action"),get("--scope")
+with open(os.environ["SGA_TEST_CALLS"],"a") as f:f.write(scope+":"+action+":"+model+"\\n")
+if scope=="full" and action+":"+model==os.environ.get("SGA_TEST_FAILURE"):sys.exit(17)
+print(("SGA_TBPS_EVALUATION_PASS" if action=="run" else "SGA_TBPS_CPU_AUDIT_PASS"),scope,model)
+''');stub.chmod(0o755)
+    text=(w/"src/tbps/baselines/run_sga_full.sh").read_text()
+    text=text.replace("WORK="+str(w),"WORK="+str(workspace)).replace("PY=/home/lzf/ldx/envs/tbps-image/bin/python","PY="+str(stub))
+    text=text.replace("CONTROL=/home/lzf/ldx/tmp/sga_whitebox_full_v2","CONTROL="+str(control))
+    text=text.replace("BASE=/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2","BASE="+str(base))
+    script=tmp_path/"run.sh";script.write_text(text)
+    env=os.environ.copy();env.update(SGA_TEST_CALLS=str(calls),SGA_TEST_FAILURE=failure or "")
+    result=subprocess.run(["bash",str(script),"--allow-full"],env=env,capture_output=True,text=True)
+    lines=calls.read_text().splitlines()
+    prefix=["smoke:audit:"+m for m in ["irra","rasa","aptm"]]
+    expected=prefix+[f"full:{a}:{m}" for m in ["irra","rasa","aptm"] for a in ["run","audit"]]
+    if failure is None:
+        assert result.returncode==0 and lines==expected and (control/"phase").read_text().strip()=="SUCCESS"
+        again=subprocess.run(["bash",str(script),"--allow-full"],env=env,capture_output=True,text=True)
+        assert again.returncode!=0 and calls.read_text().splitlines()==expected
+    else:
+        key="full:"+failure
+        assert result.returncode!=0 and lines==expected[:expected.index(key)+1]
+        assert (control/"phase").read_text().strip()=="FAIL"

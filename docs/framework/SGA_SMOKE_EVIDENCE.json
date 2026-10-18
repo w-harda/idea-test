@@ -1,0 +1,260 @@
+{
+  "schema": "tbps-sga-smoke-summary-1",
+  "scope": "smoke",
+  "official_commit": "f49e6926cd13148e49bdbc2c3e537660e096230c",
+  "config_sha256": "0ace2d29a339ea02f55e5152bfc7e5ef04870865903cf54beb648ede40c2f410",
+  "models": {
+    "irra": {
+      "status": "PASS",
+      "CPU_audit": "PASS",
+      "root": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/irra",
+      "checkpoint": {
+        "path": "/home/lzf/Attack/IRRA/logs/CUHK-PEDES/best.pth",
+        "sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+      },
+      "summary_sha256": "8c2bd91b4122537d59a2a14c6acea81136705e9dea1d244f9eb395a8c1402898",
+      "execution_report_sha256": "c35a92a9388d9bebee4f89bcba71a984410d2ecc3c3f7ed8c45c0c6bbb353d9e",
+      "audit_log": "/home/lzf/ldx/tmp/sga_fixed_smoke_irra_audit.log",
+      "audit_log_sha256": "0863c1af68770bafff4442472c69f0f73f2310e397bed411c37a05126aae5365",
+      "model_frozen": true,
+      "actual_neural_counts": {
+        "fusion_pairs": 0,
+        "image_samples": 510,
+        "text_samples": 0
+      },
+      "attack_counts": {
+        "fusion_pairs": 0,
+        "image_samples": 500,
+        "input_gradient_scales": 500
+      },
+      "GPU_peak_allocated_MiB": 930.228515625,
+      "GPU_peak_reserved_MiB": 1064.0,
+      "peak_RSS_GiB": 2.3169097900390625,
+      "elapsed_seconds_excluding_CPU_preflight": 40.458395786583424,
+      "gradient_l2_min": 0.9774220585823059,
+      "gradient_l2_max": 3.94154691696167,
+      "max_linf": 0.03137254901960784,
+      "mean_image_generation_seconds": 1.1833763506263495,
+      "full_time_estimate_seconds": 3831.644789223373,
+      "estimate_definition": "mean Smoke generation time*3074 + previous same-model B3 Full encoding/scoring elapsed; not a measured SGA Full",
+      "metadata": [
+        {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/irra/pixels/image-5d9c23ab8ed627c2c1d9078fa9294bad82d104dac4b9153f7c5377a292380837/metadata.json",
+          "sha256": "83c008e2012392a4f90a7700fa711957958034eca3076d1ce5b9c116c0b673b8"
+        },
+        {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/irra/pixels/image-10190a278e95198d3c3b39e4f6c579150c32b334a61da746d91efdf530ac1caf/metadata.json",
+          "sha256": "5fb631fabba543a70fcfb614b51cc29621612635f2e97da8086ff832f6d1188f"
+        },
+        {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/irra/pixels/image-79214b7a6596fd7aa5e8c5f6092e775a15dc955464cc811b7c8cda854c75cad1/metadata.json",
+          "sha256": "167b494eda02b54532c0521312071d6987ba1f0961171c4b9d4d5c619c71bcd8"
+        },
+        {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/irra/pixels/image-5c227c77114714edeab6b6e301dada91a863a252a02852488b667cb827e7fbaa/metadata.json",
+          "sha256": "4bcad0b0b6f2a858ba8b6e1d341633199903e2418a872b1fd76b52dd6e50321b"
+        },
+        {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/irra/pixels/image-d2a81a4f635d545363d7194dfb134ae18af7f035c64ccf7029f33c42eb4523c0/metadata.json",
+          "sha256": "97ff67843fc49ba700c3a4191d91dadcc77dc70c3b11181eb4d2b75dbb5ea459"
+        },
+        {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/irra/pixels/image-eab0663538d5f3d76916f506ff6246edf29edeb1cd552107577f5593f40b371a/metadata.json",
+          "sha256": "096dcf1a4c270d8b2ddec598ba483ee0438761d1b3d41f8f8cc61577acd0aca1"
+        },
+        {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/irra/pixels/image-1777b8bb0f909955d8a7237e6831f84afb4584d615c6efb0154d6080b52867b8/metadata.json",
+          "sha256": "c707f241a8f2d2ea1576e429e4970d5875a6a662796f51413efef054a7fbd792"
+        },
+        {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/irra/pixels/image-bbadf75072c04b81e7d7f15d40a195c2027e2c99d30c9dfdcb97d1b32f815162/metadata.json",
+          "sha256": "8a63eadee4e68cdc8b55a96f7e8b76e35ef20aee369218b452892e8a9c69f98f"
+        },
+        {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/irra/pixels/image-ce1c897e9e43f66b7f309a408c27eace718ce517108ac2f672a3bf6697966d49/metadata.json",
+          "sha256": "5c3e21d2e70d3aa39018638ccce6fc487ed98881b1cbfab5782d7604dbfbe035"
+        },
+        {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/irra/pixels/image-c907420db1e8154d8b44ee2e32ed49c11ab34bdfea4019c1051ec5b44fb8cfc8/metadata.json",
+          "sha256": "10a3843f51585304969ebe2ac7f4fbf9a5fa2ddc08891d055d2acf876bcaa006"
+        }
+      ]
+    },
+    "rasa": {
+      "status": "PASS",
+      "CPU_audit": "PASS",
+      "root": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/rasa",
+      "checkpoint": {
+        "path": "/home/lzf/ldx/checkpoints/RaSa/rasa_cuhk_checkpoint.pth",
+        "sha256": "bc85da09c2991d5de503c2c2ac4f032e20cc536fec5094f0acff45e93d0104d2"
+      },
+      "summary_sha256": "817635bd3eb71c7cc779cb376f83c26cc89e2f1104f307c5ff607af037ebcc46",
+      "execution_report_sha256": "ee0754ba50401c93a7d8d13ffb95df4d7a13ae66d04900702f1f1f17b3d9f14f",
+      "audit_log": "/home/lzf/ldx/tmp/sga_fixed_smoke_rasa_audit.log",
+      "audit_log_sha256": "ef60a06cd56a02319135da5931c2ec1ea29a10aa10b5c186daa7e7dae2bd7108",
+      "model_frozen": true,
+      "actual_neural_counts": {
+        "fusion_pairs": 1200,
+        "image_samples": 510,
+        "text_samples": 0
+      },
+      "attack_counts": {
+        "fusion_pairs": 1000,
+        "image_samples": 500,
+        "input_gradient_scales": 500
+      },
+      "GPU_peak_allocated_MiB": 2236.80712890625,
+      "GPU_peak_reserved_MiB": 2348.0,
+      "peak_RSS_GiB": 4.076351165771484,
+      "elapsed_seconds_excluding_CPU_preflight": 50.22345343977213,
+      "gradient_l2_min": 19.172163009643555,
+      "gradient_l2_max": 191.92628479003906,
+      "max_linf": 0.03137254901960784,
+      "mean_image_generation_seconds": 1.6020481936633586,
+      "full_time_estimate_seconds": 7795.651056720316,
+      "estimate_definition": "mean Smoke generation time*3074 + previous same-model B3 Full encoding/scoring elapsed; not a measured SGA Full",
+      "metadata": [
+        {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/rasa/pixels/image-5d9c23ab8ed627c2c1d9078fa9294bad82d104dac4b9153f7c5377a292380837/metadata.json",
+          "sha256": "b4322bf5c096ed805b3d0f84bdf08d3991589c45e9bd5b5179ef42ad3bcdf54b"
+        },
+        {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/rasa/pixels/image-10190a278e95198d3c3b39e4f6c579150c32b334a61da746d91efdf530ac1caf/metadata.json",
+          "sha256": "557da96621524717ecce255bed8c15d0af14b40a8c6f1018b54d49e068bae4a1"
+        },
+        {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/rasa/pixels/image-79214b7a6596fd7aa5e8c5f6092e775a15dc955464cc811b7c8cda854c75cad1/metadata.json",
+          "sha256": "5c8979897eed92cae35ff7cfd3ff8f18b3c17032fc25474318edd8926a01cf71"
+        },
+        {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/rasa/pixels/image-5c227c77114714edeab6b6e301dada91a863a252a02852488b667cb827e7fbaa/metadata.json",
+          "sha256": "772c54810ef6993e68ef1e9afe43810d56acfe6c0564b79b9571e0e06df42744"
+        },
+        {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/rasa/pixels/image-d2a81a4f635d545363d7194dfb134ae18af7f035c64ccf7029f33c42eb4523c0/metadata.json",
+          "sha256": "7bc243e24c164e9c9ccb2c5650625d56381157c147e17602ab7e2da58b92072c"
+        },
+        {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/rasa/pixels/image-eab0663538d5f3d76916f506ff6246edf29edeb1cd552107577f5593f40b371a/metadata.json",
+          "sha256": "0e8125908c5a18b508aee5a9b1e8fcf97a32eaa8600352c7078c63bb36098b22"
+        },
+        {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/rasa/pixels/image-1777b8bb0f909955d8a7237e6831f84afb4584d615c6efb0154d6080b52867b8/metadata.json",
+          "sha256": "ef5cd576bd6f5a53b3871cfd35161677691689f9c9b8999ae4707e3ef2c66161"
+        },
+        {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/rasa/pixels/image-bbadf75072c04b81e7d7f15d40a195c2027e2c99d30c9dfdcb97d1b32f815162/metadata.json",
+          "sha256": "7f65eb57087eec2d637d46cb9f417680cfb9aa726071ad7d0360ac1afcfef3d2"
+        },
+        {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/rasa/pixels/image-ce1c897e9e43f66b7f309a408c27eace718ce517108ac2f672a3bf6697966d49/metadata.json",
+          "sha256": "bbc43e5ead8987d5a60e7b6d33717ac0d3de4f21e542d24380034b1612f4fdd7"
+        },
+        {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/rasa/pixels/image-c907420db1e8154d8b44ee2e32ed49c11ab34bdfea4019c1051ec5b44fb8cfc8/metadata.json",
+          "sha256": "2a7f3d2ea7720fc3ed44e05f517fc4f5680cc6a9b5b1817192f8c0ebe973288e"
+        }
+      ]
+    },
+    "aptm": {
+      "status": "PASS",
+      "CPU_audit": "PASS",
+      "root": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/aptm",
+      "checkpoint": {
+        "path": "/home/lzf/ldx/checkpoints/APTM/aptm_cuhk_checkpoint_best.pth",
+        "sha256": "521c9bf784e7e821ade471deaafa2f25e2501950591e574dc60ca177e9be5a2c"
+      },
+      "summary_sha256": "4368a5c059e6a6a4a78ebb704f873276858713e562dcd012a7aa438834f19983",
+      "execution_report_sha256": "5f5bb60cdeb5fa992dc999ff7c26c14c04cb032743e36c76493121871b0c8a35",
+      "audit_log": "/home/lzf/ldx/tmp/sga_fixed_smoke_aptm_audit.log",
+      "audit_log_sha256": "e34bfd20f839e301a057a0bc150fd4563620436fa4a88a00219cb188eabae091",
+      "model_frozen": true,
+      "actual_neural_counts": {
+        "fusion_pairs": 1200,
+        "image_samples": 510,
+        "text_samples": 0
+      },
+      "attack_counts": {
+        "fusion_pairs": 1000,
+        "image_samples": 500,
+        "input_gradient_scales": 500
+      },
+      "GPU_peak_allocated_MiB": 1025.78857421875,
+      "GPU_peak_reserved_MiB": 1188.0,
+      "peak_RSS_GiB": 2.4156875610351562,
+      "elapsed_seconds_excluding_CPU_preflight": 40.89358512684703,
+      "gradient_l2_min": 7.919186592102051,
+      "gradient_l2_max": 96.30574035644531,
+      "max_linf": 0.03137254901960784,
+      "mean_image_generation_seconds": 2.0286186818033456,
+      "full_time_estimate_seconds": 8541.407556815444,
+      "estimate_definition": "mean Smoke generation time*3074 + previous same-model B3 Full encoding/scoring elapsed; not a measured SGA Full",
+      "metadata": [
+        {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/aptm/pixels/image-5d9c23ab8ed627c2c1d9078fa9294bad82d104dac4b9153f7c5377a292380837/metadata.json",
+          "sha256": "d628a37dc03c30401fed36959acce606c6619a411ac97d18f2811f0ea913394f"
+        },
+        {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/aptm/pixels/image-10190a278e95198d3c3b39e4f6c579150c32b334a61da746d91efdf530ac1caf/metadata.json",
+          "sha256": "b0be5578eac1c009b2e681275fcc0f42779feffe6fb4ade113cdc15223529bc9"
+        },
+        {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/aptm/pixels/image-79214b7a6596fd7aa5e8c5f6092e775a15dc955464cc811b7c8cda854c75cad1/metadata.json",
+          "sha256": "643b3c5d8b96bca523a1bd21895e40b5dc732ae67534e39cc6e57372265e5cfc"
+        },
+        {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/aptm/pixels/image-5c227c77114714edeab6b6e301dada91a863a252a02852488b667cb827e7fbaa/metadata.json",
+          "sha256": "9ca59bf4460bf749cfd6c363da8b86acd4078889686f2273d34e517d7b0bbaf0"
+        },
+        {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/aptm/pixels/image-d2a81a4f635d545363d7194dfb134ae18af7f035c64ccf7029f33c42eb4523c0/metadata.json",
+          "sha256": "be131f6045b8f89f848bc0a6c7d5c56d3f61c9907d989386af5c2814ad9af525"
+        },
+        {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/aptm/pixels/image-eab0663538d5f3d76916f506ff6246edf29edeb1cd552107577f5593f40b371a/metadata.json",
+          "sha256": "84707ae884b6416e478c4bf16468fbf9511121814c3563b7e5bc69cb73c5a97b"
+        },
+        {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/aptm/pixels/image-1777b8bb0f909955d8a7237e6831f84afb4584d615c6efb0154d6080b52867b8/metadata.json",
+          "sha256": "3d6758f642493a3dbceabc3fffe47d174bcfdf7f101ea5390a4d8f02366df095"
+        },
+        {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/aptm/pixels/image-bbadf75072c04b81e7d7f15d40a195c2027e2c99d30c9dfdcb97d1b32f815162/metadata.json",
+          "sha256": "2f3dcef03e0029dda6292aec32a50855abdc667a1bca5f7136e84ca7f071e886"
+        },
+        {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/aptm/pixels/image-ce1c897e9e43f66b7f309a408c27eace718ce517108ac2f672a3bf6697966d49/metadata.json",
+          "sha256": "be4013944e19e24ec4278a150b052a486aea6101eb9d69c339fbe363eb61d0e5"
+        },
+        {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox-v2/smoke/aptm/pixels/image-c907420db1e8154d8b44ee2e32ed49c11ab34bdfea4019c1051ec5b44fb8cfc8/metadata.json",
+          "sha256": "f9af43842ad676d4ddb4ca8e005d5e62a60c0b067bbab880cf670cf6971e8d7a"
+        }
+      ]
+    }
+  },
+  "initial_failure": {
+    "source_commit": "80361ec1fdb7c4c96e4ec68fa256742cc8188566",
+    "root": "/home/lzf/ldx/outputs/tbps-framework-sga-whitebox/smoke/irra",
+    "victim_loads": 1,
+    "neural_image_forward_count": "UNKNOWN (5..50); initial exception path did not persist hook counter",
+    "Claim": 1,
+    "images": 0,
+    "preserved": true
+  },
+  "CPU_tests": {
+    "passed": 121,
+    "SGA_specific": 42,
+    "related_existing": 79,
+    "deselected_old_path_checks": 5
+  },
+  "protection": {
+    "old_source_and_result_files_sha_stat": 2491,
+    "old_trees": 4,
+    "initial_FAIL_files": 18,
+    "historical_file_stats": 12203,
+    "changed": 0,
+    "Full_executed": false,
+    "background_deployed": false
+  }
+}
