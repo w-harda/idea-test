@@ -1,0 +1,45 @@
+{
+  "baseline": "055fea880214c95f3b8eee6282bb9de91ea1b742",
+  "status": "CPU_READY_NOT_STARTED",
+  "Source_preflight": "PASS exit0 actual dra-irra-source",
+  "Target_preflight": "PASS exit0 actual tbps-image",
+  "CPU_tests": {
+    "source_passed": 47,
+    "source_environment_skipped": 3,
+    "target_passed": 153,
+    "target_environment_skipped": 3,
+    "historical_config_deselected": 2
+  },
+  "official_SHA": "75518cb9465d9f8e994ea2f59c86b89fd4c39e3fe74f66b7a1d0a090eec2d313",
+  "Source_main_AST_exact_except_stage": true,
+  "Target_scoring_unchanged": true,
+  "Wrapper_unchanged": true,
+  "v1_18_files_preserved": true,
+  "runtime_dependencies_changed": false,
+  "logs": {
+    "preflight_source.log": {
+      "path": "/home/lzf/ldx/tmp/dra_full_v2_cpu/preflight_source.log",
+      "sha256": "d9cab3c0eed8c733105d4fa085ddacbeb748eb9f78ee857c92b73d8f8abe6fae"
+    },
+    "preflight_target.log": {
+      "path": "/home/lzf/ldx/tmp/dra_full_v2_cpu/preflight_target.log",
+      "sha256": "8e742e74cbdf1aa1601a64970ba3d0376954f379ca63c8d1b4fecffb7fbdd8eb"
+    },
+    "tests_source.log": {
+      "path": "/home/lzf/ldx/tmp/dra_full_v2_cpu/tests_source.log",
+      "sha256": "181e385ca77074d3d30f37a1824907e8b60e273fd7ca259ef884249b2f1fc8c2"
+    },
+    "tests_target.log": {
+      "path": "/home/lzf/ldx/tmp/dra_full_v2_cpu/tests_target.log",
+      "sha256": "cf1d5610bafa3d57494f12e863edf174e5064adf16026fd047eba45f2df12a8d"
+    },
+    "tests_target_final.log": {
+      "path": "/home/lzf/ldx/tmp/dra_full_v2_cpu/tests_target_final.log",
+      "sha256": "2831273a4c4ea1a9644816ca384b2ba0c4b9ef2857b8f5c2299c5c0d4a87cd50"
+    },
+    "resources_prelaunch.log": {
+      "path": "/home/lzf/ldx/tmp/dra_full_v2_cpu/resources_prelaunch.log",
+      "sha256": "280968043de2b1093f25f9602c150a4d00550bec139d40071e196aa12d8c5dc4"
+    }
+  }
+}

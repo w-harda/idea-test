@@ -2,7 +2,7 @@
 
 ## VLPTAttack Full执行接线
 
-新增dra_full/dra_full_target/run_dra_full，仅外层385批调度与存储。复用原Wrapper/官方调用、ArtifactStore、三模型原生评分与EvaluationEngine；保留完整RNG链，不支持自动重试/恢复。Source完成验证后才进入Targets，无目标反馈。详见framework/DRA_FULL_EXECUTION.md。首次启动发现Source重复执行Target运行依赖预检的环境隔离缺口，模型加载前FAIL；尚未修复，后续需阶段化CPU预检，不改变官方算法。
+新增dra_full/dra_full_target/run_dra_full，仅外层385批调度与存储。复用原Wrapper/官方调用、ArtifactStore、三模型原生评分与EvaluationEngine；保留完整RNG链，不支持自动重试/恢复。Source完成验证后才进入Targets，无目标反馈。详见framework/DRA_FULL_EXECUTION.md。v1因Source重复执行Target依赖预检在模型加载前FAIL并保留。v2仅通过明确stage拆分预检：Source严格检查自身依赖，Target保留RaSa/APTM原生依赖检查；公共SHA和数据检查都保留，官方算法不变。
 
 ## 当前结构
 

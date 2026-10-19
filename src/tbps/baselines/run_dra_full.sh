@@ -2,13 +2,13 @@
 # 仅在另行批准Full后启动；无轮询、无重试，不修改冻结算法。
 set -Eeuo pipefail
 [[ "$#" == 1 && "$1" == "--allow-full" ]] || { echo "需要明确 --allow-full；默认不启动实验"; exit 2; }
-ROOT=/home/lzf/ldx/projects/idea-test-tbps-vlpt-full-20261019
-FROZEN=/home/lzf/ldx/projects/idea-test-tbps-vlpt-full-20261019
+ROOT=/home/lzf/ldx/projects/idea-test-tbps-vlpt-full-v2-20261019
+FROZEN=/home/lzf/ldx/projects/idea-test-tbps-vlpt-full-v2-20261019
 SOURCE_PY=/home/lzf/ldx/envs/dra-irra-source/bin/python
 TARGET_PY=/home/lzf/ldx/envs/tbps-image/bin/python
-CONFIG="$FROZEN/configs/framework/dra_irra_full.server.json"
-OUT=/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra/full
-CONTROL=/home/lzf/ldx/tmp/vlpt_official_irra_full_v1
+CONFIG="$FROZEN/configs/framework/dra_irra_full_v2.server.json"
+OUT=/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full
+CONTROL=/home/lzf/ldx/tmp/vlpt_official_irra_full_v2
 mkdir -p "$CONTROL"
 exec 9>"$CONTROL/supervisor.lock"
 flock -n 9 || { echo "已有同一Full监督器；拒绝重复启动"; exit 3; }
@@ -37,7 +37,8 @@ stage() {
     grep -Fq "$marker" "$log" || failure 5
     status "PASS | $phase"
 }
-stage CPU_PREFLIGHT "$CONTROL/preflight.log" DRA_FULL_CPU_PREFLIGHT_PASS env CUDA_VISIBLE_DEVICES="" "$TARGET_PY" -B -u -m tbps.baselines.dra_full --config "$CONFIG"
+stage CPU_PREFLIGHT "$CONTROL/preflight.log" DRA_FULL_TARGET_CPU_PREFLIGHT_PASS env CUDA_VISIBLE_DEVICES="" "$TARGET_PY" -B -u -m tbps.baselines.dra_full --config "$CONFIG" --preflight-stage target
+stage CPU_PREFLIGHT "$CONTROL/source_preflight.log" DRA_FULL_SOURCE_CPU_PREFLIGHT_PASS env CUDA_VISIBLE_DEVICES="" "$SOURCE_PY" -B -u -m tbps.baselines.dra_full --config "$CONFIG" --preflight-stage source
 nvidia-smi > "$CONTROL/gpu_start.log"
 free -b > "$CONTROL/ram_start.log"
 df -B1 "$(dirname "$(dirname "$OUT")")" > "$CONTROL/disk_start.log"

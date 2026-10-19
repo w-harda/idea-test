@@ -52,18 +52,23 @@ def schedule(manifest):
     need([q.query_id for _,qs,_ in batches for q in qs]==[q.query_id for q in manifest.queries],"Query order")
     return batches
 
-def preflight(path):
+def preflight(path, *, stage="target"):
+    need(stage in ("source","target"),"explicit Source/Target preflight stage")
     from unittest.mock import patch
     def forbidden(*a,**k):raise RuntimeError("Full CPU preflight prohibits model load/CUDA")
     with patch.object(torch,"load",forbidden),patch.object(torch.cuda,"_lazy_init",forbidden):
         c=configuration(path)
         IRRASource.from_dict(c["irra"]).verify()
-        for model in ("rasa","aptm"):
-            checked(FileRef(**c["victim_sources"][model]))
-            mod=__import__("tbps.models."+model,fromlist=["native_modules"])
-            src=(mod.RasaSource if model=="rasa" else mod.APTMSource)(c["victim_sources"][model]["path"])
-            src.verify()
-            with mod.native_modules(src):pass
+        if stage=="source":
+            need({k:version(k) for k in c["source_versions"]}==c["source_versions"],
+                 "pinned dedicated DRA runtime")
+        else:
+            for model in ("rasa","aptm"):
+                checked(FileRef(**c["victim_sources"][model]))
+                mod=__import__("tbps.models."+model,fromlist=["native_modules"])
+                src=(mod.RasaSource if model=="rasa" else mod.APTMSource)(c["victim_sources"][model]["path"])
+                src.verify()
+                with mod.native_modules(src):pass
         ds,raw,matched=ordered_dataset(c,"full")
         batches=schedule(matched)
         sizes=[len(batch_members(matched,i,1)[1]) for i in range(3074)]
@@ -74,7 +79,8 @@ def preflight(path):
     need(not torch.cuda.is_initialized(),"CPU-only preflight")
     report={"Gallery":3074,"Query":6156,"batches":385,"last_batch_Gallery":len(batches[-1][0]),
             "ten_caption_gallery":raw.gallery[sizes.index(10)].image_id,
-            "model_loads":0,"GPU":False,"resume":False}
+            "model_loads":0,"GPU":False,"resume":False,"stage":stage}
+    print("DRA_FULL_"+stage.upper()+"_CPU_PREFLIGHT_PASS",json.dumps(report),flush=True)
     print("DRA_FULL_CPU_PREFLIGHT_PASS",json.dumps(report),flush=True)
     return c,ds,raw,matched,report
 
@@ -88,7 +94,7 @@ def rng_bytes(state):
     stream=io.BytesIO();torch.save(state,stream);return stream.getvalue()
 
 def source_run(path):
-    c,ds,raw,matched,pf=preflight(path)
+    c,ds,raw,matched,pf=preflight(path,stage="source")
     need({k:version(k) for k in c["source_versions"]}==c["source_versions"],"pinned dedicated DRA runtime")
     root=Path(c["output_base"])/"full/source"
     need(not root.exists(),"existing DRA Source Attempt; no retry/overwrite")
@@ -297,9 +303,10 @@ def main(argv=None):
     p.add_argument("--config",required=True)
     p.add_argument("--action",choices=("preflight","resources","source","evaluate","audit"),default="preflight")
     p.add_argument("--model",choices=("irra","rasa","aptm"))
+    p.add_argument("--preflight-stage",choices=("source","target"),default="target")
     p.add_argument("--allow-full",action="store_true")
     a=p.parse_args(argv)
-    if a.action=="preflight":preflight(a.config);return 0
+    if a.action=="preflight":preflight(a.config,stage=a.preflight_stage);return 0
     c=configuration(a.config)
     if a.action=="resources":print("DRA_FULL_RESOURCES_PASS",json.dumps(resources(c)),flush=True);return 0
     if a.action=="audit":

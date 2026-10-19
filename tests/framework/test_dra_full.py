@@ -15,7 +15,7 @@ from tbps.baselines import dra_full_target as target
 from tbps.baselines.dra_official import ordered_dataset
 from tbps.engines.metrics import ranking
 ROOT=Path(__file__).parents[2]
-CONFIG=ROOT/"configs/framework/dra_irra_full.server.json"
+CONFIG=ROOT/"configs/framework/dra_irra_full_v2.server.json"
 
 @pytest.fixture(scope="module")
 def data():
@@ -154,7 +154,7 @@ def test_real_source_control_385_batches_cpu_mock(data,tmp_path,monkeypatch,fail
     def batch_iterator(manifest):
         for gs,qs,mp in original_schedule(manifest):
             state["texts"]=[q.caption for q in qs];yield gs,qs,mp
-    monkeypatch.setattr(full,"preflight",lambda path:(c,data[1],data[2],m,{}))
+    monkeypatch.setattr(full,"preflight",lambda path,**kw:(c,data[1],data[2],m,{}))
     monkeypatch.setattr(full,"version",lambda k:c["source_versions"][k])
     monkeypatch.setattr(full,"resources",lambda c:{})
     monkeypatch.setattr(full,"ArtifactStore",Store)
@@ -200,14 +200,14 @@ def test_real_bash_supervisor_sequence_and_failure(tmp_path,fail_source):
     (root/"src/tbps/baselines").mkdir(parents=True)
     (root/"configs/framework").mkdir(parents=True)
     (root/"src/tbps/baselines/dra_full.py").write_text("# fixture")
-    (root/"configs/framework/dra_irra_full.server.json").write_text("{}")
+    (root/"configs/framework/dra_irra_full_v2.server.json").write_text("{}")
     subprocess.run(["git","init","-q"],cwd=root,check=True)
     subprocess.run(["git","-c","user.name=fixture","-c","user.email=f@f","commit","-qm","fixture","--allow-empty"],cwd=root,check=True)
     fake=tmp_path/"python";calls=tmp_path/"calls"
     fake.write_text("""#!/bin/bash
 echo "$*" >> '"""+str(calls)+"""'
 case "$*" in
-  *"--action resources"*) echo DRA_FULL_RESOURCES_PASS ;;
+  *"--preflight-stage target"*) echo DRA_FULL_TARGET_CPU_PREFLIGHT_PASS ;;\n  *"--preflight-stage source"*) echo DRA_FULL_SOURCE_CPU_PREFLIGHT_PASS ;;\n  *"--action resources"*) echo DRA_FULL_RESOURCES_PASS ;;
   *"--action source"*) """+("exit 7" if fail_source else "echo DRA_OFFICIAL_IRRA_SOURCE_PASS full")+""" ;;
   *"--model irra"*) echo DRA_NATIVE_TARGET_PASS full irra ;;
   *"--model rasa"*) echo DRA_NATIVE_TARGET_PASS full rasa ;;
@@ -219,9 +219,9 @@ esac
     binpath=tmp_path/"bin";binpath.mkdir()
     gpu=binpath/"nvidia-smi";gpu.write_text("#!/bin/bash\necho fixture\n");gpu.chmod(0o755)
     text=(ROOT/"src/tbps/baselines/run_dra_full.sh").read_text()
-    text=text.replace("/home/lzf/ldx/projects/idea-test-tbps-vlpt-full-20261019",str(root))
-    text=text.replace("/home/lzf/ldx/tmp/vlpt_official_irra_full_v1",str(control))
-    text=text.replace("/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra/full",str(out))
+    text=text.replace("/home/lzf/ldx/projects/idea-test-tbps-vlpt-full-v2-20261019",str(root))
+    text=text.replace("/home/lzf/ldx/tmp/vlpt_official_irra_full_v2",str(control))
+    text=text.replace("/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full",str(out))
     text=text.replace("/home/lzf/ldx/envs/dra-irra-source/bin/python",str(fake))
     text=text.replace("/home/lzf/ldx/envs/tbps-image/bin/python",str(fake))
     script=tmp_path/"run.sh";script.write_text(text)
@@ -230,6 +230,6 @@ esac
     assert p.returncode==(7 if fail_source else 0),p.stdout+p.stderr
     assert (control/"phase").read_text().strip()==("FAIL" if fail_source else "SUCCESS")
     count=len(calls.read_text().splitlines())
-    assert count==(3 if fail_source else 7)
+    assert count==(4 if fail_source else 8)
     again=subprocess.run(["bash",str(script),"--allow-full"],env=env,capture_output=True)
     assert again.returncode!=0 and len(calls.read_text().splitlines())==count

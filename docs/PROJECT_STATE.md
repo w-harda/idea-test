@@ -2,7 +2,20 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：VLPTAttack官方IRRA Source Full首次启动FAIL，未加载模型/生成产物
+## 当前阶段：VLPTAttack Full v2阶段化预检修复完成，准备独立启动
+
+基准055fea880214c95f3b8eee6282bb9de91ea1b742；
+分支codex/tbps-vlpt-full-v2，独立工作树idea-test-tbps-vlpt-full-v2-20261019。
+仅dra_full.py拆分Source/Target预检；Source主流程除stage关键字外AST exact，
+官方RAttacker、Wrapper、原生Target评分、模型和算法参数不改。
+两套真实Python CPU预检均exit0；Source47项、Target153项CPU测试通过（环境专用用例各跳过3，Target历史配置排除2）。3074/6156/385、10 Caption成员、全部SHA检查保留，
+model_loads=0/CUDA=false。v1全部18份FAIL证据SHA/mtime/size保持。
+v2控制vlpt_official_irra_full_v2，输出tbps-framework-vlpt-official-irra-v2/full；
+未复用v1身份。本轮授权资源通过后启动一次，失败不重试，不创建v3。
+真实启动状态随后登记；不提前宣称Full成功。
+[修复与执行说明](framework/DRA_FULL_V2_FIX_REPORT.md)。
+
+## 历史FAIL：VLPTAttack官方IRRA Source Full首次启动FAIL，未加载模型/生成产物
 
 基准889a57c，独立分支codex/tbps-vlpt-official-full、工作树idea-test-tbps-vlpt-full-20261019。
 只新增Full外层调度、385批像素/文本/RNG证据、三模型原生评分、独立CPU审计和后台监督器；
