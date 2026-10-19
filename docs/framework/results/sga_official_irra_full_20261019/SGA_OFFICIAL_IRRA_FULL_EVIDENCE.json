@@ -1,0 +1,1009 @@
+{
+  "schema": "sga-official-irra-full-report-1",
+  "scope": "Full only",
+  "date": "2026-10-19",
+  "source_full_root": "/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full",
+  "control_root": "/home/lzf/ldx/tmp/sga_official_irra_full_v2",
+  "execution_commit": "f8d3431b4f51d4fb117cf031f6d827bb89fab69c",
+  "execution_document_commit": "3caacf0ac124ac532febb587a290721c2d4d6608",
+  "official_commit": "f49e6926cd13148e49bdbc2c3e537660e096230c",
+  "official_sources": {
+    "attacker": {
+      "path": "/home/lzf/ldx/projects/SGA-official/attacker.py",
+      "sha256": "79384bb914824c59c2a7c65c9b3b565cebac9c3b469a7a15d8f21b5ebf110a30"
+    },
+    "tokenizer": {
+      "path": "/home/lzf/ldx/projects/SGA-official/models/tokenization_bert.py",
+      "sha256": "7723a9acc1a44bfe0eb435cb9d49a36677700e87cf572e7347329763c41cdfbf"
+    },
+    "dataset": {
+      "path": "/home/lzf/ldx/projects/SGA-official/dataset.py",
+      "sha256": "037958f468c22a88930aa1490a6860ea96fae2f368ab93500f1d653bf6ccf119"
+    }
+  },
+  "configuration": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-sga-irra-source-20261019/configs/framework/sga_irra_source.full.server.json",
+    "sha256": "262be4e9a2f958ae6458540a5df3c02433f7f0e9f035b264f6452f6654eebb46"
+  },
+  "parameters": {
+    "source_model": "irra",
+    "epsilon": 0.00784313725490196,
+    "steps": 10,
+    "step_size": 0.00196078431372549,
+    "batch_size": 8,
+    "seed": 42,
+    "max_length": 30,
+    "scales": [
+      0.5,
+      0.75,
+      1.25,
+      1.5
+    ],
+    "source_versions": {
+      "torch": "2.0.0+cu118",
+      "torchvision": "0.15.0+cu118",
+      "transformers": "4.28.1",
+      "tokenizers": "0.13.3",
+      "timm": "0.6.13",
+      "ftfy": "6.1.1"
+    }
+  },
+  "source_report": {
+    "GPU_peak_allocated_bytes": 6841224192,
+    "GPU_peak_reserved_bytes": 11410604032,
+    "GPU_start": {
+      "compute_processes": "",
+      "free_mib": 24051,
+      "name": "NVIDIA GeForce RTX 4090",
+      "policy": "shared_observe_only",
+      "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 24051, 40, 0",
+      "total_mib": 24564,
+      "used_mib": 40,
+      "utilization_percent": 0
+    },
+    "G_H_loads": 0,
+    "MLM_after": {
+      "buffers": {
+        "sha256": "2c7271c8f96758c7cd878895c2e5968f7183fba1de300f50cd51ad77b0769d0e",
+        "tensor_count": 2
+      },
+      "eval": true,
+      "parameter_grads_none": true,
+      "parameters": {
+        "sha256": "09415ccb8d4c1ca4d4a7a22c2be1ca0fdad5830ec3b47960bdd9d70558bb9b60",
+        "tensor_count": 202
+      },
+      "requires_grad": false
+    },
+    "MLM_before": {
+      "buffers": {
+        "sha256": "2c7271c8f96758c7cd878895c2e5968f7183fba1de300f50cd51ad77b0769d0e",
+        "tensor_count": 2
+      },
+      "eval": true,
+      "parameter_grads_none": true,
+      "parameters": {
+        "sha256": "09415ccb8d4c1ca4d4a7a22c2be1ca0fdad5830ec3b47960bdd9d70558bb9b60",
+        "tensor_count": 202
+      },
+      "requires_grad": false
+    },
+    "MLM_counts": {
+      "calls": 2376,
+      "samples": 41800
+    },
+    "MLM_loads": 1,
+    "elapsed_seconds": 1359.7462353110313,
+    "gradient_check_counts": {
+      "BERT_truncated_rows": 0,
+      "UNK_rows": 0,
+      "bridge_rows": 1,
+      "image_samples": 1,
+      "text_samples": 1
+    },
+    "input_gradient_check": {
+      "finite": true,
+      "norm": 0.22080875933170319,
+      "shape": [
+        1,
+        3,
+        384,
+        128
+      ]
+    },
+    "max_real_linf": 0.007843166589736938,
+    "model_after": {
+      "buffers": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tensor_count": 0
+      },
+      "eval": true,
+      "parameter_grads_none": true,
+      "parameters": {
+        "sha256": "b0f0c4e01e6601eb280698f8ee5a3304d9ed117e22968db9f7be17f453330d0f",
+        "tensor_count": 367
+      },
+      "requires_grad": false
+    },
+    "model_before": {
+      "buffers": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tensor_count": 0
+      },
+      "eval": true,
+      "parameter_grads_none": true,
+      "parameters": {
+        "sha256": "b0f0c4e01e6601eb280698f8ee5a3304d9ed117e22968db9f7be17f453330d0f",
+        "tensor_count": 367
+      },
+      "requires_grad": false
+    },
+    "official_commit": "f49e6926cd13148e49bdbc2c3e537660e096230c",
+    "optimizer": 0,
+    "peak_RSS_bytes": 2450464768,
+    "runtime_versions": {
+      "ftfy": "6.1.1",
+      "timm": "0.6.13",
+      "tokenizers": "0.13.3",
+      "torch": "2.0.0+cu118",
+      "torchvision": "0.15.0+cu118",
+      "transformers": "4.28.1"
+    },
+    "scope": "full",
+    "source_counts": {
+      "BERT_truncated_rows": 90677,
+      "UNK_rows": 272668,
+      "bridge_rows": 396849,
+      "image_samples": 159849,
+      "text_samples": 396849
+    },
+    "source_frozen": true,
+    "source_model_loads": 1,
+    "status": "PASS",
+    "target_models_in_generation": []
+  },
+  "source_completed": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full/source/completed/manifest.json",
+    "sha256": "54a9969c66f80cbf9c5f1a727eccbd6fa47f45f92ac6b3ae9a97bc8a40ebec7f"
+  },
+  "source_units": 385,
+  "claims": 385,
+  "Gallery": 3074,
+  "Query": 6156,
+  "all_order_pairing_native_annotation_verified": true,
+  "three_targets_same_frozen_attack_inputs_verified": true,
+  "official_FP32_bounds_from_all_committed_units": true,
+  "max_real_linf": 0.007843166589736938,
+  "mathematical_epsilon": 0.00784313725490196,
+  "roundoff_above_real_epsilon": 2.9334834977801094e-08,
+  "strict_mathematical_bound_pass": false,
+  "new_projection_or_budget_recalculation": false,
+  "caption_changed_from_raw_by_pre_caption": 6137,
+  "caption_final_changed": 6145,
+  "caption_final_NOOP": 11,
+  "recorded_final_word_replacements": 6145,
+  "flow_counts": {
+    "text1": 385,
+    "image": 385,
+    "text2": 385,
+    "candidate_choice": 25542
+  },
+  "bridge": {
+    "rows": 396849,
+    "BERT_truncated": 90677,
+    "UNK_rows": 272668,
+    "IRRA_truncated": 0
+  },
+  "source_pure_attack_seconds_sum": 1234.2041816599667,
+  "targets": {
+    "irra": {
+      "summary": {
+        "Gallery": 3074,
+        "Query": 6156,
+        "groups": {
+          "Clean": {
+            "R@1": 69.41195678710938,
+            "R@10": 92.02404022216797,
+            "R@5": 87.23197174072266,
+            "mAP": 63.01239013671875
+          },
+          "Image-only": {
+            "R@1": 5.523066997528076,
+            "R@10": 19.606887817382812,
+            "R@5": 13.710201263427734,
+            "mAP": 4.265395164489746
+          },
+          "Joint": {
+            "R@1": 2.696556329727173,
+            "R@10": 11.647173881530762,
+            "R@5": 7.569850444793701,
+            "mAP": 2.285510301589966
+          },
+          "Text-only": {
+            "R@1": 44.964263916015625,
+            "R@10": 77.46913146972656,
+            "R@5": 67.41390228271484,
+            "mAP": 42.801090240478516
+          }
+        },
+        "matched_clean": true,
+        "metric_unit": "percent",
+        "model": "irra",
+        "scope": "full",
+        "source": "irra"
+      },
+      "execution": {
+        "GPU_peak_allocated_bytes": 967184384,
+        "GPU_peak_reserved_bytes": 1050673152,
+        "counts": {
+          "fusion_pairs": 0,
+          "image_samples": 6148,
+          "text_samples": 12312
+        },
+        "elapsed_seconds": 278.55290675908327,
+        "model": "irra",
+        "model_after": {
+          "buffers": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "tensor_count": 0
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "b0f0c4e01e6601eb280698f8ee5a3304d9ed117e22968db9f7be17f453330d0f",
+            "tensor_count": 367
+          },
+          "requires_grad": false
+        },
+        "model_before": {
+          "buffers": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "tensor_count": 0
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "b0f0c4e01e6601eb280698f8ee5a3304d9ed117e22968db9f7be17f453330d0f",
+            "tensor_count": 367
+          },
+          "requires_grad": false
+        },
+        "neural_counts": {
+          "fusion_pairs": 0,
+          "image_samples": 6148,
+          "text_samples": 12312
+        },
+        "peak_RSS_bytes": 2370322432,
+        "scope": "full",
+        "source_regeneration": 0,
+        "status": "PASS",
+        "target_loads": 1
+      },
+      "checkpoint": {
+        "path": "/home/lzf/Attack/IRRA/logs/CUHK-PEDES/best.pth",
+        "sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+      },
+      "model_space": {
+        "checkpoint_sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009",
+        "model_id": "irra",
+        "precision": "fp32/math/no_tf32",
+        "preprocess_sha256": "61f02eb3fd01e909b2bd0272c2c7dce2b9a2fddf41794989ba3ca27e1529fb25",
+        "scoring_protocol_sha256": "5032f7f1f46e87b3b26eee137cfbd99d7b3f5c65751b160ec8ccafc6baa2c5b4",
+        "sources_sha256": "a2765a2602f21acdd10cdacb072f481a0d19f17f0d2703626d9d8bf2ea42f87d",
+        "tokenizer_sha256": "f0c9ac2862623d9274d8c546f55a41de978fa2d8730bf640e100cd234f8f7bad"
+      },
+      "feature_families": {
+        "clean_gallery": {
+          "chunks": 193,
+          "binding_sha256": "c9984a70af77d7afb1ffd709a079351a15905459b1bf87010d422a3141866040",
+          "content_hash_sequence_sha256": "5ec7234a68a291237bc09ec28b296837275b150b4e07e2ec4d783b46e33c3df6"
+        },
+        "adv_gallery": {
+          "chunks": 193,
+          "binding_sha256": "e968001829234b1e1b09d6522a81303303bfb86db827c439ad431ef7c0d217f7",
+          "content_hash_sequence_sha256": "efa681b9839c0b7839ef4a73b104051e2ced08aa804b3c5aa18a27f51dca1680"
+        },
+        "clean_text": {
+          "chunks": 385,
+          "binding_sha256": "e617a037ca150681b81e7544af8801d09b0262ff767ca26ff37f2a09a4cf3843",
+          "content_hash_sequence_sha256": "426f8b848d530bb184b2479acd906c8611ed356307cc8efa56cdeba29c5a25c7"
+        },
+        "adv_text": {
+          "chunks": 385,
+          "binding_sha256": "818295bfbe63a2f74b54afcf90cdaebd546169bb6831b33104a4a98be932f5ad",
+          "content_hash_sequence_sha256": "64372371e4984da95d19f52665bbf8fcd149e977aef75a092aec2c08fabb0a89"
+        }
+      },
+      "completed": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full/irra/completed/manifest.json",
+        "sha256": "c067666cd5c12f1f0a0be932ccb960315296f0e470c8c9bbb4f814932e36d184"
+      },
+      "summary_file": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full/irra/completed/summary.json",
+        "sha256": "e3ab3b884917a9e204e74af60353adff3149e6c3afef78feea2e58539aee95c7"
+      },
+      "csv_file": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full/irra/completed/metrics_2dp.csv",
+        "sha256": "b077a5e1d1f011e4d7f55ecad8e78ef250607accbc6fb15cd4d017880ba330db"
+      },
+      "protocol": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full/irra/protocol/manifest.json",
+        "sha256": "f6a06184a581fd1651f26edad8c8710bb6e7c04882d22d5c1ace4f3a00a62a73"
+      },
+      "execution_file": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full/irra/execution/report.json",
+        "sha256": "59e290036e79724e38045410d82fb14b1e943a1651d4706a3ceb42ffdb2cf57e"
+      }
+    },
+    "rasa": {
+      "summary": {
+        "Gallery": 3074,
+        "Query": 6156,
+        "groups": {
+          "Clean": {
+            "R@1": 74.44769287109375,
+            "R@10": 93.25860595703125,
+            "R@5": 89.23001861572266,
+            "mAP": 67.4518051147461
+          },
+          "Image-only": {
+            "R@1": 59.92527770996094,
+            "R@10": 85.59129333496094,
+            "R@5": 79.36972045898438,
+            "mAP": 53.79033660888672
+          },
+          "Joint": {
+            "R@1": 39.13255310058594,
+            "R@10": 69.4769287109375,
+            "R@5": 60.38011932373047,
+            "mAP": 35.636566162109375
+          },
+          "Text-only": {
+            "R@1": 53.248863220214844,
+            "R@10": 80.45808410644531,
+            "R@5": 73.21312713623047,
+            "mAP": 49.154090881347656
+          }
+        },
+        "matched_clean": true,
+        "metric_unit": "percent",
+        "model": "rasa",
+        "scope": "full",
+        "source": "irra"
+      },
+      "execution": {
+        "GPU_peak_allocated_bytes": 1992355840,
+        "GPU_peak_reserved_bytes": 2183135232,
+        "counts": {
+          "fusion_pairs": 3151872,
+          "image_samples": 6148,
+          "score_calls": 196,
+          "text_samples": 12312
+        },
+        "elapsed_seconds": 9088.981051497161,
+        "model": "rasa",
+        "model_after": {
+          "buffers": {
+            "sha256": "ce5f3986cd19bee31cacddc61b11f353c608f37e423185c3ed6ff2145befc59a",
+            "tensor_count": 6
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "371998d47a18ffa8a0a2540d1ec12e35a469eec1c20d41cde1fc8410ae95f493",
+            "tensor_count": 839
+          },
+          "requires_grad": false
+        },
+        "model_before": {
+          "buffers": {
+            "sha256": "ce5f3986cd19bee31cacddc61b11f353c608f37e423185c3ed6ff2145befc59a",
+            "tensor_count": 6
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "371998d47a18ffa8a0a2540d1ec12e35a469eec1c20d41cde1fc8410ae95f493",
+            "tensor_count": 839
+          },
+          "requires_grad": false
+        },
+        "neural_counts": {
+          "fusion_pairs": 3151872,
+          "image_samples": 6148,
+          "text_samples": 12312
+        },
+        "peak_RSS_bytes": 26937024512,
+        "scope": "full",
+        "source_regeneration": 0,
+        "status": "PASS",
+        "target_loads": 1
+      },
+      "checkpoint": {
+        "path": "/home/lzf/ldx/checkpoints/RaSa/rasa_cuhk_checkpoint.pth",
+        "sha256": "bc85da09c2991d5de503c2c2ac4f032e20cc536fec5094f0acff45e93d0104d2"
+      },
+      "model_space": {
+        "checkpoint_sha256": "bc85da09c2991d5de503c2c2ac4f032e20cc536fec5094f0acff45e93d0104d2",
+        "model_id": "rasa",
+        "precision": "fp32/math/no_tf32",
+        "preprocess_sha256": "4d5d67c45ea01a6bf8f922b0c3e9df7c1c2cba84cf2293b7921175ccba998035",
+        "scoring_protocol_sha256": "d09c3e7b87f9c3500e435212d9babb14624ab1c8e4a91a1ff02ef645331033cb",
+        "sources_sha256": "e76c248e67cdc59691c228bf2431b5b7d2f6ed1af14b8c8036cfc319f4b91777",
+        "tokenizer_sha256": "1bd8efb0d45496dd2c8fd1430d212390e398d7a0819e66cf946efab5ae6f5d7c"
+      },
+      "feature_families": {
+        "clean_gallery": {
+          "chunks": 193,
+          "binding_sha256": "f03345df857bed55fb7d2ed5a185bb822f68e574936216b98486dcef74940f7e",
+          "content_hash_sequence_sha256": "5ec7234a68a291237bc09ec28b296837275b150b4e07e2ec4d783b46e33c3df6"
+        },
+        "adv_gallery": {
+          "chunks": 193,
+          "binding_sha256": "68ea067668e4ce3cd215e4c3d2ce2e9edefd76aa5b13e98b663bdaa270d16ef3",
+          "content_hash_sequence_sha256": "efa681b9839c0b7839ef4a73b104051e2ced08aa804b3c5aa18a27f51dca1680"
+        },
+        "clean_text": {
+          "chunks": 385,
+          "binding_sha256": "8bdabb929ef13573c655bd9a08f6a57e47a4861970ed1119dcf168c1dc31806c",
+          "content_hash_sequence_sha256": "426f8b848d530bb184b2479acd906c8611ed356307cc8efa56cdeba29c5a25c7"
+        },
+        "adv_text": {
+          "chunks": 385,
+          "binding_sha256": "54b7a148c40272905b0b6df742336aa614318298f63754bd9a81ed7c1c1ea4a0",
+          "content_hash_sequence_sha256": "64372371e4984da95d19f52665bbf8fcd149e977aef75a092aec2c08fabb0a89"
+        }
+      },
+      "completed": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full/rasa/completed/manifest.json",
+        "sha256": "1ea453b76e6aa02b5d4d03d94342d8a324de0f3aa5a60ed16d7e364ea801475a"
+      },
+      "summary_file": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full/rasa/completed/summary.json",
+        "sha256": "1b2828c3e1bbe1ea68587858a83a9e68846759b0dd8d8164213c293b088fda24"
+      },
+      "csv_file": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full/rasa/completed/metrics_2dp.csv",
+        "sha256": "b7680d9dc125e649c0420d73a55c68a04306a6b1ecb4515326ee460c9a9bf7a0"
+      },
+      "protocol": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full/rasa/protocol/manifest.json",
+        "sha256": "cfd0d3906414172c5b4003a0724e35d3eed45a1daba21b7cfb3500fc7c0aacb8"
+      },
+      "execution_file": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full/rasa/execution/report.json",
+        "sha256": "157e2afdcf9b041a6512052f385b5c8f51d58974acd1435facb48b005954114c"
+      }
+    },
+    "aptm": {
+      "summary": {
+        "Gallery": 3074,
+        "Query": 6156,
+        "groups": {
+          "Clean": {
+            "R@1": 73.55425262451172,
+            "R@10": 92.83625793457031,
+            "R@5": 88.82391357421875,
+            "mAP": 63.37741470336914
+          },
+          "Image-only": {
+            "R@1": 62.81676483154297,
+            "R@10": 87.10201263427734,
+            "R@5": 81.07537841796875,
+            "mAP": 53.98143005371094
+          },
+          "Joint": {
+            "R@1": 42.592594146728516,
+            "R@10": 72.66082000732422,
+            "R@5": 63.775177001953125,
+            "mAP": 37.59162902832031
+          },
+          "Text-only": {
+            "R@1": 54.207275390625,
+            "R@10": 81.8226089477539,
+            "R@5": 74.64262390136719,
+            "mAP": 47.50579833984375
+          }
+        },
+        "matched_clean": true,
+        "metric_unit": "percent",
+        "model": "aptm",
+        "scope": "full",
+        "source": "irra"
+      },
+      "execution": {
+        "GPU_peak_allocated_bytes": 1041892864,
+        "GPU_peak_reserved_bytes": 1126170624,
+        "counts": {
+          "fusion_pairs": 3151872,
+          "image_samples": 6148,
+          "score_calls": 196,
+          "text_samples": 12312
+        },
+        "elapsed_seconds": 8146.558838389814,
+        "model": "aptm",
+        "model_after": {
+          "buffers": {
+            "sha256": "b41b36d2cf36f5f1933f01c1557094000530bc5ade79bfd3757f03d0359c9e98",
+            "tensor_count": 27
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "6a550d2e7f520ffd0f3edfda340f0c56600fb004f6fc29df621a6add457f0720",
+            "tensor_count": 600
+          },
+          "requires_grad": false
+        },
+        "model_before": {
+          "buffers": {
+            "sha256": "b41b36d2cf36f5f1933f01c1557094000530bc5ade79bfd3757f03d0359c9e98",
+            "tensor_count": 27
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "6a550d2e7f520ffd0f3edfda340f0c56600fb004f6fc29df621a6add457f0720",
+            "tensor_count": 600
+          },
+          "requires_grad": false
+        },
+        "neural_counts": {
+          "fusion_pairs": 3151872,
+          "image_samples": 6148,
+          "text_samples": 12312
+        },
+        "peak_RSS_bytes": 7198310400,
+        "scope": "full",
+        "source_regeneration": 0,
+        "status": "PASS",
+        "target_loads": 1
+      },
+      "checkpoint": {
+        "path": "/home/lzf/ldx/checkpoints/APTM/aptm_cuhk_checkpoint_best.pth",
+        "sha256": "521c9bf784e7e821ade471deaafa2f25e2501950591e574dc60ca177e9be5a2c"
+      },
+      "model_space": {
+        "checkpoint_sha256": "521c9bf784e7e821ade471deaafa2f25e2501950591e574dc60ca177e9be5a2c",
+        "model_id": "aptm",
+        "precision": "fp32/math/no_tf32",
+        "preprocess_sha256": "29356ae6ac4b921edab0f4f95fb0e765e81efae1c960248fb48a03ae87e845f7",
+        "scoring_protocol_sha256": "530916023ab893ce8fd56ed425475c7b5edf43c87733f9c31a4ceb1f579483a3",
+        "sources_sha256": "0b05373c46630c19a93b83ca140a43c06e8db1eef2e72fa812db5fd37953bbfa",
+        "tokenizer_sha256": "4c1cba3a8e707a7439429b636ce349d28b23f9509939e79c4396b74b47a282d9"
+      },
+      "feature_families": {
+        "clean_gallery": {
+          "chunks": 193,
+          "binding_sha256": "32443c8cf807ddd4129bead7e512772be622adedde10f5d8d9e2b81e96fa664a",
+          "content_hash_sequence_sha256": "5ec7234a68a291237bc09ec28b296837275b150b4e07e2ec4d783b46e33c3df6"
+        },
+        "adv_gallery": {
+          "chunks": 193,
+          "binding_sha256": "fa6ff6b2b879ed458bec412f4ea7410f515418271c4ff0dd473f9a5824aa2f00",
+          "content_hash_sequence_sha256": "efa681b9839c0b7839ef4a73b104051e2ced08aa804b3c5aa18a27f51dca1680"
+        },
+        "clean_text": {
+          "chunks": 385,
+          "binding_sha256": "40849f5c122ef0ab268791a789d259efb646693948571f8cf009359d756b114f",
+          "content_hash_sequence_sha256": "426f8b848d530bb184b2479acd906c8611ed356307cc8efa56cdeba29c5a25c7"
+        },
+        "adv_text": {
+          "chunks": 385,
+          "binding_sha256": "33867377c6df9485a9a6273317c14e008ebf5109491dad81906631637c5ac4d8",
+          "content_hash_sequence_sha256": "64372371e4984da95d19f52665bbf8fcd149e977aef75a092aec2c08fabb0a89"
+        }
+      },
+      "completed": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full/aptm/completed/manifest.json",
+        "sha256": "2dcc29ad1efe6e9530da59d8c4cbf9118e30d55da305830ed1f600eb3e5ad0d7"
+      },
+      "summary_file": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full/aptm/completed/summary.json",
+        "sha256": "f6b46c4bf2234496c2f79cc9bfbb64392252e2cb05db963ed0b3de5ca9f35b04"
+      },
+      "csv_file": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full/aptm/completed/metrics_2dp.csv",
+        "sha256": "fec2cf0e38a88e032143b72c003b3c63451002b8926b207151183a1d6d1115de"
+      },
+      "protocol": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full/aptm/protocol/manifest.json",
+        "sha256": "a73cb2908213a1db167509b07721ee30f71341db8779db49e8766e4971d8b39f"
+      },
+      "execution_file": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full/aptm/execution/report.json",
+        "sha256": "36a8637ceedaae9ebc892b8dfe37d6f96fb676b92ae2752ed47aeefbcc365a31"
+      }
+    }
+  },
+  "existing_independent_CPU_audit": {
+    "GPU": false,
+    "Gallery": 3074,
+    "Query": 6156,
+    "bridge_rows": 396849,
+    "scope": "full",
+    "source_models": [
+      "irra",
+      "BERT_MLM"
+    ],
+    "status": "PASS",
+    "target_feedback": false
+  },
+  "audit_rerun_this_task": false,
+  "pending": [],
+  "wall_seconds": 18977.0,
+  "begin": "2026-10-19T00:51:36+08:00",
+  "end": "2026-10-19T06:07:53+08:00",
+  "phase_status_log": "2026-10-19T00:51:36+08:00 | BEGIN | CPU_PREFLIGHT\n2026-10-19T00:51:42+08:00 | PASS | CPU_PREFLIGHT\n2026-10-19T00:51:42+08:00 | BEGIN | RUNNING_SOURCE\n2026-10-19T01:14:30+08:00 | PASS | RUNNING_SOURCE\n2026-10-19T01:14:30+08:00 | BEGIN | RUNNING_IRRA\n2026-10-19T01:19:12+08:00 | PASS | RUNNING_IRRA\n2026-10-19T01:19:12+08:00 | BEGIN | RUNNING_RASA\n2026-10-19T03:50:50+08:00 | PASS | RUNNING_RASA\n2026-10-19T03:50:50+08:00 | BEGIN | RUNNING_APTM\n2026-10-19T06:06:48+08:00 | PASS | RUNNING_APTM\n2026-10-19T06:06:48+08:00 | BEGIN | RUNNING_CPU_AUDIT\n2026-10-19T06:07:53+08:00 | PASS | RUNNING_CPU_AUDIT\n2026-10-19T06:07:53+08:00 | SUCCESS | SGA_OFFICIAL_IRRA_SOURCE_THREE_TARGET_FULL_AND_CPU_AUDIT\n",
+  "main_method_history": {
+    "irra": {
+      "matched_current_victim_checkpoint": true,
+      "summary": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/completed/summary.json",
+        "sha256": "4530f3f97156d6e9f65c07b0775588324c39679feb0f16ae66b356692b017eb0"
+      },
+      "audit": {
+        "path": "/home/lzf/ldx/tmp/irra_materialized_full_audit.log",
+        "sha256": "70d9630c0f5bc2d7d1565cba4a100d5345c97c057ea55028d1888198c6104798"
+      },
+      "Raw_Clean": {
+        "R@1": 73.14814758300781,
+        "R@5": 89.87979125976562,
+        "R@10": 93.71344757080078,
+        "mAP": 66.09744262695312
+      },
+      "Joint": {
+        "R@1": 26.526966094970703,
+        "R@5": 46.832359313964844,
+        "R@10": 57.19622802734375,
+        "mAP": 23.553220748901367
+      }
+    },
+    "rasa": {
+      "matched_current_victim_checkpoint": true,
+      "summary": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/completed/summary.json",
+        "sha256": "12b3a90ca761c632bdf7781e7d52b43b753ddb5e7bdf36ad53e65515d7fc37ac"
+      },
+      "audit": {
+        "path": "/home/lzf/ldx/tmp/rasa_full_wait/cpu_audit.log",
+        "sha256": "684d3bf2d4dc2e9937f50521608533db4fe9c930ce000c53ed4a5dd08bc83670"
+      },
+      "Raw_Clean": {
+        "R@1": 76.21832275390625,
+        "R@5": 90.28589630126953,
+        "R@10": 94.08706665039062,
+        "mAP": 69.18406677246094
+      },
+      "Joint": {
+        "R@1": 22.871994018554688,
+        "R@5": 34.68161392211914,
+        "R@10": 40.12345504760742,
+        "mAP": 17.202625274658203
+      }
+    },
+    "aptm": {
+      "matched_current_victim_checkpoint": true,
+      "summary": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/completed/summary.json",
+        "sha256": "8944ea0cd29e5c9f4410bf9ad7ccc65f67e3c26ad8a794e2a8af6915bca36d18"
+      },
+      "audit": {
+        "path": "/home/lzf/ldx/tmp/aptm_full_wait/full_audit.log",
+        "sha256": "03fdf0c6662c5b08d7f38862c721e84845151d911e03c33104e08ec6a4c6892c"
+      },
+      "Raw_Clean": {
+        "R@1": 74.61013793945312,
+        "R@5": 89.26251220703125,
+        "R@10": 93.1773910522461,
+        "mAP": 64.12683868408203
+      },
+      "Joint": {
+        "R@1": 38.823909759521484,
+        "R@5": 58.73944091796875,
+        "R@10": 66.6016845703125,
+        "mAP": 30.490341186523438
+      }
+    }
+  },
+  "key_source_files": [
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full/source/completed/manifest.json",
+      "sha256": "54a9969c66f80cbf9c5f1a727eccbd6fa47f45f92ac6b3ae9a97bc8a40ebec7f"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full/source/execution/report.json",
+      "sha256": "e695ffc504817510267e7f6484154e7993af35bc288ebea9b179e918b259a68b"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full/source/protocol/protocol.json",
+      "sha256": "2253130c6797c9f4c634326d255c1c43d1231f700a9d15d6bb234c935fb1e347"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full/source/bridge_trace.jsonl",
+      "sha256": "4c1c7bbc076bba6569ff285dccf6ae63d4189f195f7aa05b3038361966861bd6"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full/source/official_flow.jsonl",
+      "sha256": "dbda171168f778cb1bd24e788c8bf2e18be5a3e9340c1bd5dde5bc52e7feab44"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full/audit/completed/manifest.json",
+      "sha256": "ba93177a62a15a338495bd0022eb945a810dc6a53e2f055db5bc3608fd4023ff"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full/audit/completed/audit.json",
+      "sha256": "cee60765afd8694a726a12a40f6a4cbc1c6596ba1444fcf4b35338d4cee9964d"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/sga_official_irra_full_v2/status.log",
+      "sha256": "2a3b126188a5903d31c59072e506385133d9ea480ce3028f11917bce15d7588f"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/sga_official_irra_full_v2/launcher.log",
+      "sha256": "2a3b126188a5903d31c59072e506385133d9ea480ce3028f11917bce15d7588f"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/sga_official_irra_full_v2/launch_sources.sha256",
+      "sha256": "c6306cb8fd4649e45fe3f4891707303583cdfc22f28bb35050086560371ed40c"
+    }
+  ],
+  "verification": {
+    "artifact_manifests": 4647,
+    "file_SHA_checks": 21335,
+    "metrics_from_summary_checked_against_CSV": 48,
+    "all_read_files_stat_unchanged": true,
+    "Tensor_or_model_deserialization_this_task": 0,
+    "GPU_or_ranking_or_attack_calls_this_task": 0,
+    "source_file_index": {
+      "path": "/home/lzf/ldx/tmp/sga_official_irra_full_result_protection_complete_20261019.json",
+      "sha256": "3fce4cc2ade267cfaefac49665ecd1c8b773045d8be8e5656e528329b51f8b57"
+    },
+    "coverage_note": "existing CPU audit receipt + all Full manifest/payload/source SHA and metadata; no full Tensor reload / ranking recomputation",
+    "protection_index_note": "完整索引补入后读取的launch_sources.sha256；21335份原来源文件stat复核不变。旧派生索引保留。",
+    "source_protection_index_entries": 21335,
+    "extractor_log_counter_note": "最后日志21336包含新生成的保护索引自身；原来源文件数量为21335。",
+    "no_anomaly_found_in_authorized_checks": true,
+    "CSV_final_readback_12_rows_48_values": "PASS",
+    "CSV_and_Markdown_order_exact": "PASS",
+    "all_21335_sources_stat_rechecked_after_report_generation": true,
+    "v1_FAIL_13_files_SHA_stat_unchanged": true
+  },
+  "comparison_descriptive_only": {
+    "irra": {
+      "SGA_Joint_minus_our_Joint_pp": {
+        "R@1": -23.83040976524353,
+        "mAP": -21.2677104473114
+      },
+      "SGA_Matched_Clean_minus_SGA_Joint_pp": {
+        "R@1": 66.7154004573822,
+        "mAP": 60.726879835128784
+      },
+      "SGA_ImageOnly_minus_SGA_Joint_mAP_pp": 1.9798848628997803
+    },
+    "rasa": {
+      "SGA_Joint_minus_our_Joint_pp": {
+        "R@1": 16.26055908203125,
+        "mAP": 18.433940887451172
+      },
+      "SGA_Matched_Clean_minus_SGA_Joint_pp": {
+        "R@1": 35.31513977050781,
+        "mAP": 31.81523895263672
+      },
+      "SGA_ImageOnly_minus_SGA_Joint_mAP_pp": 18.153770446777344
+    },
+    "aptm": {
+      "SGA_Joint_minus_our_Joint_pp": {
+        "R@1": 3.7686843872070312,
+        "mAP": 7.101287841796875
+      },
+      "SGA_Matched_Clean_minus_SGA_Joint_pp": {
+        "R@1": 30.961658477783203,
+        "mAP": 25.785785675048828
+      },
+      "SGA_ImageOnly_minus_SGA_Joint_mAP_pp": 16.389801025390625
+    }
+  },
+  "table_rows_2dp": [
+    {
+      "Target Model": "IRRA",
+      "Attack Method": "Clean",
+      "R@1": "69.41",
+      "R@5": "87.23",
+      "R@10": "92.02",
+      "mAP": "63.01"
+    },
+    {
+      "Target Model": "IRRA",
+      "Attack Method": "SGA Image-only",
+      "R@1": "5.52",
+      "R@5": "13.71",
+      "R@10": "19.61",
+      "mAP": "4.27"
+    },
+    {
+      "Target Model": "IRRA",
+      "Attack Method": "SGA Text-only",
+      "R@1": "44.96",
+      "R@5": "67.41",
+      "R@10": "77.47",
+      "mAP": "42.80"
+    },
+    {
+      "Target Model": "IRRA",
+      "Attack Method": "SGA Joint",
+      "R@1": "2.70",
+      "R@5": "7.57",
+      "R@10": "11.65",
+      "mAP": "2.29"
+    },
+    {
+      "Target Model": "RaSa",
+      "Attack Method": "Clean",
+      "R@1": "74.45",
+      "R@5": "89.23",
+      "R@10": "93.26",
+      "mAP": "67.45"
+    },
+    {
+      "Target Model": "RaSa",
+      "Attack Method": "SGA Image-only",
+      "R@1": "59.93",
+      "R@5": "79.37",
+      "R@10": "85.59",
+      "mAP": "53.79"
+    },
+    {
+      "Target Model": "RaSa",
+      "Attack Method": "SGA Text-only",
+      "R@1": "53.25",
+      "R@5": "73.21",
+      "R@10": "80.46",
+      "mAP": "49.15"
+    },
+    {
+      "Target Model": "RaSa",
+      "Attack Method": "SGA Joint",
+      "R@1": "39.13",
+      "R@5": "60.38",
+      "R@10": "69.48",
+      "mAP": "35.64"
+    },
+    {
+      "Target Model": "APTM",
+      "Attack Method": "Clean",
+      "R@1": "73.55",
+      "R@5": "88.82",
+      "R@10": "92.84",
+      "mAP": "63.38"
+    },
+    {
+      "Target Model": "APTM",
+      "Attack Method": "SGA Image-only",
+      "R@1": "62.82",
+      "R@5": "81.08",
+      "R@10": "87.10",
+      "mAP": "53.98"
+    },
+    {
+      "Target Model": "APTM",
+      "Attack Method": "SGA Text-only",
+      "R@1": "54.21",
+      "R@5": "74.64",
+      "R@10": "81.82",
+      "mAP": "47.51"
+    },
+    {
+      "Target Model": "APTM",
+      "Attack Method": "SGA Joint",
+      "R@1": "42.59",
+      "R@5": "63.78",
+      "R@10": "72.66",
+      "mAP": "37.59"
+    }
+  ],
+  "raw_precision_metrics": {
+    "IRRA": {
+      "Clean": {
+        "R@1": 69.41195678710938,
+        "R@10": 92.02404022216797,
+        "R@5": 87.23197174072266,
+        "mAP": 63.01239013671875
+      },
+      "Image-only": {
+        "R@1": 5.523066997528076,
+        "R@10": 19.606887817382812,
+        "R@5": 13.710201263427734,
+        "mAP": 4.265395164489746
+      },
+      "Joint": {
+        "R@1": 2.696556329727173,
+        "R@10": 11.647173881530762,
+        "R@5": 7.569850444793701,
+        "mAP": 2.285510301589966
+      },
+      "Text-only": {
+        "R@1": 44.964263916015625,
+        "R@10": 77.46913146972656,
+        "R@5": 67.41390228271484,
+        "mAP": 42.801090240478516
+      }
+    },
+    "RaSa": {
+      "Clean": {
+        "R@1": 74.44769287109375,
+        "R@10": 93.25860595703125,
+        "R@5": 89.23001861572266,
+        "mAP": 67.4518051147461
+      },
+      "Image-only": {
+        "R@1": 59.92527770996094,
+        "R@10": 85.59129333496094,
+        "R@5": 79.36972045898438,
+        "mAP": 53.79033660888672
+      },
+      "Joint": {
+        "R@1": 39.13255310058594,
+        "R@10": 69.4769287109375,
+        "R@5": 60.38011932373047,
+        "mAP": 35.636566162109375
+      },
+      "Text-only": {
+        "R@1": 53.248863220214844,
+        "R@10": 80.45808410644531,
+        "R@5": 73.21312713623047,
+        "mAP": 49.154090881347656
+      }
+    },
+    "APTM": {
+      "Clean": {
+        "R@1": 73.55425262451172,
+        "R@10": 92.83625793457031,
+        "R@5": 88.82391357421875,
+        "mAP": 63.37741470336914
+      },
+      "Image-only": {
+        "R@1": 62.81676483154297,
+        "R@10": 87.10201263427734,
+        "R@5": 81.07537841796875,
+        "mAP": 53.98143005371094
+      },
+      "Joint": {
+        "R@1": 42.592594146728516,
+        "R@10": 72.66082000732422,
+        "R@5": 63.775177001953125,
+        "mAP": 37.59162902832031
+      },
+      "Text-only": {
+        "R@1": 54.207275390625,
+        "R@10": 81.8226089477539,
+        "R@5": 74.64262390136719,
+        "mAP": 47.50579833984375
+      }
+    }
+  },
+  "verification_script": {
+    "path": "/home/lzf/ldx/tmp/sga_official_irra_full_readonly_extract_20261019.py",
+    "sha256": "41819324d3b4e3b00814fdd5c6daba3d998c34faa0d31b9033d575e29918cbf5"
+  },
+  "report_scope": "官方SGA算法在IRRA Source上的任务移植；非原论文ALBEF设置完全复现，非旧SGA-TBPS White-box",
+  "excluded_sources": [
+    "Smoke metrics",
+    "SGA-TBPS White-box metrics"
+  ],
+  "launch_source_SHA_verified": [
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-sga-full-launch-fix-20261019/src/tbps/baselines/run_sga_irra_full.sh",
+      "sha256": "9a777632449daba1909017bbe2de5494c1fcb3420b045b36818ccd3a4d9ef577"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-sga-full-launch-fix-20261019/src/tbps/baselines/sga_full_execution.py",
+      "sha256": "6abc8d937f68317006881834df2f3c606af193935a5d1537b57dd2d520dd5a92"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-sga-irra-source-20261019/configs/framework/sga_irra_source.full.server.json",
+      "sha256": "262be4e9a2f958ae6458540a5df3c02433f7f0e9f035b264f6452f6654eebb46"
+    }
+  ],
+  "execution_worktree_unmodified": true
+}

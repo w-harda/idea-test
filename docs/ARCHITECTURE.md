@@ -261,3 +261,7 @@ Full仍复用原EvaluationEngine/原生融合Scorer。固定两图Smoke另用限
 ## SGA官方Batch8容量与Full执行管理（不改攻击）
 
 sga_batch8_capacity只在独立作用域限定Dataset为官方前8图/全部Caption，委托冻结source_run；新输出tbps-framework-sga-irra-capacity不污染Full。原算法/Full源码和配置不改。run_sga_irra_full.sh及sga_full_execution只增加一次性监督、PID/PGID/phase与编码标量进度，委托原Source/Target/Audit，不改原生评分。容量实测PASS，后台全链仅CPU Fixture验证；Full未启动。见framework/SGA_BATCH8_CAPACITY.md。
+
+## 官方SGA / IRRA Source Full实际验收完成
+
+此前“Full未启动”均为阶段快照。正式Full现已完成：唯一Source调用官方SGA原三阶段，3074/6156冻结产物给三种原生Target，不复用跨模型Embedding或目标反馈；所有阶段与独立CPU审计PASS。最终结果及SHA见results/sga_official_irra_full_20261019/SGA_OFFICIAL_IRRA_FULL_REPORT.md。本轮只追加派生结果与索引，没有改架构、攻击或评估算法。Matched Clean与主方法Raw Clean及其他预算/权限差异继续分协议报告。

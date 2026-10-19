@@ -352,3 +352,11 @@ Full仅CPU预检3074/6156通过；未授权或执行Full。当前主方法仍G-v
 v1控制目录/home/lzf/ldx/tmp/sga_official_irra_full_v1/，CPU预检PASS后df不存在路径失败，Source/Target均未执行，正式Full输出无。全部13个证据文件保留，不能改签成功。v2仅修Bash父目录检查、独立ROOT/CONTROL；8项CPU测试PASS，算法/模型/配置字节不改；实际启动核验见framework/SGA_FULL_LAUNCH_V2.md，不能把启动成功当成Full完成。
 
 v2实际启动核验（2026-10-19 00:51:54 +08:00）：修复代码f8d3431b4f51d4fb117cf031f6d827bb89fab69c，独立nohup/setsid监督器PID/PGID/SID=3001120、PPID1/无TTY。CPU预检PASS，当前RUNNING_SOURCE、IRRA初始化已有日志；尚非Full完成。资源及startup_verified证据路径见SGA_FULL_LAUNCH_V2.md。v1十三文件保护未变。Codex未持续监控。
+
+## 官方SGA算法（IRRA Source）三模型正式Full与独立CPU审计完成（2026-10-19）
+
+执行f8d3431b4f51d4fb117cf031f6d827bb89fab69c，官方算法f49e6926…，唯一IRRA源。385批/3074图/6156句一次生成，IRRA同源及RaSa/APTM同产物迁移。四种模式Clean（Matched）/SGA Image-only/SGA Text-only/SGA Joint；Joint R@1/mAP分别2.70/2.29、39.13/35.64、42.59/37.59。不要与旧SGA-TBPS White-box表混用。
+
+Source/三Target/CPU审计PASS，v2最终SUCCESS标志及phase=SUCCESS；00:51:36→06:07:53，共18977秒。所有模型冻结，Target source_regeneration0，6145最终词替换/11NOOP均保留。FP32边界通过但不宣称严格数学2/255上界通过，已批准约2.93e-8舍入语义。
+
+[正式报告](framework/results/sga_official_irra_full_20261019/SGA_OFFICIAL_IRRA_FULL_REPORT.md)，同目录SGA_OFFICIAL_IRRA_FULL_METRICS_2DP.csv和SGA_OFFICIAL_IRRA_FULL_EVIDENCE.json。本轮只读核验4647产物、21335来源、48数值与官方身份及共享内容，无新GPU/Tensor/模型/排名。与历史G-v2+H-v1 Joint只作跨协议描述性比较。v1 FAIL/旧Smoke/白盒/全部历史结果原样保留。

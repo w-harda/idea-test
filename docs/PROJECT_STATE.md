@@ -2,13 +2,19 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：官方SGA Full v2已独立后台启动，RUNNING_SOURCE（未完成）
+## 当前阶段：官方SGA（IRRA Source）三模型Full完成，独立CPU审计PASS，结果只读汇总完成
 
-用户已明确授权验证后直接启动v2。独立分支codex/tbps-sga-full-launch-fix，基准4363e3afebab4eadfeaa9652bfd9d5e50bfcb891；原工作树保持不变。
+正式执行Commit f8d3431b4f51d4fb117cf031f6d827bb89fab69c，启动登记3caacf0ac124ac532febb587a290721c2d4d6608。独立结果分支codex/tbps-sga-official-full-results，基准3caacf0；报告提交SHA由后续文档提交登记。
 
-v1在CPU预检PASS后因df对不存在的full/..解析失败退出，Source生成0、正式输出无；13份失败文件完整保留。仅修三处df父目录路径及ROOT/CONTROL，v2控制目录隔离，Full输出与算法/模型/配置/预算不变。8项CPU测试、真实df三项回归、bash -n、diff --check通过；其他src/configs逐字节exact。没有重复GPU Smoke或Batch8。
+2026-10-19 00:51:36至06:07:53 +08:00，总计5小时16分17秒；Source、IRRA、RaSa、APTM及独立CPU审计均PASS，控制目录v2 phase=SUCCESS，最终SGA_OFFICIAL_IRRA_SOURCE_THREE_TARGET_FULL_AND_CPU_AUDIT标志存在。原v1路径检查FAIL及所有旧实验保留，不回填成功。
 
-修复Commit f8d3431b4f51d4fb117cf031f6d827bb89fab69c。2026-10-19 00:51:36 +08:00启动v2；00:51:42 CPU Preflight PASS并进入RUNNING_SOURCE，00:51:54核验PID/PGID/SID=3001120、PPID=1、无TTY，Source日志出现IRRA初始化。即时GPU空闲24051MiB、RAM119788152KiB、磁盘6414560399360bytes，均满足条件。启动证据/home/lzf/ldx/tmp/sga_official_irra_full_v2/startup_verified.json；v1全部13文件SHA/stat不变。仅确认启动，不宣称Full完成，Codex不持续监控。见[修复与执行记录](framework/SGA_FULL_LAUNCH_V2.md)。不自动重试、修改算法或终止其他进程。
+唯一IRRA Source使用固定官方SGA f49e6926…完整三阶段、2/255、10轮、0.5/255、batch8/seed42/五尺度；385批覆盖3074图/6156句。三个Target绑定同一冻结图文内容，不重新攻击、不用RaSa/APTM反馈；参数buffers前后exact。6145句词替换、11句NOOP全部保留。官方FP32边界通过，实数舍入高出2/255约2.93348e-8，不声称严格数学上界通过。
+
+主要SGA Joint R@1/mAP：IRRA 2.70/2.29、RaSa 39.13/35.64、APTM 42.59/37.59；来自正式Full，非Smoke/旧白盒。SGA同源最终指标低于历史G-v2+H-v1 Joint；历史主方法在RaSa/APTM迁移最终指标更低。Matched Clean/Raw Clean、2/255与8/255、MLM词替换/Unicode字符、Test配对权限及推理成本不同，不作严格公平优劣结论，不用Raw Clean计算SGA下降率。
+
+[正式报告与论文CSV](framework/results/sga_official_irra_full_20261019/SGA_OFFICIAL_IRRA_FULL_REPORT.md)，同目录两位小数CSV、原始精度及来源SHA证据JSON。方法顺序Clean→SGA Image-only→SGA Text-only→SGA Joint；模型IRRA→RaSa→APTM；仅R@1/5/10/mAP。
+
+本轮标准库只读核验4647份产物Manifest/回执及声明文件SHA、21335份来源stat、完整官方身份/顺序/Claim、共享Adv内容和48项CSV/summary数值。原独立CPU审计已执行并核实，本轮不重跑审计、Tensor/模型加载、GPU、攻击或Full排名。完整来源保护索引仅留服务器tmp，原实验文件未改。完成后停止，不自动开始VLPTAttack。
 
 ## 已完成：官方SGA Batch8容量测试PASS与Full后台入口准备
 
