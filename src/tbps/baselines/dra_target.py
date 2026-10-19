@@ -59,7 +59,7 @@ class EightGalleryEngine(EvaluationEngine):
 
 def evaluate(c,model):
     source,col,manifest=source_inputs(c)
-    root=Path(c["output_base"])/"smoke"/model
+    root=Path(c["output_base"])/"smoke"/c.get("target_output_names",{}).get(model,model)
     need(not root.exists(),"existing Target Attempt; no retry/overwrite")
     from tbps.baselines.dra_irra import resources
     snapshot=resources(c)
@@ -74,7 +74,8 @@ def evaluate(c,model):
             report["target_loads"]=1;before=model_snapshot(backend)
             protocol={"schema":"tbps-materialized-irra-cache-1" if model=="irra" else "tbps-DRA-native-target-1",
                 "model_space":asdict(adapter.space),"manifest":asdict(manifest),
-                "source_collection":asdict(ref(source.root/"completed/manifest.json")),"target_feedback":False}
+                "source_collection":asdict(ref(source.root/"completed/manifest.json")),"target_feedback":False,
+                "G_H_generation":False,"ranking_feedback_to_attack":False}
             store.publish("protocol",{"protocol.json":json_bytes(protocol)},{"kind":"DRA_native_target"},
                 sources=(checkpoint,ref(c["path"]),ref(source.root/"completed/manifest.json")))
             if model=="irra":cache=FeatureCache(store,protocol,adapter.space,chunk=16)
@@ -142,7 +143,7 @@ def audit(c):
     verify_official(c);source,col,m=source_inputs(c)
     base=Path(c["output_base"])/"smoke"
     for name in ("source","irra","rasa","aptm"):
-        store=ArtifactStore(base/name,new_base=c["output_base"])
+        store=ArtifactStore(base/(name if name=="source" else c.get("target_output_names",{}).get(name,name)),new_base=c["output_base"])
         need(not store.pending(),"pending publication")
         for file in store.root.glob("*/manifest.json"):store.verify(file.parent.name)
         report=read_json(store.root/"execution/report.json")
@@ -169,7 +170,7 @@ def audit(c):
             bridge_count+=1
     source_refs=[]
     for name in ("irra","rasa","aptm"):
-        root=base/name;s=read_json(root/"completed/summary.json")
+        root=base/c.get("target_output_names",{}).get(name,name);s=read_json(root/"completed/summary.json")
         protocol=read_json(root/"protocol/protocol.json")
         need(protocol["source_collection"]==asdict(ref(source.root/"completed/manifest.json")) and
              protocol["manifest"]==json.loads(json_bytes(asdict(m))) and protocol["target_feedback"] is False,"same frozen input source")

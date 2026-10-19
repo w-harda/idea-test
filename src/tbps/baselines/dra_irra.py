@@ -38,6 +38,7 @@ def configuration(path):
     c=read_json(path,"tbps-dra-irra-source-1")
     need(c["parameters"]==PARAMETERS and c["source_model"]=="irra","fixed official DRA actual settings")
     verify_official(c)
+    if "source_config_ref" in c:checked(FileRef(**c["source_config_ref"]))
     for file,h in c["producers"].items():checked(FileRef(file,h))
     for file,h in c["bert_files"].items():checked(FileRef(str(Path(c["bert"])/file),h))
     c["path"]=str(Path(path).resolve())

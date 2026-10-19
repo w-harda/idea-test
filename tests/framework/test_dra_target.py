@@ -12,7 +12,7 @@ from tbps.baselines.dra_target import rank_function,smoke_metrics,EightGalleryEn
 class TargetTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.config=configuration(Path(__file__).parents[2]/"configs/framework/dra_irra_source.smoke_v3.server.json")
+        cls.config=configuration(Path(__file__).parents[2]/"configs/framework/dra_irra_targets.server.json")
         _,_,cls.manifest=ordered_dataset(cls.config,"smoke");cls.rank=staticmethod(rank_function(cls.config))
     def test_native_rank_with_all_positives(self):
         m=self.manifest;x=torch.zeros(16,8)
@@ -32,4 +32,19 @@ class TargetTests(unittest.TestCase):
     def test_engine_full_gate_unchanged(self):
         p=Path(__file__).parents[2]/"src/tbps/engines/metrics.py"
         self.assertIn("R@10 requires at least 10 Gallery members",p.read_text())
+    def test_real_native_cached_session_required_flags(self):
+        import tempfile
+        from dataclasses import asdict
+        from tbps.artifacts import ArtifactStore,FileRef,json_bytes
+        from tbps.models.base import ModelSpace
+        from tbps.engines.materialized_cache import CachedIRRA,ref
+        old=Path("/home/lzf/ldx/outputs/tbps-framework-vlpt-irra-source-v3/smoke/irra/protocol/protocol.json")
+        session=read_json(old)
+        checkpoint=FileRef(**self.config["irra"]["checkpoint"]);space=ModelSpace(**session["model_space"])
+        with tempfile.TemporaryDirectory() as temp:
+            base=Path(temp)/"tbps-framework-fixture";store=ArtifactStore(base/"native",new_base=base)
+            session.update(G_H_generation=False,ranking_feedback_to_attack=False)
+            store.publish("protocol",{"protocol.json":json_bytes(session)},{"kind":"fixture"},sources=(checkpoint,))
+            scorer=CachedIRRA(space,checkpoint,cache_protocol=ref(store.root/"protocol/manifest.json"))
+            self.assertTrue(scorer.source_verified)
 if __name__=="__main__":unittest.main()
