@@ -172,7 +172,7 @@ def audit(c):
         root=base/name;s=read_json(root/"completed/summary.json")
         protocol=read_json(root/"protocol/protocol.json")
         need(protocol["source_collection"]==asdict(ref(source.root/"completed/manifest.json")) and
-             protocol["manifest"]==asdict(m) and protocol["target_feedback"] is False,"same frozen input source")
+             protocol["manifest"]==json.loads(json_bytes(asdict(m))) and protocol["target_feedback"] is False,"same frozen input source")
         scores=torch.load(root/"completed/scores.pt",map_location="cpu",weights_only=True)
         for mode in MODES:
             val,_=smoke_metrics(scores[mode].detach().clone(),m,rank_function(c))

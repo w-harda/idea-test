@@ -139,10 +139,17 @@ def source_run(path):
             md={"gallery_ids":[g.image_id for g in gallery],"query_ids":[q.query_id for q in queries],"txt2img":mapping,
                 "clean_texts":texts,"adv_texts":adv_texts,"T1":actual["T1"],"flow":actual,"budget":check,
                 "seconds":attack_seconds,"official_image_seconds":official_image_seconds,
-                "edits":[{"query_id":q.query_id,"before":old,"after":new,
-                    "changed_positions":[i for i,(a,b) in enumerate(zip(old.split(" "),new.split(" "))) if a!=b],
-                    "NOOP":old==new} for q,old,new in zip(queries,texts,adv_texts)]}
-            need(all(len(e["before"].split(" "))==len(e["after"].split(" ")) and len(e["changed_positions"])<=1 for e in md["edits"]),"official final one-word budget")
+                "edits":[]}
+            actions=[r for r in actual["text_actions"] if r["stage"]==2]
+            need([r["query_local_index"] for r in actions]==list(range(len(queries))),"official final action order")
+            for q,old,new,action in zip(queries,texts,adv_texts,actions):
+                before_slots=action["original_word_slots"];after_slots=action["final_word_slots"]
+                changed=[i for i,(a,b) in enumerate(zip(before_slots,after_slots)) if a!=b]
+                need(" ".join(before_slots)==old and " ".join(after_slots)==new and len(before_slots)==len(after_slots)
+                     and len(changed)==action["official_change_count"]<=1,"official original-word-slot budget")
+                md["edits"].append({"query_id":q.query_id,"before":old,"after":new,"changed_positions":changed,
+                    "official_change_count":action["official_change_count"],"original_word_slots":before_slots,
+                    "final_word_slots":after_slots,"space_word_count_delta":len(new.split(" "))-len(old.split(" ")),"NOOP":old==new})
             save_pixels(store,"batch-000000",cpu,md,(ref(root/"protocol/manifest.json"),ref(root/"claim-batch-000000/manifest.json")))
             source.zero_grad(set_to_none=True)
             source.backend.requires_grad_(False)

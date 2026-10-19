@@ -89,12 +89,13 @@ class PassiveTrace:
                         self.lines[part.lineno]="backward"
                     if isinstance(part,ast.Assign):
                         names=[t.id for t in part.targets if isinstance(t,ast.Name)]
-                        
+
                         if "perturbation" in names:self.lines[part.lineno]="gradient"
         for i,line in enumerate(Path(path).read_text().splitlines(),1):
             if "ratio_list.append(" in line:self.lines[i]="selected_ratio"
+            if "final_adverse.append(" in line:self.lines[i]="text_action"
         self.counts=Counter();self.events=[];self.text_stage=0;self.T1=None
-        self.selected=[];self.gradient_finite=True;self.gradient_norms=[]
+        self.selected=[];self.text_actions=[];self.gradient_finite=True;self.gradient_norms=[]
     def __call__(self,frame,event,arg):
         if str(Path(frame.f_code.co_filename).resolve())!=self.path:
             return None
@@ -118,7 +119,13 @@ class PassiveTrace:
                 self.write({"event":"image","T1":self.T1})
         elif event=="line":
             kind=self.lines.get(frame.f_lineno)
-            if kind=="backward":self.counts["backward"]+=1
+            if kind=="text_action" and name=="img_guided_attack":
+                loc=frame.f_locals
+                row={"event":"text_action","stage":self.text_stage,"query_local_index":int(loc["i"]),
+                     "official_change_count":int(loc["change"]),"original_word_slots":list(loc["words"]),
+                     "final_word_slots":list(loc["final_words"])}
+                self.text_actions.append(row);self.write(row)
+            elif kind=="backward":self.counts["backward"]+=1
             elif kind=="gradient" and "grad" in frame.f_locals:
                 import torch
                 grad=frame.f_locals["grad"]
@@ -150,6 +157,6 @@ class PassiveTrace:
             sys.settrace(None)
             need(sha_file(self.path)==before,"official source changed")
     def report(self):
-        return {"events":self.events,"counts":dict(self.counts),"selected_ratios":self.selected,
+        return {"events":self.events,"counts":dict(self.counts),"selected_ratios":self.selected,"text_actions":self.text_actions,
                 "all_image_gradients_finite":self.gradient_finite,"gradient_norms":self.gradient_norms,"T1":self.T1,
                 "observer":"passive sys.settrace; no monkey patch"}

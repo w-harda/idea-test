@@ -1,0 +1,310 @@
+{
+  "schema": "tbps-dra-irra-source-1",
+  "source_model": "irra",
+  "official_commit": "91f78325e7cf0c497c9bbb5be2215be652d8cd9d",
+  "official_root": "/home/lzf/ldx/projects/VLPTransferAttack-official",
+  "official": {
+    "attacker": {
+      "path": "/home/lzf/ldx/projects/VLPTransferAttack-official/RAttacker.py",
+      "sha256": "75518cb9465d9f8e994ea2f59c86b89fd4c39e3fe74f66b7a1d0a090eec2d313"
+    },
+    "tokenizer": {
+      "path": "/home/lzf/ldx/projects/VLPTransferAttack-official/models/tokenization_bert.py",
+      "sha256": "7723a9acc1a44bfe0eb435cb9d49a36677700e87cf572e7347329763c41cdfbf"
+    },
+    "dataset": {
+      "path": "/home/lzf/ldx/projects/VLPTransferAttack-official/dataset.py",
+      "sha256": "97ba35875f7b5801b958271133bee2eb67057eadd0a6923a4cd4511b25f5a07b"
+    }
+  },
+  "official_files": {
+    "/home/lzf/ldx/projects/VLPTransferAttack-official/RAttacker.py": "75518cb9465d9f8e994ea2f59c86b89fd4c39e3fe74f66b7a1d0a090eec2d313",
+    "/home/lzf/ldx/projects/VLPTransferAttack-official/README.md": "d778c70fe3d1f7447640f2348a78dde8233982e3c9d98c36cdaf5ed23d3604a4",
+    "/home/lzf/ldx/projects/VLPTransferAttack-official/configs/Retrieval_coco.yaml": "37b2cc0c5965e44e9daf2c74e82e300ea68daf45da3056333a7939540406f870",
+    "/home/lzf/ldx/projects/VLPTransferAttack-official/configs/Retrieval_flickr.yaml": "1b72a2b7c8a02991bee77e64f8c872fd999c4742b0936fa4ed9d8762a5e220aa",
+    "/home/lzf/ldx/projects/VLPTransferAttack-official/configs/VE.yaml": "6bb5e458b28d38ade9358225874c6f08a6e7f9d658ca2aebb6972898a3198751",
+    "/home/lzf/ldx/projects/VLPTransferAttack-official/configs/config_bert.json": "9889156dd010b7c60ad36990428ce30ac3d6446ec838b496524c62bca35d44ed",
+    "/home/lzf/ldx/projects/VLPTransferAttack-official/eval.py": "ed8e1f4501e35b03fa55a1a8bd1b2ace69e86ce885610f5fff8eaa4358c46cfb",
+    "/home/lzf/ldx/projects/VLPTransferAttack-official/models/__init__.py": "aaed38935279678a5d7626361f449cd0e4f950846c2e596aa47bd5a4c364f12f",
+    "/home/lzf/ldx/projects/VLPTransferAttack-official/models/clip_model/clip.py": "f6a01a95931bdf6d89fbb81bd1ccaf4c7bc7c833cc68f674cbab0b90f28f0895",
+    "/home/lzf/ldx/projects/VLPTransferAttack-official/models/clip_model/model.py": "fdee6baa5df31d5efe33aea0e11ba605a1a48067bb1e82f856baa4fd47b240aa",
+    "/home/lzf/ldx/projects/VLPTransferAttack-official/models/clip_model/simple_tokenizer.py": "acf0cda10cad73193af7a0d7184364cca3139b7de464f163fd4953bf2648c608",
+    "/home/lzf/ldx/projects/VLPTransferAttack-official/models/model_pretrain.py": "477cf4ea4fb79c175a8777f39d9f8778bb8742b91c5ac2974812a06f81bd4632",
+    "/home/lzf/ldx/projects/VLPTransferAttack-official/models/model_retrieval.py": "eb9bfcdbfbc03b810c7f41a16c0030f43fc0d18c04b3d34e874d0816e8c60984",
+    "/home/lzf/ldx/projects/VLPTransferAttack-official/models/model_ve.py": "56368c24ef61138fc000f41b3a5a6f83ad23504ad6e1f1655de426c6762bfb7f",
+    "/home/lzf/ldx/projects/VLPTransferAttack-official/models/tokenization_bert.py": "7723a9acc1a44bfe0eb435cb9d49a36677700e87cf572e7347329763c41cdfbf",
+    "/home/lzf/ldx/projects/VLPTransferAttack-official/models/vit.py": "35a5b704f731468563b51a2b2899e1f2b8169aec83b3c4f7009861b37794c1bf",
+    "/home/lzf/ldx/projects/VLPTransferAttack-official/models/xbert.py": "4a023085d857af9af899db2ec97b4ba41074af3664726f4841c16d7e0c1e327f",
+    "/home/lzf/ldx/projects/VLPTransferAttack-official/requirements.txt": "875f988b0ce62974c94ed206f3fd785ffe2d08ac4e3b99dddbccc99f7ae0251e"
+  },
+  "annotation": {
+    "path": "/home/lzf/TBPS/Datasets/CUHK-PEDES/reid_raw.json",
+    "sha256": "fc3d15542f91dd70e23028c2cb40171a8f41734a39afddb9505e352e396cabf0"
+  },
+  "image_root": "/home/lzf/TBPS/Datasets/CUHK-PEDES/imgs",
+  "irra": {
+    "root": "/home/lzf/Attack/IRRA-main/IRRA-main",
+    "checkpoint": {
+      "path": "/home/lzf/Attack/IRRA/logs/CUHK-PEDES/best.pth",
+      "sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+    },
+    "config": {
+      "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/configs/irra_cuhk_official.yaml",
+      "sha256": "8a9c1921ebcf93babcfdc07d35525a8d13572aeebdec5605e390289c536c5175"
+    },
+    "clip_bootstrap": {
+      "path": "/home/lzf/ldx/cache/clip/ViT-B-16.pt",
+      "sha256": "5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f"
+    },
+    "bpe": {
+      "path": "/home/lzf/Attack/IRRA-main/IRRA-main/data/bpe_simple_vocab_16e6.txt.gz",
+      "sha256": "924691ac288e54409236115652ad4aa250f48203de50a9e4722a6ecd48d6804a"
+    },
+    "code": {
+      "datasets/__init__.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/__init__.py",
+        "sha256": "fee17e0309d1d428593ce4f4426c7de36317e54d5df2ea4d9fcdd4d5fd5a0aa0"
+      },
+      "datasets/bases.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/bases.py",
+        "sha256": "8e1fc03ea1f32629f209a2c4fabd1c65b8e9162c0323c4092b15f68dd8c7b2b6"
+      },
+      "datasets/build.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/build.py",
+        "sha256": "e99987047a9ba7e396c8fd9ac23da797f01b09f517bec03d7fb1016a5eb477b6"
+      },
+      "datasets/cuhkpedes.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/cuhkpedes.py",
+        "sha256": "5110b7102d0a95dc6818808eacc0c6d5a9eb7e0c18429a533bcb4bf72a95c386"
+      },
+      "datasets/icfgpedes.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/icfgpedes.py",
+        "sha256": "89ba2acb1dad4779ba27f191f6046d5f245b1cc134d5a104b1c6feae48df7862"
+      },
+      "datasets/preprocessing.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/preprocessing.py",
+        "sha256": "624c28b443e7173ddf2ea1eb2c1b7e2ebc609978a33152d222cc59b0be41009d"
+      },
+      "datasets/rstpreid.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/rstpreid.py",
+        "sha256": "369d398b0e2123b268c71b8e9f826e36d84c05c182adf2230b79c97e349fbe9d"
+      },
+      "datasets/sampler.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/sampler.py",
+        "sha256": "d95ee53f729f14b8ec0cbd259a32c50f8b0fe171dba4e14443f2995890c54157"
+      },
+      "datasets/sampler_ddp.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/sampler_ddp.py",
+        "sha256": "da5ad1e918680d477aa66afa1b447b3a2642ab7396b96f4839ff09c88a445ba0"
+      },
+      "model/__init__.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/model/__init__.py",
+        "sha256": "0d8e897820044d180f6af594df5f58666d3ba42737afb6f54ecfeaa411f394d4"
+      },
+      "model/build.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/model/build.py",
+        "sha256": "bb8176ab1fc6a88cb49d0cbd8317b1c1aa6ebd4f035988170d60508f5df508b2"
+      },
+      "model/clip_model.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/model/clip_model.py",
+        "sha256": "81f9553ff6d4c6a96bcdb1e41451694aab0c208ad84865ac344ef6b6bbd002a9"
+      },
+      "model/objectives.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/model/objectives.py",
+        "sha256": "41c7a683e3e52e60257e4f0b2a780240d567d9cac826d879e70b1c9f0213e283"
+      },
+      "processor/__init__.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/processor/__init__.py",
+        "sha256": "dc9ad41ea468de419d5f33b6dd86b1599bfc924a33f59af8383c46c7191c896c"
+      },
+      "processor/processor.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/processor/processor.py",
+        "sha256": "0197dba7fb3268231d48c1adffbb0aaf9edd1554e06ee046bfed998fe92b8c31"
+      },
+      "solver/__init__.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/solver/__init__.py",
+        "sha256": "f142c1367f436894f4bd5b2b24f9e64fa0d4372c171c8d410b957a74f52749a8"
+      },
+      "solver/build.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/solver/build.py",
+        "sha256": "387a5d305df40d5a25fab7e2391638bad5f87633aead5f9df30011f1e2c323bd"
+      },
+      "solver/lr_scheduler.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/solver/lr_scheduler.py",
+        "sha256": "5f89bb63533ebeabcc038ee49f88efe721e7c4c4521f47b54edd348aeb43bb77"
+      },
+      "test.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/test.py",
+        "sha256": "c217136f2b036039c81b6d8b766359265151d78c27be2928111dc5f9ca6a3959"
+      },
+      "train.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/train.py",
+        "sha256": "e77e47b4b029906b823f4c579351e9259ba969bbe0d8936ea303da1f38af5677"
+      },
+      "utils/__init__.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "utils/checkpoint.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/checkpoint.py",
+        "sha256": "fdd2821d894b853ac319d6c2370919918c13c314d171e7ab0d366ea181bfdb44"
+      },
+      "utils/comm.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/comm.py",
+        "sha256": "05f7ec76fa049d0ca57a90f028471e2a18203e32f2ab28f9448e7fb89dd34b4e"
+      },
+      "utils/iotools.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/iotools.py",
+        "sha256": "13260ab0306929ddcf10a6a209f792b3499590d9e20c785c4eee62d1b3c12c3c"
+      },
+      "utils/logger.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/logger.py",
+        "sha256": "14afe54df8c16abe73d455c786f63999b64c9fe407909b2f00c5f7f91da0f131"
+      },
+      "utils/meter.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/meter.py",
+        "sha256": "0245aa40c9a6ade9a9ac0a0f882d1a1d7b06260c667ea43e2ecb3ba846311796"
+      },
+      "utils/metrics.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/metrics.py",
+        "sha256": "94910252a9e42f0820d49c11203b31d3b67951f58624f66abff4bf662500d5fb"
+      },
+      "utils/options.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/options.py",
+        "sha256": "72b75fec88278c951eea900ede5a9f98514546dbe7afa3f88867b692127d2220"
+      },
+      "utils/simple_tokenizer.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/simple_tokenizer.py",
+        "sha256": "19b06ade7532bcff961c4b90590197fcac0d466f08d0b6b801d3d19a36568d67"
+      },
+      "visualize.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/visualize.py",
+        "sha256": "8692cbcf59c7c8ee3b165a6295ae128bf109f2fe60b5fd10fae773eb8975c05d"
+      }
+    },
+    "weight_training_dataset": "CUHK-PEDES official train"
+  },
+  "dataset_sources": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4c2-20261017/configs/framework/stage2_sources.server.json",
+    "sha256": "9f2da834669c7a1902b3fa9570ce8ab1a2844483ddbfb6e75bb3221a02acf73e"
+  },
+  "victim_sources": {
+    "rasa": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-rasa-materialized-eval-20261017/configs/framework/rasa_sources.server.json",
+      "sha256": "af9f55b0abf3ea878a434f07e423d2db95b053577e519bc864dceee211e3ab79"
+    },
+    "aptm": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-aptm-materialized-eval-20261018/configs/framework/aptm_sources.server.json",
+      "sha256": "812ca6c763d33de595796587ff7102433613d18230b6f56d9c677e6c2ec1812f"
+    }
+  },
+  "bert": "/home/lzf/.cache/huggingface/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594",
+  "output_base": "/home/lzf/ldx/outputs/tbps-framework-vlpt-irra-source-v3",
+  "minimum_free_mib": 20480,
+  "gpu_policy": "shared_observe_only",
+  "source_python": "/home/lzf/ldx/envs/dra-irra-source/bin/python",
+  "target_python": "/home/lzf/ldx/envs/tbps-image/bin/python",
+  "bert_files": {
+    "config.json": "7160e1553ad2ca51d8c1cb066be533db31826e12d173824c1bb0cb1a4f187d20",
+    "vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+    "tokenizer_config.json": "a025160ef0431f1a392f6f050c1310f4c5d9fb6f275932dbccba73c4d214bf10",
+    "model.safetensors": "68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3"
+  },
+  "producers": {
+    "/home/lzf/ldx/projects/idea-test-tbps-vlpt-smoke-publication-20261019/src/tbps/models/sga_irra_source.py": "73b0f92f5feb3b019b010bd70313f0d9dab1f019bfcdd7ab17f672f834926fda",
+    "/home/lzf/ldx/projects/idea-test-tbps-vlpt-smoke-publication-20261019/src/tbps/baselines/sga_official_io.py": "d922d7c017692a24e658c46aba31b6613759b9fa950b5a2704d32efd0a4c7f73",
+    "/home/lzf/ldx/projects/idea-test-tbps-vlpt-smoke-publication-20261019/src/tbps/baselines/sga_irra.py": "c560b6f9a7d8c92b6b4dc5df04a201e1753205e602d12a36bd272b826ed93c23",
+    "/home/lzf/ldx/projects/idea-test-tbps-vlpt-smoke-publication-20261019/src/tbps/artifacts.py": "b7d7486df6b401705157a604daec236c7bc9ce79a8518ccf2c3df5e07c61c940",
+    "/home/lzf/ldx/projects/idea-test-tbps-vlpt-smoke-publication-20261019/src/tbps/contracts.py": "2049faf65bf6bd99de3c9c50263451d0fbfd2d2fe2741891f9fb0b220de64fed",
+    "/home/lzf/ldx/projects/idea-test-tbps-vlpt-smoke-publication-20261019/src/tbps/models/irra.py": "424e1dcd20b34061e3199d969f05eb34ca8aa3a6655e00a0e77770ee17fef0b2",
+    "/home/lzf/ldx/projects/idea-test-tbps-vlpt-smoke-publication-20261019/src/tbps/models/irra_source.py": "fcf22ad01836804bc40fdce6c1817de2ff1941fd302b549a765e15f5287dd0b6",
+    "/home/lzf/ldx/projects/idea-test-tbps-vlpt-smoke-publication-20261019/src/tbps/models/irra_io.py": "3bd668f28fe788659296af7d1d4c31e4131c23eb96b266887e356f9b32376205",
+    "/home/lzf/ldx/projects/idea-test-tbps-vlpt-smoke-publication-20261019/src/tbps/models/rasa.py": "946e89fe97ec0d189545ff9d98fc348c049ce4002564d8504bc3675d4799ee0b",
+    "/home/lzf/ldx/projects/idea-test-tbps-vlpt-smoke-publication-20261019/src/tbps/models/aptm.py": "daa85058a2d4d66795a4e1ab8be03c608c857fc4a48ead160c012c299c600341",
+    "/home/lzf/ldx/projects/idea-test-tbps-vlpt-smoke-publication-20261019/src/tbps/engines/evaluation.py": "957eea289a0164c865fb84dd007901e60da82fb1de9bbbae6f946e93b1374124",
+    "/home/lzf/ldx/projects/idea-test-tbps-vlpt-smoke-publication-20261019/src/tbps/engines/metrics.py": "6a09838fa9c17cc95755acf5e2e608af86127bd517b951c050910f24c38459b5",
+    "/home/lzf/ldx/projects/idea-test-tbps-vlpt-smoke-publication-20261019/src/tbps/engines/materialized_cache.py": "0e3445eacfc0f969eb9d68cbfcb10db208833d9b1811a737abaaab41437e527a",
+    "/home/lzf/ldx/projects/idea-test-tbps-vlpt-smoke-publication-20261019/src/tbps/engines/native_cache.py": "eacfdfdc19ac4f0c09f503314cd748d84ebb42d29d3a96a476bec0ef2a3b5b1b",
+    "/home/lzf/ldx/projects/idea-test-tbps-vlpt-smoke-publication-20261019/src/tbps/engines/native_score_cache.py": "01b8ad3de0dad9655db1c15c7b480d4f3d25f0eb0b7af3d0065661ba51c4533c",
+    "/home/lzf/ldx/projects/idea-test-tbps-vlpt-smoke-publication-20261019/src/tbps/engines/aptm_score_cache.py": "3126c2c7e51f5f86534aae349ee5d5914df8a5a615e035eff2abff7eb79392bf",
+    "/home/lzf/ldx/projects/idea-test-tbps-vlpt-smoke-publication-20261019/src/tbps/baselines/comparison.py": "fe9a0e6be552dcc1dbce569a27097e3509651242611e141716a171115a88d13d",
+    "/home/lzf/ldx/projects/idea-test-tbps-vlpt-smoke-publication-20261019/src/tbps/baselines/dra_irra.py": "b4b263f542f1acd8a379e469ac5b0069ef73ec705becd712f088fcfda2355664",
+    "/home/lzf/ldx/projects/idea-test-tbps-vlpt-smoke-publication-20261019/src/tbps/baselines/dra_official.py": "817efdf47df0ff5c17a7cf59d7d3a93ec9879bf42c6ea881eb05315fdc643ffc",
+    "/home/lzf/ldx/projects/idea-test-tbps-vlpt-smoke-publication-20261019/src/tbps/baselines/dra_target.py": "d35f054c007c6fd72570c0bdd77b43388a59f1405d1eb2cbbab825703132bc65",
+    "/home/lzf/ldx/projects/idea-test-tbps-vlpt-smoke-publication-20261019/src/tbps/models/dra_irra_source.py": "07ad4e34d8f6878b9ff3477e0df033e5b96c513bdfd34466b58f156b0bfaab7d"
+  },
+  "matched_clean": "IRRA native PIL bilinear384x128 plus official pre_caption30; all targets share saved clean/adv RGB and text",
+  "source_versions": {
+    "torch": "2.1.0+cu121",
+    "torchvision": "0.16.0+cu121",
+    "transformers": "4.28.1",
+    "timm": "0.6.13",
+    "ftfy": "6.1.1",
+    "safetensors": "0.4.5"
+  },
+  "parameters": {
+    "epsilon": 0.03137254901960784,
+    "steps": 10,
+    "step_size": 0.00784313725490196,
+    "sample_numbers": 5,
+    "text_ratios": [
+      0.6,
+      0.2,
+      0.2
+    ],
+    "batch_size": 8,
+    "seed": 42,
+    "max_length": 77,
+    "pre_caption_words": 30,
+    "cls": false,
+    "number_perturbation": 1,
+    "topk": 10,
+    "threshold_pred_score": 0.3,
+    "scales": [
+      0.5,
+      0.75,
+      1.25,
+      1.5
+    ]
+  },
+  "minimum_RAM_bytes": 51539607552,
+  "minimum_disk_bytes": 37580963840,
+  "smoke_gallery_ids": [
+    "cuhk:37132:0",
+    "cuhk:37133:0",
+    "cuhk:37134:0",
+    "cuhk:37135:0",
+    "cuhk:37136:0",
+    "cuhk:37137:0",
+    "cuhk:37138:0",
+    "cuhk:37139:0"
+  ],
+  "smoke_query_ids": [
+    "cuhk:37132:0",
+    "cuhk:37132:1",
+    "cuhk:37133:0",
+    "cuhk:37133:1",
+    "cuhk:37134:0",
+    "cuhk:37134:1",
+    "cuhk:37135:0",
+    "cuhk:37135:1",
+    "cuhk:37136:0",
+    "cuhk:37136:1",
+    "cuhk:37137:0",
+    "cuhk:37137:1",
+    "cuhk:37138:0",
+    "cuhk:37138:1",
+    "cuhk:37139:0",
+    "cuhk:37139:1"
+  ],
+  "prior_environment_failure": {
+    "output_base": "/home/lzf/ldx/outputs/tbps-framework-vlpt-irra-source",
+    "reason": "missing safetensors dependency; IRRA load1, MLM load0, official attack0; preserved"
+  },
+  "prior_output_audit_failure": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-irra-source-v2/smoke/source/execution/report.json",
+    "sha256": "672df62edeb3c2b304193555126bb1228351652d04f006f0483ff4c3a6ae3255",
+    "frozen_code_commit": "230ff9eeca5619ac04d151d83b6f02fdfeb33ecc",
+    "reason": "external whitespace-token-count audit rejected official single-slot multiword substitute; no committed pixels"
+  }
+}

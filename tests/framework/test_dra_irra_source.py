@@ -132,7 +132,7 @@ class DRAInterface(unittest.TestCase):
     def test_real_byte_bpe_77_roundtrip_candidates(self):
         from tbps.models.irra_io import official_tokenizer
         from tbps.models.irra_source import IRRASource
-        c=json.loads((Path(__file__).parents[2]/"configs/framework/dra_irra_source.server.json").read_text())
+        c=json.loads((Path(__file__).parents[2]/"configs/framework/dra_irra_source.smoke_v3.server.json").read_text())
         bpe=official_tokenizer(IRRASource.from_dict(c["irra"]))
         for text in ["a man wearing a blue shirt","a [UNK] wearing red pants","a [CLS] woman in a coat",
                      "white shirt [SEP]","black jacket .","[MASK] dress"]:
@@ -142,7 +142,7 @@ class DRAInterface(unittest.TestCase):
             self.assertEqual(value.shape,(1,77));self.assertFalse(reports[0].truncated)
     def test_true_full_mapping_and_ten_caption_member(self):
         from tbps.baselines.dra_official import ordered_dataset
-        c=json.loads((Path(__file__).parents[2]/"configs/framework/dra_irra_source.server.json").read_text())
+        c=json.loads((Path(__file__).parents[2]/"configs/framework/dra_irra_source.smoke_v3.server.json").read_text())
         _,raw,matched=ordered_dataset(c,"full")
         self.assertEqual((len(raw.gallery),len(raw.queries)),(3074,6156))
         counts=[len(batch_members(raw,i,1)[1]) for i in range(3074)]
@@ -153,14 +153,14 @@ class DRAInterface(unittest.TestCase):
         self.assertEqual([q.query_id for q in raw.queries],[q.query_id for q in matched.queries])
     def test_source_sha_tamper_rejected(self):
         from tbps.baselines.dra_irra import configuration
-        c=json.loads((Path(__file__).parents[2]/"configs/framework/dra_irra_source.server.json").read_text())
+        c=json.loads((Path(__file__).parents[2]/"configs/framework/dra_irra_source.smoke_v3.server.json").read_text())
         c["official"]["attacker"]["sha256"]="0"*64
         with tempfile.TemporaryDirectory() as temp:
             path=Path(temp)/"bad.json";path.write_text(json.dumps(c))
             with self.assertRaises(ArtifactError):configuration(path)
     def test_parameter_replacement_rejected(self):
         from tbps.baselines.dra_irra import configuration
-        c=json.loads((Path(__file__).parents[2]/"configs/framework/dra_irra_source.server.json").read_text())
+        c=json.loads((Path(__file__).parents[2]/"configs/framework/dra_irra_source.smoke_v3.server.json").read_text())
         c["parameters"]["steps"]=9
         with tempfile.TemporaryDirectory() as temp:
             path=Path(temp)/"bad.json";path.write_text(json.dumps(c))
@@ -177,7 +177,7 @@ class DRAInterface(unittest.TestCase):
             with self.assertRaises(ArtifactError):save_pixels(store,"batch",{"x":x},{},())
     def test_default_and_full_gpu_not_available(self):
         from tbps.baselines.dra_irra import main
-        config=Path(__file__).parents[2]/"configs/framework/dra_irra_source.server.json"
+        config=Path(__file__).parents[2]/"configs/framework/dra_irra_source.smoke_v3.server.json"
         with self.assertRaisesRegex(ArtifactError,"explicit"):main(["--config",str(config),"--action","source"])
         with self.assertRaises(SystemExit):main(["--config",str(config),"--scope","full"])
         self.assertFalse(torch.cuda.is_initialized())
@@ -192,9 +192,22 @@ class DRAInterface(unittest.TestCase):
                         ("attack","txt_guided_attack","img_guided_attack","loss_func","rand3Num") for t in targets))
     def test_real_irra_import_closure_without_model_load_or_cuda(self):
         from tbps.models.irra_source import IRRASource,official_model_modules
-        c=json.loads((Path(__file__).parents[2]/"configs/framework/dra_irra_source.server.json").read_text())
+        c=json.loads((Path(__file__).parents[2]/"configs/framework/dra_irra_source.smoke_v3.server.json").read_text())
         with patch("torch.load",side_effect=AssertionError("CPU preflight cannot load weights")), patch("torch.cuda._lazy_init",side_effect=AssertionError("no CUDA")):
             with official_model_modules(IRRASource.from_dict(c["irra"])) as (build,clip):
                 self.assertTrue(callable(build.build_model))
         self.assertFalse(torch.cuda.is_initialized())
+    def test_original_multiword_candidate_is_one_official_slot(self):
+        o=official()
+        source=IRRADRASource(TinyBackend(),NativeTokens(self.token),self.token)
+        attacker=o.Attacker(source,o.ImageAttacker(lambda x:x,eps=8/255,steps=10,step_size=2/255,sample_numbers=5),
+            o.TextAttacker(FakeMLM(self.token),self.token,cls=False,max_length=77,number_perturbation=1,topk=10,threshold_pred_score=.3,text_ratios=[.6,.2,.2]))
+        trace=PassiveTrace(ROOT/"RAttacker.py",source)
+        with trace.active():
+            adv,words,_=attacker.attack(torch.rand(1,3,16,8),["leggings"],[0],"cpu",max_length=77,scales=PARAMETERS["scales"])
+        action=[r for r in trace.report()["text_actions"] if r["stage"]==2][0]
+        self.assertEqual(action["official_change_count"],1)
+        self.assertEqual(len(action["final_word_slots"]),1)
+        self.assertGreater(len(words[0].split(" ")),1)
+        self.assertEqual(words[0]," ".join(action["final_word_slots"]))
 if __name__=="__main__":unittest.main()
