@@ -2,7 +2,24 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：官方SGA（IRRA Source）三模型Full完成，独立CPU审计PASS，结果只读汇总完成
+## 当前阶段：VLPTAttack（DRA）官方IRRA Source最小接线与8图Smoke完成
+
+基准715f636；发布分支codex/tbps-vlpt-official-complete。原官方RAttacker.py固定91f78325… / SHA75518cb9…，字节及方法保持原样；没有重新实现攻击或改Loss/候选/梯度。初始失败代码230ff9e、成功Source8513a49、成功Target d455f3a各自保留在独立工作树；最终CPU审计仅补json import。发布Commit待本轮提交后登记。
+
+固定Test前8图/全部16 Caption，完整原三阶段、Batch8、8/255、10轮、2/255、原5候选/整数三角采样/五尺度、BERT77/IRRA77/pre_caption30。
+成功Source实际45次区域采样、100次图像backward、1144图像/1026文本样本，IRRA/MLM各加载1次；源参数允许求导但无Optimizer，参数/buffers前后exact。16条最终原词槽位替换、NOOP0；1条官方多WordPiece候选展开为短语，未过滤。全部桥接exact、无额外截断。
+
+Source133.38秒（完整攻击含被动追踪122.22秒；图像子段28.59秒）、allocated7.2386/reserved9.1914GiB，RSS2.2778GiB；9轮选择时allocated无持续累积。官方FP32预算通过，实数超8/255约2.793e-8公开保留，未二次投影。三Target使用同一Source Collection，各16图像/32文本样本；RaSa/APTM各512融合pair，权重前后exact，无Target反馈。
+
+三个Target评分及独立CPU审计PASS；8图R@10不适用。Joint Smoke mAP IRRA29.11、RaSa93.58、APTM98.96，仅链路验证，不判断方法效果。26新增+180适用回归PASS；1项旧APTM绝对路径测试在原基线也失败，显式排除，不改旧文件。历史18924文件stat、两个早期FAIL19文件、源/旧IRRA FAIL42文件、全部GPU产物174文件保护通过（集合有交集）。
+
+所有失败保留：缺safetensors、外部空格词数误判、IRRA会话缺标志、CPU审计缺import；前三者分别独立Attempt/目标会话，不覆盖或把旧FAIL改PASS。全任务Source恢复3次、MLM2次、官方完整攻击2次，仅最后一批提交；IRRA Target恢复2次，RaSa/APTM各1次。没有隐瞒重试，也没有全量生成/Full/训练。
+
+[阶段报告](framework/DRA_SMOKE_REPORT.md)、[保真审计](framework/DRA_OFFICIAL_FIDELITY_AUDIT.md)、[命令](framework/DRA_IRRA_SOURCE.md)、[原精度证据](framework/DRA_SMOKE_EVIDENCE.json)。
+OFFICIAL_ALGORITHM_FIDELITY_PASS限定本固定环境/小样本移植；Full范围尚未实现/授权，保留原Batch8后估计整链18–22小时，后续10-Caption GPU峰值/Token边界/长期趋势仍待正式运行验证。
+方法比较按各自原生配置进行，主方法为G-v2+H-v1 Joint；披露权限/预算/输入差异，不据此否定方法级Baseline比较。完成后停止，不自动Full或新开发。
+
+## 已完成：官方SGA（IRRA Source）三模型Full完成，独立CPU审计PASS，结果只读汇总完成
 
 正式执行Commit f8d3431b4f51d4fb117cf031f6d827bb89fab69c，启动登记3caacf0ac124ac532febb587a290721c2d4d6608。独立结果分支codex/tbps-sga-official-full-results，基准3caacf0；结果报告提交：b680dfda020395dfebe56c771c883a6b2f61db2a；当前文档提交补充发布索引。
 

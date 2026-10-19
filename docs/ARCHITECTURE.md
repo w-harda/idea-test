@@ -265,3 +265,10 @@ sga_batch8_capacity只在独立作用域限定Dataset为官方前8图/全部Capt
 ## 官方SGA / IRRA Source Full实际验收完成
 
 此前“Full未启动”均为阶段快照。正式Full现已完成：唯一Source调用官方SGA原三阶段，3074/6156冻结产物给三种原生Target，不复用跨模型Embedding或目标反馈；所有阶段与独立CPU审计PASS。最终结果及SHA见results/sga_official_irra_full_20261019/SGA_OFFICIAL_IRRA_FULL_REPORT.md。本轮只追加派生结果与索引，没有改架构、攻击或评估算法。Matched Clean与主方法Raw Clean及其他预算/权限差异继续分协议报告。
+
+## VLPTAttack（DRA）IRRA Source薄接线
+
+dra_official仅来源/数据/投影验收/被动追踪；dra_irra_source继承已验证IRRA I/O，仅管理参数梯度；dra_irra只调原RAttacker.Attacker.attack并存储，dra_target复用原生模型/Cache/Engine校验和官方rank。没有共用攻击Loss或自写DRA更新。
+源代码冻结后修Target协议与CPU import均用派生工作树/配置，避免改变已有Source/Target回执依赖。不同阶段不是新算法。
+官方number_perturbation按原词槽位计数，多WordPiece替换可能形成短语，见ADR-0011；不能加空格词数过滤。
+固定8/16三Target和CPU审计已PASS，不开放Full，不把CPU/Smoke等价推广到原论文模型或全量结果。

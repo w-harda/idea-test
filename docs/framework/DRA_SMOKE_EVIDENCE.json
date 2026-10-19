@@ -1,0 +1,756 @@
+{
+  "schema": "tbps-dra-smoke-evidence-1",
+  "status": "PASS",
+  "fidelity": "OFFICIAL_ALGORITHM_FIDELITY_PASS",
+  "scope": "fixed first 8 Test Gallery / all 16 Caption; no Full",
+  "official_commit": "91f78325e7cf0c497c9bbb5be2215be652d8cd9d",
+  "official_core": {
+    "path": "/home/lzf/ldx/projects/VLPTransferAttack-official/RAttacker.py",
+    "sha256": "75518cb9465d9f8e994ea2f59c86b89fd4c39e3fe74f66b7a1d0a090eec2d313"
+  },
+  "official_git_diff": "",
+  "parameters": {
+    "epsilon": 0.03137254901960784,
+    "steps": 10,
+    "step_size": 0.00784313725490196,
+    "sample_numbers": 5,
+    "text_ratios": [
+      0.6,
+      0.2,
+      0.2
+    ],
+    "batch_size": 8,
+    "seed": 42,
+    "max_length": 77,
+    "pre_caption_words": 30,
+    "cls": false,
+    "number_perturbation": 1,
+    "topk": 10,
+    "threshold_pred_score": 0.3,
+    "scales": [
+      0.5,
+      0.75,
+      1.25,
+      1.5
+    ]
+  },
+  "source_report": {
+    "GPU_peak_allocated_bytes": 7772386304,
+    "GPU_peak_reserved_bytes": 9869197312,
+    "G_H_loads": 0,
+    "MLM_after": {
+      "buffers": {
+        "sha256": "2c7271c8f96758c7cd878895c2e5968f7183fba1de300f50cd51ad77b0769d0e",
+        "tensor_count": 2
+      },
+      "eval": true,
+      "parameter_grads_none": true,
+      "parameters": {
+        "sha256": "09415ccb8d4c1ca4d4a7a22c2be1ca0fdad5830ec3b47960bdd9d70558bb9b60",
+        "tensor_count": 202
+      },
+      "requires_grad": false
+    },
+    "MLM_before": {
+      "buffers": {
+        "sha256": "2c7271c8f96758c7cd878895c2e5968f7183fba1de300f50cd51ad77b0769d0e",
+        "tensor_count": 2
+      },
+      "eval": true,
+      "parameter_grads_none": true,
+      "parameters": {
+        "sha256": "09415ccb8d4c1ca4d4a7a22c2be1ca0fdad5830ec3b47960bdd9d70558bb9b60",
+        "tensor_count": 202
+      },
+      "requires_grad": false
+    },
+    "MLM_counts": {
+      "calls": 4,
+      "samples": 80
+    },
+    "MLM_loads": 1,
+    "NOOP": 0,
+    "attack_seconds": 122.21862931549549,
+    "budget": {
+      "extra_projection": false,
+      "mathematical_epsilon": 0.03137254901960784,
+      "official_FP32_bounds": true,
+      "real_linf": 0.03137257695198059,
+      "roundoff_above_real_epsilon": 2.793237274811844e-08
+    },
+    "edited_queries": 16,
+    "elapsed_seconds": 133.38379087671638,
+    "model_after": {
+      "buffers": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tensor_count": 0
+      },
+      "eval": true,
+      "parameter_grads_none": true,
+      "parameters": {
+        "sha256": "b0f0c4e01e6601eb280698f8ee5a3304d9ed117e22968db9f7be17f453330d0f",
+        "tensor_count": 367
+      },
+      "requires_grad": false
+    },
+    "model_before": {
+      "buffers": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tensor_count": 0
+      },
+      "eval": true,
+      "parameter_grads_none": true,
+      "parameters": {
+        "sha256": "b0f0c4e01e6601eb280698f8ee5a3304d9ed117e22968db9f7be17f453330d0f",
+        "tensor_count": 367
+      },
+      "requires_grad": false
+    },
+    "official_commit": "91f78325e7cf0c497c9bbb5be2215be652d8cd9d",
+    "official_image_seconds": 28.592291831970215,
+    "optimizer": 0,
+    "parameter_gradients_during_official_attack": true,
+    "parameter_gradients_present": 152,
+    "parameter_grads_cleared_after_attack": true,
+    "parameter_updates": 0,
+    "peak_RSS_bytes": 2445778944,
+    "resources_before": {
+      "GPU": {
+        "compute_processes": "",
+        "free_mib": 24051,
+        "name": "NVIDIA GeForce RTX 4090",
+        "policy": "shared_observe_only",
+        "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 24051, 40, 0",
+        "total_mib": 24564,
+        "used_mib": 40,
+        "utilization_percent": 0
+      },
+      "available_RAM_bytes": 121043984384,
+      "free_disk_bytes": 6378568368128
+    },
+    "scope": "smoke",
+    "source_counts": {
+      "BERT_truncated_rows": 0,
+      "UNK_rows": 756,
+      "bridge_rows": 1026,
+      "image_samples": 1144,
+      "text_samples": 1026
+    },
+    "source_model_loads": 1,
+    "source_weights_fixed": true,
+    "status": "PASS",
+    "target_models_in_generation": [],
+    "official_flow_summary": {
+      "events": [
+        "text1",
+        "image",
+        "text2"
+      ],
+      "counts": {
+        "backward": 100,
+        "call:<lambda>": 756,
+        "call:<listcomp>": 84,
+        "call:_get_masked": 32,
+        "call:_tokenize": 32,
+        "call:attack": 1,
+        "call:get_bpe_substitues": 2,
+        "call:get_important_scores": 32,
+        "call:get_scaled_imgs": 10,
+        "call:get_substitues": 69,
+        "call:img_guided_attack": 2,
+        "call:loss_func": 279,
+        "call:rand3Num": 45,
+        "call:txt_guided_attack": 1,
+        "gradient": 55
+      },
+      "all_image_gradients_finite": true,
+      "gradient_norms": [
+        1995.6522216796875,
+        1784.36328125,
+        1964.2774658203125,
+        1921.6339111328125,
+        1913.6416015625,
+        1861.33935546875,
+        1817.014404296875,
+        1791.703125,
+        1786.8167724609375,
+        1951.228271484375,
+        1761.23095703125,
+        1803.1011962890625,
+        1753.0899658203125,
+        1899.0872802734375,
+        1879.8839111328125,
+        1807.3828125,
+        1851.53173828125,
+        1893.94775390625,
+        1769.6671142578125,
+        1807.2816162109375,
+        2051.374755859375,
+        1914.002197265625,
+        1792.771240234375,
+        1859.404296875,
+        1779.109130859375,
+        1775.3878173828125,
+        2212.80419921875,
+        1752.4949951171875,
+        1798.590576171875,
+        1809.626220703125,
+        1727.84814453125,
+        1993.2269287109375,
+        1843.6270751953125,
+        1977.1309814453125,
+        1840.5364990234375,
+        1833.18359375,
+        1740.9097900390625,
+        1839.6922607421875,
+        2061.50927734375,
+        1829.645751953125,
+        1832.3157958984375,
+        1949.4423828125,
+        1762.5439453125,
+        1973.10302734375,
+        1899.5277099609375,
+        1965.81103515625,
+        1783.6851806640625,
+        1903.517333984375,
+        1751.531494140625,
+        1852.3052978515625,
+        1838.1192626953125,
+        1843.1053466796875,
+        1848.390625,
+        1939.324951171875,
+        1766.9537353515625
+      ],
+      "observer": "passive sys.settrace; no monkey patch"
+    },
+    "region_memory": [
+      {
+        "step": 1,
+        "GPU_allocated_bytes": 1649763840,
+        "GPU_reserved_bytes": 3128950784
+      },
+      {
+        "step": 2,
+        "GPU_allocated_bytes": 1651025408,
+        "GPU_reserved_bytes": 9573498880
+      },
+      {
+        "step": 3,
+        "GPU_allocated_bytes": 1650607616,
+        "GPU_reserved_bytes": 9573498880
+      },
+      {
+        "step": 4,
+        "GPU_allocated_bytes": 1651688960,
+        "GPU_reserved_bytes": 9573498880
+      },
+      {
+        "step": 5,
+        "GPU_allocated_bytes": 1649296896,
+        "GPU_reserved_bytes": 9573498880
+      },
+      {
+        "step": 6,
+        "GPU_allocated_bytes": 1651607040,
+        "GPU_reserved_bytes": 9573498880
+      },
+      {
+        "step": 7,
+        "GPU_allocated_bytes": 1650271744,
+        "GPU_reserved_bytes": 9573498880
+      },
+      {
+        "step": 8,
+        "GPU_allocated_bytes": 1648084480,
+        "GPU_reserved_bytes": 9573498880
+      },
+      {
+        "step": 9,
+        "GPU_allocated_bytes": 1650312704,
+        "GPU_reserved_bytes": 9573498880
+      }
+    ]
+  },
+  "target_reports": {
+    "irra": {
+      "GPU_peak_allocated_bytes": 967184384,
+      "GPU_peak_reserved_bytes": 1050673152,
+      "backward": 0,
+      "counts": {
+        "fusion_pairs": 0,
+        "image_samples": 16,
+        "text_samples": 32
+      },
+      "elapsed_seconds": 21.643365889787674,
+      "model": "irra",
+      "model_after": {
+        "buffers": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "tensor_count": 0
+        },
+        "eval": true,
+        "parameter_grads_none": true,
+        "parameters": {
+          "sha256": "b0f0c4e01e6601eb280698f8ee5a3304d9ed117e22968db9f7be17f453330d0f",
+          "tensor_count": 367
+        },
+        "requires_grad": false
+      },
+      "model_before": {
+        "buffers": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "tensor_count": 0
+        },
+        "eval": true,
+        "parameter_grads_none": true,
+        "parameters": {
+          "sha256": "b0f0c4e01e6601eb280698f8ee5a3304d9ed117e22968db9f7be17f453330d0f",
+          "tensor_count": 367
+        },
+        "requires_grad": false
+      },
+      "neural_counts": {
+        "fusion_pairs": 0,
+        "image_samples": 16,
+        "text_samples": 32
+      },
+      "optimizer": 0,
+      "peak_RSS_bytes": 2222178304,
+      "resources_before": {
+        "GPU": {
+          "compute_processes": "",
+          "free_mib": 24051,
+          "name": "NVIDIA GeForce RTX 4090",
+          "policy": "shared_observe_only",
+          "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 24051, 40, 0",
+          "total_mib": 24564,
+          "used_mib": 40,
+          "utilization_percent": 0
+        },
+        "available_RAM_bytes": 121285672960,
+        "free_disk_bytes": 6378544861184
+      },
+      "source_generation": 0,
+      "status": "PASS",
+      "target_loads": 1
+    },
+    "rasa": {
+      "GPU_peak_allocated_bytes": 1992355840,
+      "GPU_peak_reserved_bytes": 2183135232,
+      "backward": 0,
+      "counts": {
+        "fusion_pairs": 512,
+        "image_samples": 16,
+        "score_calls": 4,
+        "text_samples": 32
+      },
+      "elapsed_seconds": 26.563947960734367,
+      "model": "rasa",
+      "model_after": {
+        "buffers": {
+          "sha256": "ce5f3986cd19bee31cacddc61b11f353c608f37e423185c3ed6ff2145befc59a",
+          "tensor_count": 6
+        },
+        "eval": true,
+        "parameter_grads_none": true,
+        "parameters": {
+          "sha256": "371998d47a18ffa8a0a2540d1ec12e35a469eec1c20d41cde1fc8410ae95f493",
+          "tensor_count": 839
+        },
+        "requires_grad": false
+      },
+      "model_before": {
+        "buffers": {
+          "sha256": "ce5f3986cd19bee31cacddc61b11f353c608f37e423185c3ed6ff2145befc59a",
+          "tensor_count": 6
+        },
+        "eval": true,
+        "parameter_grads_none": true,
+        "parameters": {
+          "sha256": "371998d47a18ffa8a0a2540d1ec12e35a469eec1c20d41cde1fc8410ae95f493",
+          "tensor_count": 839
+        },
+        "requires_grad": false
+      },
+      "neural_counts": {
+        "fusion_pairs": 512,
+        "image_samples": 16,
+        "text_samples": 32
+      },
+      "optimizer": 0,
+      "peak_RSS_bytes": 4178112512,
+      "resources_before": {
+        "GPU": {
+          "compute_processes": "",
+          "free_mib": 24051,
+          "name": "NVIDIA GeForce RTX 4090",
+          "policy": "shared_observe_only",
+          "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 24051, 40, 0",
+          "total_mib": 24564,
+          "used_mib": 40,
+          "utilization_percent": 0
+        },
+        "available_RAM_bytes": 121031626752,
+        "free_disk_bytes": 6378544611328
+      },
+      "source_generation": 0,
+      "status": "PASS",
+      "target_loads": 1
+    },
+    "aptm": {
+      "GPU_peak_allocated_bytes": 1041892864,
+      "GPU_peak_reserved_bytes": 1126170624,
+      "backward": 0,
+      "counts": {
+        "fusion_pairs": 512,
+        "image_samples": 16,
+        "score_calls": 4,
+        "text_samples": 32
+      },
+      "elapsed_seconds": 18.051903679966927,
+      "model": "aptm",
+      "model_after": {
+        "buffers": {
+          "sha256": "b41b36d2cf36f5f1933f01c1557094000530bc5ade79bfd3757f03d0359c9e98",
+          "tensor_count": 27
+        },
+        "eval": true,
+        "parameter_grads_none": true,
+        "parameters": {
+          "sha256": "6a550d2e7f520ffd0f3edfda340f0c56600fb004f6fc29df621a6add457f0720",
+          "tensor_count": 600
+        },
+        "requires_grad": false
+      },
+      "model_before": {
+        "buffers": {
+          "sha256": "b41b36d2cf36f5f1933f01c1557094000530bc5ade79bfd3757f03d0359c9e98",
+          "tensor_count": 27
+        },
+        "eval": true,
+        "parameter_grads_none": true,
+        "parameters": {
+          "sha256": "6a550d2e7f520ffd0f3edfda340f0c56600fb004f6fc29df621a6add457f0720",
+          "tensor_count": 600
+        },
+        "requires_grad": false
+      },
+      "neural_counts": {
+        "fusion_pairs": 512,
+        "image_samples": 16,
+        "text_samples": 32
+      },
+      "optimizer": 0,
+      "peak_RSS_bytes": 2320809984,
+      "resources_before": {
+        "GPU": {
+          "compute_processes": "",
+          "free_mib": 24051,
+          "name": "NVIDIA GeForce RTX 4090",
+          "policy": "shared_observe_only",
+          "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 24051, 40, 0",
+          "total_mib": 24564,
+          "used_mib": 40,
+          "utilization_percent": 0
+        },
+        "available_RAM_bytes": 120892993536,
+        "free_disk_bytes": 6378511044608
+      },
+      "source_generation": 0,
+      "status": "PASS",
+      "target_loads": 1
+    }
+  },
+  "target_summaries": {
+    "irra": {
+      "Gallery": 8,
+      "Query": 16,
+      "R@10": null,
+      "R@10_reason": "8 Gallery cannot measure R@10; no padding or fabricated members",
+      "groups": {
+        "Clean": {
+          "R@1": 100.0,
+          "R@5": 100.0,
+          "mAP": 100.0
+        },
+        "Image-only": {
+          "R@1": 0.0,
+          "R@5": 50.0,
+          "mAP": 27.346233367919922
+        },
+        "Joint": {
+          "R@1": 0.0,
+          "R@5": 68.75,
+          "mAP": 29.107145309448242
+        },
+        "Text-only": {
+          "R@1": 100.0,
+          "R@5": 100.0,
+          "mAP": 98.78472137451172
+        }
+      },
+      "matched_clean": true,
+      "metric_unit": "percent",
+      "model": "irra",
+      "scope": "smoke",
+      "source": "irra"
+    },
+    "rasa": {
+      "Gallery": 8,
+      "Query": 16,
+      "R@10": null,
+      "R@10_reason": "8 Gallery cannot measure R@10; no padding or fabricated members",
+      "groups": {
+        "Clean": {
+          "R@1": 100.0,
+          "R@5": 100.0,
+          "mAP": 98.95832824707031
+        },
+        "Image-only": {
+          "R@1": 100.0,
+          "R@5": 100.0,
+          "mAP": 96.7013931274414
+        },
+        "Joint": {
+          "R@1": 87.5,
+          "R@5": 100.0,
+          "mAP": 93.5763931274414
+        },
+        "Text-only": {
+          "R@1": 100.0,
+          "R@5": 100.0,
+          "mAP": 100.0
+        }
+      },
+      "matched_clean": true,
+      "metric_unit": "percent",
+      "model": "rasa",
+      "scope": "smoke",
+      "source": "irra"
+    },
+    "aptm": {
+      "Gallery": 8,
+      "Query": 16,
+      "R@10": null,
+      "R@10_reason": "8 Gallery cannot measure R@10; no padding or fabricated members",
+      "groups": {
+        "Clean": {
+          "R@1": 100.0,
+          "R@5": 100.0,
+          "mAP": 100.0
+        },
+        "Image-only": {
+          "R@1": 100.0,
+          "R@5": 100.0,
+          "mAP": 98.95832824707031
+        },
+        "Joint": {
+          "R@1": 100.0,
+          "R@5": 100.0,
+          "mAP": 98.95832824707031
+        },
+        "Text-only": {
+          "R@1": 100.0,
+          "R@5": 100.0,
+          "mAP": 100.0
+        }
+      },
+      "matched_clean": true,
+      "metric_unit": "percent",
+      "model": "aptm",
+      "scope": "smoke",
+      "source": "irra"
+    }
+  },
+  "CPU_audit": {
+    "GPU": false,
+    "Gallery": 8,
+    "Query": 16,
+    "R@10": "not applicable",
+    "bridge_rows": 1026,
+    "official_core_sha256": "75518cb9465d9f8e994ea2f59c86b89fd4c39e3fe74f66b7a1d0a090eec2d313",
+    "source": "irra",
+    "status": "PASS",
+    "target_feedback": false
+  },
+  "CPU_tests": {
+    "new_passed": 26,
+    "shared_passed": 180,
+    "legacy_path_bound_test_deselected": 1,
+    "legacy_failure_reproduced_on_unchanged_base": true
+  },
+  "protection": {
+    "dra_failed_attempts_protection.json": 19,
+    "dra_source_and_irra_failure_protection.json": 42,
+    "dra_all_gpu_artifacts_before_cpu_audit.json": 174,
+    "prior_historical_file_stats": 18924
+  },
+  "files": [
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-irra-source-v3/smoke/source/protocol/manifest.json",
+      "sha256": "86bedd68c0a9838b122d2d747c29ea5a440037f1f5a63c160f03c1cb9aa60a9d"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-irra-source-v3/smoke/source/execution/report.json",
+      "sha256": "9e3cd7a5ed02c1f7f0205b1486063c3a18394060ab35064ac90deaabe763a37e"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-irra-source-v3/smoke/source/completed/manifest.json",
+      "sha256": "1c6e60a383fb77b5e72b4fae59c4a40e558c57593c8041628165e80f3ff7325d"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-irra-source-v3/smoke/irra-session-v2/protocol/manifest.json",
+      "sha256": "0857ca474723c866e103415c2c42b5282f9447ea091dc6c916ea16541e84ff85"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-irra-source-v3/smoke/irra-session-v2/execution/report.json",
+      "sha256": "4e5f400aa0f5d053e934c2ae4b6ccb560924cca61673900fb1ba71e7dc3f41be"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-irra-source-v3/smoke/irra-session-v2/completed/manifest.json",
+      "sha256": "9bfce37aaa94ad99ad991b3ab5d990a9f7857a8f6be333c91d29adaa8ca08ea9"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-irra-source-v3/smoke/irra-session-v2/completed/summary.json",
+      "sha256": "c368a1ac559b7586afa8a6f43acc97df52caf623e90375d8bd196b968a1c84df"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-irra-source-v3/smoke/rasa/protocol/manifest.json",
+      "sha256": "d5cb4fdea4311f066891d6783bbbc33471f3256ed6b204e682db624f4879bfdb"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-irra-source-v3/smoke/rasa/execution/report.json",
+      "sha256": "17853b752919f6de00c5192597d309ee1608406c2336f21d4402b3696b4379e5"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-irra-source-v3/smoke/rasa/completed/manifest.json",
+      "sha256": "ba22bce5fc946dbecae14fae71cb9521f095772278cecdf4ba7647d102727365"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-irra-source-v3/smoke/rasa/completed/summary.json",
+      "sha256": "5da806c2d482c133f3fc6fb113ca576d8c89f024f812a043ed1a422481d0dd21"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-irra-source-v3/smoke/aptm/protocol/manifest.json",
+      "sha256": "50a550da8b74ff039967d99d96dda68d2d2c7fb3e95d61c5072a189302fa528f"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-irra-source-v3/smoke/aptm/execution/report.json",
+      "sha256": "56fca435fef66cc49adfd57ea8bc11f5d13189c1df4401b174e335cfbdf0f3ba"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-irra-source-v3/smoke/aptm/completed/manifest.json",
+      "sha256": "5b1b34c095808ad93146ffa24f4393b60b78497377d73ce2b411f3ffec6b4d0a"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-irra-source-v3/smoke/aptm/completed/summary.json",
+      "sha256": "5b9ce2f7c4868431fdb256213048668120d0fdcfeee0b8958f7debd3d7b69c6e"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-irra-source-v3/smoke/audit/completed/manifest.json",
+      "sha256": "c91d3ac133a38b6010d154628004e19f7617401dd211ecfedc5ed780daa0e8d4"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-irra-source-v3/smoke/audit/completed/audit.json",
+      "sha256": "e4bc684f8ea2cd0fe13bcc38643f5e7f90ecbed79fd7928446ec034e02220b4a"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-irra-source-v3/smoke/source/batch-000000/metadata.json",
+      "sha256": "7daaaa977f1151ff427b8c1bf382bdad3a44870c901debf77425629e58f67281"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-irra-source-v3/smoke/source/batch-000000/pixels.pt",
+      "sha256": "26fca86028794c86443224bce0d83ab5fbeca642952d16d7eb76883a2c96bb15"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-irra-source-v3/smoke/source/bridge_trace.jsonl",
+      "sha256": "7f3e6e3c1ac1072f6d38f59a13ed4f99fd07993d99d75efc6559b7f53008d641"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-irra-source-v3/smoke/source/official_flow.jsonl",
+      "sha256": "0c1b262e935c95affee895d8b08499c4e97cb8c5c4e0037fd2bc1263220b2759"
+    }
+  ],
+  "checkpoints": {
+    "irra": {
+      "path": "/home/lzf/Attack/IRRA/logs/CUHK-PEDES/best.pth",
+      "sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+    },
+    "bert_MLM": {
+      "path": "/home/lzf/.cache/huggingface/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/model.safetensors",
+      "sha256": "68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3"
+    }
+  },
+  "retained_failures": [
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-irra-source/smoke/source",
+      "error": "missing safetensors package",
+      "IRRA_loads": 1,
+      "MLM_loads": 0,
+      "official_attacks": 0
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-irra-source-v2/smoke/source",
+      "error": "external whitespace count rejected official multiword replacement",
+      "IRRA_loads": 1,
+      "MLM_loads": 1,
+      "official_attacks": 1,
+      "committed_pixels": 0,
+      "source_counts_not_persisted": true
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-irra-source-v3/smoke/irra",
+      "error": "native cache session metadata flags missing after complete encoding",
+      "target_loads": 1,
+      "image_samples": 16,
+      "text_samples": 32,
+      "metrics_created": false
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/dra_native_independent_cpu_audit.log",
+      "error": "CPU audit missing json import; no model reload",
+      "GPU": false
+    }
+  ],
+  "whole_task_execution_accounting": {
+    "Source_IRRA_restores": 3,
+    "MLM_restores": 2,
+    "official_Attacker_attack_calls": 2,
+    "committed_source_batches": 1,
+    "target_IRRA_restores": 2,
+    "target_IRRA_image_samples": 32,
+    "target_IRRA_text_samples": 64,
+    "target_RaSa_restores": 1,
+    "target_APTM_restores": 1,
+    "note": "Successful source sample counts are not whole-task totals; failed v2 Source sample counts not persisted."
+  },
+  "victim_model_spaces": {
+    "irra": {
+      "checkpoint_sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009",
+      "model_id": "irra",
+      "precision": "fp32/math/no_tf32",
+      "preprocess_sha256": "61f02eb3fd01e909b2bd0272c2c7dce2b9a2fddf41794989ba3ca27e1529fb25",
+      "scoring_protocol_sha256": "5032f7f1f46e87b3b26eee137cfbd99d7b3f5c65751b160ec8ccafc6baa2c5b4",
+      "sources_sha256": "a2765a2602f21acdd10cdacb072f481a0d19f17f0d2703626d9d8bf2ea42f87d",
+      "tokenizer_sha256": "f0c9ac2862623d9274d8c546f55a41de978fa2d8730bf640e100cd234f8f7bad"
+    },
+    "rasa": {
+      "checkpoint_sha256": "bc85da09c2991d5de503c2c2ac4f032e20cc536fec5094f0acff45e93d0104d2",
+      "model_id": "rasa",
+      "precision": "fp32/math/no_tf32",
+      "preprocess_sha256": "4d5d67c45ea01a6bf8f922b0c3e9df7c1c2cba84cf2293b7921175ccba998035",
+      "scoring_protocol_sha256": "d09c3e7b87f9c3500e435212d9babb14624ab1c8e4a91a1ff02ef645331033cb",
+      "sources_sha256": "e76c248e67cdc59691c228bf2431b5b7d2f6ed1af14b8c8036cfc319f4b91777",
+      "tokenizer_sha256": "1bd8efb0d45496dd2c8fd1430d212390e398d7a0819e66cf946efab5ae6f5d7c"
+    },
+    "aptm": {
+      "checkpoint_sha256": "521c9bf784e7e821ade471deaafa2f25e2501950591e574dc60ca177e9be5a2c",
+      "model_id": "aptm",
+      "precision": "fp32/math/no_tf32",
+      "preprocess_sha256": "29356ae6ac4b921edab0f4f95fb0e765e81efae1c960248fb48a03ae87e845f7",
+      "scoring_protocol_sha256": "530916023ab893ce8fd56ed425475c7b5edf43c87733f9c31a4ceb1f579483a3",
+      "sources_sha256": "0b05373c46630c19a93b83ca140a43c06e8db1eef2e72fa812db5fd37953bbfa",
+      "tokenizer_sha256": "4c1cba3a8e707a7439429b636ce349d28b23f9509939e79c4396b74b47a282d9"
+    }
+  }
+}

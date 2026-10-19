@@ -12,7 +12,7 @@ from tbps.baselines.dra_target import rank_function,smoke_metrics,EightGalleryEn
 class TargetTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.config=configuration(Path(__file__).parents[2]/"configs/framework/dra_irra_targets.server.json")
+        cls.config=configuration(Path(__file__).parents[2]/"configs/framework/dra_irra_audit.server.json")
         _,_,cls.manifest=ordered_dataset(cls.config,"smoke");cls.rank=staticmethod(rank_function(cls.config))
     def test_native_rank_with_all_positives(self):
         m=self.manifest;x=torch.zeros(16,8)

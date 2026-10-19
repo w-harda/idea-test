@@ -360,3 +360,13 @@ v2实际启动核验（2026-10-19 00:51:54 +08:00）：修复代码f8d3431b4f51d
 Source/三Target/CPU审计PASS，v2最终SUCCESS标志及phase=SUCCESS；00:51:36→06:07:53，共18977秒。所有模型冻结，Target source_regeneration0，6145最终词替换/11NOOP均保留。FP32边界通过但不宣称严格数学2/255上界通过，已批准约2.93e-8舍入语义。
 
 [正式报告](framework/results/sga_official_irra_full_20261019/SGA_OFFICIAL_IRRA_FULL_REPORT.md)，同目录SGA_OFFICIAL_IRRA_FULL_METRICS_2DP.csv和SGA_OFFICIAL_IRRA_FULL_EVIDENCE.json。本轮只读核验4647产物、21335来源、48数值与官方身份及共享内容，无新GPU/Tensor/模型/排名。与历史G-v2+H-v1 Joint只作跨协议描述性比较。v1 FAIL/旧Smoke/白盒/全部历史结果原样保留。
+
+## VLPTAttack（DRA）官方IRRA Source Smoke
+
+- 官方91f78325e7cf0c497c9bbb5be2215be652d8cd9d；RAttacker SHA75518cb9465d9f8e994ea2f59c86b89fd4c39e3fe74f66b7a1d0a090eec2d313。
+- 源成功代码8513a49b6f53c63ea98a8f6795b4e659b8fb88de；目标成功代码d455f3a05797451dd4d2ac145ad03b58090d3fa2。
+- /home/lzf/ldx/outputs/tbps-framework-vlpt-irra-source-v3/smoke/source/：前8图/16句完整原算法生成、权重冻结、FP32预算语义及来源回执PASS。
+- 同目录irra-session-v2、rasa、aptm：同一Source Collection四组原生评分PASS；audit/completed/audit.json独立CPU审计PASS。
+- 旧两个Source输出、旧irra及初次CPU审计FAIL全部保留，参见framework/DRA_SMOKE_REPORT.md。
+- framework/DRA_OFFICIAL_FIDELITY_AUDIT.md的OFFICIAL_ALGORITHM_FIDELITY_PASS只针对固定Source/Data I/O移植与8/16，不代表Full或原论文性能复现。
+- 无Full结果、无后台任务，不引用旧SGA White-box冒充本方法。
