@@ -4,7 +4,7 @@
 
 ## 当前阶段：官方SGA（IRRA Source）三模型Full完成，独立CPU审计PASS，结果只读汇总完成
 
-正式执行Commit f8d3431b4f51d4fb117cf031f6d827bb89fab69c，启动登记3caacf0ac124ac532febb587a290721c2d4d6608。独立结果分支codex/tbps-sga-official-full-results，基准3caacf0；报告提交SHA由后续文档提交登记。
+正式执行Commit f8d3431b4f51d4fb117cf031f6d827bb89fab69c，启动登记3caacf0ac124ac532febb587a290721c2d4d6608。独立结果分支codex/tbps-sga-official-full-results，基准3caacf0；结果报告提交：b680dfda020395dfebe56c771c883a6b2f61db2a；当前文档提交补充发布索引。
 
 2026-10-19 00:51:36至06:07:53 +08:00，总计5小时16分17秒；Source、IRRA、RaSa、APTM及独立CPU审计均PASS，控制目录v2 phase=SUCCESS，最终SGA_OFFICIAL_IRRA_SOURCE_THREE_TARGET_FULL_AND_CPU_AUDIT标志存在。原v1路径检查FAIL及所有旧实验保留，不回填成功。
 

@@ -1,6 +1,6 @@
 # SGA官方算法（IRRA Source）三模型正式Full结果
 
-日期：2026-10-19。本报告仅从已完成的正式Full原始结果生成，代码执行版本为f8d3431b4f51d4fb117cf031f6d827bb89fab69c，启动登记版本3caacf0ac124ac532febb587a290721c2d4d6608。报告提交SHA由PROJECT_STATE后续登记。
+日期：2026-10-19。本报告仅从已完成的正式Full原始结果生成，代码执行版本为f8d3431b4f51d4fb117cf031f6d827bb89fab69c，启动登记版本3caacf0ac124ac532febb587a290721c2d4d6608。结果报告提交：b680dfda020395dfebe56c771c883a6b2f61db2a。
 
 **结论：Source Full、IRRA/RaSa/APTM Target Full、独立CPU Audit均PASS；正式实验已完成。** 完成时间2026-10-19 06:07:53 +08:00，最终标志：
 SUCCESS | SGA_OFFICIAL_IRRA_SOURCE_THREE_TARGET_FULL_AND_CPU_AUDIT
