@@ -1,0 +1,35 @@
+{
+  "baseline": "889a57c963ec850473e67543043df9391c0451aa",
+  "CPU_tests": {
+    "DRA_Full": 42,
+    "shared": 148,
+    "historical_excluded": 2
+  },
+  "preflight": "DRA_FULL_CPU_PREFLIGHT_PASS",
+  "official_sha256": "75518cb9465d9f8e994ea2f59c86b89fd4c39e3fe74f66b7a1d0a090eec2d313",
+  "Source_algorithm_changed": false,
+  "old_Smoke_changed": false,
+  "Full_status": "PENDING_NOT_STARTED",
+  "logs": {
+    "dra_full_source_runtime_tests_release.log": {
+      "path": "/home/lzf/ldx/tmp/dra_full_source_runtime_tests_release.log",
+      "sha256": "519b1a6adf947da2a4158dcb4c207cb5442b8ffb93298d20105cadfdfa85d0d7"
+    },
+    "dra_full_shared_regression_final.log": {
+      "path": "/home/lzf/ldx/tmp/dra_full_shared_regression_final.log",
+      "sha256": "0b59264ac786afd5457f404fcaf09287def5fdf13ffff0ebb3c722347ec61b49"
+    },
+    "dra_full_cpu_preflight_release.log": {
+      "path": "/home/lzf/ldx/tmp/dra_full_cpu_preflight_release.log",
+      "sha256": "cd448fd75fa8386cb0c7f18a8af833ef9529848ff72b5cd60121b63d4cbc754e"
+    },
+    "dra_full_prelaunch_resources.log": {
+      "path": "/home/lzf/ldx/tmp/dra_full_prelaunch_resources.log",
+      "sha256": "7392b9ec47260ac7a9d9c6c3c01b7cf95fd7f2859bff396515c515fa35a6838a"
+    },
+    "dra_full_base_path_test.log": {
+      "path": "/home/lzf/ldx/tmp/dra_full_base_path_test.log",
+      "sha256": "d7450004bd7718a36e75d82265c59c2da1ba0b30e9a72912327323036641da00"
+    }
+  }
+}

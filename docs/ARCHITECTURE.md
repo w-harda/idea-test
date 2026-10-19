@@ -1,5 +1,9 @@
 # 架构边界与迁移约定
 
+## VLPTAttack Full执行接线
+
+新增dra_full/dra_full_target/run_dra_full，仅外层385批调度与存储。复用原Wrapper/官方调用、ArtifactStore、三模型原生评分与EvaluationEngine；保留完整RNG链，不支持自动重试/恢复。Source完成验证后才进入Targets，无目标反馈。详见framework/DRA_FULL_EXECUTION.md。
+
 ## 当前结构
 
 | 路径 | 职责及保护 |

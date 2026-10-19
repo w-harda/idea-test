@@ -2,7 +2,19 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：VLPTAttack（DRA）官方IRRA Source最小接线与8图Smoke完成
+## 当前阶段：VLPTAttack官方IRRA Source Full调度完成，准备单次启动
+
+基准889a57c，独立分支codex/tbps-vlpt-official-full、工作树idea-test-tbps-vlpt-full-20261019。
+只新增Full外层调度、385批像素/文本/RNG证据、三模型原生评分、独立CPU审计和后台监督器；
+官方RAttacker与既有Smoke/Wrapper逐字节保留。42项DRA/Full CPU、148项适用公共回归PASS，
+两项旧绝对路径配置测试显式排除，详见执行文档。真实Full CPU预检3074/6156/385通过，
+10-Caption成员cuhk:38920:0、最后2图；无GPU加载。资源通过后按本轮授权启动一次，不自动重试。
+输出/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra/full/，
+控制/home/lzf/ldx/tmp/vlpt_official_irra_full_v1/。
+当前不宣称Full完成；启动记录在后续文档提交登记。RNG可追溯，不支持自动恢复。
+[执行说明](framework/DRA_FULL_EXECUTION.md)。
+
+## 已完成：VLPTAttack（DRA）官方IRRA Source最小接线与8图Smoke完成
 
 基准715f636；发布分支codex/tbps-vlpt-official-complete。原官方RAttacker.py固定91f78325… / SHA75518cb9…，字节及方法保持原样；没有重新实现攻击或改Loss/候选/梯度。初始失败代码230ff9e、成功Source8513a49、成功Target d455f3a各自保留在独立工作树；最终CPU审计仅补json import。本阶段代码、保真审计与结果报告提交：1fac414e2edf605d44194f949d301fc12e236582；后续仅登记发布索引。
 
