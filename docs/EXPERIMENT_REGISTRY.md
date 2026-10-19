@@ -1,8 +1,10 @@
 # 历史实验注册表
 
-## VLPTAttack官方IRRA Source Full（待单次启动）
+## VLPTAttack官方IRRA Source Full（首次启动FAIL，0产物）
 
-独立输出tbps-framework-vlpt-official-irra/full；旧v3 Smoke和全部FAIL不覆盖。官方91f78325/RAttacker SHA75518cb9、8/255/10轮/2/255/batch8/seed42；3074图6156句。CPU预检/测试通过，真实Full结果PENDING；后续以独立启动记录和不可变完成回执为准。
+独立输出tbps-framework-vlpt-official-irra/full；旧v3 Smoke和全部FAIL不覆盖。官方91f78325/RAttacker SHA75518cb9、8/255/10轮/2/255/batch8/seed42；3074图6156句。CPU预检/测试通过，首次实际启动fde8f6b在Source模型加载前因跨环境Target依赖校验失败。
+控制vlpt_official_irra_full_v1保留FAIL；Source/MLM加载0、攻击0、Target评估0，无Full结果，
+未自动重试。[失败证据](framework/DRA_FULL_LAUNCH_EVIDENCE.json)。
 
 这里只索引已有不可变记录，不启动实验。发布/实验树别名：
 - RELEASE=/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014

@@ -2,7 +2,7 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：VLPTAttack官方IRRA Source Full调度完成，准备单次启动
+## 当前阶段：VLPTAttack官方IRRA Source Full首次启动FAIL，未加载模型/生成产物
 
 基准889a57c，独立分支codex/tbps-vlpt-official-full、工作树idea-test-tbps-vlpt-full-20261019。
 只新增Full外层调度、385批像素/文本/RNG证据、三模型原生评分、独立CPU审计和后台监督器；
@@ -11,7 +11,14 @@
 10-Caption成员cuhk:38920:0、最后2图；无GPU加载。资源通过后按本轮授权启动一次，不自动重试。
 输出/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra/full/，
 控制/home/lzf/ldx/tmp/vlpt_official_irra_full_v1/。
-当前不宣称Full完成；启动记录在后续文档提交登记。RNG可追溯，不支持自动恢复。
+实际执行代码fde8f6b23af09e18fc1ad2a8da9aacc241b89cb2。13:54:14启动，
+监督器PID/PGID/SID870320，实测PPID1/无TTY。Target环境CPU预检及资源检查通过；
+13:54:31 Source重复完整预检时把RaSa依赖校验带入独立Source环境，
+触发RaSa runtime dependency version mismatch。监督器已退出，phase=FAIL；
+IRRA/MLM加载、攻击/Claim/图文产物均0；未重试，原控制与source.log保留。
+需后续最小CPU修复阶段化预检，并分别在两环境验证，再另行授权新Attempt。
+不能宣称Source开始处理或Full成功。RNG可追溯，不支持自动恢复。
+[启动失败报告](framework/DRA_FULL_LAUNCH_REPORT.md)、[证据](framework/DRA_FULL_LAUNCH_EVIDENCE.json)。
 [执行说明](framework/DRA_FULL_EXECUTION.md)。
 
 ## 已完成：VLPTAttack（DRA）官方IRRA Source最小接线与8图Smoke完成

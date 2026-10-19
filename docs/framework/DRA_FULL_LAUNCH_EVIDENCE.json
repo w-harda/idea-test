@@ -1,0 +1,123 @@
+{
+  "status": "FAIL",
+  "code_commit": "fde8f6b23af09e18fc1ad2a8da9aacc241b89cb2",
+  "baseline": "889a57c963ec850473e67543043df9391c0451aa",
+  "supervisor": {
+    "pid": 870320,
+    "pgid": 870320,
+    "sid": 870320,
+    "verified_initial_PPID": 1,
+    "verified_initial_TTY": "?",
+    "current_alive": false
+  },
+  "phase": "RUNNING_SOURCE failed before model load",
+  "source_IRRA_loads": 0,
+  "MLM_loads": 0,
+  "official_attack_calls": 0,
+  "Gallery": 0,
+  "Query": 0,
+  "Claims": 0,
+  "target_evaluations": 0,
+  "source_output_directory_exists": false,
+  "error": "RaSa runtime dependency version mismatch",
+  "cause": "Source source_run calls complete preflight which verifies RaSa native runtime inside dedicated DRA Source environment",
+  "retry": false,
+  "runtime_versions": {
+    "source": "{\"torch\": \"2.1.0+cu121\", \"transformers\": \"4.28.1\", \"timm\": \"0.6.13\"}",
+    "target": "{\"torch\": \"2.5.1+cu124\", \"transformers\": \"4.44.2\", \"timm\": \"0.9.8\"}"
+  },
+  "control_files": {
+    "/home/lzf/ldx/tmp/vlpt_official_irra_full_v1/ram_start.log": {
+      "sha256": "dabd7551f356b7f7941cd8741d8db755fcc401223628be3c12bd5ea6f47f8cf3",
+      "size": 210,
+      "mtime_ns": 1792389265452205419
+    },
+    "/home/lzf/ldx/tmp/vlpt_official_irra_full_v1/inodes_start.log": {
+      "sha256": "4824b7b7f146d8992aa0a3133db605926aaa0e9b3b08a5912bd3229e98bccba9",
+      "size": 115,
+      "mtime_ns": 1792389265461205340
+    },
+    "/home/lzf/ldx/tmp/vlpt_official_irra_full_v1/code.commit": {
+      "sha256": "4eeaae7c0f01eef6e6a815f6a0f1cfe65578f9c3d0f0297592cb726295d86e96",
+      "size": 41,
+      "mtime_ns": 1792389254332305373
+    },
+    "/home/lzf/ldx/tmp/vlpt_official_irra_full_v1/disk_start.log": {
+      "sha256": "927d5b0309a99b98896096efc138301082ae67b412edd787d7dbb11123e13089",
+      "size": 141,
+      "mtime_ns": 1792389265457205375
+    },
+    "/home/lzf/ldx/tmp/vlpt_official_irra_full_v1/launcher.log": {
+      "sha256": "30a18f46f8a325bd0f423273691cde4692a7ccf574e4c1f21ac9601dfa3b4cae",
+      "size": 213,
+      "mtime_ns": 1792389271149155478
+    },
+    "/home/lzf/ldx/tmp/vlpt_official_irra_full_v1/launch_sources.sha256": {
+      "sha256": "b72b007294c1fc5439040cea02a2631b2472fe1a6bc1f782381fc746842b31c6",
+      "size": 479,
+      "mtime_ns": 1792389254334305354
+    },
+    "/home/lzf/ldx/tmp/vlpt_official_irra_full_v1/gpu_start.log": {
+      "sha256": "8db3a0dcec0e1fa678666a4998dc2c4c1bf963c913c4ede8fd1d86060135b5af",
+      "size": 1870,
+      "mtime_ns": 1792389265360206233
+    },
+    "/home/lzf/ldx/tmp/vlpt_official_irra_full_v1/supervisor.sid": {
+      "sha256": "b60303037e067c0836a1b8b49b3efe86c6742b40fcf4a0e1c5308bfaf6b0cb67",
+      "size": 7,
+      "mtime_ns": 1792389254331305382
+    },
+    "/home/lzf/ldx/tmp/vlpt_official_irra_full_v1/supervisor.pid": {
+      "sha256": "b60303037e067c0836a1b8b49b3efe86c6742b40fcf4a0e1c5308bfaf6b0cb67",
+      "size": 7,
+      "mtime_ns": 1792389254292183950
+    },
+    "/home/lzf/ldx/tmp/vlpt_official_irra_full_v1/current_child.pid": {
+      "sha256": "7ada9f9fd61c65dd071b976a4b4828ee968b5da8078dd420a17b85119f0c9dee",
+      "size": 7,
+      "mtime_ns": 1792389266943192264
+    },
+    "/home/lzf/ldx/tmp/vlpt_official_irra_full_v1/status.log": {
+      "sha256": "30a18f46f8a325bd0f423273691cde4692a7ccf574e4c1f21ac9601dfa3b4cae",
+      "size": 213,
+      "mtime_ns": 1792389271149155478
+    },
+    "/home/lzf/ldx/tmp/vlpt_official_irra_full_v1/preflight.log": {
+      "sha256": "cd448fd75fa8386cb0c7f18a8af833ef9529848ff72b5cd60121b63d4cbc754e",
+      "size": 190,
+      "mtime_ns": 1792389264851210736
+    },
+    "/home/lzf/ldx/tmp/vlpt_official_irra_full_v1/supervisor.pgid": {
+      "sha256": "b60303037e067c0836a1b8b49b3efe86c6742b40fcf4a0e1c5308bfaf6b0cb67",
+      "size": 7,
+      "mtime_ns": 1792389254312305555
+    },
+    "/home/lzf/ldx/tmp/vlpt_official_irra_full_v1/started": {
+      "sha256": "e4bf8385a9b47efb47f07fa0a8f3c03b5686d089f1e3bc4a8745c1043990fb9b",
+      "size": 26,
+      "mtime_ns": 1792389254291726407
+    },
+    "/home/lzf/ldx/tmp/vlpt_official_irra_full_v1/resources.log": {
+      "sha256": "8400b2869f39b1db945a40311076e357a0bf322125ca2a7bdcaf93f5b51e4364",
+      "size": 344,
+      "mtime_ns": 1792389266754193930
+    },
+    "/home/lzf/ldx/tmp/vlpt_official_irra_full_v1/supervisor.lock": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "mtime_ns": 1792389254286305793
+    },
+    "/home/lzf/ldx/tmp/vlpt_official_irra_full_v1/phase": {
+      "sha256": "4f8e9e45f8a9e1843b81eaf3bdf52a6b778d415d23bf985774a9d34a43f69bd5",
+      "size": 5,
+      "mtime_ns": 1792389271147155495
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra/full/source.log": {
+      "sha256": "ed66719004e89b9364ed885b37454d51da482f2dd4f09d1cefe95159f8940563",
+      "size": 1363,
+      "mtime_ns": 1792389270967157059
+    }
+  },
+  "source_models_changed": false,
+  "official_core_sha256": "75518cb9465d9f8e994ea2f59c86b89fd4c39e3fe74f66b7a1d0a090eec2d313"
+}
