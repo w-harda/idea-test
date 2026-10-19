@@ -1,0 +1,90 @@
+{
+  "status": "RUNNING_SOURCE_STARTUP_VERIFIED_NOT_FULL_PASS",
+  "checked_at_China": "2026-10-19T16:42:11.805758+08:00",
+  "fix_code_commit": "34097c338997561fd7556e43c472d2e5625c05f0",
+  "supervisor": {
+    "PID": 1307026,
+    "PPID": 1,
+    "PGID": 1307026,
+    "SID": 1307026,
+    "TTY": "?",
+    "alive": true
+  },
+  "source_child_pid": 1307611,
+  "preflight": {
+    "Source": "PASS in actual dra-irra-source",
+    "Target": "PASS in actual tbps-image"
+  },
+  "progress_at_check": {
+    "batches": 1,
+    "total_batches": 385,
+    "Gallery": 8,
+    "Query": 16,
+    "elapsed_seconds": 132.8636492267251,
+    "peak_RSS_bytes": 2443964416,
+    "GPU_allocated_bytes": 1248596480,
+    "GPU_reserved_bytes": 9869197312
+  },
+  "next_batch_started": true,
+  "first_batch": {
+    "attack_seconds": 123.6774915009737,
+    "Gallery": 8,
+    "Query": 16,
+    "official_events": [
+      "text1",
+      "image",
+      "text2"
+    ],
+    "official_counts": {
+      "backward": 100,
+      "call:<lambda>": 756,
+      "call:<listcomp>": 84,
+      "call:_get_masked": 32,
+      "call:_tokenize": 32,
+      "call:attack": 1,
+      "call:get_bpe_substitues": 2,
+      "call:get_important_scores": 32,
+      "call:get_scaled_imgs": 10,
+      "call:get_substitues": 69,
+      "call:img_guided_attack": 2,
+      "call:loss_func": 279,
+      "call:rand3Num": 45,
+      "call:txt_guided_attack": 1,
+      "gradient": 55
+    },
+    "budget": {
+      "extra_projection": false,
+      "mathematical_epsilon": 0.03137254901960784,
+      "official_FP32_bounds": true,
+      "real_linf": 0.03137257695198059,
+      "roundoff_above_real_epsilon": 2.793237274811844e-08
+    },
+    "immutable_manifests": {
+      "protocol": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/source/protocol/manifest.json",
+        "sha256": "b8df2a36487ce742f474ddc6b4eb511d354c901dcf7e6c595c7ec2a56146ac28"
+      },
+      "claim-batch-000000": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/source/claim-batch-000000/manifest.json",
+        "sha256": "da5ee8cb418ddbcfed7dcec07b2bab4ef9ad63df763712db417deb04abbb4c03"
+      },
+      "rng-batch-000000": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/source/rng-batch-000000/manifest.json",
+        "sha256": "d1203b37bef16b46f8b50d16323f31dfe9dc01da5bc253d283cc009a37312458"
+      },
+      "batch-000000": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/source/batch-000000/manifest.json",
+        "sha256": "37bbd460c24bbdf14a2bf0074bc42d29cc44e8e74370ca93474b74ada71c6732"
+      }
+    }
+  },
+  "initial_resources_line": "DRA_FULL_RESOURCES_PASS {\"GPU\": {\"name\": \"NVIDIA GeForce RTX 4090\", \"total_mib\": 24564, \"free_mib\": 24051, \"used_mib\": 40, \"utilization_percent\": 0, \"compute_processes\": \"\", \"policy\": \"shared_observe_only\", \"raw_gpu_state\": \"NVIDIA GeForce RTX 4090, 24564, 24051, 40, 0\"}, \"available_RAM_bytes\": 121058377728, \"free_disk_bytes\": 6378438537216}",
+  "v1_all_18_files_SHA_stat_exact": true,
+  "official_core_sha256": "75518cb9465d9f8e994ea2f59c86b89fd4c39e3fe74f66b7a1d0a090eec2d313",
+  "no_retry": true,
+  "Full_result": "PENDING",
+  "final_CPU_audit": "PENDING",
+  "control": "/home/lzf/ldx/tmp/vlpt_official_irra_full_v2",
+  "output": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full",
+  "dynamic_logs_not_sealed": true
+}

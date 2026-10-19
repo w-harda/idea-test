@@ -1,12 +1,14 @@
 # 历史实验注册表
 
-## VLPTAttack官方IRRA Source Full v2（预检修复，待正式启动确认）
+## VLPTAttack官方IRRA Source Full v2（RUNNING_SOURCE，首批提交）
 
 基准055fea8，v2独立分支codex/tbps-vlpt-full-v2。
 两环境真实CPU预检PASS；Source不执行Target运行时检查，Target原生检查保留。
 新输出tbps-framework-vlpt-official-irra-v2/full，控制vlpt_official_irra_full_v2；
 v1的18个FAIL证据保持。官方SHA、模型、参数、385批/3074图/6156文协议不变。
-当前Full结果PENDING。[v2说明](framework/DRA_FULL_V2_FIX_REPORT.md)。
+运行代码34097c338997561fd7556e43c472d2e5625c05f0，监督器1307026（PPID1/无TTY），
+16:42:11核验首批8图16文已提交、官方三阶段完整，第二批开始。Full与最终CPU审计PENDING。
+[v2说明](framework/DRA_FULL_V2_FIX_REPORT.md)、[启动报告](framework/DRA_FULL_V2_STARTUP_REPORT.md)。
 
 
 ## VLPTAttack官方IRRA Source Full（首次启动FAIL，0产物）

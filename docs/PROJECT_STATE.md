@@ -2,7 +2,7 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：VLPTAttack Full v2阶段化预检修复完成，准备独立启动
+## 当前阶段：VLPTAttack Full v2已真实后台运行Source，首批8图16文提交通过
 
 基准055fea880214c95f3b8eee6282bb9de91ea1b742；
 分支codex/tbps-vlpt-full-v2，独立工作树idea-test-tbps-vlpt-full-v2-20261019。
@@ -12,7 +12,13 @@
 model_loads=0/CUDA=false。v1全部18份FAIL证据SHA/mtime/size保持。
 v2控制vlpt_official_irra_full_v2，输出tbps-framework-vlpt-official-irra-v2/full；
 未复用v1身份。本轮授权资源通过后启动一次，失败不重试，不创建v3。
-真实启动状态随后登记；不提前宣称Full成功。
+实际运行代码34097c338997561fd7556e43c472d2e5625c05f0；
+16:38:15启动，后台两套预检PASS，16:38:32进入RUNNING_SOURCE。
+监督器PID/PGID/SID1307026，PPID1、TTY=?，Source子进程1307611。
+16:42:11核验已提交1/385批、8图/16文，第二批开始；首批原官方text1/image/text2完整，
+45次区域采样、100次图像backward、SHA和读回通过。无Target版本错误。
+Full和最终CPU审计仍PENDING，不宣称Full成功。按授权确认启动后退出，不持续监控。
+[启动报告](framework/DRA_FULL_V2_STARTUP_REPORT.md)、[快照证据](framework/DRA_FULL_V2_STARTUP_EVIDENCE.json)。
 [修复与执行说明](framework/DRA_FULL_V2_FIX_REPORT.md)。
 
 ## 历史FAIL：VLPTAttack官方IRRA Source Full首次启动FAIL，未加载模型/生成产物
