@@ -4,7 +4,7 @@
 
 ## 当前阶段：VLPTAttack（DRA）官方IRRA Source最小接线与8图Smoke完成
 
-基准715f636；发布分支codex/tbps-vlpt-official-complete。原官方RAttacker.py固定91f78325… / SHA75518cb9…，字节及方法保持原样；没有重新实现攻击或改Loss/候选/梯度。初始失败代码230ff9e、成功Source8513a49、成功Target d455f3a各自保留在独立工作树；最终CPU审计仅补json import。发布Commit待本轮提交后登记。
+基准715f636；发布分支codex/tbps-vlpt-official-complete。原官方RAttacker.py固定91f78325… / SHA75518cb9…，字节及方法保持原样；没有重新实现攻击或改Loss/候选/梯度。初始失败代码230ff9e、成功Source8513a49、成功Target d455f3a各自保留在独立工作树；最终CPU审计仅补json import。本阶段代码、保真审计与结果报告提交：1fac414e2edf605d44194f949d301fc12e236582；后续仅登记发布索引。
 
 固定Test前8图/全部16 Caption，完整原三阶段、Batch8、8/255、10轮、2/255、原5候选/整数三角采样/五尺度、BERT77/IRRA77/pre_caption30。
 成功Source实际45次区域采样、100次图像backward、1144图像/1026文本样本，IRRA/MLM各加载1次；源参数允许求导但无Optimizer，参数/buffers前后exact。16条最终原词槽位替换、NOOP0；1条官方多WordPiece候选展开为短语，未过滤。全部桥接exact、无额外截断。

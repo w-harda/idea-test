@@ -370,3 +370,5 @@ Source/三Target/CPU审计PASS，v2最终SUCCESS标志及phase=SUCCESS；00:51:3
 - 旧两个Source输出、旧irra及初次CPU审计FAIL全部保留，参见framework/DRA_SMOKE_REPORT.md。
 - framework/DRA_OFFICIAL_FIDELITY_AUDIT.md的OFFICIAL_ALGORITHM_FIDELITY_PASS只针对固定Source/Data I/O移植与8/16，不代表Full或原论文性能复现。
 - 无Full结果、无后台任务，不引用旧SGA White-box冒充本方法。
+
+本阶段代码/报告发布Commit：1fac414e2edf605d44194f949d301fc12e236582；远端分支codex/tbps-vlpt-official-complete，后续文档提交登记。
