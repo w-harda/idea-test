@@ -431,3 +431,5 @@ CPU Preflight通过，父G/Adam/RNG exact；正式完整训练及CPU终审PENDIN
 发布状态补充：原监督器在Git暂存空白检查阶段FAIL（CSV CRLF、SVG尾空格），训练和既有CPU审计均已PASS。
 后续只规范派生报告格式，数值/图形不变，单独提交推送；原FAIL日志保持，不改写成原运行SUCCESS。
 见结果目录PUBLICATION_REPAIR.json；没有重新训练、重跑CPU审计或进行模型评估。
+
+正式训练报告与格式修复内容Commit：e036c1eb29339441e30b643ed1c4a77a1d4590e6（codex/gv2-epoch60-launch）。

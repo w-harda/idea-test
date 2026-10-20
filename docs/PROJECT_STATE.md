@@ -13,7 +13,7 @@ CSV650字段与原摘要exact、Markdown60行一致，六点Checkpoint SHA核验
 Matplotlib SVG的1117处行尾空格退出，phase=FAIL exit=2 line=83。
 只修派生CSV/SVG空白格式，不修改生成器或任何训练源码；CSV单元格和SVG图形语义exact、PNG不变。
 原20份控制文件及567份正式训练文件SHA/mtime保持；原FAIL事件/phase/日志不改写。
-修复后的报告单独提交推送，发布凭证在控制publication_repair_v1/publication_success.json；
+修复后的报告内容Commit：e036c1eb29339441e30b643ed1c4a77a1d4590e6；发布凭证在控制publication_repair_v1/publication_success.json；
 不能将后续发布成功冒充原监督器整链成功。后续Gallery生成/三模型Full仍待授权。
 [正式训练报告与修复说明](framework/results/gv2_epoch60_training/REPORT.md)；
 [曲线](framework/results/gv2_epoch60_training/loss_curves.png)；
