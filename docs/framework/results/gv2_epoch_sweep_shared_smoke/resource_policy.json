@@ -1,0 +1,40 @@
+{
+  "schema": "gv2-sweep-shared-resource-policy-1",
+  "base_commit": "0dba135a3bd0a59fdf3ab220acfd6066a6102c5a",
+  "old": {
+    "minimum_free_mib": 8192,
+    "maximum_initial_utilization_percent": 10
+  },
+  "new": {
+    "minimum_free_mib": 6144,
+    "gpu_policy": "shared_observe_only",
+    "utilization": "monitor_only"
+  },
+  "files": {
+    "/home/lzf/ldx/projects/idea-test-tbps-gv2-epoch-sweep-20261020/src/tbps/ablations/gv2_sweep.py": "a3eeecdf087576ac18c824c68480c0ba625f0da8f65feb6d6ee444050b093058",
+    "/home/lzf/ldx/projects/idea-test-tbps-gv2-epoch-sweep-20261020/configs/framework/gv2_epoch_sweep.server.json": "b7b5fa34cdfd3c5ff4c8568b91cc3f5804268cf210ebd36215f4390eb714b7bd"
+  },
+  "after_sha256": {
+    "/home/lzf/ldx/projects/idea-test-tbps-gv2-epoch-sweep-20261020/src/tbps/ablations/gv2_sweep.py": "13a551c89a5ceff962a5d2020b2de2f91ab3e95cfe49fdf9890b691a081499ba",
+    "/home/lzf/ldx/projects/idea-test-tbps-gv2-epoch-sweep-20261020/configs/framework/gv2_epoch_sweep.server.json": "66bdd1639b54508af1852f781b3951c637193ffa5069848b4b73145e9d9bf701"
+  },
+  "changed_config_fields": [
+    "gpu_policy",
+    "maximum_initial_utilization_percent",
+    "minimum_free_mib",
+    "producers"
+  ],
+  "changed_producers": [
+    "/home/lzf/ldx/projects/idea-test-tbps-gv2-epoch-sweep-20261020/src/tbps/ablations/gv2_sweep.py"
+  ],
+  "non_resource_AST_exact": true,
+  "frozen_experiment_fields_unchanged": true,
+  "Target_runner_unchanged": true,
+  "CPU_tests": {
+    "resource_and_common": 142,
+    "native_applicable": 92,
+    "known_old_path_exclusion": 1
+  },
+  "policy_source": "current user explicitly authorizes GPU sharing; repository instructions prohibit interference, not sharing",
+  "GPU_execution": "pending; no Attempt created"
+}

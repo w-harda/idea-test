@@ -172,7 +172,7 @@
   "query_chunk": 128,
   "output_base": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep",
   "python": "/home/lzf/ldx/envs/tbps-image/bin/python",
-  "minimum_free_mib": 8192,
+  "minimum_free_mib": 6144,
   "minimum_ram_bytes": 34359738368,
   "minimum_disk_bytes": {
     "smoke": 10737418240,
@@ -283,7 +283,7 @@
     "/home/lzf/ldx/projects/idea-test-tbps-gv2-epoch-sweep-20261020/src/tbps/ablations/gv2_epoch60_results.py": "12325d1635b241cd8a301c870b6c9c8adbe43defad87c49023dc397fe87ecd17",
     "/home/lzf/ldx/projects/idea-test-tbps-gv2-epoch-sweep-20261020/src/tbps/ablations/gv2_epoch_state.py": "a1c24c9c786f3fbe6dcbbc87d3836f58fa88b66352845bdba62805627c41b1cb",
     "/home/lzf/ldx/projects/idea-test-tbps-gv2-epoch-sweep-20261020/src/tbps/ablations/gv2_epochs.py": "d2f5e60a79aa2923499ee3a95bb36af1488704e04fc7b26ca021d227a782303c",
-    "/home/lzf/ldx/projects/idea-test-tbps-gv2-epoch-sweep-20261020/src/tbps/ablations/gv2_sweep.py": "a3eeecdf087576ac18c824c68480c0ba625f0da8f65feb6d6ee444050b093058",
+    "/home/lzf/ldx/projects/idea-test-tbps-gv2-epoch-sweep-20261020/src/tbps/ablations/gv2_sweep.py": "13a551c89a5ceff962a5d2020b2de2f91ab3e95cfe49fdf9890b691a081499ba",
     "/home/lzf/ldx/projects/idea-test-tbps-gv2-epoch-sweep-20261020/src/tbps/ablations/gv2_sweep_target.py": "93d154de9168c92101cd06cd3e5bd950fd98b17b69a120c5b1e561bc985240fa",
     "/home/lzf/ldx/projects/idea-test-tbps-gv2-epoch-sweep-20261020/src/tbps/aptm_eval.py": "58ad427af4fb796cb32cce1ff6f0184c2c251276b4bc8b5300cae4f997a5519d",
     "/home/lzf/ldx/projects/idea-test-tbps-gv2-epoch-sweep-20261020/src/tbps/artifacts.py": "b7d7486df6b401705157a604daec236c7bc9ce79a8518ccf2c3df5e07c61c940",
@@ -386,5 +386,5 @@
     "/home/lzf/ldx/projects/idea-test-tbps-gv2-epoch-sweep-20261020/src/tbps/smoke_attacks_gated.py": "a600141540b5f86b704decc7287bd395918dc6113442ea780e6ca08784ee672e",
     "/home/lzf/ldx/projects/idea-test-tbps-gv2-epoch-sweep-20261020/src/tbps/smoke_irra.py": "e3b28a08e22259a1603fdc354cee54c231fba3f95328a1cfe4430bb4f259044f"
   },
-  "maximum_initial_utilization_percent": 10
+  "gpu_policy": "shared_observe_only"
 }

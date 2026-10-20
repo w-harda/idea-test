@@ -198,14 +198,54 @@ class SweepTests(unittest.TestCase):
         c=json.loads((root/"configs/framework/gv2_epoch_sweep.server.json").read_text())
         c["producers"].pop(str(root/"src/tbps/gv2_epoch_eval.py"));p=self.base/"config.json";p.write_text(json.dumps(c))
         with self.assertRaisesRegex(ValueError,"complete fixed"):s.config(p)
-    def test_active_gpu_rejected_without_wait_or_cuda(self):
-        c={"minimum_free_mib":8192,"maximum_initial_utilization_percent":10}
-        with patch("tbps.engines.materialized_irra.gpu_available",return_value={"free_mib":17803,"utilization_percent":76}),\
-             patch.object(torch.cuda,"_lazy_init",side_effect=AssertionError("CUDA forbidden")):
-            with self.assertRaisesRegex(ValueError,"active task"):s.resources(c)
-    def test_insufficient_gpu_memory_rejected(self):
-        with patch("tbps.engines.materialized_irra.gpu_available",return_value={"free_mib":1024,"utilization_percent":0}):
-            with self.assertRaisesRegex(ValueError,"insufficient"):s.resources({"minimum_free_mib":8192})
+    def resource_c(self):
+        return {"minimum_free_mib":6144,"gpu_policy":"shared_observe_only",
+            "minimum_ram_bytes":32*2**30,"minimum_disk_bytes":{"smoke":10*2**30,"full":100*2**30}}
+    def resource_fixture(self,*,free=18433,util=74,ram_kib=64*2**20,disk_bytes=200*2**30):
+        from contextlib import ExitStack
+        stack=ExitStack()
+        stack.enter_context(patch("tbps.engines.materialized_irra.gpu_available",return_value={
+            "free_mib":free,"utilization_percent":util,"compute_processes":"1402779, python, 5610"}))
+        stack.enter_context(patch.object(s.Path,"read_text",return_value=f"MemAvailable: {ram_kib} kB\n"))
+        stack.enter_context(patch.object(s.os,"statvfs",return_value=NS(f_bavail=disk_bytes,f_frsize=1,f_favail=10000)))
+        return stack
+    def test_shared_gpu_74percent_18433mib_allowed(self):
+        with self.resource_fixture():
+            report=s.resources(self.resource_c())
+        self.assertEqual(report["GPU"]["utilization_percent"],74)
+        self.assertIn("1402779",report["GPU"]["compute_processes"])
+    def test_shared_gpu_90percent_allowed(self):
+        with self.resource_fixture(util=90):
+            self.assertEqual(s.resources(self.resource_c())["GPU"]["utilization_percent"],90)
+    def test_shared_gpu_exact_6144_allowed(self):
+        with self.resource_fixture(free=6144,util=100):
+            self.assertEqual(s.resources(self.resource_c())["GPU"]["free_mib"],6144)
+    def test_shared_gpu_below_6144_rejected(self):
+        with self.resource_fixture(free=6143),self.assertRaisesRegex(ValueError,"memory insufficient"):
+            s.resources(self.resource_c())
+    def test_shared_gpu_ram_insufficient_rejected(self):
+        with self.resource_fixture(ram_kib=1024),self.assertRaisesRegex(ValueError,"RAM/disk"):
+            s.resources(self.resource_c())
+    def test_shared_gpu_disk_insufficient_rejected(self):
+        with self.resource_fixture(disk_bytes=1024),self.assertRaisesRegex(ValueError,"RAM/disk"):
+            s.resources(self.resource_c())
+    def test_gpu_status_failure_stops_before_attempt(self):
+        c=self.resource_c();c["output_base"]=str(self.base/"output")
+        with patch.object(t,"prepare",return_value={}),\
+             patch("tbps.engines.materialized_irra.gpu_available",side_effect=RuntimeError("nvidia-smi failed")):
+            with self.assertRaisesRegex(RuntimeError,"nvidia-smi failed"):t.smoke(c)
+        self.assertFalse((self.base/"output").exists())
+    def test_resource_check_never_interferes_or_initializes_cuda(self):
+        with self.resource_fixture(),patch.object(s.os,"kill",side_effect=AssertionError("no signal")),\
+             patch.object(s.os,"killpg",side_effect=AssertionError("no process-group signal")),\
+             patch.object(s.subprocess,"run",side_effect=AssertionError("no process control")),\
+             patch.object(torch.cuda,"_lazy_init",side_effect=AssertionError("no CUDA")):
+            s.resources(self.resource_c())
+        self.assertFalse(torch.cuda.is_initialized())
+    def test_shared_policy_required(self):
+        c=self.resource_c();c["gpu_policy"]="exclusive"
+        with self.resource_fixture(),self.assertRaisesRegex(ValueError,"shared GPU"):
+            s.resources(c)
     def test_full_generation_requires_explicit_flag(self):
         with patch("sys.argv",["entry","--config","unused","--action","generate","--scope","full","--epoch","20"]),\
              patch.object(s,"config",return_value={}),patch.object(s,"generate",side_effect=AssertionError("must not run")):

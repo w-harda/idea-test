@@ -202,8 +202,8 @@ def resources(c,scope="smoke"):
     from tbps.engines.materialized_irra import gpu_available
     gpu=gpu_available({"physical_gpu":0})
     need(gpu["free_mib"]>=c["minimum_free_mib"],"GPU memory insufficient; no retry")
-    need(gpu["utilization_percent"]<=c["maximum_initial_utilization_percent"],
-         "GPU active task utilization exceeds launch policy; stop without waiting/interference")
+    need(c["gpu_policy"]=="shared_observe_only","explicit shared GPU resource policy required")
+    # 用户授权共享：利用率及其他进程只记录，绝不暂停/终止/抢占，也不保证后续不会OOM。
     mem=next(int(x.split()[1])*1024 for x in Path("/proc/meminfo").read_text().splitlines() if x.startswith("MemAvailable:"))
     disk=os.statvfs("/home/lzf/ldx/outputs")
     need(mem>=c["minimum_ram_bytes"] and disk.f_bavail*disk.f_frsize>=c["minimum_disk_bytes"][scope],"RAM/disk insufficient")
