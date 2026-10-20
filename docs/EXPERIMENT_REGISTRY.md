@@ -1,5 +1,18 @@
 # 历史实验注册表
 
+## G-v2 Epoch Sweep唯一共享GPU Smoke（2026-10-20，PASS）
+
+代码152498fd258572ad9c43c04b2ce8fba8b9e995b4；用户显式许可共享，资源函数之外AST exact。
+smoke_v1只创建一次，G10/G60各10图，同一G60 Gallery供三个目标；H文本及原生特征只读复用。
+三Target及三新CPU审计全PASS，标志GV2_SIX_NODE_SMOKE_PASS。
+G10原/Adv/effective_delta内容SHA exact；G60 L∞0.0313725471496582，全部模型冻结。
+G共2恢复/20前向，三Victim各1恢复/10图/0文，RaSa/APTM各200 ITM pair，H/Backward/Optimizer/JVP0。
+无正式五节点Full、无训练或重试；仅固定10+10/Top10通路，不作为训练轮数效果结果。
+[真实报告](framework/GV2_EPOCH_SWEEP_SHARED_SMOKE.md)、
+[回执/SHA/资源/原精度](framework/results/gv2_epoch_sweep_shared_smoke/SMOKE_EVIDENCE.json)。
+旧准备PENDING/RESOURCE_BUSY为历史阶段快照，未改写；本轮完成后等待最终Full授权。
+
+
 ## G-v2六节点三模型消融准备（2026-10-20）
 
 状态CPU_PREPARED_GPU_SMOKE_PENDING；不是新的Full实验结果。

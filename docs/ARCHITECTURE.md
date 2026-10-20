@@ -10,7 +10,9 @@ gv2_epoch_eval + ablations/gv2_sweep(_target)只连接原生成器/单步投影�
 IRRA评分复用原通过审计的native cache协议作为原生空间证明，同时新Score绑定新Epoch图像/协议。
 目标反馈不进入G，G与Victim分进程；H不运行。
 
-当前六点CPU权重与来源通过，真实GPU Smoke资源阻塞且未创建Attempt，不推导Full已可运行。
+当前六点CPU权重/来源与唯一G10/G60→三Victim真实Smoke及三独立CPU审计通过。
+资源策略经用户显式授权改为shared_observe_only/6144MiB，利用率仅记录；所有非资源函数AST保持。
+新Schema装载、原G10像素复现及新G60产物通路已验证，仍不推导Top128 Full已完成或正式Full已获授权。
 未来Full入口在缺Smoke/三份CPU审计回执时拒绝；无轮询或后台部署。
 详见[运行说明](framework/GV2_EPOCH_SWEEP.md)、ADR-0013。
 

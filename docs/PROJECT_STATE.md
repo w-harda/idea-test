@@ -2,23 +2,28 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：G-v2六节点三模型消融CPU准备完成，真实Smoke因资源繁忙PENDING
+## 当前阶段：G-v2六节点准备的唯一真实Smoke及三CPU审计PASS，Full等待最终授权
 
-基准6187eed96ed9eff63b8da37f5d98b5adddf75300；独立codex/gv2-six-epoch-evaluation工作树。
-六Checkpoint SHA/完整contract/原G架构strict装载通过；原三Full与同一generation_v3、Raw Caption和ModelSpace一致，
-48项CSV/summary值exact，可只读复用E10/Clean/H7文本缓存；不复用新Epoch的Adv图像/Top-K/Score。
-新增仅评估接线、独立RGB variant、CPU审计及未来授权启动器，原G/投影/Adapter/Engine/历史资产不改。
-适用CPU共227 PASS（36新增+99公共+92原生），旧APTM绝对路径配置用例在未修改基准同样失败，显式排除1项。
+执行代码152498fd258572ad9c43c04b2ce8fba8b9e995b4；同一独立codex/gv2-six-epoch-evaluation工作树。
+用户明确授权共享GPU；仅resources准入8192MiB/利用率≤10%改为6144MiB且利用率仅监控，
+对应producer SHA正规更新，其余运行函数AST exact，Target/Checkpoint/模型/预算/精度/输入不变。
+适用CPU234 PASS（43当前含9资源用例+99公共+92原生）；旧APTM绝对路径配置单项仍按基准排除。
 
-GPU快照外部Python PID1249638占6240MiB、利用率76%；主动停止本任务尚在CPU预检的父流程，
-未创建Smoke Attempt，实际GPU模型/前向0，不等待/轮询/干预其他进程。
-74184份相关历史文件stat、289项SHA保持；训练/正式Full不启动，未重跑已完成训练审计。
-Full入口需真实Smoke及三份新CPU审计完成回执和用户授权，当前不满足。
-[报告](framework/GV2_EPOCH_SWEEP_PREPARATION_REPORT.md)、
-[命令及成本](framework/GV2_EPOCH_SWEEP.md)、
-[来源/测试/资源证据](framework/results/gv2_epoch_sweep_preparation/evidence.json)。
-代码、配置、测试及准备证据Commit：7ba65dfcbc5232cef9ffd94bad20852d3feb0ea7；本次后续提交仅登记发布索引。
-完成后停止，不自动运行Smoke或Full。
+2026-10-20 19:57:41→20:13:31 +08:00，整条命令950.148秒，唯一smoke_v1。
+G10/G60各加载1次、10次前向；G10对历史Adv RGB最大误差0，
+原/Adv/effective_delta的30项内容SHA exact；G60实数L∞0.0313725471496582≤8/255。
+IRRA/RaSa/APTM各加载1次/编码10图/0文本，RaSa/APTM各200融合pair；
+H加载/前向0，Backward/Optimizer/JVP0，全部模型参数/buffers前后exact。
+三份独立CPU审计PASS后发布GV2_SIX_NODE_SMOKE_PASS，没有重试。
+自身GPU最大reserved2082MiB，最大Worker RSS4.075GiB；共享其他任务一直保留，无进程干预。
+
+74184份相关历史stat、289项SHA及六Checkpoint不变，107项运行来源复核通过；无pending/残留Worker。
+原0dba135资源阻塞/CPU准备记录保留，当前Source报告与旧快照分别索引，不回填旧证据。
+[实际Smoke报告](framework/GV2_EPOCH_SWEEP_SHARED_SMOKE.md)、
+[原精度/完成回执/源SHA证据](framework/results/gv2_epoch_sweep_shared_smoke/SMOKE_EVIDENCE.json)、
+[正式计划及命令](framework/GV2_EPOCH_SWEEP.md)。
+技术Smoke门禁已满足，但**正式五节点Full仍未授权/启动**，Top10不能宣称Full Top128新验证。
+内容发布Commit由后续索引登记；提交推送后停止等待最终Full授权。
 
 ## 已完成：G-v2 Epoch11→60训练及CPU审计PASS，Git派生报告格式修复
 

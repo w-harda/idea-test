@@ -1,0 +1,7 @@
+Target Model,Attack Method,R@1,R@5,R@10,mAP
+IRRA,G-v2 Image-only,90.00,100.00,100.00,87.89
+IRRA,G-v2 + H-v1 Joint,80.00,100.00,100.00,84.29
+RaSa,G-v2 Image-only,90.00,100.00,100.00,90.33
+RaSa,G-v2 + H-v1 Joint,80.00,100.00,100.00,81.11
+APTM,G-v2 Image-only,80.00,100.00,100.00,89.11
+APTM,G-v2 + H-v1 Joint,80.00,90.00,100.00,86.79

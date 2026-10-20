@@ -1,7 +1,9 @@
 # G-v2六节点三模型消融评估准备
 
 本轮基准6187eed96ed9eff63b8da37f5d98b5adddf75300；独立分支codex/gv2-six-epoch-evaluation。
-仅完成CPU开发/来源核验。真实Smoke因GPU上另一个活跃Python任务而未启动，Full尚未授权/启动。
+原准备阶段仅完成CPU来源核验；后续用户已明确批准共享GPU并授权唯一真实Smoke。
+共享准入/实际执行结果见[共享策略与Smoke报告](GV2_EPOCH_SWEEP_SHARED_SMOKE.md)。
+本说明中的原准备状态为历史快照，正式Full仍未授权/启动。
 详见[准备报告](GV2_EPOCH_SWEEP_PREPARATION_REPORT.md)和[证据](results/gv2_epoch_sweep_preparation/evidence.json)。
 
 ## 复用与边界
@@ -42,7 +44,7 @@ CUDA_VISIBLE_DEVICES="" /home/lzf/ldx/envs/tbps-image/bin/python -B -u -m tbps.g
 六个权重SHA、扩展训练来源、原架构strict_state_dict_load、H7、历史Full来源和已有审计。
 CPU解析权重时禁止神经forward/CUDA；旧current.json、训练恢复入口不调用。
 
-## 单次最小Smoke（待GPU资源合适后执行；本轮未执行真实前向）
+## 单次最小Smoke（已完成；以下为执行索引，不得重复运行）
 
 预先固定Gallery原序0–8及15，Query原序前9条及cuhk:37147:1，10+10均有正例。
 后者是已知历史NOOP；选择在生成前冻结，不根据攻击效果选样本。
@@ -61,8 +63,9 @@ CUDA_VISIBLE_DEVICES=0 /home/lzf/ldx/envs/tbps-image/bin/python -B -u -m tbps.gv
 ```
 
 唯一输出：/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/smoke_v1。
-默认不执行GPU，显式allow-smoke才可进入。资源不足/利用率>10%停止，不等待、不干预其他任务。
-本次CPU阶段因外部进程忙而停止，smoke_v1尚未创建，不存在需要覆盖的失败GPU Attempt。
+默认不执行GPU，显式allow-smoke才可进入。空闲显存不足6144MiB或RAM/磁盘不足时停止；利用率/其他进程仅记录，不等待、不干预其他任务。
+最初两次资源检查未创建Attempt；随后共享策略修订后已完成唯一smoke_v1及三份CPU审计。
+当前不得重复执行本命令、覆盖旧Attempt或自行创建新版本。实际结果见共享策略与Smoke报告。
 运行之后若任何阶段失败，保留Claim/pending/FAIL/日志，禁止自动重复该Attempt。
 
 ## 正式Full拟执行流程（本阶段未获授权，勿直接启动）
@@ -124,9 +127,9 @@ RaSa/APTM每Epoch各约1575936个ITM pair（6156×128×2模式）。
 加生成、SHA、CPU预检及读回，整链暂估15–20小时。没有本轮GPU实测支撑，不能作为运行保证。
 新像素每Epoch约5.066GiB、合计25.33GiB；RaSa图像token缓存约25.4GiB、
 APTM约2.9GiB，加Score/Manifest/日志，建议新增65–80GiB并保留至少100GiB空闲。
-原RaSa Full RSS约24.43GiB，配置可用RAM≥32GiB；启动可用显存≥8192MiB、利用率≤10%。
+原RaSa Full RSS约24.43GiB，配置可用RAM≥32GiB；启动可用显存≥6144MiB，利用率只监控；显存快照不能保证后续无OOM。
 旧三Target实测reserved约1.0/2.03/1.05GiB，不能据此保证新GPU环境不会OOM。
 
 本次不生成五节点Full Gallery，不启动训练或Full，不根据Test指标选点或调整算法。
-G10新加载接线的真实像素等价、G60真实生成和三Target完整Smoke仍PENDING；
-既有历史Full协议可复用的结论与本次未运行GPU要分别陈述。
+G10新加载接线的像素SHA exact、G60生成和三Target Smoke/独立CPU审计已在固定样本通过。
+完整Top128、五节点正式生成/评分及六节点趋势尚未执行；小样本PASS不代替正式Full。
