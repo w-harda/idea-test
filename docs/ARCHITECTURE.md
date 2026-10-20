@@ -288,3 +288,11 @@ gv2_epochs.py是外部调度/观测，直接调用冻结G-v2 train_epoch/train_s
 原contract和新extension-contract分型；单样本Smoke用独立probe schema，不能冒充完整Epoch或作为正式恢复入口。
 生产边界拒绝pending/损坏/未完成Claim自动重播；不提供Step级恢复。正式执行仍需独立授权。
 详细决定见ADR-0012，当前完成状态以PROJECT_STATE为准。
+
+## G-v2正式续训的外层执行隔离
+
+冻结635471b工作树只运行原gv2_epochs入口；独立管理工作树的run_gv2_epoch60_train.sh只监督一次启动、
+原生CPU训练审计及成功后的标量报告/发布，不进入训练计算图或修改配置、来源和算法。
+正常TERM只转发训练子进程、等待原Epoch边界；失败不重试/恢复。
+gv2_epoch60_results.py只读已完成回执和标量，生成原精度CSV/曲线及六点Checkpoint来源，不加载模型、不评分。
+图形绘制只读复用现有matplotlib CPU环境，训练环境不安装/更新依赖。当前完成状态见PROJECT_STATE。

@@ -415,3 +415,10 @@ protocol、initial_restore、probe_state、probe_result、completed和cpu_audit�
 源码及SHA索引见[续训验证报告](framework/GV2_EPOCH_EXTENSION_VALIDATION_REPORT.md)
 与[证据清单](framework/GV2_EPOCH_EXTENSION_EVIDENCE.json)。
 原G10、H7及G/H/B3/SGA/DRA Full资产只读保护；后续正式50轮和三模型消融PENDING。
+
+## G-v2 Epoch11→60正式训练启动快照（2026-10-20）
+
+训练635471b，管理14f2833be06c75b62e08473886c5c81268e53fd3；父G10 SHA f59bd3b5…658e。
+监督器PID/PGID/SID454418，PPID1/无TTY；已真实Epoch11更新，核验时550样本、Adam82856。
+CPU Preflight通过，父G/Adam/RNG exact；正式完整训练及CPU终审PENDING，不是新攻击Full结果。
+[启动证据](framework/GV2_EPOCH60_TRAIN_STARTUP.md)。当前状态以PROJECT_STATE和不可变完成回执为准。

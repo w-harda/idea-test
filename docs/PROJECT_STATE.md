@@ -2,15 +2,20 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：G-v2 Epoch11→60正式训练已授权，后台启动前核验
+## 当前阶段：G-v2 Epoch11→60正式后台训练已真实启动
 
-训练源码固定635471b6d8a722616f87df16c300a8358861cd10，原工作树不变。
-本管理分支codex/gv2-epoch60-launch只新增监督器和完整训练成功后的CPU标量汇总，不修改训练入口。
-本轮真实CPU Preflight已exit0，父SHA/2176缓存及绝对Epoch11顺序核验；新增7项启动/汇总CPU检查PASS。
-正式运行须完成一次资源检查并确认真实样本更新，不能仅凭nohup PID宣称RUNNING。
-此前158项、唯一GPU Smoke、独立CPU审计已通过，本轮不重复Smoke。
-当前授权仅Epoch11–60训练、成功后的CPU审计和曲线报告；不含Gallery物化或三模型Full。
-[启动管理与查询命令](framework/GV2_EPOCH60_TRAIN_LAUNCH.md)；实际启动记录在核验后补齐。
+冻结训练工作树HEAD635471b6d8a722616f87df16c300a8358861cd10保持干净；管理分支codex/gv2-epoch60-launch，
+启动管理实现14f2833be06c75b62e08473886c5c81268e53fd3，训练入口/配置/算法不变。
+本轮真实CPU Preflight exit0，父SHA/2176缓存/绝对Epoch11顺序通过，管理及汇总CPU测试7项通过。
+2026-10-20T13:49:51.396151+08:00核验：nohup+setsid监督器PID/PGID/SID=454418，PPID1/无TTY，子进程454474。
+已真实进入Epoch11，日志GV2_TRAIN_PROGRESS 11 544 / 2048 Adam [82834]；采样记录550/2048条、累计Adam82856，
+为该时间点快照，不代表后续自动跟踪。父G/Adam/四类RNG恢复exact、起点80680，不继承Smoke更新。
+最近完整Checkpoint仍为原Epoch10；50轮训练、最终484080和独立CPU审计仍PENDING。
+控制/home/lzf/ldx/tmp/gv2_epoch60_train_v1；输出/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train。后台成功后仅运行原CPU训练审计并整理Loss/六点来源，
+失败立即停止、不自动恢复。没有Gallery生成或三模型Full授权；本次确认启动后退出，不全程等待。
+[实际启动核验](framework/GV2_EPOCH60_TRAIN_STARTUP.md)；
+[证据](framework/GV2_EPOCH60_TRAIN_STARTUP_EVIDENCE.json)；
+[查询与停止](framework/GV2_EPOCH60_TRAIN_LAUNCH.md)。
 
 
 ## 已完成：VLPTAttack（DRA）v2三模型Full及CPU审计完成，正式结果只读汇总

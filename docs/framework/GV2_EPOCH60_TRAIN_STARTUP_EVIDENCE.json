@@ -1,0 +1,107 @@
+{
+  "schema": "gv2-epoch60-formal-startup-1",
+  "captured_at": "2026-10-20T13:49:51.396151+08:00",
+  "training_commit": "635471b6d8a722616f87df16c300a8358861cd10",
+  "manager_code_commit": "14f2833be06c75b62e08473886c5c81268e53fd3",
+  "supervisor_pid": 454418,
+  "supervisor_ppid": 1,
+  "pgid": 454418,
+  "sid": 454418,
+  "tty": "?",
+  "child_pid": 454474,
+  "phase": "RUNNING_TRAIN",
+  "CPU_preflight_pass": true,
+  "source_restore": {
+    "Adam_exact": true,
+    "Adam_sha256": "17547545d494139e58417c8bbd31be3b04ba7aa315434722a01a5ed4054e23f5",
+    "Adam_steps": [
+      80680
+    ],
+    "GPU": true,
+    "G_exact": true,
+    "G_initializations": 1,
+    "G_sha256": "d5681683475cb292199c203022358ecf9172c7f1cffa8127d17197a03cd723c6",
+    "IRRA_loads": 1,
+    "RNG_domains": {
+      "cuda": "2e4e7fa85259a1c127af07da700cb10dfb5bbd6b1df2352a81488fb5d3f4c2be",
+      "numpy": "8f57dcc4d5e07c80fe3f64e0f871f292751df8d68e6705f505ec98f060014ca7",
+      "python": "b4bc70dd9a8cc501bec2b4a8b836bd968f88aae35332687da0658ad213baf8cf",
+      "torch": "d4492e37ad1f36f9823395b483ca45abeb960a638a5fbf94a9265a39c22935b4"
+    },
+    "RNG_exact": true,
+    "RNG_sha256": "303b37ca627e6378484f34c5ca9fb296deb2fbd3c12dc93257c3630ae877f7b9",
+    "absolute_next_epoch": 11,
+    "optimizer_groups": [
+      {
+        "amsgrad": false,
+        "betas": [
+          0.5,
+          0.999
+        ],
+        "capturable": false,
+        "differentiable": false,
+        "eps": 1e-08,
+        "foreach": null,
+        "fused": null,
+        "lr": 0.0002,
+        "maximize": false,
+        "weight_decay": 0
+      }
+    ],
+    "source_checkpoint": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/train_v2/checkpoints/epoch_0010/checkpoint.pt",
+      "sha256": "f59bd3b5f9cbbaf8f6acc10c4bdc113ea83cacb2979ea0821b952c8f9a1c658e"
+    },
+    "source_state_epoch": 10
+  },
+  "latest_progress_line": "GV2_TRAIN_PROGRESS 11 544 / 2048 Adam [82834]",
+  "actual_log_samples": 550,
+  "actual_logged_steps_this_epoch": 2176,
+  "Adam_steps_after_latest_complete_sample": 82856,
+  "latest_sample": {
+    "epoch": 11,
+    "sample_position": 550,
+    "row_id": "cuhk:5238:0",
+    "K": 2,
+    "optimizer_steps": 3
+  },
+  "latest_committed_epoch": 10,
+  "formal_training_completed": false,
+  "control": "/home/lzf/ldx/tmp/gv2_epoch60_train_v1",
+  "formal_output": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train",
+  "launch_resource": {
+    "timestamp": "2026-10-20T13:47:39.581293+08:00",
+    "gpu": "NVIDIA GeForce RTX 4090, 24051, 24564, 0",
+    "compute_processes": "",
+    "RAM_available_bytes": 122363510784,
+    "disk_free_bytes": 6304217374720,
+    "free_inodes": 240569805,
+    "fixed_training_commit": "635471b6d8a722616f87df16c300a8358861cd10",
+    "launcher_commit": "14f2833be06c75b62e08473886c5c81268e53fd3",
+    "parent": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/train_v2/checkpoints/epoch_0010/checkpoint.pt",
+      "sha256": "f59bd3b5f9cbbaf8f6acc10c4bdc113ea83cacb2979ea0821b952c8f9a1c658e"
+    },
+    "config_sha256": "ffc3cabb4fe607157aa0c30966242fb699d8ba62ebf0697b9f800eb4ad40136b",
+    "producer_sha256": {
+      "/home/lzf/ldx/projects/idea-test-tbps-gv2-epoch60-ablation-20261020/src/tbps/ablations/__init__.py": "18a63924c7a7b1bf897a7645fba61884d0ba90a5e949ac99eff4684eba5c7b0d",
+      "/home/lzf/ldx/projects/idea-test-tbps-gv2-epoch60-ablation-20261020/src/tbps/ablations/gv2_epochs.py": "d2f5e60a79aa2923499ee3a95bb36af1488704e04fc7b26ca021d227a782303c",
+      "/home/lzf/ldx/projects/idea-test-tbps-gv2-epoch60-ablation-20261020/src/tbps/ablations/gv2_epoch_state.py": "a1c24c9c786f3fbe6dcbbc87d3836f58fa88b66352845bdba62805627c41b1cb",
+      "/home/lzf/ldx/projects/idea-test-tbps-gv2-epoch60-ablation-20261020/src/tbps/artifacts.py": "b7d7486df6b401705157a604daec236c7bc9ce79a8518ccf2c3df5e07c61c940",
+      "/home/lzf/ldx/projects/idea-test-tbps-gv2-epoch60-ablation-20261020/src/tbps/contracts.py": "2049faf65bf6bd99de3c9c50263451d0fbfd2d2fe2741891f9fb0b220de64fed",
+      "/home/lzf/ldx/projects/idea-test-tbps-gv2-epoch60-ablation-20261020/src/tbps/models/irra_source.py": "fcf22ad01836804bc40fdce6c1817de2ff1941fd302b549a765e15f5287dd0b6",
+      "/home/lzf/ldx/projects/idea-test-tbps-gv2-epoch60-ablation-20261020/src/tbps/engines/replay_control.py": "c5b6c3dc90bde5bf8bf8d2a145a191e19bc017a9e1eec84dfa4cbcffe9298306"
+    },
+    "CPU_preflight_exit": 0,
+    "formal_output_existed": false,
+    "policy": "single immediate check; no polling or interference"
+  },
+  "evidence_sha256": {
+    "/home/lzf/ldx/tmp/gv2_epoch60_train_v1/cpu_preflight.log": "4fe39dde06f7831a277f23be64e1cde40b1218cd02227ca4050f4a5e2f597ce3",
+    "/home/lzf/ldx/tmp/gv2_epoch60_train_v1/launch_cpu_tests.log": "da1e8ce2ac12985d72f0df13c289fe792a0c8a61f713289631c93cbded3bf615",
+    "/home/lzf/ldx/tmp/gv2_epoch60_train_v1/launch_preflight.json": "e5e1f63e5d412bc575d087cc20d000e1df4e6e3fec15231882303ba716c39445",
+    "/home/lzf/ldx/tmp/gv2_epoch60_train_v1/started": "2486c01da3a8ada1cbb99583e30dc7a3a754282fae52326db81a711c82c4e125",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/initial_restore/report.json": "12fc8224253c4f3019e3b76e5789594f7a0126f51330a4a3d73dd07b7b72db9c",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/protocol/protocol.json": "1b4c446f7759824a54988f6ab631fc2e00e6ed886b84b455d0b4f5c9c668d622"
+  }
+}
