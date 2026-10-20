@@ -1,5 +1,19 @@
 # 历史实验注册表
 
+## G-v2六节点三模型消融准备（2026-10-20）
+
+状态CPU_PREPARED_GPU_SMOKE_PENDING；不是新的Full实验结果。
+六节点来源固定10/20/30/40/50/60，原训练完成报告6187eed96ed9eff63b8da37f5d98b5adddf75300。
+H7/visit14336与原H文本不变，三目标仍为IRRA/RaSa/APTM，各自原生模型空间。
+原三Full的E10 Image-only/Joint及Raw Clean/H Text-only已只读核验48项数值与来源；不重算排名。
+新Epoch像素、各Target编码及评分仍未执行；GPU利用率76%时停止CPU入口，实际GPU调用0。
+227项适用CPU通过，旧APTM绝对路径用例基准复现失败并排除1项；相关历史stat/SHA不变。
+[准备报告](framework/GV2_EPOCH_SWEEP_PREPARATION_REPORT.md)、
+[六点SHA/来源/资源/测试证据](framework/results/gv2_epoch_sweep_preparation/evidence.json)、
+[E10原精度引用](framework/results/gv2_epoch_sweep_preparation/epoch10_reused_raw.csv)。
+不得把此CPU状态提升成真实Smoke或五节点Full完成。
+
+
 ## VLPTAttack官方DRA／IRRA Source v2 Full（完成，独立CPU审计PASS）
 
 执行34097c3，启动c97c2bf；2026-10-19 16:38:15至10-20 09:51:44 +08:00，

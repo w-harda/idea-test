@@ -1,5 +1,19 @@
 # 架构边界与迁移约定
 
+## G-v2固定Epoch评估变体
+
+gv2_epoch_eval + ablations/gv2_sweep(_target)只连接原生成器/单步投影与原生缓存/Engine，
+不包含训练或攻击算法。原G10 MaterializationPlan不放宽；新Checkpoint使用独立RGB variant，
+显式引用旧Plan、原FP32 RGB、原H7文本和新G权重。先Claim、一次G、紧凑三Tensor及SHA读回，
+未提交Claim/pending/failure拒绝自动重做，已完成单元仅在明确恢复授权下验证复用。
+文本缓存只在同一Victim ModelSpace复用；新图像必须重新编码、ITM Top-K和完整集合归一化重新计算。
+IRRA评分复用原通过审计的native cache协议作为原生空间证明，同时新Score绑定新Epoch图像/协议。
+目标反馈不进入G，G与Victim分进程；H不运行。
+
+当前六点CPU权重与来源通过，真实GPU Smoke资源阻塞且未创建Attempt，不推导Full已可运行。
+未来Full入口在缺Smoke/三份CPU审计回执时拒绝；无轮询或后台部署。
+详见[运行说明](framework/GV2_EPOCH_SWEEP.md)、ADR-0013。
+
 ## VLPTAttack Full执行接线
 
 新增dra_full/dra_full_target/run_dra_full，仅外层385批调度与存储。复用原Wrapper/官方调用、ArtifactStore、三模型原生评分与EvaluationEngine；保留完整RNG链，不支持自动重试/恢复。Source完成验证后才进入Targets，无目标反馈。详见framework/DRA_FULL_EXECUTION.md。v1因Source重复执行Target依赖预检在模型加载前FAIL并保留。v2仅通过明确stage拆分预检：Source严格检查自身依赖，Target保留RaSa/APTM原生依赖检查；公共SHA和数据检查都保留，官方算法不变。

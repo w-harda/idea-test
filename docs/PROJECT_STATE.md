@@ -2,7 +2,24 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：G-v2 Epoch11→60训练及CPU审计PASS，Git派生报告格式修复
+## 当前阶段：G-v2六节点三模型消融CPU准备完成，真实Smoke因资源繁忙PENDING
+
+基准6187eed96ed9eff63b8da37f5d98b5adddf75300；独立codex/gv2-six-epoch-evaluation工作树。
+六Checkpoint SHA/完整contract/原G架构strict装载通过；原三Full与同一generation_v3、Raw Caption和ModelSpace一致，
+48项CSV/summary值exact，可只读复用E10/Clean/H7文本缓存；不复用新Epoch的Adv图像/Top-K/Score。
+新增仅评估接线、独立RGB variant、CPU审计及未来授权启动器，原G/投影/Adapter/Engine/历史资产不改。
+适用CPU共227 PASS（36新增+99公共+92原生），旧APTM绝对路径配置用例在未修改基准同样失败，显式排除1项。
+
+GPU快照外部Python PID1249638占6240MiB、利用率76%；主动停止本任务尚在CPU预检的父流程，
+未创建Smoke Attempt，实际GPU模型/前向0，不等待/轮询/干预其他进程。
+74184份相关历史文件stat、289项SHA保持；训练/正式Full不启动，未重跑已完成训练审计。
+Full入口需真实Smoke及三份新CPU审计完成回执和用户授权，当前不满足。
+[报告](framework/GV2_EPOCH_SWEEP_PREPARATION_REPORT.md)、
+[命令及成本](framework/GV2_EPOCH_SWEEP.md)、
+[来源/测试/资源证据](framework/results/gv2_epoch_sweep_preparation/evidence.json)。
+内容发布Commit由后续文档索引登记；完成后停止，不自动运行Smoke或Full。
+
+## 已完成：G-v2 Epoch11→60训练及CPU审计PASS，Git派生报告格式修复
 
 冻结训练635471b，50个新增Epoch/403400更新完成，Adam最终484080；
 Epoch11–60全部50份Checkpoint及关联日志/完成回执已由原生独立CPU审计PASS。
