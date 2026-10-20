@@ -1,0 +1,246 @@
+{
+  "schema": "gv2-six-node-full-startup-1",
+  "snapshot_at": "2026-10-20T20:40:31.775398+08:00",
+  "status": "RUNNING_NOT_FULL_PASS",
+  "runtime_code_commit": "6021f3bfdec181785d1baccd7ce4f80a1428b069",
+  "prior_smoke_runtime_commit": "152498fd258572ad9c43c04b2ce8fba8b9e995b4",
+  "config": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-gv2-epoch-sweep-20261020/configs/framework/gv2_epoch_sweep.server.json",
+    "sha256": "66bdd1639b54508af1852f781b3951c637193ffa5069848b4b73145e9d9bf701"
+  },
+  "launcher": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-gv2-epoch-sweep-20261020/src/tbps/ablations/run_gv2_sweep_full.sh",
+    "sha256": "0d3ea7a2c787e5710f42777dcfc2040803b011597b75b18498595f8368f7ff68"
+  },
+  "producer_count": 107,
+  "producer_recheck": "PASS",
+  "points": {
+    "10": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/train_v2/checkpoints/epoch_0010/checkpoint.pt",
+      "sha256": "f59bd3b5f9cbbaf8f6acc10c4bdc113ea83cacb2979ea0821b952c8f9a1c658e"
+    },
+    "20": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0020/checkpoint.pt",
+      "sha256": "67523b3f10b0145d2ba802b1f468f3bbb7554e36d8e1196376f8380d84a51d09"
+    },
+    "30": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0030/checkpoint.pt",
+      "sha256": "a55e1ec2181cd10ef1436c993231f333a445644b5378ca90a10a99c50143a87d"
+    },
+    "40": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0040/checkpoint.pt",
+      "sha256": "0b70d802ce867910b10dc70a9581c8a5c31907bf5ab4ace7206411c02f239e82"
+    },
+    "50": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0050/checkpoint.pt",
+      "sha256": "8357d8cca55d3b26190e85a53a48034985a6cec37274e2e56e894fe808752b86"
+    },
+    "60": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0060/checkpoint.pt",
+      "sha256": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049"
+    }
+  },
+  "resources_before": {
+    "GPU": {
+      "name": "NVIDIA GeForce RTX 4090",
+      "total_mib": 24564,
+      "free_mib": 18431,
+      "used_mib": 5660,
+      "utilization_percent": 64,
+      "compute_processes": "1402779, /home/lzf/jmk/envs/foa_v5/bin/python, 5612",
+      "policy": "shared_observe_only",
+      "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 18431, 5660, 64"
+    },
+    "RAM_available_bytes": 122097934336,
+    "disk_free_bytes": 6255647961088,
+    "free_inodes": 240434631,
+    "policy": "shared_observe_only; no waiting/interference"
+  },
+  "smoke_gate": {
+    "status": "GV2_SIX_NODE_SMOKE_PASS",
+    "epoch10_max_abs_error": 0.0,
+    "CPU_audits": {
+      "irra": "PASS",
+      "rasa": "PASS",
+      "aptm": "PASS"
+    }
+  },
+  "prelaunch": {
+    "full_absent": true,
+    "control_absent": true,
+    "duplicate_processes": []
+  },
+  "cpu_preflight": {
+    "status": "GV2_SWEEP_CPU_PREFLIGHT_PASS",
+    "scope": "full",
+    "Gallery": 3074,
+    "Query": 6156,
+    "full_Gallery": 3074,
+    "full_Query": 6156,
+    "points": {
+      "10": {
+        "checkpoint": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/train_v2/checkpoints/epoch_0010/checkpoint.pt",
+          "sha256": "f59bd3b5f9cbbaf8f6acc10c4bdc113ea83cacb2979ea0821b952c8f9a1c658e"
+        },
+        "G_state_sha256": "d5681683475cb292199c203022358ecf9172c7f1cffa8127d17197a03cd723c6",
+        "architecture": {
+          "width": 32,
+          "blocks": 4,
+          "epsilon": 0.03137254901960784
+        },
+        "strict_state_dict_load": true,
+        "only_generator_used": true
+      },
+      "20": {
+        "checkpoint": {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0020/checkpoint.pt",
+          "sha256": "67523b3f10b0145d2ba802b1f468f3bbb7554e36d8e1196376f8380d84a51d09"
+        },
+        "G_state_sha256": "319594cbe07d515b18cd5e923b3ea0c12a7c2228f9d546c40e6a583c44e9133f",
+        "architecture": {
+          "width": 32,
+          "blocks": 4,
+          "epsilon": 0.03137254901960784
+        },
+        "strict_state_dict_load": true,
+        "only_generator_used": true
+      },
+      "30": {
+        "checkpoint": {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0030/checkpoint.pt",
+          "sha256": "a55e1ec2181cd10ef1436c993231f333a445644b5378ca90a10a99c50143a87d"
+        },
+        "G_state_sha256": "95f3bf220e4005f9e0d34e341147aace8c7332c759b8a88abe9bded478a49603",
+        "architecture": {
+          "width": 32,
+          "blocks": 4,
+          "epsilon": 0.03137254901960784
+        },
+        "strict_state_dict_load": true,
+        "only_generator_used": true
+      },
+      "40": {
+        "checkpoint": {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0040/checkpoint.pt",
+          "sha256": "0b70d802ce867910b10dc70a9581c8a5c31907bf5ab4ace7206411c02f239e82"
+        },
+        "G_state_sha256": "76051625a79ed0f067e2c601f85296f4b5b7a35e2a64c7015a031761c1e08e74",
+        "architecture": {
+          "width": 32,
+          "blocks": 4,
+          "epsilon": 0.03137254901960784
+        },
+        "strict_state_dict_load": true,
+        "only_generator_used": true
+      },
+      "50": {
+        "checkpoint": {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0050/checkpoint.pt",
+          "sha256": "8357d8cca55d3b26190e85a53a48034985a6cec37274e2e56e894fe808752b86"
+        },
+        "G_state_sha256": "2aed1e16ba47c681049e1fd04e88e52c780fedf112e1801efe2b25b0606fec59",
+        "architecture": {
+          "width": 32,
+          "blocks": 4,
+          "epsilon": 0.03137254901960784
+        },
+        "strict_state_dict_load": true,
+        "only_generator_used": true
+      },
+      "60": {
+        "checkpoint": {
+          "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0060/checkpoint.pt",
+          "sha256": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049"
+        },
+        "G_state_sha256": "5d48caab6a891a1afd3aaaa6f3594eb5f860ccd7b6090708d289224e6c819e47",
+        "architecture": {
+          "width": 32,
+          "blocks": 4,
+          "epsilon": 0.03137254901960784
+        },
+        "strict_state_dict_load": true,
+        "only_generator_used": true
+      }
+    },
+    "epoch10_all_four_modes_reusable": true,
+    "clean_and_H_text_features_reusable": true,
+    "history_models_verified": [
+      "irra",
+      "rasa",
+      "aptm"
+    ],
+    "history_plan": "7ac4fefd0abaa10df085be3ec3ed56c4b38c782a21bfc44473f40b90965447d5",
+    "H_regeneration": false,
+    "optimizer_restored": false,
+    "CUDA": false,
+    "input_bridge": "sealed FP32 RGB and Raw Caption; no PIL requantization",
+    "fixed_smoke": {
+      "gallery_ids": [
+        "cuhk:37132:0",
+        "cuhk:37133:0",
+        "cuhk:37134:0",
+        "cuhk:37135:0",
+        "cuhk:37136:0",
+        "cuhk:37137:0",
+        "cuhk:37138:0",
+        "cuhk:37139:0",
+        "cuhk:37140:0",
+        "cuhk:37147:0"
+      ],
+      "query_ids": [
+        "cuhk:37132:0",
+        "cuhk:37132:1",
+        "cuhk:37133:0",
+        "cuhk:37133:1",
+        "cuhk:37134:0",
+        "cuhk:37134:1",
+        "cuhk:37135:0",
+        "cuhk:37135:1",
+        "cuhk:37136:0",
+        "cuhk:37147:1"
+      ],
+      "reason": "fixed official first nine Gallery plus index15; first nine Query plus historical fixed NOOP; selected before generation, not by outcome",
+      "generation_epochs": [
+        10,
+        60
+      ],
+      "target_epoch": 60
+    }
+  },
+  "supervisor": {
+    "pid": 1545336,
+    "ppid": 1,
+    "pgid": 1545336,
+    "sid": 1545336,
+    "tty": "?",
+    "process_snapshot": "1545336       1 1545336 1545336 ?        Ss         05:19 bash /home/lzf/ldx/projects/idea-test-tbps-gv2-epoch-sweep-20261020/src/tbps/ablations/run_gv2_sweep_full.sh --allow-full"
+  },
+  "phase": "E10_REUSE_rasa",
+  "status_log_snapshot": "2026-10-20T20:35:12+08:00 | CPU_PREFLIGHT\n2026-10-20T20:36:50+08:00 | E10_REUSE_irra\n2026-10-20T20:38:17+08:00 | E10_AUDIT_REF_irra\n2026-10-20T20:39:44+08:00 | E10_REUSE_rasa\n",
+  "real_execution_evidence": {
+    "epoch10_irra_result_reused": true,
+    "marker": "GV2_EPOCH10_FULL_REUSED irra",
+    "published_manifest_sha256": "2eb8b01c45f74e665ab736d7c2ea8696ae9a984200f4cfa3140a457bee8cdaed"
+  },
+  "protection": {
+    "status": "PASS",
+    "stat_files": 74184,
+    "sha_files": 289,
+    "changed": [],
+    "time": 1792499751.165178
+  },
+  "paths": {
+    "control": "/home/lzf/ldx/tmp/gv2_epoch_sweep_full_v1",
+    "output": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full",
+    "launcher_log": "/home/lzf/ldx/tmp/gv2_epoch_sweep_full_launcher.log"
+  },
+  "command": "nohup setsid bash /home/lzf/ldx/projects/idea-test-tbps-gv2-epoch-sweep-20261020/src/tbps/ablations/run_gv2_sweep_full.sh --allow-full >> /home/lzf/ldx/tmp/gv2_epoch_sweep_full_launcher.log 2>&1 < /dev/null &",
+  "final_success_required": "GV2_FIVE_NEW_EPOCHS_THREE_TARGET_FULL_AND_CPU_AUDIT",
+  "limitations": [
+    "仅启动快照，非Full验收",
+    "全部新Epoch生成、Full Top128评分和最终各CPU审计尚未完成",
+    "未改变源码、配置、权重、输入或实验参数",
+    "正式完成后另行整理六点结果、曲线与DR，不使用Smoke指标"
+  ]
+}

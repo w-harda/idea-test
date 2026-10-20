@@ -1,5 +1,16 @@
 # 历史实验注册表
 
+
+## G-v2六节点三模型Full（2026-10-20正式启动，RUNNING）
+
+运行代码6021f3bfdec181785d1baccd7ce4f80a1428b069，算法/配置/输入不变。
+20:35:12后台启动，监督器PID/PGID/SID1545336、PPID1/无TTY；CPU_PREFLIGHT PASS。
+E10 IRRA旧结果已只读引用，快照E10_REUSE_rasa；新Epoch生成/完整评分/最终审计PENDING。
+E10不重算，E20/30/40/50/60各固定Gallery共享三Victim，H7/Raw文本和原生空间不变。
+Full输出tbps-framework-gv2-epoch-sweep/full；控制gv2_epoch_sweep_full_v1。
+无轮询、无自动重试，不发布Smoke充当Full指标。
+[启动报告](framework/GV2_EPOCH_SWEEP_FULL_STARTUP.md)、[完整快照](framework/results/gv2_epoch_sweep_full_startup/STARTUP_EVIDENCE.json)。
+
 ## G-v2 Epoch Sweep唯一共享GPU Smoke（2026-10-20，PASS）
 
 代码152498fd258572ad9c43c04b2ce8fba8b9e995b4；用户显式许可共享，资源函数之外AST exact。

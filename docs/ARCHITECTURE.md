@@ -12,8 +12,9 @@ IRRA评分复用原通过审计的native cache协议作为原生空间证明，�
 
 当前六点CPU权重/来源与唯一G10/G60→三Victim真实Smoke及三独立CPU审计通过。
 资源策略经用户显式授权改为shared_observe_only/6144MiB，利用率仅记录；所有非资源函数AST保持。
-新Schema装载、原G10像素复现及新G60产物通路已验证，仍不推导Top128 Full已完成或正式Full已获授权。
-未来Full入口在缺Smoke/三份CPU审计回执时拒绝；无轮询或后台部署。
+新Schema装载、原G10像素复现及新G60产物通路已验证，不推导Top128 Full已完成。
+2026-10-20获最终授权后已用同一冻结入口后台启动五节点串行Full；缺Smoke/三审计仍拒绝。
+nohup+setsid监督器不新增轮询器，不改变生成或评分；当前仅启动验证，Full结果待验收。
 详见[运行说明](framework/GV2_EPOCH_SWEEP.md)、ADR-0013。
 
 ## VLPTAttack Full执行接线

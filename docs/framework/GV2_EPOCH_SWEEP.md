@@ -3,7 +3,8 @@
 本轮基准6187eed96ed9eff63b8da37f5d98b5adddf75300；独立分支codex/gv2-six-epoch-evaluation。
 原准备阶段仅完成CPU来源核验；后续用户已明确批准共享GPU并授权唯一真实Smoke。
 共享准入/实际执行结果见[共享策略与Smoke报告](GV2_EPOCH_SWEEP_SHARED_SMOKE.md)。
-本说明中的原准备状态为历史快照，正式Full仍未授权/启动。
+本说明中的原准备状态为历史快照。2026-10-20获最终授权后已使用原冻结入口启动Full，
+当前仅启动/CPU预检及E10只读引用通过，不宣称Full完成；见[启动记录](GV2_EPOCH_SWEEP_FULL_STARTUP.md)。
 详见[准备报告](GV2_EPOCH_SWEEP_PREPARATION_REPORT.md)和[证据](results/gv2_epoch_sweep_preparation/evidence.json)。
 
 ## 复用与边界

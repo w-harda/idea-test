@@ -2,7 +2,21 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：G-v2六节点准备的唯一真实Smoke及三CPU审计PASS，Full等待最终授权
+## 当前阶段：G-v2六节点三模型Full正式后台运行（未完成）
+
+2026-10-20用户明确授权，运行源码6021f3bfdec181785d1baccd7ce4f80a1428b069，配置和算法不改。
+20:35:12启动，监督器PID/PGID/SID1545336，PPID1/无TTY。
+107 producer、六Checkpoint、唯一Smoke及三CPU审计、目录/重复进程和共享资源门禁PASS。
+正式CPU preflight PASS，3074/6156完整、CUDA=false；已提交E10 IRRA只读结果引用，快照E10_REUSE_rasa。
+74184历史stat/289 SHA和六权重不变。新增Epoch生成/Top128完整评分/最终CPU审计仍PENDING。
+后台按原入口串行E10引用/审计及E20/30/40/50/60生成/三目标/审计，失败即停、无自动重试。
+[启动记录](framework/GV2_EPOCH_SWEEP_FULL_STARTUP.md)、[来源快照](framework/results/gv2_epoch_sweep_full_startup/STARTUP_EVIDENCE.json)。
+输出/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/；
+控制/home/lzf/ldx/tmp/gv2_epoch_sweep_full_v1/。
+最终成功标志及全部审计出现前不宣称Full成功；结果、曲线和DR待完成后整理。
+下文未授权/未启动是旧阶段快照，不覆盖本次授权和启动事实。
+
+## 已完成的前置阶段：G-v2六节点准备的唯一真实Smoke及三CPU审计PASS，Full等待最终授权
 
 执行代码152498fd258572ad9c43c04b2ce8fba8b9e995b4；同一独立codex/gv2-six-epoch-evaluation工作树。
 用户明确授权共享GPU；仅resources准入8192MiB/利用率≤10%改为6144MiB且利用率仅监控，
