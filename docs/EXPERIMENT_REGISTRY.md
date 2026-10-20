@@ -11,7 +11,7 @@ Source completed SHA a5978dc834b14a34d4c6932e0c2d463fb052105a551c5bd9137d647d363
 IRRA/RaSa/APTM Joint mAP=0.10/13.03/19.85；只引用v2 Full，不混入Smoke/v1/旧白盒。
 [正式报告](framework/results/vlpt_official_irra_full_20261020/VLPTATTACK_OFFICIAL_IRRA_FULL_REPORT.md)、
 [来源索引](framework/results/vlpt_official_irra_full_20261020/VLPTATTACK_OFFICIAL_IRRA_FULL_EVIDENCE.json)。
-本次只读提取不重跑审计或完整排名；下方RUNNING/PENDING均为原启动快照，已完成状态以本条为准。
+正式报告/CSV/证据内容Commit：467b54193f4e1110006df0f9a4202dc26c7bf534，分支codex/tbps-vlpt-full-results。本次只读提取不重跑审计或完整排名；下方RUNNING/PENDING均为原启动快照，已完成状态以本条为准。
 
 
 ## VLPTAttack官方IRRA Source Full v2（RUNNING_SOURCE，首批提交）

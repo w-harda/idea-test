@@ -16,7 +16,7 @@ DRA/官方SGA的Matched Clean四指标原精度一致；历史G/H为Raw Clean，
 未导入模型/反序列化Tensor、GPU、攻击、评分、排名或audit入口；正式审计为原已完成审计。
 原50163份实验/来源文件stat及5551份使用元数据/来源SHA读取后保护；不改旧产物或实验代码。
 [正式中文报告与CSV](framework/results/vlpt_official_irra_full_20261020/VLPTATTACK_OFFICIAL_IRRA_FULL_REPORT.md)，同目录保留原精度及SHA证据。
-报告内容Commit在发布索引登记；完成后停止，下一Baseline等待授权。
+报告/CSV/证据内容Commit：467b54193f4e1110006df0f9a4202dc26c7bf534（codex/tbps-vlpt-full-results，已推送）；本次仅补发布索引。完成后停止，下一Baseline等待授权。
 
 ## 历史启动快照：VLPTAttack Full v2已真实后台运行Source，首批8图16文提交通过
 
