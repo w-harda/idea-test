@@ -403,3 +403,15 @@ Source/三Target/CPU审计PASS，v2最终SUCCESS标志及phase=SUCCESS；00:51:3
 - 无Full结果、无后台任务，不引用旧SGA White-box冒充本方法。
 
 本阶段代码/报告发布Commit：1fac414e2edf605d44194f949d301fc12e236582；远端分支codex/tbps-vlpt-official-complete，后续文档提交登记。
+
+
+## G-v2 Epoch11→60扩展验证（2026-10-20）
+
+父G10 SHA f59bd3b5f9cbbaf8f6acc10c4bdc113ea83cacb2979ea0821b952c8f9a1c658e。
+唯一GPU Smoke与独立CPU审计PASS；仅固定Train cuhk:211:0的K4+Joint共5次更新，
+另1条内部Validation无更新；不属于正式Epoch11或新Full攻击结果。
+运行证据：/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/resume_smoke_v1/；
+protocol、initial_restore、probe_state、probe_result、completed和cpu_audit均不可变。
+源码及SHA索引见[续训验证报告](framework/GV2_EPOCH_EXTENSION_VALIDATION_REPORT.md)
+与[证据清单](framework/GV2_EPOCH_EXTENSION_EVIDENCE.json)。
+原G10、H7及G/H/B3/SGA/DRA Full资产只读保护；后续正式50轮和三模型消融PENDING。

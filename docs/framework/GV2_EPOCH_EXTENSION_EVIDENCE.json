@@ -1,0 +1,170 @@
+{
+  "schema": "tbps-gv2-extension-validation-evidence-1",
+  "development_base": "9ea4467620ddb755d230beedc05fd53e8e1068cf",
+  "config_sha256": "ffc3cabb4fe607157aa0c30966242fb699d8ba62ebf0697b9f800eb4ad40136b",
+  "parent": {
+    "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/train_v2/checkpoints/epoch_0010/checkpoint.pt",
+    "sha256": "f59bd3b5f9cbbaf8f6acc10c4bdc113ea83cacb2979ea0821b952c8f9a1c658e"
+  },
+  "original_contract_sha256": "1ada0c31ee4fd4bf35eaf02fcc5bcebc7a8276c2714f34aaa6d9a88e3501f50b",
+  "extension_contract_sha256": "1b4c446f7759824a54988f6ab631fc2e00e6ed886b84b455d0b4f5c9c668d622",
+  "original_locked_sources": {
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/epoch_training.py": "0f567c02d4a891dc0fff109abb03aee5942dc97322c6940f92fdef17dfffba4e",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/epoch_checkpoint.py": "43ee3f312276f3039e33efe5163830fc6ed46523a4bba5597a0e4802a209ff74",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/training_data.py": "d1b9717c8eb25d5ff8ee995a1a12b35ed978eb4d2aa5f8edb69e0cb4f9d64ccc",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/serial_training.py": "e42fa8bd6ea933530bda8e2e67d5149e7059151f4b2caa0b662dbaaa856e105d",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/image_only_generator.py": "4745e6947308fdc4f5d5496b6a99c9a68699abef8131f2a211e1bd13470eec85",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/budget_projection.py": "a4c391b5d0f4a1d4ddcac0431431615de86fd982eaaa009a0774c2cc3fbd88c0",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/losses.py": "d415dfe326cc2f580d202d0220d5bb0c5895ed626115b0828e516b598df8f0b2",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/condition_schema.py": "f13932c2688cab4e135d063eed6f066016f6ba26e2316cbc201f19b246b298b4",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/cache_io.py": "63b2973af40a5f654bd0574c7280d5fcef25311332796c1d759ecdb021d26dfe",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/irra_image_adapter.py": "148d2cfe8749cb8723b00e38ca68ff8dee6f86948f1fe2a15605c792dbb2eba4",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/inference_once.py": "83d38a6c782581acd53c3d8c5272c24c89ae85a32f5c7da9230edff1a8f97e6a"
+  },
+  "refs": {
+    "/home/lzf/ldx/projects/idea-test-tbps-gv2-epoch60-ablation-20261020/configs/framework/gv2_epoch60.server.json": "ffc3cabb4fe607157aa0c30966242fb699d8ba62ebf0697b9f800eb4ad40136b",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/resume_smoke_v1/protocol/protocol.json": "1b4c446f7759824a54988f6ab631fc2e00e6ed886b84b455d0b4f5c9c668d622",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/resume_smoke_v1/protocol/preflight.json": "9d6ad48d766e219faf262274914744ef9b6bd6d62fa130ea4104896c2401c0b0",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/resume_smoke_v1/protocol/protection.json": "3ab90114f89515417d0eea4c5dd78a121fc759089d8a3175e5e7700635fe5740",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/resume_smoke_v1/protocol/resources.json": "e2c8b1ef2a6092fc392810d2f3278239ef13699ef386e5028876ed81ff17c80e",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/resume_smoke_v1/initial_restore/report.json": "12fc8224253c4f3019e3b76e5789594f7a0126f51330a4a3d73dd07b7b72db9c",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/resume_smoke_v1/probe_claim/claim.json": "a8bcb68e6475a11e503e886248aaf0d0f0d19a0b33e7ce829f46a77ebdcff290",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/resume_smoke_v1/probe_state/manifest.json": "92e33f67abf5665d0689777497172a3ff6645875f607d9ee07a6ea843a60ff58",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/resume_smoke_v1/probe_state/state.pt": "b23578f6f1b7aaa7d6fe6533b0d4c575de76d0e1721e10d004fa7b00ffe060e5",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/resume_smoke_v1/probe_result/summary.json": "cfa6bea08c3b3f0b31ec5b76f3cfcdecb4ec3f1d97725c6254fc9eb407dfcab1",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/resume_smoke_v1/logs/epoch_0011_samples.jsonl": "4ee37888af57be66369c07c92965d5a3d09842c8bb93e79a283c6de6cd2e182f",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/resume_smoke_v1/completed/report.json": "2801bc64667143a4853da06447ced64797336f1c79414f691eb73e31b5853c64",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/resume_smoke_v1/cpu_audit/report.json": "1522080fbdff7b2a63bc5d808a7b01a1d9c7004ae4f287ffd5607015c870217c",
+    "/home/lzf/ldx/tmp/gv2_epoch60_validation/cpu_tests.log": "5cf816c137739da7f8aa489ee0df4e7553c340de7d46411aea5803614011c320",
+    "/home/lzf/ldx/tmp/gv2_epoch60_validation/preflight.log": "4fe39dde06f7831a277f23be64e1cde40b1218cd02227ca4050f4a5e2f597ce3",
+    "/home/lzf/ldx/tmp/gv2_epoch60_validation/gpu_smoke.log": "7ef5e685f4c57599d834ca74f0d5030cdf68341582c9ee9461e8a4c6288c08af",
+    "/home/lzf/ldx/tmp/gv2_epoch60_validation/cpu_audit.log": "279e5c226836322e91bb3b25bbbb7af7b3a6e7697278b969e8824aacb6c3750b"
+  },
+  "CPU_tests": {
+    "passed": 158,
+    "extension": 33,
+    "legacy_Phase21_Phase22": 102,
+    "artifact_tests": 23
+  },
+  "GPU_smoke": {
+    "Adam_step": 80685,
+    "CUDA_bitwise_historical_trajectory_claim": false,
+    "GPU_peak_allocated_bytes": 1082138624,
+    "GPU_peak_reserved_bytes": 1109393408,
+    "IRRA_frozen": true,
+    "absolute_training_epoch": 11,
+    "completed_epoch": null,
+    "counts": {
+      "G": 6,
+      "IRRA": 6,
+      "backward": 5,
+      "step": 5
+    },
+    "final_restore": {
+      "Adam_exact": true,
+      "Adam_sha256": "840fb3be6ce57b5d0816d902aaebd609f721bff28a8080fc3f9d666acd741362",
+      "Adam_steps": [
+        80685
+      ],
+      "G_exact": true,
+      "G_sha256": "420fe14a473f9178e8241215e4bcc94a2ce2ee8278a53aa79a6cefa37fdf4c2e",
+      "RNG_domains": {
+        "cuda": "2e4e7fa85259a1c127af07da700cb10dfb5bbd6b1df2352a81488fb5d3f4c2be",
+        "numpy": "8f57dcc4d5e07c80fe3f64e0f871f292751df8d68e6705f505ec98f060014ca7",
+        "python": "b4bc70dd9a8cc501bec2b4a8b836bd968f88aae35332687da0658ad213baf8cf",
+        "torch": "d4492e37ad1f36f9823395b483ca45abeb960a638a5fbf94a9265a39c22935b4"
+      },
+      "RNG_exact": true,
+      "RNG_sha256": "303b37ca627e6378484f34c5ca9fb296deb2fbd3c12dc93257c3630ae877f7b9",
+      "optimizer_groups": [
+        {
+          "amsgrad": false,
+          "betas": [
+            0.5,
+            0.999
+          ],
+          "capturable": false,
+          "differentiable": false,
+          "eps": 1e-08,
+          "foreach": null,
+          "fused": null,
+          "lr": 0.0002,
+          "maximize": false,
+          "weight_decay": 0
+        }
+      ]
+    },
+    "formal_epoch11_published": false,
+    "initial_restore": {
+      "Adam_exact": true,
+      "Adam_sha256": "17547545d494139e58417c8bbd31be3b04ba7aa315434722a01a5ed4054e23f5",
+      "Adam_steps": [
+        80680
+      ],
+      "GPU": true,
+      "G_exact": true,
+      "G_initializations": 1,
+      "G_sha256": "d5681683475cb292199c203022358ecf9172c7f1cffa8127d17197a03cd723c6",
+      "IRRA_loads": 1,
+      "RNG_domains": {
+        "cuda": "2e4e7fa85259a1c127af07da700cb10dfb5bbd6b1df2352a81488fb5d3f4c2be",
+        "numpy": "8f57dcc4d5e07c80fe3f64e0f871f292751df8d68e6705f505ec98f060014ca7",
+        "python": "b4bc70dd9a8cc501bec2b4a8b836bd968f88aae35332687da0658ad213baf8cf",
+        "torch": "d4492e37ad1f36f9823395b483ca45abeb960a638a5fbf94a9265a39c22935b4"
+      },
+      "RNG_exact": true,
+      "RNG_sha256": "303b37ca627e6378484f34c5ca9fb296deb2fbd3c12dc93257c3630ae877f7b9",
+      "absolute_next_epoch": 11,
+      "optimizer_groups": [
+        {
+          "amsgrad": false,
+          "betas": [
+            0.5,
+            0.999
+          ],
+          "capturable": false,
+          "differentiable": false,
+          "eps": 1e-08,
+          "foreach": null,
+          "fused": null,
+          "lr": 0.0002,
+          "maximize": false,
+          "weight_decay": 0
+        }
+      ],
+      "source_checkpoint": {
+        "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/train_v2/checkpoints/epoch_0010/checkpoint.pt",
+        "sha256": "f59bd3b5f9cbbaf8f6acc10c4bdc113ea83cacb2979ea0821b952c8f9a1c658e"
+      },
+      "source_state_epoch": 10
+    },
+    "new_JVP": 0,
+    "new_scoring": 0,
+    "parent_checkpoint": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/train_v2/checkpoints/epoch_0010/checkpoint.pt",
+      "sha256": "f59bd3b5f9cbbaf8f6acc10c4bdc113ea83cacb2979ea0821b952c8f9a1c658e"
+    },
+    "peak_RSS_bytes": 2487795712,
+    "protection": {
+      "files_sha256_unchanged": 46,
+      "files_stat_unchanged": 84237
+    },
+    "scope": "smoke",
+    "seconds": 45.946042221039534,
+    "source_G_initial_sha256": "d5681683475cb292199c203022358ecf9172c7f1cffa8127d17197a03cd723c6",
+    "status": "PASS"
+  },
+  "CPU_audit": {
+    "CUDA": false,
+    "formal_epoch11_published": false,
+    "probe_steps": 5,
+    "protection": {
+      "files_sha256_unchanged": 46,
+      "files_stat_unchanged": 84237
+    },
+    "status": "PASS"
+  },
+  "formal_output_exists": false,
+  "smoke_probe_is_formal_checkpoint": false,
+  "attempts_real_GPU": 1
+}

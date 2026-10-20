@@ -2,7 +2,34 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：VLPTAttack（DRA）v2三模型Full及CPU审计完成，正式结果只读汇总
+## 当前阶段：G-v2 Epoch11→60续训验证完成，正式训练待授权
+
+独立分支codex/gv2-epoch60-ablation，基准9ea4467620ddb755d230beedc05fd53e8e1068cf。
+158项CPU回归（33新增+102原G/串行+23资产）、真实CPU父状态/2176缓存预检、
+唯一一次真实GPU Smoke与独立CPU审计全部PASS。正式Epoch11→60和三模型Full没有启动，无后台PID。
+
+实际G-v2为Image-only G(I)，无FiLM/TV/扰动惩罚/Scheduler；原模型、Global/Local/Retain、
+K+1立即更新、原图Joint、8/255和Adam2e-4/(.5,.999)均直接复用冻结源码。
+新扩展contract完整嵌入原epochs10 contract与父SHA，只允许有效config.epochs 10→60；
+父Checkpoint/current.json/原配置保持只读。按seed42+绝对Epoch11原顺序锁定首样本cuhk:211:0(K4)。
+
+真实恢复G/完整Adam/Python+NumPy+CPU+CUDA RNG exact，Adam80680→80685。
+只做5次训练更新及1条Validation诊断；G/IRRA各6前向，backward/step各5，新评分/JVP0。
+G参数更新，IRRA参数/buffers冻结；最大L∞=8/255，梯度有限非零。
+allocated1032.008MiB/reserved1058MiB，PeakRSS2.317GiB，受控段45.946秒。
+Smoke保存独立probe_state，completed_epoch=null、resume_as_formal_allowed=false，不能作为正式Epoch11。
+84,237历史文件stat和46项关键SHA保持，无pending/failure；GPU进程已退出。
+正式路径/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train仍不存在。
+
+CPU合成边界恢复后轨迹逐值一致；真实GPU仅证明状态恢复与最小更新，不宣称历史CUDA未中断轨迹bitwise一致。
+仅完整Epoch边界恢复；未提交Claim/pending或最高Checkpoint损坏拒绝自动重跑/回退。
+完整Epoch11、50轮稳定性及六点三模型Full尚未验证；后续明确授权并重新检查资源后才能启动。
+[验证报告](framework/GV2_EPOCH_EXTENSION_VALIDATION_REPORT.md)、
+[执行说明](framework/GV2_EPOCH_EXTENSION.md)、
+[来源证据](framework/GV2_EPOCH_EXTENSION_EVIDENCE.json)、[ADR-0012](decisions/0012-gv2-epoch-extension.md)。
+
+
+## 已完成：VLPTAttack（DRA）v2三模型Full及CPU审计完成，正式结果只读汇总
 
 实际执行34097c338997561fd7556e43c472d2e5625c05f0，启动登记c97c2bf6c5bcbf0a0d70560fbc54d339adb577e6。
 2026-10-19 16:38:15→2026-10-20 09:51:44 +08:00，整链17小时13分29秒；

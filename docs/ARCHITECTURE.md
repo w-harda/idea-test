@@ -278,3 +278,13 @@ dra_official仅来源/数据/投影验收/被动追踪；dra_irra_source继承�
 源代码冻结后修Target协议与CPU import均用派生工作树/配置，避免改变已有Source/Target回执依赖。不同阶段不是新算法。
 官方number_perturbation按原词槽位计数，多WordPiece替换可能形成短语，见ADR-0011；不能加空格词数过滤。
 固定8/16三Target和CPU审计已PASS，不开放Full，不把CPU/Smoke等价推广到原论文模型或全量结果。
+
+
+## G-v2独立扩展训练边界（2026-10-20）
+
+src/tbps/ablations/gv2_epoch_state.py管理只读父契约、完整G/Adam/RNG恢复、日志SHA和新事务Checkpoint；
+gv2_epochs.py是外部调度/观测，直接调用冻结G-v2 train_epoch/train_single_sample/validate_epoch，
+不把旧G改造成新攻击插件，不修改原训练源码或缓存。有效配置唯一变化为训练上限10→60，绝对Epoch编号不变。
+原contract和新extension-contract分型；单样本Smoke用独立probe schema，不能冒充完整Epoch或作为正式恢复入口。
+生产边界拒绝pending/损坏/未完成Claim自动重播；不提供Step级恢复。正式执行仍需独立授权。
+详细决定见ADR-0012，当前完成状态以PROJECT_STATE为准。
