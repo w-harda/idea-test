@@ -17,7 +17,8 @@ Full入口需真实Smoke及三份新CPU审计完成回执和用户授权，当�
 [报告](framework/GV2_EPOCH_SWEEP_PREPARATION_REPORT.md)、
 [命令及成本](framework/GV2_EPOCH_SWEEP.md)、
 [来源/测试/资源证据](framework/results/gv2_epoch_sweep_preparation/evidence.json)。
-内容发布Commit由后续文档索引登记；完成后停止，不自动运行Smoke或Full。
+代码、配置、测试及准备证据Commit：7ba65dfcbc5232cef9ffd94bad20852d3feb0ea7；本次后续提交仅登记发布索引。
+完成后停止，不自动运行Smoke或Full。
 
 ## 已完成：G-v2 Epoch11→60训练及CPU审计PASS，Git派生报告格式修复
 
