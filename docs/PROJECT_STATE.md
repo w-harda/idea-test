@@ -2,20 +2,23 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：G-v2 Epoch11→60正式后台训练已真实启动
+## 当前阶段：G-v2 Epoch11→60训练及CPU审计PASS，Git派生报告格式修复
 
-冻结训练工作树HEAD635471b6d8a722616f87df16c300a8358861cd10保持干净；管理分支codex/gv2-epoch60-launch，
-启动管理实现14f2833be06c75b62e08473886c5c81268e53fd3，训练入口/配置/算法不变。
-本轮真实CPU Preflight exit0，父SHA/2176缓存/绝对Epoch11顺序通过，管理及汇总CPU测试7项通过。
-2026-10-20T13:49:51.396151+08:00核验：nohup+setsid监督器PID/PGID/SID=454418，PPID1/无TTY，子进程454474。
-已真实进入Epoch11，日志GV2_TRAIN_PROGRESS 11 544 / 2048 Adam [82834]；采样记录550/2048条、累计Adam82856，
-为该时间点快照，不代表后续自动跟踪。父G/Adam/四类RNG恢复exact、起点80680，不继承Smoke更新。
-最近完整Checkpoint仍为原Epoch10；50轮训练、最终484080和独立CPU审计仍PENDING。
-控制/home/lzf/ldx/tmp/gv2_epoch60_train_v1；输出/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train。后台成功后仅运行原CPU训练审计并整理Loss/六点来源，
-失败立即停止、不自动恢复。没有Gallery生成或三模型Full授权；本次确认启动后退出，不全程等待。
-[实际启动核验](framework/GV2_EPOCH60_TRAIN_STARTUP.md)；
-[证据](framework/GV2_EPOCH60_TRAIN_STARTUP_EVIDENCE.json)；
-[查询与停止](framework/GV2_EPOCH60_TRAIN_LAUNCH.md)。
+冻结训练635471b，50个新增Epoch/403400更新完成，Adam最终484080；
+Epoch11–60全部50份Checkpoint及关联日志/完成回执已由原生独立CPU审计PASS。
+本轮仅只读SHA/元数据核对，没有重新运行审计、GPU、训练或Full。
+CSV650字段与原摘要exact、Markdown60行一致，六点Checkpoint SHA核验通过。
+
+原监督器在PUBLISHING_REPORT的git diff --cached --check因CSV的61个CRLF行尾、
+Matplotlib SVG的1117处行尾空格退出，phase=FAIL exit=2 line=83。
+只修派生CSV/SVG空白格式，不修改生成器或任何训练源码；CSV单元格和SVG图形语义exact、PNG不变。
+原20份控制文件及567份正式训练文件SHA/mtime保持；原FAIL事件/phase/日志不改写。
+修复后的报告单独提交推送，发布凭证在控制publication_repair_v1/publication_success.json；
+不能将后续发布成功冒充原监督器整链成功。后续Gallery生成/三模型Full仍待授权。
+[正式训练报告与修复说明](framework/results/gv2_epoch60_training/REPORT.md)；
+[曲线](framework/results/gv2_epoch60_training/loss_curves.png)；
+[原始精度CSV](framework/results/gv2_epoch60_training/loss_raw.csv)；
+[发布修复证据](framework/results/gv2_epoch60_training/PUBLICATION_REPAIR.json)。
 
 
 ## 已完成：VLPTAttack（DRA）v2三模型Full及CPU审计完成，正式结果只读汇总

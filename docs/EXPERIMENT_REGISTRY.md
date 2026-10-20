@@ -422,3 +422,12 @@ protocol、initial_restore、probe_state、probe_result、completed和cpu_audit�
 监督器PID/PGID/SID454418，PPID1/无TTY；已真实Epoch11更新，核验时550样本、Adam82856。
 CPU Preflight通过，父G/Adam/RNG exact；正式完整训练及CPU终审PENDING，不是新攻击Full结果。
 [启动证据](framework/GV2_EPOCH60_TRAIN_STARTUP.md)。当前状态以PROJECT_STATE和不可变完成回执为准。
+
+## G-v2 Epoch11→60正式训练完成
+
+50个新增Epoch与原生独立CPU审计PASS，最终Adam484080；六点Checkpoint及Loss曲线见[训练报告](framework/results/gv2_epoch60_training/REPORT.md)。没有新Gallery生成或三模型评估。
+
+
+发布状态补充：原监督器在Git暂存空白检查阶段FAIL（CSV CRLF、SVG尾空格），训练和既有CPU审计均已PASS。
+后续只规范派生报告格式，数值/图形不变，单独提交推送；原FAIL日志保持，不改写成原运行SUCCESS。
+见结果目录PUBLICATION_REPAIR.json；没有重新训练、重跑CPU审计或进行模型评估。

@@ -1,0 +1,116 @@
+{
+  "schema": "gv2-epoch60-publication-format-repair-1",
+  "checked_at": "2026-10-20T18:40:27.400105+08:00",
+  "base_commit": "fdd472c038c0809d97c3d6d0ed4766f7eb564612",
+  "format_repair": {
+    "format_changes": {
+      "loss_raw.csv": "61 CRLF records -> LF; cell strings exact",
+      "loss_curves.svg": "1117 line endings stripped of space/tab; XML graphical semantics exact"
+    },
+    "CSV_cells_exact": true,
+    "SVG_graphical_semantics_exact": true,
+    "PNG_unchanged": true,
+    "before_after_sha256": {
+      "loss_raw.csv": {
+        "before": "819de1354aad5bdce0a4300126e588adddb3949a406204d94d7904e91e3160d3",
+        "after": "71fe80baf42915bee83a23bc53b8b39c998318a562fe5dc5cf3ea7f541ad9a4d"
+      },
+      "loss_curves.svg": {
+        "before": "8ce21ef4cf40d9b049a73051c7e470cad4c9b38b9fc91a969678fabb215aac8c",
+        "after": "4e2a56ceeeea47f071691487e2d334476375407769ccbd768f2b86a612fe3c64"
+      }
+    },
+    "original_phase": "FAIL exit=2 line=83",
+    "original_failure_logs_preserved": true,
+    "training": "PASS",
+    "independent_CPU_audit": "PASS (original execution, not rerun)",
+    "new_training": false,
+    "GPU": false
+  },
+  "read_only_verification": {
+    "status": "READ_ONLY_VERIFICATION_PASS",
+    "new_native_audit_executions": 0,
+    "checkpoint_versions": 50,
+    "new_optimizer_steps": 403400,
+    "final_Adam_step": 484080,
+    "original_CPU_audit": {
+      "Adam_step": 484080,
+      "CUDA": false,
+      "epochs": 50,
+      "protection": {
+        "files_sha256_unchanged": 46,
+        "files_stat_unchanged": 84237
+      },
+      "status": "PASS"
+    },
+    "CSV_numeric_fields_exact": 650,
+    "Markdown_rows_exact": 60,
+    "same_six_points": true,
+    "source_refs_verified": 105,
+    "Git_errors": {
+      "docs/framework/results/gv2_epoch60_training/loss_curves.svg": 1117,
+      "docs/framework/results/gv2_epoch60_training/loss_raw.csv": 61
+    },
+    "torch_imported": false
+  },
+  "protection": {
+    "original_control_files_SHA_and_mtime_unchanged": 20,
+    "formal_training_files_SHA_and_mtime_unchanged": 567
+  },
+  "original_control_phase": "FAIL exit=2 line=83",
+  "original_supervisor_marked_success": false,
+  "separate_publication_receipt_path": "/home/lzf/ldx/tmp/gv2_epoch60_train_v1/publication_repair_v1/publication_success.json",
+  "original_failure_evidence": {
+    "/home/lzf/ldx/tmp/gv2_epoch60_train_v1/cpu_audit.log": {
+      "sha256": "f6deaf7f8f5d4f7ec85d9a8c9fe34f5bcd632404164d2955b4d38b0e3b736bda",
+      "stat": [
+        2295467,
+        2938,
+        1792492357292023983
+      ]
+    },
+    "/home/lzf/ldx/tmp/gv2_epoch60_train_v1/launcher.log": {
+      "sha256": "ba68cc68615b1df65bca72d8bc20b85fb310153f97e1d506b60029fe323985a3",
+      "stat": [
+        2295456,
+        139881,
+        1792492364440085333
+      ]
+    },
+    "/home/lzf/ldx/tmp/gv2_epoch60_train_v1/status.log": {
+      "sha256": "85580a7f14bf9da335e9a0796ca00b48f4e5189159092f1718b4bf0f2c238d5d",
+      "stat": [
+        2295466,
+        381,
+        1792492364446085385
+      ]
+    },
+    "/home/lzf/ldx/tmp/gv2_epoch60_train_v1/phase": {
+      "sha256": "0deedd5b59c11363cbbd94b9df8922f8e09dde3ec24c8d0a84345a781096a9ef",
+      "stat": [
+        2295453,
+        20,
+        1792492364440085333
+      ]
+    },
+    "/home/lzf/ldx/tmp/gv2_epoch60_train_v1/report.log": {
+      "sha256": "76c91887fc20835241e8f6f546adf5cdc1e74999785247945fe1c0a569d9a2d1",
+      "stat": [
+        2298738,
+        54,
+        1792492364141574538
+      ]
+    }
+  },
+  "server_repair_records": {
+    "/home/lzf/ldx/tmp/gv2_epoch60_train_v1/publication_repair_v1/before.json": "c54b624ce11e13db4869a5859647aa7ecbe4892f1bf03efc6df3e1f1ac25f655",
+    "/home/lzf/ldx/tmp/gv2_epoch60_train_v1/publication_repair_v1/readonly_verification.json": "795d194b7cf48840b2aea9f99d389dd765462e722baba2338ffb8d78460680b9",
+    "/home/lzf/ldx/tmp/gv2_epoch60_train_v1/publication_repair_v1/format_repair.json": "b5439613eb1ade2a97e80b9da23a67725eac58667493c5cb199bbc9a94799305",
+    "/home/lzf/ldx/tmp/gv2_epoch60_train_v1/publication_repair_v1/git_cached_check_before.txt": "adc3dc73c4993d5d45e404b0729189ec3dd63597f401889b43caa2242268d9de"
+  },
+  "derived_csv_sha256": "71fe80baf42915bee83a23bc53b8b39c998318a562fe5dc5cf3ea7f541ad9a4d",
+  "derived_svg_sha256": "4e2a56ceeeea47f071691487e2d334476375407769ccbd768f2b86a612fe3c64",
+  "unchanged_original_result_evidence_sha256": "bf0369a7836669deebd6d39439ac36a5c55ed3d4f6862cfd99f0ac7818f6b34a",
+  "unchanged_PNG_sha256": "8f98d0e7597a552b304f5e75cea13a26404ff85309315b6c798912d5751551b8",
+  "publication_rule": "commit and push repaired derived reports only; original FAIL logs unchanged"
+}

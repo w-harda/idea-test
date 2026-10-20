@@ -1,0 +1,259 @@
+{
+  "schema": "gv2-epoch60-completed-results-1",
+  "frozen_training_commit": "635471b6d8a722616f87df16c300a8358861cd10",
+  "points": {
+    "10": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/train_v2/checkpoints/epoch_0010/checkpoint.pt",
+      "sha256": "f59bd3b5f9cbbaf8f6acc10c4bdc113ea83cacb2979ea0821b952c8f9a1c658e"
+    },
+    "20": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0020/checkpoint.pt",
+      "sha256": "67523b3f10b0145d2ba802b1f468f3bbb7554e36d8e1196376f8380d84a51d09"
+    },
+    "30": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0030/checkpoint.pt",
+      "sha256": "a55e1ec2181cd10ef1436c993231f333a445644b5378ca90a10a99c50143a87d"
+    },
+    "40": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0040/checkpoint.pt",
+      "sha256": "0b70d802ce867910b10dc70a9581c8a5c31907bf5ab4ace7206411c02f239e82"
+    },
+    "50": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0050/checkpoint.pt",
+      "sha256": "8357d8cca55d3b26190e85a53a48034985a6cec37274e2e56e894fe808752b86"
+    },
+    "60": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0060/checkpoint.pt",
+      "sha256": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049"
+    }
+  },
+  "sources_sha256": {
+    "/home/lzf/ldx/projects/idea-test-tbps-gv2-epoch60-ablation-20261020/configs/framework/gv2_epoch60.server.json": "ffc3cabb4fe607157aa0c30966242fb699d8ba62ebf0697b9f800eb4ad40136b",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0011/checkpoint.pt": "50508b8b400013f9df707dca7e08b35c2b8c6a65c46a6d5de337d2543b090892",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0011/summary.json": "ecc205f9961398e3584c9a079afd96160888daabc95bee92b68ee6c688c33bbe",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0012/checkpoint.pt": "cb7dadefa974bd03dcd79689f422af72d371f9da5019fe128114ee6e80da5d08",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0012/summary.json": "b44b69b324a3710b1b69b4ec992c51abb11d5747a97e623b8788fff300f00f85",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0013/checkpoint.pt": "5850ca7182a5d106562a8e9d87e5c7ca72f922fb1c04100a5acfc6eaa88c4bb2",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0013/summary.json": "709ef131275fd4ca84d4fbe1786ac40d82e770b177aaadc76397e3bc0bd3ec1a",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0014/checkpoint.pt": "1eec72816d4b969d255dea574cdbcd3e7443f87b77b38084334d5ae59a0358d4",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0014/summary.json": "7f9662fa519936f5fda601d596d8a26948c412a001bb0bc91241ed458bba0a20",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0015/checkpoint.pt": "8113c3711d168b4bcad7f0b23f988629da1b63a3c798f01cab3a6bc5dcd8608b",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0015/summary.json": "0ac024a2182a6707ce6ec45e2738b4e4419d308b6242bf14fc1f22a01eab2c47",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0016/checkpoint.pt": "40019df63714b2debfd5fb9f4f515b7977fe9f7e865b5f863ced67e79d8d1006",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0016/summary.json": "edc6573f4a83f5e56bf79e5615f5d3bd12cd7610b4168bc251cf9f7ad2a36e64",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0017/checkpoint.pt": "53279c15580e9b1e00ac9112b2d541c3319395edf1085afae036b4245416c1d7",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0017/summary.json": "70179e33aa98a84f128a0e8b515eced7975e8d3eae5e3fbe3b058d80c3add841",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0018/checkpoint.pt": "30cebf13e7c596e1782cf933fec64a81916297bc638380f0cd6f8e91c701260a",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0018/summary.json": "a7804f8c8daf0c2f4d712e552a5b0f95859a3842a68fb50629acb55ac8055aa6",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0019/checkpoint.pt": "baa4de9f20993cc7aff37cd5df082011c7b165acc81258130e4daa2e7a835345",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0019/summary.json": "1367ce8143dcd8c096a7740a747629c4cad167f64235e524dcbbc1e4dedd7c4f",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0020/checkpoint.pt": "67523b3f10b0145d2ba802b1f468f3bbb7554e36d8e1196376f8380d84a51d09",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0020/summary.json": "2b865f472f15b3f65a30235ee477a965d5008084c70a71fd92d357fcb31eb67d",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0021/checkpoint.pt": "b81556eebdd37aaa45f3af1224d5d6f0590792deff63a2279c41bb624f322f29",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0021/summary.json": "e247ab4d642709a82ceffbb2d0c796fe92a1abb12fca115109931412e0a81546",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0022/checkpoint.pt": "7c1401312a82cf1027a989e2af2792d3b52aa59671440d17984111901efbadac",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0022/summary.json": "2d7adc5b2aab85370545a2e97e014c8eb9106e849f3d1f0a3f06f2a35b803e6f",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0023/checkpoint.pt": "bbd026b35f9f90b1bed1f29b7b1b4c2ceff0a0ada73ea748dc7b00ef4fc667bf",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0023/summary.json": "55ef1f04124290af4abe7226735ed40a4699a197183717f860828180a7012a5c",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0024/checkpoint.pt": "3c08008c7c5dc628b2f6f9887913c69e902bb024f5a77d4ced88b6b2018cf4ed",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0024/summary.json": "3113e61e1d80bbe223b58d7fa78e3e288bc325bc547d70b3842cc92d70e22d56",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0025/checkpoint.pt": "d6d85a7e15a569a91cd7003fdc40a09023c94718ecba60a81d12871b2397150e",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0025/summary.json": "4a06f056d337dce460460e8da3839fa3635d41337b6f62facb2765411ba8d309",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0026/checkpoint.pt": "e8ffb028b4ca7df21b63ddc6ef6daa24bbbc3b0cb419623fd81d383c2e895b87",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0026/summary.json": "4e9154f49992d6bcef532d5046cdfdc3ada9ee5fe4289ac23d090feddebaefae",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0027/checkpoint.pt": "b599315670786c594ab2527f87f318b0578ecd5a6d9eacd6af77cbd470d9b4c2",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0027/summary.json": "8fb9b3f50b40c257c928a9a98ef15635b4716dbe870fe9d22dbee959f462e41d",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0028/checkpoint.pt": "15a57ed8df1982f38c7eda05f2663a8dcfc51895e1e8d94430327daff8de41d6",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0028/summary.json": "c6d6f9aa6af15f77ba297d72858a98d16eab20d5afccadc6076c9d1d6b8a3b2d",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0029/checkpoint.pt": "bd286215f6abdc212ea864e07a01e6c4f21fc6fb303e30763007db839b327102",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0029/summary.json": "7efc8a933321f16f2933f336774fdd9ee0fea4cff7a50d71b04484c9c18bd701",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0030/checkpoint.pt": "a55e1ec2181cd10ef1436c993231f333a445644b5378ca90a10a99c50143a87d",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0030/summary.json": "98ab5340d693dba5e3c63e3ce53f84453f72345aecd3e5dd2db39d2b4684a832",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0031/checkpoint.pt": "440997401dff8dbd2f6a122ef4bc99053db2a63133858a3740de741d000afa57",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0031/summary.json": "16703e2f8bb7f3c80cdd91347e574a7736d8465828bbcbb45775884075dfaa5f",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0032/checkpoint.pt": "38b1fb52c55c3f34747f79c6cfc393900a18a192101ff40382b65aceaffaa1bd",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0032/summary.json": "6e1a7a0a875f142261250aaf6a4c9cc4ed0c0e9b80996d854aef49a8af9c1a33",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0033/checkpoint.pt": "5c9fa98d65da52bc8e8d100a13ee5b941e9cf883c3d43d4d0b41ff66eadbf4f3",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0033/summary.json": "8c3b11454519573e7fd0b924e7032064de26e00aaf4b5248190a7a9cb46329df",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0034/checkpoint.pt": "f6fe52c6f8b97ace7a01c35468aa25a8e8062c0ebfa3e2ff81c0d94e5518ca78",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0034/summary.json": "90b8633e46dc1d656b36cfc36ab4176bcdb9f6dfeb57d05621a48fb8d7e78503",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0035/checkpoint.pt": "922d77e6933491258dd0a3884947befe1032683b612532372ae9ca386775efec",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0035/summary.json": "aa45c946458d23fac1e0ddc39d83bedf7a5db961a34bf26d0c6565e88ffcf2ad",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0036/checkpoint.pt": "bec27996be80a7ac04b7e1f5ddd033913ea821abca33c828104cd6792595aaf8",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0036/summary.json": "7914961f94474c9af44a2317f435a0c13238ea065a1bdac58a234fcd7ba7b9a9",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0037/checkpoint.pt": "f8f52af1e4ddc509add4dab4fa51ce9f09e20e2bd7d1f63cbe18fc06b894c428",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0037/summary.json": "7858dad99be256629d41fb748fb526276cd954254c698aff02a6ac4860928d40",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0038/checkpoint.pt": "00855949d2cc39c9cf62522298135276ad0d691873e7e0c8da56da9107d032db",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0038/summary.json": "e53bba6c4512c26618e5d6265c37d56866991f100e6ffd45dda9ba9f1c3a440a",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0039/checkpoint.pt": "719ef61e33d7c811dfa8ac8685729ff81e6f60c6997accade7897200fda9db91",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0039/summary.json": "a54a586290154607e4ef2dfd17f4c4f324eb21fe2f9b6e684bdb3b3d3927006f",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0040/checkpoint.pt": "0b70d802ce867910b10dc70a9581c8a5c31907bf5ab4ace7206411c02f239e82",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0040/summary.json": "8cddf2557a50655c65b6f1d345139e9100439d5d0ce9726af57f550ae536cf04",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0041/checkpoint.pt": "e3582a12b70e00d1ddbe3e3bf943e2879e45b4bf621bafba204838dc1cecdc6d",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0041/summary.json": "7a42dd84d26a34d1ff0fed02f487e10009146e9852a1ecf9ae707536eb74961c",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0042/checkpoint.pt": "29f2b2b995321452f2e6cc48401cee98ba322cb69113eb56a67379fba59352c1",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0042/summary.json": "11db233ff0f1c498a77567d58604acde7747ae497a54d0d32c12c87b31756c8d",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0043/checkpoint.pt": "2b4c91ee06ccdd63282965c6cd218e54cf2df06a8ef9229d91b4e31347b5f979",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0043/summary.json": "549df81abe9b8456a6751faa2a43bf6821369bac0964a4c4f51ac54430af5b12",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0044/checkpoint.pt": "1ccdc255144a142d4105e1865081716844592f4d62e775e0bfa514d3fb1ed5c0",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0044/summary.json": "a54ba70cf900d81961737ba00f639fb9b3c6635be663d7179643fd0ec7b62db5",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0045/checkpoint.pt": "7b50802483397c9dcb776901726c8ae8b7b7138675fd5d91161a6e6ecb225eea",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0045/summary.json": "d8894fc77c662f6bc3f8fecbe628ad90924a14f0d81f54be1112f36219497880",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0046/checkpoint.pt": "1e189359f4ab0b6e59ede5e9ea92afd2030c5eb2fa59f88ee98fc027cc119e37",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0046/summary.json": "ff06e12b5c931fa2fac65457d134049c7fe9548dcf4cad1d6762ef5fd2220341",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0047/checkpoint.pt": "7a0e9072ecea87e0e1830b10660ec194dc576c4c9baa949d8f07cee7480617f2",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0047/summary.json": "2edbc3b97b809e278d3581d93d813a707123835eb0e077a3001f11ce549fa71b",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0048/checkpoint.pt": "f11cee41b6be8be0ac5a3cd4a13b2877aa5b65f4de8a143eb664e8d652ce0029",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0048/summary.json": "44097b138a3d4ae700483eb907a5d876a671770a3073a18cd3c2be667a674e54",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0049/checkpoint.pt": "dd79d43fb11c8f796c8f4edae3f247154ef735d33849fd8cfb706ab03cf54227",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0049/summary.json": "e0fc9ee7d4d5dc85278f38fa66f2fa470f8ca5777f5db7cbd91118f84b57f242",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0050/checkpoint.pt": "8357d8cca55d3b26190e85a53a48034985a6cec37274e2e56e894fe808752b86",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0050/summary.json": "71b0deb224dd54d202ada75f16dca8970422275cfc98526bee346abcf2279473",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0051/checkpoint.pt": "7056b67cac9fb21c70c8d3dc5f36903b7b56909a4dc507d1668727358a49e1f3",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0051/summary.json": "2fe34fc1153cd5adf6356f995ced5adeb9e7c8c12d1445c1fe6acdaf6e5d2120",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0052/checkpoint.pt": "a6ff4ef0797efb0f41b4c01c2f210e0aa81c0c7f63d5e28696c9014c858e44c8",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0052/summary.json": "68a8ff907a0502aa39e0ca5db2bf116d4053f3cdc5e22d140e3bd581300e0a51",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0053/checkpoint.pt": "6faf987afafdc19b8a44df88731b2b95901e87d010f1328631a4194457fb8f61",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0053/summary.json": "98a28a2573c137c82b4a17517533efba70c2e3cbaeb258e5f8eef073ba0b3106",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0054/checkpoint.pt": "0a6c8eae0be954ab6b73833a73af5a2d14f9ba027dc39e1051c8be39ec295c1e",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0054/summary.json": "99594d1c25ca5840d4cfc11e42ee7cd1e3ff6405d2b35226b37cfcf43aea9870",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0055/checkpoint.pt": "b15543a8fa0e91d65fa8d13344323f7a27bae12bae8ce2c8f2c3a30092daef87",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0055/summary.json": "818593338c48fc152d0d5d1cee4fe25a5053f9ec84acdb5ac7b0ca3e4d12a431",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0056/checkpoint.pt": "c61a6ac06fa1e49ea56cf0e16f7396a4131d7a2b8deefbe377e1612dbc30326f",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0056/summary.json": "a7cd8b4104e53b446760f25bd05194578f528194fadfc71f22418d85781ef129",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0057/checkpoint.pt": "9304761ef9c2c9c6d572931926d82f9eebc73f56260ce3796780f8dc30e6279e",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0057/summary.json": "f4da09f10cd93a47b13ba3dddc9e897f0e07ffcb5b716c3feb04d5f21ffbd767",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0058/checkpoint.pt": "7769f40fb415cb4b338e73117d667bff92ffb5579e87b453e42fee302553b2c0",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0058/summary.json": "5f898ae9d45b5a01185caf3656c7f0a3ae4f88608d50e47b37cbf3386306e168",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0059/checkpoint.pt": "dfb8d3716225474eb7a0318867fa6ac1d29254694046aacc47faa2b2bfbf934f",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0059/summary.json": "1265ccc1297cc3f0a7f50ea783a15db42b61423729c46531d77366dedd875d58",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0060/checkpoint.pt": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/epoch_0060/summary.json": "a19da4370b5c83b2d2f6aa0301aabf6161a0678cec3a764bbcb74a169d589216",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/completed/report.json": "bb7bbc554a646c46b67eb318396d7f1a35e18569a36b58ff2ae0e2d99372735c",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/cpu_audit/report.json": "02834ee36a8e4ad2dd60192794e1471380823c1777815a9afa0749e5d28e6515",
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/protocol/protocol.json": "1b4c446f7759824a54988f6ab631fc2e00e6ed886b84b455d0b4f5c9c668d622",
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/phase28/summary.json": "dba24df1dac90b1281938eea6961e7d8f93bb247141c5276adeea5e215170294"
+  },
+  "completed": {
+    "Adam_step": 484080,
+    "CUDA_bitwise_historical_trajectory_claim": false,
+    "GPU_peak_allocated_bytes": 1083324416,
+    "GPU_peak_reserved_bytes": 1212153856,
+    "IRRA_frozen": true,
+    "absolute_training_epoch": 60,
+    "completed_epoch": 60,
+    "counts": {
+      "G": 8196,
+      "IRRA": 8196,
+      "backward": 8068,
+      "step": 8068
+    },
+    "final_restore": {
+      "Adam_exact": true,
+      "Adam_sha256": "84ffa5fdd8132fb60ecbb4caf40d3242973168666841264c098d2aa36575ae14",
+      "Adam_steps": [
+        484080
+      ],
+      "G_exact": true,
+      "G_sha256": "5d48caab6a891a1afd3aaaa6f3594eb5f860ccd7b6090708d289224e6c819e47",
+      "RNG_domains": {
+        "cuda": "2e4e7fa85259a1c127af07da700cb10dfb5bbd6b1df2352a81488fb5d3f4c2be",
+        "numpy": "8f57dcc4d5e07c80fe3f64e0f871f292751df8d68e6705f505ec98f060014ca7",
+        "python": "b4bc70dd9a8cc501bec2b4a8b836bd968f88aae35332687da0658ad213baf8cf",
+        "torch": "d4492e37ad1f36f9823395b483ca45abeb960a638a5fbf94a9265a39c22935b4"
+      },
+      "RNG_exact": true,
+      "RNG_sha256": "303b37ca627e6378484f34c5ca9fb296deb2fbd3c12dc93257c3630ae877f7b9",
+      "optimizer_groups": [
+        {
+          "amsgrad": false,
+          "betas": [
+            0.5,
+            0.999
+          ],
+          "capturable": false,
+          "differentiable": false,
+          "eps": 1e-08,
+          "foreach": null,
+          "fused": null,
+          "lr": 0.0002,
+          "maximize": false,
+          "weight_decay": 0
+        }
+      ]
+    },
+    "formal_epoch11_published": true,
+    "initial_restore": {
+      "Adam_exact": true,
+      "Adam_sha256": "17547545d494139e58417c8bbd31be3b04ba7aa315434722a01a5ed4054e23f5",
+      "Adam_steps": [
+        80680
+      ],
+      "GPU": true,
+      "G_exact": true,
+      "G_initializations": 1,
+      "G_sha256": "d5681683475cb292199c203022358ecf9172c7f1cffa8127d17197a03cd723c6",
+      "IRRA_loads": 1,
+      "RNG_domains": {
+        "cuda": "2e4e7fa85259a1c127af07da700cb10dfb5bbd6b1df2352a81488fb5d3f4c2be",
+        "numpy": "8f57dcc4d5e07c80fe3f64e0f871f292751df8d68e6705f505ec98f060014ca7",
+        "python": "b4bc70dd9a8cc501bec2b4a8b836bd968f88aae35332687da0658ad213baf8cf",
+        "torch": "d4492e37ad1f36f9823395b483ca45abeb960a638a5fbf94a9265a39c22935b4"
+      },
+      "RNG_exact": true,
+      "RNG_sha256": "303b37ca627e6378484f34c5ca9fb296deb2fbd3c12dc93257c3630ae877f7b9",
+      "absolute_next_epoch": 11,
+      "optimizer_groups": [
+        {
+          "amsgrad": false,
+          "betas": [
+            0.5,
+            0.999
+          ],
+          "capturable": false,
+          "differentiable": false,
+          "eps": 1e-08,
+          "foreach": null,
+          "fused": null,
+          "lr": 0.0002,
+          "maximize": false,
+          "weight_decay": 0
+        }
+      ],
+      "source_checkpoint": {
+        "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/train_v2/checkpoints/epoch_0010/checkpoint.pt",
+        "sha256": "f59bd3b5f9cbbaf8f6acc10c4bdc113ea83cacb2979ea0821b952c8f9a1c658e"
+      },
+      "source_state_epoch": 10
+    },
+    "new_JVP": 0,
+    "new_scoring": 0,
+    "parent_checkpoint": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/train_v2/checkpoints/epoch_0010/checkpoint.pt",
+      "sha256": "f59bd3b5f9cbbaf8f6acc10c4bdc113ea83cacb2979ea0821b952c8f9a1c658e"
+    },
+    "peak_RSS_bytes": 2487185408,
+    "protection": {
+      "files_sha256_unchanged": 46,
+      "files_stat_unchanged": 84237
+    },
+    "scope": "formal",
+    "seconds": 16998.38200847432,
+    "source_G_initial_sha256": "d5681683475cb292199c203022358ecf9172c7f1cffa8127d17197a03cd723c6",
+    "status": "PASS"
+  },
+  "audit": {
+    "Adam_step": 484080,
+    "CUDA": false,
+    "epochs": 50,
+    "protection": {
+      "files_sha256_unchanged": 46,
+      "files_stat_unchanged": 84237
+    },
+    "status": "PASS"
+  },
+  "control": "/home/lzf/ldx/tmp/gv2_epoch60_train_v1",
+  "reporter_sha256": "12325d1635b241cd8a301c870b6c9c8adbe43defad87c49023dc397fe87ecd17",
+  "python": "3.10.21",
+  "new_gpu_evaluation": false
+}
