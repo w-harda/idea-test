@@ -23,7 +23,8 @@ H加载/前向0，Backward/Optimizer/JVP0，全部模型参数/buffers前后exac
 [原精度/完成回执/源SHA证据](framework/results/gv2_epoch_sweep_shared_smoke/SMOKE_EVIDENCE.json)、
 [正式计划及命令](framework/GV2_EPOCH_SWEEP.md)。
 技术Smoke门禁已满足，但**正式五节点Full仍未授权/启动**，Top10不能宣称Full Top128新验证。
-内容发布Commit由后续索引登记；提交推送后停止等待最终Full授权。
+真实报告/CSV/证据内容Commit：5dfc0834034a77cb9b53ac2ebc7fe158321e9496；执行代码152498f已推送。
+本次后续提交仅登记发布索引；提交推送后停止等待最终Full授权。
 
 ## 已完成：G-v2 Epoch11→60训练及CPU审计PASS，Git派生报告格式修复
 
