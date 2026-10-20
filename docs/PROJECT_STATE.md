@@ -5,6 +5,7 @@
 ## 当前阶段：G-v2 Epoch11→60续训验证完成，正式训练待授权
 
 独立分支codex/gv2-epoch60-ablation，基准9ea4467620ddb755d230beedc05fd53e8e1068cf。
+实现与验证Commit：1256dced8399370d492d92ea6149531d5d4d4b7b（本节发布索引由后续文档提交补齐）。
 158项CPU回归（33新增+102原G/串行+23资产）、真实CPU父状态/2176缓存预检、
 唯一一次真实GPU Smoke与独立CPU审计全部PASS。正式Epoch11→60和三模型Full没有启动，无后台PID。
 

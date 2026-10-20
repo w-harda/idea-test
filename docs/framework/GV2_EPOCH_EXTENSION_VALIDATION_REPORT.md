@@ -2,6 +2,8 @@
 
 日期：2026-10-20；独立分支codex/gv2-epoch60-ablation；开发基准9ea4467620ddb755d230beedc05fd53e8e1068cf。
 
+实现与验证Commit：1256dced8399370d492d92ea6149531d5d4d4b7b。来源代码及冻结配置均在该Commit内。
+
 结论：158项CPU回归、真实CPU来源预检、唯一一次GPU恢复Smoke和独立CPU审计全部PASS。
 本轮未启动正式Epoch11→60、未发布正式Epoch11、未运行任何三模型Full或后台任务。
 正式启动仍需用户下一次明确授权及新的即时资源检查。完整Epoch11/50轮稳定性尚未实测。
