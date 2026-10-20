@@ -1,0 +1,13 @@
+Target Model,Attack Method,R@1,R@5,R@10,mAP
+IRRA,Clean (Matched Clean),69.41,87.23,92.02,63.01
+IRRA,VLPTAttack Text-only,43.40,66.05,76.32,41.67
+IRRA,VLPTAttack Image-only,0.02,0.06,0.10,0.10
+IRRA,VLPTAttack Joint,0.00,0.08,0.15,0.10
+RaSa,Clean (Matched Clean),74.45,89.23,93.26,67.45
+RaSa,VLPTAttack Text-only,52.37,72.61,80.25,48.50
+RaSa,VLPTAttack Image-only,29.13,48.39,57.39,22.77
+RaSa,VLPTAttack Joint,16.34,31.12,39.33,13.03
+APTM,Clean (Matched Clean),73.55,88.82,92.84,63.38
+APTM,VLPTAttack Text-only,52.86,73.80,81.06,46.74
+APTM,VLPTAttack Image-only,40.04,60.95,69.17,31.80
+APTM,VLPTAttack Joint,24.42,42.66,51.66,19.85

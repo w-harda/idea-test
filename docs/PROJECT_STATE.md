@@ -2,7 +2,23 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：VLPTAttack Full v2已真实后台运行Source，首批8图16文提交通过
+## 当前阶段：VLPTAttack（DRA）v2三模型Full及CPU审计完成，正式结果只读汇总
+
+实际执行34097c338997561fd7556e43c472d2e5625c05f0，启动登记c97c2bf6c5bcbf0a0d70560fbc54d339adb577e6。
+2026-10-19 16:38:15→2026-10-20 09:51:44 +08:00，整链17小时13分29秒；
+Source、IRRA、RaSa、APTM与既有独立CPU审计全部PASS，最终VLPTATTACK_OFFICIAL_IRRA_SOURCE_THREE_TARGET_FULL_AND_CPU_AUDIT。
+385批覆盖3074图/6156文，IRRA与MLM各加载一次，6153句编辑/3句NOOP；三个Target共享同一冻结内容SHA。
+Joint R@1/mAP：IRRA0.00/0.10、RaSa16.34/13.03、APTM24.42/19.85。
+IRRA原精度下Joint mAP略高于Image-only，不能称Joint所有指标均优于单模态。
+官方RAttacker SHA75518cb9…保持，源/MLM/Target参数buffers exact；FP32预算保留已批准舍入语义，无二次投影。
+DRA/官方SGA的Matched Clean四指标原精度一致；历史G/H为Raw Clean，比较披露预算、文本窗口/语义、Test权限及成本差异。
+本轮独立结果分支codex/tbps-vlpt-full-results；只读核对48个指标、385批身份/动作/RNG摘要和完成链，
+未导入模型/反序列化Tensor、GPU、攻击、评分、排名或audit入口；正式审计为原已完成审计。
+原50163份实验/来源文件stat及5551份使用元数据/来源SHA读取后保护；不改旧产物或实验代码。
+[正式中文报告与CSV](framework/results/vlpt_official_irra_full_20261020/VLPTATTACK_OFFICIAL_IRRA_FULL_REPORT.md)，同目录保留原精度及SHA证据。
+报告内容Commit在发布索引登记；完成后停止，下一Baseline等待授权。
+
+## 历史启动快照：VLPTAttack Full v2已真实后台运行Source，首批8图16文提交通过
 
 基准055fea880214c95f3b8eee6282bb9de91ea1b742；
 分支codex/tbps-vlpt-full-v2，独立工作树idea-test-tbps-vlpt-full-v2-20261019。

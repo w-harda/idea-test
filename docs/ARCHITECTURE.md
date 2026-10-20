@@ -4,6 +4,8 @@
 
 新增dra_full/dra_full_target/run_dra_full，仅外层385批调度与存储。复用原Wrapper/官方调用、ArtifactStore、三模型原生评分与EvaluationEngine；保留完整RNG链，不支持自动重试/恢复。Source完成验证后才进入Targets，无目标反馈。详见framework/DRA_FULL_EXECUTION.md。v1因Source重复执行Target依赖预检在模型加载前FAIL并保留。v2仅通过明确stage拆分预检：Source严格检查自身依赖，Target保留RaSa/APTM原生依赖检查；公共SHA和数据检查都保留，官方算法不变。
 
+本固定v2已完成385批Source、三Target Full及既有独立CPU审计；本次仅文档分支只读提取正式结果，不变更运行接口。详见[Full结果报告](framework/results/vlpt_official_irra_full_20261020/VLPTATTACK_OFFICIAL_IRRA_FULL_REPORT.md)。
+
 ## 当前结构
 
 | 路径 | 职责及保护 |

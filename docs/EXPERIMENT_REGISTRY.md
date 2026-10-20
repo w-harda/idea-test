@@ -1,5 +1,19 @@
 # 历史实验注册表
 
+## VLPTAttack官方DRA／IRRA Source v2 Full（完成，独立CPU审计PASS）
+
+执行34097c3，启动c97c2bf；2026-10-19 16:38:15至10-20 09:51:44 +08:00，
+62009秒；Source及三个Target Full/既有独立审计全部PASS。
+根目录/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/，
+控制/home/lzf/ldx/tmp/vlpt_official_irra_full_v2/。
+Source completed SHA a5978dc834b14a34d4c6932e0c2d463fb052105a551c5bd9137d647d3639df18，
+385批/3074图/6156文；6153编辑、3 NOOP，三Target共享冻结输入，权重buffers不变。
+IRRA/RaSa/APTM Joint mAP=0.10/13.03/19.85；只引用v2 Full，不混入Smoke/v1/旧白盒。
+[正式报告](framework/results/vlpt_official_irra_full_20261020/VLPTATTACK_OFFICIAL_IRRA_FULL_REPORT.md)、
+[来源索引](framework/results/vlpt_official_irra_full_20261020/VLPTATTACK_OFFICIAL_IRRA_FULL_EVIDENCE.json)。
+本次只读提取不重跑审计或完整排名；下方RUNNING/PENDING均为原启动快照，已完成状态以本条为准。
+
+
 ## VLPTAttack官方IRRA Source Full v2（RUNNING_SOURCE，首批提交）
 
 基准055fea8，v2独立分支codex/tbps-vlpt-full-v2。

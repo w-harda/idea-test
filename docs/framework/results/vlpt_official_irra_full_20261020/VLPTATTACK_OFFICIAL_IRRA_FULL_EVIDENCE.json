@@ -1,0 +1,1185 @@
+{
+  "schema": "tbps-dra-full-result-readonly-extraction-1",
+  "Full_status": "SUCCESS",
+  "date": "2026-10-20",
+  "executed_code_commit": "34097c338997561fd7556e43c472d2e5625c05f0",
+  "startup_docs_commit": "c97c2bf6c5bcbf0a0d70560fbc54d339adb577e6",
+  "official_commit": "91f78325e7cf0c497c9bbb5be2215be652d8cd9d",
+  "official_core_sha256": "75518cb9465d9f8e994ea2f59c86b89fd4c39e3fe74f66b7a1d0a090eec2d313",
+  "parameters": {
+    "epsilon": 0.03137254901960784,
+    "steps": 10,
+    "step_size": 0.00784313725490196,
+    "sample_numbers": 5,
+    "text_ratios": [
+      0.6,
+      0.2,
+      0.2
+    ],
+    "batch_size": 8,
+    "seed": 42,
+    "max_length": 77,
+    "pre_caption_words": 30,
+    "cls": false,
+    "number_perturbation": 1,
+    "topk": 10,
+    "threshold_pred_score": 0.3,
+    "scales": [
+      0.5,
+      0.75,
+      1.25,
+      1.5
+    ]
+  },
+  "full_root": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full",
+  "control_root": "/home/lzf/ldx/tmp/vlpt_official_irra_full_v2",
+  "configuration": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-vlpt-full-v2-20261019/configs/framework/dra_irra_full_v2.server.json",
+    "sha256": "9b6d51bcc77d884b2bf152e20b582874659d0f8749f4ddac1429a4887058364e"
+  },
+  "source_completed": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/source/completed/manifest.json",
+    "sha256": "a5978dc834b14a34d4c6932e0c2d463fb052105a551c5bd9137d647d3639df18"
+  },
+  "source_protocol": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/source/protocol/protocol.json",
+    "sha256": "28dc4afc8d6608e458f5bb84b0599f8b647fad6ed744a1771d46095c0af7fdda"
+  },
+  "source_execution": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/source/execution/report.json",
+    "sha256": "44aeb23e74356fd135d09ea614a62a99b9791a930f4d761ce2b4a2cfc6b20830"
+  },
+  "source_report": {
+    "GPU_peak_allocated_bytes": 7772679168,
+    "GPU_peak_reserved_bytes": 10127147008,
+    "G_H_loads": 0,
+    "MLM_after": {
+      "buffers": {
+        "sha256": "2c7271c8f96758c7cd878895c2e5968f7183fba1de300f50cd51ad77b0769d0e",
+        "tensor_count": 2
+      },
+      "eval": true,
+      "parameter_grads_none": true,
+      "parameters": {
+        "sha256": "09415ccb8d4c1ca4d4a7a22c2be1ca0fdad5830ec3b47960bdd9d70558bb9b60",
+        "tensor_count": 202
+      },
+      "requires_grad": false
+    },
+    "MLM_before": {
+      "buffers": {
+        "sha256": "2c7271c8f96758c7cd878895c2e5968f7183fba1de300f50cd51ad77b0769d0e",
+        "tensor_count": 2
+      },
+      "eval": true,
+      "parameter_grads_none": true,
+      "parameters": {
+        "sha256": "09415ccb8d4c1ca4d4a7a22c2be1ca0fdad5830ec3b47960bdd9d70558bb9b60",
+        "tensor_count": 202
+      },
+      "requires_grad": false
+    },
+    "MLM_counts": {
+      "calls": 2221,
+      "samples": 38944
+    },
+    "MLM_loads": 1,
+    "NOOP": 3,
+    "attack_seconds": 43523.58300687745,
+    "completed_Gallery": 3074,
+    "completed_Query": 6156,
+    "completed_batches": 385,
+    "edited_queries": 6153,
+    "elapsed_seconds": 43717.206956308335,
+    "maximum_real_linf": 0.03137257695198059,
+    "model_after": {
+      "buffers": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tensor_count": 0
+      },
+      "eval": true,
+      "parameter_grads_none": true,
+      "parameters": {
+        "sha256": "b0f0c4e01e6601eb280698f8ee5a3304d9ed117e22968db9f7be17f453330d0f",
+        "tensor_count": 367
+      },
+      "requires_grad": false
+    },
+    "model_before": {
+      "buffers": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tensor_count": 0
+      },
+      "eval": true,
+      "parameter_grads_none": true,
+      "parameters": {
+        "sha256": "b0f0c4e01e6601eb280698f8ee5a3304d9ed117e22968db9f7be17f453330d0f",
+        "tensor_count": 367
+      },
+      "requires_grad": false
+    },
+    "official_attack_calls": 385,
+    "official_backwards": 38500,
+    "official_commit": "91f78325e7cf0c497c9bbb5be2215be652d8cd9d",
+    "official_image_seconds": 8445.115145921707,
+    "optimizer": 0,
+    "parameter_gradients_during_official_attack": true,
+    "parameter_gradients_present": 152,
+    "parameter_grads_cleared_after_attack": true,
+    "parameter_updates": 0,
+    "peak_RSS_bytes": 2443964416,
+    "region_samples": 17325,
+    "resources_before": {
+      "GPU": {
+        "compute_processes": "",
+        "free_mib": 24051,
+        "name": "NVIDIA GeForce RTX 4090",
+        "policy": "shared_observe_only",
+        "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 24051, 40, 0",
+        "total_mib": 24564,
+        "used_mib": 40,
+        "utilization_percent": 0
+      },
+      "available_RAM_bytes": 120924168192,
+      "free_disk_bytes": 6378438520832
+    },
+    "scope": "full",
+    "source_counts": {
+      "BERT_truncated_rows": 0,
+      "UNK_rows": 276628,
+      "bridge_rows": 391818,
+      "image_samples": 439582,
+      "text_samples": 391818
+    },
+    "source_model_loads": 1,
+    "source_weights_fixed": true,
+    "status": "PASS",
+    "target_models_in_generation": []
+  },
+  "audit": {
+    "GPU": false,
+    "Gallery": 3074,
+    "Query": 6156,
+    "batches": 385,
+    "bridge_rows": 391818,
+    "no_resume": true,
+    "official_core_sha256": "75518cb9465d9f8e994ea2f59c86b89fd4c39e3fe74f66b7a1d0a090eec2d313",
+    "scope": "full",
+    "source": "irra",
+    "status": "PASS",
+    "target_feedback": false
+  },
+  "audit_completed": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/audit/completed/manifest.json",
+    "sha256": "f0002d41bef87442554cbe9e654f72f2cb8e14c0737ed177e93058c4b298b5ee"
+  },
+  "audit_log": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/audit.log",
+    "sha256": "782fcfb91453069ff39bcf9fb4ad6f4ff1a5fdcdb706d6de910dad23eed01ad0"
+  },
+  "status_log": {
+    "path": "/home/lzf/ldx/tmp/vlpt_official_irra_full_v2/status.log",
+    "sha256": "8b57e22fbfc5c89579974dd62a36074ec8f84c15549dbcc8cdf0d7afdafd557d"
+  },
+  "begin": "2026-10-19T16:38:15+08:00",
+  "end": "2026-10-20T09:51:44+08:00",
+  "wall_seconds": 62009.0,
+  "phases": {
+    "CPU_PREFLIGHT (Target)": {
+      "begin": "2026-10-19T16:38:15+08:00",
+      "end": "2026-10-19T16:38:26+08:00",
+      "seconds": 11.0
+    },
+    "CPU_PREFLIGHT (Source)": {
+      "begin": "2026-10-19T16:38:26+08:00",
+      "end": "2026-10-19T16:38:31+08:00",
+      "seconds": 5.0
+    },
+    "RUNNING_SOURCE": {
+      "begin": "2026-10-19T16:38:32+08:00",
+      "end": "2026-10-20T04:47:18+08:00",
+      "seconds": 43726.0
+    },
+    "RUNNING_IRRA": {
+      "begin": "2026-10-20T04:47:18+08:00",
+      "end": "2026-10-20T04:52:03+08:00",
+      "seconds": 285.0
+    },
+    "RUNNING_RASA": {
+      "begin": "2026-10-20T04:52:03+08:00",
+      "end": "2026-10-20T07:32:40+08:00",
+      "seconds": 9637.0
+    },
+    "RUNNING_APTM": {
+      "begin": "2026-10-20T07:32:40+08:00",
+      "end": "2026-10-20T09:48:20+08:00",
+      "seconds": 8140.0
+    },
+    "RUNNING_CPU_AUDIT": {
+      "begin": "2026-10-20T09:48:20+08:00",
+      "end": "2026-10-20T09:51:44+08:00",
+      "seconds": 204.0
+    }
+  },
+  "targets": {
+    "irra": {
+      "summary": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/irra/completed/summary.json",
+        "sha256": "8663acd5f9293169193f26884624bb54abc1651553b3a4b8e365a5bc67e383e5"
+      },
+      "metrics": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/irra/completed/metrics.csv",
+        "sha256": "f4dda2d12af68ebc64df22231d5d26369507ebf7b3619803201f98614ea5917e"
+      },
+      "metrics_2dp": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/irra/completed/metrics_2dp.csv",
+        "sha256": "697eb98dc87ddf2fcbbde33b8b43e044473681156bbfdf71ee55c82ca83458e3"
+      },
+      "completed": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/irra/completed/manifest.json",
+        "sha256": "446399ee3fda6af117b89dfff9d3a66b1e4daf017a842b3f1e3649a05310fd43"
+      },
+      "execution": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/irra/execution/report.json",
+        "sha256": "57a791d4bd0f6c58e93d6975dd87074b61950ab06b4b0003da7a79d1bf416cef"
+      },
+      "protocol": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/irra/protocol/protocol.json",
+        "sha256": "993f5c528579abd0c7672e945230544591cde7dda364ca723c288bb327194612"
+      },
+      "native_protocol": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/irra/completed/evaluation_protocol.json",
+        "sha256": "1aebf76344d1ed349e1a2c47ea1e0a57878c0d6d7a932c95efc5679bcb47622a"
+      },
+      "model_space": {
+        "checkpoint_sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009",
+        "model_id": "irra",
+        "precision": "fp32/math/no_tf32",
+        "preprocess_sha256": "61f02eb3fd01e909b2bd0272c2c7dce2b9a2fddf41794989ba3ca27e1529fb25",
+        "scoring_protocol_sha256": "5032f7f1f46e87b3b26eee137cfbd99d7b3f5c65751b160ec8ccafc6baa2c5b4",
+        "sources_sha256": "a2765a2602f21acdd10cdacb072f481a0d19f17f0d2703626d9d8bf2ea42f87d",
+        "tokenizer_sha256": "f0c9ac2862623d9274d8c546f55a41de978fa2d8730bf640e100cd234f8f7bad"
+      },
+      "model_spec": {
+        "capabilities": [
+          "differentiable_images",
+          "image_encoding",
+          "score",
+          "text_encoding",
+          "tokenize"
+        ],
+        "id": "irra",
+        "image_size_hw": [
+          384,
+          128
+        ],
+        "normalization": "l2",
+        "representation_dim": 512,
+        "scoring": "cosine",
+        "tokenizer": {
+          "max_length": 77,
+          "name": "IRRA Byte-BPE",
+          "source_sha256": "19b06ade7532bcff961c4b90590197fcac0d466f08d0b6b801d3d19a36568d67",
+          "truncation": "retain_and_report",
+          "unit": "BPE token"
+        },
+        "version": "historical-official"
+      },
+      "checkpoint": {
+        "path": "/home/lzf/Attack/IRRA/logs/CUHK-PEDES/best.pth",
+        "sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+      },
+      "execution_report": {
+        "GPU_peak_allocated_bytes": 967184384,
+        "GPU_peak_reserved_bytes": 1050673152,
+        "backward": 0,
+        "counts": {
+          "fusion_pairs": 0,
+          "image_samples": 6148,
+          "text_samples": 12312
+        },
+        "elapsed_seconds": 272.37377413362265,
+        "model": "irra",
+        "model_after": {
+          "buffers": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "tensor_count": 0
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "b0f0c4e01e6601eb280698f8ee5a3304d9ed117e22968db9f7be17f453330d0f",
+            "tensor_count": 367
+          },
+          "requires_grad": false
+        },
+        "model_before": {
+          "buffers": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "tensor_count": 0
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "b0f0c4e01e6601eb280698f8ee5a3304d9ed117e22968db9f7be17f453330d0f",
+            "tensor_count": 367
+          },
+          "requires_grad": false
+        },
+        "neural_counts": {
+          "fusion_pairs": 0,
+          "image_samples": 6148,
+          "text_samples": 12312
+        },
+        "optimizer": 0,
+        "peak_RSS_bytes": 2395873280,
+        "resources_before": {
+          "GPU": {
+            "compute_processes": "",
+            "free_mib": 24051,
+            "name": "NVIDIA GeForce RTX 4090",
+            "policy": "shared_observe_only",
+            "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 24051, 40, 0",
+            "total_mib": 24564,
+            "used_mib": 40,
+            "utilization_percent": 0
+          },
+          "available_RAM_bytes": 120528355328,
+          "free_disk_bytes": 6372580802560
+        },
+        "source_generation": 0,
+        "status": "PASS",
+        "target_loads": 1
+      },
+      "groups": {
+        "Clean": {
+          "R@1": 69.41195678710938,
+          "R@10": 92.02404022216797,
+          "R@5": 87.23197174072266,
+          "mAP": 63.01239013671875
+        },
+        "Image-only": {
+          "R@1": 0.0162443146109581,
+          "R@10": 0.0974658876657486,
+          "R@5": 0.0649772584438324,
+          "mAP": 0.09874581545591354
+        },
+        "Joint": {
+          "R@1": 0.0,
+          "R@10": 0.1461988389492035,
+          "R@5": 0.0812215730547905,
+          "mAP": 0.0999641865491867
+        },
+        "Text-only": {
+          "R@1": 43.404808044433594,
+          "R@10": 76.31578826904297,
+          "R@5": 66.04938507080078,
+          "mAP": 41.668453216552734
+        }
+      },
+      "source_collection": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/source/completed/manifest.json",
+        "sha256": "a5978dc834b14a34d4c6932e0c2d463fb052105a551c5bd9137d647d3639df18"
+      }
+    },
+    "rasa": {
+      "summary": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/rasa/completed/summary.json",
+        "sha256": "6327292662c89f1e23b2e21bd35eaf1ad96c017361dc246adf5bc537330d5f1c"
+      },
+      "metrics": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/rasa/completed/metrics.csv",
+        "sha256": "f8bf1880c8f41fa9e9ff0bea0224b74d47c92a8da02ef12534a3103287b53d62"
+      },
+      "metrics_2dp": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/rasa/completed/metrics_2dp.csv",
+        "sha256": "5b9061a2be6fb794c3cd2794f143ef7ec8d12c6d865aee64b5280f46001ffb73"
+      },
+      "completed": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/rasa/completed/manifest.json",
+        "sha256": "0fa7693fcfb264929a1ebebb2bdf21831fe8fab36ef0babccf225d9dbf881ddf"
+      },
+      "execution": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/rasa/execution/report.json",
+        "sha256": "2a853c97dcebe4adbc25222ed8508e4a9ced31fdd7dc1cf096415cd7be1faa45"
+      },
+      "protocol": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/rasa/protocol/protocol.json",
+        "sha256": "af2935b5503894d9be9835f9f410ee5b5678819cd2d4cb420fbcb4dbef962b7d"
+      },
+      "native_protocol": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/rasa/completed/evaluation_protocol.json",
+        "sha256": "acfde729c7b49318bd3f06362cf440b49dec966cafc0f25aa5c3cf6fbb00a91e"
+      },
+      "model_space": {
+        "checkpoint_sha256": "bc85da09c2991d5de503c2c2ac4f032e20cc536fec5094f0acff45e93d0104d2",
+        "model_id": "rasa",
+        "precision": "fp32/math/no_tf32",
+        "preprocess_sha256": "4d5d67c45ea01a6bf8f922b0c3e9df7c1c2cba84cf2293b7921175ccba998035",
+        "scoring_protocol_sha256": "d09c3e7b87f9c3500e435212d9babb14624ab1c8e4a91a1ff02ef645331033cb",
+        "sources_sha256": "e76c248e67cdc59691c228bf2431b5b7d2f6ed1af14b8c8036cfc319f4b91777",
+        "tokenizer_sha256": "1bd8efb0d45496dd2c8fd1430d212390e398d7a0819e66cf946efab5ae6f5d7c"
+      },
+      "model_spec": {
+        "capabilities": [
+          "fusion",
+          "image_encoding",
+          "local_features",
+          "score",
+          "text_encoding",
+          "tokenize"
+        ],
+        "id": "rasa",
+        "image_size_hw": [
+          384,
+          384
+        ],
+        "normalization": "projected CLS l2; local tokens unnormalized",
+        "representation_dim": null,
+        "scoring": "fusion",
+        "tokenizer": {
+          "max_length": 50,
+          "name": "official BERT WordPiece",
+          "source_sha256": "1bd8efb0d45496dd2c8fd1430d212390e398d7a0819e66cf946efab5ae6f5d7c",
+          "truncation": "retain_and_report",
+          "unit": "WordPiece token"
+        },
+        "version": "official-bd16aa1a15f149548a90d196fcf10a27d7ab7c66"
+      },
+      "checkpoint": {
+        "path": "/home/lzf/ldx/checkpoints/RaSa/rasa_cuhk_checkpoint.pth",
+        "sha256": "bc85da09c2991d5de503c2c2ac4f032e20cc536fec5094f0acff45e93d0104d2"
+      },
+      "execution_report": {
+        "GPU_peak_allocated_bytes": 1992355840,
+        "GPU_peak_reserved_bytes": 2183135232,
+        "backward": 0,
+        "counts": {
+          "fusion_pairs": 3151872,
+          "image_samples": 6148,
+          "score_calls": 196,
+          "text_samples": 12312
+        },
+        "elapsed_seconds": 9621.926697075367,
+        "model": "rasa",
+        "model_after": {
+          "buffers": {
+            "sha256": "ce5f3986cd19bee31cacddc61b11f353c608f37e423185c3ed6ff2145befc59a",
+            "tensor_count": 6
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "371998d47a18ffa8a0a2540d1ec12e35a469eec1c20d41cde1fc8410ae95f493",
+            "tensor_count": 839
+          },
+          "requires_grad": false
+        },
+        "model_before": {
+          "buffers": {
+            "sha256": "ce5f3986cd19bee31cacddc61b11f353c608f37e423185c3ed6ff2145befc59a",
+            "tensor_count": 6
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "371998d47a18ffa8a0a2540d1ec12e35a469eec1c20d41cde1fc8410ae95f493",
+            "tensor_count": 839
+          },
+          "requires_grad": false
+        },
+        "neural_counts": {
+          "fusion_pairs": 3151872,
+          "image_samples": 6148,
+          "text_samples": 12312
+        },
+        "optimizer": 0,
+        "peak_RSS_bytes": 27724677120,
+        "resources_before": {
+          "GPU": {
+            "compute_processes": "",
+            "free_mib": 24051,
+            "name": "NVIDIA GeForce RTX 4090",
+            "policy": "shared_observe_only",
+            "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 24051, 40, 0",
+            "total_mib": 24564,
+            "used_mib": 40,
+            "utilization_percent": 0
+          },
+          "available_RAM_bytes": 122244734976,
+          "free_disk_bytes": 6371724570624
+        },
+        "source_generation": 0,
+        "status": "PASS",
+        "target_loads": 1
+      },
+      "groups": {
+        "Clean": {
+          "R@1": 74.44769287109375,
+          "R@10": 93.25860595703125,
+          "R@5": 89.23001861572266,
+          "mAP": 67.4518051147461
+        },
+        "Image-only": {
+          "R@1": 29.126056671142578,
+          "R@10": 57.39115905761719,
+          "R@5": 48.39181137084961,
+          "mAP": 22.772851943969727
+        },
+        "Joint": {
+          "R@1": 16.341779708862305,
+          "R@10": 39.327484130859375,
+          "R@5": 31.12410545349121,
+          "mAP": 13.03416633605957
+        },
+        "Text-only": {
+          "R@1": 52.37166976928711,
+          "R@10": 80.24691009521484,
+          "R@5": 72.6120834350586,
+          "mAP": 48.497493743896484
+        }
+      },
+      "source_collection": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/source/completed/manifest.json",
+        "sha256": "a5978dc834b14a34d4c6932e0c2d463fb052105a551c5bd9137d647d3639df18"
+      }
+    },
+    "aptm": {
+      "summary": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/aptm/completed/summary.json",
+        "sha256": "8e117a2ed29b32d72e90aae7748d57707094609bacad637d6db8e148d3df1b00"
+      },
+      "metrics": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/aptm/completed/metrics.csv",
+        "sha256": "259b84edea52ee81af7f3503cdfeabb2b2b0f1aa749e326ba25a424112ebd21a"
+      },
+      "metrics_2dp": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/aptm/completed/metrics_2dp.csv",
+        "sha256": "bb520418c52fbca20c4444a9c1e2a8c6357a94dda27e38174b1878ec247b446e"
+      },
+      "completed": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/aptm/completed/manifest.json",
+        "sha256": "eab39fec1aa90b42a44aa00b6ab649ead53f36441b5dc47caac63e643b4c8402"
+      },
+      "execution": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/aptm/execution/report.json",
+        "sha256": "3c2dc051c19db86efbea4fd7c060be0e2e441030d64150f6c6ae3350216d0157"
+      },
+      "protocol": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/aptm/protocol/protocol.json",
+        "sha256": "1c6f6f15ea30c2cc02b615828e45e3ade252de19123cd6c570bfe503a68ad14b"
+      },
+      "native_protocol": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/aptm/completed/evaluation_protocol.json",
+        "sha256": "add48d9a73054ffe0fcd4945a3494e0c2049a9b4687bf6f33991559bcc3fde62"
+      },
+      "model_space": {
+        "checkpoint_sha256": "521c9bf784e7e821ade471deaafa2f25e2501950591e574dc60ca177e9be5a2c",
+        "model_id": "aptm",
+        "precision": "fp32/math/no_tf32",
+        "preprocess_sha256": "29356ae6ac4b921edab0f4f95fb0e765e81efae1c960248fb48a03ae87e845f7",
+        "scoring_protocol_sha256": "530916023ab893ce8fd56ed425475c7b5edf43c87733f9c31a4ceb1f579483a3",
+        "sources_sha256": "0b05373c46630c19a93b83ca140a43c06e8db1eef2e72fa812db5fd37953bbfa",
+        "tokenizer_sha256": "4c1cba3a8e707a7439429b636ce349d28b23f9509939e79c4396b74b47a282d9"
+      },
+      "model_spec": {
+        "capabilities": [
+          "fusion",
+          "image_encoding",
+          "local_features",
+          "score",
+          "text_encoding",
+          "tokenize"
+        ],
+        "id": "aptm",
+        "image_size_hw": [
+          384,
+          128
+        ],
+        "normalization": "projected CLS l2; Swin/BERT local tokens unnormalized",
+        "representation_dim": null,
+        "scoring": "fusion",
+        "tokenizer": {
+          "max_length": 56,
+          "name": "official BERT WordPiece",
+          "source_sha256": "4c1cba3a8e707a7439429b636ce349d28b23f9509939e79c4396b74b47a282d9",
+          "truncation": "retain_and_report",
+          "unit": "WordPiece token"
+        },
+        "version": "official-b20025445471eb4b743164a6faec29a9eccfb293"
+      },
+      "checkpoint": {
+        "path": "/home/lzf/ldx/checkpoints/APTM/aptm_cuhk_checkpoint_best.pth",
+        "sha256": "521c9bf784e7e821ade471deaafa2f25e2501950591e574dc60ca177e9be5a2c"
+      },
+      "execution_report": {
+        "GPU_peak_allocated_bytes": 1041892864,
+        "GPU_peak_reserved_bytes": 1126170624,
+        "backward": 0,
+        "counts": {
+          "fusion_pairs": 3151872,
+          "image_samples": 6148,
+          "score_calls": 196,
+          "text_samples": 12312
+        },
+        "elapsed_seconds": 8112.68866506964,
+        "model": "aptm",
+        "model_after": {
+          "buffers": {
+            "sha256": "b41b36d2cf36f5f1933f01c1557094000530bc5ade79bfd3757f03d0359c9e98",
+            "tensor_count": 27
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "6a550d2e7f520ffd0f3edfda340f0c56600fb004f6fc29df621a6add457f0720",
+            "tensor_count": 600
+          },
+          "requires_grad": false
+        },
+        "model_before": {
+          "buffers": {
+            "sha256": "b41b36d2cf36f5f1933f01c1557094000530bc5ade79bfd3757f03d0359c9e98",
+            "tensor_count": 27
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "6a550d2e7f520ffd0f3edfda340f0c56600fb004f6fc29df621a6add457f0720",
+            "tensor_count": 600
+          },
+          "requires_grad": false
+        },
+        "neural_counts": {
+          "fusion_pairs": 3151872,
+          "image_samples": 6148,
+          "text_samples": 12312
+        },
+        "optimizer": 0,
+        "peak_RSS_bytes": 7078731776,
+        "resources_before": {
+          "GPU": {
+            "compute_processes": "",
+            "free_mib": 24051,
+            "name": "NVIDIA GeForce RTX 4090",
+            "policy": "shared_observe_only",
+            "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 24051, 40, 0",
+            "total_mib": 24564,
+            "used_mib": 40,
+            "utilization_percent": 0
+          },
+          "available_RAM_bytes": 121788530688,
+          "free_disk_bytes": 6357788745728
+        },
+        "source_generation": 0,
+        "status": "PASS",
+        "target_loads": 1
+      },
+      "groups": {
+        "Clean": {
+          "R@1": 73.55425262451172,
+          "R@10": 92.83625793457031,
+          "R@5": 88.82391357421875,
+          "mAP": 63.37741470336914
+        },
+        "Image-only": {
+          "R@1": 40.042236328125,
+          "R@10": 69.16829681396484,
+          "R@5": 60.94866943359375,
+          "mAP": 31.797855377197266
+        },
+        "Joint": {
+          "R@1": 24.415205001831055,
+          "R@10": 51.65692138671875,
+          "R@5": 42.657569885253906,
+          "mAP": 19.84779167175293
+        },
+        "Text-only": {
+          "R@1": 52.8589973449707,
+          "R@10": 81.05912780761719,
+          "R@5": 73.79792022705078,
+          "mAP": 46.73661422729492
+        }
+      },
+      "source_collection": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-vlpt-official-irra-v2/full/source/completed/manifest.json",
+        "sha256": "a5978dc834b14a34d4c6932e0c2d463fb052105a551c5bd9137d647d3639df18"
+      }
+    }
+  },
+  "history": {
+    "irra": {
+      "SGA_summary": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full/irra/completed/summary.json",
+        "sha256": "e3ab3b884917a9e204e74af60353adff3149e6c3afef78feea2e58539aee95c7"
+      },
+      "SGA_audit": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full/audit/completed/audit.json",
+        "sha256": "cee60765afd8694a726a12a40f6a4cbc1c6596ba1444fcf4b35338d4cee9964d"
+      },
+      "Joint_summary": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/completed/summary.json",
+        "sha256": "4530f3f97156d6e9f65c07b0775588324c39679feb0f16ae66b356692b017eb0"
+      },
+      "Joint_audit": {
+        "path": "/home/lzf/ldx/tmp/irra_materialized_full_audit.log",
+        "sha256": "70d9630c0f5bc2d7d1565cba4a100d5345c97c057ea55028d1888198c6104798"
+      },
+      "SGA_Joint": {
+        "R@1": 2.696556329727173,
+        "R@5": 7.569850444793701,
+        "R@10": 11.647173881530762,
+        "mAP": 2.285510301589966
+      },
+      "G_H_Joint": {
+        "R@1": 26.526966094970703,
+        "R@5": 46.832359313964844,
+        "R@10": 57.19622802734375,
+        "mAP": 23.553220748901367
+      },
+      "Raw_Clean": {
+        "R@1": 73.14814758300781,
+        "R@5": 89.87979125976562,
+        "R@10": 93.71344757080078,
+        "mAP": 66.09744262695312
+      },
+      "Matched_Clean": {
+        "R@1": 69.41195678710938,
+        "R@5": 87.23197174072266,
+        "R@10": 92.02404022216797,
+        "mAP": 63.01239013671875
+      }
+    },
+    "rasa": {
+      "SGA_summary": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full/rasa/completed/summary.json",
+        "sha256": "1b2828c3e1bbe1ea68587858a83a9e68846759b0dd8d8164213c293b088fda24"
+      },
+      "SGA_audit": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full/audit/completed/audit.json",
+        "sha256": "cee60765afd8694a726a12a40f6a4cbc1c6596ba1444fcf4b35338d4cee9964d"
+      },
+      "Joint_summary": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/completed/summary.json",
+        "sha256": "12b3a90ca761c632bdf7781e7d52b43b753ddb5e7bdf36ad53e65515d7fc37ac"
+      },
+      "Joint_audit": {
+        "path": "/home/lzf/ldx/tmp/rasa_full_wait/cpu_audit.log",
+        "sha256": "684d3bf2d4dc2e9937f50521608533db4fe9c930ce000c53ed4a5dd08bc83670"
+      },
+      "SGA_Joint": {
+        "R@1": 39.13255310058594,
+        "R@5": 60.38011932373047,
+        "R@10": 69.4769287109375,
+        "mAP": 35.636566162109375
+      },
+      "G_H_Joint": {
+        "R@1": 22.871994018554688,
+        "R@5": 34.68161392211914,
+        "R@10": 40.12345504760742,
+        "mAP": 17.202625274658203
+      },
+      "Raw_Clean": {
+        "R@1": 76.21832275390625,
+        "R@5": 90.28589630126953,
+        "R@10": 94.08706665039062,
+        "mAP": 69.18406677246094
+      },
+      "Matched_Clean": {
+        "R@1": 74.44769287109375,
+        "R@5": 89.23001861572266,
+        "R@10": 93.25860595703125,
+        "mAP": 67.4518051147461
+      }
+    },
+    "aptm": {
+      "SGA_summary": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full/aptm/completed/summary.json",
+        "sha256": "f6b46c4bf2234496c2f79cc9bfbb64392252e2cb05db963ed0b3de5ca9f35b04"
+      },
+      "SGA_audit": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-sga-irra-source/full/audit/completed/audit.json",
+        "sha256": "cee60765afd8694a726a12a40f6a4cbc1c6596ba1444fcf4b35338d4cee9964d"
+      },
+      "Joint_summary": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/completed/summary.json",
+        "sha256": "8944ea0cd29e5c9f4410bf9ad7ccc65f67e3c26ad8a794e2a8af6915bca36d18"
+      },
+      "Joint_audit": {
+        "path": "/home/lzf/ldx/tmp/aptm_full_wait/full_audit.log",
+        "sha256": "03fdf0c6662c5b08d7f38862c721e84845151d911e03c33104e08ec6a4c6892c"
+      },
+      "SGA_Joint": {
+        "R@1": 42.592594146728516,
+        "R@5": 63.775177001953125,
+        "R@10": 72.66082000732422,
+        "mAP": 37.59162902832031
+      },
+      "G_H_Joint": {
+        "R@1": 38.823909759521484,
+        "R@5": 58.73944091796875,
+        "R@10": 66.6016845703125,
+        "mAP": 30.490341186523438
+      },
+      "Raw_Clean": {
+        "R@1": 74.61013793945312,
+        "R@5": 89.26251220703125,
+        "R@10": 93.1773910522461,
+        "mAP": 64.12683868408203
+      },
+      "Matched_Clean": {
+        "R@1": 73.55425262451172,
+        "R@5": 88.82391357421875,
+        "R@10": 92.83625793457031,
+        "mAP": 63.37741470336914
+      }
+    }
+  },
+  "coverage": {
+    "Gallery": 3074,
+    "Query": 6156,
+    "Batch": 385,
+    "Claims": 385,
+    "same_order_as_annotation": true,
+    "same_frozen_input_hashes_across_Targets": true,
+    "RNG_metadata_chain_continuous": true,
+    "caption_per_gallery_distribution": {
+      "2": 3073,
+      "10": 1
+    },
+    "edited": 6153,
+    "NOOP": 3,
+    "recorded_final_actions": 6153,
+    "changed_by_pre_caption": 6137,
+    "flow_stages": {
+      "text1": 385,
+      "image": 385,
+      "text2": 385
+    },
+    "pending": 0
+  },
+  "raw_precision_table": [
+    [
+      "IRRA",
+      "Clean (Matched Clean)",
+      "69.41195678710938",
+      "87.23197174072266",
+      "92.02404022216797",
+      "63.01239013671875"
+    ],
+    [
+      "IRRA",
+      "VLPTAttack Text-only",
+      "43.404808044433594",
+      "66.04938507080078",
+      "76.31578826904297",
+      "41.668453216552734"
+    ],
+    [
+      "IRRA",
+      "VLPTAttack Image-only",
+      "0.0162443146109581",
+      "0.0649772584438324",
+      "0.0974658876657486",
+      "0.09874581545591354"
+    ],
+    [
+      "IRRA",
+      "VLPTAttack Joint",
+      "0.0",
+      "0.0812215730547905",
+      "0.1461988389492035",
+      "0.0999641865491867"
+    ],
+    [
+      "RaSa",
+      "Clean (Matched Clean)",
+      "74.44769287109375",
+      "89.23001861572266",
+      "93.25860595703125",
+      "67.4518051147461"
+    ],
+    [
+      "RaSa",
+      "VLPTAttack Text-only",
+      "52.37166976928711",
+      "72.6120834350586",
+      "80.24691009521484",
+      "48.497493743896484"
+    ],
+    [
+      "RaSa",
+      "VLPTAttack Image-only",
+      "29.126056671142578",
+      "48.39181137084961",
+      "57.39115905761719",
+      "22.772851943969727"
+    ],
+    [
+      "RaSa",
+      "VLPTAttack Joint",
+      "16.341779708862305",
+      "31.12410545349121",
+      "39.327484130859375",
+      "13.03416633605957"
+    ],
+    [
+      "APTM",
+      "Clean (Matched Clean)",
+      "73.55425262451172",
+      "88.82391357421875",
+      "92.83625793457031",
+      "63.37741470336914"
+    ],
+    [
+      "APTM",
+      "VLPTAttack Text-only",
+      "52.8589973449707",
+      "73.79792022705078",
+      "81.05912780761719",
+      "46.73661422729492"
+    ],
+    [
+      "APTM",
+      "VLPTAttack Image-only",
+      "40.042236328125",
+      "60.94866943359375",
+      "69.16829681396484",
+      "31.797855377197266"
+    ],
+    [
+      "APTM",
+      "VLPTAttack Joint",
+      "24.415205001831055",
+      "42.657569885253906",
+      "51.65692138671875",
+      "19.84779167175293"
+    ]
+  ],
+  "joint_comparison_raw": [
+    [
+      "IRRA",
+      "G-v2 + H-v1 Joint",
+      "26.526966094970703",
+      "46.832359313964844",
+      "57.19622802734375",
+      "23.553220748901367"
+    ],
+    [
+      "IRRA",
+      "SGA Joint",
+      "2.696556329727173",
+      "7.569850444793701",
+      "11.647173881530762",
+      "2.285510301589966"
+    ],
+    [
+      "IRRA",
+      "VLPTAttack Joint",
+      "0.0",
+      "0.0812215730547905",
+      "0.1461988389492035",
+      "0.0999641865491867"
+    ],
+    [
+      "RaSa",
+      "G-v2 + H-v1 Joint",
+      "22.871994018554688",
+      "34.68161392211914",
+      "40.12345504760742",
+      "17.202625274658203"
+    ],
+    [
+      "RaSa",
+      "SGA Joint",
+      "39.13255310058594",
+      "60.38011932373047",
+      "69.4769287109375",
+      "35.636566162109375"
+    ],
+    [
+      "RaSa",
+      "VLPTAttack Joint",
+      "16.341779708862305",
+      "31.12410545349121",
+      "39.327484130859375",
+      "13.03416633605957"
+    ],
+    [
+      "APTM",
+      "G-v2 + H-v1 Joint",
+      "38.823909759521484",
+      "58.73944091796875",
+      "66.6016845703125",
+      "30.490341186523438"
+    ],
+    [
+      "APTM",
+      "SGA Joint",
+      "42.592594146728516",
+      "63.775177001953125",
+      "72.66082000732422",
+      "37.59162902832031"
+    ],
+    [
+      "APTM",
+      "VLPTAttack Joint",
+      "24.415205001831055",
+      "42.657569885253906",
+      "51.65692138671875",
+      "19.84779167175293"
+    ]
+  ],
+  "this_task": {
+    "model_loads": 0,
+    "GPU": false,
+    "attack": false,
+    "ranking": false,
+    "audit_rerun": false,
+    "tensor_deserialization": false,
+    "scope": "existing-result reconciliation and metadata/SHA/source identity only; no audit CLI or .pt tensor loading",
+    "large_tensor_payload_rehash": false,
+    "CSV_backend": "Python standard-library fallback; @oai/artifact-tool unavailable on server"
+  },
+  "report_files": {
+    "VLPTATTACK_OFFICIAL_IRRA_FULL_METRICS_RAW.csv": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-vlpt-full-results-20261020/docs/framework/results/vlpt_official_irra_full_20261020/VLPTATTACK_OFFICIAL_IRRA_FULL_METRICS_RAW.csv",
+      "sha256": "600df9f6347c1a4548baebae0321ef8d92d796c1d38a851d731e13174e4416f4"
+    },
+    "VLPTATTACK_OFFICIAL_IRRA_FULL_REPORT.md": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-vlpt-full-results-20261020/docs/framework/results/vlpt_official_irra_full_20261020/VLPTATTACK_OFFICIAL_IRRA_FULL_REPORT.md",
+      "sha256": "308b688ce908cec4c65bc3715b657d7583dbfbf5e2628de70309e6d2736bb8ba"
+    },
+    "VLPTATTACK_OFFICIAL_IRRA_FULL_METRICS_2DP.csv": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-vlpt-full-results-20261020/docs/framework/results/vlpt_official_irra_full_20261020/VLPTATTACK_OFFICIAL_IRRA_FULL_METRICS_2DP.csv",
+      "sha256": "7c1e8a80725f420c3b8d70a801891e4a6448144e56eda05bc52c3e9ccc3724ff"
+    },
+    "JOINT_METHOD_COMPARISON_2DP.csv": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-vlpt-full-results-20261020/docs/framework/results/vlpt_official_irra_full_20261020/JOINT_METHOD_COMPARISON_2DP.csv",
+      "sha256": "d9bc439113c693ed54b9d50488f7145e408a0736911d4cd09dd3173c3e0d8711"
+    }
+  },
+  "read_only_checker": {
+    "path": "/home/lzf/ldx/tmp/vlpt_full_results_20261020/read_results.py",
+    "sha256": "8cb11322dbfd7cbdaf85ae0f91adbdd9585e3af848f6e188baa47bbf135ccaf5"
+  },
+  "read_only_check_log": {
+    "path": "/home/lzf/ldx/tmp/vlpt_full_results_20261020/read_results.log",
+    "sha256": "6c01d2f127d7960e98df94f118675436a0a4f442c8740f17b508b0dd39c59519"
+  },
+  "verification_metadata_hash_index": {
+    "path": "/home/lzf/ldx/tmp/vlpt_full_results_20261020/read_source_files.json",
+    "sha256": "4788c363f2270ccaaf2c8cf1c374b1ab4a3c5fa18bec3e251e049c010b7cc6a0"
+  },
+  "verification_file_stat_index": {
+    "path": "/home/lzf/ldx/tmp/vlpt_full_results_20261020/original_stats_before.json",
+    "sha256": "43ba3a7fa1d029b761cce200d5b7c7dd722fc9325005e5ec9c20ebefafe06e21"
+  },
+  "table_rows_2dp": [
+    [
+      "IRRA",
+      "Clean (Matched Clean)",
+      "69.41",
+      "87.23",
+      "92.02",
+      "63.01"
+    ],
+    [
+      "IRRA",
+      "VLPTAttack Text-only",
+      "43.40",
+      "66.05",
+      "76.32",
+      "41.67"
+    ],
+    [
+      "IRRA",
+      "VLPTAttack Image-only",
+      "0.02",
+      "0.06",
+      "0.10",
+      "0.10"
+    ],
+    [
+      "IRRA",
+      "VLPTAttack Joint",
+      "0.00",
+      "0.08",
+      "0.15",
+      "0.10"
+    ],
+    [
+      "RaSa",
+      "Clean (Matched Clean)",
+      "74.45",
+      "89.23",
+      "93.26",
+      "67.45"
+    ],
+    [
+      "RaSa",
+      "VLPTAttack Text-only",
+      "52.37",
+      "72.61",
+      "80.25",
+      "48.50"
+    ],
+    [
+      "RaSa",
+      "VLPTAttack Image-only",
+      "29.13",
+      "48.39",
+      "57.39",
+      "22.77"
+    ],
+    [
+      "RaSa",
+      "VLPTAttack Joint",
+      "16.34",
+      "31.12",
+      "39.33",
+      "13.03"
+    ],
+    [
+      "APTM",
+      "Clean (Matched Clean)",
+      "73.55",
+      "88.82",
+      "92.84",
+      "63.38"
+    ],
+    [
+      "APTM",
+      "VLPTAttack Text-only",
+      "52.86",
+      "73.80",
+      "81.06",
+      "46.74"
+    ],
+    [
+      "APTM",
+      "VLPTAttack Image-only",
+      "40.04",
+      "60.95",
+      "69.17",
+      "31.80"
+    ],
+    [
+      "APTM",
+      "VLPTAttack Joint",
+      "24.42",
+      "42.66",
+      "51.66",
+      "19.85"
+    ]
+  ],
+  "verification": {
+    "raw_summary_2dp_metric_fields": 48,
+    "generated_RAW_CSV_exact": true,
+    "generated_2dp_CSV_exact": true,
+    "original_files_stat_unchanged": 50163,
+    "read_metadata_source_files_SHA_unchanged": 5551,
+    "this_is_new_audit_run": false,
+    "report_numbers_only_four_requested_metrics": true
+  }
+}
