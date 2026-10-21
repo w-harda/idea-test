@@ -1,6 +1,20 @@
 # 历史实验注册表
 
 
+## G-v2六节点三模型Full消融（2026-10-21完成，结果整理）
+
+执行6021f3b，启动5b18715；正式Full22小时32分15秒，2026-10-21 19:07:27最终成功。
+E10历史6条引用+五新Epoch30条真实Full，共36条；独立Clean/H-only控制6条。
+15份新独立CPU审计及3份E10审计来源PASS；3074/6156与官方顺序/PID/Caption exact。
+各新Epoch一次3074图/一次G恢复，三Target共享固定像素；原生文本特征复用，H0、Backward/Optimizer/JVP0。
+本轮不重新运行audit，仅复核SHA/回执/来源和168指标；34721个artifact，原文件无改动。
+六节点mAP均下降、最低为E60：Image-only17.51/26.47/32.11；Joint13.08/12.57/23.74（IRRA/RaSa/APTM）。
+属于预设Test消融描述，不是独立Validation选模，不追加训练或其他实验。
+[正式报告与原精度CSV/六图](framework/results/gv2_epoch_sweep_full_analysis/REPORT.md)、
+[证据](framework/results/gv2_epoch_sweep_full_analysis/SOURCE_EVIDENCE.json)。
+下面RUNNING条目保留启动时历史快照属性。
+
+
 ## G-v2六节点三模型Full（2026-10-20正式启动，RUNNING）
 
 运行代码6021f3bfdec181785d1baccd7ce4f80a1428b069，算法/配置/输入不变。

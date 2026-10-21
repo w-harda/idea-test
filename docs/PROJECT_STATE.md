@@ -2,19 +2,28 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：G-v2六节点三模型Full正式后台运行（未完成）
+## 当前阶段：G-v2六节点三模型Full完成，独立CPU审计PASS，消融结果只读整理完成
 
-2026-10-20用户明确授权，运行源码6021f3bfdec181785d1baccd7ce4f80a1428b069，配置和算法不改。
-20:35:12启动，监督器PID/PGID/SID1545336，PPID1/无TTY。
-107 producer、六Checkpoint、唯一Smoke及三CPU审计、目录/重复进程和共享资源门禁PASS。
-正式CPU preflight PASS，3074/6156完整、CUDA=false；已提交E10 IRRA只读结果引用，快照E10_REUSE_rasa。
-74184历史stat/289 SHA和六权重不变。新增Epoch生成/Top128完整评分/最终CPU审计仍PENDING。
-后台按原入口串行E10引用/审计及E20/30/40/50/60生成/三目标/审计，失败即停、无自动重试。
-[启动记录](framework/GV2_EPOCH_SWEEP_FULL_STARTUP.md)、[来源快照](framework/results/gv2_epoch_sweep_full_startup/STARTUP_EVIDENCE.json)。
-输出/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/；
-控制/home/lzf/ldx/tmp/gv2_epoch_sweep_full_v1/。
-最终成功标志及全部审计出现前不宣称Full成功；结果、曲线和DR待完成后整理。
-下文未授权/未启动是旧阶段快照，不覆盖本次授权和启动事实。
+冻结执行6021f3bfdec181785d1baccd7ce4f80a1428b069，启动5b187151432dacf5618f7759ed10a211dbf23e2e。
+2026-10-20 20:35:12→2026-10-21 19:07:27 +08:00，总耗时22小时32分15秒。
+最终GV2_FIVE_NEW_EPOCHS_THREE_TARGET_FULL_AND_CPU_AUDIT；五个新Epoch各3074图、15组Target Full及15份既有独立CPU审计PASS。
+E10三模型已审计历史结果/审计来源只读引用；H7/6156文本固定、不重新生成。
+
+本轮仅标准库CPU读取和派生绘图：34721 artifact、94058独立文件SHA/约64.16GiB字节核验，
+15370个Claim与已发布图像配对，无pending/孤立Claim/失败/缺失；36攻击记录+6固定控制、168指标原精度exact。
+107 producer及六Checkpoint保持，74184历史stat/289 SHA及128810份读取文件stat保护通过。
+没有GPU、模型加载/张量反序列化、攻击、训练、评分/排名或原CPU audit入口重跑。
+
+六节点Image-only mAP IRRA32.28→17.51、RaSa35.05→26.47、APTM39.66→32.11；
+Joint23.55→13.08、17.20→12.57、30.49→23.74；全部mAP序列严格下降。
+APTM Image-only R@1在E20→30小幅回升约0.065百分点，不能称全部指标逐区间单调。
+六节点最低mAP均为E60，仅单seed/单轨迹描述，不作Test选模、显著性或过拟合因果结论。
+[正式报告/全部表格/六图](framework/results/gv2_epoch_sweep_full_analysis/REPORT.md)、
+[完整性](framework/results/gv2_epoch_sweep_full_analysis/INTEGRITY_REPORT.md)、
+[来源证据](framework/results/gv2_epoch_sweep_full_analysis/SOURCE_EVIDENCE.json)。
+CSV原精度/两位小数、DR_mAP/DR_R1/百分点、六图PNG/SVG及统计JSON均在同目录。
+旧RUNNING/PENDING和未授权语句为当时快照；本轮只提交派生文档，不改旧实验或算法，整理后停止等待讨论。
+
 
 ## 已完成的前置阶段：G-v2六节点准备的唯一真实Smoke及三CPU审计PASS，Full等待最终授权
 

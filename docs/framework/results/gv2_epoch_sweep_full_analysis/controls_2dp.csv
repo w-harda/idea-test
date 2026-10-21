@@ -1,0 +1,7 @@
+target,method,R@1,R@5,R@10,mAP
+IRRA,Clean,73.15,89.88,93.71,66.10
+IRRA,H-v1 Text-only,56.58,75.97,82.52,51.47
+RaSa,Clean,76.22,90.29,94.09,69.18
+RaSa,H-v1 Text-only,39.93,50.26,53.41,32.86
+APTM,Clean,74.61,89.26,93.18,64.13
+APTM,H-v1 Text-only,60.80,78.14,83.77,51.80

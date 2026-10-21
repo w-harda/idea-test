@@ -1,0 +1,19 @@
+epoch,target,method,R@1,R@5,R@10,mAP
+10,IRRA,G-v2 Image-only,37.44,60.77,70.08,32.28
+10,RaSa,G-v2 Image-only,42.33,61.71,69.56,35.05
+10,APTM,G-v2 Image-only,50.19,70.21,77.13,39.66
+20,IRRA,G-v2 Image-only,32.39,54.26,63.68,27.04
+20,RaSa,G-v2 Image-only,40.53,59.55,67.74,33.14
+20,APTM,G-v2 Image-only,47.76,68.13,75.23,37.80
+30,IRRA,G-v2 Image-only,28.28,48.62,57.28,23.58
+30,RaSa,G-v2 Image-only,39.12,57.18,65.50,31.29
+30,APTM,G-v2 Image-only,47.82,68.01,75.24,36.93
+40,IRRA,G-v2 Image-only,25.11,43.79,52.62,21.02
+40,RaSa,G-v2 Image-only,35.69,55.12,63.19,29.39
+40,APTM,G-v2 Image-only,45.99,66.50,73.88,35.44
+50,IRRA,G-v2 Image-only,23.03,40.29,48.83,19.09
+50,RaSa,G-v2 Image-only,33.43,51.19,59.37,26.94
+50,APTM,G-v2 Image-only,42.82,63.37,71.15,32.54
+60,IRRA,G-v2 Image-only,21.05,37.88,45.52,17.51
+60,RaSa,G-v2 Image-only,33.12,50.49,58.46,26.47
+60,APTM,G-v2 Image-only,42.72,62.00,69.95,32.11

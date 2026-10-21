@@ -14,7 +14,9 @@ IRRA评分复用原通过审计的native cache协议作为原生空间证明，�
 资源策略经用户显式授权改为shared_observe_only/6144MiB，利用率仅记录；所有非资源函数AST保持。
 新Schema装载、原G10像素复现及新G60产物通路已验证，不推导Top128 Full已完成。
 2026-10-20获最终授权后已用同一冻结入口后台启动五节点串行Full；缺Smoke/三审计仍拒绝。
-nohup+setsid监督器不新增轮询器，不改变生成或评分；当前仅启动验证，Full结果待验收。
+nohup+setsid监督器不新增轮询器，不改变生成或评分。
+2026-10-21五节点15组原生Full及15份独立CPU审计完成；本轮只读核对原产物/回执/SHA并派生CSV/六图，
+没有变更Engine、Adapter、G/H或恢复协议。E10历史引用与新Epoch正式评分分开标记，Raw Clean控制不重复计为独立观测。
 详见[运行说明](framework/GV2_EPOCH_SWEEP.md)、ADR-0013。
 
 ## VLPTAttack Full执行接线

@@ -1,0 +1,7 @@
+target,method,R@1,R@5,R@10,mAP,source
+IRRA,Clean,73.14814758300781,89.87979125976562,93.71344757080078,66.09744262695312,/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/completed/summary.json
+IRRA,H-v1 Text-only,56.57894515991211,75.97466278076172,82.5211181640625,51.471561431884766,/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/completed/summary.json
+RaSa,Clean,76.21832275390625,90.28589630126953,94.08706665039062,69.18406677246094,/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/completed/summary.json
+RaSa,H-v1 Text-only,39.928524017333984,50.25990676879883,53.41130447387695,32.85859298706055,/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/completed/summary.json
+APTM,Clean,74.61013793945312,89.26251220703125,93.1773910522461,64.12683868408203,/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/completed/summary.json
+APTM,H-v1 Text-only,60.80247116088867,78.13514709472656,83.77193450927734,51.801902770996094,/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/completed/summary.json

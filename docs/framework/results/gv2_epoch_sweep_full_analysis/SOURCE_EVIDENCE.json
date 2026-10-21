@@ -1,0 +1,2907 @@
+{
+  "status": "READ_ONLY_RESULT_INTEGRITY_PASS",
+  "frozen_execution_commit": "6021f3bfdec181785d1baccd7ce4f80a1428b069",
+  "startup_commit": "5b187151432dacf5618f7759ed10a211dbf23e2e",
+  "started": "2026-10-20T20:35:12+08:00",
+  "finished": "2026-10-21T19:07:27+08:00",
+  "wall_seconds": 81135.0,
+  "config_sha256": "66bdd1639b54508af1852f781b3951c637193ffa5069848b4b73145e9d9bf701",
+  "checkpoints": {
+    "10": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/train_v2/checkpoints/epoch_0010/checkpoint.pt",
+      "sha256": "f59bd3b5f9cbbaf8f6acc10c4bdc113ea83cacb2979ea0821b952c8f9a1c658e"
+    },
+    "20": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0020/checkpoint.pt",
+      "sha256": "67523b3f10b0145d2ba802b1f468f3bbb7554e36d8e1196376f8380d84a51d09"
+    },
+    "30": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0030/checkpoint.pt",
+      "sha256": "a55e1ec2181cd10ef1436c993231f333a445644b5378ca90a10a99c50143a87d"
+    },
+    "40": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0040/checkpoint.pt",
+      "sha256": "0b70d802ce867910b10dc70a9581c8a5c31907bf5ab4ace7206411c02f239e82"
+    },
+    "50": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0050/checkpoint.pt",
+      "sha256": "8357d8cca55d3b26190e85a53a48034985a6cec37274e2e56e894fe808752b86"
+    },
+    "60": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0060/checkpoint.pt",
+      "sha256": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049"
+    }
+  },
+  "verification": {
+    "artifact_count": 34721,
+    "files_hashed": 94058,
+    "bytes_hashed": 68890356120,
+    "source_producer_count": 107,
+    "existing_cpu_audit_count": 15,
+    "existing_E10_audit_reference_count": 3,
+    "new_images": 15370,
+    "unmatched_claims": 0,
+    "pending": 0,
+    "failures": 0,
+    "CSV_summary_Engine_exact": true,
+    "official_order_exact": true,
+    "protected_historical_stat": 74184,
+    "protected_historical_sha": 289,
+    "read_file_stat_count": 128810,
+    "changed": [],
+    "GPU_used": false,
+    "model_deserialized": false,
+    "score_or_ranking_recomputed": false,
+    "audit_entry_reexecuted": false,
+    "verification_seconds": 105.16377188637853,
+    "peak_RSS_bytes": 487342080
+  },
+  "audits": [
+    {
+      "epoch": 10,
+      "model": "irra",
+      "report": {
+        "CUDA": false,
+        "epoch": 10,
+        "historical_audit_referenced": {
+          "log": {
+            "path": "/home/lzf/ldx/tmp/irra_materialized_full_audit.log",
+            "sha256": "70d9630c0f5bc2d7d1565cba4a100d5345c97c057ea55028d1888198c6104798"
+          },
+          "marker": "MATERIALIZED_IRRA_CPU_AUDIT_PASS full"
+        },
+        "model": "irra",
+        "scope": "full",
+        "score_recomputed": false,
+        "status": "PASS"
+      },
+      "manifest_sha256": "647070f91676a5b70af1cdbd638695110363a42eba7b433a6e9421d9636cee89"
+    },
+    {
+      "epoch": 10,
+      "model": "rasa",
+      "report": {
+        "CUDA": false,
+        "epoch": 10,
+        "historical_audit_referenced": {
+          "log": {
+            "path": "/home/lzf/ldx/tmp/rasa_full_wait/cpu_audit.log",
+            "sha256": "684d3bf2d4dc2e9937f50521608533db4fe9c930ce000c53ed4a5dd08bc83670"
+          },
+          "marker": "RASA_MATERIALIZED_CPU_AUDIT_PASS full"
+        },
+        "model": "rasa",
+        "scope": "full",
+        "score_recomputed": false,
+        "status": "PASS"
+      },
+      "manifest_sha256": "29c61b09434238b521bd13cb3981ac2752211f95c03a940348baab93e0a6afb4"
+    },
+    {
+      "epoch": 10,
+      "model": "aptm",
+      "report": {
+        "CUDA": false,
+        "epoch": 10,
+        "historical_audit_referenced": {
+          "log": {
+            "path": "/home/lzf/ldx/tmp/aptm_full_wait/full_audit.log",
+            "sha256": "03fdf0c6662c5b08d7f38862c721e84845151d911e03c33104e08ec6a4c6892c"
+          },
+          "marker": "APTM_MATERIALIZED_CPU_AUDIT_PASS full"
+        },
+        "model": "aptm",
+        "scope": "full",
+        "score_recomputed": false,
+        "status": "PASS"
+      },
+      "manifest_sha256": "858c0052eee1b7ba1e5aad279c6e616149898e8382014f0fd877ece9c988d123"
+    },
+    {
+      "epoch": 20,
+      "model": "irra",
+      "report": {
+        "CUDA": false,
+        "epoch": 20,
+        "gallery_count": 3074,
+        "model": "irra",
+        "query_count": 6156,
+        "scope": "full",
+        "score_recomputed": false,
+        "status": "PASS"
+      },
+      "manifest_sha256": "8eb46095782e172963dfd0b6e3180190b5281e3544163a925055371501eb2761"
+    },
+    {
+      "epoch": 20,
+      "model": "rasa",
+      "report": {
+        "CUDA": false,
+        "epoch": 20,
+        "gallery_count": 3074,
+        "model": "rasa",
+        "query_count": 6156,
+        "scope": "full",
+        "score_recomputed": false,
+        "status": "PASS"
+      },
+      "manifest_sha256": "b6c0efff15574f92127b2ab2a88d3503cc5d9fd07dc1072dbc21127b9abb836a"
+    },
+    {
+      "epoch": 20,
+      "model": "aptm",
+      "report": {
+        "CUDA": false,
+        "epoch": 20,
+        "gallery_count": 3074,
+        "model": "aptm",
+        "query_count": 6156,
+        "scope": "full",
+        "score_recomputed": false,
+        "status": "PASS"
+      },
+      "manifest_sha256": "1c04a2c099be69344559b6a5620b708a69a9bc229e6ade8f0cf725ad66078ca6"
+    },
+    {
+      "epoch": 30,
+      "model": "irra",
+      "report": {
+        "CUDA": false,
+        "epoch": 30,
+        "gallery_count": 3074,
+        "model": "irra",
+        "query_count": 6156,
+        "scope": "full",
+        "score_recomputed": false,
+        "status": "PASS"
+      },
+      "manifest_sha256": "3f38afd6a162cac78346704b3ce754ddabeb64e7cb4460c9ddb0c6a5e0d31d51"
+    },
+    {
+      "epoch": 30,
+      "model": "rasa",
+      "report": {
+        "CUDA": false,
+        "epoch": 30,
+        "gallery_count": 3074,
+        "model": "rasa",
+        "query_count": 6156,
+        "scope": "full",
+        "score_recomputed": false,
+        "status": "PASS"
+      },
+      "manifest_sha256": "36311449fa0dfb896f405a98f87ebee67b9a72af318d81d3ac0fa6777e59e2a2"
+    },
+    {
+      "epoch": 30,
+      "model": "aptm",
+      "report": {
+        "CUDA": false,
+        "epoch": 30,
+        "gallery_count": 3074,
+        "model": "aptm",
+        "query_count": 6156,
+        "scope": "full",
+        "score_recomputed": false,
+        "status": "PASS"
+      },
+      "manifest_sha256": "5ee52fbde18d9e5f54ca7d7e4b802c5325c386ed611d31ec4b2e8157db0eca82"
+    },
+    {
+      "epoch": 40,
+      "model": "irra",
+      "report": {
+        "CUDA": false,
+        "epoch": 40,
+        "gallery_count": 3074,
+        "model": "irra",
+        "query_count": 6156,
+        "scope": "full",
+        "score_recomputed": false,
+        "status": "PASS"
+      },
+      "manifest_sha256": "e7297b53da21ebea0ef8b1f1d6ab13939d29ac088df8052d8ccc7e58b8bddfce"
+    },
+    {
+      "epoch": 40,
+      "model": "rasa",
+      "report": {
+        "CUDA": false,
+        "epoch": 40,
+        "gallery_count": 3074,
+        "model": "rasa",
+        "query_count": 6156,
+        "scope": "full",
+        "score_recomputed": false,
+        "status": "PASS"
+      },
+      "manifest_sha256": "c3e61c3e8ade9b121d1dba5356f1b853014789b7c392d68730d445d8c3f1a468"
+    },
+    {
+      "epoch": 40,
+      "model": "aptm",
+      "report": {
+        "CUDA": false,
+        "epoch": 40,
+        "gallery_count": 3074,
+        "model": "aptm",
+        "query_count": 6156,
+        "scope": "full",
+        "score_recomputed": false,
+        "status": "PASS"
+      },
+      "manifest_sha256": "ec74db50f5df20d71d89ce1548777ad5a6840332cb1c26bb1063a2e7e4576cbd"
+    },
+    {
+      "epoch": 50,
+      "model": "irra",
+      "report": {
+        "CUDA": false,
+        "epoch": 50,
+        "gallery_count": 3074,
+        "model": "irra",
+        "query_count": 6156,
+        "scope": "full",
+        "score_recomputed": false,
+        "status": "PASS"
+      },
+      "manifest_sha256": "82c25f3078dccd450f7d6af189f55da80766af1d0ad9382d85082a22c8d4cd91"
+    },
+    {
+      "epoch": 50,
+      "model": "rasa",
+      "report": {
+        "CUDA": false,
+        "epoch": 50,
+        "gallery_count": 3074,
+        "model": "rasa",
+        "query_count": 6156,
+        "scope": "full",
+        "score_recomputed": false,
+        "status": "PASS"
+      },
+      "manifest_sha256": "5c3220cb7323c2dd1b4f6c8704b5663e257f5ba19475e230123fa618ee6ec00f"
+    },
+    {
+      "epoch": 50,
+      "model": "aptm",
+      "report": {
+        "CUDA": false,
+        "epoch": 50,
+        "gallery_count": 3074,
+        "model": "aptm",
+        "query_count": 6156,
+        "scope": "full",
+        "score_recomputed": false,
+        "status": "PASS"
+      },
+      "manifest_sha256": "d8e04f8762e6444f026febe51d4a1575ff3df038bc62642ceaa668eb0a7d03d9"
+    },
+    {
+      "epoch": 60,
+      "model": "irra",
+      "report": {
+        "CUDA": false,
+        "epoch": 60,
+        "gallery_count": 3074,
+        "model": "irra",
+        "query_count": 6156,
+        "scope": "full",
+        "score_recomputed": false,
+        "status": "PASS"
+      },
+      "manifest_sha256": "d05b1b5e12a04ee7255554444b50a111ca08dc5554e62678f9a3b36e832d519c"
+    },
+    {
+      "epoch": 60,
+      "model": "rasa",
+      "report": {
+        "CUDA": false,
+        "epoch": 60,
+        "gallery_count": 3074,
+        "model": "rasa",
+        "query_count": 6156,
+        "scope": "full",
+        "score_recomputed": false,
+        "status": "PASS"
+      },
+      "manifest_sha256": "803166b285c71e9c08632ba4c595018452c358e479adfd51a370a12acdfe2682"
+    },
+    {
+      "epoch": 60,
+      "model": "aptm",
+      "report": {
+        "CUDA": false,
+        "epoch": 60,
+        "gallery_count": 3074,
+        "model": "aptm",
+        "query_count": 6156,
+        "scope": "full",
+        "score_recomputed": false,
+        "status": "PASS"
+      },
+      "manifest_sha256": "c58eb8851281fff4dbb1b6c2460522b20551b53a692f741f269e8047f63781ba"
+    }
+  ],
+  "generations": [
+    {
+      "epoch": 20,
+      "report": {
+        "GPU_peak_allocated_bytes": 43854848,
+        "GPU_peak_reserved_bytes": 54525952,
+        "H_checkpoint": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00014336/checkpoint.pt",
+          "sha256": "487f3061b6cba2ddabccdd49745a7b99c8c549f4541781b8814b299ef5f279df"
+        },
+        "counts": {
+          "G_forwards": 3074,
+          "G_loads": 1,
+          "H_forwards": 0,
+          "H_loads": 0,
+          "JVP": 0,
+          "backward": 0,
+          "optimizer": 0,
+          "victim_loads": 0
+        },
+        "elapsed_seconds": 715.903427619487,
+        "epoch": 20,
+        "epoch10_historical_max_abs_error": null,
+        "images": 3074,
+        "max_linf": 0.0313725471496582,
+        "model_after": "319594cbe07d515b18cd5e923b3ea0c12a7c2228f9d546c40e6a583c44e9133f",
+        "model_before": "319594cbe07d515b18cd5e923b3ea0c12a7c2228f9d546c40e6a583c44e9133f",
+        "peak_RSS_bytes": 1263280128,
+        "processing_seconds": 715.1761325709522,
+        "resources": {
+          "GPU": {
+            "compute_processes": "1402779, /home/lzf/jmk/envs/foa_v5/bin/python, 5612",
+            "free_mib": 18431,
+            "name": "NVIDIA GeForce RTX 4090",
+            "policy": "shared_observe_only",
+            "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 18431, 5660, 83",
+            "total_mib": 24564,
+            "used_mib": 5660,
+            "utilization_percent": 83
+          },
+          "RAM_available_bytes": 121759928320,
+          "disk_free_bytes": 6255637696512,
+          "free_inodes": 240434489,
+          "policy": "shared_observe_only; no waiting/interference"
+        },
+        "scope": "full",
+        "skipped": 0,
+        "status": "PASS"
+      },
+      "claim_count": 3074,
+      "image_count": 3074,
+      "protocol_sha256": "55736afb945a2bc0e7abee2e9ace6fe5d62ea2b54377c3b0e17a83dc0508697e"
+    },
+    {
+      "epoch": 30,
+      "report": {
+        "GPU_peak_allocated_bytes": 43854848,
+        "GPU_peak_reserved_bytes": 54525952,
+        "H_checkpoint": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00014336/checkpoint.pt",
+          "sha256": "487f3061b6cba2ddabccdd49745a7b99c8c549f4541781b8814b299ef5f279df"
+        },
+        "counts": {
+          "G_forwards": 3074,
+          "G_loads": 1,
+          "H_forwards": 0,
+          "H_loads": 0,
+          "JVP": 0,
+          "backward": 0,
+          "optimizer": 0,
+          "victim_loads": 0
+        },
+        "elapsed_seconds": 659.8578293584287,
+        "epoch": 30,
+        "epoch10_historical_max_abs_error": null,
+        "images": 3074,
+        "max_linf": 0.0313725471496582,
+        "model_after": "95f3bf220e4005f9e0d34e341147aace8c7332c759b8a88abe9bded478a49603",
+        "model_before": "95f3bf220e4005f9e0d34e341147aace8c7332c759b8a88abe9bded478a49603",
+        "peak_RSS_bytes": 1265696768,
+        "processing_seconds": 659.2249925807118,
+        "resources": {
+          "GPU": {
+            "compute_processes": "1402779, /home/lzf/jmk/envs/foa_v5/bin/python, 5612",
+            "free_mib": 18431,
+            "name": "NVIDIA GeForce RTX 4090",
+            "policy": "shared_observe_only",
+            "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 18431, 5660, 40",
+            "total_mib": 24564,
+            "used_mib": 5660,
+            "utilization_percent": 40
+          },
+          "RAM_available_bytes": 121725853696,
+          "disk_free_bytes": 6242611552256,
+          "free_inodes": 240401885,
+          "policy": "shared_observe_only; no waiting/interference"
+        },
+        "scope": "full",
+        "skipped": 0,
+        "status": "PASS"
+      },
+      "claim_count": 3074,
+      "image_count": 3074,
+      "protocol_sha256": "659d83fd82b430d880c9357f2f1e52a095501465d9503d76192173cc9f96e1c4"
+    },
+    {
+      "epoch": 40,
+      "report": {
+        "GPU_peak_allocated_bytes": 43854848,
+        "GPU_peak_reserved_bytes": 54525952,
+        "H_checkpoint": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00014336/checkpoint.pt",
+          "sha256": "487f3061b6cba2ddabccdd49745a7b99c8c549f4541781b8814b299ef5f279df"
+        },
+        "counts": {
+          "G_forwards": 3074,
+          "G_loads": 1,
+          "H_forwards": 0,
+          "H_loads": 0,
+          "JVP": 0,
+          "backward": 0,
+          "optimizer": 0,
+          "victim_loads": 0
+        },
+        "elapsed_seconds": 657.9321925528347,
+        "epoch": 40,
+        "epoch10_historical_max_abs_error": null,
+        "images": 3074,
+        "max_linf": 0.0313725471496582,
+        "model_after": "76051625a79ed0f067e2c601f85296f4b5b7a35e2a64c7015a031761c1e08e74",
+        "model_before": "76051625a79ed0f067e2c601f85296f4b5b7a35e2a64c7015a031761c1e08e74",
+        "peak_RSS_bytes": 1257349120,
+        "processing_seconds": 657.2762822285295,
+        "resources": {
+          "GPU": {
+            "compute_processes": "1402779, /home/lzf/jmk/envs/foa_v5/bin/python, 5612",
+            "free_mib": 18431,
+            "name": "NVIDIA GeForce RTX 4090",
+            "policy": "shared_observe_only",
+            "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 18431, 5660, 58",
+            "total_mib": 24564,
+            "used_mib": 5660,
+            "utilization_percent": 58
+          },
+          "RAM_available_bytes": 121607327744,
+          "disk_free_bytes": 6229584150528,
+          "free_inodes": 240369265,
+          "policy": "shared_observe_only; no waiting/interference"
+        },
+        "scope": "full",
+        "skipped": 0,
+        "status": "PASS"
+      },
+      "claim_count": 3074,
+      "image_count": 3074,
+      "protocol_sha256": "bb5378ac7ca2d77f975683971fdd70207f8002b6e2c7ab7cdc527edbc64566c8"
+    },
+    {
+      "epoch": 50,
+      "report": {
+        "GPU_peak_allocated_bytes": 43854848,
+        "GPU_peak_reserved_bytes": 54525952,
+        "H_checkpoint": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00014336/checkpoint.pt",
+          "sha256": "487f3061b6cba2ddabccdd49745a7b99c8c549f4541781b8814b299ef5f279df"
+        },
+        "counts": {
+          "G_forwards": 3074,
+          "G_loads": 1,
+          "H_forwards": 0,
+          "H_loads": 0,
+          "JVP": 0,
+          "backward": 0,
+          "optimizer": 0,
+          "victim_loads": 0
+        },
+        "elapsed_seconds": 674.9834837317467,
+        "epoch": 50,
+        "epoch10_historical_max_abs_error": null,
+        "images": 3074,
+        "max_linf": 0.0313725471496582,
+        "model_after": "2aed1e16ba47c681049e1fd04e88e52c780fedf112e1801efe2b25b0606fec59",
+        "model_before": "2aed1e16ba47c681049e1fd04e88e52c780fedf112e1801efe2b25b0606fec59",
+        "peak_RSS_bytes": 1261821952,
+        "processing_seconds": 674.2559286542237,
+        "resources": {
+          "GPU": {
+            "compute_processes": "1402779, /home/lzf/jmk/envs/foa_v5/bin/python, 5612",
+            "free_mib": 18431,
+            "name": "NVIDIA GeForce RTX 4090",
+            "policy": "shared_observe_only",
+            "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 18431, 5660, 94",
+            "total_mib": 24564,
+            "used_mib": 5660,
+            "utilization_percent": 94
+          },
+          "RAM_available_bytes": 121589448704,
+          "disk_free_bytes": 6216559157248,
+          "free_inodes": 240336661,
+          "policy": "shared_observe_only; no waiting/interference"
+        },
+        "scope": "full",
+        "skipped": 0,
+        "status": "PASS"
+      },
+      "claim_count": 3074,
+      "image_count": 3074,
+      "protocol_sha256": "0243fa51fb301edf1230e33d12eff695ca6a7721c56c91aca787011bcb09327f"
+    },
+    {
+      "epoch": 60,
+      "report": {
+        "GPU_peak_allocated_bytes": 43854848,
+        "GPU_peak_reserved_bytes": 54525952,
+        "H_checkpoint": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00014336/checkpoint.pt",
+          "sha256": "487f3061b6cba2ddabccdd49745a7b99c8c549f4541781b8814b299ef5f279df"
+        },
+        "counts": {
+          "G_forwards": 3074,
+          "G_loads": 1,
+          "H_forwards": 0,
+          "H_loads": 0,
+          "JVP": 0,
+          "backward": 0,
+          "optimizer": 0,
+          "victim_loads": 0
+        },
+        "elapsed_seconds": 681.5531241819263,
+        "epoch": 60,
+        "epoch10_historical_max_abs_error": null,
+        "images": 3074,
+        "max_linf": 0.0313725471496582,
+        "model_after": "5d48caab6a891a1afd3aaaa6f3594eb5f860ccd7b6090708d289224e6c819e47",
+        "model_before": "5d48caab6a891a1afd3aaaa6f3594eb5f860ccd7b6090708d289224e6c819e47",
+        "peak_RSS_bytes": 1252298752,
+        "processing_seconds": 680.8908274769783,
+        "resources": {
+          "GPU": {
+            "compute_processes": "1402779, /home/lzf/jmk/envs/foa_v5/bin/python, 5612",
+            "free_mib": 18431,
+            "name": "NVIDIA GeForce RTX 4090",
+            "policy": "shared_observe_only",
+            "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 18431, 5660, 72",
+            "total_mib": 24564,
+            "used_mib": 5660,
+            "utilization_percent": 72
+          },
+          "RAM_available_bytes": 121433694208,
+          "disk_free_bytes": 6203093348352,
+          "free_inodes": 240303991,
+          "policy": "shared_observe_only; no waiting/interference"
+        },
+        "scope": "full",
+        "skipped": 0,
+        "status": "PASS"
+      },
+      "claim_count": 3074,
+      "image_count": 3074,
+      "protocol_sha256": "aeb79a672b1d57ffa59ea5c7f977a4ab882a3dab7a01d3826698441c68afede8"
+    }
+  ],
+  "executions": [
+    {
+      "epoch": 20,
+      "model": "irra",
+      "report": {
+        "GPU_before": {
+          "GPU": {
+            "compute_processes": "1402779, /home/lzf/jmk/envs/foa_v5/bin/python, 5612",
+            "free_mib": 18431,
+            "name": "NVIDIA GeForce RTX 4090",
+            "policy": "shared_observe_only",
+            "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 18431, 5660, 75",
+            "total_mib": 24564,
+            "used_mib": 5660,
+            "utilization_percent": 75
+          },
+          "RAM_available_bytes": 121862184960,
+          "disk_free_bytes": 6250073677824,
+          "free_inodes": 240406750,
+          "policy": "shared_observe_only; no waiting/interference"
+        },
+        "GPU_peak_allocated_bytes": 966895616,
+        "GPU_peak_reserved_bytes": 1050673152,
+        "G_H_forwards": 0,
+        "G_H_loads": 0,
+        "JVP": 0,
+        "backward": 0,
+        "counts": {
+          "fusion_pairs": 0,
+          "image_samples": 3074,
+          "text_samples": 0
+        },
+        "elapsed_seconds": 103.46755990386009,
+        "encoded_images": 3074,
+        "epoch": 20,
+        "model": "irra",
+        "model_after": {
+          "buffers": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "tensor_count": 0
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "b0f0c4e01e6601eb280698f8ee5a3304d9ed117e22968db9f7be17f453330d0f",
+            "tensor_count": 367
+          },
+          "requires_grad": false
+        },
+        "model_before": {
+          "buffers": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "tensor_count": 0
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "b0f0c4e01e6601eb280698f8ee5a3304d9ed117e22968db9f7be17f453330d0f",
+            "tensor_count": 367
+          },
+          "requires_grad": false
+        },
+        "model_frozen": true,
+        "new_text_encoding": 0,
+        "optimizer": 0,
+        "peak_RSS_bytes": 2416271360,
+        "scope": "full",
+        "status": "PASS",
+        "victim_loads": 1
+      }
+    },
+    {
+      "epoch": 20,
+      "model": "rasa",
+      "report": {
+        "GPU_before": {
+          "GPU": {
+            "compute_processes": "1402779, /home/lzf/jmk/envs/foa_v5/bin/python, 5612",
+            "free_mib": 18431,
+            "name": "NVIDIA GeForce RTX 4090",
+            "policy": "shared_observe_only",
+            "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 18431, 5660, 67",
+            "total_mib": 24564,
+            "used_mib": 5660,
+            "utilization_percent": 67
+          },
+          "RAM_available_bytes": 118658912256,
+          "disk_free_bytes": 6249849896960,
+          "free_inodes": 240405722,
+          "policy": "shared_observe_only; no waiting/interference"
+        },
+        "GPU_peak_allocated_bytes": 1992355840,
+        "GPU_peak_reserved_bytes": 2183135232,
+        "G_H_forwards": 0,
+        "G_H_loads": 0,
+        "JVP": 0,
+        "backward": 0,
+        "counts": {
+          "fusion_pairs": 1575936,
+          "image_samples": 3074,
+          "score_calls": 98,
+          "text_samples": 0
+        },
+        "elapsed_seconds": 7034.445846527815,
+        "encoded_images": 3074,
+        "epoch": 20,
+        "model": "rasa",
+        "model_after": {
+          "buffers": {
+            "sha256": "ce5f3986cd19bee31cacddc61b11f353c608f37e423185c3ed6ff2145befc59a",
+            "tensor_count": 6
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "371998d47a18ffa8a0a2540d1ec12e35a469eec1c20d41cde1fc8410ae95f493",
+            "tensor_count": 839
+          },
+          "requires_grad": false
+        },
+        "model_before": {
+          "buffers": {
+            "sha256": "ce5f3986cd19bee31cacddc61b11f353c608f37e423185c3ed6ff2145befc59a",
+            "tensor_count": 6
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "371998d47a18ffa8a0a2540d1ec12e35a469eec1c20d41cde1fc8410ae95f493",
+            "tensor_count": 839
+          },
+          "requires_grad": false
+        },
+        "model_frozen": true,
+        "new_text_encoding": 0,
+        "optimizer": 0,
+        "peak_RSS_bytes": 22699544576,
+        "scope": "full",
+        "status": "PASS",
+        "victim_loads": 1
+      }
+    },
+    {
+      "epoch": 20,
+      "model": "aptm",
+      "report": {
+        "GPU_before": {
+          "GPU": {
+            "compute_processes": "1402779, /home/lzf/jmk/envs/foa_v5/bin/python, 5612",
+            "free_mib": 18431,
+            "name": "NVIDIA GeForce RTX 4090",
+            "policy": "shared_observe_only",
+            "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 18431, 5660, 72",
+            "total_mib": 24564,
+            "used_mib": 5660,
+            "utilization_percent": 72
+          },
+          "RAM_available_bytes": 117959376896,
+          "disk_free_bytes": 6243971256320,
+          "free_inodes": 240403844,
+          "policy": "shared_observe_only; no waiting/interference"
+        },
+        "GPU_peak_allocated_bytes": 1041892864,
+        "GPU_peak_reserved_bytes": 1126170624,
+        "G_H_forwards": 0,
+        "G_H_loads": 0,
+        "JVP": 0,
+        "backward": 0,
+        "counts": {
+          "fusion_pairs": 1575936,
+          "image_samples": 3074,
+          "score_calls": 98,
+          "text_samples": 0
+        },
+        "elapsed_seconds": 7302.6487282812595,
+        "encoded_images": 3074,
+        "epoch": 20,
+        "model": "aptm",
+        "model_after": {
+          "buffers": {
+            "sha256": "b41b36d2cf36f5f1933f01c1557094000530bc5ade79bfd3757f03d0359c9e98",
+            "tensor_count": 27
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "6a550d2e7f520ffd0f3edfda340f0c56600fb004f6fc29df621a6add457f0720",
+            "tensor_count": 600
+          },
+          "requires_grad": false
+        },
+        "model_before": {
+          "buffers": {
+            "sha256": "b41b36d2cf36f5f1933f01c1557094000530bc5ade79bfd3757f03d0359c9e98",
+            "tensor_count": 27
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "6a550d2e7f520ffd0f3edfda340f0c56600fb004f6fc29df621a6add457f0720",
+            "tensor_count": 600
+          },
+          "requires_grad": false
+        },
+        "model_frozen": true,
+        "new_text_encoding": 0,
+        "optimizer": 0,
+        "peak_RSS_bytes": 6203392000,
+        "scope": "full",
+        "status": "PASS",
+        "victim_loads": 1
+      }
+    },
+    {
+      "epoch": 30,
+      "model": "irra",
+      "report": {
+        "GPU_before": {
+          "GPU": {
+            "compute_processes": "1402779, /home/lzf/jmk/envs/foa_v5/bin/python, 5612",
+            "free_mib": 18431,
+            "name": "NVIDIA GeForce RTX 4090",
+            "policy": "shared_observe_only",
+            "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 18431, 5660, 52",
+            "total_mib": 24564,
+            "used_mib": 5660,
+            "utilization_percent": 52
+          },
+          "RAM_available_bytes": 121810714624,
+          "disk_free_bytes": 6237048139776,
+          "free_inodes": 240374146,
+          "policy": "shared_observe_only; no waiting/interference"
+        },
+        "GPU_peak_allocated_bytes": 966895616,
+        "GPU_peak_reserved_bytes": 1050673152,
+        "G_H_forwards": 0,
+        "G_H_loads": 0,
+        "JVP": 0,
+        "backward": 0,
+        "counts": {
+          "fusion_pairs": 0,
+          "image_samples": 3074,
+          "text_samples": 0
+        },
+        "elapsed_seconds": 102.96826757490635,
+        "encoded_images": 3074,
+        "epoch": 30,
+        "model": "irra",
+        "model_after": {
+          "buffers": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "tensor_count": 0
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "b0f0c4e01e6601eb280698f8ee5a3304d9ed117e22968db9f7be17f453330d0f",
+            "tensor_count": 367
+          },
+          "requires_grad": false
+        },
+        "model_before": {
+          "buffers": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "tensor_count": 0
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "b0f0c4e01e6601eb280698f8ee5a3304d9ed117e22968db9f7be17f453330d0f",
+            "tensor_count": 367
+          },
+          "requires_grad": false
+        },
+        "model_frozen": true,
+        "new_text_encoding": 0,
+        "optimizer": 0,
+        "peak_RSS_bytes": 2410258432,
+        "scope": "full",
+        "status": "PASS",
+        "victim_loads": 1
+      }
+    },
+    {
+      "epoch": 30,
+      "model": "rasa",
+      "report": {
+        "GPU_before": {
+          "GPU": {
+            "compute_processes": "1402779, /home/lzf/jmk/envs/foa_v5/bin/python, 5612",
+            "free_mib": 18431,
+            "name": "NVIDIA GeForce RTX 4090",
+            "policy": "shared_observe_only",
+            "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 18431, 5660, 86",
+            "total_mib": 24564,
+            "used_mib": 5660,
+            "utilization_percent": 86
+          },
+          "RAM_available_bytes": 118320087040,
+          "disk_free_bytes": 6236824530944,
+          "free_inodes": 240373118,
+          "policy": "shared_observe_only; no waiting/interference"
+        },
+        "GPU_peak_allocated_bytes": 1992355840,
+        "GPU_peak_reserved_bytes": 2183135232,
+        "G_H_forwards": 0,
+        "G_H_loads": 0,
+        "JVP": 0,
+        "backward": 0,
+        "counts": {
+          "fusion_pairs": 1575936,
+          "image_samples": 3074,
+          "score_calls": 98,
+          "text_samples": 0
+        },
+        "elapsed_seconds": 7186.893128115684,
+        "encoded_images": 3074,
+        "epoch": 30,
+        "model": "rasa",
+        "model_after": {
+          "buffers": {
+            "sha256": "ce5f3986cd19bee31cacddc61b11f353c608f37e423185c3ed6ff2145befc59a",
+            "tensor_count": 6
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "371998d47a18ffa8a0a2540d1ec12e35a469eec1c20d41cde1fc8410ae95f493",
+            "tensor_count": 839
+          },
+          "requires_grad": false
+        },
+        "model_before": {
+          "buffers": {
+            "sha256": "ce5f3986cd19bee31cacddc61b11f353c608f37e423185c3ed6ff2145befc59a",
+            "tensor_count": 6
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "371998d47a18ffa8a0a2540d1ec12e35a469eec1c20d41cde1fc8410ae95f493",
+            "tensor_count": 839
+          },
+          "requires_grad": false
+        },
+        "model_frozen": true,
+        "new_text_encoding": 0,
+        "optimizer": 0,
+        "peak_RSS_bytes": 20744413184,
+        "scope": "full",
+        "status": "PASS",
+        "victim_loads": 1
+      }
+    },
+    {
+      "epoch": 30,
+      "model": "aptm",
+      "report": {
+        "GPU_before": {
+          "GPU": {
+            "compute_processes": "1402779, /home/lzf/jmk/envs/foa_v5/bin/python, 5612",
+            "free_mib": 18431,
+            "name": "NVIDIA GeForce RTX 4090",
+            "policy": "shared_observe_only",
+            "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 18431, 5660, 94",
+            "total_mib": 24564,
+            "used_mib": 5660,
+            "utilization_percent": 94
+          },
+          "RAM_available_bytes": 116700315648,
+          "disk_free_bytes": 6230944477184,
+          "free_inodes": 240371232,
+          "policy": "shared_observe_only; no waiting/interference"
+        },
+        "GPU_peak_allocated_bytes": 1041892864,
+        "GPU_peak_reserved_bytes": 1126170624,
+        "G_H_forwards": 0,
+        "G_H_loads": 0,
+        "JVP": 0,
+        "backward": 0,
+        "counts": {
+          "fusion_pairs": 1575936,
+          "image_samples": 3074,
+          "score_calls": 98,
+          "text_samples": 0
+        },
+        "elapsed_seconds": 7340.090157542378,
+        "encoded_images": 3074,
+        "epoch": 30,
+        "model": "aptm",
+        "model_after": {
+          "buffers": {
+            "sha256": "b41b36d2cf36f5f1933f01c1557094000530bc5ade79bfd3757f03d0359c9e98",
+            "tensor_count": 27
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "6a550d2e7f520ffd0f3edfda340f0c56600fb004f6fc29df621a6add457f0720",
+            "tensor_count": 600
+          },
+          "requires_grad": false
+        },
+        "model_before": {
+          "buffers": {
+            "sha256": "b41b36d2cf36f5f1933f01c1557094000530bc5ade79bfd3757f03d0359c9e98",
+            "tensor_count": 27
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "6a550d2e7f520ffd0f3edfda340f0c56600fb004f6fc29df621a6add457f0720",
+            "tensor_count": 600
+          },
+          "requires_grad": false
+        },
+        "model_frozen": true,
+        "new_text_encoding": 0,
+        "optimizer": 0,
+        "peak_RSS_bytes": 6171152384,
+        "scope": "full",
+        "status": "PASS",
+        "victim_loads": 1
+      }
+    },
+    {
+      "epoch": 40,
+      "model": "irra",
+      "report": {
+        "GPU_before": {
+          "GPU": {
+            "compute_processes": "1402779, /home/lzf/jmk/envs/foa_v5/bin/python, 5612",
+            "free_mib": 18431,
+            "name": "NVIDIA GeForce RTX 4090",
+            "policy": "shared_observe_only",
+            "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 18431, 5660, 94",
+            "total_mib": 24564,
+            "used_mib": 5660,
+            "utilization_percent": 94
+          },
+          "RAM_available_bytes": 121651048448,
+          "disk_free_bytes": 6224020721664,
+          "free_inodes": 240341526,
+          "policy": "shared_observe_only; no waiting/interference"
+        },
+        "GPU_peak_allocated_bytes": 966895616,
+        "GPU_peak_reserved_bytes": 1050673152,
+        "G_H_forwards": 0,
+        "G_H_loads": 0,
+        "JVP": 0,
+        "backward": 0,
+        "counts": {
+          "fusion_pairs": 0,
+          "image_samples": 3074,
+          "text_samples": 0
+        },
+        "elapsed_seconds": 103.12820644676685,
+        "encoded_images": 3074,
+        "epoch": 40,
+        "model": "irra",
+        "model_after": {
+          "buffers": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "tensor_count": 0
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "b0f0c4e01e6601eb280698f8ee5a3304d9ed117e22968db9f7be17f453330d0f",
+            "tensor_count": 367
+          },
+          "requires_grad": false
+        },
+        "model_before": {
+          "buffers": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "tensor_count": 0
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "b0f0c4e01e6601eb280698f8ee5a3304d9ed117e22968db9f7be17f453330d0f",
+            "tensor_count": 367
+          },
+          "requires_grad": false
+        },
+        "model_frozen": true,
+        "new_text_encoding": 0,
+        "optimizer": 0,
+        "peak_RSS_bytes": 2420637696,
+        "scope": "full",
+        "status": "PASS",
+        "victim_loads": 1
+      }
+    },
+    {
+      "epoch": 40,
+      "model": "rasa",
+      "report": {
+        "GPU_before": {
+          "GPU": {
+            "compute_processes": "1402779, /home/lzf/jmk/envs/foa_v5/bin/python, 5612",
+            "free_mib": 18431,
+            "name": "NVIDIA GeForce RTX 4090",
+            "policy": "shared_observe_only",
+            "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 18431, 5660, 91",
+            "total_mib": 24564,
+            "used_mib": 5660,
+            "utilization_percent": 91
+          },
+          "RAM_available_bytes": 117569437696,
+          "disk_free_bytes": 6223797157888,
+          "free_inodes": 240340498,
+          "policy": "shared_observe_only; no waiting/interference"
+        },
+        "GPU_peak_allocated_bytes": 1992355840,
+        "GPU_peak_reserved_bytes": 2183135232,
+        "G_H_forwards": 0,
+        "G_H_loads": 0,
+        "JVP": 0,
+        "backward": 0,
+        "counts": {
+          "fusion_pairs": 1575936,
+          "image_samples": 3074,
+          "score_calls": 98,
+          "text_samples": 0
+        },
+        "elapsed_seconds": 7063.381979390979,
+        "encoded_images": 3074,
+        "epoch": 40,
+        "model": "rasa",
+        "model_after": {
+          "buffers": {
+            "sha256": "ce5f3986cd19bee31cacddc61b11f353c608f37e423185c3ed6ff2145befc59a",
+            "tensor_count": 6
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "371998d47a18ffa8a0a2540d1ec12e35a469eec1c20d41cde1fc8410ae95f493",
+            "tensor_count": 839
+          },
+          "requires_grad": false
+        },
+        "model_before": {
+          "buffers": {
+            "sha256": "ce5f3986cd19bee31cacddc61b11f353c608f37e423185c3ed6ff2145befc59a",
+            "tensor_count": 6
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "371998d47a18ffa8a0a2540d1ec12e35a469eec1c20d41cde1fc8410ae95f493",
+            "tensor_count": 839
+          },
+          "requires_grad": false
+        },
+        "model_frozen": true,
+        "new_text_encoding": 0,
+        "optimizer": 0,
+        "peak_RSS_bytes": 21072355328,
+        "scope": "full",
+        "status": "PASS",
+        "victim_loads": 1
+      }
+    },
+    {
+      "epoch": 40,
+      "model": "aptm",
+      "report": {
+        "GPU_before": {
+          "GPU": {
+            "compute_processes": "1402779, /home/lzf/jmk/envs/foa_v5/bin/python, 5612",
+            "free_mib": 18431,
+            "name": "NVIDIA GeForce RTX 4090",
+            "policy": "shared_observe_only",
+            "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 18431, 5660, 66",
+            "total_mib": 24564,
+            "used_mib": 5660,
+            "utilization_percent": 66
+          },
+          "RAM_available_bytes": 117203947520,
+          "disk_free_bytes": 6217919320064,
+          "free_inodes": 240338628,
+          "policy": "shared_observe_only; no waiting/interference"
+        },
+        "GPU_peak_allocated_bytes": 1041892864,
+        "GPU_peak_reserved_bytes": 1126170624,
+        "G_H_forwards": 0,
+        "G_H_loads": 0,
+        "JVP": 0,
+        "backward": 0,
+        "counts": {
+          "fusion_pairs": 1575936,
+          "image_samples": 3074,
+          "score_calls": 98,
+          "text_samples": 0
+        },
+        "elapsed_seconds": 7346.264953125268,
+        "encoded_images": 3074,
+        "epoch": 40,
+        "model": "aptm",
+        "model_after": {
+          "buffers": {
+            "sha256": "b41b36d2cf36f5f1933f01c1557094000530bc5ade79bfd3757f03d0359c9e98",
+            "tensor_count": 27
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "6a550d2e7f520ffd0f3edfda340f0c56600fb004f6fc29df621a6add457f0720",
+            "tensor_count": 600
+          },
+          "requires_grad": false
+        },
+        "model_before": {
+          "buffers": {
+            "sha256": "b41b36d2cf36f5f1933f01c1557094000530bc5ade79bfd3757f03d0359c9e98",
+            "tensor_count": 27
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "6a550d2e7f520ffd0f3edfda340f0c56600fb004f6fc29df621a6add457f0720",
+            "tensor_count": 600
+          },
+          "requires_grad": false
+        },
+        "model_frozen": true,
+        "new_text_encoding": 0,
+        "optimizer": 0,
+        "peak_RSS_bytes": 6524239872,
+        "scope": "full",
+        "status": "PASS",
+        "victim_loads": 1
+      }
+    },
+    {
+      "epoch": 50,
+      "model": "irra",
+      "report": {
+        "GPU_before": {
+          "GPU": {
+            "compute_processes": "1402779, /home/lzf/jmk/envs/foa_v5/bin/python, 5612",
+            "free_mib": 18431,
+            "name": "NVIDIA GeForce RTX 4090",
+            "policy": "shared_observe_only",
+            "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 18431, 5660, 93",
+            "total_mib": 24564,
+            "used_mib": 5660,
+            "utilization_percent": 93
+          },
+          "RAM_available_bytes": 121386332160,
+          "disk_free_bytes": 6210995453952,
+          "free_inodes": 240308922,
+          "policy": "shared_observe_only; no waiting/interference"
+        },
+        "GPU_peak_allocated_bytes": 966895616,
+        "GPU_peak_reserved_bytes": 1050673152,
+        "G_H_forwards": 0,
+        "G_H_loads": 0,
+        "JVP": 0,
+        "backward": 0,
+        "counts": {
+          "fusion_pairs": 0,
+          "image_samples": 3074,
+          "text_samples": 0
+        },
+        "elapsed_seconds": 105.07066022977233,
+        "encoded_images": 3074,
+        "epoch": 50,
+        "model": "irra",
+        "model_after": {
+          "buffers": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "tensor_count": 0
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "b0f0c4e01e6601eb280698f8ee5a3304d9ed117e22968db9f7be17f453330d0f",
+            "tensor_count": 367
+          },
+          "requires_grad": false
+        },
+        "model_before": {
+          "buffers": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "tensor_count": 0
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "b0f0c4e01e6601eb280698f8ee5a3304d9ed117e22968db9f7be17f453330d0f",
+            "tensor_count": 367
+          },
+          "requires_grad": false
+        },
+        "model_frozen": true,
+        "new_text_encoding": 0,
+        "optimizer": 0,
+        "peak_RSS_bytes": 2422222848,
+        "scope": "full",
+        "status": "PASS",
+        "victim_loads": 1
+      }
+    },
+    {
+      "epoch": 50,
+      "model": "rasa",
+      "report": {
+        "GPU_before": {
+          "GPU": {
+            "compute_processes": "1402779, /home/lzf/jmk/envs/foa_v5/bin/python, 5612",
+            "free_mib": 18431,
+            "name": "NVIDIA GeForce RTX 4090",
+            "policy": "shared_observe_only",
+            "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 18431, 5660, 51",
+            "total_mib": 24564,
+            "used_mib": 5660,
+            "utilization_percent": 51
+          },
+          "RAM_available_bytes": 117727432704,
+          "disk_free_bytes": 6210771922944,
+          "free_inodes": 240307894,
+          "policy": "shared_observe_only; no waiting/interference"
+        },
+        "GPU_peak_allocated_bytes": 1992355840,
+        "GPU_peak_reserved_bytes": 2183135232,
+        "G_H_forwards": 0,
+        "G_H_loads": 0,
+        "JVP": 0,
+        "backward": 0,
+        "counts": {
+          "fusion_pairs": 1575936,
+          "image_samples": 3074,
+          "score_calls": 98,
+          "text_samples": 0
+        },
+        "elapsed_seconds": 7130.861439798027,
+        "encoded_images": 3074,
+        "epoch": 50,
+        "model": "rasa",
+        "model_after": {
+          "buffers": {
+            "sha256": "ce5f3986cd19bee31cacddc61b11f353c608f37e423185c3ed6ff2145befc59a",
+            "tensor_count": 6
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "371998d47a18ffa8a0a2540d1ec12e35a469eec1c20d41cde1fc8410ae95f493",
+            "tensor_count": 839
+          },
+          "requires_grad": false
+        },
+        "model_before": {
+          "buffers": {
+            "sha256": "ce5f3986cd19bee31cacddc61b11f353c608f37e423185c3ed6ff2145befc59a",
+            "tensor_count": 6
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "371998d47a18ffa8a0a2540d1ec12e35a469eec1c20d41cde1fc8410ae95f493",
+            "tensor_count": 839
+          },
+          "requires_grad": false
+        },
+        "model_frozen": true,
+        "new_text_encoding": 0,
+        "optimizer": 0,
+        "peak_RSS_bytes": 21837832192,
+        "scope": "full",
+        "status": "PASS",
+        "victim_loads": 1
+      }
+    },
+    {
+      "epoch": 50,
+      "model": "aptm",
+      "report": {
+        "GPU_before": {
+          "GPU": {
+            "compute_processes": "1402779, /home/lzf/jmk/envs/foa_v5/bin/python, 5612",
+            "free_mib": 18431,
+            "name": "NVIDIA GeForce RTX 4090",
+            "policy": "shared_observe_only",
+            "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 18431, 5660, 34",
+            "total_mib": 24564,
+            "used_mib": 5660,
+            "utilization_percent": 34
+          },
+          "RAM_available_bytes": 116784119808,
+          "disk_free_bytes": 6204892643328,
+          "free_inodes": 240306016,
+          "policy": "shared_observe_only; no waiting/interference"
+        },
+        "GPU_peak_allocated_bytes": 1041892864,
+        "GPU_peak_reserved_bytes": 1126170624,
+        "G_H_forwards": 0,
+        "G_H_loads": 0,
+        "JVP": 0,
+        "backward": 0,
+        "counts": {
+          "fusion_pairs": 1575936,
+          "image_samples": 3074,
+          "score_calls": 98,
+          "text_samples": 0
+        },
+        "elapsed_seconds": 7361.441686794162,
+        "encoded_images": 3074,
+        "epoch": 50,
+        "model": "aptm",
+        "model_after": {
+          "buffers": {
+            "sha256": "b41b36d2cf36f5f1933f01c1557094000530bc5ade79bfd3757f03d0359c9e98",
+            "tensor_count": 27
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "6a550d2e7f520ffd0f3edfda340f0c56600fb004f6fc29df621a6add457f0720",
+            "tensor_count": 600
+          },
+          "requires_grad": false
+        },
+        "model_before": {
+          "buffers": {
+            "sha256": "b41b36d2cf36f5f1933f01c1557094000530bc5ade79bfd3757f03d0359c9e98",
+            "tensor_count": 27
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "6a550d2e7f520ffd0f3edfda340f0c56600fb004f6fc29df621a6add457f0720",
+            "tensor_count": 600
+          },
+          "requires_grad": false
+        },
+        "model_frozen": true,
+        "new_text_encoding": 0,
+        "optimizer": 0,
+        "peak_RSS_bytes": 6513643520,
+        "scope": "full",
+        "status": "PASS",
+        "victim_loads": 1
+      }
+    },
+    {
+      "epoch": 60,
+      "model": "irra",
+      "report": {
+        "GPU_before": {
+          "GPU": {
+            "compute_processes": "1402779, /home/lzf/jmk/envs/foa_v5/bin/python, 5612",
+            "free_mib": 18431,
+            "name": "NVIDIA GeForce RTX 4090",
+            "policy": "shared_observe_only",
+            "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 18431, 5660, 94",
+            "total_mib": 24564,
+            "used_mib": 5660,
+            "utilization_percent": 94
+          },
+          "RAM_available_bytes": 121533849600,
+          "disk_free_bytes": 6197529632768,
+          "free_inodes": 240276252,
+          "policy": "shared_observe_only; no waiting/interference"
+        },
+        "GPU_peak_allocated_bytes": 966895616,
+        "GPU_peak_reserved_bytes": 1050673152,
+        "G_H_forwards": 0,
+        "G_H_loads": 0,
+        "JVP": 0,
+        "backward": 0,
+        "counts": {
+          "fusion_pairs": 0,
+          "image_samples": 3074,
+          "text_samples": 0
+        },
+        "elapsed_seconds": 103.20427287742496,
+        "encoded_images": 3074,
+        "epoch": 60,
+        "model": "irra",
+        "model_after": {
+          "buffers": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "tensor_count": 0
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "b0f0c4e01e6601eb280698f8ee5a3304d9ed117e22968db9f7be17f453330d0f",
+            "tensor_count": 367
+          },
+          "requires_grad": false
+        },
+        "model_before": {
+          "buffers": {
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "tensor_count": 0
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "b0f0c4e01e6601eb280698f8ee5a3304d9ed117e22968db9f7be17f453330d0f",
+            "tensor_count": 367
+          },
+          "requires_grad": false
+        },
+        "model_frozen": true,
+        "new_text_encoding": 0,
+        "optimizer": 0,
+        "peak_RSS_bytes": 2419564544,
+        "scope": "full",
+        "status": "PASS",
+        "victim_loads": 1
+      }
+    },
+    {
+      "epoch": 60,
+      "model": "rasa",
+      "report": {
+        "GPU_before": {
+          "GPU": {
+            "compute_processes": "1402779, /home/lzf/jmk/envs/foa_v5/bin/python, 5612",
+            "free_mib": 18431,
+            "name": "NVIDIA GeForce RTX 4090",
+            "policy": "shared_observe_only",
+            "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 18431, 5660, 41",
+            "total_mib": 24564,
+            "used_mib": 5660,
+            "utilization_percent": 41
+          },
+          "RAM_available_bytes": 117870743552,
+          "disk_free_bytes": 6197306040320,
+          "free_inodes": 240275224,
+          "policy": "shared_observe_only; no waiting/interference"
+        },
+        "GPU_peak_allocated_bytes": 1992355840,
+        "GPU_peak_reserved_bytes": 2183135232,
+        "G_H_forwards": 0,
+        "G_H_loads": 0,
+        "JVP": 0,
+        "backward": 0,
+        "counts": {
+          "fusion_pairs": 1575936,
+          "image_samples": 3074,
+          "score_calls": 98,
+          "text_samples": 0
+        },
+        "elapsed_seconds": 7071.579433605075,
+        "encoded_images": 3074,
+        "epoch": 60,
+        "model": "rasa",
+        "model_after": {
+          "buffers": {
+            "sha256": "ce5f3986cd19bee31cacddc61b11f353c608f37e423185c3ed6ff2145befc59a",
+            "tensor_count": 6
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "371998d47a18ffa8a0a2540d1ec12e35a469eec1c20d41cde1fc8410ae95f493",
+            "tensor_count": 839
+          },
+          "requires_grad": false
+        },
+        "model_before": {
+          "buffers": {
+            "sha256": "ce5f3986cd19bee31cacddc61b11f353c608f37e423185c3ed6ff2145befc59a",
+            "tensor_count": 6
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "371998d47a18ffa8a0a2540d1ec12e35a469eec1c20d41cde1fc8410ae95f493",
+            "tensor_count": 839
+          },
+          "requires_grad": false
+        },
+        "model_frozen": true,
+        "new_text_encoding": 0,
+        "optimizer": 0,
+        "peak_RSS_bytes": 20756647936,
+        "scope": "full",
+        "status": "PASS",
+        "victim_loads": 1
+      }
+    },
+    {
+      "epoch": 60,
+      "model": "aptm",
+      "report": {
+        "GPU_before": {
+          "GPU": {
+            "compute_processes": "1402779, /home/lzf/jmk/envs/foa_v5/bin/python, 5612",
+            "free_mib": 18431,
+            "name": "NVIDIA GeForce RTX 4090",
+            "policy": "shared_observe_only",
+            "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 18431, 5660, 41",
+            "total_mib": 24564,
+            "used_mib": 5660,
+            "utilization_percent": 41
+          },
+          "RAM_available_bytes": 116862726144,
+          "disk_free_bytes": 6191427694592,
+          "free_inodes": 240273346,
+          "policy": "shared_observe_only; no waiting/interference"
+        },
+        "GPU_peak_allocated_bytes": 1041892864,
+        "GPU_peak_reserved_bytes": 1126170624,
+        "G_H_forwards": 0,
+        "G_H_loads": 0,
+        "JVP": 0,
+        "backward": 0,
+        "counts": {
+          "fusion_pairs": 1575936,
+          "image_samples": 3074,
+          "score_calls": 98,
+          "text_samples": 0
+        },
+        "elapsed_seconds": 7383.545067436993,
+        "encoded_images": 3074,
+        "epoch": 60,
+        "model": "aptm",
+        "model_after": {
+          "buffers": {
+            "sha256": "b41b36d2cf36f5f1933f01c1557094000530bc5ade79bfd3757f03d0359c9e98",
+            "tensor_count": 27
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "6a550d2e7f520ffd0f3edfda340f0c56600fb004f6fc29df621a6add457f0720",
+            "tensor_count": 600
+          },
+          "requires_grad": false
+        },
+        "model_before": {
+          "buffers": {
+            "sha256": "b41b36d2cf36f5f1933f01c1557094000530bc5ade79bfd3757f03d0359c9e98",
+            "tensor_count": 27
+          },
+          "eval": true,
+          "parameter_grads_none": true,
+          "parameters": {
+            "sha256": "6a550d2e7f520ffd0f3edfda340f0c56600fb004f6fc29df621a6add457f0720",
+            "tensor_count": 600
+          },
+          "requires_grad": false
+        },
+        "model_frozen": true,
+        "new_text_encoding": 0,
+        "optimizer": 0,
+        "peak_RSS_bytes": 6519250944,
+        "scope": "full",
+        "status": "PASS",
+        "victim_loads": 1
+      }
+    }
+  ],
+  "native_specs": {
+    "irra": {
+      "model_spec": {
+        "capabilities": [
+          "differentiable_images",
+          "image_encoding",
+          "score",
+          "text_encoding",
+          "tokenize"
+        ],
+        "id": "irra",
+        "image_size_hw": [
+          384,
+          128
+        ],
+        "normalization": "l2",
+        "representation_dim": 512,
+        "scoring": "cosine",
+        "tokenizer": {
+          "max_length": 77,
+          "name": "IRRA Byte-BPE",
+          "source_sha256": "19b06ade7532bcff961c4b90590197fcac0d466f08d0b6b801d3d19a36568d67",
+          "truncation": "retain_and_report",
+          "unit": "BPE token"
+        },
+        "version": "historical-official"
+      },
+      "ranking": {
+        "AP": "mean precision at every positive rank",
+        "INP": "number of positives / last positive rank",
+        "aggregation": "FP32 full-query mean; no mean of chunk means",
+        "camera_filter": false,
+        "max_rank": 10,
+        "name": "irra-all-same-pid-v1",
+        "sort": "torch.argsort(dim=1,descending=True,stable=False)",
+        "unit": "percent"
+      },
+      "model_space": {
+        "checkpoint_sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009",
+        "model_id": "irra",
+        "precision": "fp32/math/no_tf32",
+        "preprocess_sha256": "61f02eb3fd01e909b2bd0272c2c7dce2b9a2fddf41794989ba3ca27e1529fb25",
+        "scoring_protocol_sha256": "5032f7f1f46e87b3b26eee137cfbd99d7b3f5c65751b160ec8ccafc6baa2c5b4",
+        "sources_sha256": "a2765a2602f21acdd10cdacb072f481a0d19f17f0d2703626d9d8bf2ea42f87d",
+        "tokenizer_sha256": "f0c9ac2862623d9274d8c546f55a41de978fa2d8730bf640e100cd234f8f7bad"
+      },
+      "effective_k_test": 128
+    },
+    "rasa": {
+      "model_spec": {
+        "capabilities": [
+          "fusion",
+          "image_encoding",
+          "local_features",
+          "score",
+          "text_encoding",
+          "tokenize"
+        ],
+        "id": "rasa",
+        "image_size_hw": [
+          384,
+          384
+        ],
+        "normalization": "projected CLS l2; local tokens unnormalized",
+        "representation_dim": null,
+        "scoring": "fusion",
+        "tokenizer": {
+          "max_length": 50,
+          "name": "official BERT WordPiece",
+          "source_sha256": "1bd8efb0d45496dd2c8fd1430d212390e398d7a0819e66cf946efab5ae6f5d7c",
+          "truncation": "retain_and_report",
+          "unit": "WordPiece token"
+        },
+        "version": "official-bd16aa1a15f149548a90d196fcf10a27d7ab7c66"
+      },
+      "ranking": {
+        "AP": "mean precision at every positive rank",
+        "INP": "number of positives / last positive rank",
+        "aggregation": "FP32 full-query mean; no mean of chunk means",
+        "camera_filter": false,
+        "max_rank": 10,
+        "name": "irra-all-same-pid-v1",
+        "sort": "torch.argsort(dim=1,descending=True,stable=False)",
+        "unit": "percent"
+      },
+      "model_space": {
+        "checkpoint_sha256": "bc85da09c2991d5de503c2c2ac4f032e20cc536fec5094f0acff45e93d0104d2",
+        "model_id": "rasa",
+        "precision": "fp32/math/no_tf32",
+        "preprocess_sha256": "4d5d67c45ea01a6bf8f922b0c3e9df7c1c2cba84cf2293b7921175ccba998035",
+        "scoring_protocol_sha256": "d09c3e7b87f9c3500e435212d9babb14624ab1c8e4a91a1ff02ef645331033cb",
+        "sources_sha256": "e76c248e67cdc59691c228bf2431b5b7d2f6ed1af14b8c8036cfc319f4b91777",
+        "tokenizer_sha256": "1bd8efb0d45496dd2c8fd1430d212390e398d7a0819e66cf946efab5ae6f5d7c"
+      },
+      "effective_k_test": 128
+    },
+    "aptm": {
+      "model_spec": {
+        "capabilities": [
+          "fusion",
+          "image_encoding",
+          "local_features",
+          "score",
+          "text_encoding",
+          "tokenize"
+        ],
+        "id": "aptm",
+        "image_size_hw": [
+          384,
+          128
+        ],
+        "normalization": "projected CLS l2; Swin/BERT local tokens unnormalized",
+        "representation_dim": null,
+        "scoring": "fusion",
+        "tokenizer": {
+          "max_length": 56,
+          "name": "official BERT WordPiece",
+          "source_sha256": "4c1cba3a8e707a7439429b636ce349d28b23f9509939e79c4396b74b47a282d9",
+          "truncation": "retain_and_report",
+          "unit": "WordPiece token"
+        },
+        "version": "official-b20025445471eb4b743164a6faec29a9eccfb293"
+      },
+      "ranking": {
+        "AP": "mean precision at every positive rank",
+        "INP": "number of positives / last positive rank",
+        "aggregation": "FP32 full-query mean; no mean of chunk means",
+        "camera_filter": false,
+        "max_rank": 10,
+        "name": "irra-all-same-pid-v1",
+        "sort": "torch.argsort(dim=1,descending=True,stable=False)",
+        "unit": "percent"
+      },
+      "model_space": {
+        "checkpoint_sha256": "521c9bf784e7e821ade471deaafa2f25e2501950591e574dc60ca177e9be5a2c",
+        "model_id": "aptm",
+        "precision": "fp32/math/no_tf32",
+        "preprocess_sha256": "29356ae6ac4b921edab0f4f95fb0e765e81efae1c960248fb48a03ae87e845f7",
+        "scoring_protocol_sha256": "530916023ab893ce8fd56ed425475c7b5edf43c87733f9c31a4ceb1f579483a3",
+        "sources_sha256": "0b05373c46630c19a93b83ca140a43c06e8db1eef2e72fa812db5fd37953bbfa",
+        "tokenizer_sha256": "4c1cba3a8e707a7439429b636ce349d28b23f9509939e79c4396b74b47a282d9"
+      },
+      "effective_k_test": 128
+    }
+  },
+  "logs": {
+    "E10_REUSE_aptm.log": {
+      "sha256": "56d088f824ef25f30e2dfeb486eef18c94ee39690ca9a66fb470131bba56f37b",
+      "warnings": 1,
+      "bytes": 438
+    },
+    "CPU_AUDIT_E40_irra.log": {
+      "sha256": "ce0254ad84866465eae00a37966d2be91ae5b87fd74280bd7998ad4797497bcd",
+      "warnings": 0,
+      "bytes": 38
+    },
+    "CPU_AUDIT_E30_irra.log": {
+      "sha256": "698fed96c262d9e3ea653cbaa01a70cd65762d4ceeb7bf392cf98e99d283e339",
+      "warnings": 0,
+      "bytes": 38
+    },
+    "GALLERY_E20.log": {
+      "sha256": "4097424761d09c17b704246baa1fa34ea25c4493af07a5082f62cbcc9623077b",
+      "warnings": 2,
+      "bytes": 5709
+    },
+    "CPU_AUDIT_E50_rasa.log": {
+      "sha256": "4c15203a7445c6215a82e34b525a95f8b1660937d8c74fdb503560edda22c34e",
+      "warnings": 1,
+      "bytes": 447
+    },
+    "TARGET_E40_aptm.log": {
+      "sha256": "e15825bbffe55125bac0c8757bb465664f8412da5831854c7de6a719c9cad7d2",
+      "warnings": 3,
+      "bytes": 16862
+    },
+    "CPU_AUDIT_E20_aptm.log": {
+      "sha256": "3fe7cc99b405782c359c291eb505445881a9eef0d2456c9988dd60dd8ab5cf5c",
+      "warnings": 1,
+      "bytes": 447
+    },
+    "TARGET_E30_irra.log": {
+      "sha256": "d12ac9c85b18663fe0045f1131772e2d215ba98ee1eec0d6aaf68af284400d9f",
+      "warnings": 0,
+      "bytes": 10176
+    },
+    "GALLERY_E60.log": {
+      "sha256": "646c3311ac86606467481d44bb5ed8438a1f5b899e12ab2fa0ffa218a280ea43",
+      "warnings": 2,
+      "bytes": 5710
+    },
+    "GALLERY_E30.log": {
+      "sha256": "262de957cceca420be17d61911c150e3ddeb20856f5d29af888b21b9fed07d91",
+      "warnings": 2,
+      "bytes": 5710
+    },
+    "CPU_AUDIT_E50_aptm.log": {
+      "sha256": "f7d459b54f1ff8e61081e817c3de276241dc46534c7c4a1cc004f3283e6bfba7",
+      "warnings": 1,
+      "bytes": 447
+    },
+    "TARGET_E20_aptm.log": {
+      "sha256": "b1b97ceb4efdedfec442b3ddd85d38cfc5b616683686733d405761dcfd2cd098",
+      "warnings": 3,
+      "bytes": 16863
+    },
+    "CPU_AUDIT_E40_aptm.log": {
+      "sha256": "348b2bb871a48329c602b2b94b5a5936cc579ecb0cc7d2d60f92f47650e32769",
+      "warnings": 1,
+      "bytes": 447
+    },
+    "E10_REUSE_irra.log": {
+      "sha256": "d3ddec39531432532010173deb2e98db6b4632eb2bb51b15f7d0713f54ea9f7e",
+      "warnings": 0,
+      "bytes": 29
+    },
+    "TARGET_E60_rasa.log": {
+      "sha256": "4f575c0e4c5e5513e07f5bb0e97cfe05be14698f3175abb8c11b83f519818262",
+      "warnings": 2,
+      "bytes": 16227
+    },
+    "TARGET_E50_aptm.log": {
+      "sha256": "56f69f6aaa6f5803ad25b4ea2e822313f208b78bb26c19fca400df3415d76bd6",
+      "warnings": 3,
+      "bytes": 16862
+    },
+    "TARGET_E40_irra.log": {
+      "sha256": "2ce069183c2f07c04ec92db9fa61a187d40a69539417d2088408c43a546858e4",
+      "warnings": 0,
+      "bytes": 10176
+    },
+    "CPU_AUDIT_E60_irra.log": {
+      "sha256": "cb081bf27fd0fa3c5290c9caae5b0647035dbc8886e6d8b59358744474064d0b",
+      "warnings": 0,
+      "bytes": 38
+    },
+    "CPU_AUDIT_E30_rasa.log": {
+      "sha256": "6240dfee419ef7ed4cc884e0cd01b0c6484d0a64d32f71498969f7020843ae00",
+      "warnings": 1,
+      "bytes": 447
+    },
+    "CPU_AUDIT_E30_aptm.log": {
+      "sha256": "a74b890dd95d5858299757c712fcf5cc3e9adffe63f6df156586a121bde89343",
+      "warnings": 1,
+      "bytes": 447
+    },
+    "TARGET_E60_irra.log": {
+      "sha256": "ce6a3858f0cbdc9f47afaed50dc861ad77752c5d187aa4f02a5e304527744a51",
+      "warnings": 0,
+      "bytes": 10176
+    },
+    "E10_AUDIT_REF_irra.log": {
+      "sha256": "770d7ed03030be0f9ab8e5f915766ef9966e6e5e676ecbb326137476225f1a32",
+      "warnings": 0,
+      "bytes": 38
+    },
+    "E10_AUDIT_REF_aptm.log": {
+      "sha256": "b5dffcc45146e444738d824e525d174df7fa3a534fcc74c14b4c20908697d774",
+      "warnings": 1,
+      "bytes": 447
+    },
+    "CPU_PREFLIGHT.log": {
+      "sha256": "c2b2acb10a171b1594c789cafbaf9d743c67da6e0c9aa9ec23d6208c517e85ee",
+      "warnings": 2,
+      "bytes": 4582
+    },
+    "CPU_AUDIT_E60_rasa.log": {
+      "sha256": "58c415ddeaeb18a30a899444352e8460dbd6bcf531f00f486f2dba215728df68",
+      "warnings": 1,
+      "bytes": 447
+    },
+    "E10_REUSE_rasa.log": {
+      "sha256": "3807b52a7a0ec03c0affddbb9af586ddebc3aa1d85a2329f9f76c85aae8fa7af",
+      "warnings": 1,
+      "bytes": 438
+    },
+    "GALLERY_E40.log": {
+      "sha256": "34de61feeaee61147c2738f5c7330356ce1f212d537bd0a8f67f0b6220948629",
+      "warnings": 2,
+      "bytes": 5710
+    },
+    "TARGET_E20_irra.log": {
+      "sha256": "2ea1c79fe28bca1d247a32cbd8e2dc6b6477b9d6265d54d7049070ad51c59aed",
+      "warnings": 0,
+      "bytes": 10176
+    },
+    "status.log": {
+      "sha256": "f6ebc06701ca2d071f356738e76d011ab06c2bafcecbd9928cf29a078882476a",
+      "warnings": 0,
+      "bytes": 1967
+    },
+    "TARGET_E60_aptm.log": {
+      "sha256": "cdcd3ce8c7a01cb06f345d80022ba9e6d9b959fa7fe41d53b3ffe7244fd89dff",
+      "warnings": 3,
+      "bytes": 16862
+    },
+    "TARGET_E30_aptm.log": {
+      "sha256": "213adf50564a89190774a263e81703a2763cb9a5fff87b3458af37ad5a9ab82e",
+      "warnings": 3,
+      "bytes": 16862
+    },
+    "CPU_AUDIT_E50_irra.log": {
+      "sha256": "fc384276ec3b45e7799f069ed8ca3feba40db3aee6f501747d30d3011df39929",
+      "warnings": 0,
+      "bytes": 38
+    },
+    "CPU_AUDIT_E20_rasa.log": {
+      "sha256": "a7909d17a0cb4c0492cfd3f1c99330f5d1f179a6215e78fb2998eaa9ef0ec47e",
+      "warnings": 1,
+      "bytes": 447
+    },
+    "E10_AUDIT_REF_rasa.log": {
+      "sha256": "b2f9214e42c2cf55e20184009fcdc1f9595a6b2b1f531ba0930c2bd091316f8a",
+      "warnings": 1,
+      "bytes": 447
+    },
+    "CPU_AUDIT_E40_rasa.log": {
+      "sha256": "339233f6867a7b59a33ea5fb06c03ee2ad19fdf23a60e7c9977b902ce32ded9d",
+      "warnings": 1,
+      "bytes": 447
+    },
+    "CPU_AUDIT_E20_irra.log": {
+      "sha256": "1ad6730d8bca6a3a2716db2cbd9b72ed11236757f5a17a27f83eddb1c71eed70",
+      "warnings": 0,
+      "bytes": 38
+    },
+    "TARGET_E30_rasa.log": {
+      "sha256": "4a403341225057b38bda8e9e6be158c5036895e710d133c2fe761fed49148e0a",
+      "warnings": 2,
+      "bytes": 16227
+    },
+    "TARGET_E40_rasa.log": {
+      "sha256": "7be7985046646d4be7320d56d7571ed20390c0a5194fb993bfc4ce060ff4fe20",
+      "warnings": 2,
+      "bytes": 16227
+    },
+    "TARGET_E20_rasa.log": {
+      "sha256": "69b7bea32a27e2359eaf97c3eb3329b06b279eafde15c23afed180803b4f7ef6",
+      "warnings": 2,
+      "bytes": 16227
+    },
+    "TARGET_E50_rasa.log": {
+      "sha256": "bb704cfa4e4d8d5523102ec55ae20e7704f8a548f3fe8acea518d3c2e4d68d0e",
+      "warnings": 2,
+      "bytes": 16227
+    },
+    "GALLERY_E50.log": {
+      "sha256": "1b0d87cad3d88e8f11fcb9f98ea88b428d53352891330f9139e89249082c180f",
+      "warnings": 2,
+      "bytes": 5710
+    },
+    "CPU_AUDIT_E60_aptm.log": {
+      "sha256": "a5e892678489e2bc84b06694a11600757ce7634be2f90c81363465c098528b76",
+      "warnings": 1,
+      "bytes": 447
+    },
+    "TARGET_E50_irra.log": {
+      "sha256": "0fc19ccffd293fb061d15999d3c89a47a3005e23f651c8ab4b49e87e5e74a41b",
+      "warnings": 0,
+      "bytes": 10176
+    }
+  },
+  "key_sources": [
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/completed/summary.json",
+      "sha256": "4530f3f97156d6e9f65c07b0775588324c39679feb0f16ae66b356692b017eb0"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/completed/metrics.csv",
+      "sha256": "63bb20c0c40925f14f1eddb5afb15e65c88296013ad37a2bac17dcca4395aa22"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/protocol/manifest.json",
+      "sha256": "c46d43c9aa2fd90eb4a502836d13a33c396e3545344d1027840319e2c864e9d7"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/irra_materialized_full_audit.log",
+      "sha256": "70d9630c0f5bc2d7d1565cba4a100d5345c97c057ea55028d1888198c6104798"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/completed/summary.json",
+      "sha256": "12b3a90ca761c632bdf7781e7d52b43b753ddb5e7bdf36ad53e65515d7fc37ac"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/completed/metrics.csv",
+      "sha256": "f2b8fefc83b7c6eac8866262c10cb46f15da9ba8aa676784bd16057ba6e9189f"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/protocol/manifest.json",
+      "sha256": "ea9bc7436732e289504f7093a8731c94d6a6bb77f50cc68b56188a6255ccbdae"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/rasa_full_wait/cpu_audit.log",
+      "sha256": "684d3bf2d4dc2e9937f50521608533db4fe9c930ce000c53ed4a5dd08bc83670"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/completed/summary.json",
+      "sha256": "8944ea0cd29e5c9f4410bf9ad7ccc65f67e3c26ad8a794e2a8af6915bca36d18"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/completed/metrics.csv",
+      "sha256": "d7ac6ab18e9601597358949adda84eb284764219d722ae1b9a104164178e64d8"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/protocol/manifest.json",
+      "sha256": "21a39645e329ed91e444721c42c1e9a66752eee3a04849dd7913da8453c8b360"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/aptm_full_wait/full_audit.log",
+      "sha256": "03fdf0c6662c5b08d7f38862c721e84845151d911e03c33104e08ec6a4c6892c"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0010/irra/completed/summary.json",
+      "sha256": "51cbfee90b894e3b01a11bbfe54de2e938a1d0f038c5d7609623700536463292"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0010/irra/completed/metrics.csv",
+      "sha256": "ff5bfd96aa361c2e2c241c9d8c10f140d5bc1d01af2c15efa3de812fff7d2991"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0010/irra/completed/metrics_2dp.csv",
+      "sha256": "49903ea35109fc336ebcbf496324e58b2102d80ffcf4c61becaae5923f657353"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0010/irra/completed/manifest.json",
+      "sha256": "2eb8b01c45f74e665ab736d7c2ea8696ae9a984200f4cfa3140a457bee8cdaed"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0010/irra/cpu_audit/report.json",
+      "sha256": "d925d8e02e2941bf82c018892e0328b87bf39e34df89711c8a9307ecb5b22a01"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0010/irra/cpu_audit/manifest.json",
+      "sha256": "647070f91676a5b70af1cdbd638695110363a42eba7b433a6e9421d9636cee89"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0010/rasa/completed/summary.json",
+      "sha256": "0b84ab24d732d47a6ea1cd8ba0c4033a033bcca6102772f1824f34cbe0544ff2"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0010/rasa/completed/metrics.csv",
+      "sha256": "f23befc63cbeeea171b8baf7391ff80f125bf799fb73c2ccad66238895738fe0"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0010/rasa/completed/metrics_2dp.csv",
+      "sha256": "096574e6382a7c6f11d594f1d22005220cccd267f227d4ad72a75cc857028f5b"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0010/rasa/completed/manifest.json",
+      "sha256": "05d397fb539f66d5f89fe5a59144ec9f3eac9c8855d2684d699b1e32b086da05"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0010/rasa/cpu_audit/report.json",
+      "sha256": "b924ce14963a3ec08c1780ff2a31984a7c65780f63628ff412e36459685d22a2"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0010/rasa/cpu_audit/manifest.json",
+      "sha256": "29c61b09434238b521bd13cb3981ac2752211f95c03a940348baab93e0a6afb4"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0010/aptm/completed/summary.json",
+      "sha256": "71fbc90c6db08d59d5d399aa0b7f155599e385644c75cc2fbeef7769535f432c"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0010/aptm/completed/metrics.csv",
+      "sha256": "080c69b3a28b4a94a4405b876e0d1acdfea5d74a08e94e8aaf94028dd08d1806"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0010/aptm/completed/metrics_2dp.csv",
+      "sha256": "83796c0f7cdab2e55829ff0283624f918235372f28be3fe260581e57df7c80f7"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0010/aptm/completed/manifest.json",
+      "sha256": "b5835d873b7e500092e69879e29601e4f9f48bddbd3d19f56bc17bba253eed06"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0010/aptm/cpu_audit/report.json",
+      "sha256": "271934ef56bbaedfefbb0496160d23bd0e26ecbc9a2025ad05a0050a20fad019"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0010/aptm/cpu_audit/manifest.json",
+      "sha256": "858c0052eee1b7ba1e5aad279c6e616149898e8382014f0fd877ece9c988d123"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/images/completed/manifest.json",
+      "sha256": "6b560e82d9148480c88b3c54e2adba89f96d471ec576871c7b69868303571683"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/images/completed/report.json",
+      "sha256": "d9c09c5f1b04a719649b88e132b22a785a8ca97681164d43fd7e2022d3f472aa"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/images/execution/report.json",
+      "sha256": "3735c3ba02fc28dfa7553e9ba853b4c1918e2943e0d554671d132653765b2532"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/images/protocol/protocol.json",
+      "sha256": "034f3e578066c636bd2c4127b46d038e46cabb086fff8ec8045776e90f0e9d16"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/irra/execution/report.json",
+      "sha256": "b3e1296400512ab17eb7cad8b5dfa47b3a80fa4e9fef58283eab130ea793d949"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/irra/result/metrics.json",
+      "sha256": "bf02586736310a34b699ee6d7c88503b204fd3fc5f29095cdc9b86fe5eed69e5"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/irra/result/manifest.json",
+      "sha256": "e0994b35d694cd27228b5c27e63d344221374c879d616dac0a1844d324925997"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/irra/result/protocol.json",
+      "sha256": "4409d34107954f40683a44705a22cfb1bcb83e344ede2948955c568cdc2251e3"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/irra/protocol/protocol.json",
+      "sha256": "973e994caa146cda08a38a3b825daded1024132550dd1129bee32c88598f8b3b"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/irra/completed/summary.json",
+      "sha256": "054a238a59f2d2b5bca15a80f696ced0ef4cb20f26b2d8dd48d916563a1a7c39"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/irra/completed/metrics.csv",
+      "sha256": "35c7970f91d8337ad5d3aaad2477374a826d46f37cdb1bca5393cec32f5c9a6b"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/irra/completed/metrics_2dp.csv",
+      "sha256": "2150fb32e49598e2c9eed124c220f8c433cdc74e63e8f760b86f7a05e6175cc5"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/irra/completed/manifest.json",
+      "sha256": "aa7fefe462fe2d2915a3cee82f1844108580ee33713393df09be91d9f90f880f"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/irra/cpu_audit/report.json",
+      "sha256": "4732c30c6f75c049a578a238b2a22878579cfeb7959de21265d697147a269e09"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/irra/cpu_audit/manifest.json",
+      "sha256": "8eb46095782e172963dfd0b6e3180190b5281e3544163a925055371501eb2761"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/rasa/execution/report.json",
+      "sha256": "65f15a55bca69ad6955fe7420fb3e2d1e3c491bc7e4d9b495cf5ac0fe5165785"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/rasa/result/metrics.json",
+      "sha256": "4a7c3a7ef65e12b5f702454fd6244d3dabf7dec11d6b975725f21e136f203bec"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/rasa/result/manifest.json",
+      "sha256": "d00a7f24157557374fe43280f1c9d0bc00836db8d4ba8d15092b2d5f35397696"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/rasa/result/protocol.json",
+      "sha256": "26abf4682dbb88b22abfcf0746edce3f96f00291f6a712431ae4e1a8fe2edba5"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/rasa/protocol/protocol.json",
+      "sha256": "87482a31b3dc1e186e6b05cc65c49b86118f5e82be911d2672d27d1568482cda"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/rasa/completed/summary.json",
+      "sha256": "deff2e875389dd97660f49fa55ffcbfae0e51c3831b64034662b19ce021c4d72"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/rasa/completed/metrics.csv",
+      "sha256": "869f3444ce66e83f4b398bf04a8948b4892ba27c2bcdda8e1a659a7947c66ac8"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/rasa/completed/metrics_2dp.csv",
+      "sha256": "35d4077e6265cd7093ffcc1958984d5f56c74a08e40c4e2be0be370fd84d13d9"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/rasa/completed/manifest.json",
+      "sha256": "0ec4c88ea71935a78f15d15675660721b8cf6afe25645b93a28f75a4ac91717b"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/rasa/cpu_audit/report.json",
+      "sha256": "37f0b84d32da471adcb46db8a8885b3d92d765c016769fb502c8532638ed9ff5"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/rasa/cpu_audit/manifest.json",
+      "sha256": "b6c0efff15574f92127b2ab2a88d3503cc5d9fd07dc1072dbc21127b9abb836a"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/aptm/execution/report.json",
+      "sha256": "e96a65af335cb319c81f38525a5d74514a376f9cf9259872e2adadcdd4fd2559"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/aptm/result/metrics.json",
+      "sha256": "ed2893b3aa7c4b9b3b93113ecf15979eb77b024d0026bad6aaf078fd6a330dd8"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/aptm/result/manifest.json",
+      "sha256": "b275c6516380333843bddad538100838cdde233af781fdad7a6742da6cb1f33e"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/aptm/result/protocol.json",
+      "sha256": "0e00b25c1eecaf1ae877b904cc1152db2e84887a8279b3dd362eba638babd76f"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/aptm/protocol/protocol.json",
+      "sha256": "6f119c3f3d5844b3222c30f2e6c9b8ea71f34ac4c66affb324a55e6bda27483f"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/aptm/completed/summary.json",
+      "sha256": "a40237952d2923c47b6222fce384f917f05ec6599ea4654fe3a1e2812de8daa3"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/aptm/completed/metrics.csv",
+      "sha256": "f96abd28c3688430e769b1894dbe747a8fde3ee419f5b71237fdd9c32016b354"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/aptm/completed/metrics_2dp.csv",
+      "sha256": "434fdf41f70fe283b8c08a219bc63a9c709ee150f6e4290bab7eaf6357514024"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/aptm/completed/manifest.json",
+      "sha256": "6282bdde9df818feac00327641bc8688e9a311b63e13938c38d4492f35098973"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/aptm/cpu_audit/report.json",
+      "sha256": "158f3cf44760c10720435ffc30a959af46594f230fb60399d826c07e41019c39"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0020/aptm/cpu_audit/manifest.json",
+      "sha256": "1c04a2c099be69344559b6a5620b708a69a9bc229e6ade8f0cf725ad66078ca6"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/images/completed/manifest.json",
+      "sha256": "66c7a97ecd783d7d99698f747aae6a7b9a007d0babd8a290b935067d3ad401f4"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/images/completed/report.json",
+      "sha256": "80e58a96f82861dd4659e235314a26b5f32cda897e18dee7fb478033275060a4"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/images/execution/report.json",
+      "sha256": "25bf5447970efb74545ade224072e616ea7bb3b83e10db83d792fe442a31d767"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/images/protocol/protocol.json",
+      "sha256": "38349a3e404a8cd4414f88ef3afddb3ff00c2f81214ab18df6b036827a18bc65"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/irra/execution/report.json",
+      "sha256": "03aef37aeab90bc3e564941275dba3a56bb8c1babaaabc53c75c885b9eda7254"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/irra/result/metrics.json",
+      "sha256": "8011939154bfef4c96936c991eaffab2240676ceeec9c904be843736c160861a"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/irra/result/manifest.json",
+      "sha256": "0d6b5d873aa10f188302c258c899125774e990b84cb0d6a482574e69b811223e"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/irra/result/protocol.json",
+      "sha256": "9f2150cae5c54b84fac35ee79e62c86fc693ecbb954caa82765f710aef2af7f0"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/irra/protocol/protocol.json",
+      "sha256": "f7efee21c549e2e96d11b03cf534d8fd540cdf24e0b2e8aeb3f5efda6c1c44f3"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/irra/completed/summary.json",
+      "sha256": "782e4f3ab08f051c53b36b58be951057df1fa1879e70e3ec0d4195db559b1e30"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/irra/completed/metrics.csv",
+      "sha256": "56b7468e3b0b3d6effd3981cfe3ec16038d113ad364d12998cdf7f7e78339ab1"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/irra/completed/metrics_2dp.csv",
+      "sha256": "299b0772534f8e54a28b3aa1f3078aa3d9638ff87ec037cf9123f4718374d287"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/irra/completed/manifest.json",
+      "sha256": "cbb7624ce959d8c38d731c7ace44729928278aaf91881b9af23e60916177e3f7"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/irra/cpu_audit/report.json",
+      "sha256": "6416bbc1a0021f9bdcc5b8bc54748cbaf19c459aa352e994fe440526e22b04cc"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/irra/cpu_audit/manifest.json",
+      "sha256": "3f38afd6a162cac78346704b3ce754ddabeb64e7cb4460c9ddb0c6a5e0d31d51"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/rasa/execution/report.json",
+      "sha256": "11086328b96e0029e6801f2d4669e4d3db10945a517b0634224b47a7aec27f20"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/rasa/result/metrics.json",
+      "sha256": "4a47379a8d5611990e78e7bfa3af027e7796bb4e70c0cc532364af2b90dc1656"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/rasa/result/manifest.json",
+      "sha256": "4b6c4142d115a4a183ec33ef209fed5181b6f81e79fdead9186af04f986a26db"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/rasa/result/protocol.json",
+      "sha256": "10cc0ac373e6ba0aabcd504a7d6a346c31712344ca033fa7166590c23ba03699"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/rasa/protocol/protocol.json",
+      "sha256": "25b56c4ef61ba407920f16f69f90d400797634fa7c9ae61cf6ae884d4dc701f0"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/rasa/completed/summary.json",
+      "sha256": "bd47ff2af1c1ece1360b32022b9513f8c9fe23098fe323738278fa6602a0b1a4"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/rasa/completed/metrics.csv",
+      "sha256": "87ff4ecbf28ccc20d9aa271f13815f1e00c01a8f65719049dfad3b11b81f9fad"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/rasa/completed/metrics_2dp.csv",
+      "sha256": "2966ef84ad66dbd4e0b2bd044405a8812da6ec5b0c15df1cc04de76f69bf8002"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/rasa/completed/manifest.json",
+      "sha256": "2559d2c27df044521460087a7dae9cac11e92bdc03cf699ac961a8b9200100cd"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/rasa/cpu_audit/report.json",
+      "sha256": "3f07227553d21c892d548071ebffed2483a08cdb439885c2d96ce1369f9fcce9"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/rasa/cpu_audit/manifest.json",
+      "sha256": "36311449fa0dfb896f405a98f87ebee67b9a72af318d81d3ac0fa6777e59e2a2"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/aptm/execution/report.json",
+      "sha256": "65d33b5879ecb4de017f05d4e777fb3e78f232eb6d3e458daeb1d47238abf887"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/aptm/result/metrics.json",
+      "sha256": "1efd0f502686e630b47b895c66ac8e88b8da8eb04ac62f73d912affbf5af0f92"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/aptm/result/manifest.json",
+      "sha256": "2b834cda65de70c96e16e006745b993f034847189ac66a9a0de6b65b58f1d26b"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/aptm/result/protocol.json",
+      "sha256": "a605150c7087f5659467d0788b40416c68deb4f8a71254516e82abe339312a14"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/aptm/protocol/protocol.json",
+      "sha256": "8c7bcc698356778604cf852b99eb8d935b1cdb6f15b8df08990178ee8b8f29e8"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/aptm/completed/summary.json",
+      "sha256": "ad18a3d284d9846bfd9ef97f1f300482073b0f2f717b754f541b8cd44de7a7f6"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/aptm/completed/metrics.csv",
+      "sha256": "c04db8d0bc1e266ce0a72faf0cf33b560223821238b71e21d76cca4757fa1062"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/aptm/completed/metrics_2dp.csv",
+      "sha256": "6a6ba1855cd588b7598f853ae667da9a504f5dbe48878991abdf41a582c4981e"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/aptm/completed/manifest.json",
+      "sha256": "c69340459079a3853d65c12ac4021d932ad34e2da685015dcfab59ee96c6289e"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/aptm/cpu_audit/report.json",
+      "sha256": "04f1fcc1f9020289fd12c0531abec1f69d08ec37c63d856662c6050fc707fbcf"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0030/aptm/cpu_audit/manifest.json",
+      "sha256": "5ee52fbde18d9e5f54ca7d7e4b802c5325c386ed611d31ec4b2e8157db0eca82"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/images/completed/manifest.json",
+      "sha256": "6c45c8fbeb36dfd1e505f6f136cf38161956e7955860804ac7774dc93ff37db3"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/images/completed/report.json",
+      "sha256": "c47fef8cf5e987bc7fb40c0eeb459c08febcdba0588fefae14e1e95d47a25ba3"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/images/execution/report.json",
+      "sha256": "4888949caba1953f4f72ccdbcb1ce13d05ce7546e9cc42c958e9325fed51e88a"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/images/protocol/protocol.json",
+      "sha256": "f65a382572ccd811171d70a518932aab541db83d6fec3990e236f4795144fe19"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/irra/execution/report.json",
+      "sha256": "2ddde5c70363e819c70fe091c7ff0bb8cba212374ee7f9f6d713ef5c868fa1a3"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/irra/result/metrics.json",
+      "sha256": "5161761b7a6b068ad3427bf8c55a34dd5f28d0b526c2607c1c0b34657ee3a20d"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/irra/result/manifest.json",
+      "sha256": "72adcdf3bc3d6ccc473785cde92491509bf8658770fa91e90c88d3e4ced82401"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/irra/result/protocol.json",
+      "sha256": "a0d4cb0d899149a06f11532b285cd0a85821df25f61c13e33732b174c95b5c0f"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/irra/protocol/protocol.json",
+      "sha256": "86a8af8fac086844a1ab42c06465c35758bc034011f0c05404b8f3d37a255a3a"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/irra/completed/summary.json",
+      "sha256": "b2c478ed940c622a37cbb2cd1faebd12939b1d0796b18fbdf998b0f49b701fa8"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/irra/completed/metrics.csv",
+      "sha256": "b47db77a66da01a53844b31e8151e9872c6d929b95da41fb89627ffe6940e365"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/irra/completed/metrics_2dp.csv",
+      "sha256": "8403914910137010054bb1ba85a4d5de4dc5465a5d905b35a121724da0cfe3a3"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/irra/completed/manifest.json",
+      "sha256": "55002c00927ff860a6ab875c419693285f3c484980d9810fc826bd582e2f032f"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/irra/cpu_audit/report.json",
+      "sha256": "bf621b8a060bfdabb7d913569c46baa32ae405ff32837e97a6f843b054401fce"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/irra/cpu_audit/manifest.json",
+      "sha256": "e7297b53da21ebea0ef8b1f1d6ab13939d29ac088df8052d8ccc7e58b8bddfce"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/rasa/execution/report.json",
+      "sha256": "bb9af79f21e4584e257c46c399359654544a6380b395f1d9068b3d9a75250a93"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/rasa/result/metrics.json",
+      "sha256": "5d84e7f12ea0282faea0bc6435f90b8ab3fadc6c33e7ee723059b0cbbb58bcd9"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/rasa/result/manifest.json",
+      "sha256": "72bff2ce707d023f5d8f2e43a30e7f32365eb7379d378a5deab37e2d9a149221"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/rasa/result/protocol.json",
+      "sha256": "9be38930037d18b9c4bfaec81aaf97ed3b75fb423eb45a87fae565b5596f7233"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/rasa/protocol/protocol.json",
+      "sha256": "b1c7b00a78f3f90d577d34ddae4114bf1c1eba96b5fefed7de22d3a519631c69"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/rasa/completed/summary.json",
+      "sha256": "b40eadcc49ed06146f6ebb552a3edd60805dc8f28c1ccd232b6fcdda1079e472"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/rasa/completed/metrics.csv",
+      "sha256": "bfd27170654f611dc80e0fb32c7a195eaecccf554b2bdf1c78e7ecaf28826246"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/rasa/completed/metrics_2dp.csv",
+      "sha256": "ce5ebe3790a12575e61b9c258854b5678d78a5852f593fb9c07beffede7e851d"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/rasa/completed/manifest.json",
+      "sha256": "6647299f01adc86a6870927d21f404f7cc56d0ee803c5576bd7c6b2c00b21b19"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/rasa/cpu_audit/report.json",
+      "sha256": "c9c04571f0f5c88c4efb3fa69139d2c5a2dbef06373d8a3c460ba50a30fa0301"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/rasa/cpu_audit/manifest.json",
+      "sha256": "c3e61c3e8ade9b121d1dba5356f1b853014789b7c392d68730d445d8c3f1a468"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/aptm/execution/report.json",
+      "sha256": "4376210a9d93cd57a1835166d7072b1bcdca1d04b157ae95ee387b0b6710eac5"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/aptm/result/metrics.json",
+      "sha256": "e001b2c2d64dadc4791f624fa7bfce8a5a2ffe68ed8f60c408a4ff9bffb8bc67"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/aptm/result/manifest.json",
+      "sha256": "8f74f78297fc68ed3ba88d207959549671df1f42882270213f3cd9a63f025eed"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/aptm/result/protocol.json",
+      "sha256": "4d9eed24cca089d7e70d2e2dc56a0098b667462b442a21d1c5e5849d8f71a5db"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/aptm/protocol/protocol.json",
+      "sha256": "223b8c8ece656ca53e531062141ff463fa059397d5dbef9bdfb09505daf886cf"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/aptm/completed/summary.json",
+      "sha256": "f3310ab905c51de4d6042d892fec73df682aa481947c9f80012beea6c93f1fca"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/aptm/completed/metrics.csv",
+      "sha256": "3b221ae6858a30b946c952b6ee5c5645ac6c4269729aff54dba048475dd86812"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/aptm/completed/metrics_2dp.csv",
+      "sha256": "90ce2a729fe854e3cd168b0072046c76f091ee8b0f50af2e10e08d2b6d5ce129"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/aptm/completed/manifest.json",
+      "sha256": "6102ac70c0f9dad77ccbad39ef497140aab73ebb76bc1cb47ba9fc192a7ae6b9"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/aptm/cpu_audit/report.json",
+      "sha256": "e0786223b65e00872b7fffedb339697399dda8cd1d0e679bcb2f5f0c9724ef5a"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0040/aptm/cpu_audit/manifest.json",
+      "sha256": "ec74db50f5df20d71d89ce1548777ad5a6840332cb1c26bb1063a2e7e4576cbd"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/images/completed/manifest.json",
+      "sha256": "01da65631307ad73172d722ae605eecd4fafe4f100ba3b2cb5d174c965b6d077"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/images/completed/report.json",
+      "sha256": "f0a63217dfa6b1adc4f083021c61dac373e24a7bb234ea43f5ffdc9bf2d630d4"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/images/execution/report.json",
+      "sha256": "4ff0385647d3dad80fa02243a4273333806c5c0b954eb20c1897f7e71504e4c3"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/images/protocol/protocol.json",
+      "sha256": "e77feb34abe4f87b60c3807b1d15740b880bddcaf2ddade6830ed03e45feec47"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/irra/execution/report.json",
+      "sha256": "86395e6e3eeb58558aec554fc1ccd8c6649c18d1719bc799fee34f88a64da15e"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/irra/result/metrics.json",
+      "sha256": "7e8cfbfce5685e5162d939194543b71288f192b4bd5ea121a6422039675fda8d"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/irra/result/manifest.json",
+      "sha256": "cd4cdba7cb7905cad204140aecb9fe1e70018b3f83160c30d24d286d25ecad2a"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/irra/result/protocol.json",
+      "sha256": "27f6d3a8583a09fb12ec74a356db175204197b933ec2824928cfe8266286bfad"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/irra/protocol/protocol.json",
+      "sha256": "247fec0d1349c9bc5752205e688ac0769d4c716b0db6004c122f946d9876d210"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/irra/completed/summary.json",
+      "sha256": "57fe1f0f85079c42d6e7e5fe049c57ca4f39c946586e7cf22b78a5b69330ab86"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/irra/completed/metrics.csv",
+      "sha256": "42aac0e6c842d3c6af177f0b73a964fc821d4c399e74458f41e58f1b3d78ba9e"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/irra/completed/metrics_2dp.csv",
+      "sha256": "2c6b89a2edd12253db02b7eaca35f427fe3cc395d42f46693eeb9036e4e8e5d4"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/irra/completed/manifest.json",
+      "sha256": "43116fa63b2f13050be18ac4b707001282e2c8015cf6fb88562490dd23f14cf6"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/irra/cpu_audit/report.json",
+      "sha256": "d9103d7f31eca3db6386a3e361be17ad7c1e5b2e798e2517ccc25c396de6275d"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/irra/cpu_audit/manifest.json",
+      "sha256": "82c25f3078dccd450f7d6af189f55da80766af1d0ad9382d85082a22c8d4cd91"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/rasa/execution/report.json",
+      "sha256": "97fee5bc1198a3d8309230ec045ce00af47a1da9de9fdb05a72da610e56bb82a"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/rasa/result/metrics.json",
+      "sha256": "72269bf6f4531d9cc58940e1fc5227672bb8df83c208dab0f7a56766cb22233a"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/rasa/result/manifest.json",
+      "sha256": "04ded20309fe391e40b64bdc85e4750d1115f2363fc4106e52385723e0110c4d"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/rasa/result/protocol.json",
+      "sha256": "e45708d4fc2d8af7bf53d063c8487113fd08bbdf6d977ca149612f43e6dc8120"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/rasa/protocol/protocol.json",
+      "sha256": "507d412b39af2484fc749850e9889d8346c931c68483f5b11da331bad9f81122"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/rasa/completed/summary.json",
+      "sha256": "1e566aa3c789c5f162db87cfed9f474408613d459a2960f4cbb3ed38ff86e8ba"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/rasa/completed/metrics.csv",
+      "sha256": "3cddd70b5d4e3196e0a8080742c49364f46ae4ac5efcf000649ef3399b2ad0d0"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/rasa/completed/metrics_2dp.csv",
+      "sha256": "cec153eea01b31fd7efb68e3d06a0bd7abadfa16b6a1798f7d611b3e54ff30e0"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/rasa/completed/manifest.json",
+      "sha256": "ae2649aa6e8e21da4726932e562713b390fd841af1854ea5c8c8b7eaf831cb87"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/rasa/cpu_audit/report.json",
+      "sha256": "a406461c9f014cff83f76366bf3338e91cde77bfacc468a769024568432a3adc"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/rasa/cpu_audit/manifest.json",
+      "sha256": "5c3220cb7323c2dd1b4f6c8704b5663e257f5ba19475e230123fa618ee6ec00f"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/aptm/execution/report.json",
+      "sha256": "a4ace56f8e35977d522b4be8cbd4c5dd8ae16cb6f44e8d416201f8aa8da2f8bc"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/aptm/result/metrics.json",
+      "sha256": "9eb7fbc38aeec325c6477165d6dd81a0bdce6ce88630c15afd80aa51d5d66a77"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/aptm/result/manifest.json",
+      "sha256": "450ec41010d97a4000f9471be87eb48f963d00312550d4ffb426a7b439349856"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/aptm/result/protocol.json",
+      "sha256": "3573d13640842bc0ae19c783ef67118c6c8324585fb30f31d045d11c22981dca"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/aptm/protocol/protocol.json",
+      "sha256": "cb009f417159780f683676edb4310bbc5cd0fe4a78756d4274f524731b805c2c"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/aptm/completed/summary.json",
+      "sha256": "deca3c542a865a3073728bbe7faae22ae18f8b4d8204a2d12ca334cf3bf18fe7"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/aptm/completed/metrics.csv",
+      "sha256": "5590adcabfd931c2689be405b734428fe233608a94ffc36d5c4c900ee03a5444"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/aptm/completed/metrics_2dp.csv",
+      "sha256": "89382884e8d6bdad73f1f24138d80bc904c64727ec1260d0b2b391b6fa293ed3"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/aptm/completed/manifest.json",
+      "sha256": "f5d0f45f316dff1ac80907d24a870185a8c6a2548e839824dfc7119e9c8c2dfc"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/aptm/cpu_audit/report.json",
+      "sha256": "67249c921bcf4fb589246ec11e1723c555be4f40ed0f21a73313c6518360b284"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0050/aptm/cpu_audit/manifest.json",
+      "sha256": "d8e04f8762e6444f026febe51d4a1575ff3df038bc62642ceaa668eb0a7d03d9"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/images/completed/manifest.json",
+      "sha256": "d66b143e97553fba9255262a57a5ff584d128df516c44decc6a11bd73651957d"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/images/completed/report.json",
+      "sha256": "73e9cc63263688cd7c88f57f1ad3d1ebfe25ef014221eb250b8f76be3069729d"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/images/execution/report.json",
+      "sha256": "e02b3189d799cdf14a88c8fba934027ee012a46b36d157feaeac5d4be0c5625a"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/images/protocol/protocol.json",
+      "sha256": "ffa2561ab6932be3fa87ababdc67181fa7747879b306f18c0fb3b3b9a5457d86"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/irra/execution/report.json",
+      "sha256": "2476189999767b13f760237e8fcc13313e8a0c20304ff83e9c8a8b22d2f348a6"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/irra/result/metrics.json",
+      "sha256": "5bba9734f43c9229ed015a123a189e91335ab63f9170c1a92915769e904a88c3"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/irra/result/manifest.json",
+      "sha256": "4bb9571a1308fce1ce442452752102fe95e90d1659f9404ea4b10941a2d0d396"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/irra/result/protocol.json",
+      "sha256": "a6925c002abb95ac382a2609c8effb8efc8ca9dd14fbc22c1684899d3dc4922e"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/irra/protocol/protocol.json",
+      "sha256": "e55052ba8cf3ddb8ffbd518e29083946cbefbaed4cfd1bc55c7da0a2ae686760"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/irra/completed/summary.json",
+      "sha256": "dcc0c757a7364935e6b133a623e2b1fdfec044caad8e25a50063644afe2297eb"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/irra/completed/metrics.csv",
+      "sha256": "415a63e64bd88b1372ef5e309b286139ba12266159422589c076b14943965fd4"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/irra/completed/metrics_2dp.csv",
+      "sha256": "f2e49c7dab1a23e5276c091e1134b2afab3ae6c0d86b56a7c151aa5d6044fe63"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/irra/completed/manifest.json",
+      "sha256": "a4cd8ce058fa4667f63d63426f3ff0e7dcef9f1ad1eebeb2cf1c6870e78f97eb"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/irra/cpu_audit/report.json",
+      "sha256": "e7fa3a2f63a37c11eddc56cd1f60f3203b0b6f2e5de7c1eb0ac58af85fb0c8e8"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/irra/cpu_audit/manifest.json",
+      "sha256": "d05b1b5e12a04ee7255554444b50a111ca08dc5554e62678f9a3b36e832d519c"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/rasa/execution/report.json",
+      "sha256": "dd59b28af28f0c190b7246216b6de58c4a4a306c60ede0dfbe29dac929f0313f"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/rasa/result/metrics.json",
+      "sha256": "94ec9339b0139017b2fd23b6bad72360f0672683807df3286e9567805ade0bb5"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/rasa/result/manifest.json",
+      "sha256": "c28c019b4f90f713793d951f79fab9006e45c1406b2dd0fc14c722c177246a9e"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/rasa/result/protocol.json",
+      "sha256": "620cd35036825916600d19b8b9f43d63a4796c3287849e4b37d3a69bd3179283"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/rasa/protocol/protocol.json",
+      "sha256": "bf754960cc16e576b77a4b03aa2be1b88dbb9deb4a43fa845d401a24c2ec3674"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/rasa/completed/summary.json",
+      "sha256": "48eed7eb186bc26ba88271285101a93b636c24914175d474d2f49c010a4b5acb"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/rasa/completed/metrics.csv",
+      "sha256": "e94b74a1ae76ae97b397624a7ab396577091a83a3e94561de1bfb72b9d8dc5d4"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/rasa/completed/metrics_2dp.csv",
+      "sha256": "a31c391314faa4227a199b3d8c8682d12619703e00ae4aa8ad78c36dffddd2b2"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/rasa/completed/manifest.json",
+      "sha256": "5baec6a58bbf20883a8edcc6e0a3d137f76993cbe2b3cba7cf9002b292d6b2ef"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/rasa/cpu_audit/report.json",
+      "sha256": "43fd45581209feea3796d6d6d8b6ffd85c8bb5bd42e1214dd552cb5f293db30c"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/rasa/cpu_audit/manifest.json",
+      "sha256": "803166b285c71e9c08632ba4c595018452c358e479adfd51a370a12acdfe2682"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/aptm/execution/report.json",
+      "sha256": "78160ac2e5088eb874f518f0e706f5f518a86566e2583ab045da2fc38d1044e1"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/aptm/result/metrics.json",
+      "sha256": "1893957a2786c29e3ac6f186670804c6010aaef5e5112e2d4118ab265121e724"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/aptm/result/manifest.json",
+      "sha256": "23d611897ff855eaf5bb41c99b544affa6365b8c368d6136dc1109cacede57c4"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/aptm/result/protocol.json",
+      "sha256": "94efabfc87cc23eafec124d9134f122ea13211e3f4ef8490771555f54bbb59dd"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/aptm/protocol/protocol.json",
+      "sha256": "cf5e448c61f302fd64f13ac12556cf1e7633305cf6a8afc2230ce7d7d8267cd8"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/aptm/completed/summary.json",
+      "sha256": "4d9b4d9c2f5b103507a0a6fe43e2557868bf0ea47d647e62e9486a6a3c7f441d"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/aptm/completed/metrics.csv",
+      "sha256": "55ecbb0e57eab80ce02d087fb3f44ab7560c3d8600cb4c889042e83bcff860e8"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/aptm/completed/metrics_2dp.csv",
+      "sha256": "cb19b887156faf701e0fa8a8f982efdd4d94c962f4b2f1851294ad95890f3867"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/aptm/completed/manifest.json",
+      "sha256": "a8a36e87c732eb58b97cca5871495429e470edceb201944c95c1d3b76f9b8057"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/aptm/cpu_audit/report.json",
+      "sha256": "ed1befae52a803175d992ccdca076cd8236a0a6518d91203e82ef8d28292fac5"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/aptm/cpu_audit/manifest.json",
+      "sha256": "c58eb8851281fff4dbb1b6c2460522b20551b53a692f741f269e8047f63781ba"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gv2-epoch-sweep-20261020/docs/framework/results/gv2_epoch60_training/loss_raw.csv",
+      "sha256": "71fe80baf42915bee83a23bc53b8b39c998318a562fe5dc5cf3ea7f541ad9a4d"
+    }
+  ],
+  "exhaustive_hash_inventory": {
+    "path": "/home/lzf/ldx/tmp/gv2_sweep_analysis_20261021/verified_file_sha256.json",
+    "sha256": "39de994a0ad1a68d49ee25a326ccccc119729f25e782761aeee0d6c6cf43caa5",
+    "scope": "all new artifact payloads and direct declared source refs; binary files hashed as bytes only"
+  },
+  "protection_inventory": {
+    "path": "/home/lzf/ldx/tmp/gv2_sweep_analysis_20261021/file_protection.json",
+    "sha256": "77c396f02feaf1e5020f1c8482b52e350cbc46c1eb1e4fbae7d4b8ec66c55d78"
+  }
+}

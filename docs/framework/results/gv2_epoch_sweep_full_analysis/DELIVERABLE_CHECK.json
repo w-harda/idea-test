@@ -1,0 +1,25 @@
+{
+  "status": "DERIVED_DELIVERABLE_CHECK_PASS",
+  "timestamp": "2026-10-21T19:32:08.081848+08:00",
+  "original_metric_values_exact": 168,
+  "attack_rows": 36,
+  "control_rows": 6,
+  "DR_rows": 36,
+  "DR_independent_decimal_tolerance": 1e-12,
+  "figures_png": 6,
+  "figures_svg": 6,
+  "SVG_XML_valid": true,
+  "visual_contact_sheet_review": "PASS; removed overlapping endpoint labels; fixed palette/legend and 16:9 numeric Epoch axes",
+  "protected_original_files": 128810,
+  "changed_original_files": [],
+  "frozen_producers_recheck": 107,
+  "CSV_SVG_LF_no_trailing_whitespace": true,
+  "original_cpu_audit_rerun": false,
+  "GPU_used": false,
+  "plotting_environment": "/home/lzf/ldx/envs/apattack/bin/python; Matplotlib 3.7.5/Agg; imports only plotting libraries, no torch",
+  "PNG_dimensions": [
+    3200,
+    1800
+  ],
+  "CSV_metric_roundtrip": "exact"
+}
