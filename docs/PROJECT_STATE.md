@@ -2,7 +2,18 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：G60 × H1–H10内部Validation探索性适配诊断PASS
+## 当前阶段：H10→H60的G60适配续训准备，CPU父恢复PASS
+
+独立codex/hv1-g60-adaptation-epoch60，基准807fdc6。
+新Extension保留原H10完整协议/Adam/RNG，绝对Epoch11起步；不修改历史H10/H7、Selection、G60或结果。
+真实CPU父恢复H/Adam/CPU RNG exact，20480 visits/20370 updates；CUDA RNG待真实Smoke。
+75项初轮CPU回归及24项受影响/恢复回归PASS（78个不同用例），尚未生成正式Train Gallery、未启动训练。
+本轮已授权图库2048图一次生成/审计、4 visits独立Smoke、门禁通过后正式50轮及固定内部Validation。
+[协议与命令](framework/HV1_G60_ADAPTATION.md)，研究身份见ADR-0014。
+当前实际阶段以新增不可变回执和启动报告为准；不允许自动Test或其他分支训练。
+
+## 已完成：G60 × H1–H10内部Validation探索性适配诊断
+
 
 基准be30206f，冻结执行048fafc15040f90f7152f78a3b4d48728bd300ac；独立codex/g60-h-validation。
 32新/受影响CPU用例、129既有通过用例及1原路径冻结用例，共162个不同用例验证PASS；原失败日志保留。

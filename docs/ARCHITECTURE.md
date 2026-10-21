@@ -327,3 +327,11 @@ g60_h_validation仅复用原G推理和IRRAAdapter/官方rank；新图像产物�
 不因各H候选增加G/IRRA前向。最终独立CPU进程复核11组128×128原生评分/官方指标；
 保留旧Selection和G10缓存，新增G60 Gallery有独立内容SHA及128生成证明。
 结果仅为重复内部Validation的探索性诊断；不新增Test自动选模能力。
+
+## H10父状态的G60奖励适配Extension
+
+hv1_g60_state只读核验父状态并建立新契约，hv1_g60_adaptation为原H SCST/奖励/事务Checkpoint的调度层。
+不调用旧正式execute/rollback写历史目录；新链以H10的cursor20480/updates20370作为已验证父边界。
+独立G60 Train图库只生成一次，训练/Validation TextRuntime不持有G且禁止图像前向。
+新节点Validation复用原128 G60 Gallery，原Clean/文本及候选只读引用；不新增统一训练引擎。
+协议差异与恢复边界见ADR-0014。

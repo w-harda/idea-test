@@ -500,3 +500,10 @@ G60/IRRA图像128/128，H/文本/优化0；前2图Smoke保留、完整新审计P
 G60 Image-only mAP48.80861282348633，Joint H9最低40.425479888916016；H7为41.59333801269531。
 原正式H7 Selection不变。输出/home/lzf/ldx/outputs/tbps-framework-g60-h-validation/{validation_v1,audit_v1}/。
 完整来源/四指标/排名/限制见framework/results/g60_h1_h10_validation/REPORT.md；不是Test或跨模型新结果。
+
+## H10→H60的G60适配续训准备
+
+基准807fdc6，独立分支codex/hv1-g60-adaptation-epoch60。
+父H10 SHA4ae964d5…4bacd，G60 SHA9148a6ac…60949；同一IRRA、原2048 Train/128内部Validation。
+CPU完整H/Adam/RNG恢复已验证；真实图库/Smoke/正式训练以新输出tbps-framework-hv1-g60-adaptation-epoch60回执为准。
+这不是全部60 Epoch从零G60训练，不覆盖旧Selection/Checkpoint/实验产物。
