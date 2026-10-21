@@ -1,0 +1,38 @@
+{
+  "status": "CPU_REGRESSION_VERIFIED",
+  "unique_cases": 162,
+  "new_cases": 32,
+  "previous_common_passes": 129,
+  "legacy_path_case_in_original_tree": 1,
+  "new_test_exit": 0,
+  "original_path_case_exit": 0,
+  "previous_combined_log": "158 passed, 1 failed; original log retained; KeyError before assertion due old absolute binding",
+  "initial_fixture_failures": "tests.log:4 Fixture namespace failures before interruption; Fixture fixed, no historical Store rule changed",
+  "logs": [
+    {
+      "path": "/home/lzf/ldx/tmp/g60_h_validation_20261021/tests.log",
+      "sha256": "98747bed2732b647a79c74894d8d703342b935e20df8f81247d8e87c02927eb8"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/g60_h_validation_20261021/tests_regression.log",
+      "sha256": "8d087b6ab8974ef7ce541d534cf07f256e097644d71d870bb857b98446961702"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/g60_h_validation_20261021/tests_resume_1.log",
+      "sha256": "ca5d4cb2e874a18dd0c8deed1c53893f45d97f25abba43979422634d17b2e7e0"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/g60_h_validation_20261021/tests_resume_1.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/g60_h_validation_20261021/test_original_path.log",
+      "sha256": "57be52af4623aba7a288aead2dd5009536a86c289e7cfad4320fe4586d4c738b"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/g60_h_validation_20261021/test_original_path_exit.json",
+      "sha256": "3c7bf6fa9c7fb5971af9968dfa77e56ed072cc2010af13d0ac38f63ec504bb2d"
+    }
+  ],
+  "no_assertions_skipped_or_loosened": true
+}

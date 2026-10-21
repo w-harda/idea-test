@@ -1,0 +1,65 @@
+{
+  "G10_rank_order": [
+    7,
+    8,
+    6,
+    9,
+    5,
+    4,
+    1,
+    10,
+    3,
+    2
+  ],
+  "G60_rank_order": [
+    9,
+    8,
+    6,
+    7,
+    10,
+    2,
+    5,
+    3,
+    4,
+    1
+  ],
+  "G10_best": {
+    "H Epoch": 7,
+    "G10 Joint mAP": 67.49383544921875,
+    "G60 Joint mAP": 41.59333801269531,
+    "G60 Image-only mAP": 48.80861282348633,
+    "G60 Joint extra drop pp": 7.215274810791016,
+    "Text-only mAP": 96.32160949707031
+  },
+  "G60_best": {
+    "H Epoch": 9,
+    "G10 Joint mAP": 68.97724151611328,
+    "G60 Joint mAP": 40.425479888916016,
+    "G60 Image-only mAP": 48.80861282348633,
+    "G60 Joint extra drop pp": 8.383132934570312,
+    "Text-only mAP": 95.9375
+  },
+  "G60_second": {
+    "H Epoch": 8,
+    "G10 Joint mAP": 68.67459869384766,
+    "G60 Joint mAP": 41.31407165527344,
+    "G60 Image-only mAP": 48.80861282348633,
+    "G60 Joint extra drop pp": 7.494541168212891,
+    "Text-only mAP": 96.26303100585938
+  },
+  "H7_G60": {
+    "H Epoch": 7,
+    "G10 Joint mAP": 67.49383544921875,
+    "G60 Joint mAP": 41.59333801269531,
+    "G60 Image-only mAP": 48.80861282348633,
+    "G60 Joint extra drop pp": 7.215274810791016,
+    "Text-only mAP": 96.32160949707031
+  },
+  "H7_minus_best_G60_pp": 1.1678581237792969,
+  "G60_second_minus_best_pp": 0.8885917663574219,
+  "spearman_rank_correlation": 0.6,
+  "G60_H1_minus_H10_pp": 1.8172378540039062,
+  "G60_H10_minus_H9_pp": 1.2659263610839844,
+  "G60_spread_mAP_pp": 3.0831642150878906,
+  "diagnostic_not_new_selection": true
+}

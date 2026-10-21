@@ -1,0 +1,308 @@
+{
+  "status": "G60_H_VALIDATION_PASS",
+  "source_execution_commit": "048fafc15040f90f7152f78a3b4d48728bd300ac",
+  "base_commit": "be30206f3d6170c06cb34716e3b111f52945c0af",
+  "config": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-g60-h-validation-20261021/configs/framework/g60_h_validation.server.json",
+    "sha256": "bc622e7b6ee7288ab215c2843f1c71d4210e6f8b5ed3a47897c64e47fc7edaae"
+  },
+  "preflight": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-g60-h-validation/validation_v1/protocol/preflight.json",
+    "sha256": "84652d50dd2d6d9e203e20eb986d70532ed76c89c55102f571caac90d5024c3a"
+  },
+  "preflight_artifact": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-g60-h-validation/validation_v1/protocol/manifest.json",
+    "sha256": "78c940b7fc0dc6e9aeaf66a9dd83977e105df7f0ac07db796fd6e19c45d8a620"
+  },
+  "GPU_execution": {
+    "GPU_peak_allocated_bytes": 836359168,
+    "GPU_peak_reserved_bytes": 908066816,
+    "G_after": "5d48caab6a891a1afd3aaaa6f3594eb5f860ccd7b6090708d289224e6c819e47",
+    "G_before": "5d48caab6a891a1afd3aaaa6f3594eb5f860ccd7b6090708d289224e6c819e47",
+    "G_completed": 128,
+    "G_loads": 1,
+    "G_started": 128,
+    "Gallery": 128,
+    "H_forwards": 0,
+    "H_loads": 0,
+    "IRRA_after": "f72a69c88229d38caabd5c47f6647adc1fd9f3b444218ebcc9c8e1eb723a078f",
+    "IRRA_before": "f72a69c88229d38caabd5c47f6647adc1fd9f3b444218ebcc9c8e1eb723a078f",
+    "IRRA_images": 128,
+    "IRRA_loads": 1,
+    "IRRA_text_forwards": 0,
+    "JVP": 0,
+    "Query": 128,
+    "all_queries_retained": true,
+    "backward": 0,
+    "diagnostic_not_new_official_selection": true,
+    "elapsed_seconds": 39.31859255209565,
+    "forbidden_attempts": {},
+    "history_results_not_recomputed": true,
+    "max_linf": 0.0313725471496582,
+    "model_space": {
+      "checkpoint_sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009",
+      "model_id": "irra",
+      "precision": "fp32/math/no_tf32",
+      "preprocess_sha256": "61f02eb3fd01e909b2bd0272c2c7dce2b9a2fddf41794989ba3ca27e1529fb25",
+      "scoring_protocol_sha256": "5032f7f1f46e87b3b26eee137cfbd99d7b3f5c65751b160ec8ccafc6baa2c5b4",
+      "sources_sha256": "a2765a2602f21acdd10cdacb072f481a0d19f17f0d2703626d9d8bf2ea42f87d",
+      "tokenizer_sha256": "f0c9ac2862623d9274d8c546f55a41de978fa2d8730bf640e100cd234f8f7bad"
+    },
+    "models_frozen": true,
+    "optimizer": 0,
+    "peak_RSS_bytes": 2456141824,
+    "resources": {
+      "GPU": {
+        "compute_processes": "1402779, /home/lzf/jmk/envs/foa_v5/bin/python, 5612",
+        "free_mib": 18431,
+        "name": "NVIDIA GeForce RTX 4090",
+        "policy": "shared_observe_only",
+        "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 18431, 5660, 94",
+        "total_mib": 24564,
+        "used_mib": 5660,
+        "utilization_percent": 94
+      },
+      "RAM_available_bytes": 121404039168,
+      "disk_free_bytes": 6189813583872,
+      "free_inodes": 240266354,
+      "policy": "shared_observe_only; no waiting/interference"
+    },
+    "same_gallery_shared_by_all_10_H": true,
+    "status": "G60_H_GPU_AND_SCORING_PASS"
+  },
+  "GPU_command": {
+    "argv": [
+      "/home/lzf/ldx/envs/tbps-image/bin/python",
+      "-B",
+      "-m",
+      "tbps.ablations.g60_h_validation",
+      "--config",
+      "/home/lzf/ldx/projects/idea-test-tbps-g60-h-validation-20261021/configs/framework/g60_h_validation.server.json",
+      "--action",
+      "run",
+      "--allow-validation-gpu"
+    ],
+    "cwd": "/home/lzf/ldx/projects/idea-test-tbps-g60-h-validation-20261021",
+    "code_commit": "048fafc15040f90f7152f78a3b4d48728bd300ac",
+    "start_time": 1792592113.7894745
+  },
+  "GPU_log": {
+    "path": "/home/lzf/ldx/tmp/g60_h_validation_20261021/gpu_validation.log",
+    "sha256": "6e7ed96c8a79a2f527e7a5336f4073cba04edbf3e5d51be5250134d3d343e347"
+  },
+  "GPU_exit": {
+    "exit_code": 0,
+    "end_time": 1792592169.9900084
+  },
+  "summary": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-g60-h-validation/validation_v1/completed/summary.json",
+    "sha256": "0aaa51df2b57fb34578cb448cc23a0e7521f347b0b9dd6424ef8584198fe28f9"
+  },
+  "metrics_raw": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-g60-h-validation/validation_v1/completed/metrics_raw.csv",
+    "sha256": "3538d55b6b3b66216fedab1bd9d0b9c00d0d5a4d3a318305c9ca0963b0d68b18"
+  },
+  "metrics_2dp": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-g60-h-validation/validation_v1/completed/metrics_2dp.csv",
+    "sha256": "d66ac330873a11933db1b151cf6cfab9c2b4585fd08a89187aab8ea5edc71973"
+  },
+  "completed_artifact": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-g60-h-validation/validation_v1/completed/manifest.json",
+    "sha256": "c793bc5b923b0e6fad04379ddb23f66ba14f81026210bdaeb9892c6cc90b4cc1"
+  },
+  "prefix_smoke": {
+    "counts": {
+      "G_completed": 2,
+      "G_started": 2,
+      "IRRA_images": 2
+    },
+    "cpu_readback_audit": {
+      "images": 2,
+      "no_new_forwards": true,
+      "status": "PREFIX_CPU_AUDIT_PASS"
+    },
+    "indices": [
+      0,
+      1
+    ],
+    "max_linf": 0.0313725471496582,
+    "retained_as_part_of_128": true,
+    "status": "PREFIX_SMOKE_PASS"
+  },
+  "independent_cpu_audit": {
+    "G60": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0060/checkpoint.pt",
+      "sha256": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049"
+    },
+    "H_candidates": 10,
+    "counts": {
+      "G_completed": 128,
+      "G_started": 128,
+      "H_forwards": 0,
+      "IRRA_images": 128,
+      "IRRA_text_forwards": 0
+    },
+    "historical_sources_SHA_stat_unchanged": true,
+    "images": 128,
+    "max_linf": 0.0313725471496582,
+    "official_score_and_metrics_exact": true,
+    "old_audit_not_rerun": true,
+    "queries": 128,
+    "selection_not_modified": true,
+    "shared_gallery_content_sha256": "ae7bce28e383745487812f9fbf0af6bd44cd44312936c905cb27f5df2871a23d",
+    "status": "G60_H_VALIDATION_CPU_AUDIT_PASS",
+    "verified_artifacts": 271
+  },
+  "audit_report": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-g60-h-validation/audit_v1/result/report.json",
+    "sha256": "c6664b04a9178331314370dc2f6b931f989fc0dd9cd5060fd69c96bd02694812"
+  },
+  "audit_manifest": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-g60-h-validation/audit_v1/result/manifest.json",
+    "sha256": "8a654328572cf599aadad83a533f1b41bd3c4a59b1a5722346b9375dea2983c7"
+  },
+  "audit_log": {
+    "path": "/home/lzf/ldx/tmp/g60_h_validation_20261021/independent_cpu_audit.log",
+    "sha256": "a795c4869de1e1e812de099e3b4240452f0fa129c9807bd92b9212b4b504442e"
+  },
+  "audit_exit": {
+    "exit_code": 0,
+    "argv": [
+      "/home/lzf/ldx/envs/tbps-image/bin/python",
+      "-B",
+      "-m",
+      "tbps.ablations.g60_h_validation",
+      "--config",
+      "/home/lzf/ldx/projects/idea-test-tbps-g60-h-validation-20261021/configs/framework/g60_h_validation.server.json",
+      "--action",
+      "audit"
+    ],
+    "end_time": 1792592224.7032003
+  },
+  "historical_protection": {
+    "status": "HISTORICAL_PROTECTION_PASS",
+    "protected_file_count": 150417,
+    "changed": [],
+    "consumed_sha_stat_sources": 6564,
+    "new_files": 956,
+    "new_file_bytes": 233862038,
+    "checkpoint_and_selection_unchanged": true,
+    "source_execution_commit": "048fafc15040f90f7152f78a3b4d48728bd300ac"
+  },
+  "historical_protection_snapshot": {
+    "path": "/home/lzf/ldx/tmp/g60_h_validation_20261021/protected_before.json",
+    "sha256": "cfa6dd1b2bfd1e33993f417179e428b63d45c7089a7060bf930e0d959db195d2"
+  },
+  "old_H_selection": [
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/selections/30f573098d28b6af6afe146330823986f724378fc7bd4df9d257fdd2c6f20dd1.json",
+      "sha256": "584e4ba2afc7b17fea3bdfb8501716498b84731fa216558daa2e8e4bb353f757"
+    }
+  ],
+  "H_candidates": [
+    {
+      "epoch": 1,
+      "checkpoint": {
+        "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00002048/checkpoint.pt",
+        "sha256": "eb4cbbeaf4f5aa71591fbda03bee552766aca69241831b370c56af5f803f7783"
+      },
+      "protocol_sha256": "14ca47dd82848dafe73c55f61237a40b9c438efe8a25f08d508c114d359507f1",
+      "summary_sha256": "b72688e1c0d1f660498161206e0463b3c510dcbdfd0a42ba23efe2b3ba49f51a",
+      "ordered_text_binding_digest": "c85a0c06cffa1ada6591d9037701e472d7e883a007147df33929ac0759b91a35"
+    },
+    {
+      "epoch": 2,
+      "checkpoint": {
+        "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00004096/checkpoint.pt",
+        "sha256": "adad480049a3b223c0a94a3c56dce15b6bfbeba7863fe562e2b08877a12e7f99"
+      },
+      "protocol_sha256": "5a90c11dd28bb90ef8278ca0db08289fad50e0886a1902f3fecae73703b879c7",
+      "summary_sha256": "8fa57734131cc66281b2b0c3c6e416e50c899fb48fe69592c029f9992c349c38",
+      "ordered_text_binding_digest": "a31a8408856e0e9294f35dca04f7260402073956244971e84b0a9e24c43d46dc"
+    },
+    {
+      "epoch": 3,
+      "checkpoint": {
+        "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00006144/checkpoint.pt",
+        "sha256": "0d3f8482cf93d9ac301d8fdab8c4725ee5fd9197974fd443cd150908eb79eb5d"
+      },
+      "protocol_sha256": "0b98d7b6c67b2284452ebf52efd546160399777d1455e9d98552e8f2d7241404",
+      "summary_sha256": "343e482a48d3a7d5d32c6cf2a63fcc334edd3c927af5b82ae7a85ece209d5016",
+      "ordered_text_binding_digest": "72430b84872cde576ebd90635fcfeca545824664b29c28f9dcd610f135c0dae0"
+    },
+    {
+      "epoch": 4,
+      "checkpoint": {
+        "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00008192/checkpoint.pt",
+        "sha256": "de8de5320d87261aa6fc4ef73ca4340048506a21eccab315a4cb0afdc57cc3ac"
+      },
+      "protocol_sha256": "02f70c32415a14e6b51338aea46b19e3c0527f7e9882494a708c9437f8ea8789",
+      "summary_sha256": "87febfb4057c69e52af611c4e444ab95e156bb500f62c20e2d852154823b8d93",
+      "ordered_text_binding_digest": "e5d3b806643c4b63c4337bd19b01fd74623bf8ad6512ce7c1be224d1f2840880"
+    },
+    {
+      "epoch": 5,
+      "checkpoint": {
+        "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00010240/checkpoint.pt",
+        "sha256": "107a021305a748766f24b93f2e25f99587a77e295c964c700de98b1e76ec30eb"
+      },
+      "protocol_sha256": "22216513583b28c0c3561e4d4090b781258984d37d1c0b7b36812e0cda047d2c",
+      "summary_sha256": "17bbc18204f218e3d32a47c8d6c40f968cdd9cf80ed535f78c841eb34f57464d",
+      "ordered_text_binding_digest": "3f6037a528aee35fd427e8414e22e4424d81a52d6576f89b7657a73b17e2abff"
+    },
+    {
+      "epoch": 6,
+      "checkpoint": {
+        "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00012288/checkpoint.pt",
+        "sha256": "14a83a877009d2b6b28d5b379bb75f64b5c653f4cfd36aadcbe0006237139734"
+      },
+      "protocol_sha256": "8ce362d3c38c23c470fce5867ff4db9902576a58f6d1c828b0f04cb82f30d371",
+      "summary_sha256": "8e62b189201b6a17a43cc362a570fecae5c07208ef0113768e989c409e50a628",
+      "ordered_text_binding_digest": "3d047fc379a8a56512309a55372b832a9ccc94250261e25c21623a26552d224f"
+    },
+    {
+      "epoch": 7,
+      "checkpoint": {
+        "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00014336/checkpoint.pt",
+        "sha256": "487f3061b6cba2ddabccdd49745a7b99c8c549f4541781b8814b299ef5f279df"
+      },
+      "protocol_sha256": "38644b7ca886514bdce1f6f87ea21a2add159ed08d60ce2251c1d8b063fbc6d5",
+      "summary_sha256": "9b63d7c7417aad678fcbf9036c0434ca52a4adb8d3faa11cbe044ff75501e2c0",
+      "ordered_text_binding_digest": "246bfb840b59d555e651d974cdf7f40855b9fed7b14927c5e99cb89222cf348b"
+    },
+    {
+      "epoch": 8,
+      "checkpoint": {
+        "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00016384/checkpoint.pt",
+        "sha256": "6fcb655e1ef799348e7a7d22128fa75c12fcf89acc4763c6ce0f5cf4ac38fc6b"
+      },
+      "protocol_sha256": "e467cace15293cc68cafc7f60b30000c6a0deac8c408f1088115ae59c1d569f2",
+      "summary_sha256": "9e0eca2474d040f17874205afdd6492d174e699b8320f160d0468339f1860519",
+      "ordered_text_binding_digest": "4803a502a89f4f4cd4158b37d3b54a0f0e539ea06454137a137e39909523f44c"
+    },
+    {
+      "epoch": 9,
+      "checkpoint": {
+        "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00018432/checkpoint.pt",
+        "sha256": "ca3f47ca4d9fb9da82a44b0252251539aa48feaac49dee8328dbd609fd026a79"
+      },
+      "protocol_sha256": "aeaf650d8a7c76a283d6e8448d80267a7b074f539b2f36577bd13d6c0b66d668",
+      "summary_sha256": "e29de0e3b2cda1621744fa4d14542c88579d296dbe7f0e6441a655608bd5e4ce",
+      "ordered_text_binding_digest": "a90516e6e7aebb39f38bb5b9eda04cbc979d21a6f586fe0d560e04a71652a221"
+    },
+    {
+      "epoch": 10,
+      "checkpoint": {
+        "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00020480/checkpoint.pt",
+        "sha256": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd"
+      },
+      "protocol_sha256": "fa7c592e5886c936e526808e60bf6e022d4e90e5dc37bc244e72e6e250a122f7",
+      "summary_sha256": "dc30e2b137f14161b12290e9069207c071ad9d68d4e2adb2bef5a83d73d9a608",
+      "ordered_text_binding_digest": "eee6394590c6af75489f501526330ed0a103442a2363164a2ec10f9d7580a860"
+    }
+  ],
+  "sources_verified": 6564,
+  "runtime_producers": 109,
+  "source_manifest_digest": "714f7d18c3e23b124e51481b5a37ccb27e1611e32cded4d3b1d6a809a293f7cb",
+  "no_training_or_Test_or_cross_model_run": true
+}

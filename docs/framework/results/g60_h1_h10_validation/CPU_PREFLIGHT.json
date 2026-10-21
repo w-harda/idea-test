@@ -1,0 +1,18 @@
+{
+  "status": "G60_H_CPU_PREFLIGHT_PASS",
+  "membership": {
+    "test_intersection": 0,
+    "train_PIDs": 1861,
+    "train_validation_intersection": 0,
+    "validation": 128,
+    "validation_PIDs": 121
+  },
+  "H_candidates": 10,
+  "IRRA_text_features_reused": 1280,
+  "G_forward": 0,
+  "IRRA_forward": 0,
+  "CUDA": false,
+  "historical_gallery_protocol_sha256": "7c3645e9d4684e202f62b9c5dd8327e8ae2c544c9d079b2b776e44df9b44cbbc",
+  "historical_content_sha256": "3be03b307b614cdf457deeddb8d826e9ab8adf53d212755a0a95db1a1f5acc19",
+  "existing_history_audit": "prior READ_ONLY_HV1_HISTORY_EVIDENCE_PASS; not rerun"
+}

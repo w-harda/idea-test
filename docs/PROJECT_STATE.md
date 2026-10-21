@@ -2,15 +2,19 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：G60 × H1–H10内部Validation探索性适配诊断准备
+## 当前阶段：G60 × H1–H10内部Validation探索性适配诊断PASS
 
-独立分支codex/g60-h-validation，基准be30206f；只新增只读桥、受控Runner、配置及CPU测试。
-真实来源Preflight确认128图/128文、121 Validation PID，与2048 Train/官方Test PID隔离。
-10组历史H特征/动作/回执可复用，G10结果只读引用；H7 Selection不变。
-CPU回归162个不同用例分日志通过，旧路径绑定用例在原冻结树核验，原失败日志保留。
-本轮仅授权G60/IRRA图像各128次，前2张Smoke保留计入总量；H和新文本前向0。
-GPU与新独立CPU审计待实际执行；不授权训练、Test或RaSa/APTM验证。
-[协议与命令](framework/G60_H_VALIDATION.md)。
+基准be30206f，冻结执行048fafc15040f90f7152f78a3b4d48728bd300ac；独立codex/g60-h-validation。
+32新/受影响CPU用例、129既有通过用例及1原路径冻结用例，共162个不同用例验证PASS；原失败日志保留。
+一次128图GPU运行：前2图Smoke/CPU读回PASS并保留计入总量；G60/IRRA各加载1次、图像各128前向，
+H/新文本编码/Backward/Optimizer/JVP均0，模型参数buffers exact，严格8/255。
+Image-only与10组Joint新评分、271个产物的独立CPU审计PASS；150417历史文件stat及6564消费来源SHA/stat不变。
+执行段39.319秒，GPU reserved866MiB、Peak RSS2342.36MiB；共享外部任务未干预。
+G60 Image-only mAP48.80861%；Joint最低H9 40.42548%，H7 41.59334%排第4，差1.16786pp。
+G10最低仍为历史H7；仅重复128内部Validation探索性诊断，不覆盖正式H7 Selection、不使用Test选模。
+[完整报告/10候选/原精度CSV/3图](framework/results/g60_h1_h10_validation/REPORT.md)；
+[实际执行及来源证据](framework/results/g60_h1_h10_validation/SOURCE_EVIDENCE.json)。
+完成后停止，未启动H60训练、新奖励、官方Test或跨模型验证。
 
 ## 已完成：G-v2六节点三模型Full及只读分析
 

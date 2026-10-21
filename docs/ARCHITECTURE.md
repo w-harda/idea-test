@@ -322,3 +322,8 @@ g60_h_bridge为128内部Validation建立独立来源，不改历史ModelSpace或
 g60_h_validation仅复用原G推理和IRRAAdapter/官方rank；新图像产物与旧文本特征通过完整身份顺序/内容SHA绑定。
 前2张Smoke保留在128预算内，CPU读回及冻结核验通过后继续；最终独立CPU审计。
 此入口不是统一训练引擎，也不提供Test、跨模型或自动候选选优执行。
+
+本固定128图执行已通过：同一次GPU运行内先2图真实Smoke及CPU读回门禁、再126图，
+不因各H候选增加G/IRRA前向。最终独立CPU进程复核11组128×128原生评分/官方指标；
+保留旧Selection和G10缓存，新增G60 Gallery有独立内容SHA及128生成证明。
+结果仅为重复内部Validation的探索性诊断；不新增Test自动选模能力。

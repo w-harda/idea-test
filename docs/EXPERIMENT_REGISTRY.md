@@ -492,3 +492,11 @@ CPU Preflight通过，父G/Adam/RNG exact；正式完整训练及CPU终审PENDIN
 固定原128内部Validation及H1–H10历史缓存，G10指标只读对照，H7 Selection保持。
 独立输出tbps-framework-g60-h-validation；CPU来源/回归已通过，实际GPU/最终审计以新报告为准。
 不属于新Test结果或正式H候选Selection，协议见framework/G60_H_VALIDATION.md。
+
+### 本轮实际执行完成（2026-10-21）
+
+冻结执行048fafc15040f90f7152f78a3b4d48728bd300ac，一次validation_v1：
+G60/IRRA图像128/128，H/文本/优化0；前2图Smoke保留、完整新审计PASS。
+G60 Image-only mAP48.80861282348633，Joint H9最低40.425479888916016；H7为41.59333801269531。
+原正式H7 Selection不变。输出/home/lzf/ldx/outputs/tbps-framework-g60-h-validation/{validation_v1,audit_v1}/。
+完整来源/四指标/排名/限制见framework/results/g60_h1_h10_validation/REPORT.md；不是Test或跨模型新结果。

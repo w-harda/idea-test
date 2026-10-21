@@ -1,0 +1,14 @@
+{
+  "status": "DERIVED_DELIVERABLE_CHECK_PASS",
+  "raw_rows": 33,
+  "raw_metric_values_exact": 132,
+  "display_rounding_exact": true,
+  "figures_PNG_SVG": 3,
+  "PNG_aspect_ratio": "16:9",
+  "SVG_XML_valid": true,
+  "all_109_runtime_source_SHA_unchanged": true,
+  "history_stat_unchanged": 150417,
+  "GPU_attempts": 1,
+  "new_CPU_audit_exit": 0,
+  "no_training_or_Test": true
+}
