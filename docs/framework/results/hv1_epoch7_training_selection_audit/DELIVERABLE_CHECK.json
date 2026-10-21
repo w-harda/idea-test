@@ -1,0 +1,27 @@
+{
+  "status": "READ_ONLY_HV1_AUDIT_DELIVERABLE_PASS",
+  "time": "2026-10-21T20:05:50.550592+08:00",
+  "candidates": 10,
+  "validation_metric_values_exact": 200,
+  "epochs": 10,
+  "total_visits": 20480,
+  "total_optimizer_steps": 20370,
+  "selected_epoch": 7,
+  "selected_visits": 14336,
+  "selected_optimizer_steps": 14259,
+  "best_Text_only_epoch": 3,
+  "checkpoints_SHA_verified": 81,
+  "protected_files": 14811,
+  "changed_files": [],
+  "forbidden_operations": {
+    "GPU": false,
+    "Torch_import": false,
+    "Checkpoint_deserialization": false,
+    "training": false,
+    "new_attack": false,
+    "score_or_ranking": false,
+    "audit_entry": false
+  },
+  "history_CPU_audit_rerun": false,
+  "source_inventory_scope": "official annotations/split/G condition manifest; H81 checkpoints/logs;10 Validation receipts; existing gallery/source files"
+}

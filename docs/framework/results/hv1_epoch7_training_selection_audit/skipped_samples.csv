@@ -1,0 +1,12 @@
+row_id,skips_over_10_epochs,reasons
+cuhk:10822:0,10,original_BPE_truncated;no_legal_token_changing_edit
+cuhk:11364:0,10,no_canonical_attributes;no_legal_token_changing_edit
+cuhk:13924:0,10,original_BPE_truncated;no_legal_token_changing_edit
+cuhk:26530:0,10,no_canonical_attributes;no_legal_token_changing_edit
+cuhk:28228:0,10,no_canonical_attributes;no_legal_token_changing_edit
+cuhk:31553:0,10,original_BPE_truncated;no_legal_token_changing_edit
+cuhk:31873:0,10,no_canonical_attributes;no_legal_token_changing_edit
+cuhk:31942:0,10,no_canonical_attributes;no_legal_token_changing_edit
+cuhk:4532:0,10,original_BPE_truncated;no_legal_token_changing_edit
+cuhk:4611:0,10,original_BPE_truncated;no_legal_token_changing_edit
+cuhk:7586:0,10,no_legal_token_changing_edit
