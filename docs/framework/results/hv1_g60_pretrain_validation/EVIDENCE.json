@@ -1,0 +1,282 @@
+{
+  "status": "STOPPED_SMOKE_CPU_AUDIT_CODE_ERROR",
+  "execution_commit": "9765a536a11a9a0e9111f2f834230c53d41bf2d8",
+  "CPU_tests_unique": 78,
+  "CPU_initial_tests": 75,
+  "CPU_changed_tests": 24,
+  "H10_restore": {
+    "Adam_exact": true,
+    "Adam_state_sha256": "dfe930621066f140b5dd37d77d5a4fc4226cdef3f74ff05bc181de86423b6a4d",
+    "H_exact": true,
+    "H_state_sha256": "1b1e3888ee8dc0e4dff39af3438ec48987cd472746cbfde71ad4d10f562ad24d",
+    "RNG_exact": true,
+    "RNG_state_sha256": "3a0a00a5a10c9cc029f9da14a4367026d837f2230103256fef07494dab7fb804",
+    "cursor": 20480,
+    "not_new_Adam": true,
+    "parent_checkpoint_sha256": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd",
+    "resources": {
+      "GPU": {
+        "compute_processes": "1402779, /home/lzf/jmk/envs/foa_v5/bin/python, 5612",
+        "free_mib": 18431,
+        "name": "NVIDIA GeForce RTX 4090",
+        "policy": "shared_observe_only",
+        "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 18431, 5660, 69",
+        "total_mib": 24564,
+        "used_mib": 5660,
+        "utilization_percent": 69
+      },
+      "RAM_available_bytes": 121219170304,
+      "disk_free_bytes": 6185750491136,
+      "free_inodes": 240245104,
+      "policy": "shared_observe_only; no waiting/interference"
+    },
+    "updates": 20370
+  },
+  "gallery_execution": {
+    "G_after": "5d48caab6a891a1afd3aaaa6f3594eb5f860ccd7b6090708d289224e6c819e47",
+    "G_before": "5d48caab6a891a1afd3aaaa6f3594eb5f860ccd7b6090708d289224e6c819e47",
+    "IRRA_after": "f72a69c88229d38caabd5c47f6647adc1fd9f3b444218ebcc9c8e1eb723a078f",
+    "IRRA_before": "f72a69c88229d38caabd5c47f6647adc1fd9f3b444218ebcc9c8e1eb723a078f",
+    "counts": {
+      "G_completed": 2048,
+      "G_loads": 1,
+      "G_started": 2048,
+      "H_forwards": 0,
+      "IRRA_images": 2048,
+      "IRRA_loads": 1,
+      "IRRA_text_forwards": 0,
+      "JVP": 0,
+      "backward": 0,
+      "optimizer": 0
+    },
+    "elapsed_seconds": 436.74537689611316,
+    "images": 2048,
+    "max_linf": 0.0313725471496582,
+    "peak_RSS_bytes": 2490740736,
+    "peak_allocated_bytes": 836359168,
+    "peak_reserved_bytes": 908066816,
+    "resources": {
+      "GPU": {
+        "compute_processes": "1402779, /home/lzf/jmk/envs/foa_v5/bin/python, 5612",
+        "free_mib": 18431,
+        "name": "NVIDIA GeForce RTX 4090",
+        "policy": "shared_observe_only",
+        "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 18431, 5660, 78",
+        "total_mib": 24564,
+        "used_mib": 5660,
+        "utilization_percent": 78
+      },
+      "RAM_available_bytes": 121239678976,
+      "disk_free_bytes": 6189477126144,
+      "free_inodes": 240263609,
+      "policy": "shared_observe_only; no waiting/interference"
+    },
+    "status": "G60_TRAIN_GALLERY_PASS"
+  },
+  "gallery_independent_audit": {
+    "G60": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0060/checkpoint.pt",
+      "sha256": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049"
+    },
+    "feature_content_sha256": "0b4bc2e6d6d3b5f7c9d34861e2371c984371d32324cbf2844c8e5be79978ad2b",
+    "images": 2048,
+    "max_linf": 0.0313725471496582,
+    "same_train_members": true,
+    "status": "G60_TRAIN_GALLERY_CPU_AUDIT_PASS"
+  },
+  "GPU_smoke": {
+    "H_Adam_RNG_reload_exact": true,
+    "H_changed": true,
+    "attempt_elapsed_seconds": 16.85118016973138,
+    "attempt_new_updates": 4,
+    "attempt_new_visits": 4,
+    "cursor": 20484,
+    "elapsed_seconds": 1.8485596179962158,
+    "final_epoch": 10,
+    "initial_cursor": 20480,
+    "last_checkpoint_sha256": "e6bd68eeb2a0d09f328d910c3b8cf8e78a765f33b398a27cd6829ab8fe480922",
+    "ledger": {
+      "cursor": 20484,
+      "parent": "e6bd68eeb2a0d09f328d910c3b8cf8e78a765f33b398a27cd6829ab8fe480922",
+      "published": [
+        {
+          "cursor": 20484,
+          "path": "/home/lzf/ldx/outputs/tbps-framework-hv1-g60-adaptation-epoch60/smoke_v1/checkpoints/visit_00020484",
+          "reason": "smoke_probe",
+          "sha256": "e6bd68eeb2a0d09f328d910c3b8cf8e78a765f33b398a27cd6829ab8fe480922",
+          "updates": 20374
+        }
+      ],
+      "updates": 20374
+    },
+    "model_updates_only_H": true,
+    "new_updates": 4,
+    "new_visits": 4,
+    "parent_H10": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00020480/checkpoint.pt",
+      "sha256": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd"
+    },
+    "resume_count": 0,
+    "runtime": {
+      "GPU_peak_allocated_bytes": 798291968,
+      "GPU_peak_reserved_bytes": 864026624,
+      "G_forwards": 0,
+      "G_loads": 0,
+      "IRRA_loads": 1,
+      "IRRA_state_after": "f72a69c88229d38caabd5c47f6647adc1fd9f3b444218ebcc9c8e1eb723a078f",
+      "IRRA_state_before": "f72a69c88229d38caabd5c47f6647adc1fd9f3b444218ebcc9c8e1eb723a078f",
+      "calls": 4,
+      "parameters_buffers_unchanged": true,
+      "peak_RSS_bytes": 2412666880,
+      "samples": {
+        "G": 0,
+        "adv": 0,
+        "clean": 0,
+        "text": 12
+      }
+    },
+    "smoke_not_formal_Epoch11": true,
+    "status": "HV1_G60_SMOKE_PASS",
+    "updates": 20374
+  },
+  "GPU_smoke_independent_CPU_audit": "FAIL; no PASS receipt published",
+  "failure_file": "/home/lzf/ldx/projects/idea-test-tbps-hv1-g60-adaptation-20261021/src/tbps/ablations/hv1_g60_audit.py",
+  "cause": "local dict named stat shadows imported stat(path) function; TypeError at historical protection loop",
+  "error_line": 62,
+  "shadow_assignment_line": 31,
+  "smoke_cpu_audit_exit": {
+    "exit_code": 1
+  },
+  "failure_log": {
+    "path": "/home/lzf/ldx/tmp/hv1_g60_adaptation_development_20261021/smoke_cpu_audit.log",
+    "sha256": "a0a37e3784a7a0bc369b181094db5e978aac6b9787e261ae8c29db6fbefb0ce1"
+  },
+  "parent_H10": {
+    "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00020480/checkpoint.pt",
+    "sha256": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd"
+  },
+  "G60": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0060/checkpoint.pt",
+    "sha256": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049"
+  },
+  "protected_files": 151378,
+  "protected_changed": [],
+  "producer_SHA_unchanged": 113,
+  "formal_training_started": false,
+  "formal_training_directory_exists": false,
+  "formal_Adam_updates": 0,
+  "temporary_smoke_updates": 4,
+  "retry_or_recovery_count": 0,
+  "mean_smoke_step_seconds": 0.14021430257707834,
+  "steady_last3_smoke_step_seconds": 0.05804636826117834,
+  "per_step": [
+    {
+      "row_id": "cuhk:9074:0",
+      "seconds": 0.38671810552477837,
+      "gradient_norm": 0.0,
+      "parameter_delta_l2": 0.006242488171164139,
+      "SCST_loss": 0.0,
+      "sampled_reward": {
+        "R_rank": -0.055357739329338074,
+        "R_sim": -0.05745825171470642,
+        "adv_sim_drop": -0.05745825171470642,
+        "clean_margin_drop": 0.00017461180686950684,
+        "clean_sim_drop": 0.025252103805541992,
+        "synergy_increment": -0.08271035552024841,
+        "total": -0.1128159910440445
+      },
+      "greedy_reward": {
+        "R_rank": -0.055357739329338074,
+        "R_sim": -0.05745825171470642,
+        "adv_sim_drop": -0.05745825171470642,
+        "clean_margin_drop": 0.00017461180686950684,
+        "clean_sim_drop": 0.025252103805541992,
+        "synergy_increment": -0.08271035552024841,
+        "total": -0.1128159910440445
+      }
+    },
+    {
+      "row_id": "cuhk:16997:0",
+      "seconds": 0.0654851458966732,
+      "gradient_norm": 0.0,
+      "parameter_delta_l2": 0.005621048048033325,
+      "SCST_loss": 0.0,
+      "sampled_reward": {
+        "R_rank": 0.003169536590576172,
+        "R_sim": 0.0015889406204223633,
+        "adv_sim_drop": 0.0015889406204223633,
+        "clean_margin_drop": -0.028237879276275635,
+        "clean_sim_drop": -0.006898701190948486,
+        "synergy_increment": 0.00848764181137085,
+        "total": 0.004758477210998535
+      },
+      "greedy_reward": {
+        "R_rank": 0.003169536590576172,
+        "R_sim": 0.0015889406204223633,
+        "adv_sim_drop": 0.0015889406204223633,
+        "clean_margin_drop": -0.028237879276275635,
+        "clean_sim_drop": -0.006898701190948486,
+        "synergy_increment": 0.00848764181137085,
+        "total": 0.004758477210998535
+      }
+    },
+    {
+      "row_id": "cuhk:11702:0",
+      "seconds": 0.052013713866472244,
+      "gradient_norm": 0.07009412446572012,
+      "parameter_delta_l2": 0.00506545218129929,
+      "SCST_loss": -0.025705957785248756,
+      "sampled_reward": {
+        "R_rank": -0.002725459635257721,
+        "R_sim": 0.03893439844250679,
+        "adv_sim_drop": 0.03893439844250679,
+        "clean_margin_drop": 0.09771484136581421,
+        "clean_sim_drop": 0.05648806691169739,
+        "synergy_increment": -0.017553668469190598,
+        "total": 0.03620893880724907
+      },
+      "greedy_reward": {
+        "R_rank": 0.015444017946720123,
+        "R_sim": 0.027406513690948486,
+        "adv_sim_drop": 0.027406513690948486,
+        "clean_margin_drop": 0.10979568958282471,
+        "clean_sim_drop": 0.0693354606628418,
+        "synergy_increment": -0.04192894697189331,
+        "total": 0.04285053163766861
+      }
+    },
+    {
+      "row_id": "cuhk:22830:0",
+      "seconds": 0.05664024502038956,
+      "gradient_norm": 0.0,
+      "parameter_delta_l2": 0.0045611746697422585,
+      "SCST_loss": 0.0,
+      "sampled_reward": {
+        "R_rank": -0.029469221830368042,
+        "R_sim": -0.03240180015563965,
+        "adv_sim_drop": -0.03240180015563965,
+        "clean_margin_drop": 0.030089765787124634,
+        "clean_sim_drop": -0.007650852203369141,
+        "synergy_increment": -0.024750947952270508,
+        "total": -0.06187102198600769
+      },
+      "greedy_reward": {
+        "R_rank": -0.029469221830368042,
+        "R_sim": -0.03240180015563965,
+        "adv_sim_drop": -0.03240180015563965,
+        "clean_margin_drop": 0.030089765787124634,
+        "clean_sim_drop": -0.007650852203369141,
+        "synergy_increment": -0.024750947952270508,
+        "total": -0.06187102198600769
+      }
+    }
+  ],
+  "cost_estimate_50epochs_step_only_hours_including_cold_first_step": 3.9668963104098416,
+  "cost_estimate_50epochs_step_only_hours_last3": 1.6422285020558371,
+  "failure_line": 62,
+  "measured_checkpoint_bytes": 8826249,
+  "measured_log_bytes_per_step": 9304.5,
+  "estimated_400_checkpoint_bytes": 3530499600,
+  "estimated_102400_visit_log_bytes": 952780800.0,
+  "actual_gallery_file_bytes": 3654593520
+}

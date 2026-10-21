@@ -507,3 +507,10 @@ G60 Image-only mAP48.80861282348633，Joint H9最低40.425479888916016；H7为41
 父H10 SHA4ae964d5…4bacd，G60 SHA9148a6ac…60949；同一IRRA、原2048 Train/128内部Validation。
 CPU完整H/Adam/RNG恢复已验证；真实图库/Smoke/正式训练以新输出tbps-framework-hv1-g60-adaptation-epoch60回执为准。
 这不是全部60 Epoch从零G60训练，不覆盖旧Selection/Checkpoint/实验产物。
+
+### H适配前置运行实际状态：正式训练未启动
+
+9765a53执行G60 Train图库2048图与新图库CPU审计PASS；独立4-step真实H Smoke PASS。
+新独立Smoke CPU审计因局部stat命名遮蔽失败，现场保留，没有GPU重试或正式H11–H60。
+源码/原配置/Gallery/Smoke均保持原身份；详见framework/HV1_G60_PRETRAIN_GATE_FAILURE.md。
+不能把临时cursor20484、Adam20374冒充正式Epoch11或H60训练完成。

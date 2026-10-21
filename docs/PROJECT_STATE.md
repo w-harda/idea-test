@@ -2,15 +2,18 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：H10→H60的G60适配续训准备，CPU父恢复PASS
+## 当前阶段：G60引导H适配前置验证，Smoke CPU审计代码错误后停止
 
-独立codex/hv1-g60-adaptation-epoch60，基准807fdc6。
-新Extension保留原H10完整协议/Adam/RNG，绝对Epoch11起步；不修改历史H10/H7、Selection、G60或结果。
-真实CPU父恢复H/Adam/CPU RNG exact，20480 visits/20370 updates；CUDA RNG待真实Smoke。
-75项初轮CPU回归及24项受影响/恢复回归PASS（78个不同用例），尚未生成正式Train Gallery、未启动训练。
-本轮已授权图库2048图一次生成/审计、4 visits独立Smoke、门禁通过后正式50轮及固定内部Validation。
-[协议与命令](framework/HV1_G60_ADAPTATION.md)，研究身份见ADR-0014。
-当前实际阶段以新增不可变回执和启动报告为准；不允许自动Test或其他分支训练。
+执行9765a536a11a9a0e9111f2f834230c53d41bf2d8，独立codex/hv1-g60-adaptation-epoch60。
+78个不同CPU用例通过，真实H10 H/Adam/RNG恢复exact。
+G60 Train图库2048/2048与独立CPU审计PASS：G/IRRA图像各2048次，严格8/255、参数buffers不变。
+4 visits GPU Smoke PASS：4次H更新、12真实文本，G/图像0，H/Adam/RNG重载exact。
+新独立Smoke CPU审计exit1：hv1_g60_audit.py:31的局部dict stat遮蔽导入函数，
+第62行历史保护调用报TypeError。未发布独立Smoke审计PASS。
+正式Epoch11–60未启动，training目录不存在；151378历史文件stat及113 producer SHA不变。
+不自动改冻结source/config、重跑GPU或启动训练；需要独立CPU审计器命名修复与限定来源引用。
+[失败定位与最小修复建议](framework/HV1_G60_PRETRAIN_GATE_FAILURE.md)；
+[真实前置证据](framework/results/hv1_g60_pretrain_validation/EVIDENCE.json)。
 
 ## 已完成：G60 × H1–H10内部Validation探索性适配诊断
 
