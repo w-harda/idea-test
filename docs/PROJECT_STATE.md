@@ -2,7 +2,18 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：G-v2六节点三模型Full完成，独立CPU审计PASS，消融结果只读整理完成
+## 当前阶段：G60 × H1–H10内部Validation探索性适配诊断准备
+
+独立分支codex/g60-h-validation，基准be30206f；只新增只读桥、受控Runner、配置及CPU测试。
+真实来源Preflight确认128图/128文、121 Validation PID，与2048 Train/官方Test PID隔离。
+10组历史H特征/动作/回执可复用，G10结果只读引用；H7 Selection不变。
+CPU回归162个不同用例分日志通过，旧路径绑定用例在原冻结树核验，原失败日志保留。
+本轮仅授权G60/IRRA图像各128次，前2张Smoke保留计入总量；H和新文本前向0。
+GPU与新独立CPU审计待实际执行；不授权训练、Test或RaSa/APTM验证。
+[协议与命令](framework/G60_H_VALIDATION.md)。
+
+## 已完成：G-v2六节点三模型Full及只读分析
+
 
 冻结执行6021f3bfdec181785d1baccd7ce4f80a1428b069，启动5b187151432dacf5618f7759ed10a211dbf23e2e。
 2026-10-20 20:35:12→2026-10-21 19:07:27 +08:00，总耗时22小时32分15秒。

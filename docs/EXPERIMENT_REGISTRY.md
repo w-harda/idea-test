@@ -485,3 +485,10 @@ CPU Preflight通过，父G/Adam/RNG exact；正式完整训练及CPU终审PENDIN
 见结果目录PUBLICATION_REPAIR.json；没有重新训练、重跑CPU审计或进行模型评估。
 
 正式训练报告与格式修复内容Commit：e036c1eb29339441e30b643ed1c4a77a1d4590e6（codex/gv2-epoch60-launch）。
+
+## G60 × H1–H10内部Validation探索性诊断
+
+基准be30206f，G60 SHA9148a6ac…60949、原IRRA SHA9ff62095…009。
+固定原128内部Validation及H1–H10历史缓存，G10指标只读对照，H7 Selection保持。
+独立输出tbps-framework-g60-h-validation；CPU来源/回归已通过，实际GPU/最终审计以新报告为准。
+不属于新Test结果或正式H候选Selection，协议见framework/G60_H_VALIDATION.md。

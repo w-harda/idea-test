@@ -315,3 +315,10 @@ gv2_epochs.py是外部调度/观测，直接调用冻结G-v2 train_epoch/train_s
 正常TERM只转发训练子进程、等待原Epoch边界；失败不重试/恢复。
 gv2_epoch60_results.py只读已完成回执和标量，生成原精度CSV/曲线及六点Checkpoint来源，不加载模型、不评分。
 图形绘制只读复用现有matplotlib CPU环境，训练环境不安装/更新依赖。当前完成状态见PROJECT_STATE。
+
+## G60与历史H候选的内部Validation只读桥
+
+g60_h_bridge为128内部Validation建立独立来源，不改历史ModelSpace或H7 Selection。
+g60_h_validation仅复用原G推理和IRRAAdapter/官方rank；新图像产物与旧文本特征通过完整身份顺序/内容SHA绑定。
+前2张Smoke保留在128预算内，CPU读回及冻结核验通过后继续；最终独立CPU审计。
+此入口不是统一训练引擎，也不提供Test、跨模型或自动候选选优执行。
