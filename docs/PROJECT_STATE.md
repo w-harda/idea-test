@@ -22,7 +22,7 @@ CUDA RNG仅保存字节，CUDA恢复、新JVP/FD、梯度/Reward差与完整Smok
 [中文报告](framework/results/gh_bidirectional_backend/REPORT.md)、
 [待授权执行协议](framework/results/gh_bidirectional_backend/EXECUTION_PROTOCOL.md)、
 [CPU及来源证据](framework/results/gh_bidirectional_backend/SOURCE_EVIDENCE.json)、ADR-0016。
-代码Commit在发布后的来源记录中登记；下一步仅可在新的明确授权后运行固定两条Train数值探针。
+代码Commit为`656ede2dc25c87ab21c559ad2b49aedb90b92de0`，来源记录由后续文档提交登记；下一步仅可在新的明确授权后运行固定两条Train数值探针。
 
 ## 历史阶段：G/H双向最小CPU原型（8ae623d3快照）
 

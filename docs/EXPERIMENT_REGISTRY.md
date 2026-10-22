@@ -2,7 +2,7 @@
 
 ## G/H双向真实后端CPU准备（2026-10-22，无GPU实验）
 
-开发父8ae623d3；codex/gh-bidirectional-backend；实现Commit见来源记录。
+开发父8ae623d3；codex/gh-bidirectional-backend；实现Commit为`656ede2dc25c87ab21c559ad2b49aedb90b92de0`。
 224项CPU测试+3项真实CLI拒绝检查PASS；真实CPU完整恢复G60/H10权重、Adam及CPU RNG。
 G60 SHA9148a6ac…46049；H10 SHA4ae964d5…bacd；IRRA SHA9ff62095…5009。
 原2048 Clean/G60特征只读消费并核验审计内容/顺序；151378历史及10918相关来源metadata保持。

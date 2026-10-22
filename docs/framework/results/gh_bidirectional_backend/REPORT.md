@@ -1,6 +1,7 @@
 # G/H双向交替真实后端：CPU准备报告
 
 开发基准：8ae623d3b6cb01f96c86e15e167d7dd7b1f56734。
+实现Commit：656ede2dc25c87ab21c559ad2b49aedb90b92de0；本行由后续文档提交登记，Python与配置未改变。
 独立分支：codex/gh-bidirectional-backend。
 工作树：/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-backend-20261022。
 

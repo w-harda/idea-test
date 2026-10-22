@@ -408,5 +408,7 @@
       "size": 884,
       "mtime_ns": 1792668526043841991
     }
-  }
+  },
+  "implementation_commit": "656ede2dc25c87ab21c559ad2b49aedb90b92de0",
+  "publication_note": "实现Commit登记于后续文档提交；本次文档登记不改变Python、配置或既有CPU验收来源。"
 }
