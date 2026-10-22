@@ -28,9 +28,9 @@ def audit_training(ctx,smoke=False):
             for record in old("formal_training.checkpoint").logs(Path(item["path"])/"steps.jsonl"):
                 epoch=(record["visit"]-1)//2048+1
                 need(record["epoch"]==epoch and record["epoch_position"]==(record["visit"]-1)%2048+1,"absolute epoch")
-                stat=per_epoch.setdefault(str(epoch),{"visits":0,"updates":0,"skipped":0})
-                stat["visits"]+=1;stat["updates"]+=record["optimizer_steps_this_step"]
-                if not record["optimizer_steps_this_step"]:stat["skipped"]+=1;continue
+                epoch_stat=per_epoch.setdefault(str(epoch),{"visits":0,"updates":0,"skipped":0})
+                epoch_stat["visits"]+=1;epoch_stat["updates"]+=record["optimizer_steps_this_step"]
+                if not record["optimizer_steps_this_step"]:epoch_stat["skipped"]+=1;continue
                 need(record["row_id"]==query_order[record["visit"]-1] and record["IRRA_text_samples"]==3,"real fresh triplet binding")
                 for mode in ("sampled","greedy"):
                     reward=record[mode+"_reward"];action=record[mode]

@@ -1,0 +1,48 @@
+{
+  "schema": "hv1-g60-independent-auditor-1",
+  "execution_root": "/home/lzf/ldx/projects/idea-test-tbps-hv1-g60-adaptation-20261021",
+  "repair_root": "/home/lzf/ldx/projects/idea-test-tbps-hv1-g60-audit-fix-20261022",
+  "execution_commit": "9765a536a11a9a0e9111f2f834230c53d41bf2d8",
+  "snapshot_head": "1b16d653d17573d3dafaa7a26bd84bf8d31949ac",
+  "configuration": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-hv1-g60-adaptation-20261021/configs/framework/hv1_g60_adaptation.server.json",
+    "sha256": "4e5274ed2edb872a65fb96c8b238cac508f54ff9990b773251894bcc0288aca3"
+  },
+  "old_auditor": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-hv1-g60-adaptation-20261021/src/tbps/ablations/hv1_g60_audit.py",
+    "sha256": "a22b405834538124006102acdb7267a606c134ec782f23d710d6932f67a1aa30"
+  },
+  "repair_sources": [
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-hv1-g60-audit-fix-20261022/src/tbps/ablations/hv1_g60_audit.py",
+      "sha256": "8d81de1d8ecbf6ce494fc9144b0b266bf281ac917cd6165ff5514331684366cc"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-hv1-g60-audit-fix-20261022/src/tbps/ablations/hv1_g60_audit_repair.py",
+      "sha256": "edf7ae3b4c67d4a544e500141bc863dc8d1d5128d070c5bb74e029643dfa43b6"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-hv1-g60-audit-fix-20261022/src/tbps/ablations/run_hv1_g60_adaptation_repaired.sh",
+      "sha256": "befcc5993171969e17283301505ae11dcf84cc0d423c80c3d33a790909006985"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-hv1-g60-audit-fix-20261022/src/tbps/ablations/hv1_g60_repaired_results.py",
+      "sha256": "9c88ac9f1cbfb1f5c77ff5bf7f983e476703dc99cec1c65a445f24c558e404d0"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-hv1-g60-audit-fix-20261022/tests/framework/test_hv1_g60_audit_repair.py",
+      "sha256": "0b36958542c0fc105f000ae103fbb7e98622dbc118ea3d358edaed162b133213"
+    }
+  ],
+  "failure_evidence": [
+    {
+      "path": "/home/lzf/ldx/tmp/hv1_g60_adaptation_development_20261021/smoke_cpu_audit.log",
+      "sha256": "a0a37e3784a7a0bc369b181094db5e978aac6b9787e261ae8c29db6fbefb0ce1"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/hv1_g60_adaptation_development_20261021/smoke_cpu_audit_exit.json",
+      "sha256": "2618b95f1f6be6bfde8537756f85b83845d039001563135b9d59d817446733eb"
+    }
+  ],
+  "allowed_audit_change": "only local dictionary stat -> epoch_stat; stat(path) guard preserved"
+}

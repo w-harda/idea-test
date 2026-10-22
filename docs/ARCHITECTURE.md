@@ -335,3 +335,11 @@ hv1_g60_state只读核验父状态并建立新契约，hv1_g60_adaptation为原H
 独立G60 Train图库只生成一次，训练/Validation TextRuntime不持有G且禁止图像前向。
 新节点Validation复用原128 G60 Gallery，原Clean/文本及候选只读引用；不新增统一训练引擎。
 协议差异与恢复边界见ADR-0014。
+
+## H60审计器版本隔离
+
+原113 producer运行树保持冻结。修复审计器只改局部变量；
+独立入口先验证旧完整来源、精确修复差异及新入口来源，再使用旧包加载上下文执行新审计。
+audit_repair_v1额外绑定新审计器与旧产物/旧FAIL，不能改签旧执行协议。
+训练继续调用原入口；新监督器仅消费版本化审计并把新报告输出到修复树。
+详见framework/HV1_G60_AUDIT_REPAIR.md。

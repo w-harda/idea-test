@@ -514,3 +514,10 @@ CPU完整H/Adam/RNG恢复已验证；真实图库/Smoke/正式训练以新输出
 新独立Smoke CPU审计因局部stat命名遮蔽失败，现场保留，没有GPU重试或正式H11–H60。
 源码/原配置/Gallery/Smoke均保持原身份；详见framework/HV1_G60_PRETRAIN_GATE_FAILURE.md。
 不能把临时cursor20484、Adam20374冒充正式Epoch11或H60训练完成。
+
+## H60独立CPU审计修复（2026-10-22，门禁验证中）
+
+修复分支codex/hv1-g60-audit-fix；原执行9765a536及FAIL报告1b16d653均不修改。
+73个不同CPU用例PASS。已有2048图库和4-step GPU Smoke只读复用。
+真实修复Smoke CPU审计及正式H11–60当前PENDING，不能用测试PASS替代。
+版本绑定及实际后续状态见framework/HV1_G60_AUDIT_REPAIR.md。
