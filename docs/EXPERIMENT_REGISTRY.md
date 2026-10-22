@@ -1,5 +1,19 @@
 # 历史实验注册表
 
+## G/H双向真实后端CPU准备（2026-10-22，无GPU实验）
+
+开发父8ae623d3；codex/gh-bidirectional-backend；实现Commit见来源记录。
+224项CPU测试+3项真实CLI拒绝检查PASS；真实CPU完整恢复G60/H10权重、Adam及CPU RNG。
+G60 SHA9148a6ac…46049；H10 SHA4ae964d5…bacd；IRRA SHA9ff62095…5009。
+原2048 Clean/G60特征只读消费并核验审计内容/顺序；151378历史及10918相关来源metadata保持。
+CPU启动门禁事件完整，CUDA RNG未恢复；真实G/H/IRRA/reader前向、JVP、更新为0。
+新输出probe_v1/smoke_v1未创建，不存在真实数值探针或双向Smoke PASS声明。
+一次资源快照不构成执行授权；未来先固定两条Train数值探针，再另行审查两轮A1/B。
+[报告](framework/results/gh_bidirectional_backend/REPORT.md)、
+[SHA与来源](framework/results/gh_bidirectional_backend/SOURCE_EVIDENCE.json)、
+[执行方案](framework/results/gh_bidirectional_backend/EXECUTION_PROTOCOL.md)。
+
+
 
 ## G-v2六节点三模型Full消融（2026-10-21完成，结果整理）
 

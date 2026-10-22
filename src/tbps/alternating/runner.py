@@ -1,4 +1,4 @@
-"""两轮A1/B控制流。当前仅开放CPU Fixture；真实GPU执行等待新的明确授权。"""
+"""两轮A1/B控制流。CPU Fixture与显式授权且探针PASS的真实后端分型隔离。"""
 from .contracts import require
 from .state import clone_tree, tree_sha
 from tbps.artifacts import digest
@@ -13,7 +13,12 @@ class Prototype:
         ids = protocol["train_ids"]
         require(len(ids) == 2048 and len(set(ids)) == 2048
                 and set(protocol["samples"]) <= set(ids), "full Train reward identities")
-        require(backend.execution_kind == "synthetic_cpu_fixture", "GPU execution not authorized in this revision")
+        if backend.execution_kind != "synthetic_cpu_fixture":
+            require(backend.execution_kind == "native_irra_backend", "GPU backend not authorized")
+            from .native_gate import ExecutionGrant
+            require(type(getattr(backend,"grant",None)) is ExecutionGrant,"GPU execution not authorized")
+            backend.grant.validate(backend.c,"smoke")
+            require(protocol==backend.c["prototype"], "backend protocol mismatch")
         self.p, self.b, self.j = protocol, backend, journal
 
     def run(self, parent):

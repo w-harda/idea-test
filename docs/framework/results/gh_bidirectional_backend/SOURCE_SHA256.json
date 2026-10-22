@@ -1,0 +1,126 @@
+{
+  "schema": "gh-native-source-index-1",
+  "configuration": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-backend-20261022/configs/framework/gh_bidirectional_backend.server.json",
+    "sha256": "093883a31ad06d3c61b4e72c541d7d55eea9ddafd3d5fe7b36ad93d6ba200af0",
+    "size": 211978,
+    "mtime_ns": 1792668474574906398
+  },
+  "new_framework_sources": {
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-backend-20261022/src/tbps/alternating/native_sources.py": "d553dfd89eaf9c0bd555643fd874081e038f8d37b4417a0ff4fa81bee53fc23a",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-backend-20261022/src/tbps/alternating/native_cli.py": "ead519ec7fda84c10e753153498c0ca662f724aab9489104a7aff62b7978308e",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-backend-20261022/src/tbps/alternating/native_gate.py": "c2afeff486d1fbffb7ca78744ab4a300fede8ff394c55585eeb2a345e72e43b4",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-backend-20261022/src/tbps/alternating/native_numeric.py": "698c5e9b08b3313866b042c4a75aa2224d67c5869e68fb9659a7ddc4067b83ec",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-backend-20261022/src/tbps/alternating/native_backend.py": "4cdf9b82313d1b23b17c5f89282296d584943e4d712821fc9ca696da30d8bef3",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-backend-20261022/src/tbps/alternating/parents.py": "b30c71f5b5638025ec74c53e010b1302a010b4277bd3da707976f28c1656736f",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-backend-20261022/src/tbps/alternating/token_bridge.py": "ee7040a49dcd32b78aed2b7cd0ba2d6e1429877117ea0856664139137c9cfa08",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-backend-20261022/src/tbps/alternating/runner.py": "2f817e72eb5e62e779fcdf4fe6219d9808a64bf7073482555b21291f79a1ac27"
+  },
+  "original_function_sources": [
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/condition_schema.py",
+      "sha256": "f13932c2688cab4e135d063eed6f066016f6ba26e2316cbc201f19b246b298b4",
+      "symbol": "validate",
+      "line": 42,
+      "end_line": 74
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/condition_schema.py",
+      "sha256": "f13932c2688cab4e135d063eed6f066016f6ba26e2316cbc201f19b246b298b4",
+      "symbol": "build",
+      "line": 76,
+      "end_line": 85
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/serial_training.py",
+      "sha256": "e42fa8bd6ea933530bda8e2e67d5149e7059151f4b2caa0b662dbaaa856e105d",
+      "symbol": "_weighted",
+      "line": 49,
+      "end_line": 52
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/serial_training.py",
+      "sha256": "e42fa8bd6ea933530bda8e2e67d5149e7059151f4b2caa0b662dbaaa856e105d",
+      "symbol": "_update",
+      "line": 69,
+      "end_line": 114
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/serial_training.py",
+      "sha256": "e42fa8bd6ea933530bda8e2e67d5149e7059151f4b2caa0b662dbaaa856e105d",
+      "symbol": "train_single_sample",
+      "line": 116,
+      "end_line": 165
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/inference_once.py",
+      "sha256": "83d38a6c782581acd53c3d8c5272c24c89ae85a32f5c7da9230edff1a8f97e6a",
+      "symbol": "generate_once",
+      "line": 9,
+      "end_line": 14
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/irra_image_adapter.py",
+      "sha256": "148d2cfe8749cb8723b00e38ca68ff8dee6f86948f1fe2a15605c792dbb2eba4",
+      "symbol": "pixels_from_pil",
+      "line": 22,
+      "end_line": 23
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/irra_image_adapter.py",
+      "sha256": "148d2cfe8749cb8723b00e38ca68ff8dee6f86948f1fe2a15605c792dbb2eba4",
+      "symbol": "FrozenIRRAImageEncoder",
+      "line": 25,
+      "end_line": 42
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/constraints.py",
+      "sha256": "7b9202d2885165302aa1ec475feaefe0150869b12660aa40d4552a0f29759264",
+      "symbol": "replay",
+      "line": 52,
+      "end_line": 71
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/constraints.py",
+      "sha256": "7b9202d2885165302aa1ec475feaefe0150869b12660aa40d4552a0f29759264",
+      "symbol": "candidates",
+      "line": 73,
+      "end_line": 89
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/policy.py",
+      "sha256": "0bbcd430e02eb61c38857b7a812b87f163d1bd0a09f0b147cede23e5712fbed3",
+      "symbol": "CharacterPolicy",
+      "line": 59,
+      "end_line": 164
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase4_training.py",
+      "sha256": "649ae6b0e9ac63245c9d77f8cfcbe653b000ec9f466070e79990ece210d0466e",
+      "symbol": "optimizer_for",
+      "line": 9,
+      "end_line": 12
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase4_training.py",
+      "sha256": "649ae6b0e9ac63245c9d77f8cfcbe653b000ec9f466070e79990ece210d0466e",
+      "symbol": "train_step",
+      "line": 38,
+      "end_line": 79
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_importance_step51_20261003/importance.py",
+      "sha256": "a6dc10128e16a21db0c7fb8ad239506f827b2d44fef3bb1557c1a162fd922eba",
+      "symbol": "FrozenLocalization",
+      "line": 107,
+      "end_line": 155
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_tta_step72_20261003/attribute_tta.py",
+      "sha256": "169dc1676d66f172de7079d9b083a23e09ced35dd0ba583b7f2fac86b8ff4051",
+      "symbol": "TextTransport",
+      "line": 74,
+      "end_line": 103
+    }
+  ]
+}

@@ -1,5 +1,20 @@
 # 架构边界与迁移约定
 
+## G/H真实后端接线（CPU准备）
+
+alternating/native_*与parents/token_bridge为原CPU原型提供受控真实后端；
+只复用原G/H训练、FrozenLocalization、TextTransport与IRRA，不新增统一训练算法。
+native_cli默认CPU；显式probe禁止Optimizer.step，smoke要求同源码/协议的数值探针不可变PASS回执。
+CPUStartupGate必须在旧命名空间/CPU隔离完全退出后才允许CUDA；IRRA模型在legacy会话之外加载。
+G迁移设备后重新绑定Adam对象并读回全部状态，双阶段RNG单独恢复。
+B新语境重算z/w/e/JVP，A1及固定NOOP显式引用原条件；reader/basis/字节接口绑定独立条件空间。
+G变化必须使整个2048 Train bank失效，完整刷新后创建原RewardBank新实例，再执行原H SCST。
+动作、条件Tensor、逐图Claim/产物和完整round状态均使用既有ArtifactStore不可变提交；不自动重放。
+精确字节Span桥对旧mapper的utf8_character_split作可证明坐标接线，保留原诊断，其他错误不放宽。
+本轮只有CPU恢复/结构/控制流验证，真实JVP与双向更新尚未运行。见ADR-0016及
+[执行协议](framework/results/gh_bidirectional_backend/EXECUTION_PROTOCOL.md)。
+
+
 ## G-v2固定Epoch评估变体
 
 gv2_epoch_eval + ablations/gv2_sweep(_target)只连接原生成器/单步投影与原生缓存/Engine，

@@ -2,7 +2,29 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：G/H双向交替最小CPU原型，真实GPU待明确授权
+## 当前阶段：G/H真实后端CPU接线完成，GPU探针待授权
+
+开发基准8ae623d3；独立分支codex/gh-bidirectional-backend。
+已新增完整G60/H10模型/Adam/RNG恢复、Canonical/Unicode字节映射、原定位/JVP接线、
+2048 Train刷新/原RewardBank/原SCST、显式数值探针与两轮Smoke门禁。
+224项CPU测试PASS（原162+新增62），另有3项真实CLI拒绝检查PASS。
+真实CPU来源/导入/完整父恢复PASS；原Clean/G60 bank只读内容与顺序核对PASS。
+实际CPUStartupGate走通，事件只有cpu_sources_verified→cpu_isolation_exited。
+G Adam484080；H完整状态20480 visits/20370更新，各参数step20124–20370。
+CUDA RNG仅保存字节，CUDA恢复、新JVP/FD、梯度/Reward差与完整Smoke均PENDING。
+
+一次只读共享GPU快照资源合格（6385MiB空闲、利用率52%，外部PID2595393未干预），不构成GPU授权。
+本轮真实G/H/IRRA/reader前向、JVP和参数更新全部0；probe_v1/smoke_v1均未创建。
+151378历史文件及10918上一审计来源metadata保持，关键来源SHA保持。
+新字节桥仅证明UTF-8拆片的Span坐标，不改BPE ID；旧mapper其他歧义仍拒绝，真实新语境数学尚待探针验收。
+不强制共享属性/K，不改原Loss/Reward，不启动60轮训练或Validation/Test。
+
+[中文报告](framework/results/gh_bidirectional_backend/REPORT.md)、
+[待授权执行协议](framework/results/gh_bidirectional_backend/EXECUTION_PROTOCOL.md)、
+[CPU及来源证据](framework/results/gh_bidirectional_backend/SOURCE_EVIDENCE.json)、ADR-0016。
+代码Commit在发布后的来源记录中登记；下一步仅可在新的明确授权后运行固定两条Train数值探针。
+
+## 历史阶段：G/H双向最小CPU原型（8ae623d3快照）
 
 参考0b87fa55；独立codex/gh-bidirectional-prototype工作树。
 CPU实现与验证内容Commit：7eb8c7382d1a65b3bbee4d6664157eb05a797d67。

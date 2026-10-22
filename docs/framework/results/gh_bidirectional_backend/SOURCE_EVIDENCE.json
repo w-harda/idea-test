@@ -1,0 +1,412 @@
+{
+  "schema": "gh-native-backend-cpu-evidence-1",
+  "status": "CPU_BACKEND_READY_GPU_NUMERICS_PENDING",
+  "base_commit": "8ae623d3b6cb01f96c86e15e167d7dd7b1f56734",
+  "branch": "codex/gh-bidirectional-backend",
+  "worktree": "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-backend-20261022",
+  "recorded_at": "2026-10-22T19:37:40.938261+08:00",
+  "source_sha256": "884bc426c4aa70c3a01c816ab54d0253bb73b7e22bdb17954a38c79d83b7ab97",
+  "config": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-backend-20261022/configs/framework/gh_bidirectional_backend.server.json",
+    "sha256": "093883a31ad06d3c61b4e72c541d7d55eea9ddafd3d5fe7b36ad93d6ba200af0",
+    "size": 211978,
+    "mtime_ns": 1792668474574906398
+  },
+  "CPU_tests": {
+    "passed": 224,
+    "old_regression": 162,
+    "new_cases": 62,
+    "skipped": 0,
+    "exit_code": 0,
+    "log": "release_verified.log",
+    "real_CPU_integration_included": true,
+    "GPU_initialized": false
+  },
+  "CLI_negative_checks": [
+    {
+      "name": "probe_without_permission_final",
+      "exit_code": 1,
+      "expected_denial": "explicit separate GPU authorization required",
+      "log": {
+        "path": "/home/lzf/ldx/tmp/gh_bidirectional_backend_20261022/probe_without_permission_final.log",
+        "sha256": "0622ba72fa5264f2acde7a1cc606b04cf01a50230625059c7dd5ebdfb819bbe4",
+        "size": 1336,
+        "mtime_ns": 1792669059404105874
+      }
+    },
+    {
+      "name": "smoke_without_permission_final",
+      "exit_code": 1,
+      "expected_denial": "explicit separate GPU authorization required",
+      "log": {
+        "path": "/home/lzf/ldx/tmp/gh_bidirectional_backend_20261022/smoke_without_permission_final.log",
+        "sha256": "0622ba72fa5264f2acde7a1cc606b04cf01a50230625059c7dd5ebdfb819bbe4",
+        "size": 1336,
+        "mtime_ns": 1792669059544107382
+      }
+    },
+    {
+      "name": "smoke_without_probe_final",
+      "exit_code": 1,
+      "expected_denial": "missing committed artifact",
+      "log": {
+        "path": "/home/lzf/ldx/tmp/gh_bidirectional_backend_20261022/smoke_without_probe_final.log",
+        "sha256": "9d61233d1c4d85407a01bd678e4df331819935cce38e6c833429b4a44328632e",
+        "size": 1607,
+        "mtime_ns": 1792669059697109030
+      }
+    }
+  ],
+  "source_preflight": {
+    "status": "GH_NATIVE_CPU_PREFLIGHT_PASS",
+    "sources": {
+      "status": "GH_ALTERNATING_CPU_SOURCE_PREFLIGHT_PASS",
+      "parent_sha256": {
+        "G": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049",
+        "H": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd",
+        "IRRA": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+      },
+      "source_files": 49,
+      "legacy_producers": 113,
+      "new_producers": 139,
+      "G_producers": 7,
+      "G_upstream": 4450,
+      "H_training_sources": 76,
+      "Clean_gallery_source_files": 8192,
+      "samples": [
+        {
+          "row_id": "cuhk:26530:0",
+          "G_K": 0,
+          "H_eligible": false,
+          "H_reasons": [
+            "no_canonical_attributes",
+            "no_legal_token_changing_edit"
+          ],
+          "original_caption": "The person is a blur but looks to have a top knot for a hair style and a multicolored type of robe."
+        },
+        {
+          "row_id": "cuhk:26747:0",
+          "G_K": 1,
+          "H_eligible": true,
+          "H_reasons": [],
+          "original_caption": "A man wearing a red and white cheerleader outfit is wearing a blond wig and has his arms up in the air"
+        },
+        {
+          "row_id": "cuhk:12746:0",
+          "G_K": 2,
+          "H_eligible": true,
+          "H_reasons": [],
+          "original_caption": "The boy is on an escalator. He is wearing a blue denim backpack, black  shirt, and tan chinos."
+        },
+        {
+          "row_id": "cuhk:9955:0",
+          "G_K": 3,
+          "H_eligible": true,
+          "H_reasons": [],
+          "original_caption": "He has  short  black hair  and  is  wearing  a  black shirt . He is  also  wearing white  pants  ."
+        },
+        {
+          "row_id": "cuhk:29253:0",
+          "G_K": 4,
+          "H_eligible": true,
+          "H_reasons": [],
+          "original_caption": "The man is wearing black tennis shoes with grey socks and a pair of long black shorts that go past his knees. He is wearing a white tee-shirt with black graphics on the front and a plaid grey long-sleeved shirt. He has a backpack on his back."
+        },
+        {
+          "row_id": "cuhk:21540:0",
+          "G_K": 3,
+          "H_eligible": true,
+          "H_reasons": [],
+          "original_caption": "The woman is wearing a black jacket, a pink top and black pants.  She is also wearing black boots and carrying a large white bag on her right shoulder."
+        },
+        {
+          "row_id": "cuhk:3127:0",
+          "G_K": 3,
+          "H_eligible": true,
+          "H_reasons": [],
+          "original_caption": "the person pictured is wearing a white and black shirt with black pants. the person has a strap over there shoulder and wearing light colored shoes."
+        },
+        {
+          "row_id": "cuhk:8385:0",
+          "G_K": 3,
+          "H_eligible": true,
+          "H_reasons": [],
+          "original_caption": "This woman has short hair and is wearing a plaid jacket, a beaded necklace, a white skirt with a print and white sandals."
+        }
+      ],
+      "G_updates_per_round": 27,
+      "H_updates_max_per_round": 7,
+      "Train": 2048,
+      "Validation": 128,
+      "PID_isolation": true,
+      "model_loads": 0,
+      "model_forwards": 0,
+      "CUDA_initialized": false,
+      "real_parent_restore": "PENDING GPU phase; original complete parent metadata verified",
+      "new_JVP_numeric_equivalence": "PENDING explicit GPU authorization",
+      "config_sha256": "393bf1c2b92c3fed86e4ef583a710970768032e7ebace65253d271c4c5c94c4f"
+    },
+    "imports_executed": 56,
+    "runtime_source_pins": 496,
+    "framework_producers": 139,
+    "startup_events": [
+      "cpu_sources_verified",
+      "cpu_isolation_exited"
+    ],
+    "parent_restore": {
+      "status": "GH_NATIVE_PARENT_CPU_RESTORE_PASS",
+      "G_state": "5d48caab6a891a1afd3aaaa6f3594eb5f860ccd7b6090708d289224e6c819e47",
+      "H_state": "1b1e3888ee8dc0e4dff39af3438ec48987cd472746cbfde71ad4d10f562ad24d",
+      "G_Adam": "84ffa5fdd8132fb60ecbb4caf40d3242973168666841264c098d2aa36575ae14",
+      "H_Adam": "dfe930621066f140b5dd37d77d5a4fc4226cdef3f74ff05bc181de86423b6a4d",
+      "G_Adam_steps": [
+        484080
+      ],
+      "H_Adam_step_min": 20124,
+      "H_Adam_step_max": 20370,
+      "G_RNG": "82a340a4e9f7ab8f2532be63bfdc764ec22aad52e860ccfa9655336aa2fd8b5d",
+      "H_RNG": "5333ea5b83ab3a2839988413067517ef7583f35efdd44fc31713b1b9ee01430e",
+      "CPU_RNG_exact": true,
+      "CUDA_RNG_preserved": true,
+      "CUDA_RNG_restored": false,
+      "parent_protocol": {
+        "G": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049",
+        "H": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd",
+        "protocol": "393bf1c2b92c3fed86e4ef583a710970768032e7ebace65253d271c4c5c94c4f"
+      },
+      "guards": {
+        "loads": [
+          "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0060/checkpoint.pt",
+          "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00020480/checkpoint.pt"
+        ],
+        "forwards": 0,
+        "optimizer_steps": 0,
+        "CUDA": false
+      },
+      "real_model_forwards": 0,
+      "updates": 0
+    }
+  },
+  "history_protection": {
+    "status": "HISTORY_METADATA_AND_FROZEN_SOURCE_PASS",
+    "files": 151378,
+    "metadata_mismatches": [],
+    "previous_audit_sources": 10918,
+    "previous_audit_metadata_mismatches": [],
+    "snapshot": {
+      "path": "/home/lzf/ldx/tmp/hv1_g60_adaptation_development_20261021/protected_before.json",
+      "sha256": "fb785cd86aa441e5acb36eb51a835f0c98bbaafc7f8300e0e173fa354f43517d",
+      "size": 23402028,
+      "mtime_ns": 1792596299807777556
+    },
+    "previous_audit_index": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-attribute-alignment-audit-20261022/docs/framework/results/gh_attribute_alignment_audit/SOURCE_EVIDENCE.json",
+      "sha256": "ad456bb7f1744f2c076ba6d8ff9bfa570da236047c04c1adc1550e57b2adfaa4",
+      "size": 3831907,
+      "mtime_ns": 1792654364744868332
+    },
+    "semantics": "full historical metadata; current producers/critical sources and parents SHA checked; not a new SHA sweep of all 151378 files"
+  },
+  "GPU_resource_snapshot": {
+    "GPU": "NVIDIA GeForce RTX 4090, 6385, 24564, 52",
+    "compute_processes": "GPU-350a0fd7-5695-b5e8-c541-cd2b5682e126, 2595393, /home/lzf/jmk/envs/foa_v5/bin/python, 17656",
+    "available_ram_bytes": 122594287616,
+    "free_disk_bytes": 6179826409472,
+    "free_inodes": 240231149,
+    "checks": {
+      "gpu": true,
+      "ram": true,
+      "disk": true,
+      "inodes": true
+    },
+    "resource_eligible": true,
+    "GPU_authorized": false,
+    "policy": "single shared_observe_only snapshot; no launch"
+  },
+  "GPU_resource_snapshot_log": {
+    "path": "/home/lzf/ldx/tmp/gh_bidirectional_backend_20261022/preflight_gate_v1.log",
+    "sha256": "b2509b1e52f156b2a354085b89a77a141acb61576eb233949a96320f89a92576",
+    "size": 30741,
+    "mtime_ns": 1792667519243029443
+  },
+  "resource_scope": "earlier single read-only snapshot in this task; final numerical code changed device assembly only; recheck required for any future GPU authorization",
+  "real_execution": {
+    "CUDA_initializations": 0,
+    "IRRA_model_loads": 0,
+    "G_H_reader_IRRA_neural_forwards": 0,
+    "JVPs": 0,
+    "G_H_updates": 0,
+    "full_gallery_generations": 0,
+    "probe_attempt_created": false,
+    "smoke_attempt_created": false,
+    "CPU_parent_deserialization": "performed in guarded tests and preflights; G/H each once per parent-restore invocation; no claim of only one CPU read in the whole development task"
+  },
+  "unverified": [
+    "CUDA Adam/RNG restore",
+    "new-context reader localization and JVP/FD",
+    "real nonNOOP/NOOP G gradients",
+    "fresh four full Train banks",
+    "real SCST Reward/Advantage differences",
+    "two-round CUDA continuation/recovery",
+    "GPU peak memory and elapsed time"
+  ],
+  "development_notes": [
+    "preserved CPU development failure logs; no GPU attempt created",
+    "fixed reader values list I/O",
+    "used historical tensor_sha for old bank; tree_sha only for new combined states",
+    "allowed only current SHA-pinned CLI main/multiprocessing alias",
+    "original projection/loss/reward/K and all historical code unchanged"
+  ],
+  "logs": {
+    "cpu_release.log": {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_backend_20261022/cpu_release.log",
+      "sha256": "8801a995107ab4f67ada452643ca1cf5c393aa8868aa325bae47ca17006e425c",
+      "size": 884,
+      "mtime_ns": 1792667876175914280
+    },
+    "server_cpu_v3.log": {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_backend_20261022/server_cpu_v3.log",
+      "sha256": "d6b48c1ec5f7018b92a0101c931fe32049d63274ff301ce01fbf9f143e1c86c1",
+      "size": 642,
+      "mtime_ns": 1792665598682535930
+    },
+    "smoke_without_probe.log": {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_backend_20261022/smoke_without_probe.log",
+      "sha256": "9d61233d1c4d85407a01bd678e4df331819935cce38e6c833429b4a44328632e",
+      "size": 1607,
+      "mtime_ns": 1792667715612546051
+    },
+    "restore_v1.log": {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_backend_20261022/restore_v1.log",
+      "sha256": "38f7f8990ba8a614fa4095ff41cf3b6a7526287bc98c879c74bd201fe9376313",
+      "size": 1218,
+      "mtime_ns": 1792664363859534548
+    },
+    "smoke_without_permission_final.log": {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_backend_20261022/smoke_without_permission_final.log",
+      "sha256": "0622ba72fa5264f2acde7a1cc606b04cf01a50230625059c7dd5ebdfb819bbe4",
+      "size": 1336,
+      "mtime_ns": 1792669059544107382
+    },
+    "cpu_final_frozen.log": {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_backend_20261022/cpu_final_frozen.log",
+      "sha256": "cd385cd2c57ac72b91bc38a4cbabf6d7b678fe555061136ce3cabccd6262baf8",
+      "size": 884,
+      "mtime_ns": 1792667232942762896
+    },
+    "cpu_accepted.log": {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_backend_20261022/cpu_accepted.log",
+      "sha256": "b98179465430da121306479ed9010220f01e5f4fb2e32e04a98c2a61cb2768b6",
+      "size": 2550,
+      "mtime_ns": 1792666659995816959
+    },
+    "server_cpu_v2.log": {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_backend_20261022/server_cpu_v2.log",
+      "sha256": "b7afb7cdad876d834c0a72f1e3c48922424d3e87383f704781581690deb3b7a1",
+      "size": 641,
+      "mtime_ns": 1792665475224092018
+    },
+    "server_cpu_v1.log": {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_backend_20261022/server_cpu_v1.log",
+      "sha256": "2e00915956434ce0717c59b14cfacd7f9b229d14757fa61f43ae009fe7ed5136",
+      "size": 3896,
+      "mtime_ns": 1792665373780759995
+    },
+    "closure_v1.log": {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_backend_20261022/closure_v1.log",
+      "sha256": "e34eecb30ebce0bc7b15a7d54d882021f8719f2ce30225b57aa3f6e6a22fadfa",
+      "size": 5781,
+      "mtime_ns": 1792663796835271049
+    },
+    "cpu_regression_verified.log": {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_backend_20261022/cpu_regression_verified.log",
+      "sha256": "d6cd8b62b338006c61c8642063f7c38a4f881f9afb55ad0247dae17deed6829c",
+      "size": 17561,
+      "mtime_ns": 1792666398727187444
+    },
+    "probe_without_permission_final.log": {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_backend_20261022/probe_without_permission_final.log",
+      "sha256": "0622ba72fa5264f2acde7a1cc606b04cf01a50230625059c7dd5ebdfb819bbe4",
+      "size": 1336,
+      "mtime_ns": 1792669059404105874
+    },
+    "preflight_final.log": {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_backend_20261022/preflight_final.log",
+      "sha256": "76ab381cd59e55cec6029360b601a643095b9d14a8941d527f73e23ea63bac81",
+      "size": 1713,
+      "mtime_ns": 1792666245636447938
+    },
+    "smoke_without_permission.log": {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_backend_20261022/smoke_without_permission.log",
+      "sha256": "0622ba72fa5264f2acde7a1cc606b04cf01a50230625059c7dd5ebdfb819bbe4",
+      "size": 1336,
+      "mtime_ns": 1792667715471544970
+    },
+    "restore_v2.log": {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_backend_20261022/restore_v2.log",
+      "sha256": "9de7301ff4c23d6af5224c39a3a1ff229d74aac2ea434b6711c7bc856f5e06b8",
+      "size": 23574,
+      "mtime_ns": 1792664455229893767
+    },
+    "unit_v1.log": {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_backend_20261022/unit_v1.log",
+      "sha256": "20f70ac378afc6186d38081cc2b2df12da095f7aa6ff3cf920a47fefa3fa717c",
+      "size": 99,
+      "mtime_ns": 1792665192088261757
+    },
+    "cpu_gate_pass.log": {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_backend_20261022/cpu_gate_pass.log",
+      "sha256": "cc13bca6bcde1df36d376a7305e9c89b47ccbdb1495e3e61123589eafbcf5981",
+      "size": 894,
+      "mtime_ns": 1792667058079329047
+    },
+    "cpu_regression_final.log": {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_backend_20261022/cpu_regression_final.log",
+      "sha256": "ddc1b100a06ead924b74c8d42c09c9dfbc68f53e34d250f11c704e62a3ca045c",
+      "size": 883,
+      "mtime_ns": 1792666151909282921
+    },
+    "preflight_accepted.log": {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_backend_20261022/preflight_accepted.log",
+      "sha256": "46351278994617fea7d12c0db3cdc97e7e337f04c31fa05d22bc3524b834b1d5",
+      "size": 1716,
+      "mtime_ns": 1792666703561224698
+    },
+    "preflight_verified.log": {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_backend_20261022/preflight_verified.log",
+      "sha256": "766e4c3d4ce655c36bdc5365ff8dc7aa361df86e747219c928755c503e755a65",
+      "size": 30207,
+      "mtime_ns": 1792668482522264025
+    },
+    "preflight_gate_v1.log": {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_backend_20261022/preflight_gate_v1.log",
+      "sha256": "b2509b1e52f156b2a354085b89a77a141acb61576eb233949a96320f89a92576",
+      "size": 30741,
+      "mtime_ns": 1792667519243029443
+    },
+    "smoke_without_probe_final.log": {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_backend_20261022/smoke_without_probe_final.log",
+      "sha256": "9d61233d1c4d85407a01bd678e4df331819935cce38e6c833429b4a44328632e",
+      "size": 1607,
+      "mtime_ns": 1792669059697109030
+    },
+    "probe_without_permission.log": {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_backend_20261022/probe_without_permission.log",
+      "sha256": "0622ba72fa5264f2acde7a1cc606b04cf01a50230625059c7dd5ebdfb819bbe4",
+      "size": 1336,
+      "mtime_ns": 1792667715331543897
+    },
+    "cpu_regression_v1.log": {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_backend_20261022/cpu_regression_v1.log",
+      "sha256": "7557c43b1fbc8076e0e465f40e3a182b6a3ecc32fce96bfd76f85fa8dbe82227",
+      "size": 2923,
+      "mtime_ns": 1792665936803219778
+    },
+    "release_verified.log": {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_backend_20261022/release_verified.log",
+      "sha256": "09ce2349b9e8b4ff9a61cc642876d161c86cafc9c4597673a510a0ba1afd4131",
+      "size": 884,
+      "mtime_ns": 1792668526043841991
+    }
+  }
+}
