@@ -1,5 +1,13 @@
 # 历史实验注册表
 
+## G/H数值探针启动前资源阻塞（2026-10-22）
+
+基准a46c6980；CPU Preflight及151378历史metadata保护PASS。
+空闲显存6385MiB低于本次10240MiB硬门槛，RESOURCE_BUSY；probe_v1未创建，未初始化CUDA。
+没有GPU模型加载、神经前向、JVP或更新；不属于GPU探针FAIL Attempt，数值仍PENDING。
+[报告与来源](framework/results/gh_bidirectional_backend/PROBE_V1_RESOURCE_BUSY.md)。
+
+
 ## G/H双向真实后端CPU准备（2026-10-22，无GPU实验）
 
 开发父8ae623d3；codex/gh-bidirectional-backend；实现Commit为`656ede2dc25c87ab21c559ad2b49aedb90b92de0`。

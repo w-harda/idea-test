@@ -2,7 +2,12 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：G/H真实后端CPU接线完成，GPU探针待授权
+## 当前阶段：G/H数值探针获授权，启动前10GiB资源门禁阻塞
+
+2026-10-22基于a46c6980获一次probe_v1授权；CPU Preflight及151378项历史metadata保护PASS。
+即时GPU空闲6385MiB低于本次10240MiB硬门槛，RESOURCE_BUSY；外部PID2595393未干预。
+CUDA未初始化，probe_v1未创建，不轮询、不自动重试；真实JVP/梯度/设备RNG仍PENDING。
+[资源阻塞报告/证据](framework/results/gh_bidirectional_backend/PROBE_V1_RESOURCE_BUSY.md)。
 
 开发基准8ae623d3；独立分支codex/gh-bidirectional-backend。
 已新增完整G60/H10模型/Adam/RNG恢复、Canonical/Unicode字节映射、原定位/JVP接线、
@@ -14,7 +19,7 @@ G Adam484080；H完整状态20480 visits/20370更新，各参数step20124–2037
 CUDA RNG仅保存字节，CUDA恢复、新JVP/FD、梯度/Reward差与完整Smoke均PENDING。
 
 一次只读共享GPU快照资源合格（6385MiB空闲、利用率52%，外部PID2595393未干预），不构成GPU授权。
-本轮真实G/H/IRRA/reader前向、JVP和参数更新全部0；probe_v1/smoke_v1均未创建。
+CPU接线阶段及本次资源阻塞检查，真实G/H/IRRA/reader前向、JVP和参数更新全部0；probe_v1/smoke_v1均未创建。
 151378历史文件及10918上一审计来源metadata保持，关键来源SHA保持。
 新字节桥仅证明UTF-8拆片的Span坐标，不改BPE ID；旧mapper其他歧义仍拒绝，真实新语境数学尚待探针验收。
 不强制共享属性/K，不改原Loss/Reward，不启动60轮训练或Validation/Test。
@@ -22,7 +27,7 @@ CUDA RNG仅保存字节，CUDA恢复、新JVP/FD、梯度/Reward差与完整Smok
 [中文报告](framework/results/gh_bidirectional_backend/REPORT.md)、
 [待授权执行协议](framework/results/gh_bidirectional_backend/EXECUTION_PROTOCOL.md)、
 [CPU及来源证据](framework/results/gh_bidirectional_backend/SOURCE_EVIDENCE.json)、ADR-0016。
-代码Commit为`656ede2dc25c87ab21c559ad2b49aedb90b92de0`，来源记录由后续文档提交登记；下一步仅可在新的明确授权后运行固定两条Train数值探针。
+代码Commit为`656ede2dc25c87ab21c559ad2b49aedb90b92de0`，来源记录由后续文档提交登记；固定两条Train数值探针本次因额外10GiB资源门禁停止；未消费Attempt，不自动重试，等待用户下一步指令。
 
 ## 历史阶段：G/H双向最小CPU原型（8ae623d3快照）
 
