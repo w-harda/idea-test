@@ -361,3 +361,14 @@ G S_raw连续敏感度与H策略importance分开，跨模态按Caption+Span+语�
 未来若使用H攻击文本指导G，应显式新建语境条件身份，不将原z/JVP改签；
 最新G的bank需新绑定RewardBank上下文，不能靠切换时间顺序宣称双向交互。
 见[审计与设计](framework/results/gh_attribute_alignment_audit/REPORT.md)。
+
+## G/H双向条件交替CPU原型
+
+src/tbps/alternating集中承载本次两轮研究原型；不是通用Training Engine。
+原Canonical+完整H动作→新语境定位/JVP→原G单样本训练；
+G更新→完整2048 Adv bank→原H RewardBank/SCST。
+A1不消费新文本条件，B消费，二者均刷新G→H反馈。Loss/Reward/K函数和独立推理接口保持。
+新条件身份包含原Caption锚点与当前语境，旧condition/JVP不重标。
+双Adam与G/H阶段RNG分别存储，原子round、不可变Claim与完整边界恢复；未完成事务拒绝自动重播。
+当前仅CPU Fixture执行，真实后端组装与GPU数值验收PENDING；CLI只有只读预检，无训练动作。
+协议/接口/缓存失效及预算见framework/results/gh_bidirectional_prototype/和ADR-0015。

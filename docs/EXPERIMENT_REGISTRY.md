@@ -546,3 +546,14 @@ H20新增候选最低40.427635%，历史H9为40.425480%；H60为42.874081%，不
 [报告](framework/results/gh_attribute_alignment_audit/REPORT.md)、
 [证据](framework/results/gh_attribute_alignment_audit/SOURCE_EVIDENCE.json)、
 [后续方案草案](framework/results/gh_attribute_alignment_audit/alternating_training_design.md)。
+
+## G/H双向条件交替原型：仅CPU准备
+
+新身份：gh-alternating-prototype-1，codex/gh-bidirectional-prototype。
+只读父G60 SHA9148a6ac…60949与H10 SHA4ae964d5…4bacd；H60及H7 Selection保持。
+固定8 Train更新样本、原2048奖励图库、两轮A1/B；不含新Validation/Test结果。
+模型、Adam、RNG的CPU合成恢复和来源门禁通过不等于真实GPU Smoke通过。
+真实G/H/IRRA加载、JVP和更新数本轮均0；计划输出smoke_v1尚未创建。
+[设计](framework/results/gh_bidirectional_prototype/REPORT.md)、
+[实际CPU/资源/保护证据](framework/results/gh_bidirectional_prototype/SOURCE_EVIDENCE.json)。
+不重发任何历史完成回执，不自动启动后续训练。

@@ -1,0 +1,589 @@
+{
+  "schema": "gh-alternating-cpu-preparation-evidence-1",
+  "status": "CPU_PROTOTYPE_AND_SOURCE_VERIFIED_GPU_PENDING",
+  "base_commit": "0b87fa55caf04e7b636bd8d0bf74b13ef3a759ff",
+  "branch": "codex/gh-bidirectional-prototype",
+  "worktree": "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022",
+  "parent_sha256": {
+    "G": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049",
+    "H": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd",
+    "IRRA": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+  },
+  "config": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/configs/framework/gh_alternating_prototype.server.json",
+    "sha256": "21fb9ca69b92f0dae9b183568555f8df03617aac25a7d1ec1208a933a9c15771",
+    "protocol_digest": "b4b7c86d5408c763829665e01f28fa289f4ed25e6690115b09457521c6ee3c64"
+  },
+  "preflight": {
+    "status": "GH_ALTERNATING_CPU_SOURCE_PREFLIGHT_PASS",
+    "parent_sha256": {
+      "G": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049",
+      "H": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd",
+      "IRRA": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+    },
+    "source_files": 49,
+    "legacy_producers": 113,
+    "new_producers": 132,
+    "G_producers": 7,
+    "G_upstream": 4450,
+    "H_training_sources": 76,
+    "Clean_gallery_source_files": 8192,
+    "samples": [
+      {
+        "row_id": "cuhk:26530:0",
+        "G_K": 0,
+        "H_eligible": false,
+        "H_reasons": [
+          "no_canonical_attributes",
+          "no_legal_token_changing_edit"
+        ],
+        "original_caption": "The person is a blur but looks to have a top knot for a hair style and a multicolored type of robe."
+      },
+      {
+        "row_id": "cuhk:26747:0",
+        "G_K": 1,
+        "H_eligible": true,
+        "H_reasons": [],
+        "original_caption": "A man wearing a red and white cheerleader outfit is wearing a blond wig and has his arms up in the air"
+      },
+      {
+        "row_id": "cuhk:12746:0",
+        "G_K": 2,
+        "H_eligible": true,
+        "H_reasons": [],
+        "original_caption": "The boy is on an escalator. He is wearing a blue denim backpack, black  shirt, and tan chinos."
+      },
+      {
+        "row_id": "cuhk:9955:0",
+        "G_K": 3,
+        "H_eligible": true,
+        "H_reasons": [],
+        "original_caption": "He has  short  black hair  and  is  wearing  a  black shirt . He is  also  wearing white  pants  ."
+      },
+      {
+        "row_id": "cuhk:29253:0",
+        "G_K": 4,
+        "H_eligible": true,
+        "H_reasons": [],
+        "original_caption": "The man is wearing black tennis shoes with grey socks and a pair of long black shorts that go past his knees. He is wearing a white tee-shirt with black graphics on the front and a plaid grey long-sleeved shirt. He has a backpack on his back."
+      },
+      {
+        "row_id": "cuhk:21540:0",
+        "G_K": 3,
+        "H_eligible": true,
+        "H_reasons": [],
+        "original_caption": "The woman is wearing a black jacket, a pink top and black pants.  She is also wearing black boots and carrying a large white bag on her right shoulder."
+      },
+      {
+        "row_id": "cuhk:3127:0",
+        "G_K": 3,
+        "H_eligible": true,
+        "H_reasons": [],
+        "original_caption": "the person pictured is wearing a white and black shirt with black pants. the person has a strap over there shoulder and wearing light colored shoes."
+      },
+      {
+        "row_id": "cuhk:8385:0",
+        "G_K": 3,
+        "H_eligible": true,
+        "H_reasons": [],
+        "original_caption": "This woman has short hair and is wearing a plaid jacket, a beaded necklace, a white skirt with a print and white sandals."
+      }
+    ],
+    "G_updates_per_round": 27,
+    "H_updates_max_per_round": 7,
+    "Train": 2048,
+    "Validation": 128,
+    "PID_isolation": true,
+    "model_loads": 0,
+    "model_forwards": 0,
+    "CUDA_initialized": false,
+    "real_parent_restore": "PENDING GPU phase; original complete parent metadata verified",
+    "new_JVP_numeric_equivalence": "PENDING explicit GPU authorization",
+    "config_sha256": "b4b7c86d5408c763829665e01f28fa289f4ed25e6690115b09457521c6ee3c64"
+  },
+  "CPU_tests": {
+    "new_distinct_cases": 61,
+    "total_distinct_cases": 162,
+    "exit_code": 0,
+    "command": "/home/lzf/ldx/envs/tbps-image/bin/python -B -m pytest -q --basetemp=/home/lzf/ldx/tmp/gh_bidirectional_prototype_20261022/pytest_verified tests/framework/test_gh_alternating.py tests/framework/test_gh_attribute_audit.py tests/framework/test_artifacts.py tests/framework/test_contracts.py tests/framework/test_config.py",
+    "TMPDIR": "/home/lzf/ldx/tmp/gh_bidirectional_prototype_20261022",
+    "final_test_log": "/home/lzf/ldx/tmp/gh_bidirectional_prototype_20261022/cpu_verified.log"
+  },
+  "missing_producer_negative_check": {
+    "status": "REFUSED_AS_REQUIRED",
+    "exit_code": 1
+  },
+  "resources_one_snapshot": {
+    "GPU": "NVIDIA GeForce RTX 4090, 6501, 24564, 49",
+    "compute_processes": "GPU-350a0fd7-5695-b5e8-c541-cd2b5682e126, 2595393, /home/lzf/jmk/envs/foa_v5/bin/python, 17656",
+    "available_ram_bytes": 122082865152,
+    "free_disk_bytes": 6179895119872,
+    "free_inodes": 240233770,
+    "checks": {
+      "gpu": true,
+      "ram": true,
+      "disk": true,
+      "inodes": true
+    },
+    "resource_eligible": true,
+    "GPU_authorized": false,
+    "policy": "single shared_observe_only snapshot; no launch"
+  },
+  "resource_timestamp_semantics": "source_preflight_v1.log closed 2026-10-22T16:56:22.135130+08:00; not a second resource query",
+  "history_protection": {
+    "original_files_metadata_unchanged": 151378,
+    "prior_audit_source_metadata_unchanged": 10918,
+    "critical_source_SHA_unchanged": 49,
+    "H60_and_H7_extra_SHA_unchanged": 2,
+    "reference_worktree_clean": true
+  },
+  "real_execution": {
+    "G_H_IRRA_loads": 0,
+    "G_H_IRRA_forwards": 0,
+    "new_text_encodings": 0,
+    "JVP": 0,
+    "G_H_updates": 0,
+    "GPU_initialized": false,
+    "smoke_attempt_created": false,
+    "synthetic_CPU_autograd_and_Adam_tests_executed": true
+  },
+  "planned_output": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-prototype/smoke_v1",
+  "source_manifest": [
+    {
+      "path": "/home/lzf/Attack/IRRA/logs/CUHK-PEDES/best.pth",
+      "sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+    },
+    {
+      "path": "/home/lzf/TBPS/Datasets/CUHK-PEDES/reid_raw.json",
+      "sha256": "fc3d15542f91dd70e23028c2cb40171a8f41734a39afddb9505e352e396cabf0"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/irra_attribute_unit_prototype.py",
+      "sha256": "33998e7ab6a251a5fa92ec0c3e8d151ff09a17ecd9c95dc85030116a6f784f62"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/irra_soft_rank_gradient.py",
+      "sha256": "284ecfc897b6f0a901398babf2c95fe8c991796a708158c448504496616c8ba8"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-g60-h-validation/audit_v1/result/report.json",
+      "sha256": "c6664b04a9178331314370dc2f6b931f989fc0dd9cd5060fd69c96bd02694812"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0060/checkpoint.json",
+      "sha256": "6881e594badd5ae765040964cf4adfad12080bb8c4c2d1cb3bc0a75b7e4ad76a"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0060/checkpoint.pt",
+      "sha256": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0060/manifest.json",
+      "sha256": "0ed0a211ff31083fcab4f92245a4f11ab0c4a9bf8e3253bf69067aa0cebc998e"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/completed/report.json",
+      "sha256": "bb7bbc554a646c46b67eb318396d7f1a35e18569a36b58ff2ae0e2d99372735c"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-hv1-g60-adaptation-epoch60/gallery_audit/result/report.json",
+      "sha256": "19202611cd756f568f15051494113a28b3d48d0b96d6f45d97cb3c2946258f5c"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-hv1-g60-adaptation-epoch60/gallery_train/completed/report.json",
+      "sha256": "43ab1f25e0165b4bfb1703a112612c0ba5070b376a2502f584ff8cacd50d152c"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/epoch_training.py",
+      "sha256": "0f567c02d4a891dc0fff109abb03aee5942dc97322c6940f92fdef17dfffba4e"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/image_only_generator.py",
+      "sha256": "4745e6947308fdc4f5d5496b6a99c9a68699abef8131f2a211e1bd13470eec85"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/inference_once.py",
+      "sha256": "83d38a6c782581acd53c3d8c5272c24c89ae85a32f5c7da9230edff1a8f97e6a"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/losses.py",
+      "sha256": "d415dfe326cc2f580d202d0220d5bb0c5895ed626115b0828e516b598df8f0b2"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/conditions_full/manifest.json",
+      "sha256": "506caf30b8f82b8a29fc35e06df7bb04a5b2bcddc58a1f159b524bb107e7511e"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/conditions_full/protocol.json",
+      "sha256": "9ad4903a6de6dc221df1a15af48d9e63e6332d7fcd3a9a62ecd3f11a2ed91c9d"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/train_v2/training_protocol.json",
+      "sha256": "3f9e1fae379e9205c7d1d80224887841f89bc49119a3546740b9340e824a93b2"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/prep_text_frontend.py",
+      "sha256": "ef28b99f8fbf62fab6efbe29a89a511b8414c59c8bb97763419c48c483e64b40"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/serial_training.py",
+      "sha256": "e42fa8bd6ea933530bda8e2e67d5149e7059151f4b2caa0b662dbaaa856e105d"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/constraints.py",
+      "sha256": "7b9202d2885165302aa1ec475feaefe0150869b12660aa40d4552a0f29759264"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/contracts.py",
+      "sha256": "2dc90ad865dcdc9b72b5ebb3fe4772a5b0c4c082f91694d1da244a07b72de0e9"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/runtime.py",
+      "sha256": "d68bed7ec961dbf056aa16f3eb4330565588d71041eff36a9ccf8d6835d34ab6"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/gallery_train/completed.json",
+      "sha256": "ce419a37957ddf5d7d29e80a06c837b9d2aeb5104aa6e15c745aa4c292a0a5f4"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/gallery_train/protocol.json",
+      "sha256": "edb347369f0aaa9d36a5c3cf51da6719da97b4db7d1abf0af65a07da096db529"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/qualification/train.json",
+      "sha256": "44a6d39aa00153acb6d8880e9271370f7ee664b6f79b2b7cacf31c163c216ccb"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/qualification/validation.json",
+      "sha256": "b3f8be039b18607ffcb4774375e9e459db1569975c8adeb901e246cfb8a5facd"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00020480/checkpoint.json",
+      "sha256": "cd6221eccba3776338aaedca1ecacf95e75f9ef36968c17007fd0008a12f6858"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00020480/checkpoint.pt",
+      "sha256": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00020480/steps.jsonl",
+      "sha256": "3f9b7eb51fb5f03d248b101ad9b496f3843c1e0fa387deee09158dc9524fbfa7"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/protocol.json",
+      "sha256": "211497ad1d55438c7c89084ec1272e4dcdd5e5f2eefc76a8c8776248e13c0b9d"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase4_training.py",
+      "sha256": "649ae6b0e9ac63245c9d77f8cfcbe653b000ec9f466070e79990ece210d0466e"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/policy.py",
+      "sha256": "0bbcd430e02eb61c38857b7a812b87f163d1bd0a09f0b147cede23e5712fbed3"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/rewards.py",
+      "sha256": "4591d7fbb993eb2fcb5470931ebca4b24b88f92a22e118660b822a9c5fb769df"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/scst.py",
+      "sha256": "3edb22ac84791f2cd451a5ef93ea87fc75e88827a3703b5648a51b302b988c36"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/text_frontend.py",
+      "sha256": "f9fc38d5bdcb40d77f5a0bfa350ff7a9540f2d51c50f4dc4bea84b1d208e3b6d"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/src/attributes/text_extractor.py",
+      "sha256": "47deccbf7c86ac6d2d6000ecb7997b8f7f2aff0ebb3c96b814e1cd7c665253b3"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1/prototypes/attribute_importance_step51_20261003/importance.py",
+      "sha256": "a6dc10128e16a21db0c7fb8ad239506f827b2d44fef3bb1557c1a162fd922eba"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1/prototypes/attribute_tta_step72_20261003/attribute_tta.py",
+      "sha256": "169dc1676d66f172de7079d9b083a23e09ced35dd0ba583b7f2fac86b8ff4051"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1/prototypes/attribute_tta_step74_dynamic_k_20261004/paired_prefix.py",
+      "sha256": "8c4f37cc7a92d6ad96269468577f86feccf751acc3367b20b7a729b62689ed05"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1/prototypes/attribute_tta_step74_dynamic_k_20261004/selection_audit.py",
+      "sha256": "46213fc3f0e09cdb9c37b2c1abb8880fac94d4989739aaa21e51e4385c68a409"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1/prototypes/attribute_unit_v55_interface_20261003/attribute_interface.py",
+      "sha256": "5ec8d0c9e941b9583deae721ce59c9ba9cf2fa8045fc4f3e041b6b59cf0fdcca"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4c2-20261017/configs/framework/stage2_sources.server.json",
+      "sha256": "9f2da834669c7a1902b3fa9570ce8ab1a2844483ddbfb6e75bb3221a02acf73e"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-g60-h-validation-20261021/configs/framework/stage3br_plugins.server.json",
+      "sha256": "7f5698fa6c4abf98621c5624faccfaa894ec566c3a20dbfa92147d8ca5c5aba1"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-g60-h-validation-20261021/docs/framework/results/hv1_epoch7_training_selection_audit/SOURCE_EVIDENCE.json",
+      "sha256": "f659dc63ba90c87e3d8ce18988665c4b8b09169d361260854ab553585ebc0c4e"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-attribute-alignment-audit-20261022/docs/framework/results/gh_attribute_alignment_audit/SOURCE_EVIDENCE.json",
+      "sha256": "ad456bb7f1744f2c076ba6d8ff9bfa570da236047c04c1adc1550e57b2adfaa4"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/configs/framework/hv1_g60_adaptation.server.json",
+      "sha256": "4e5274ed2edb872a65fb96c8b238cac508f54ff9990b773251894bcc0288aca3"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-hv1-g60-adaptation-20261021/src/tbps/ablations/run_hv1_g60_adaptation.sh",
+      "sha256": "6786f7689e24af2a89fd3a83ab42317b01a9675bc1e62110196e4f57949328f5"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/hv1_g60_adaptation_development_20261021/protected_before.json",
+      "sha256": "fb785cd86aa441e5acb36eb51a835f0c98bbaafc7f8300e0e173fa354f43517d"
+    }
+  ],
+  "new_producer_sha256": {
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/__init__.py": "7215b414d63b13481ddd7252dd976985c2348f61099b463e5d419da3dd75050c",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/ablations/__init__.py": "18a63924c7a7b1bf897a7645fba61884d0ba90a5e949ac99eff4684eba5c7b0d",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/ablations/g60_h_bridge.py": "aec52ab788e1825bb7277835a7be060e0d85f5aac18c2e2ca49f21e57bc0ff3d",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/ablations/g60_h_validation.py": "5efc28734056d22aaa699f08442a9ea111cd41bbf9dcf35fc7e2bd03fe717c24",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/ablations/gh_attribute_audit.py": "53f243f8cc7019b3796bfbbc547a160499cba41c8c64b6aa991149ad05724ebf",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/ablations/gh_attribute_category_overlap.py": "71288851f126227e08703f2b6750ec0f1073e0a760fd7c611f37bb87f5550451",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/ablations/gh_attribute_supplement.py": "256089a3c724710979d89fae53eba4773871470b698fc4ab2c76374f56a0c258",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/ablations/gv2_epoch60_results.py": "12325d1635b241cd8a301c870b6c9c8adbe43defad87c49023dc397fe87ecd17",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/ablations/gv2_epoch_state.py": "a1c24c9c786f3fbe6dcbbc87d3836f58fa88b66352845bdba62805627c41b1cb",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/ablations/gv2_epochs.py": "d2f5e60a79aa2923499ee3a95bb36af1488704e04fc7b26ca021d227a782303c",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/ablations/gv2_sweep.py": "13a551c89a5ceff962a5d2020b2de2f91ab3e95cfe49fdf9890b691a081499ba",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/ablations/gv2_sweep_target.py": "93d154de9168c92101cd06cd3e5bd950fd98b17b69a120c5b1e561bc985240fa",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/ablations/hv1_g60_adaptation.py": "5fcd675c13362c54c4e9ff0a1926955a96ccf25dbf81d8ec07b4375e2b297445",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/ablations/hv1_g60_audit.py": "8d81de1d8ecbf6ce494fc9144b0b266bf281ac917cd6165ff5514331684366cc",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/ablations/hv1_g60_audit_repair.py": "edf7ae3b4c67d4a544e500141bc863dc8d1d5128d070c5bb74e029643dfa43b6",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/ablations/hv1_g60_posthoc.py": "33d4db53326ff6770bdd58bbe32b3624662ed69d3d9a8a760d78d79592554952",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/ablations/hv1_g60_posthoc_diagnostics.py": "fcd6a5b0153a2c127b2d7275fb145a580bd7d42dda68d1c8f84312b3653e790c",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/ablations/hv1_g60_repaired_results.py": "9c88ac9f1cbfb1f5c77ff5bf7f983e476703dc99cec1c65a445f24c558e404d0",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/ablations/hv1_g60_results.py": "39a7ab52140034debe7f908576c8cda3f5a9e9b9ca446837ad3ec5ea2d0973eb",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/ablations/hv1_g60_state.py": "95a96ff7aa39aac9d527270c325772328a1d6aba6473a51fde0f2ee77472de41",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/ablations/plot_gh_attribute_audit.py": "e22836e0d6ab93d5d8e9955c16c476160994aaeda833325bee353812d81a9614",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/ablations/plot_hv1_g60_posthoc.py": "df24bb369852a2ec59e4bbc3cb9b21582028ce23e1fb45149fbdba56733fd70b",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/ablations/report_gh_attribute_audit.py": "8f057b97dc8393ec80c6bf2b082205b334289767464684629832dde936986c1f",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/ablations/report_hv1_g60_posthoc.py": "6d3c2844275eebc80a201b0371f6134c5289a895270311195660d2bf62794db2",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/ablations/validate_gh_attribute_audit.py": "0c99656616c99ba0cc8499f4c2dc53fe97adc2b21096341983bb03295ca0809a",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/ablations/validate_hv1_g60_posthoc.py": "8db33ef5575dcf5873be67c3b95a6ee86df4f261473c3b170d30bfc6bf732d17",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/alternating/__init__.py": "8ce30be622417914b541518739c7f4897b25f49eb4a8c1e2598d8b27867ee344",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/alternating/conditions.py": "62c796f485c1dd2941611220bdedb90b1f76f318dde176781f3b6bff45633c11",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/alternating/contracts.py": "52a8bbcb02b74d7f931107067253b1fb2af9dab887bbeff1ddf68c74b5ef8cab",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/alternating/preflight.py": "9fdd2f86941d27426df07767a069e09c6784e4def73af344eef644782c55f089",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/alternating/runner.py": "c3bc8bfd989237e3ffaa56127a77490f5c4b958595c9597a55fb69ff681acd42",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/alternating/state.py": "e7aedb7607e959721aa219db96168747dfe723458b2197817ea3d2d61ff684d3",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/aptm_eval.py": "58ad427af4fb796cb32cce1ff6f0184c2c251276b4bc8b5300cae4f997a5519d",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/artifacts.py": "b7d7486df6b401705157a604daec236c7bc9ce79a8518ccf2c3df5e07c61c940",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/attacks/__init__.py": "278854696782f31a17141ee937f96cc22bcd0a24cf15e5920873539a43b54e47",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/attacks/base.py": "5c3693244bc121db8234cae46b036e235d53dfa87fc77b5c16a2632fc8982823",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/attacks/configuration.py": "f225c7eae2a2e8c14ac1883e0b4512932bc5058deef858aff7fd3bae731d9cf1",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/attacks/gv2.py": "e72685a12f65549210b2ae005219b7fa38c787f0c7a1af0a875ab672fefe4b12",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/attacks/hv1.py": "51b60e0e4b5ee1a822598f9342a7afca1509b7360e0fe2d5987e679b2ab4b25d",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/attacks/joint.py": "6b375e5390b35651f67d74a1a3d21e97237015c8c920a65706849aa8a07b4a1f",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/attacks/legacy_runtime.py": "d328c5b7b188610896aa330f72c68d18aa699634a6f633fbf64691bc4cf99476",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/attacks/provenance.py": "051b3717b32ab3a57d50fde45bb17f6a8f4e99c30d9d28b1f60f6ce941a4ff07",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/attacks/registry.py": "739b22531b4855f184733da7806ba1a4a7cc7b52a28cfd539594dd757d541b62",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/attacks/storage.py": "7158cf935bafb1192a1afb8e881fb6f4b07907e5361cfe528f836a43215d7773",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/b3_eval.py": "57fd328637e636659ad70472763cb659c652e6fc245d8c0bfaf949ef2d306ae1",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/baselines/__init__.py": "86e3dd9402c6cd505cc41954c0c9b02f4ee9cb42b7475ac7f75b89f56d59579a",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/baselines/ap_b3.py": "86f4049317984bbccf0de41d9c2910f57853c931166a013a35d33a895e04c82a",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/baselines/comparison.py": "fe9a0e6be552dcc1dbce569a27097e3509651242611e141716a171115a88d13d",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/baselines/dra_full.py": "d598d3dc698b4c1e4e5d54d40d94fc87de04915d0ad72a773a644006a77ca1a7",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/baselines/dra_full_target.py": "1a6d58492db65f91d453be8419adcbf10bb10e50494a74410e0555b1cfb31a83",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/baselines/dra_irra.py": "382f4d0a62e06c67e9e22a262f6eb60ac3de0b6ed4f98d1bd828766762e59ef9",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/baselines/dra_official.py": "817efdf47df0ff5c17a7cf59d7d3a93ec9879bf42c6ea881eb05315fdc643ffc",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/baselines/dra_target.py": "88432a1f81c95dff780ac00bb82a002e47902759a209c0361c1c0dee7753ef93",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/baselines/launch.py": "3b85cc1092026f7742422eed3062d0ed9ac858bc6e7aed4432abb6de30d94779",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/baselines/sga_attack.py": "83289d7f418f0994b52f09cb76abd04fcadf320dae57eac6e9903d144db23823",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/baselines/sga_batch8_capacity.py": "dfa6c521fb92427025363fa9ac216173508df2868263c1a2ae401b74ed35fc04",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/baselines/sga_full_execution.py": "6abc8d937f68317006881834df2f3c606af193935a5d1537b57dd2d520dd5a92",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/baselines/sga_irra.py": "c560b6f9a7d8c92b6b4dc5df04a201e1753205e602d12a36bd272b826ed93c23",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/baselines/sga_irra_smoke_scores.py": "c805c5503e02e544578e24918fb7ab67691f4163ad064d83e7744e6073c77509",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/baselines/sga_official_io.py": "d922d7c017692a24e658c46aba31b6613759b9fa950b5a2704d32efd0a4c7f73",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/baselines/sga_whitebox.py": "96f217e31f0e47a4116db2a961a4cba8ee33545c0f3f88b74a6bcf7977bd93f8",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/check_attack_runtime.py": "3c9891694323c93c66c7918a6d177c54e06c3ebeb1605367aa7e6bfc0ba8e569",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/compat/__init__.py": "a0ce605ebfd16c166f2dcc237e62460d3f3aef2deaa845feeb4a2e9b21924dcb",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/compat/legacy_assets.py": "a88fa9cf12ec1e573e4763efd6f1bd70618f9759f39445de9830249706324ebe",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/config.py": "2546fbf969c533fc2a50b9f7a7a4c880053cb056599612c3dfaa6f5691eac70f",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/contracts.py": "2049faf65bf6bd99de3c9c50263451d0fbfd2d2fe2741891f9fb0b220de64fed",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/datasets/__init__.py": "5002fe92b67ac786ead8b87ceb2f0993bbc57d98d5051c54900b529fe66f17db",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/datasets/cuhk_pedes.py": "3d7cc570430ede48533728c103d49d6bd0e1fe8596f6c112fe3b5e5358b2b968",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/datasets/historical_membership.py": "9622f342b2259091d437b29f75004b7b5e458b85606b4c9ed97f34e7ec49b31a",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/engines/__init__.py": "7acfc64557fa446bc5346fb045a50a4ee15b66c65acbd9aaddb68c5e874e784f",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/engines/aptm_score_cache.py": "3126c2c7e51f5f86534aae349ee5d5914df8a5a615e035eff2abff7eb79392bf",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/engines/evaluation.py": "957eea289a0164c865fb84dd007901e60da82fb1de9bbbae6f946e93b1374124",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/engines/historical_contracts.py": "167f03a553ba8db4aa34fcbfdd574f35609df085ca83aee7a8365791e57dce89",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/engines/historical_loader.py": "64a5d95f0bba16c81c31a39b420caa1dd0af4bb8a65f616643728f2b2e527239",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/engines/historical_sources.py": "e9b3eadd6a1fba4be93ddc75d49168a8c38be50511b84d150f7ee43c377a4986",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/engines/legacy.py": "3f730b4f3bdb1858614a4337369aee1e33134f35cf3f3d179c08eeb9e72c7465",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/engines/materialized_aptm.py": "9d1acd5ead14869070c3843529c6ed126ef225eddc60c6c22cc718932ec51411",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/engines/materialized_cache.py": "0e3445eacfc0f969eb9d68cbfcb10db208833d9b1811a737abaaab41437e527a",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/engines/materialized_inputs.py": "001e06aec70fb97571a79b30c5d32d63a730fc697aa0d825f541325e2c491a14",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/engines/materialized_irra.py": "8c4c77b762729337925b0de59c8cac754b6520b3e9fcbb9dbeb1fc4346f3c5b2",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/engines/materialized_rasa.py": "0730ecee07a2fbff57067de4f55eefe697dac477e776d42d9879ca00a3ba1732",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/engines/metrics.py": "6a09838fa9c17cc95755acf5e2e608af86127bd517b951c050910f24c38459b5",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/engines/native_cache.py": "eacfdfdc19ac4f0c09f503314cd748d84ebb42d29d3a96a476bec0ef2a3b5b1b",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/engines/native_score_cache.py": "01b8ad3de0dad9655db1c15c7b480d4f3d25f0eb0b7af3d0065661ba51c4533c",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/engines/provenance.py": "d76877f3e13e8e324b4e0f9afdba701a1bd74f115bfca382cbd953cff515b413",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/engines/replay_acceptance.py": "c7abf7c77bc3eaecb6f89c1c65e8a4cd77b3d42d50e801184baea05a118a3d1a",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/engines/replay_control.py": "c5b6c3dc90bde5bf8bf8d2a145a191e19bc017a9e1eec84dfa4cbcffe9298306",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/engines/replay_cpu.py": "385e35d6cc6df9d4d5c57431fee8d01bde86e6c63881b9ada5b87d665e748eb9",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/engines/replay_oracle.py": "2024187d02dac1a0fd4b6b8573888a8e5e6a6353949a2737183e1b81328f9d4e",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/gv2_epoch_eval.py": "0fb9d5f0532a02ecd74c0453954540eb59875eeb9bd2ccab4ffe8d4855e31f45",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/materialization/__init__.py": "2028561dfd64b76d92d53f7b2508dc3d94d03ffafbb8e54301db23e44eb4da3b",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/materialization/audit_retained.py": "3beadbc5d31b482d848aa730d931f86fb8fc2fadbc1e19b255a632c7fc1b3cac",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/materialization/audit_sources.py": "f1a1bc2bf08c087956e1bb42b4ce910911cbfe2f26103aeda25238b4f9fbbe3c",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/materialization/bulk_session.py": "b74a37584a3748ac6c97d9f50dc4fa1537d6e320c25f3bcdcd340ecb147143d4",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/materialization/checkpoint_layout.py": "e6a3724c2330723525bde196038a700c8ac9db1ecf063690b3fc52a7778408fa",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/materialization/claim_recovery.py": "2c97f50c93abcc8152d10eb06fbc05f6d230687edfc6dfe3b6a1a5533639f334",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/materialization/contracts.py": "671cba96eac0a9cec263c361dde116ee29db566c21dd1e66275033b637e5d7af",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/materialization/full_audit.py": "97c49b23f139dc677a359538e82775460ee2d2c7bc289a418d9485daab9ba8b3",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/materialization/full_gpu.py": "6e4b3aaf264c468762315f498cd4c8651dc0871e5b970352fbc1257d983614bc",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/materialization/full_gpu_audit.py": "9006c6eec3e10ad8aa380e5e6fa9bc3581384e625e5ada2615b9d590052cc628",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/materialization/full_prepare.py": "d530625c41c7e2d5ab9cb0067a962fb98a26f0f105c4a78412b62cbb403a25ae",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/materialization/full_runner.py": "c2607cfe2d3ad172d7be7b42e6bee29448a4fbbe52697d135f3c3ce90d92d908",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/materialization/generation.py": "d550de127a713382540f3dc202d552750b237f473e3d1fb22b109733bdbfe0bd",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/materialization/gpu_safety.py": "b756d61a3b0d66340508c695d3211c842eefd7ef4bbbd36de7536b97a1e1dc86",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/materialization/irra_only.py": "5629af052e5db23e4532eac5cd37f0fd35911fd34af1963b4213cd32f7304eec",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/materialization/irra_startup.py": "eb5f0bb0993ae96055e9ec95b8b5c46e110e1bcaed1d4619f1bb9d222a78106a",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/materialization/legacy_text.py": "e33e952ced95e1e5a173afd50a5225199b230ccb52593ef84e4d7898e30e50ea",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/materialization/pipeline.py": "c347df5b8281c7b3d966c1dd918a579d271e907dd2460ab81c9409aa72bcaf9d",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/materialization/retained_inputs.py": "e6bf371da7a405f888bec5521bc37ccd5a657294b7784502e3d351e8e207deb1",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/materialization/smoke.py": "19d5564d143c07bedc1c3d7741dec77dca7af641d4e0b91b4917a75a7bf40de7",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/materialization/smoke_support.py": "7f2089f6bd51be6fbedb795115399d3b37504e07948a497c01e5c4f4dff85cd8",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/materialization/store.py": "378d3477822922a99576a8b9542e23574ccf482313bdb4173c099952327e8a9d",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/materialization/throughput.py": "dbb12c468ad474a529061c442ba9a4a4c0f622a1a2e5b3472120c0613a57f729",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/models/__init__.py": "cb584e9a6b181426679b38a7488bb570ff8f3bfc7abc27eadd6d44e2f3b36221",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/models/aptm.py": "daa85058a2d4d66795a4e1ab8be03c608c857fc4a48ead160c012c299c600341",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/models/base.py": "e74baa789b6d1a4e671870e3155ff7792eb3e381bfbf967283d1dcad211cd8f5",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/models/dra_irra_source.py": "07ad4e34d8f6878b9ff3477e0df033e5b96c513bdfd34466b58f156b0bfaab7d",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/models/irra.py": "424e1dcd20b34061e3199d969f05eb34ca8aa3a6655e00a0e77770ee17fef0b2",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/models/irra_cached.py": "3e30643619250c8ba7d6e09c12a0c23f49fb336a84cd5027c4e358ab90c0e122",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/models/irra_cpu_checks.py": "b953dde85322baf0b87330c198e0303049d23b4d0c39d7c6c768d346bc83eecf",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/models/irra_io.py": "3bd668f28fe788659296af7d1d4c31e4131c23eb96b266887e356f9b32376205",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/models/irra_source.py": "fcf22ad01836804bc40fdce6c1817de2ff1941fd302b549a765e15f5287dd0b6",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/models/rasa.py": "946e89fe97ec0d189545ff9d98fc348c049ce4002564d8504bc3675d4799ee0b",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/models/sga_irra_source.py": "73b0f92f5feb3b019b010bd70313f0d9dab1f019bfcdd7ab17f672f834926fda",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/models/sga_surrogate.py": "31daea9dee81d3cce9ca3eb0490b3b9a3c992a7d03a0145e44cef89a85a8dfb5",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/preflight.py": "e2e2772ad5446d1a61bdc4fbf41338a50b1a9b292aaee0b91c0bde33d2e176a3",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/rasa_eval.py": "c345fb3b9ec0c14cd0cb13c36c9ad0b083e5165ede51d214dd6c81d700f8298c",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/runtime_closure.py": "6ca4824108d71985963aa59d3b16181ee72d7963f079e3a36816bf57b77450e5",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/sga_eval.py": "7e6741d5afa8708c361477689fea118bc4f1202ee5ab8fcb2dc259d143c30db1",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/smoke_attacks.py": "5e66a22a2d29ea9651db9f73ba4c8f11b879508039536388aa848c9f09e97499",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/smoke_attacks_gated.py": "a600141540b5f86b704decc7287bd395918dc6113442ea780e6ca08784ee672e",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-prototype-20261022/src/tbps/smoke_irra.py": "e3b28a08e22259a1603fdc354cee54c231fba3f95328a1cfe4430bb4f259044f"
+  },
+  "logs": [
+    {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_prototype_20261022/cpu_delivery.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_prototype_20261022/cpu_delivery.log",
+      "sha256": "d2bcfe9b501b7663afacf9e74822ab9063ef01a58f2ef4f08be897f7298f98a8"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_prototype_20261022/cpu_regression_final.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_prototype_20261022/cpu_regression_final.log",
+      "sha256": "97cada604414bbe03f87111aed976c7ba06369ebaba2fc82f2650189b889c696"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_prototype_20261022/cpu_regression_v2.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_prototype_20261022/cpu_regression_v2.log",
+      "sha256": "7fcdd28695872bd4af95cf908303777fbc1e3f11e4ac0c12a3284d2add7b760d"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_prototype_20261022/cpu_release.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_prototype_20261022/cpu_release.log",
+      "sha256": "7ff9480976ba3136f084d02e4b6ff9142bfdfc2f9a0dc82eb18cee6bfe2e1b05"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_prototype_20261022/cpu_tests_v1.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_prototype_20261022/cpu_tests_v1.log",
+      "sha256": "6f9d84207d022bc27cf21ea6edc1f5aefbc40a24bc969e88dcc5d98487fbd939"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_prototype_20261022/missing_producer_final.exit",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_prototype_20261022/missing_producer_final.log",
+      "sha256": "575242b3e217b997b6237ca6e03e7a8d41d1a321e233214fcf8c33e3a849a602"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_prototype_20261022/missing_producer_refused.exit",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_prototype_20261022/missing_producer_refused.log",
+      "sha256": "575242b3e217b997b6237ca6e03e7a8d41d1a321e233214fcf8c33e3a849a602"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_prototype_20261022/source_delivery.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_prototype_20261022/source_delivery.log",
+      "sha256": "c14823d801b93c12db54fcdf799001f39b2200abf6612a9f068c3db820ff0bff"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_prototype_20261022/source_final.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_prototype_20261022/source_final.log",
+      "sha256": "c777fc42441ca1b938d568269c48ecf79c116483dc78d49316b88722b219923b"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_prototype_20261022/source_preflight_v1.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_prototype_20261022/source_preflight_v1.log",
+      "sha256": "2acb5fd315c50dc648672c7e926795a9dd53c640b4e4753dc5e75e5646680a8f"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_prototype_20261022/source_release.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_prototype_20261022/source_release.log",
+      "sha256": "f22e1a34047c3c2988cd20478e747f4678719d767a413ea6725c877d31c7d090"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_prototype_20261022/cpu_verified.log",
+      "sha256": "788f33b25ed05991287d420ca43458b46dd54711edeed270e4cbaac9212f18c5"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_bidirectional_prototype_20261022/cpu_verified.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  ],
+  "limitations": [
+    "No real new-context reader/BPE/JVP validation",
+    "No real joint parent restoration in this round",
+    "Production GPU backend assembly and strict import closure still pending",
+    "No Validation/Test/model selection",
+    "No performance improvement claim",
+    "Inherited original G S_raw reference gallery includes internal Validation images; not gallery-disjoint original supervision; no new Validation feedback"
+  ]
+}

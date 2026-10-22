@@ -2,7 +2,23 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：G/H属性与动态K机制CPU审计完成，交替训练仅设计
+## 当前阶段：G/H双向交替最小CPU原型，真实GPU待明确授权
+
+参考0b87fa55；独立codex/gh-bidirectional-prototype工作树。
+61项新增CPU原型测试、162项相关回归PASS；真实来源预检PASS，历史保护通过。
+A1原G条件+新G奖励图库；B为H攻击文本重算语境z/定位/JVP+新G奖励图库。
+固定原G属性集合/S_raw/K、原K+1 Loss与H SCST/Reward，保持G(I)/H(T)。
+新组合父状态G60/H10，固定8条Train、2轮；每臂每轮27次G更新、最多7次H更新，
+之后必须完整刷新2048奖励图像。当前只执行合成CPU控制流、原Loss/Reward纯函数和恢复测试。
+真实父状态再次读回、新语境Tokenizer/reader/JVP、GPU梯度及双向更新差均PENDING。
+已验证真实来源/身份/隔离、原始文件保护；一次nvidia-smi快照不构成执行授权。
+没有GPU、真实G/H/IRRA前向、JVP、训练、新攻击、Validation或Test排名，也没有创建Smoke Attempt。
+详见[中文设计与结果](framework/results/gh_bidirectional_prototype/REPORT.md)、
+[GPU执行预算（未执行）](framework/results/gh_bidirectional_prototype/EXECUTION_PLAN.md)、
+[测试及来源证据](framework/results/gh_bidirectional_prototype/SOURCE_EVIDENCE.json)、ADR-0015。
+本阶段完成后等待明确GPU授权，不自动进行60轮联合训练或改变K/Reward。
+
+## 已完成：G/H属性与动态K机制CPU审计
 
 分析基准23fd02daebdcd28bc2e77eb18de1e6fd04432518；独立codex/gh-attribute-alignment-audit。
 26项CPU测试PASS，读取2176条G条件及H9/H20/H60共6144条Train/384条Validation既有动作。
