@@ -515,9 +515,12 @@ CPU完整H/Adam/RNG恢复已验证；真实图库/Smoke/正式训练以新输出
 源码/原配置/Gallery/Smoke均保持原身份；详见framework/HV1_G60_PRETRAIN_GATE_FAILURE.md。
 不能把临时cursor20484、Adam20374冒充正式Epoch11或H60训练完成。
 
-## H60独立CPU审计修复（2026-10-22，门禁验证中）
+## H60独立CPU审计修复及正式适配训练启动（2026-10-22）
 
-修复分支codex/hv1-g60-audit-fix；原执行9765a536及FAIL报告1b16d653均不修改。
-73个不同CPU用例PASS。已有2048图库和4-step GPU Smoke只读复用。
-真实修复Smoke CPU审计及正式H11–60当前PENDING，不能用测试PASS替代。
-版本绑定及实际后续状态见framework/HV1_G60_AUDIT_REPAIR.md。
+修复执行135df869；原执行9765a536/1b16d653失败证据保持。
+73个不同CPU用例与真实既有4-step Smoke独立CPU审计PASS；
+151378历史stat、113旧producer SHA、14358份图库/Smoke文件不变。
+正式监督器3410067（PPID1、PGID/SID同PID、无TTY），10:43:16进入H11–60。
+H10完整20480/20370恢复exact，已见Epoch11真实更新与首不可变Checkpoint。
+2048图库只读复用，无新的G/图像编码或Smoke。最终训练及六节点新结果PENDING。
+来源/日志/进度见framework/HV1_G60_AUDIT_REPAIR.md及results/hv1_g60_audit_repair_startup/EVIDENCE.json。

@@ -41,8 +41,8 @@
 覆盖历史循环末项篡改、文件状态函数调用、Checkpoint/日志/协议/producer冲突、
 pending拒绝、Smoke/正式目录隔离、冻结证明异常与修复来源缺项拒绝。
 
-测试日志、退出码在上述新临时目录。真实Smoke审计尚待独立执行；
-测试通过不替代真实产物审计。
+测试日志、退出码在上述新临时目录。真实既有Smoke独立CPU审计已于本轮执行PASS，exit0，159.056秒；
+没有重跑GPU Smoke。测试结果与真实产物审计分别记录。
 
 ## 训练与结果发布
 
@@ -64,3 +64,46 @@ shared_observe_only门限仍为6144MiB、RAM32GiB、磁盘35GiB；不干预其�
 正式训练/Validation/最终审计完成前，六节点新结果及最终PASS均为PENDING。
 
 没有官方Test、RaSa/APTM、G10控制续训、新Loss或训练自动重试。
+
+
+## 实际门禁与启动证据
+
+修复执行代码：135df869b81d728261a625ca6e4a2c6b8b7f2ae5，已推送。
+既有Smoke的新独立CPU审计exit0，HV1_G60_SMOKE_CPU_AUDIT_PASS及版本绑定回执PASS。
+151378份历史保护循环完整执行，113项原producer SHA不变；14358份既有图库/Smoke文件状态不变。
+旧GPU执行树仍HEAD1b16d653且干净，原失败日志与exit1不变。
+
+2026-10-22 10:42:26 +08:00启动唯一正式监督器；10:43:16进入训练阶段。
+PID/PGID/SID=3410067，PPID1、TTY=?；训练子进程3411973。
+真实GPU恢复从原H10 cursor20480/updates20370开始；
+H/Adam/全部RNG状态SHA与原Smoke记录的H10初始恢复完全相同，未继承Smoke4次更新。
+首个不可变Checkpoint已提交；最新观察进度见下方EVIDENCE.json。
+正式进度是时间点快照，不把PID存在或首Checkpoint提交冒充H60完成。
+
+资源门禁PASS：最初6387MiB空闲、后续原训练入口6501MiB空闲，
+RAM约114GiB、磁盘约5760GiB；共享外部GPU进程始终保留。
+G60图库2048图和原4-step Smoke只读复用。没有新的G图像生成、图像编码或GPU Smoke。
+训练预期新增102400 visits/101850更新，最终122880/122220；当前尚未完成。
+
+后台将按原算法执行预设六节点Validation、修复版最终独立CPU审计和派生报告发布；
+任何阶段失败即停止，不自动重试。最终成功标志：
+SUCCESS | HV1_G60_ADAPTATION_EPOCH60_VALIDATION_AND_CPU_AUDIT。
+未出现该标志及对应完整回执前，不宣称训练/最终审计成功。
+
+[完整启动证据](results/hv1_g60_audit_repair_startup/EVIDENCE.json)。
+
+查看进度：
+
+```bash
+cat /home/lzf/ldx/tmp/hv1_g60_adaptation_epoch60_v1/phase
+tail -n 10 /home/lzf/ldx/tmp/hv1_g60_adaptation_epoch60_v1/status.log
+tail -n 20 /home/lzf/ldx/tmp/hv1_g60_adaptation_epoch60_v1/training.log
+```
+
+正常停止请仅向本监督器发送TERM，已验证逻辑将转发训练进程并等待Epoch边界提交：
+
+```bash
+kill -TERM "$(cat /home/lzf/ldx/tmp/hv1_g60_adaptation_epoch60_v1/supervisor.pid)"
+```
+
+停止后不自动恢复，保留所有日志和Checkpoint，恢复须另行核验授权。

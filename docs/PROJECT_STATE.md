@@ -2,14 +2,19 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：H60独立CPU审计修复验证，真实Smoke审计与正式训练待门禁
+## 当前阶段：H60审计修复PASS，正式G60引导H11–60后台训练运行中
 
-原执行9765a536/冻结树1b16d653保持，修复分支codex/hv1-g60-audit-fix。
-局部stat字典仅更名epoch_stat，旧stat(path)保护保留；113原producer不重签。
-73个不同CPU用例PASS；151378份历史stat及113 producer SHA不变。
-独立新入口绑定修复源和旧FAIL，旧2048图库/4-step Smoke只读复用。
-真实修复Smoke审计PENDING，正式H11–60尚未启动；只有门禁全部PASS才按本轮授权启动。
-[版本隔离、测试与执行方案](framework/HV1_G60_AUDIT_REPAIR.md)。
+修复执行135df869b81d728261a625ca6e4a2c6b8b7f2ae5；独立codex/hv1-g60-audit-fix。
+仅审计器局部stat字典改名epoch_stat，原113 producer/执行9765a536和1b16d653失败记录保持。
+73个不同CPU用例PASS；真实既有4-step Smoke独立CPU审计PASS（exit0），旧FAIL保留。
+151378历史文件stat/113 producer SHA不变，14358份既有图库/Smoke文件保持；2048图库不重算。
+2026-10-22 10:42:26 +08:00监督器3410067启动，PPID1/无TTY，10:43:16进入正式训练。
+H/Adam/全部RNG从原H10 20480/20370恢复exact，非Smoke20484；已见Epoch11真实更新和首Checkpoint。
+训练子进程3411973；运行中快照不代表H60已完成。
+六节点新Validation、最终独立CPU审计及正式训练报告仍PENDING，后台按授权串行执行，失败即停。
+没有新GPU Smoke、G图库重生成、官方Test、RaSa/APTM、G10控制训练或新Loss。
+[修复/来源/门禁/命令](framework/HV1_G60_AUDIT_REPAIR.md)；
+[实际回执与启动快照](framework/results/hv1_g60_audit_repair_startup/EVIDENCE.json)。
 
 ## 已完成：G60 × H1–H10内部Validation探索性适配诊断
 

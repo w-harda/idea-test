@@ -1,0 +1,260 @@
+{
+  "schema": "hv1-g60-auditor-repair-startup-evidence-1",
+  "time": "2026-10-22T10:46:44+0800",
+  "repair_code_commit": "135df869b81d728261a625ca6e4a2c6b8b7f2ae5",
+  "original_execution_commit": "9765a536a11a9a0e9111f2f834230c53d41bf2d8",
+  "original_snapshot_head": "1b16d653d17573d3dafaa7a26bd84bf8d31949ac",
+  "CPU_tests": {
+    "unique_passed": 73,
+    "new_audit_control_flow": 17,
+    "existing_H60": 24,
+    "existing_Validation": 32,
+    "initial_merged": {
+      "passed": 71,
+      "failed": 1,
+      "reason": "inherited old absolute-path test configuration"
+    },
+    "confirmed_merged": {
+      "passed": 72,
+      "deselected": 1
+    },
+    "canonical_original_path_test": {
+      "passed": 1
+    },
+    "logs": [
+      {
+        "path": "/home/lzf/ldx/tmp/hv1_g60_audit_repair_20261022/cpu_tests.log",
+        "sha256": "61205ccb4ca4b2052fad3b87c49d39843e67fdbc4ee50ed5af82f2bee5a29a91",
+        "size": 7507,
+        "mtime_ns": 1792636420264537860,
+        "inode": 238961701
+      },
+      {
+        "path": "/home/lzf/ldx/tmp/hv1_g60_audit_repair_20261022/cpu_tests_exit.json",
+        "sha256": "5cc319f54b05a38799195a491c303aa686eab7caccfdbbf1e8b8c07405cb7392",
+        "size": 17,
+        "mtime_ns": 1792636420742954561,
+        "inode": 238961702
+      },
+      {
+        "path": "/home/lzf/ldx/tmp/hv1_g60_audit_repair_20261022/cpu_tests_confirmed.log",
+        "sha256": "bd7c2cc1f3cd6bc76ab0cce9039647c3d070d6aac9c050d21d262b9068d0c71d",
+        "size": 6602,
+        "mtime_ns": 1792636500302273504,
+        "inode": 238961703
+      },
+      {
+        "path": "/home/lzf/ldx/tmp/hv1_g60_audit_repair_20261022/cpu_tests_confirmed_exit.json",
+        "sha256": "e89df0eae5ec7db81135aed16463968955c578bcc4f2ec43172eff351f080c17",
+        "size": 17,
+        "mtime_ns": 1792636500755695259,
+        "inode": 238961704
+      },
+      {
+        "path": "/home/lzf/ldx/tmp/hv1_g60_audit_repair_20261022/original_path_test.log",
+        "sha256": "a8488466954223098b117df67022174ea7f5a0d694c23fc45a44642111293abe",
+        "size": 541,
+        "mtime_ns": 1792636502206291017,
+        "inode": 238961705
+      },
+      {
+        "path": "/home/lzf/ldx/tmp/hv1_g60_audit_repair_20261022/original_path_test_exit.json",
+        "sha256": "e89df0eae5ec7db81135aed16463968955c578bcc4f2ec43172eff351f080c17",
+        "size": 17,
+        "mtime_ns": 1792636502464293390,
+        "inode": 238961706
+      }
+    ]
+  },
+  "old_failure": [
+    {
+      "path": "/home/lzf/ldx/tmp/hv1_g60_adaptation_development_20261021/smoke_cpu_audit.log",
+      "sha256": "a0a37e3784a7a0bc369b181094db5e978aac6b9787e261ae8c29db6fbefb0ce1",
+      "size": 940,
+      "mtime_ns": 1792597690829049693,
+      "inode": 238830637
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/hv1_g60_adaptation_development_20261021/smoke_cpu_audit_exit.json",
+      "sha256": "2618b95f1f6be6bfde8537756f85b83845d039001563135b9d59d817446733eb",
+      "size": 16,
+      "mtime_ns": 1792597691253429774,
+      "inode": 238830638
+    }
+  ],
+  "real_CPU_audit": {
+    "exit": {
+      "exit_code": 0,
+      "seconds": 159.05563116073608
+    },
+    "log": {
+      "path": "/home/lzf/ldx/tmp/hv1_g60_audit_repair_20261022/retained_smoke_audit.log",
+      "sha256": "8da563c87875d485d8891c4c5c9487b78054a956488a1220013b997eb0f106c3",
+      "size": 2351,
+      "mtime_ns": 1792636837769384396,
+      "inode": 238961708
+    },
+    "versioned_report": {
+      "CPU_only": true,
+      "CUDA_RNG_not_applied_in_CPU_audit": true,
+      "G60": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0060/checkpoint.pt",
+        "sha256": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049"
+      },
+      "all_Unicode_actions_replayed": true,
+      "auditor_sha256": "8d81de1d8ecbf6ce494fc9144b0b266bf281ac917cd6165ff5514331684366cc",
+      "binding_sha256": "c9d15cb297746ba22020eed0438e6030485008cf57a4ad1e62b5b3843caf536e",
+      "cursor": 20484,
+      "epochs": {
+        "11": {
+          "skipped": 0,
+          "updates": 4,
+          "visits": 4
+        }
+      },
+      "execution_commit": "9765a536a11a9a0e9111f2f834230c53d41bf2d8",
+      "full_RNG_saved_CPU_restoration_exact": true,
+      "new_checkpoints": 1,
+      "new_updates": 4,
+      "new_visits": 4,
+      "old_FAIL_preserved": true,
+      "old_Selection_untouched": true,
+      "original_producers": 113,
+      "original_snapshot_head": "1b16d653d17573d3dafaa7a26bd84bf8d31949ac",
+      "parent_H10": {
+        "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00020480/checkpoint.pt",
+        "sha256": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd"
+      },
+      "protected_historical_files": 151378,
+      "repair_commit": "135df869b81d728261a625ca6e4a2c6b8b7f2ae5",
+      "retained_files_unchanged": 14358,
+      "source_history_unchanged": true,
+      "status": "HV1_G60_SMOKE_CPU_AUDIT_PASS",
+      "updates": 20374
+    },
+    "receipt": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-hv1-g60-adaptation-epoch60/audit_repair_v1/smoke/completed.json",
+      "sha256": "f9529b41e6e63352110f3698fbd148087f7dc16965ddef2d785bbc8c07a29936",
+      "size": 121,
+      "mtime_ns": 1792636837715984244,
+      "inode": 16842859
+    }
+  },
+  "gallery_reused": {
+    "images": 2048,
+    "no_regeneration": true,
+    "audit": {
+      "G60": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0060/checkpoint.pt",
+        "sha256": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049"
+      },
+      "feature_content_sha256": "0b4bc2e6d6d3b5f7c9d34861e2371c984371d32324cbf2844c8e5be79978ad2b",
+      "images": 2048,
+      "max_linf": 0.0313725471496582,
+      "same_train_members": true,
+      "status": "G60_TRAIN_GALLERY_CPU_AUDIT_PASS"
+    }
+  },
+  "protection": {
+    "historical_metadata_checked": 151378,
+    "historical_unchanged": true,
+    "original_producers_checked": 113,
+    "original_tree_clean": true
+  },
+  "launch": {
+    "supervisor_pid": 3410067,
+    "PGID": 3410067,
+    "SID": 3410067,
+    "PPID": 1,
+    "TTY": "?",
+    "training_pid": 3411973,
+    "phase": "RUNNING_TRAIN_E11_E60",
+    "latest_progress": "HV1_G60_TRAIN_PROGRESS 11 1920 / 2048 visit 22400 Adam 22279",
+    "process_snapshot": "    PID    PPID    PGID     SID TT       STAT     ELAPSED COMMAND\n3410067       1 3410067 3410067 ?        Ss         04:19 bash /home/lzf/ldx/projects/idea-test-tbps-hv1-g60-audit-fix-20261022/src/tbps/ablations/run_hv1_g60_adaptation_repaired.sh\n3411973 3410067 3410067 3410067 ?        Rl         03:28 /home/lzf/ldx/envs/tbps-image/bin/python -B -m tbps.ablations.hv1_g60_adaptation --config /home/lzf/ldx/projects/idea-test-tbps-hv1-g60-adaptation-20261021/configs/framework/hv1_g60_adaptation.server.json --action train --allow-gpu --allow-training\n",
+    "control": "/home/lzf/ldx/tmp/hv1_g60_adaptation_epoch60_v1",
+    "formal_root": "/home/lzf/ldx/outputs/tbps-framework-hv1-g60-adaptation-epoch60/training",
+    "resource_snapshot": {
+      "time": "2026-10-22T10:42:24+0800",
+      "gpu": "0, NVIDIA GeForce RTX 4090, 6387, 17704, 52",
+      "compute_processes": "2595393, /home/lzf/jmk/envs/foa_v5/bin/python, 17658",
+      "free_mib": 6387,
+      "RAM_available_bytes": 122824323072,
+      "disk_free_bytes": 6185036218368,
+      "duplicate_processes": [],
+      "code_commit": "135df869b81d728261a625ca6e4a2c6b8b7f2ae5",
+      "original_execution_commit": "9765a536a11a9a0e9111f2f834230c53d41bf2d8"
+    },
+    "restore": {
+      "Adam_exact": true,
+      "Adam_state_sha256": "dfe930621066f140b5dd37d77d5a4fc4226cdef3f74ff05bc181de86423b6a4d",
+      "H_exact": true,
+      "H_state_sha256": "1b1e3888ee8dc0e4dff39af3438ec48987cd472746cbfde71ad4d10f562ad24d",
+      "RNG_exact": true,
+      "RNG_state_sha256": "3a0a00a5a10c9cc029f9da14a4367026d837f2230103256fef07494dab7fb804",
+      "cursor": 20480,
+      "not_new_Adam": true,
+      "parent_checkpoint_sha256": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd",
+      "resources": {
+        "GPU": {
+          "compute_processes": "2595393, /home/lzf/jmk/envs/foa_v5/bin/python, 17656",
+          "free_mib": 6501,
+          "name": "NVIDIA GeForce RTX 4090",
+          "policy": "shared_observe_only",
+          "raw_gpu_state": "NVIDIA GeForce RTX 4090, 24564, 6501, 17590, 51",
+          "total_mib": 24564,
+          "used_mib": 17590,
+          "utilization_percent": 51
+        },
+        "RAM_available_bytes": 122457726976,
+        "disk_free_bytes": 6185036193792,
+        "free_inodes": 240242469,
+        "policy": "shared_observe_only; no waiting/interference"
+      },
+      "updates": 20370
+    },
+    "restore_equals_original_H10_Smoke_restore": true,
+    "protocol": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-hv1-g60-adaptation-epoch60/training/protocol.json",
+      "sha256": "c12d9736c4834f71d42a02259cc9fca2c6879af2763741d69f464847f09ce3e2",
+      "size": 9484906,
+      "mtime_ns": 1792637057943054795,
+      "inode": 16842860
+    },
+    "first_checkpoint": {
+      "metadata": {
+        "checkpoint_sha256": "1b316d71d3d95f7a3119e21452f6cdeef50a9d78f82225b91a9592385fa8a2f6",
+        "cursor": 20736,
+        "intent_sha256": "a04fb183d0afa350bd76e02ab2ffd7335d5285668c3eb1cdfacb61b00c6d2ae0",
+        "parent_checkpoint_sha256": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd",
+        "protocol_sha256": "6e3d2f1bc717082fbf843cbf1bd81539ab4e0f62bb46c37d37b3e4837084d17d",
+        "reason": "periodic",
+        "sample_log_sha256": "b003f1c8498fc8738654567a4206e3d81df31b3d24c65bc2bf7a458d3ff8da6c",
+        "schema": "hv1-formal-periodic-checkpoint-1",
+        "start_cursor": 20480,
+        "start_updates": 20370,
+        "updates": 20626
+      },
+      "file": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-hv1-g60-adaptation-epoch60/training/checkpoints/visit_00020736/checkpoint.pt",
+        "sha256": "1b316d71d3d95f7a3119e21452f6cdeef50a9d78f82225b91a9592385fa8a2f6",
+        "size": 8826249,
+        "mtime_ns": 1792637078291052195,
+        "inode": 16842867
+      }
+    }
+  },
+  "pending": [
+    "Epoch11-60 completion",
+    "H20/30/40/50/60 Validation",
+    "final versioned CPU audit",
+    "final training result publication"
+  ],
+  "forbidden_not_run": [
+    "new G60 Gallery generation",
+    "new GPU Smoke",
+    "official Test",
+    "RaSa/APTM",
+    "G10 control training",
+    "new loss"
+  ]
+}
