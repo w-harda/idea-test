@@ -2,12 +2,16 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：G/H单次探针后台资源轮询器准备
+## 当前阶段：G/H单次探针资源轮询器已后台部署（部署快照）
 
 用户授权每180秒检查GPU0，连续两次空闲显存≥10240MiB后调用一次原probe_v1。
 新分支codex/gh-probe-resource-watcher；冻结后端仍在原工作树07a31edb，算法执行基准a46c6980。
 39项纯CPU轮询/锁/崩溃标记/取消/失败停止测试PASS；真实冻结来源预检PASS，CUDA和模型前向0。
-独立控制目录/home/lzf/ldx/tmp/gh_native_probe_wait_v1；部署状态见后续DEPLOYMENT.json。
+2026-10-23 00:08:32 +08:00已通过nohup setsid启动，PID/PGID/SID1349747，PPID1，无TTY，flock生效。
+部署时WATCHING，首次显存6501MiB，未创建probe_v1，watcher未加载Torch/CUDA动态库。
+151378历史metadata无变化；原后端工作树/配置/来源不改。
+代码Commit3b2ef7391e792a9c8599f350c2b2be5752aed763，脚本SHAd24da60b6b68264ed9ef2099bc83582cebc9adb85ac721dbee49cce6764b83d3。
+独立控制目录/home/lzf/ldx/tmp/gh_native_probe_wait_v1；实际后续状态以status.json为准，部署证据见DEPLOYMENT.json。
 不修改旧后端或配置；不授权A1/B、训练、Validation、Test及Full。
 [部署与操作协议](framework/results/gh_probe_resource_watcher/README.md)。
 

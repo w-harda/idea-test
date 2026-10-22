@@ -1,0 +1,122 @@
+{
+  "status": "DEPLOYED_AND_WATCHING_AT_VERIFICATION",
+  "watcher_code_commit": "3b2ef7391e792a9c8599f350c2b2be5752aed763",
+  "recorded_at": "2026-10-23T00:10:19.930061+08:00",
+  "deployment": {
+    "schema": "gh-probe-watcher-deployment-1",
+    "recorded_at": "2026-10-23T00:08:31.100445+08:00",
+    "watcher_commit": "3b2ef7391e792a9c8599f350c2b2be5752aed763",
+    "watcher_branch": "codex/gh-probe-resource-watcher",
+    "script": "/home/lzf/ldx/tmp/gh_native_probe_wait_v1/gh_probe_watch.py",
+    "script_sha256": "d24da60b6b68264ed9ef2099bc83582cebc9adb85ac721dbee49cce6764b83d3",
+    "source": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-watcher-20261022/src/tbps/operations/gh_probe_watch.py",
+    "frozen_worktree": "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-backend-20261022",
+    "frozen_worktree_commit": "07a31edb4d1a4fc8e28ce8968a037b03b5681075",
+    "backend_execution_commit": "a46c6980c4abf58df02ca1ee199da799892dc81e",
+    "config": "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-backend-20261022/configs/framework/gh_bidirectional_backend.server.json",
+    "config_sha256": "093883a31ad06d3c61b4e72c541d7d55eea9ddafd3d5fe7b36ad93d6ba200af0",
+    "parent_sha256": {
+      "G": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049",
+      "H": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd",
+      "IRRA": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+    },
+    "minimum_free_gpu_mib": 10240,
+    "interval_seconds": 180,
+    "required_consecutive_checks": 2,
+    "GPU": 0,
+    "CPU_tests_passed": 39,
+    "probe_output": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v1",
+    "only_action": "probe",
+    "automatic_retries": 0
+  },
+  "verification": {
+    "supervisor": {
+      "time": "2026-10-23T00:08:32+0800",
+      "pid": 1349747,
+      "ppid": 1,
+      "pgid": 1349747,
+      "sid": 1349747,
+      "script_sha256": "d24da60b6b68264ed9ef2099bc83582cebc9adb85ac721dbee49cce6764b83d3"
+    },
+    "status_snapshot": {
+      "state": "WATCHING",
+      "time": "2026-10-23T00:08:32+0800",
+      "pid": 1349747,
+      "ppid": 1,
+      "pgid": 1349747,
+      "sid": 1349747,
+      "interval_seconds": 180,
+      "check_count": 1,
+      "consecutive": 0,
+      "free_mib": 6501,
+      "utilization": 54,
+      "checks": {
+        "gpu": false,
+        "ram": true,
+        "disk": true,
+        "inodes": true
+      },
+      "processes": [
+        "GPU-350a0fd7-5695-b5e8-c541-cd2b5682e126, 2595393, /home/lzf/jmk/envs/foa_v5/bin/python, 17656"
+      ]
+    },
+    "resources_snapshot": {
+      "time": "2026-10-23T00:08:32+0800",
+      "gpu_uuid": "GPU-350a0fd7-5695-b5e8-c541-cd2b5682e126",
+      "name": "NVIDIA GeForce RTX 4090",
+      "free_mib": 6501,
+      "total_mib": 24564,
+      "utilization": 54,
+      "processes": [
+        "GPU-350a0fd7-5695-b5e8-c541-cd2b5682e126, 2595393, /home/lzf/jmk/envs/foa_v5/bin/python, 17656"
+      ],
+      "available_ram_bytes": 121704468480,
+      "free_disk_bytes": 6179759165440,
+      "free_inodes": 240229285,
+      "minimum_free_mib": 10240,
+      "checks": {
+        "gpu": false,
+        "ram": true,
+        "disk": true,
+        "inodes": true
+      },
+      "eligible": false
+    },
+    "PPID_1": true,
+    "no_TTY": true,
+    "independent_session": true,
+    "flock_held": true,
+    "watcher_no_loaded_CUDA_or_Torch_libraries": true,
+    "process_command": "    PID    PPID    PGID     SID TT       STAT     ELAPSED COMMAND\n1349747       1 1349747 1349747 ?        Ss         00:39 /usr/bin/python3 -B /home/lzf/ldx/tmp/gh_native_probe_wait_v1/gh_probe_watch.py\n",
+    "probe_attempt_exists": false,
+    "smoke_attempt_exists": false
+  },
+  "historical_protection": {
+    "time": "2026-10-23T00:08:32+0800",
+    "files": 151378,
+    "mismatches": [],
+    "semantics": "metadata sweep; CPU preflight checks critical source SHA"
+  },
+  "protected_backend_worktree_clean": true,
+  "frozen_backend_config_diff": "empty",
+  "A1_B_smoke_started": false,
+  "evidence_files": {
+    "deployment.json": {
+      "path": "/home/lzf/ldx/tmp/gh_native_probe_wait_v1/deployment.json",
+      "sha256": "ac9bdcbd8200b58db96632ec9adadd96e4316a9b10237d651d8af964dd323ffe"
+    },
+    "deployment_verified.json": {
+      "path": "/home/lzf/ldx/tmp/gh_native_probe_wait_v1/deployment_verified.json",
+      "sha256": "45eac63f4e2d71f53fdcd859a83f38701b75f960bf08f23236c5858a87119f68"
+    },
+    "watcher.started.json": {
+      "path": "/home/lzf/ldx/tmp/gh_native_probe_wait_v1/watcher.started.json",
+      "sha256": "b46c453ae0a4a1deb92a615e82a76331cef8e836e944e8445790b4e86eb4c3c9"
+    },
+    "history_before.json": {
+      "path": "/home/lzf/ldx/tmp/gh_native_probe_wait_v1/history_before.json",
+      "sha256": "b7c5ba0e406543588339a533625f883c9c63c08d9464301afc878b06290b8de7"
+    }
+  },
+  "status_semantics": "部署快照；后续状态读取控制目录status.json；本轮不等待GPU或探针结束。"
+}

@@ -1,8 +1,9 @@
 # 历史实验注册表
 
-## G/H数值探针：独立资源轮询部署准备
+## G/H数值探针：独立资源轮询已部署（2026-10-23快照）
 
-39项CPU测试与冻结后端来源Preflight PASS；GPU探针结果仍PENDING。
+39项CPU测试与冻结后端来源Preflight PASS；已部署PID1349747，PPID1/独立会话/flock通过。
+部署时WATCHING/空闲6501MiB，probe_v1不存在，GPU探针结果仍PENDING；后续只读status.json确认。
 只允许原probe_v1；10GiB连续两次/180秒，独立持久化单次启动保护，不启动其他实验。
 [协议、CPU及部署证据](framework/results/gh_probe_resource_watcher/README.md)。
 

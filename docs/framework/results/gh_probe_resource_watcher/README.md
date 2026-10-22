@@ -81,3 +81,11 @@ ps -o pid,ppid,pgid,sid,tty,stat,etime,args -p "$(cat /home/lzf/ldx/tmp/gh_nativ
 
 本轮由Codex部署并通过nohup setsid启动；用户无需再次启动。
 最终状态不能提前声称为GH_NATIVE_NUMERIC_PROBE_PASS，亦不自动接续两轮Smoke。
+
+## 部署实测快照
+
+2026-10-23 00:08:32 +08:00启动，PID/PGID/SID1349747、PPID1、无TTY、flock已持有。
+首轮WATCHING，空闲6501MiB；原probe_v1与smoke_v1均未创建。
+39项CPU测试及真实冻结来源预检PASS；151378历史metadata无变化。
+代码Commit为3b2ef7391e792a9c8599f350c2b2be5752aed763。
+[部署版本、脚本SHA及实际进程证据](DEPLOYMENT.json)。后续动态状态以控制目录status.json为准。
