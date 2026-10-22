@@ -1,0 +1,223 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "G/H原文锚点映射草案，尚未接入训练",
+  "type": "object",
+  "required": [
+    "schema",
+    "original_caption",
+    "adversarial_caption",
+    "original_caption_sha256",
+    "adversarial_caption_sha256",
+    "attribute_id",
+    "original_span",
+    "edited_span",
+    "semantic_axis",
+    "region",
+    "canonical_value",
+    "character_edit",
+    "unicode_codepoint",
+    "G_selection",
+    "H_selection",
+    "sources"
+  ],
+  "properties": {
+    "schema": {
+      "const": "gh-original-anchor-mapping-proposal-1"
+    },
+    "original_caption": {
+      "type": "string"
+    },
+    "adversarial_caption": {
+      "type": "string"
+    },
+    "original_caption_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "adversarial_caption_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "attribute_id": {
+      "type": "string",
+      "description": "anchor_id哈希原Caption SHA及六字段，不冒充旧G/H ID"
+    },
+    "g_legacy_instance_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "h_legacy_attribute_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "semantic_axis": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
+    },
+    "canonical_value": {
+      "type": "string"
+    },
+    "original_span": {
+      "$ref": "#/$defs/span"
+    },
+    "edited_span": {
+      "$ref": "#/$defs/span"
+    },
+    "original_utf8_span": {
+      "$ref": "#/$defs/bytes"
+    },
+    "edited_utf8_span": {
+      "$ref": "#/$defs/bytes"
+    },
+    "linked_object_original_span": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "linked_object_edited_span": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "alignment_status": {
+      "enum": [
+        "EXACT",
+        "G_ONLY",
+        "H_ONLY",
+        "AMBIGUOUS",
+        "UNRESOLVED"
+      ]
+    },
+    "character_edit": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "position",
+          "original_char",
+          "replacement_char",
+          "original_codepoint",
+          "replacement_codepoint",
+          "original_utf8_offset",
+          "edited_utf8_offset"
+        ]
+      }
+    },
+    "unicode_codepoint": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "original",
+          "replacement"
+        ]
+      }
+    },
+    "G_selection": {
+      "type": "object",
+      "required": [
+        "selected",
+        "selection_rank",
+        "S_raw",
+        "K",
+        "condition_source",
+        "linearization_caption_sha256",
+        "JVP_source"
+      ],
+      "description": "不可用值显式null并说明原因；不重标旧JVP"
+    },
+    "H_selection": {
+      "type": "object",
+      "required": [
+        "selected",
+        "actual_edited",
+        "predicted_importance",
+        "K",
+        "position_NOOP",
+        "STOP",
+        "checkpoint_sha256"
+      ]
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "sha256"
+        ]
+      }
+    },
+    "tokenizer_audit_ref": {
+      "type": "object"
+    },
+    "training_binding_ref": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "description": "独立PID/配对训练权限，不属于H策略输入"
+    },
+    "dependency_identity": {
+      "type": "object",
+      "description": "IRRA/Tokenizer/reader/basis/source/caption SHA、round；图库另绑定G SHA"
+    }
+  },
+  "$defs": {
+    "span": {
+      "type": "object",
+      "required": [
+        "start",
+        "end",
+        "raw",
+        "unit"
+      ],
+      "properties": {
+        "start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "raw": {
+          "type": "string"
+        },
+        "unit": {
+          "const": "unicode_codepoint_half_open"
+        }
+      }
+    },
+    "bytes": {
+      "type": "object",
+      "required": [
+        "start",
+        "end",
+        "unit"
+      ],
+      "properties": {
+        "start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "unit": {
+          "const": "utf8_byte_half_open"
+        }
+      }
+    }
+  },
+  "$comment": "只定义结构；精确回放、SHA、跨字段/权限/歧义规则仍需未来验证器，不宣称已实现。"
+}

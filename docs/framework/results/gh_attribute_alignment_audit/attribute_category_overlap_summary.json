@@ -1,0 +1,92 @@
+{
+  "Train_H9": {
+    "samples": 2048,
+    "category_jaccard": {
+      "n": 2043,
+      "mean": 0.23116856630072488,
+      "median": 0.2,
+      "min": 0.0,
+      "max": 1.0,
+      "p05": 0.0,
+      "p95": 1.0
+    },
+    "H_edited_same_category_count": 1596,
+    "H_edit_denominator": 4550,
+    "H_edited_same_category_fraction": 0.3507692307692308
+  },
+  "Train_H20": {
+    "samples": 2048,
+    "category_jaccard": {
+      "n": 2043,
+      "mean": 0.2102312192620563,
+      "median": 0.2,
+      "min": 0.0,
+      "max": 1.0,
+      "p05": 0.0,
+      "p95": 0.6666666666666666
+    },
+    "H_edited_same_category_count": 1408,
+    "H_edit_denominator": 3848,
+    "H_edited_same_category_fraction": 0.3659043659043659
+  },
+  "Train_H60": {
+    "samples": 2048,
+    "category_jaccard": {
+      "n": 2043,
+      "mean": 0.2579225229004965,
+      "median": 0.25,
+      "min": 0.0,
+      "max": 1.0,
+      "p05": 0.0,
+      "p95": 0.6666666666666666
+    },
+    "H_edited_same_category_count": 1736,
+    "H_edit_denominator": 3803,
+    "H_edited_same_category_fraction": 0.4564817249539837
+  },
+  "Validation_H9": {
+    "samples": 128,
+    "category_jaccard": {
+      "n": 127,
+      "mean": 0.2518372703412073,
+      "median": 0.2,
+      "min": 0.0,
+      "max": 1.0,
+      "p05": 0.0,
+      "p95": 1.0
+    },
+    "H_edited_same_category_count": 96,
+    "H_edit_denominator": 278,
+    "H_edited_same_category_fraction": 0.34532374100719426
+  },
+  "Validation_H20": {
+    "samples": 128,
+    "category_jaccard": {
+      "n": 127,
+      "mean": 0.21923509561304838,
+      "median": 0.2,
+      "min": 0.0,
+      "max": 1.0,
+      "p05": 0.0,
+      "p95": 0.6666666666666666
+    },
+    "H_edited_same_category_count": 90,
+    "H_edit_denominator": 243,
+    "H_edited_same_category_fraction": 0.37037037037037035
+  },
+  "Validation_H60": {
+    "samples": 128,
+    "category_jaccard": {
+      "n": 127,
+      "mean": 0.2664041994750657,
+      "median": 0.25,
+      "min": 0.0,
+      "max": 1.0,
+      "p05": 0.0,
+      "p95": 0.6666666666666666
+    },
+    "H_edited_same_category_count": 112,
+    "H_edit_denominator": 238,
+    "H_edited_same_category_fraction": 0.47058823529411764
+  }
+}

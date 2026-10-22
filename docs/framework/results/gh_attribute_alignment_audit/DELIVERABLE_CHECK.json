@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "G_samples": 2176,
+  "H_Train_actions": 6144,
+  "H_Validation_actions": 384,
+  "ranking_comparable_Train": 1736,
+  "ranking_comparable_Validation": 105,
+  "raw_ambiguities_Train": 1,
+  "raw_ambiguities_Validation": 0,
+  "original_validation_anchors": 1836,
+  "G_Train_attribute_updates": 6020,
+  "G_Train_all_updates": 8068,
+  "G_Validation_updates": 0,
+  "protected_files": 151378,
+  "additional_preserved_files": 18617,
+  "CPU_tests": 26,
+  "no_GPU": true,
+  "no_model_forward": true,
+  "CPU_tests_at_initial_check": 24,
+  "category_overlap_samples_verified": 6528
+}

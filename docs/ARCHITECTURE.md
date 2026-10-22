@@ -351,3 +351,13 @@ hv1_g60_posthoc及diagnostics/plot/report/validate脚本只解析既存日志、
 官方rank函数以AST提取作独立数值对照；正式Full只读摘要，绝不加载其完整Score重新排名。
 SCST优化R_sim+R_rank，synergy仅诊断；G→H为固定特征奖励条件引导，并非G/H端到端联合训练。
 研究建议与实际实现分开登记，不自动改变奖励、Selection或模型。
+
+
+## G/H属性审计与交替研究边界
+
+gh_attribute_audit/supplement只消费旧Canonical/动作/Score派生数据；规则重提取无神经前向。
+G S_raw连续敏感度与H策略importance分开，跨模态按Caption+Span+语义匹配，保留歧义。
+原文锚点Schema与A/B/C交替仅为研究草案，未修改现有contracts、策略、Reward或缓存门禁。
+未来若使用H攻击文本指导G，应显式新建语境条件身份，不将原z/JVP改签；
+最新G的bank需新绑定RewardBank上下文，不能靠切换时间顺序宣称双向交互。
+见[审计与设计](framework/results/gh_attribute_alignment_audit/REPORT.md)。

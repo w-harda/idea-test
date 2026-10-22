@@ -2,7 +2,21 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：H60适配训练/Validation/独立审计完成，CPU事后科研分析完成
+## 当前阶段：G/H属性与动态K机制CPU审计完成，交替训练仅设计
+
+分析基准23fd02daebdcd28bc2e77eb18de1e6fd04432518；独立codex/gh-attribute-alignment-audit。
+26项CPU测试PASS，读取2176条G条件及H9/H20/H60共6144条Train/384条Validation既有动作。
+原候选严格匹配1956/2048 Train、120/128 Validation；Train1个一对多歧义保留。
+同候选排序比较1736/105条，G/H分数无同义监督；K差异主要体现已有分数形状，非主要由合法候选少导致。
+H20位置NOOP43槽，H60位置NOOP38槽+STOP剩余3槽，全部账本精确。
+512次纯规则转换验证Unicode字符坐标保持、字节偏移移动，不能把旧JVP冒充新语境JVP。
+已输出原精度CSV、8张PNG/SVG、统一属性Schema草案及A0/A1/B/C和两轮最小方案。
+151378历史及18617相关文件状态、冻结producer和权重保持。
+无GPU、神经前向、新Tokenizer编码、新排名/评估、训练、Selection变化或旧审计入口重跑。
+[完整报告/来源](framework/results/gh_attribute_alignment_audit/REPORT.md)；
+[交替训练草案，未授权实施](framework/results/gh_attribute_alignment_audit/alternating_training_design.md)。
+
+## 已完成：H60适配训练/Validation/独立审计与CPU事后科研分析
 
 正式训练执行9765a536，审计修复135df869，启动cb51cd3。
 新增50轮102400 visits/101850更新，累计122880/122220；400个新Checkpoint与50个Epoch边界完整。

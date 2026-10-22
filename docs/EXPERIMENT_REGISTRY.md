@@ -535,3 +535,14 @@ H20新增候选最低40.427635%，历史H9为40.425480%；H60为42.874081%，不
 10项CPU统计测试和交付检查PASS。原151378历史文件与18617实验/控制/失败现场元数据不变，113 producer SHA不变。
 没有GPU、训练、神经编码、Full排名或原CPU审计重跑。历史三Victim Full仅作固定H7背景。
 此条不把原监督器FAIL改写为SUCCESS，不授权任何后续训练或Test选模。
+
+
+## G/H属性与K只读机制审计（非新训练/攻击实验）
+
+基准23fd02da；codex/gh-attribute-alignment-audit。
+范围：原2048/128、H9/H20/H60既有动作；26 CPU tests，严格同集排名/预算分解及512次纯规则转换。
+保护151378历史stat、18617相关产物和冻结来源；没有GPU/新攻击/新排名或Selection。
+原H7/H60及G60结果仍以各原完成/审计回执为准，本次不重发旧回执。
+[报告](framework/results/gh_attribute_alignment_audit/REPORT.md)、
+[证据](framework/results/gh_attribute_alignment_audit/SOURCE_EVIDENCE.json)、
+[后续方案草案](framework/results/gh_attribute_alignment_audit/alternating_training_design.md)。

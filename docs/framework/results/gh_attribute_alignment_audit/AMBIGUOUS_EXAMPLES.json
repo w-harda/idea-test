@@ -1,0 +1,91 @@
+{
+  "row_id": "cuhk:8643:0",
+  "source": {
+    "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/conditions_full/samples/cuhk_8643_0/metadata.json",
+    "sha256": "49b1a19aa3671a9f846ce9b7bf52d0093f8c5fe79613958952b117a635aa85a5"
+  },
+  "groups": [
+    {
+      "key": {
+        "semantic_axis": "hair_length",
+        "region": "head",
+        "canonical_value": "short",
+        "char_start": 19,
+        "char_end": 24,
+        "raw_text": "short"
+      },
+      "G_candidates": [
+        {
+          "instance_id": "7f769527c54515323df82eab",
+          "linked_object": null,
+          "provenance": {
+            "stage01_slot": "hair_length",
+            "stage01_canonical": "short",
+            "stage01_provenance": {
+              "canonical": "short",
+              "mentions": [
+                {
+                  "raw": "short",
+                  "start": 19,
+                  "end": 24
+                }
+              ]
+            },
+            "interpretation": {
+              "interpreted_axis": "hair_length",
+              "garment": "hair",
+              "binding": "valid",
+              "reason": "original_hair_provenance"
+            },
+            "source_policy": "original provenance only; no string search/relocation/raw-only addition"
+          }
+        },
+        {
+          "instance_id": "ef34b49c9aca6d727de2f173",
+          "linked_object": {
+            "raw": "shirt",
+            "start": 48,
+            "end": 53
+          },
+          "provenance": {
+            "stage01_slot": "upper_clothing_length",
+            "stage01_canonical": "short",
+            "stage01_provenance": {
+              "canonical": "short",
+              "mentions": [
+                {
+                  "raw": "short",
+                  "start": 19,
+                  "end": 24,
+                  "linked_object": {
+                    "raw": "shirt",
+                    "start": 48,
+                    "end": 53
+                  }
+                }
+              ]
+            },
+            "interpretation": {
+              "interpreted_axis": "hair_length",
+              "garment": "shirt",
+              "binding": "conflict",
+              "reason": "hair_evidence_bound_to_clothing"
+            },
+            "source_policy": "original provenance only; no string search/relocation/raw-only addition"
+          }
+        }
+      ],
+      "H_candidates": [
+        {
+          "canonical_value": "short",
+          "char_end": 24,
+          "char_start": 19,
+          "raw_text": "short",
+          "region": "head",
+          "semantic_axis": "hair_length"
+        }
+      ],
+      "status": "AMBIGUOUS"
+    }
+  ]
+}
