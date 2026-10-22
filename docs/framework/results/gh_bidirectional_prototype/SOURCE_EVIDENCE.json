@@ -585,5 +585,6 @@
     "No Validation/Test/model selection",
     "No performance improvement claim",
     "Inherited original G S_raw reference gallery includes internal Validation images; not gallery-disjoint original supervision; no new Validation feedback"
-  ]
+  ],
+  "implementation_commit": "7eb8c7382d1a65b3bbee4d6664157eb05a797d67"
 }

@@ -5,6 +5,7 @@
 ## 当前阶段：G/H双向交替最小CPU原型，真实GPU待明确授权
 
 参考0b87fa55；独立codex/gh-bidirectional-prototype工作树。
+CPU实现与验证内容Commit：7eb8c7382d1a65b3bbee4d6664157eb05a797d67。
 61项新增CPU原型测试、162项相关回归PASS；真实来源预检PASS，历史保护通过。
 A1原G条件+新G奖励图库；B为H攻击文本重算语境z/定位/JVP+新G奖励图库。
 固定原G属性集合/S_raw/K、原K+1 Loss与H SCST/Reward，保持G(I)/H(T)。
