@@ -1,0 +1,30 @@
+{
+  "status": "CPU_TESTS_AND_FROZEN_SOURCE_PREFLIGHT_PASS",
+  "base_commit": "07a31edb4d1a4fc8e28ce8968a037b03b5681075",
+  "backend_execution_commit": "a46c6980c4abf58df02ca1ee199da799892dc81e",
+  "recorded_at": "2026-10-23T00:07:32.025590+08:00",
+  "CPU_tests": {
+    "passed": 39,
+    "log": "/home/lzf/ldx/tmp/gh_probe_watcher_cpu_20261023/cpu_tests_v1.log",
+    "log_sha256": "8b4ae15a617b3630b415cc4a34be33130994a4b8082e63fcd625dff9606247c2",
+    "exit_code": 0
+  },
+  "frozen_preflight": {
+    "status": "GH_NATIVE_CPU_PREFLIGHT_PASS",
+    "log": "/home/lzf/ldx/tmp/gh_probe_watcher_cpu_20261023/frozen_source_preflight.log",
+    "log_sha256": "44ef5acbd274897d9f148d39dd275bbf6270801dbcc3734398aa291faba9755f",
+    "exit_code": 0,
+    "model_forwards": 0,
+    "CUDA_initialized": false
+  },
+  "watcher_script_sha256": "d24da60b6b68264ed9ef2099bc83582cebc9adb85ac721dbee49cce6764b83d3",
+  "config_sha256": "093883a31ad06d3c61b4e72c541d7d55eea9ddafd3d5fe7b36ad93d6ba200af0",
+  "frozen_backend_config_diff": "empty",
+  "deployed": false,
+  "single_attempt_policy": "O_EXCL+fsync marker before Popen, inherited flock; no retry/restart",
+  "pending": [
+    "real native numeric probe",
+    "GPU CUDA RNG restore evidence",
+    "A1/B Smoke not authorized"
+  ]
+}

@@ -1,5 +1,13 @@
 # 架构边界与迁移约定
 
+## 单次探针外部资源轮询器
+
+operations/gh_probe_watch.py是独立标准库监督程序，运行部署副本，不从新树导入冻结后端。
+固定调用原工作树native_cli，原producer/父来源/CPUStartupGate/唯一Attempt门禁不变。
+10240MiB、180秒、连续两次，CPU预检后再查资源；资源回落继续等待。
+flock+子进程继承锁，O_EXCL/fsync启动标记在Popen前持久化；崩溃/失败不自动重试。
+轮询器不包含攻击数学，不补写未报告的CUDA RNG恢复PASS；部署和结果证据独立记录。
+
 ## G/H真实后端接线（CPU准备）
 
 alternating/native_*与parents/token_bridge为原CPU原型提供受控真实后端；

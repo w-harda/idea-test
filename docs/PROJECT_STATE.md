@@ -2,7 +2,17 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：G/H数值探针获授权，启动前10GiB资源门禁阻塞
+## 当前阶段：G/H单次探针后台资源轮询器准备
+
+用户授权每180秒检查GPU0，连续两次空闲显存≥10240MiB后调用一次原probe_v1。
+新分支codex/gh-probe-resource-watcher；冻结后端仍在原工作树07a31edb，算法执行基准a46c6980。
+39项纯CPU轮询/锁/崩溃标记/取消/失败停止测试PASS；真实冻结来源预检PASS，CUDA和模型前向0。
+独立控制目录/home/lzf/ldx/tmp/gh_native_probe_wait_v1；部署状态见后续DEPLOYMENT.json。
+不修改旧后端或配置；不授权A1/B、训练、Validation、Test及Full。
+[部署与操作协议](framework/results/gh_probe_resource_watcher/README.md)。
+
+## 历史阶段：真实后端CPU准备与即时资源阻塞（07a31edb快照）
+
 
 2026-10-22基于a46c6980获一次probe_v1授权；CPU Preflight及151378项历史metadata保护PASS。
 即时GPU空闲6385MiB低于本次10240MiB硬门槛，RESOURCE_BUSY；外部PID2595393未干预。
