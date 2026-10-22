@@ -343,3 +343,11 @@ hv1_g60_state只读核验父状态并建立新契约，hv1_g60_adaptation为原H
 audit_repair_v1额外绑定新审计器与旧产物/旧FAIL，不能改签旧执行协议。
 训练继续调用原入口；新监督器仅消费版本化审计并把新报告输出到修复树。
 详见framework/HV1_G60_AUDIT_REPAIR.md。
+
+## H60只读事后分析边界
+
+hv1_g60_posthoc及diagnostics/plot/report/validate脚本只解析既存日志、回执和128×128评分，
+不导入旧模型或训练入口；新分析目录与失败发布目录隔离。
+官方rank函数以AST提取作独立数值对照；正式Full只读摘要，绝不加载其完整Score重新排名。
+SCST优化R_sim+R_rank，synergy仅诊断；G→H为固定特征奖励条件引导，并非G/H端到端联合训练。
+研究建议与实际实现分开登记，不自动改变奖励、Selection或模型。

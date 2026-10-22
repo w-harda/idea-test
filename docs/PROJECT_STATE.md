@@ -2,19 +2,26 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：H60审计修复PASS，正式G60引导H11–60后台训练运行中
+## 当前阶段：H60适配训练/Validation/独立审计完成，CPU事后科研分析完成
 
-修复执行135df869b81d728261a625ca6e4a2c6b8b7f2ae5；独立codex/hv1-g60-audit-fix。
-仅审计器局部stat字典改名epoch_stat，原113 producer/执行9765a536和1b16d653失败记录保持。
-73个不同CPU用例PASS；真实既有4-step Smoke独立CPU审计PASS（exit0），旧FAIL保留。
-151378历史文件stat/113 producer SHA不变，14358份既有图库/Smoke文件保持；2048图库不重算。
-2026-10-22 10:42:26 +08:00监督器3410067启动，PPID1/无TTY，10:43:16进入正式训练。
-H/Adam/全部RNG从原H10 20480/20370恢复exact，非Smoke20484；已见Epoch11真实更新和首Checkpoint。
-训练子进程3411973；运行中快照不代表H60已完成。
-六节点新Validation、最终独立CPU审计及正式训练报告仍PENDING，后台按授权串行执行，失败即停。
-没有新GPU Smoke、G图库重生成、官方Test、RaSa/APTM、G10控制训练或新Loss。
-[修复/来源/门禁/命令](framework/HV1_G60_AUDIT_REPAIR.md)；
-[实际回执与启动快照](framework/results/hv1_g60_audit_repair_startup/EVIDENCE.json)。
+正式训练执行9765a536，审计修复135df869，启动cb51cd3。
+新增50轮102400 visits/101850更新，累计122880/122220；400个新Checkpoint与50个Epoch边界完整。
+2026-10-22 12:43:05训练完成后进入独立CPU审计，12:47:13审计通过。
+原监督器在WRITING_REPORT因Python3.10无hashlib.file_digest失败，旧FAIL/残留报告保持，未修旧发布器。
+本轮独立codex/hv1-g60-posthoc-analysis，仅读旧记录/已有128×128分数并生成新派生报告。
+
+10项统计CPU测试PASS；流式完整读取H1–10及H11–60共122880条Visit、481份Checkpoint元数据/字节SHA。
+21组已有小矩阵的官方排序/四指标exact；2688条逐Query结果、15候选、PID配对Bootstrap和12图PNG/SVG。
+新增候选最低H20 Joint mAP40.427635%，历史H9 40.425480%，差0.002155pp；未修改H7 Selection。
+H60 Joint42.874081%，相对H20退化2.446445pp；探索性区间不消除重复Validation/选优偏差。
+后期同文本/零梯度频率增加；位置NOOP是主要保守变化，STOP仍少。Reward与多正例AP非等价有直接证据。
+151378历史stat、18617实验/控制/失败报告文件状态保持，113原producer SHA不变；
+没有GPU、模型前向、编码、训练、官方Test Full或旧审计入口重跑。
+
+[完整科研分析/全部CSV/12图](framework/results/hv1_g60_posthoc_analysis/REPORT.md)；
+[假设评估](framework/results/hv1_g60_posthoc_analysis/hypothesis_assessment.md)；
+[下一步建议，未执行](framework/results/hv1_g60_posthoc_analysis/research_next_steps.md)。
+优先建议G10固定图库的H10→H60匹配控制，任何新实验/新奖励仍待单独授权。
 
 ## 已完成：G60 × H1–H10内部Validation探索性适配诊断
 

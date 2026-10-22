@@ -524,3 +524,14 @@ CPU完整H/Adam/RNG恢复已验证；真实图库/Smoke/正式训练以新输出
 H10完整20480/20370恢复exact，已见Epoch11真实更新与首不可变Checkpoint。
 2048图库只读复用，无新的G/图像编码或Smoke。最终训练及六节点新结果PENDING。
 来源/日志/进度见framework/HV1_G60_AUDIT_REPAIR.md及results/hv1_g60_audit_repair_startup/EVIDENCE.json。
+
+## H60适配训练完成及CPU事后科研分析（2026-10-22）
+
+原执行9765a536/修复135df869/启动cb51cd3；H60训练与版本化独立CPU审计PASS，原报告发布FAIL保留。
+本轮仅读取：历史20480+新增102400 visits，400新/81旧Checkpoint SHA和父子元数据；
+15个固定G60候选、21份既存128×128分数，2688条逐Query记录及PID聚类Bootstrap。
+H20新增候选最低40.427635%，历史H9为40.425480%；H60为42.874081%，不发布新Selection。
+奖励/梯度/动作全50轮统计、12图PNG/SVG及中文研究结论位于framework/results/hv1_g60_posthoc_analysis/。
+10项CPU统计测试和交付检查PASS。原151378历史文件与18617实验/控制/失败现场元数据不变，113 producer SHA不变。
+没有GPU、训练、神经编码、Full排名或原CPU审计重跑。历史三Victim Full仅作固定H7背景。
+此条不把原监督器FAIL改写为SUCCESS，不授权任何后续训练或Test选模。

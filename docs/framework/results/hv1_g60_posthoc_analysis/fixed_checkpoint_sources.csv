@@ -1,0 +1,7 @@
+H_epoch,visit,checkpoint_path,sha256
+10,20480,/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00020480/checkpoint.pt,4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd
+20,40960,/home/lzf/ldx/outputs/tbps-framework-hv1-g60-adaptation-epoch60/training/checkpoints/visit_00040960/checkpoint.pt,cb88bd8564bfb6e62004f33f68fad3def999fd6ba5be363ee3bbd5a91e794165
+30,61440,/home/lzf/ldx/outputs/tbps-framework-hv1-g60-adaptation-epoch60/training/checkpoints/visit_00061440/checkpoint.pt,5391b0e463fb9a937916ca95e93dabf412c9acd3a6d1985970b00d67f9786b87
+40,81920,/home/lzf/ldx/outputs/tbps-framework-hv1-g60-adaptation-epoch60/training/checkpoints/visit_00081920/checkpoint.pt,fe12f57d10b5ffe351df5b7eaa6b1bea8b63d0a4f3309c82aae445c3401648da
+50,102400,/home/lzf/ldx/outputs/tbps-framework-hv1-g60-adaptation-epoch60/training/checkpoints/visit_00102400/checkpoint.pt,310ad679e59da9e9e1840f4b9a54bbbbdbe063229c7b010ec33a0add01e4bf55
+60,122880,/home/lzf/ldx/outputs/tbps-framework-hv1-g60-adaptation-epoch60/training/checkpoints/visit_00122880/checkpoint.pt,c0de26658c5f36083aaeb04dde3948cdd5bf941d30b1b5c97f7bb2c796404094

@@ -1,0 +1,19 @@
+epoch,target,method,R@1,R@5,R@10,mAP,origin,source
+10,IRRA,G-v2 Image-only,37.443145751953125,60.769981384277344,70.07797241210938,32.28228759765625,historical_full_reference,/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0010/irra/completed/summary.json
+10,IRRA,G-v2 + H-v1 Joint,26.526966094970703,46.832359313964844,57.19622802734375,23.553220748901367,historical_full_reference,/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0010/irra/completed/summary.json
+10,RaSa,G-v2 Image-only,42.33268356323242,61.71215057373047,69.55815887451172,35.04695129394531,historical_full_reference,/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0010/rasa/completed/summary.json
+10,RaSa,G-v2 + H-v1 Joint,22.871994018554688,34.68161392211914,40.12345504760742,17.202625274658203,historical_full_reference,/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0010/rasa/completed/summary.json
+10,APTM,G-v2 Image-only,50.19493103027344,70.20793151855469,77.12800598144531,39.662025451660156,historical_full_reference,/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0010/aptm/completed/summary.json
+10,APTM,G-v2 + H-v1 Joint,38.823909759521484,58.73944091796875,66.6016845703125,30.490341186523438,historical_full_reference,/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0010/aptm/completed/summary.json
+60,IRRA,G-v2 Image-only,21.052631378173828,37.88174057006836,45.51656723022461,17.507509231567383,new_full,/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/irra/completed/summary.json
+60,IRRA,G-v2 + H-v1 Joint,15.724496841430664,28.557506561279297,36.387264251708984,13.079476356506348,new_full,/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/irra/completed/summary.json
+60,RaSa,G-v2 Image-only,33.12215805053711,50.487327575683594,58.463287353515625,26.466453552246094,new_full,/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/rasa/completed/summary.json
+60,RaSa,G-v2 + H-v1 Joint,17.527616500854492,27.72904396057129,32.261207580566406,12.570083618164062,new_full,/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/rasa/completed/summary.json
+60,APTM,G-v2 Image-only,42.7225456237793,62.004547119140625,69.9480209350586,32.11079406738281,new_full,/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/aptm/completed/summary.json
+60,APTM,G-v2 + H-v1 Joint,31.887588500976562,50.04873275756836,57.115013122558594,23.742631912231445,new_full,/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/aptm/completed/summary.json
+,IRRA,Clean,73.14814758300781,89.87979125976562,93.71344757080078,66.09744262695312,historical_fixed_control,/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/completed/summary.json
+,IRRA,H-v1 Text-only,56.57894515991211,75.97466278076172,82.5211181640625,51.471561431884766,historical_fixed_control,/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/completed/summary.json
+,RaSa,Clean,76.21832275390625,90.28589630126953,94.08706665039062,69.18406677246094,historical_fixed_control,/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/completed/summary.json
+,RaSa,H-v1 Text-only,39.928524017333984,50.25990676879883,53.41130447387695,32.85859298706055,historical_fixed_control,/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/completed/summary.json
+,APTM,Clean,74.61013793945312,89.26251220703125,93.1773910522461,64.12683868408203,historical_fixed_control,/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/completed/summary.json
+,APTM,H-v1 Text-only,60.80247116088867,78.13514709472656,83.77193450927734,51.801902770996094,historical_fixed_control,/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/completed/summary.json

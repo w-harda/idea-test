@@ -1,0 +1,385 @@
+{
+  "schema": "hv1-g60-posthoc-analysis-evidence-1",
+  "status": "H60_POSTHOC_ANALYSIS_AND_DELIVERY_PASS",
+  "baseline_commit": "cb51cd3c0f11041fadb072c2f0853b222a649421",
+  "execution_commit": "9765a536a11a9a0e9111f2f834230c53d41bf2d8",
+  "repair_code_commit": "135df869b81d728261a625ca6e4a2c6b8b7f2ae5",
+  "training_status": "HV1_G60_TRAINING_PASS",
+  "independent_CPU_audit_status": "HV1_G60_TRAINING_CPU_AUDIT_PASS",
+  "controller_status": "FAIL exit=1",
+  "publication_failure": "Python3.10 hashlib.file_digest unavailable; original failure unchanged",
+  "original_producers_verified": 113,
+  "historical_protected_files": 151378,
+  "additional_preserved_files": 18617,
+  "input_files": 10690,
+  "input_bytes": 5094734131,
+  "artifacts_verified": 670,
+  "input_manifest_sha256": "8ebd6d8b98c2c31621029ac37aa60da183c1a56ccdea1a771c5c65a6fa929bf1",
+  "analysis_script_sha256": "33d4db53326ff6770bdd58bbe32b3624662ed69d3d9a8a760d78d79592554952",
+  "Python": "3.10.21",
+  "Torch": "2.5.1+cu124",
+  "NumPy": "1.26.4",
+  "CPU_threads": 2,
+  "bootstrap": {
+    "seed": 20261022,
+    "replicates": 20000,
+    "cluster": "PID",
+    "exploratory": true
+  },
+  "guards": {
+    "CUDA_initialized": false,
+    "model_forward": 0,
+    "training": 0,
+    "neural_encoding": 0,
+    "formal_Full_ranking": 0,
+    "old_audit_entry_calls": 0,
+    "only_saved_128x128_score_ranking": true
+  },
+  "missing": [
+    "Historical H1-H10 Text-only score matrices not saved; no per-query Text-only AP inferred",
+    "No policy entropy/STOP probabilities in logs; event frequencies are not entropy",
+    "No fresh independent Validation, multiple training seeds, or G10->H60 control branch",
+    "No new H20-H60 official Test or cross-victim results"
+  ],
+  "Clean_control_actual_summary_verified_count": 15,
+  "Clean_control_from_actual_summaries": {
+    "R@1": 100.0,
+    "R@5": 100.0,
+    "R@10": 100.0,
+    "mAP": 100.0
+  },
+  "additional_sources": [
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-hv1-g60-posthoc-analysis-20261022/src/tbps/ablations/hv1_g60_posthoc.py",
+      "sha256": "33d4db53326ff6770bdd58bbe32b3624662ed69d3d9a8a760d78d79592554952",
+      "metadata": [
+        35888,
+        1792645528515828832,
+        16909348
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-hv1-g60-posthoc-analysis-20261022/src/tbps/ablations/hv1_g60_posthoc_diagnostics.py",
+      "sha256": "fcd6a5b0153a2c127b2d7275fb145a580bd7d42dda68d1c8f84312b3653e790c",
+      "metadata": [
+        7086,
+        1792646289847808644,
+        16910327
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-hv1-g60-posthoc-analysis-20261022/src/tbps/ablations/plot_hv1_g60_posthoc.py",
+      "sha256": "df24bb369852a2ec59e4bbc3cb9b21582028ce23e1fb45149fbdba56733fd70b",
+      "metadata": [
+        10509,
+        1792645931114217152,
+        16910301
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-hv1-g60-posthoc-analysis-20261022/src/tbps/ablations/report_hv1_g60_posthoc.py",
+      "sha256": "6d3c2844275eebc80a201b0371f6134c5289a895270311195660d2bf62794db2",
+      "metadata": [
+        44167,
+        1792649286403880954,
+        16909352
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-hv1-g60-posthoc-analysis-20261022/src/tbps/ablations/validate_hv1_g60_posthoc.py",
+      "sha256": "8db33ef5575dcf5873be67c3b95a6ee86df4f261473c3b170d30bfc6bf732d17",
+      "metadata": [
+        9583,
+        1792648682532727461,
+        16910338
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-hv1-g60-posthoc-analysis-20261022/tests/framework/test_hv1_g60_posthoc.py",
+      "sha256": "e43bffea9927e28b4dcdbdbd0eb090171b6e57666fc4503b82b3663345ea5c76",
+      "metadata": [
+        3491,
+        1792645595368808075,
+        16910284
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/selections/30f573098d28b6af6afe146330823986f724378fc7bd4df9d257fdd2c6f20dd1.json",
+      "sha256": "584e4ba2afc7b17fea3bdfb8501716498b84731fa216558daa2e8e4bb353f757",
+      "metadata": [
+        6327,
+        1792130446304243079,
+        237779401
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/hv1_g60_posthoc_analysis_20261022/analysis.log",
+      "sha256": "0281b5dee0e332c6a8512b398ac0e62b4008b71639df03a8d243a72be80d7f8a",
+      "metadata": [
+        6758,
+        1792645652076810213,
+        242304038
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/hv1_g60_posthoc_analysis_20261022/cpu_statistics_tests.log",
+      "sha256": "a0f6039dc8e33c64358aa93ab85986a574423d2b7f61bdb6e2dc445c63b92d46",
+      "metadata": [
+        1341,
+        1792645596976428931,
+        242304036
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/hv1_g60_posthoc_analysis_20261022/delivery_check.log",
+      "sha256": "20669bd1db1e4b7acee187eb40fdc89fdbaaf404742a01e105e821f50f96b2a3",
+      "metadata": [
+        528,
+        1792648684902678907,
+        242304049
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/hv1_g60_posthoc_analysis_20261022/plots.log",
+      "sha256": "5eec20fefb866ea5dd3564c839c714651aea8e685918d7a814dc210732439b8e",
+      "metadata": [
+        28,
+        1792645973935946129,
+        242304040
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/hv1_g60_posthoc_analysis_20261022/report.log",
+      "sha256": "ade3e481c34845cf86d558e0e334b0ba41a669a4ee5a05feb50f7c1fa23c6642",
+      "metadata": [
+        24,
+        1792648241451778313,
+        242304046
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/hv1_g60_posthoc_analysis_20261022/supplementary.log",
+      "sha256": "f6009b7d3453afd2f4a85a35960589e3cc65f241ed31754ee089d4219b6072ee",
+      "metadata": [
+        274,
+        1792646212390293511,
+        242304042
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/hv1_g60_posthoc_analysis_20261022/supplementary_confirmed.log",
+      "sha256": "054f22f524b955b53f2f583d51871daafaed6a39820b20626be2db56e2dd1fe8",
+      "metadata": [
+        10182,
+        1792646298724269095,
+        242304044
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/hv1_g60_posthoc_analysis_20261022/analysis_exit.json",
+      "sha256": "e89df0eae5ec7db81135aed16463968955c578bcc4f2ec43172eff351f080c17",
+      "metadata": [
+        17,
+        1792645652352261536,
+        242304039
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/hv1_g60_posthoc_analysis_20261022/cpu_statistics_tests_exit.json",
+      "sha256": "e89df0eae5ec7db81135aed16463968955c578bcc4f2ec43172eff351f080c17",
+      "metadata": [
+        17,
+        1792645597267682421,
+        242304037
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/hv1_g60_posthoc_analysis_20261022/plots_exit.json",
+      "sha256": "e89df0eae5ec7db81135aed16463968955c578bcc4f2ec43172eff351f080c17",
+      "metadata": [
+        17,
+        1792645974028281879,
+        242304041
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/hv1_g60_posthoc_analysis_20261022/report_exit.json",
+      "sha256": "e89df0eae5ec7db81135aed16463968955c578bcc4f2ec43172eff351f080c17",
+      "metadata": [
+        17,
+        1792648241464104313,
+        242304047
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/hv1_g60_posthoc_analysis_20261022/supplementary_confirmed_exit.json",
+      "sha256": "e89df0eae5ec7db81135aed16463968955c578bcc4f2ec43172eff351f080c17",
+      "metadata": [
+        17,
+        1792646298748912152,
+        242304045
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/hv1_g60_posthoc_analysis_20261022/supplementary_exit.json",
+      "sha256": "5cc319f54b05a38799195a491c303aa686eab7caccfdbbf1e8b8c07405cb7392",
+      "metadata": [
+        17,
+        1792646212407163519,
+        242304043
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0010/irra/cpu_audit/manifest.json",
+      "sha256": "647070f91676a5b70af1cdbd638695110363a42eba7b433a6e9421d9636cee89",
+      "metadata": [
+        407,
+        1792499983783049896,
+        3159088
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0010/irra/cpu_audit/report.json",
+      "sha256": "d925d8e02e2941bf82c018892e0328b87bf39e34df89711c8a9307ecb5b22a01",
+      "metadata": [
+        321,
+        1792499983777581778,
+        3159087
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/irra_materialized_full_audit.log",
+      "sha256": "70d9630c0f5bc2d7d1565cba4a100d5345c97c057ea55028d1888198c6104798",
+      "metadata": [
+        38,
+        1792241303135688199,
+        231097217
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0010/rasa/cpu_audit/manifest.json",
+      "sha256": "29c61b09434238b521bd13cb3981ac2752211f95c03a940348baab93e0a6afb4",
+      "metadata": [
+        407,
+        1792500165610150232,
+        3159118
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0010/rasa/cpu_audit/report.json",
+      "sha256": "b924ce14963a3ec08c1780ff2a31984a7c65780f63628ff412e36459685d22a2",
+      "metadata": [
+        317,
+        1792500165601582717,
+        3159117
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/rasa_full_wait/cpu_audit.log",
+      "sha256": "684d3bf2d4dc2e9937f50521608533db4fe9c930ce000c53ed4a5dd08bc83670",
+      "metadata": [
+        724,
+        1792263228000504701,
+        238629866
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0010/aptm/cpu_audit/manifest.json",
+      "sha256": "858c0052eee1b7ba1e5aad279c6e616149898e8382014f0fd877ece9c988d123",
+      "metadata": [
+        407,
+        1792500344212272708,
+        3159146
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0010/aptm/cpu_audit/report.json",
+      "sha256": "271934ef56bbaedfefbb0496160d23bd0e26ecbc9a2025ad05a0050a20fad019",
+      "metadata": [
+        318,
+        1792500344207262148,
+        3159145
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/aptm_full_wait/full_audit.log",
+      "sha256": "03fdf0c6662c5b08d7f38862c721e84845151d911e03c33104e08ec6a4c6892c",
+      "metadata": [
+        1072,
+        1792272519474756531,
+        237387123
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/irra/cpu_audit/manifest.json",
+      "sha256": "d05b1b5e12a04ee7255554444b50a111ca08dc5554e62678f9a3b36e832d519c",
+      "metadata": [
+        581,
+        1792565854012349931,
+        13510020
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/irra/cpu_audit/report.json",
+      "sha256": "e7fa3a2f63a37c11eddc56cd1f60f3203b0b6f2e5de7c1eb0ac58af85fb0c8e8",
+      "metadata": [
+        136,
+        1792565854006699176,
+        13510019
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/rasa/cpu_audit/manifest.json",
+      "sha256": "803166b285c71e9c08632ba4c595018452c358e479adfd51a370a12acdfe2682",
+      "metadata": [
+        581,
+        1792573198503888974,
+        16254409
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/rasa/cpu_audit/report.json",
+      "sha256": "43fd45581209feea3796d6d6d8b6ffd85c8bb5bd42e1214dd552cb5f293db30c",
+      "metadata": [
+        136,
+        1792573198497001352,
+        16254408
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/aptm/cpu_audit/manifest.json",
+      "sha256": "c58eb8851281fff4dbb1b6c2460522b20551b53a692f741f269e8047f63781ba",
+      "metadata": [
+        581,
+        1792580847445588077,
+        16256375
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/aptm/cpu_audit/report.json",
+      "sha256": "ed1befae52a803175d992ccdca076cd8236a0a6518d91203e82ef8d28292fac5",
+      "metadata": [
+        136,
+        1792580847440917696,
+        16256374
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/hv1_g60_posthoc_analysis_20261022/delivery_check_exit.json",
+      "sha256": "e89df0eae5ec7db81135aed16463968955c578bcc4f2ec43172eff351f080c17",
+      "metadata": [
+        17,
+        1792648684948299339,
+        242304050
+      ]
+    }
+  ],
+  "historical_Full_audits_read_only_verified": 6,
+  "H7_Selection_unchanged": true,
+  "CPU_statistics_tests": 10,
+  "visual_review": "12-panel contact sheet reviewed; no clipping or empty charts",
+  "first_supplementary_format_failure_preserved": true,
+  "old_controller_FAIL_not_modified": true,
+  "derived_manifest_sha256": "96ebc935a8ae0f7037cb339fbd22a6363167be00208c668bd21c9a0397f30092",
+  "report_caption_display": "JSON quoted UTF-8 strings preserve original trailing spaces; original data unchanged"
+}
