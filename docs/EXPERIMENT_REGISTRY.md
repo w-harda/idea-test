@@ -1,5 +1,12 @@
 # 历史实验注册表
 
+## G/H probe_v1：真实启动在IRRA加载前FAIL（2026-10-23）
+
+02:41:45自动调用，02:41:55退出码1；已消费Attempt，不得重用。
+设备字符串cuda与加载器cuda:index约束不一致；IRRA/reader权重未恢复、神经前向/JVP/更新0。
+新数值与GPU峰值未产生；原FAIL/Claim/控制日志不改写。
+[只读核验报告](framework/results/gh_probe_resource_watcher/PROBE_V1_FAILURE_READONLY.md)。
+
 ## G/H数值探针：独立资源轮询已部署（2026-10-23快照）
 
 39项CPU测试与冻结后端来源Preflight PASS；已部署PID1349747，PPID1/独立会话/flock通过。

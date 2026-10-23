@@ -2,7 +2,19 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：G/H单次探针资源轮询器已后台部署（部署快照）
+## 当前阶段：probe_v1已自动调用并FAIL，Attempt已消费
+
+2026-10-23 02:41:45 +08:00轮询器在52次检查/连续两次空闲24051MiB后，CPU预检PASS并调用原probe_v1。
+原子启动标记已消费；子进程PID1748064在02:41:55退出码1，监督器PID1349747按失败策略退出。
+错误为native_backend.py:347传入device="cuda"，原IRRA加载器要求明确cuda:index，权重恢复前拒绝。
+CUDA已初始化，但尚未进入NativeBackend构造：真实神经前向/JVP/Optimizer更新均0（控制流证据）。
+Claim与FAIL保留，无completed；数值JVP/FD/梯度及CUDA RNG恢复仍NOT_RUN/PENDING，不能运行A1/B。
+本轮只读核验139 producer、496运行来源和G60/H10/IRRA SHA通过；151378历史metadata无变化。
+没有修改后端、配置或原控制日志，没有重试或新增Attempt。
+[失败定位与来源](framework/results/gh_probe_resource_watcher/PROBE_V1_FAILURE_READONLY.md)。
+
+## 历史阶段：轮询器部署快照（2760c809，非当前运行状态）
+
 
 用户授权每180秒检查GPU0，连续两次空闲显存≥10240MiB后调用一次原probe_v1。
 新分支codex/gh-probe-resource-watcher；冻结后端仍在原工作树07a31edb，算法执行基准a46c6980。

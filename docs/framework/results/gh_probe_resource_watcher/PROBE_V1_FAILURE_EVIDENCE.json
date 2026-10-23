@@ -1,0 +1,282 @@
+{
+  "status": "PROBE_V1_FAIL_CONFIRMED_READ_ONLY",
+  "checked_at": "2026-10-23T11:30:33.849479+08:00",
+  "watcher_status": {
+    "state": "PROBE_FAIL",
+    "time": "2026-10-23T02:41:55+0800",
+    "pid": 1349747,
+    "ppid": 1,
+    "pgid": 1349747,
+    "sid": 1349747,
+    "interval_seconds": 180,
+    "check_count": 52,
+    "consecutive": 2,
+    "free_mib": 24051,
+    "utilization": 0,
+    "checks": {
+      "gpu": true,
+      "ram": true,
+      "disk": true,
+      "inodes": true
+    },
+    "processes": [],
+    "detail": "native probe failed; retain FAIL/logs and never retry",
+    "history_files": 151378,
+    "terminal": true,
+    "probe_launch_consumed": true
+  },
+  "launch": {
+    "time": "2026-10-23T02:41:45+0800",
+    "pid": 1349747,
+    "script_sha256": "d24da60b6b68264ed9ef2099bc83582cebc9adb85ac721dbee49cce6764b83d3",
+    "frozen_commit": "07a31edb4d1a4fc8e28ce8968a037b03b5681075",
+    "action": "probe",
+    "command": [
+      "/home/lzf/ldx/envs/tbps-image/bin/python",
+      "-B",
+      "-u",
+      "-m",
+      "tbps.alternating.native_cli",
+      "--config",
+      "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-backend-20261022/configs/framework/gh_bidirectional_backend.server.json",
+      "--action",
+      "probe",
+      "--allow-gpu-probe"
+    ],
+    "note": "launch consumed before Popen; any exit means no retry"
+  },
+  "child": {
+    "pid": 1748064,
+    "time": "2026-10-23T02:41:45+0800"
+  },
+  "exit": {
+    "exit_code": 1,
+    "time": "2026-10-23T02:41:55+0800"
+  },
+  "config_sha256": "093883a31ad06d3c61b4e72c541d7d55eea9ddafd3d5fe7b36ad93d6ba200af0",
+  "producers": 139,
+  "runtime_pins": 496,
+  "source_SHA_verification": "139+496 passed in prior read-only call of this task",
+  "parent_checkpoints": {
+    "G": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0060/checkpoint.pt",
+      "sha256": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049"
+    },
+    "H": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00020480/checkpoint.pt",
+      "sha256": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd"
+    },
+    "IRRA": {
+      "path": "/home/lzf/Attack/IRRA/logs/CUHK-PEDES/best.pth",
+      "sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+    }
+  },
+  "history_metadata": {
+    "files": 151378,
+    "mismatches": []
+  },
+  "source_key": "884bc426c4aa70c3a01c816ab54d0253bb73b7e22bdb17954a38c79d83b7ab97",
+  "CPU_parent_restore": {
+    "CPU_RNG_exact": true,
+    "CUDA_RNG_preserved": true,
+    "CUDA_RNG_restored": false,
+    "G_Adam": "84ffa5fdd8132fb60ecbb4caf40d3242973168666841264c098d2aa36575ae14",
+    "G_Adam_steps": [
+      484080
+    ],
+    "G_RNG": "82a340a4e9f7ab8f2532be63bfdc764ec22aad52e860ccfa9655336aa2fd8b5d",
+    "G_state": "5d48caab6a891a1afd3aaaa6f3594eb5f860ccd7b6090708d289224e6c819e47",
+    "H_Adam": "dfe930621066f140b5dd37d77d5a4fc4226cdef3f74ff05bc181de86423b6a4d",
+    "H_Adam_step_max": 20370,
+    "H_Adam_step_min": 20124,
+    "H_RNG": "5333ea5b83ab3a2839988413067517ef7583f35efdd44fc31713b1b9ee01430e",
+    "H_state": "1b1e3888ee8dc0e4dff39af3438ec48987cd472746cbfde71ad4d10f562ad24d",
+    "guards": {
+      "CUDA": false,
+      "forwards": 0,
+      "loads": [
+        "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0060/checkpoint.pt",
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00020480/checkpoint.pt"
+      ],
+      "optimizer_steps": 0
+    },
+    "parent_protocol": {
+      "G": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049",
+      "H": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd",
+      "protocol": "393bf1c2b92c3fed86e4ef583a710970768032e7ebace65253d271c4c5c94c4f"
+    },
+    "real_model_forwards": 0,
+    "status": "GH_NATIVE_PARENT_CPU_RESTORE_PASS",
+    "updates": 0
+  },
+  "startup_events_recorded_before_GPU": [
+    "cpu_sources_verified",
+    "cpu_isolation_exited"
+  ],
+  "FAIL": "Traceback (most recent call last):\n  File \"/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-backend-20261022/src/tbps/alternating/native_cli.py\", line 101, in run_gpu\n    with fp32_runtime(),loaded_backend(c,bundle,grant) as backend:\n  File \"/home/lzf/ldx/envs/tbps-image/lib/python3.10/contextlib.py\", line 135, in __enter__\n    return next(self.gen)\n  File \"/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-backend-20261022/src/tbps/alternating/native_backend.py\", line 347, in loaded_backend\n    adapter=IRRAAdapter.from_source(source,device=\"cuda\",allow_model_load=True)\n  File \"/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-backend-20261022/src/tbps/models/irra.py\", line 55, in from_source\n    backend=load_official_model(source,device=device,allow_model_load=True)\n  File \"/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-backend-20261022/src/tbps/models/irra_source.py\", line 84, in load_official_model\n    raise ArtifactError(\"explicit cpu or cuda:index required\")\ntbps.artifacts.ArtifactError: explicit cpu or cuda:index required\n",
+  "completed_exists": false,
+  "pending_paths": [],
+  "evidence_files": {
+    "/home/lzf/ldx/tmp/gh_native_probe_wait_v1/watcher.lock": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "mtime_ns": 1792685311153618294
+    },
+    "/home/lzf/ldx/tmp/gh_native_probe_wait_v1/deployment.json": {
+      "sha256": "ac9bdcbd8200b58db96632ec9adadd96e4316a9b10237d651d8af964dd323ffe",
+      "size": 1507,
+      "mtime_ns": 1792685311100821891
+    },
+    "/home/lzf/ldx/tmp/gh_native_probe_wait_v1/gh_probe_watch.py": {
+      "sha256": "d24da60b6b68264ed9ef2099bc83582cebc9adb85ac721dbee49cce6764b83d3",
+      "size": 16315,
+      "mtime_ns": 1792685311099726720
+    },
+    "/home/lzf/ldx/tmp/gh_native_probe_wait_v1/resources.latest.json": {
+      "sha256": "ee49fe2eee017bb860e0d49fb62f48eff585bdf2b75e91cc1cacbebec3475708",
+      "size": 460,
+      "mtime_ns": 1792694505918069673
+    },
+    "/home/lzf/ldx/tmp/gh_native_probe_wait_v1/poll.log": {
+      "sha256": "c9567926306ccb2b308f5021aa31163c4db98da19af2213bc5dcc9e7ac0a5c45",
+      "size": 23147,
+      "mtime_ns": 1792694515441445966
+    },
+    "/home/lzf/ldx/tmp/gh_native_probe_wait_v1/history_before.json": {
+      "sha256": "b7c5ba0e406543588339a533625f883c9c63c08d9464301afc878b06290b8de7",
+      "size": 155,
+      "mtime_ns": 1792685312206935272
+    },
+    "/home/lzf/ldx/tmp/gh_native_probe_wait_v1/launcher.log": {
+      "sha256": "d4c3471005e9099f661cfdab7c306e969ab09acdc46ecc31e7ebdbbe75a21307",
+      "size": 745,
+      "mtime_ns": 1792694515500445969
+    },
+    "/home/lzf/ldx/tmp/gh_native_probe_wait_v1/deployment_verified.json": {
+      "sha256": "45eac63f4e2d71f53fdcd859a83f38701b75f960bf08f23236c5858a87119f68",
+      "size": 1820,
+      "mtime_ns": 1792685350516435910
+    },
+    "/home/lzf/ldx/tmp/gh_native_probe_wait_v1/probe.process.json": {
+      "sha256": "0032865f04eacdd249c24ac91db4b2b6d18b5e9edf1e734d108c44ca393bf1df",
+      "size": 59,
+      "mtime_ns": 1792694505965952198
+    },
+    "/home/lzf/ldx/tmp/gh_native_probe_wait_v1/probe.started.json": {
+      "sha256": "54cb7b306067ebfee63d860752aa614f2e507a3be1d3bf257424cdc12dd4a69a",
+      "size": 633,
+      "mtime_ns": 1792694505948538945
+    },
+    "/home/lzf/ldx/tmp/gh_native_probe_wait_v1/failure.json": {
+      "sha256": "5fc5270d1089efb219be23f36b3c68ce3d1b49b27bb6654096c23716d5728d74",
+      "size": 125,
+      "mtime_ns": 1792694515442317683
+    },
+    "/home/lzf/ldx/tmp/gh_native_probe_wait_v1/supervisor.sid": {
+      "sha256": "e36d4ea9a8b526249f8c35001c42454f0088de44a763f664f7c5461a12ac521f",
+      "size": 8,
+      "mtime_ns": 1792685312237847831
+    },
+    "/home/lzf/ldx/tmp/gh_native_probe_wait_v1/supervisor.pid": {
+      "sha256": "e36d4ea9a8b526249f8c35001c42454f0088de44a763f664f7c5461a12ac521f",
+      "size": 8,
+      "mtime_ns": 1792685312237790351
+    },
+    "/home/lzf/ldx/tmp/gh_native_probe_wait_v1/probe.exit.json": {
+      "sha256": "d1889e77830454d1403668fc12f6aea7eef2aa5d88aaebc6d5ac836a9c9ae0ab",
+      "size": 59,
+      "mtime_ns": 1792694515413837863
+    },
+    "/home/lzf/ldx/tmp/gh_native_probe_wait_v1/launcher.json": {
+      "sha256": "0b72fc527b80e2e84d1ac8718e24ff3d2396c6a51dc7fab1c47c7c03585fe486",
+      "size": 211,
+      "mtime_ns": 1792685311117243967
+    },
+    "/home/lzf/ldx/tmp/gh_native_probe_wait_v1/cpu_preflight.latest.json": {
+      "sha256": "77ff23c62b9e721c873514eac9f70a164bfa09578d80efd567118aabd190707a",
+      "size": 139,
+      "mtime_ns": 1792694504756763461
+    },
+    "/home/lzf/ldx/tmp/gh_native_probe_wait_v1/status.json": {
+      "sha256": "d95f465077aad7309370ec5d3d7ffe00ef629b109448b4ab96bfb8f88b3422cb",
+      "size": 501,
+      "mtime_ns": 1792694515430425645
+    },
+    "/home/lzf/ldx/tmp/gh_native_probe_wait_v1/transition.lock": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "mtime_ns": 1792694505934446225
+    },
+    "/home/lzf/ldx/tmp/gh_native_probe_wait_v1/probe.log": {
+      "sha256": "9fc163761a574e80a2b3e8477177cd51f55f67ab7f8627714b05ae7fde27b387",
+      "size": 3079,
+      "mtime_ns": 1792694515013156837
+    },
+    "/home/lzf/ldx/tmp/gh_native_probe_wait_v1/supervisor.pgid": {
+      "sha256": "e36d4ea9a8b526249f8c35001c42454f0088de44a763f664f7c5461a12ac521f",
+      "size": 8,
+      "mtime_ns": 1792685312237827836
+    },
+    "/home/lzf/ldx/tmp/gh_native_probe_wait_v1/cpu_preflight.log": {
+      "sha256": "766e4c3d4ce655c36bdc5365ff8dc7aa361df86e747219c928755c503e755a65",
+      "size": 30207,
+      "mtime_ns": 1792694504391446402
+    },
+    "/home/lzf/ldx/tmp/gh_native_probe_wait_v1/watcher.started.json": {
+      "sha256": "b46c453ae0a4a1deb92a615e82a76331cef8e836e944e8445790b4e86eb4c3c9",
+      "size": 196,
+      "mtime_ns": 1792685312232692337
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v1/.writer.lock": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0,
+      "mtime_ns": 1792694513598445906
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v1/FAIL": {
+      "sha256": "f37c22792fdf0f42a5c1cc4b1eba0b26d16bc9083212b8bf5db6800eac576b30",
+      "size": 1067,
+      "mtime_ns": 1792694515013156837
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v1/claim/resources.json": {
+      "sha256": "b0baaddb3709f53ab9a1e74bc18424134a4f638a31d87e6f7cf54d450c301737",
+      "size": 329,
+      "mtime_ns": 1792694513612137774
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v1/claim/manifest.json": {
+      "sha256": "53470b6182e63095fbe68d1c56bded55cc5534e0648d2b39c029d86d0c96847c",
+      "size": 356,
+      "mtime_ns": 1792694513617906796
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v1/claim/preflight.json": {
+      "sha256": "8f92d68fcfff22a78ef070d418ee328a3c62aa17912f23d1d6e7a168234e1d25",
+      "size": 25457,
+      "mtime_ns": 1792694513606705800
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v1/claim/completed.json": {
+      "sha256": "1b64c5c0ae7cecd6b468233ccfb08fbdfb81658026588c16b73e4514884f3934",
+      "size": 121,
+      "mtime_ns": 1792694513624866851
+    }
+  },
+  "backend_source_unchanged": true,
+  "read_only_GPU_snapshot": {
+    "free_mib": 17787,
+    "total_mib": 24564,
+    "utilization": 90,
+    "other_process_pid": 3042610,
+    "other_process_used_mib": 6256,
+    "GPU_query_count_this_task": 1
+  },
+  "execution_counts_inferred_from_fail_before_backend_constructor": {
+    "G_forward": 0,
+    "H_forward": 0,
+    "IRRA_image": 0,
+    "IRRA_text": 0,
+    "reader": 0,
+    "JVP": 0,
+    "Optimizer_step": 0,
+    "GPU_IRRA_weight_restores": 0
+  },
+  "count_semantics": "根据冻结调用顺序及异常栈可确定尚未进入Backend构造和numerical_probe；原失败入口未发布最终counts报告，非Hook回执。",
+  "scope": "read-only result/source/metadata verification; no GPU/native_cli invocation in this task"
+}
