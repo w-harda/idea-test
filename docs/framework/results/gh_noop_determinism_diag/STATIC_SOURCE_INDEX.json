@@ -1,0 +1,1530 @@
+{
+  "files": [
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/alternating/native_cli.py",
+      "sha256": "977ff32059933191949bb8a91417700d5b050daedb7b928f42c5db5ab41a4083",
+      "definitions": [
+        {
+          "name": "cpu_preflight",
+          "line": 12,
+          "end": 27
+        },
+        {
+          "name": "prepare_cpu_gate",
+          "line": 29,
+          "end": 41
+        },
+        {
+          "name": "numerical_probe",
+          "line": 43,
+          "end": 77
+        },
+        {
+          "name": "run_gpu",
+          "line": 79,
+          "end": 127
+        },
+        {
+          "name": "audit_smoke",
+          "line": 129,
+          "end": 191
+        },
+        {
+          "name": "main",
+          "line": 193,
+          "end": 210
+        }
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/alternating/native_numeric.py",
+      "sha256": "698c5e9b08b3313866b042c4a75aa2224d67c5869e68fb9659a7ddc4067b83ec",
+      "definitions": [
+        {
+          "name": "original_gradient",
+          "line": 6,
+          "end": 27
+        },
+        {
+          "name": "compare_gradients",
+          "line": 29,
+          "end": 49
+        }
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/alternating/native_backend.py",
+      "sha256": "6f96beb9275e29df188f8aaf5b9cb6bdff82234200d7da95453649b2cfba7960",
+      "definitions": [
+        {
+          "name": "native_image_view",
+          "line": 14,
+          "end": 16
+        },
+        {
+          "name": "tensor_bytes",
+          "line": 18,
+          "end": 20
+        },
+        {
+          "name": "assert_pixels",
+          "line": 22,
+          "end": 27
+        },
+        {
+          "name": "TextVictim",
+          "line": 29,
+          "end": 38
+        },
+        {
+          "name": "TextRuntime",
+          "line": 40,
+          "end": 54
+        },
+        {
+          "name": "NativeBackend",
+          "line": 56,
+          "end": 335
+        },
+        {
+          "name": "loaded_backend",
+          "line": 338,
+          "end": 351
+        },
+        {
+          "name": "__init__",
+          "line": 30,
+          "end": 31
+        },
+        {
+          "name": "encode_texts",
+          "line": 32,
+          "end": 38
+        },
+        {
+          "name": "__init__",
+          "line": 42,
+          "end": 44
+        },
+        {
+          "name": "assert_frozen",
+          "line": 45,
+          "end": 45
+        },
+        {
+          "name": "encode_text",
+          "line": 46,
+          "end": 54
+        },
+        {
+          "name": "__init__",
+          "line": 58,
+          "end": 138
+        },
+        {
+          "name": "_versions",
+          "line": 140,
+          "end": 141
+        },
+        {
+          "name": "assert_frozen_sources",
+          "line": 142,
+          "end": 146
+        },
+        {
+          "name": "final_frozen",
+          "line": 147,
+          "end": 151
+        },
+        {
+          "name": "close",
+          "line": 152,
+          "end": 154
+        },
+        {
+          "name": "g_fingerprint",
+          "line": 155,
+          "end": 155
+        },
+        {
+          "name": "h_fingerprint",
+          "line": 156,
+          "end": 156
+        },
+        {
+          "name": "restore_complete",
+          "line": 157,
+          "end": 161
+        },
+        {
+          "name": "enter_phase_rng",
+          "line": 162,
+          "end": 165
+        },
+        {
+          "name": "leave_phase_rng",
+          "line": 166,
+          "end": 166
+        },
+        {
+          "name": "public_text",
+          "line": 167,
+          "end": 169
+        },
+        {
+          "name": "h_rollout",
+          "line": 170,
+          "end": 192
+        },
+        {
+          "name": "condition",
+          "line": 193,
+          "end": 222
+        },
+        {
+          "name": "image",
+          "line": 223,
+          "end": 230
+        },
+        {
+          "name": "g_update",
+          "line": 231,
+          "end": 243
+        },
+        {
+          "name": "load_reward_inputs",
+          "line": 244,
+          "end": 259
+        },
+        {
+          "name": "refresh_bank",
+          "line": 260,
+          "end": 299
+        },
+        {
+          "name": "install_new_reward_bank",
+          "line": 300,
+          "end": 304
+        },
+        {
+          "name": "h_update",
+          "line": 305,
+          "end": 331
+        },
+        {
+          "name": "complete_state",
+          "line": 332,
+          "end": 335
+        },
+        {
+          "name": "hook",
+          "line": 111,
+          "end": 119
+        },
+        {
+          "name": "image",
+          "line": 124,
+          "end": 128
+        },
+        {
+          "name": "text",
+          "line": 129,
+          "end": 133
+        },
+        {
+          "name": "transport",
+          "line": 198,
+          "end": 198
+        },
+        {
+          "name": "locate",
+          "line": 199,
+          "end": 203
+        },
+        {
+          "name": "observe",
+          "line": 236,
+          "end": 239
+        },
+        {
+          "name": "bind",
+          "line": 315,
+          "end": 315
+        },
+        {
+          "name": "count",
+          "line": 112,
+          "end": 118
+        }
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/alternating/runner.py",
+      "sha256": "2f817e72eb5e62e779fcdf4fe6219d9808a64bf7073482555b21291f79a1ac27",
+      "definitions": [
+        {
+          "name": "Prototype",
+          "line": 6,
+          "end": 72
+        },
+        {
+          "name": "__init__",
+          "line": 7,
+          "end": 22
+        },
+        {
+          "name": "run",
+          "line": 24,
+          "end": 72
+        }
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/alternating/state.py",
+      "sha256": "e7aedb7607e959721aa219db96168747dfe723458b2197817ea3d2d61ff684d3",
+      "definitions": [
+        {
+          "name": "clone_tree",
+          "line": 9,
+          "end": 17
+        },
+        {
+          "name": "tree_sha",
+          "line": 19,
+          "end": 22
+        },
+        {
+          "name": "capture_rng",
+          "line": 24,
+          "end": 32
+        },
+        {
+          "name": "restore_rng",
+          "line": 34,
+          "end": 48
+        },
+        {
+          "name": "snapshot",
+          "line": 50,
+          "end": 55
+        },
+        {
+          "name": "restore",
+          "line": 57,
+          "end": 69
+        },
+        {
+          "name": "RoundStore",
+          "line": 71,
+          "end": 108
+        },
+        {
+          "name": "__init__",
+          "line": 73,
+          "end": 76
+        },
+        {
+          "name": "begin",
+          "line": 78,
+          "end": 84
+        },
+        {
+          "name": "commit",
+          "line": 86,
+          "end": 95
+        },
+        {
+          "name": "load",
+          "line": 97,
+          "end": 108
+        }
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/alternating/parents.py",
+      "sha256": "b30c71f5b5638025ec74c53e010b1302a010b4277bd3da707976f28c1656736f",
+      "definitions": [
+        {
+          "name": "no_optimizer_steps",
+          "line": 12,
+          "end": 21
+        },
+        {
+          "name": "cpu_restore_only",
+          "line": 24,
+          "end": 43
+        },
+        {
+          "name": "normalized_rng",
+          "line": 45,
+          "end": 52
+        },
+        {
+          "name": "ParentBundle",
+          "line": 55,
+          "end": 66
+        },
+        {
+          "name": "restore_cpu_parents",
+          "line": 68,
+          "end": 141
+        },
+        {
+          "name": "bind_g_device",
+          "line": 144,
+          "end": 154
+        },
+        {
+          "name": "stop",
+          "line": 14,
+          "end": 15
+        },
+        {
+          "name": "load",
+          "line": 29,
+          "end": 34
+        },
+        {
+          "name": "stop",
+          "line": 35,
+          "end": 36
+        }
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/alternating/conditions.py",
+      "sha256": "62c796f485c1dd2941611220bdedb90b1f76f318dde176781f3b6bff45633c11",
+      "definitions": [
+        {
+          "name": "PreparedCondition",
+          "line": 7,
+          "end": 10
+        },
+        {
+          "name": "prepare_condition",
+          "line": 12,
+          "end": 43
+        },
+        {
+          "name": "LegacyContextKernel",
+          "line": 45,
+          "end": 89
+        },
+        {
+          "name": "LegacySteps",
+          "line": 91,
+          "end": 108
+        },
+        {
+          "name": "CanonicalLocator",
+          "line": 111,
+          "end": 149
+        },
+        {
+          "name": "trace_from_legacy",
+          "line": 152,
+          "end": 163
+        },
+        {
+          "name": "__init__",
+          "line": 50,
+          "end": 55
+        },
+        {
+          "name": "recompute",
+          "line": 57,
+          "end": 89
+        },
+        {
+          "name": "__init__",
+          "line": 93,
+          "end": 94
+        },
+        {
+          "name": "update_g",
+          "line": 96,
+          "end": 102
+        },
+        {
+          "name": "update_h",
+          "line": 104,
+          "end": 108
+        },
+        {
+          "name": "__init__",
+          "line": 113,
+          "end": 117
+        },
+        {
+          "name": "__call__",
+          "line": 119,
+          "end": 149
+        }
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/alternating/native_sources.py",
+      "sha256": "b2cc0366d83b124a3b6f3c0867fed2d623d4f8f1d5485db0f33e4e4b00555e13",
+      "definitions": [
+        {
+          "name": "resource_protocol",
+          "line": 25,
+          "end": 36
+        },
+        {
+          "name": "verify_config",
+          "line": 38,
+          "end": 64
+        },
+        {
+          "name": "native_session",
+          "line": 67,
+          "end": 127
+        },
+        {
+          "name": "bindings",
+          "line": 129,
+          "end": 131
+        },
+        {
+          "name": "strict_import_preflight",
+          "line": 133,
+          "end": 159
+        },
+        {
+          "name": "source_key",
+          "line": 161,
+          "end": 162
+        },
+        {
+          "name": "managed",
+          "line": 78,
+          "end": 79
+        },
+        {
+          "name": "get_code",
+          "line": 81,
+          "end": 90
+        }
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/alternating/preflight.py",
+      "sha256": "9fdd2f86941d27426df07767a069e09c6784e4def73af344eef644782c55f089",
+      "definitions": [
+        {
+          "name": "verify_refs",
+          "line": 19,
+          "end": 21
+        },
+        {
+          "name": "metadata",
+          "line": 23,
+          "end": 25
+        },
+        {
+          "name": "resource_snapshot",
+          "line": 27,
+          "end": 49
+        },
+        {
+          "name": "preflight",
+          "line": 51,
+          "end": 164
+        },
+        {
+          "name": "main",
+          "line": 166,
+          "end": 176
+        }
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/models/irra.py",
+      "sha256": "424e1dcd20b34061e3199d969f05eb34ca8aa3a6655e00a0e77770ee17fef0b2",
+      "definitions": [
+        {
+          "name": "fp32_runtime",
+          "line": 14,
+          "end": 28
+        },
+        {
+          "name": "IRRAAdapter",
+          "line": 30,
+          "end": 85
+        },
+        {
+          "name": "IRRAView",
+          "line": 87,
+          "end": 139
+        },
+        {
+          "name": "__init__",
+          "line": 31,
+          "end": 34
+        },
+        {
+          "name": "_initialize",
+          "line": 35,
+          "end": 43
+        },
+        {
+          "name": "from_source",
+          "line": 45,
+          "end": 58
+        },
+        {
+          "name": "inference",
+          "line": 59,
+          "end": 59
+        },
+        {
+          "name": "surrogate",
+          "line": 60,
+          "end": 60
+        },
+        {
+          "name": "_frozen",
+          "line": 61,
+          "end": 63
+        },
+        {
+          "name": "score",
+          "line": 64,
+          "end": 64
+        },
+        {
+          "name": "representation_artifact",
+          "line": 65,
+          "end": 79
+        },
+        {
+          "name": "score_artifact",
+          "line": 80,
+          "end": 85
+        },
+        {
+          "name": "__init__",
+          "line": 89,
+          "end": 90
+        },
+        {
+          "name": "input_gradients",
+          "line": 92,
+          "end": 92
+        },
+        {
+          "name": "spec",
+          "line": 94,
+          "end": 94
+        },
+        {
+          "name": "space",
+          "line": 96,
+          "end": 96
+        },
+        {
+          "name": "_run",
+          "line": 97,
+          "end": 104
+        },
+        {
+          "name": "_normalize",
+          "line": 105,
+          "end": 110
+        },
+        {
+          "name": "encode_images",
+          "line": 111,
+          "end": 114
+        },
+        {
+          "name": "encode_texts",
+          "line": 115,
+          "end": 117
+        },
+        {
+          "name": "encode_tokens",
+          "line": 118,
+          "end": 126
+        },
+        {
+          "name": "score",
+          "line": 127,
+          "end": 139
+        }
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/models/irra_source.py",
+      "sha256": "fcf22ad01836804bc40fdce6c1817de2ff1941fd302b549a765e15f5287dd0b6",
+      "definitions": [
+        {
+          "name": "IRRASource",
+          "line": 16,
+          "end": 62
+        },
+        {
+          "name": "official_model_modules",
+          "line": 65,
+          "end": 78
+        },
+        {
+          "name": "load_official_model",
+          "line": 80,
+          "end": 103
+        },
+        {
+          "name": "__post_init__",
+          "line": 24,
+          "end": 36
+        },
+        {
+          "name": "fingerprint",
+          "line": 38,
+          "end": 38
+        },
+        {
+          "name": "ref",
+          "line": 39,
+          "end": 39
+        },
+        {
+          "name": "settings",
+          "line": 40,
+          "end": 48
+        },
+        {
+          "name": "verify",
+          "line": 49,
+          "end": 56
+        },
+        {
+          "name": "from_dict",
+          "line": 58,
+          "end": 62
+        },
+        {
+          "name": "read_only_clip",
+          "line": 90,
+          "end": 93
+        }
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/materialization/irra_startup.py",
+      "sha256": "eb5f0bb0993ae96055e9ec95b8b5c46e110e1bcaed1d4619f1bb9d222a78106a",
+      "definitions": [
+        {
+          "name": "isolation_snapshot",
+          "line": 6,
+          "end": 12
+        },
+        {
+          "name": "IRRAInputs",
+          "line": 15,
+          "end": 21
+        },
+        {
+          "name": "CPUStartupGate",
+          "line": 23,
+          "end": 47
+        },
+        {
+          "name": "feature_paths",
+          "line": 49,
+          "end": 60
+        },
+        {
+          "name": "prepare_inputs",
+          "line": 62,
+          "end": 87
+        },
+        {
+          "name": "__init__",
+          "line": 24,
+          "end": 29
+        },
+        {
+          "name": "checked",
+          "line": 30,
+          "end": 33
+        },
+        {
+          "name": "exit_checked",
+          "line": 34,
+          "end": 39
+        },
+        {
+          "name": "initialize_cuda",
+          "line": 40,
+          "end": 47
+        }
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/serial_training.py",
+      "sha256": "e42fa8bd6ea933530bda8e2e67d5149e7059151f4b2caa0b662dbaaa856e105d",
+      "definitions": [
+        {
+          "name": "LossWeights",
+          "line": 12,
+          "end": 21
+        },
+        {
+          "name": "_check_optimizer",
+          "line": 23,
+          "end": 35
+        },
+        {
+          "name": "_encoder_snapshot",
+          "line": 37,
+          "end": 39
+        },
+        {
+          "name": "_check_encoder",
+          "line": 41,
+          "end": 47
+        },
+        {
+          "name": "_weighted",
+          "line": 49,
+          "end": 52
+        },
+        {
+          "name": "_image_stats",
+          "line": 54,
+          "end": 67
+        },
+        {
+          "name": "_update",
+          "line": 69,
+          "end": 114
+        },
+        {
+          "name": "train_single_sample",
+          "line": 116,
+          "end": 165
+        },
+        {
+          "name": "__post_init__",
+          "line": 17,
+          "end": 21
+        }
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/image_only_generator.py",
+      "sha256": "4745e6947308fdc4f5d5496b6a99c9a68699abef8131f2a211e1bd13470eec85",
+      "definitions": [
+        {
+          "name": "conv_block",
+          "line": 7,
+          "end": 11
+        },
+        {
+          "name": "ResidualBlock",
+          "line": 13,
+          "end": 21
+        },
+        {
+          "name": "ImageOnlyGenerator",
+          "line": 23,
+          "end": 47
+        },
+        {
+          "name": "__init__",
+          "line": 14,
+          "end": 19
+        },
+        {
+          "name": "forward",
+          "line": 20,
+          "end": 21
+        },
+        {
+          "name": "__init__",
+          "line": 24,
+          "end": 36
+        },
+        {
+          "name": "forward",
+          "line": 38,
+          "end": 47
+        }
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/irra_image_adapter.py",
+      "sha256": "148d2cfe8749cb8723b00e38ca68ff8dee6f86948f1fe2a15605c792dbb2eba4",
+      "definitions": [
+        {
+          "name": "pixels_from_pil",
+          "line": 22,
+          "end": 23
+        },
+        {
+          "name": "FrozenIRRAImageEncoder",
+          "line": 25,
+          "end": 42
+        },
+        {
+          "name": "load_official",
+          "line": 44,
+          "end": 74
+        },
+        {
+          "name": "__init__",
+          "line": 26,
+          "end": 31
+        },
+        {
+          "name": "train",
+          "line": 32,
+          "end": 34
+        },
+        {
+          "name": "forward",
+          "line": 35,
+          "end": 42
+        },
+        {
+          "name": "read_only_clip",
+          "line": 56,
+          "end": 59
+        }
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/losses.py",
+      "sha256": "d415dfe326cc2f580d202d0220d5bb0c5895ed626115b0828e516b598df8f0b2",
+      "definitions": [
+        {
+          "name": "features",
+          "line": 4,
+          "end": 8
+        },
+        {
+          "name": "target",
+          "line": 10,
+          "end": 14
+        },
+        {
+          "name": "matching_scores",
+          "line": 16,
+          "end": 18
+        },
+        {
+          "name": "retain_reference",
+          "line": 20,
+          "end": 22
+        },
+        {
+          "name": "retain_loss",
+          "line": 24,
+          "end": 36
+        },
+        {
+          "name": "attribute_losses",
+          "line": 38,
+          "end": 44
+        },
+        {
+          "name": "joint_losses",
+          "line": 46,
+          "end": 56
+        }
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/envs/tbps-image/lib/python3.10/site-packages/torch/nn/functional.py",
+      "sha256": "e91cd1c772ef9302727169f89bf8375befd3fc64a8d445df6084958708a95d53",
+      "definitions": [
+        {
+          "name": "fractional_max_pool2d_with_indices",
+          "line": 436,
+          "end": 510
+        },
+        {
+          "name": "_fractional_max_pool2d",
+          "line": 513,
+          "end": 534
+        },
+        {
+          "name": "fractional_max_pool3d_with_indices",
+          "line": 548,
+          "end": 626
+        },
+        {
+          "name": "_fractional_max_pool3d",
+          "line": 629,
+          "end": 650
+        },
+        {
+          "name": "max_pool1d_with_indices",
+          "line": 664,
+          "end": 714
+        },
+        {
+          "name": "_max_pool1d",
+          "line": 717,
+          "end": 740
+        },
+        {
+          "name": "max_pool2d_with_indices",
+          "line": 754,
+          "end": 804
+        },
+        {
+          "name": "_max_pool2d",
+          "line": 807,
+          "end": 830
+        },
+        {
+          "name": "max_pool3d_with_indices",
+          "line": 844,
+          "end": 894
+        },
+        {
+          "name": "_max_pool3d",
+          "line": 897,
+          "end": 920
+        },
+        {
+          "name": "_unpool_output_size",
+          "line": 934,
+          "end": 968
+        },
+        {
+          "name": "max_unpool1d",
+          "line": 971,
+          "end": 1007
+        },
+        {
+          "name": "max_unpool2d",
+          "line": 1010,
+          "end": 1040
+        },
+        {
+          "name": "max_unpool3d",
+          "line": 1043,
+          "end": 1073
+        },
+        {
+          "name": "lp_pool3d",
+          "line": 1076,
+          "end": 1111
+        },
+        {
+          "name": "lp_pool2d",
+          "line": 1114,
+          "end": 1147
+        },
+        {
+          "name": "lp_pool1d",
+          "line": 1150,
+          "end": 1183
+        },
+        {
+          "name": "adaptive_max_pool1d_with_indices",
+          "line": 1186,
+          "end": 1211
+        },
+        {
+          "name": "_adaptive_max_pool1d",
+          "line": 1214,
+          "end": 1227
+        },
+        {
+          "name": "adaptive_max_pool2d_with_indices",
+          "line": 1241,
+          "end": 1267
+        },
+        {
+          "name": "_adaptive_max_pool2d",
+          "line": 1270,
+          "end": 1283
+        },
+        {
+          "name": "adaptive_max_pool3d_with_indices",
+          "line": 1297,
+          "end": 1324
+        },
+        {
+          "name": "_adaptive_max_pool3d",
+          "line": 1327,
+          "end": 1340
+        },
+        {
+          "name": "adaptive_avg_pool2d",
+          "line": 1370,
+          "end": 1382
+        },
+        {
+          "name": "adaptive_avg_pool3d",
+          "line": 1385,
+          "end": 1397
+        },
+        {
+          "name": "dropout",
+          "line": 1401,
+          "end": 1426
+        },
+        {
+          "name": "alpha_dropout",
+          "line": 1429,
+          "end": 1449
+        },
+        {
+          "name": "dropout1d",
+          "line": 1452,
+          "end": 1500
+        },
+        {
+          "name": "dropout2d",
+          "line": 1503,
+          "end": 1559
+        },
+        {
+          "name": "dropout3d",
+          "line": 1562,
+          "end": 1611
+        },
+        {
+          "name": "feature_alpha_dropout",
+          "line": 1614,
+          "end": 1654
+        },
+        {
+          "name": "_threshold",
+          "line": 1657,
+          "end": 1675
+        },
+        {
+          "name": "relu",
+          "line": 1693,
+          "end": 1705
+        },
+        {
+          "name": "glu",
+          "line": 1718,
+          "end": 1742
+        },
+        {
+          "name": "hardtanh",
+          "line": 1745,
+          "end": 1767
+        },
+        {
+          "name": "relu6",
+          "line": 1780,
+          "end": 1793
+        },
+        {
+          "name": "elu",
+          "line": 1796,
+          "end": 1807
+        },
+        {
+          "name": "selu",
+          "line": 1820,
+          "end": 1836
+        },
+        {
+          "name": "celu",
+          "line": 1849,
+          "end": 1869
+        },
+        {
+          "name": "leaky_relu",
+          "line": 1882,
+          "end": 1903
+        },
+        {
+          "name": "rrelu",
+          "line": 1937,
+          "end": 1964
+        },
+        {
+          "name": "tanhshrink",
+          "line": 2018,
+          "end": 2027
+        },
+        {
+          "name": "softsign",
+          "line": 2030,
+          "end": 2039
+        },
+        {
+          "name": "_get_softmax_dim",
+          "line": 2057,
+          "end": 2067
+        },
+        {
+          "name": "softmin",
+          "line": 2070,
+          "end": 2100
+        },
+        {
+          "name": "softmax",
+          "line": 2103,
+          "end": 2143
+        },
+        {
+          "name": "gumbel_softmax",
+          "line": 2146,
+          "end": 2217
+        },
+        {
+          "name": "log_softmax",
+          "line": 2220,
+          "end": 2251
+        },
+        {
+          "name": "tanh",
+          "line": 2266,
+          "end": 2274
+        },
+        {
+          "name": "sigmoid",
+          "line": 2277,
+          "end": 2284
+        },
+        {
+          "name": "hardsigmoid",
+          "line": 2287,
+          "end": 2306
+        },
+        {
+          "name": "silu",
+          "line": 2358,
+          "end": 2380
+        },
+        {
+          "name": "mish",
+          "line": 2383,
+          "end": 2400
+        },
+        {
+          "name": "hardswish",
+          "line": 2403,
+          "end": 2425
+        },
+        {
+          "name": "_no_grad_embedding_renorm_",
+          "line": 2428,
+          "end": 2434
+        },
+        {
+          "name": "embedding",
+          "line": 2437,
+          "end": 2551
+        },
+        {
+          "name": "embedding_bag",
+          "line": 2554,
+          "end": 2755
+        },
+        {
+          "name": "_verify_batch_size",
+          "line": 2762,
+          "end": 2778
+        },
+        {
+          "name": "batch_norm",
+          "line": 2781,
+          "end": 2822
+        },
+        {
+          "name": "_verify_spatial_size",
+          "line": 2825,
+          "end": 2833
+        },
+        {
+          "name": "instance_norm",
+          "line": 2836,
+          "end": 2876
+        },
+        {
+          "name": "layer_norm",
+          "line": 2879,
+          "end": 2902
+        },
+        {
+          "name": "rms_norm",
+          "line": 2905,
+          "end": 2919
+        },
+        {
+          "name": "group_norm",
+          "line": 2922,
+          "end": 2957
+        },
+        {
+          "name": "local_response_norm",
+          "line": 2960,
+          "end": 2999
+        },
+        {
+          "name": "ctc_loss",
+          "line": 3005,
+          "end": 3077
+        },
+        {
+          "name": "nll_loss",
+          "line": 3084,
+          "end": 3150
+        },
+        {
+          "name": "poisson_nll_loss",
+          "line": 3153,
+          "end": 3217
+        },
+        {
+          "name": "gaussian_nll_loss",
+          "line": 3220,
+          "end": 3303
+        },
+        {
+          "name": "kl_div",
+          "line": 3306,
+          "end": 3386
+        },
+        {
+          "name": "cross_entropy",
+          "line": 3389,
+          "end": 3486
+        },
+        {
+          "name": "binary_cross_entropy",
+          "line": 3489,
+          "end": 3554
+        },
+        {
+          "name": "binary_cross_entropy_with_logits",
+          "line": 3557,
+          "end": 3630
+        },
+        {
+          "name": "smooth_l1_loss",
+          "line": 3633,
+          "end": 3678
+        },
+        {
+          "name": "huber_loss",
+          "line": 3681,
+          "end": 3717
+        },
+        {
+          "name": "l1_loss",
+          "line": 3720,
+          "end": 3756
+        },
+        {
+          "name": "mse_loss",
+          "line": 3759,
+          "end": 3794
+        },
+        {
+          "name": "margin_ranking_loss",
+          "line": 3797,
+          "end": 3831
+        },
+        {
+          "name": "hinge_embedding_loss",
+          "line": 3834,
+          "end": 3861
+        },
+        {
+          "name": "multilabel_margin_loss",
+          "line": 3864,
+          "end": 3889
+        },
+        {
+          "name": "soft_margin_loss",
+          "line": 3892,
+          "end": 3918
+        },
+        {
+          "name": "multilabel_soft_margin_loss",
+          "line": 3921,
+          "end": 3965
+        },
+        {
+          "name": "cosine_embedding_loss",
+          "line": 3968,
+          "end": 3997
+        },
+        {
+          "name": "multi_margin_loss",
+          "line": 4000,
+          "end": 4039
+        },
+        {
+          "name": "upsample",
+          "line": 4178,
+          "end": 4185
+        },
+        {
+          "name": "upsample",
+          "line": 4189,
+          "end": 4196
+        },
+        {
+          "name": "upsample",
+          "line": 4199,
+          "end": 4269
+        },
+        {
+          "name": "_is_integer",
+          "line": 4276,
+          "end": 4285
+        },
+        {
+          "name": "interpolate",
+          "line": 4289,
+          "end": 4298
+        },
+        {
+          "name": "interpolate",
+          "line": 4302,
+          "end": 4311
+        },
+        {
+          "name": "interpolate",
+          "line": 4315,
+          "end": 4324
+        },
+        {
+          "name": "interpolate",
+          "line": 4328,
+          "end": 4337
+        },
+        {
+          "name": "interpolate",
+          "line": 4340,
+          "end": 4615
+        },
+        {
+          "name": "upsample_nearest",
+          "line": 4623,
+          "end": 4628
+        },
+        {
+          "name": "upsample_nearest",
+          "line": 4632,
+          "end": 4637
+        },
+        {
+          "name": "upsample_nearest",
+          "line": 4640,
+          "end": 4665
+        },
+        {
+          "name": "upsample_bilinear",
+          "line": 4673,
+          "end": 4678
+        },
+        {
+          "name": "upsample_bilinear",
+          "line": 4682,
+          "end": 4687
+        },
+        {
+          "name": "upsample_bilinear",
+          "line": 4691,
+          "end": 4696
+        },
+        {
+          "name": "upsample_bilinear",
+          "line": 4700,
+          "end": 4705
+        },
+        {
+          "name": "upsample_bilinear",
+          "line": 4708,
+          "end": 4733
+        },
+        {
+          "name": "grid_sample",
+          "line": 4754,
+          "end": 4910
+        },
+        {
+          "name": "affine_grid",
+          "line": 4913,
+          "end": 5012
+        },
+        {
+          "name": "pad",
+          "line": 5015,
+          "end": 5096
+        },
+        {
+          "name": "triplet_margin_loss",
+          "line": 5224,
+          "end": 5263
+        },
+        {
+          "name": "triplet_margin_with_distance_loss",
+          "line": 5266,
+          "end": 5340
+        },
+        {
+          "name": "normalize",
+          "line": 5343,
+          "end": 5377
+        },
+        {
+          "name": "assert_int_or_pair",
+          "line": 5380,
+          "end": 5381
+        },
+        {
+          "name": "unfold",
+          "line": 5384,
+          "end": 5419
+        },
+        {
+          "name": "fold",
+          "line": 5422,
+          "end": 5455
+        },
+        {
+          "name": "_in_projection_packed",
+          "line": 5463,
+          "end": 5535
+        },
+        {
+          "name": "_in_projection",
+          "line": 5538,
+          "end": 5604
+        },
+        {
+          "name": "_mha_shape_check",
+          "line": 5770,
+          "end": 5829
+        },
+        {
+          "name": "_canonical_mask",
+          "line": 5832,
+          "end": 5857
+        },
+        {
+          "name": "_none_or_dtype",
+          "line": 5860,
+          "end": 5865
+        },
+        {
+          "name": "multi_head_attention_forward",
+          "line": 5868,
+          "end": 6290
+        }
+      ]
+    }
+  ],
+  "external_primary_sources": [
+    "https://github.com/pytorch/pytorch/blob/v2.5.1/aten/src/ATen/native/cuda/UpSampleBilinear2d.cu",
+    "https://github.com/pytorch/pytorch/blob/v2.5.1/torch/nn/functional.py"
+  ]
+}
