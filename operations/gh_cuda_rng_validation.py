@@ -13,6 +13,11 @@ SOURCE_KEY = "06b5c6a15061e635e49a9e13deb14022956fdbc272ad0ed378676e57ca5f826b"
 PROBE_MANIFEST = "d6e0b960e20a1ba5128f9e0b4edf497e7ea4b098fbf5cd3125799d2ad1136764"
 RNG_OUTPUT = Path("/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/cuda_rng_v1")
 
+def rng_resource_protocol(c):
+    """独立随机数验证仅覆盖显存2048MiB，其余资源与来源不变；不修改Smoke字典。"""
+    p=c["prototype"]
+    return {**p,"proposed_gpu_limits":{**p["proposed_gpu_limits"],"minimum_free_mib":2048}}
+
 def check_sequences(ctx, draw, persist):
     """CPU Fixture与真实CUDA运行同一阶段切换流程。"""
     from tbps.alternating.state import restore_rng, capture_rng, clone_tree, tree_sha
@@ -81,7 +86,7 @@ def verify_history():
 def execute():
     # 来源标准库预检必须先于torch导入。
     from tbps.alternating.native_cli import prepare_cpu_gate
-    from tbps.alternating.native_sources import source_key,resource_protocol
+    from tbps.alternating.native_sources import source_key
     from tbps.alternating.native_gate import verify_probe
     from tbps.artifacts import ArtifactStore, FileRef, json_bytes,sha_file
     from tbps.alternating.preflight import resource_snapshot
@@ -90,13 +95,13 @@ def execute():
     assert verify_probe(c)==PROBE_MANIFEST
     assert not Path(c["smoke_output"]).exists(),"Smoke already consumed"
     history=verify_history()
-    resource=resource_snapshot(resource_protocol(c,"smoke"))
+    resource=resource_snapshot(rng_resource_protocol(c))
     assert resource["resource_eligible"],"RESOURCE_BUSY"
     assert not RNG_OUTPUT.exists(),"CUDA RNG Attempt already consumed"
     store=ArtifactStore(RNG_OUTPUT,new_base=c["output_base"])
     operation_ref=FileRef(str(Path(__file__).resolve()),sha_file(Path(__file__)))
     store.publish("claim",{"preflight.json":json_bytes(pre),"resources.json":json_bytes(resource),
-        "history_before.json":json_bytes(history)},{"source":SOURCE_KEY,"probe":PROBE_MANIFEST},sources=(operation_ref,))
+        "history_before.json":json_bytes(history),"resource_protocol.json":json_bytes(rng_resource_protocol(c)["proposed_gpu_limits"])},{"source":SOURCE_KEY,"probe":PROBE_MANIFEST},sources=(operation_ref,))
     try:
         import random,time,resource as process_resource
         import numpy as np

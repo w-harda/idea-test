@@ -26,11 +26,18 @@ def rng_receipt(c):
     assert r["G_H_Adam_unchanged"] and r["counts"]["model_forwards"]==r["counts"]["JVPs"]==r["counts"]["optimizer_steps"]==0
     return sha_file(RNG_OUTPUT/"completed/manifest.json")
 
+def lifecycle(c):
+    """当前生命周期：已有同来源探针PASS，Smoke身份尚未消费。"""
+    from tbps.alternating.native_gate import verify_probe
+    assert verify_probe(c)==PROBE_MANIFEST,"foreign/missing probe receipt"
+    assert not Path(c["smoke_output"]).exists(),"Smoke already consumed; no replay"
+    return PROBE_MANIFEST
+
 def ready():
     from tbps.alternating.preflight import resource_snapshot
     c=check_sources()
     rng_sha=rng_receipt(c)
-    assert not Path(c["smoke_output"]).exists(),"Smoke already consumed; no replay"
+    lifecycle(c)
     resources=resource_snapshot(c["prototype"])
     assert resources["resource_eligible"],"RESOURCE_BUSY"
     assert c["prototype"]["proposed_gpu_limits"]["minimum_free_mib"]==10240
