@@ -135,5 +135,7 @@
       "sha256": "18d72c78f4dd5657e390dc436f731fc7f718688fbc68c9ad8f545eba412e884e",
       "size": 1227
     }
-  }
+  },
+  "implementation_commit": "0c0ea61487fd267fc306a3c07a2c44d85d43b368",
+  "publication_note": "本实现Commit由后续文档提交登记；Python、配置及已验收来源SHA保持。"
 }

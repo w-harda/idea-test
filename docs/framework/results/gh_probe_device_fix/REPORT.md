@@ -3,6 +3,7 @@
 修复基准：7ba66d9525be243552b66f34b01289a64502257b。
 原数值后端：a46c6980c4abf58df02ca1ee199da799892dc81e。
 独立分支：codex/gh-probe-device-fix。
+实现Commit：0c0ea61487fd267fc306a3c07a2c44d85d43b368（由后续文档提交登记）。
 工作树：/home/lzf/ldx/projects/idea-test-tbps-gh-probe-device-fix-20261023。
 
 **本轮只完成CPU修复、回归、来源与保护核验；未初始化CUDA，未运行probe_v2或任何Watcher。**

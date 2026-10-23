@@ -7,6 +7,7 @@
 基于7ba66d95新建codex/gh-probe-device-fix；不修改冻结后端工作树及原Watcher。
 唯一生产Python变更为native_backend.py:347的IRRA loader设备cuda→cuda:0，原加载器校验不变。
 276项CPU测试PASS（224原后端+39轮询+13新增设备/v2来源），0 skip；真实新配置CPU Preflight/完整父恢复PASS。
+实现Commit0c0ea61487fd267fc306a3c07a2c44d85d43b368，后续文档提交仅登记来源，不改变数值执行源码。
 新probe_v2.server.json绑定140框架producer、496原运行来源及新条件摘要，固定probe_v2/smoke_v2，显存硬门槛10240MiB。
 151378历史metadata、原probe_v1/Watcher28份SHA/stat和G60/H10/IRRA权重保持；旧FAIL永久保留。
 本轮CUDA、真实模型前向/JVP/更新0，probe_v2/smoke_v2未创建，未部署或启动新Watcher。
