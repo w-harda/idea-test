@@ -1,5 +1,14 @@
 # 架构边界与迁移约定
 
+## 独立RNG门槛与Smoke单次后台监督
+
+operations层把仅随机数CUDA验证的显存门槛设2048MiB，原Smoke10240MiB/RAM/磁盘/inode不变；不改生产producer/配置或probe回执。
+现有restore/capture与生产阶段切换方法已真实GPU验证exact，独立Manifest绑定脚本SHA。
+标准库监督器WATCHING不导入Torch/CUDA且不消费身份；连续两次资源通过（首次已合格可直接检查）后重做CPU/来源/RNG与即时资源门禁。
+仅真正Popen前O_EXCL+fsync消费启动身份，持有flock，不自动重试；四轮结束自动执行原audit-smoke。
+当前smoke_v2已实际后台运行，原生Claim/每Round/图库事务不变。见framework/results/gh_rng_smoke_launch/CUDA_RNG_AND_SMOKE_DEPLOYMENT.md。
+
+
 ## 独立CUDA RNG与Smoke执行管理
 
 新增operations层调用冻结生产树，不改变producer或旧probe回执。RNG验证通过原restore/capture和阶段切换方法执行，单独Claim及脚本SHA；Smoke仍由原native_cli授权门禁执行。

@@ -1,0 +1,230 @@
+{
+  "status": "SMOKE_RUNNING_DEPLOYMENT_VERIFIED",
+  "timestamp": "2026-10-23T15:11:02.319318+08:00",
+  "CUDA_RNG_status": "CUDA_RNG_PASS",
+  "CUDA_RNG_manifest": "62b2748566c3c1eec61a286f48fa7846f5529e82877b5239d34a5dd3947e9905",
+  "RNG_result": {
+    "CPU_preflight": {
+      "CPU_RNG_exact": true,
+      "CUDA_RNG_preserved": true,
+      "CUDA_RNG_restored": false,
+      "G_Adam": "84ffa5fdd8132fb60ecbb4caf40d3242973168666841264c098d2aa36575ae14",
+      "G_Adam_steps": [
+        484080
+      ],
+      "G_RNG": "82a340a4e9f7ab8f2532be63bfdc764ec22aad52e860ccfa9655336aa2fd8b5d",
+      "G_state": "5d48caab6a891a1afd3aaaa6f3594eb5f860ccd7b6090708d289224e6c819e47",
+      "H_Adam": "dfe930621066f140b5dd37d77d5a4fc4226cdef3f74ff05bc181de86423b6a4d",
+      "H_Adam_step_max": 20370,
+      "H_Adam_step_min": 20124,
+      "H_RNG": "5333ea5b83ab3a2839988413067517ef7583f35efdd44fc31713b1b9ee01430e",
+      "H_state": "1b1e3888ee8dc0e4dff39af3438ec48987cd472746cbfde71ad4d10f562ad24d",
+      "guards": {
+        "CUDA": false,
+        "forwards": 0,
+        "loads": [
+          "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0060/checkpoint.pt",
+          "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00020480/checkpoint.pt"
+        ],
+        "optimizer_steps": 0
+      },
+      "parent_protocol": {
+        "G": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049",
+        "H": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd",
+        "protocol": "dbc8ad654378893c06e0c68af4526eb8a4cc9421b17ee34fd687ced467f7ded4"
+      },
+      "real_model_forwards": 0,
+      "status": "GH_NATIVE_PARENT_CPU_RESTORE_PASS",
+      "updates": 0
+    },
+    "G_H_Adam_unchanged": true,
+    "caller_RNG_restored": true,
+    "checks": {
+      "G_H_G_continuation_exact": true,
+      "G_parent_RNG_sha256": "82a340a4e9f7ab8f2532be63bfdc764ec22aad52e860ccfa9655336aa2fd8b5d",
+      "H_G_H_continuation_exact": true,
+      "H_parent_RNG_sha256": "5333ea5b83ab3a2839988413067517ef7583f35efdd44fc31713b1b9ee01430e",
+      "persist_read_restore_exact": true,
+      "persisted_state_sha256": "f23f5ea98ea833b8d1d7033d1e6b22015852a5e10aa00c099a451a1ab20553aa",
+      "phase_state_isolation": true,
+      "same_sequence_exact": true
+    },
+    "config_sha256": "77ae41af56189ece991ee7cf21fd0ea0f3be5645202bd1cb7cf7e0b2ae735649",
+    "counts": {
+      "CUDA_random_tensor_calls": 18,
+      "JVPs": 0,
+      "model_forwards": 0,
+      "optimizer_steps": 0
+    },
+    "devices": 1,
+    "elapsed_seconds": 3.4063780307769775,
+    "history_after": {
+      "history_metadata_files": 151378,
+      "old_FAIL_Watcher_SHA_metadata_files": 28,
+      "parents_SHA_unchanged": true,
+      "probe_v2_SHA_metadata_unchanged": true
+    },
+    "operation_source_sha256": "4be1ff7d0036a94412d8a8c60a8f71b9c41102f9fcaf73adc33edfcd4c486550",
+    "parent_CUDA_state_counts": {
+      "G": 1,
+      "H": 1
+    },
+    "peak_RSS_bytes": 822509568,
+    "peak_allocated_bytes": 512,
+    "peak_reserved_bytes": 2097152,
+    "probe_manifest_sha256": "d6e0b960e20a1ba5128f9e0b4edf497e7ea4b098fbf5cd3125799d2ad1136764",
+    "source": "06b5c6a15061e635e49a9e13deb14022956fdbc272ad0ed378676e57ca5f826b",
+    "status": "CUDA_RNG_PASS"
+  },
+  "operations_commit": "2f86593ca8226c238f972642cc71752322b4a5d8",
+  "production_HEAD": "aafc7715ddafa78f9a30410b6a6ed8852e81780a",
+  "production_numeric_commit": "a7597f9c964dda0c8c48973e4678f0b9d3fa095a",
+  "config_sha256": "77ae41af56189ece991ee7cf21fd0ea0f3be5645202bd1cb7cf7e0b2ae735649",
+  "source_key": "06b5c6a15061e635e49a9e13deb14022956fdbc272ad0ed378676e57ca5f826b",
+  "probe_manifest": "d6e0b960e20a1ba5128f9e0b4edf497e7ea4b098fbf5cd3125799d2ad1136764",
+  "supervisor": {
+    "PID": 3712068,
+    "PPID": 1,
+    "PGID": 3712068,
+    "SID": 3712068,
+    "TTY": false,
+    "started": "2026-10-23T15:05:48.329421+08:00",
+    "operations_sha256": {
+      "/home/lzf/ldx/projects/idea-test-tbps-gh-rng-smoke-20261023/operations/gh_cuda_rng_validation.py": "4be1ff7d0036a94412d8a8c60a8f71b9c41102f9fcaf73adc33edfcd4c486550",
+      "/home/lzf/ldx/projects/idea-test-tbps-gh-rng-smoke-20261023/operations/gh_smoke_checks.py": "629ac5a6f7f009e8ff8938ded53c42dd2ced2f77101069ba97d9e200585f7e67",
+      "/home/lzf/ldx/projects/idea-test-tbps-gh-rng-smoke-20261023/operations/gh_smoke_watch.py": "98119be92c61b0b955a1525ca7da9bc5b31d3b802da6536ee2e2185891dc6de4",
+      "/home/lzf/ldx/projects/idea-test-tbps-gh-rng-smoke-20261023/operations/run_gh_rng_smoke.sh": "e1f43c0a7bddc38daa8481d4debf223ac027c9800f889a1a17ac33c8f402517a"
+    },
+    "source_key": "06b5c6a15061e635e49a9e13deb14022956fdbc272ad0ed378676e57ca5f826b",
+    "config_sha256": "77ae41af56189ece991ee7cf21fd0ea0f3be5645202bd1cb7cf7e0b2ae735649"
+  },
+  "status_snapshot": {
+    "state": "SMOKE_RUNNING",
+    "timestamp": "2026-10-23T15:10:59.631052+08:00",
+    "PID": 3712068,
+    "PPID": 1,
+    "PGID": 3712068,
+    "SID": 3712068,
+    "TTY": false,
+    "checks": 1,
+    "Smoke_consumed": true,
+    "interval_seconds": 180,
+    "resources": {
+      "GPU": "NVIDIA GeForce RTX 4090, 24051, 24564, 0",
+      "compute_processes": "",
+      "available_ram_bytes": 124380815360,
+      "free_disk_bytes": 6178286055424,
+      "free_inodes": 240213697,
+      "checks": {
+        "gpu": true,
+        "ram": true,
+        "disk": true,
+        "inodes": true
+      },
+      "resource_eligible": true,
+      "GPU_authorized": false,
+      "policy": "single shared_observe_only snapshot; no launch"
+    },
+    "next_check_at": null,
+    "child_PID": 3712463,
+    "child_peak_RSS_bytes": 2427342848,
+    "elapsed_seconds": 300.5845814831555,
+    "latest_bank_progress": "GH_BANK_PROGRESS A1 1 1028 2048",
+    "committed_rounds": []
+  },
+  "process_identity": "3712068       1 3712068 3712068 ?        Ss         05:14 python\n3712463 3712068 3712068 3712068 ?        Dl         05:03 python\n",
+  "singleton_lock_held": true,
+  "monitor_has_no_Torch_CUDA_mappings": true,
+  "Smoke_consumed": true,
+  "latest_actual_bank_progress": "GH_BANK_PROGRESS A1 1 1040 2048",
+  "first_round_G_state_sha256": "4b125683f6d4a1e07a6bf9cd4215a535b4c6909e6f5697a790aef48a1cb7528c",
+  "parent_G_state_sha256": "5d48caab6a891a1afd3aaaa6f3594eb5f860ccd7b6090708d289224e6c819e47",
+  "resource_snapshot_current": {
+    "GPU": "NVIDIA GeForce RTX 4090, 22413, 24564, 4",
+    "compute_processes": "GPU-350a0fd7-5695-b5e8-c541-cd2b5682e126, 3712463, /home/lzf/ldx/envs/tbps-image/bin/python, 1630",
+    "available_ram_bytes": 122782519296,
+    "free_disk_bytes": 6176400044032,
+    "free_inodes": 240204230,
+    "checks": {
+      "gpu": true,
+      "ram": true,
+      "disk": true,
+      "inodes": true
+    },
+    "resource_eligible": true,
+    "GPU_authorized": false,
+    "policy": "single shared_observe_only snapshot; no launch"
+  },
+  "history_after_launch": {
+    "history_metadata_files": 151378,
+    "old_FAIL_Watcher_SHA_metadata_files": 28,
+    "probe_v2_SHA_metadata_unchanged": true,
+    "parents_SHA_unchanged": true
+  },
+  "control_directory": "/home/lzf/ldx/tmp/gh_smoke_wait_v1_20261023",
+  "RNG_log_directory": "/home/lzf/ldx/tmp/gh_rng_smoke_monitor_v1_20261023",
+  "Smoke_output": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2",
+  "CPU_tests": {
+    "passed": 19,
+    "seconds": 2.5,
+    "old_preparation_assertion_unchanged": true
+  },
+  "source_files": {
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-rng-smoke-20261023/operations/gh_cuda_rng_validation.py": "4be1ff7d0036a94412d8a8c60a8f71b9c41102f9fcaf73adc33edfcd4c486550",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-rng-smoke-20261023/operations/gh_smoke_checks.py": "629ac5a6f7f009e8ff8938ded53c42dd2ced2f77101069ba97d9e200585f7e67",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-rng-smoke-20261023/operations/gh_smoke_watch.py": "98119be92c61b0b955a1525ca7da9bc5b31d3b802da6536ee2e2185891dc6de4",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-rng-smoke-20261023/operations/run_gh_rng_smoke.sh": "e1f43c0a7bddc38daa8481d4debf223ac027c9800f889a1a17ac33c8f402517a"
+  },
+  "evidence": {
+    "RNG_claim": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/cuda_rng_v1/claim/manifest.json",
+      "sha256": "e670a4f4ab59915baf3a48e0a3a063e8646c7d2f34e07619d86863456c0cf5fc",
+      "bytes": 778
+    },
+    "RNG_state": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/cuda_rng_v1/state_capture/manifest.json",
+      "sha256": "41fec313b2b163f2995017ed98c6166b00d3841c5ff4f0bec294932c883c134b",
+      "bytes": 526
+    },
+    "RNG_report": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/cuda_rng_v1/completed/report.json",
+      "sha256": "57857c4f2136bbfb0a0d9d5576b7492d9fd97ead4e2fc31f30652ea6ffb575e3",
+      "bytes": 2566
+    },
+    "RNG_completed": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/cuda_rng_v1/completed/manifest.json",
+      "sha256": "62b2748566c3c1eec61a286f48fa7846f5529e82877b5239d34a5dd3947e9905",
+      "bytes": 514
+    },
+    "CPU_tests": {
+      "path": "/home/lzf/ldx/tmp/gh_rng_smoke_monitor_v1_20261023/CPU_tests.log",
+      "sha256": "169ee556d6aae713f77892efeb2ca7eaa51b030788d3bc0f54adb54d67d1d4bd",
+      "bytes": 99
+    },
+    "RNG_log": {
+      "path": "/home/lzf/ldx/tmp/gh_rng_smoke_monitor_v1_20261023/cuda_rng.log",
+      "sha256": "2daef25d381add72656dbbdaf08cbeb9985c17d63f792c6bec3604b577820c58",
+      "bytes": 3264
+    },
+    "supervisor_identity": {
+      "path": "/home/lzf/ldx/tmp/gh_smoke_wait_v1_20261023/supervisor_identity.json",
+      "sha256": "2f47d772ccdb45383ba347dac7f9400d3e2b8c643ebc255101da693dc5e9ccaf",
+      "bytes": 1003
+    },
+    "Smoke_started": {
+      "path": "/home/lzf/ldx/tmp/gh_smoke_wait_v1_20261023/smoke_started.json",
+      "sha256": "19975333fb2f8f350587dc41f929819846befc65c66e05d5b9dcd21d20ded93f",
+      "bytes": 1536
+    },
+    "Smoke_claim": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/claim/manifest.json",
+      "sha256": "2dd940c3c4ad64b34ec077548a2853e76a625f882d4c45b61cdb8fe5cc50544f",
+      "bytes": 356
+    },
+    "first_G_state": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/A1/bank_1/G_state/manifest.json",
+      "sha256": "06b72546f93cb4715897adc836991ac5dc5480f65a3768421dda3c57ca3b7475",
+      "bytes": 267
+    }
+  }
+}

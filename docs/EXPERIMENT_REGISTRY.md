@@ -1,5 +1,16 @@
 # 历史实验注册表
 
+## CUDA RNG验证PASS与A1/B两轮Smoke运行中（2026-10-23部署快照）
+
+独立工具2f86593ca8226c238f972642cc71752322b4a5d8，生产仍a7597f9c/配置77ae41af…5649，probe_v2同来源PASS保持。
+真实CUDA_RNG_PASS：双阶段恢复/序列切换/持久化读回exact，18小随机Tensor，前向/JVP/Optimizer0，双Adam/权重不变。
+独立RNG Manifest 62b2748566c3c1eec61a286f48fa7846f5529e82877b5239d34a5dd3947e9905。
+19项CPU测试通过；RNG2048MiB、Smoke10240MiB。原历史准备态失败记录保留。
+监督器3712068/PPID1/独立SID/无TTY，15:05:59原native_cli Smoke子进程3712463启动；A1-r1图库有真实进度，G已更新。
+唯一Smoke已消费，不重跑probe，不自动重试；四轮及CPU审计最终结果PENDING。
+[启动报告](framework/results/gh_rng_smoke_launch/CUDA_RNG_AND_SMOKE_DEPLOYMENT.md)、[证据](framework/results/gh_rng_smoke_launch/MONITOR_DEPLOYMENT.json)。
+
+
 ## CUDA RNG/A1-B启动资源阻塞（2026-10-23）
 
 操作代码5018113e；冻结生产仍a7597f9c/配置77ae41af…5649/现有probe_v2 PASS不变。

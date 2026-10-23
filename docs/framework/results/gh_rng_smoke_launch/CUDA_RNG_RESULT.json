@@ -1,0 +1,73 @@
+{
+  "CPU_preflight": {
+    "CPU_RNG_exact": true,
+    "CUDA_RNG_preserved": true,
+    "CUDA_RNG_restored": false,
+    "G_Adam": "84ffa5fdd8132fb60ecbb4caf40d3242973168666841264c098d2aa36575ae14",
+    "G_Adam_steps": [
+      484080
+    ],
+    "G_RNG": "82a340a4e9f7ab8f2532be63bfdc764ec22aad52e860ccfa9655336aa2fd8b5d",
+    "G_state": "5d48caab6a891a1afd3aaaa6f3594eb5f860ccd7b6090708d289224e6c819e47",
+    "H_Adam": "dfe930621066f140b5dd37d77d5a4fc4226cdef3f74ff05bc181de86423b6a4d",
+    "H_Adam_step_max": 20370,
+    "H_Adam_step_min": 20124,
+    "H_RNG": "5333ea5b83ab3a2839988413067517ef7583f35efdd44fc31713b1b9ee01430e",
+    "H_state": "1b1e3888ee8dc0e4dff39af3438ec48987cd472746cbfde71ad4d10f562ad24d",
+    "guards": {
+      "CUDA": false,
+      "forwards": 0,
+      "loads": [
+        "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0060/checkpoint.pt",
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00020480/checkpoint.pt"
+      ],
+      "optimizer_steps": 0
+    },
+    "parent_protocol": {
+      "G": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049",
+      "H": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd",
+      "protocol": "dbc8ad654378893c06e0c68af4526eb8a4cc9421b17ee34fd687ced467f7ded4"
+    },
+    "real_model_forwards": 0,
+    "status": "GH_NATIVE_PARENT_CPU_RESTORE_PASS",
+    "updates": 0
+  },
+  "G_H_Adam_unchanged": true,
+  "caller_RNG_restored": true,
+  "checks": {
+    "G_H_G_continuation_exact": true,
+    "G_parent_RNG_sha256": "82a340a4e9f7ab8f2532be63bfdc764ec22aad52e860ccfa9655336aa2fd8b5d",
+    "H_G_H_continuation_exact": true,
+    "H_parent_RNG_sha256": "5333ea5b83ab3a2839988413067517ef7583f35efdd44fc31713b1b9ee01430e",
+    "persist_read_restore_exact": true,
+    "persisted_state_sha256": "f23f5ea98ea833b8d1d7033d1e6b22015852a5e10aa00c099a451a1ab20553aa",
+    "phase_state_isolation": true,
+    "same_sequence_exact": true
+  },
+  "config_sha256": "77ae41af56189ece991ee7cf21fd0ea0f3be5645202bd1cb7cf7e0b2ae735649",
+  "counts": {
+    "CUDA_random_tensor_calls": 18,
+    "JVPs": 0,
+    "model_forwards": 0,
+    "optimizer_steps": 0
+  },
+  "devices": 1,
+  "elapsed_seconds": 3.4063780307769775,
+  "history_after": {
+    "history_metadata_files": 151378,
+    "old_FAIL_Watcher_SHA_metadata_files": 28,
+    "parents_SHA_unchanged": true,
+    "probe_v2_SHA_metadata_unchanged": true
+  },
+  "operation_source_sha256": "4be1ff7d0036a94412d8a8c60a8f71b9c41102f9fcaf73adc33edfcd4c486550",
+  "parent_CUDA_state_counts": {
+    "G": 1,
+    "H": 1
+  },
+  "peak_RSS_bytes": 822509568,
+  "peak_allocated_bytes": 512,
+  "peak_reserved_bytes": 2097152,
+  "probe_manifest_sha256": "d6e0b960e20a1ba5128f9e0b4edf497e7ea4b098fbf5cd3125799d2ad1136764",
+  "source": "06b5c6a15061e635e49a9e13deb14022956fdbc272ad0ed378676e57ca5f826b",
+  "status": "CUDA_RNG_PASS"
+}

@@ -2,7 +2,19 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：CUDA RNG与A1/B启动在CUDA前RESOURCE_BUSY
+## 当前阶段：CUDA_RNG_PASS，唯一A1/B两轮Smoke已真实后台启动
+
+2026-10-23，独立工具执行2f86593ca8226c238f972642cc71752322b4a5d8；生产代码/配置/probe_v2不变。
+19项当前生命周期与资源/互斥/单次执行CPU测试PASS。RNG仅2048MiB，Smoke仍10240MiB。
+真实CUDA RNG双父恢复、阶段隔离、序列重放和持久化读回exact；18次小CUDA随机Tensor，神经前向/JVP/更新0。
+RNG Manifest 62b2748566c3c1eec61a286f48fa7846f5529e82877b5239d34a5dd3947e9905。
+15:05:59后台原native_cli已启动smoke_v2：监督器PID/PGID/SID3712068、PPID1、无TTY，子进程3712463，flock通过。
+部署快照已进入A1-r1最新G图库刷新，最新记录GH_BANK_PROGRESS A1 1 1040 2048；G状态已真实改变。
+Smoke身份已消费，不自动重试；四轮完成后后台自动执行原独立CPU审计。
+最终四轮/双向反馈效果/CPU审计仍PENDING，不宣称性能提升。151378历史metadata/28旧FAIL/父权重/probe保护通过。
+[CUDA验证与启动报告](framework/results/gh_rng_smoke_launch/CUDA_RNG_AND_SMOKE_DEPLOYMENT.md)、[部署来源](framework/results/gh_rng_smoke_launch/MONITOR_DEPLOYMENT.json)。
+
+## 历史阶段：CUDA RNG与A1/B启动在CUDA前RESOURCE_BUSY
 
 独立操作工具5018113e不修改冻结生产源码或配置。既有probe_v2原生数值PASS/回执保持。
 2026-10-23授权先验证CUDA RNG、通过后启动唯一smoke_v2；执行前空闲显存降至3865MiB，低于原10240MiB门槛。
