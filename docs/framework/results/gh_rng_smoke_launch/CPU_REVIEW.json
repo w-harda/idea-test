@@ -1,0 +1,18 @@
+{
+  "new_RNG_CPU_tests": 5,
+  "general_and_new_CPU_run": {
+    "passed": 74,
+    "skipped_server_tests_due_missing_explicit_config": 15
+  },
+  "initial_server_command_error": "pytest imported operations worktree src while config binds frozen production root; command corrected, code/constraints unchanged",
+  "frozen_source_server_run": {
+    "passed": 22,
+    "failed": 1,
+    "seconds": 60.16
+  },
+  "remaining_test": "test_v2_identity_budget_and_complete_condition_sources",
+  "remaining_failure_reason": "pre-probe preparation assertion requires probe_v2 absent; current authorized lifecycle requires existing immutable probe_v2 PASS",
+  "interpretation": "Do not label entire old suite PASS. Preserve logs. Current gate verifies exact existing probe receipt plus absent Smoke; not changing/skipping source assertions or deleting artifacts.",
+  "production_code_changed": false,
+  "GPU_started": false
+}
