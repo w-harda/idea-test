@@ -7,7 +7,7 @@ import time
 import traceback
 from tbps.artifacts import ArtifactStore, FileRef, checked, digest, json_bytes, read_json, sha_file
 from .contracts import require
-from .native_sources import verify_config, source_key
+from .native_sources import verify_config, source_key, resource_protocol
 
 def cpu_preflight(path, *, parents=False):
     # 父状态检查走与GPU入口相同的真实CPU准备流程，验证隔离退出与启动时序。
@@ -83,7 +83,7 @@ def run_gpu(path,action,*,allow_probe=False,allow_smoke=False):
     grant=authorize(c,action,allow_probe=allow_probe,allow_smoke=allow_smoke)
     c,bundle,gate,pre=prepare_cpu_gate(path)
     from .preflight import resource_snapshot
-    resources=resource_snapshot(c["prototype"])
+    resources=resource_snapshot(resource_protocol(c,action))
     require(resources["resource_eligible"],"RESOURCE_BUSY: no Attempt/CUDA created")
     root=Path(c[action+"_output"]);store=ArtifactStore(root,new_base=c["output_base"])
     require(not root.exists(),"Attempt already exists")

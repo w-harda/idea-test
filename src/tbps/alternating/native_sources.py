@@ -22,8 +22,22 @@ ENTRIES = (
     "attributes.irra_token_alignment", "utils.simple_tokenizer",
 )
 
+def resource_protocol(c, action):
+    """仅Probe可显式采用6144MiB；不修改Smoke/训练的原资源协议。"""
+    require(action in ("probe", "smoke"), "explicit resource action required")
+    p = c["prototype"]
+    override = c.get("probe_resource_limits")
+    if override is not None:
+        require(override == {"minimum_free_mib":6144}
+                and type(override["minimum_free_mib"]) is int,
+                "only authorized probe-only 6144MiB override is supported")
+    if action == "probe" and override is not None:
+        return {**p, "proposed_gpu_limits":{**p["proposed_gpu_limits"], **override}}
+    return p
+
 def verify_config(path):
     c = read_json(path, "gh-native-backend-1")
+    resource_protocol(c, "probe")
     require(c["base_commit"] == "8ae623d3b6cb01f96c86e15e167d7dd7b1f56734",
             "fixed CPU prototype parent")
     require(c["gpu_execution_default"] is False and c["probe"]["optimizer_updates"] == 0,

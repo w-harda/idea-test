@@ -2,7 +2,14 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：probe_v2设备字符串CPU修复完成，等待新GPU授权
+## 当前阶段：Probe专用6144MiB派生协议，执行一次真实数值探针
+
+基于f9701c7e，codex/gh-probe-shared；原v2配置保持，新增共享GPU派生配置和新source_key。
+只对Probe覆盖最低空闲6144MiB；Smoke/训练门槛及算法不变。289 CPU测试PASS，0 skip。
+本轮用户授权来源/CPU/资源检查后直接执行一次未消费probe_v2，不启动Watcher或A1/B。
+[协议与来源](framework/results/gh_probe_shared/PROTOCOL.md)，实际GPU结果执行后登记，不提前宣称PASS。
+
+## 历史阶段：probe_v2设备字符串修复（f9701c7e快照）
 
 基于7ba66d95新建codex/gh-probe-device-fix；不修改冻结后端工作树及原Watcher。
 唯一生产Python变更为native_backend.py:347的IRRA loader设备cuda→cuda:0，原加载器校验不变。

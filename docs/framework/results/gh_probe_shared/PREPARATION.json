@@ -1,0 +1,12 @@
+{
+  "base_commit": "f9701c7ea924f734d83f6cfeeaa38b0b83c30f01",
+  "config": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/configs/framework/gh_bidirectional_backend.probe_v2.shared.server.json",
+  "config_sha256": "77ae41af56189ece991ee7cf21fd0ea0f3be5645202bd1cb7cf7e0b2ae735649",
+  "source_key": "06b5c6a15061e635e49a9e13deb14022956fdbc272ad0ed378676e57ca5f826b",
+  "condition_space_sha256": "bb9ba7d89eb09a9a68bedcfdf01889766178dc8e081585390bc129dc416bd9bd",
+  "CPU_tests": 289,
+  "Probe_minimum_free_mib": 6144,
+  "Smoke_minimum_free_mib": 10240,
+  "old_config_unchanged_sha256": "8b6fce14ce4236f76bd66233c061f2f06a32d975d6771cbad77f15a45ea5e443",
+  "GPU_result": "PENDING"
+}
