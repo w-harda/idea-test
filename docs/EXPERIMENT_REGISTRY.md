@@ -1,5 +1,11 @@
 # 历史实验注册表
 
+## G/H probe_v2：即时资源不足，GPU尚未执行（2026-10-23）
+
+基准f9701c7e，CPU Preflight/来源/父恢复PASS，151378历史及28份旧FAIL/Watcher保护通过。
+12:03:11空闲7505MiB低于10GiB门槛，RESOURCE_BUSY；未初始化CUDA，未创建probe_v2。
+[资源与来源报告](framework/results/gh_probe_v2_execution/REPORT.md)。
+
 ## G/H probe_v2设备字符串修复（CPU-only，2026-10-23）
 
 基准7ba66d95；独立codex/gh-probe-device-fix。

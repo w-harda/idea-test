@@ -2,7 +2,17 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：probe_v2设备字符串CPU修复完成，等待新GPU授权
+## 当前阶段：probe_v2再次获授权，但即时资源不足，尚未创建Attempt
+
+2026-10-23基于f9701c7e核验140 producer、496来源、G60/H10/IRRA、CPU Preflight及父状态PASS。
+12:03:11 +08:00空闲GPU7505MiB低于10240MiB，RESOURCE_BUSY；Ollama PID3178899未干预。
+CUDA未初始化，probe入口未调用，probe_v2/smoke_v2均未创建，无新Watcher、更新、JVP或评估。
+151378历史metadata及旧probe_v1/Watcher28份SHA/stat保持。
+[本次CPU/来源/资源证据](framework/results/gh_probe_v2_execution/REPORT.md)。
+冻结执行树仍为f9701c7e且干净，报告在独立codex/gh-probe-v2-results分支发布，不改变数值来源。
+本轮停止，无自动等待或重试，真实数值仍PENDING。
+
+## 历史阶段：probe_v2设备字符串CPU修复完成（f9701c7e快照）
 
 基于7ba66d95新建codex/gh-probe-device-fix；不修改冻结后端工作树及原Watcher。
 唯一生产Python变更为native_backend.py:347的IRRA loader设备cuda→cuda:0，原加载器校验不变。
