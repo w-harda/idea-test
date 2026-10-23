@@ -143,10 +143,30 @@ def execute():
             rndstore=ArtifactStore(SMOKE/"rounds",new_base=c["output_base"])
             previous={}
             parent=json.loads((Path("/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/cuda_rng_v1")/"completed/report.json").read_text())["CPU_preflight"]
+            from tbps.alternating.parents import normalized_rng
+            from tbps.ablations.gv2_sweep import generator_state
+            gp=torch.load(c["sources"]["G60"]["path"],map_location="cpu",weights_only=False)
+            hp=torch.load(c["sources"]["H10"]["path"],map_location="cpu",weights_only=False)
+            original_contract=json.loads(Path(c["sources"]["original_G_contract"]["path"]).read_text())
+            gw=generator_state(gp,60,original_contract,gp["contract"]["parent_checkpoint"])
+            gr,hr=normalized_rng(gp["rng"],hp["rng"])
+            assert tree_sha(gw)==parent["G_state"] and tree_sha(hp["policy"])==parent["H_state"]
+            assert tree_sha(gp["optimizer"])==parent["G_Adam"] and tree_sha(hp["optimizer"])==parent["H_Adam"]
+            assert tree_sha(gr)==parent["G_RNG"] and tree_sha(hr)==parent["H_RNG"]
+            parent_state={"G":gw,"H":hp["policy"],"G_Adam":gp["optimizer"],"H_Adam":hp["optimizer"],
+                "G_RNG":gr,"H_RNG":hr,"cursor":{"round":0,"g_updates":484080,"h_visits":20480,"h_updates":20370},
+                "parents":{"G":c["sources"]["G60"]["sha256"],"H":c["sources"]["H10"]["sha256"],"protocol":digest(c["prototype"])}}
+            parent_complete_sha=tree_sha(parent_state)
+            parent_momentum={"H_parameters_with_nonzero_exp_avg":sum(bool(torch.count_nonzero(v["exp_avg"])) for v in hp["optimizer"]["state"].values()),
+                "H_parameters_with_nonzero_exp_avg_sq":sum(bool(torch.count_nonzero(v["exp_avg_sq"])) for v in hp["optimizer"]["state"].values()),
+                "H_optimizer_parameter_states":len(hp["optimizer"]["state"])}
             for arm in ("A1","B"):
                 for index in (1,2):
                     rid=f"{arm}-r{index}"
                     unit(rndstore,rid+"-claim");m=unit(rndstore,rid)
+                    claim=json.loads((rndstore.root/(rid+"-claim")/"claim.json").read_text())
+                    assert claim=={"protocol":digest(c["prototype"]),"arm":arm,"round":index,
+                        "parent_state":parent_complete_sha if index==1 else tree_sha(values[(arm,1)])}
                     value=torch.load(SMOKE/"rounds"/rid/"state.pt",map_location="cpu",weights_only=False)
                     assert tree_sha(value)==m["provenance"]["state_sha256"]
                     expected_parents={"G":c["sources"]["G60"]["sha256"],"H":c["sources"]["H10"]["sha256"],"protocol":digest(c["prototype"])}
@@ -157,6 +177,8 @@ def execute():
                     assert max(meta["H_Adam_steps"])==20370+7*index
                     assert all(g["lr"]==2e-4 and tuple(g["betas"])==(.5,.999) for g in value["G_Adam"]["param_groups"])
                     for key in ["G","H","G_Adam","H_Adam"]:finite_state(value[key])
+                    assert value["G_Adam"]["param_groups"]==gp["optimizer"]["param_groups"]
+                    assert value["H_Adam"]["param_groups"]==hp["optimizer"]["param_groups"]
                     ledger=json.loads((SMOKE/"rounds"/rid/"ledger.json").read_text())
                     assert ledger["all_stages_verified"] and ledger["arm"]==arm and ledger["round"]==index
                     assert len(ledger["G"])==len(ledger["H"])==8
@@ -225,7 +247,7 @@ def execute():
                     records[rid]={"arm":arm,"round":index,"source_paths":{"ledger":str(SMOKE/"rounds"/rid/"ledger.json"),
                         "state":str(SMOKE/"rounds"/rid/"state.pt"),"bank":str(bs.root)},
                         "round_manifest":sha_file(rndstore.root/rid/"manifest.json"),"state_file_sha256":sha_file(rndstore.root/rid/"state.pt"),
-                        "ledger_sha256":sha_file(rndstore.root/rid/"ledger.json"),"state":meta,
+                        "ledger_sha256":sha_file(rndstore.root/rid/"ledger.json"),"Round_claim":claim,"state":meta,
                         "G_steps":27,"H":hstat,"G_gradient_L2_min":min(gnorm),"G_gradient_L2_max":max(gnorm),
                         "bank":{"images":2048,"feature_content_sha256":bid["adversarial_sha256"],
                         "g_state_sha256":bid["g_state_sha256"],"bank_manifest_sha256":sha_file(bs.root/"completed/manifest.json"),
@@ -251,7 +273,7 @@ def execute():
             "review_identity":identity,"review_producer_sha256":producer.sha256,
             "GPU_generation":"PASS","artifact_structure_integrity":"PASS","original_CPU_audit":"FAIL",
             "original_error":{"type":"ValueError","message":"first NOOP control differs","path":str(FROZEN/"src/tbps/alternating/native_cli.py"),"line":178},
-            "NOOP_condition_content_exact":noop_condition_equal,"feedback_effects":effects,
+            "NOOP_condition_content_exact":noop_condition_equal,"complete_parent_state_sha256":parent_complete_sha,"parent_momentum":parent_momentum,"feedback_effects":effects,
             "rounds":records,"native_report_without_conditions":{k:v for k,v in report.items() if k!="conditions"},
             "totals":{"G_Adam_updates":108,"H_visits":32,"H_Adam_updates":28,"bank_refreshes":4,"bank_images":8192,
                 "nonzero_H_advantage_steps":sum(r["H"]["nonzero_advantage"] for r in records.values()),
