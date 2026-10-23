@@ -1,0 +1,28 @@
+{
+  "status": "HISTORY_AND_FROZEN_SOURCE_PASS",
+  "recorded_at": "2026-10-23T11:46:07.660825+08:00",
+  "historical_metadata_files": 151378,
+  "historical_metadata_mismatches": [],
+  "probe_v1_and_watcher_files": 28,
+  "probe_v1_and_watcher_mismatches": [],
+  "original_backend_producers": 139,
+  "original_backend_producer_sha_mismatches": [],
+  "parent_checkpoints": {
+    "G": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0060/checkpoint.pt",
+      "sha256": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049"
+    },
+    "H": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00020480/checkpoint.pt",
+      "sha256": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd"
+    },
+    "IRRA": {
+      "path": "/home/lzf/Attack/IRRA/logs/CUHK-PEDES/best.pth",
+      "sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+    }
+  },
+  "probe_v2_exists": false,
+  "smoke_v2_exists": false,
+  "new_watcher_started": false,
+  "semantics": "151378项metadata及关键来源SHA；不是全量历史SHA重扫"
+}

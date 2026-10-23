@@ -1,5 +1,13 @@
 # 历史实验注册表
 
+## G/H probe_v2设备字符串修复（CPU-only，2026-10-23）
+
+基准7ba66d95；独立codex/gh-probe-device-fix。
+一行cuda→cuda:0；276 CPU测试及真实来源/父状态Preflight PASS，140 producer/496 legacy来源。
+独立probe_v2/smoke_v2身份，10GiB门槛；旧FAIL/28文件与151378历史metadata保持。
+尚未执行任何新GPU探针、Watcher、Smoke或训练，数值仍PENDING。
+[修复与完整证据](framework/results/gh_probe_device_fix/REPORT.md)。
+
 ## G/H probe_v1：真实启动在IRRA加载前FAIL（2026-10-23）
 
 02:41:45自动调用，02:41:55退出码1；已消费Attempt，不得重用。

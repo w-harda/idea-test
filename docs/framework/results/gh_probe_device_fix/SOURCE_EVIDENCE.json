@@ -1,0 +1,139 @@
+{
+  "schema": "gh-probe-v2-device-fix-cpu-evidence-1",
+  "status": "CPU_DEVICE_FIX_AND_PROVENANCE_PASS_GPU_NOT_RUN",
+  "base_commit": "7ba66d9525be243552b66f34b01289a64502257b",
+  "original_execution_commit": "a46c6980c4abf58df02ca1ee199da799892dc81e",
+  "branch": "codex/gh-probe-device-fix",
+  "worktree": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-device-fix-20261023",
+  "recorded_at": "2026-10-23T11:52:47.279783+08:00",
+  "CPU_tests": {
+    "total": 276,
+    "original_native": 224,
+    "watcher_regression": 39,
+    "new_device_and_v2": 13,
+    "skipped": 0,
+    "exit_code": 0,
+    "seconds": 67.66,
+    "warnings": 1
+  },
+  "new_config": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-device-fix-20261023/configs/framework/gh_bidirectional_backend.probe_v2.server.json",
+    "file_sha256": "8b6fce14ce4236f76bd66233c061f2f06a32d975d6771cbad77f15a45ea5e443",
+    "source_key": "0df9df75fac0c0615af26acf94e92bb8895255e24c1dbfa4a16445495821801b",
+    "prototype_protocol_digest": "5070dd049bc59ee41be9b607c9651f1e983ec6bc930e6b479d1f73030a70c2b3",
+    "condition_space_sha256": "d937fc2652e75bdd8751804bd404638c4e5ca776dd716563e14d330b8ff52030",
+    "producer_count": 140,
+    "runtime_pin_count": 496
+  },
+  "old_config": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-bidirectional-backend-20261022/configs/framework/gh_bidirectional_backend.server.json",
+    "file_sha256": "093883a31ad06d3c61b4e72c541d7d55eea9ddafd3d5fe7b36ad93d6ba200af0",
+    "source_key": "884bc426c4aa70c3a01c816ab54d0253bb73b7e22bdb17954a38c79d83b7ab97",
+    "condition_space_sha256": "52c1d51fc736c55b9bb707dbf3859b03f39f8aeb4de7698d2525b9b073bb923a"
+  },
+  "minimal_production_change": {
+    "file": "src/tbps/alternating/native_backend.py",
+    "line": 347,
+    "before": "device=\"cuda\"",
+    "after": "device=\"cuda:0\"",
+    "old_file_sha256": "4cdf9b82313d1b23b17c5f89282296d584943e4d712821fc9ca696da30d8bef3",
+    "new_file_sha256": "6f96beb9275e29df188f8aaf5b9cb6bdff82234200d7da95453649b2cfba7960",
+    "AST_exact_after_one_keyword_substitution": true,
+    "official_loader_unchanged_sha256": "fcf22ad01836804bc40fdce6c1817de2ff1941fd302b549a765e15f5287dd0b6"
+  },
+  "identity_changes": {
+    "schema": "gh-native-device-fix-1",
+    "failure_evidence_commit": "7ba66d9525be243552b66f34b01289a64502257b",
+    "parent_execution_commit": "a46c6980c4abf58df02ca1ee199da799892dc81e",
+    "attempt": "probe_v2",
+    "reserved_smoke_attempt": "smoke_v2",
+    "allowed_changes": [
+      "IRRA loader device cuda -> cuda:0",
+      "new worktree producer paths/SHA and condition identity",
+      "new probe/Smoke output identities",
+      "GPU minimum_free_mib 6144 -> 10240; previous 10GiB external gate now intrinsic"
+    ],
+    "algorithm_changes": false,
+    "watcher_started": false
+  },
+  "protection": {
+    "status": "HISTORY_AND_FROZEN_SOURCE_PASS",
+    "recorded_at": "2026-10-23T11:46:07.660825+08:00",
+    "historical_metadata_files": 151378,
+    "historical_metadata_mismatches": [],
+    "probe_v1_and_watcher_files": 28,
+    "probe_v1_and_watcher_mismatches": [],
+    "original_backend_producers": 139,
+    "original_backend_producer_sha_mismatches": [],
+    "parent_checkpoints": {
+      "G": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0060/checkpoint.pt",
+        "sha256": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049"
+      },
+      "H": {
+        "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00020480/checkpoint.pt",
+        "sha256": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd"
+      },
+      "IRRA": {
+        "path": "/home/lzf/Attack/IRRA/logs/CUHK-PEDES/best.pth",
+        "sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+      }
+    },
+    "probe_v2_exists": false,
+    "smoke_v2_exists": false,
+    "new_watcher_started": false,
+    "semantics": "151378项metadata及关键来源SHA；不是全量历史SHA重扫"
+  },
+  "real_GPU_execution": {
+    "CUDA_initialized": false,
+    "probe_v2": false,
+    "new_watcher": false,
+    "A1_B_smoke": false,
+    "real_model_forwards": 0,
+    "JVP": 0,
+    "G_H_optimizer_updates": 0
+  },
+  "remaining_unverified": [
+    "real CUDA device/model loading",
+    "CUDA RNG/Adam GPU recovery",
+    "reader/JVP/FD/gradient numerical results",
+    "GPU resource peak"
+  ],
+  "logs": {
+    "cpu_command.json": {
+      "path": "/home/lzf/ldx/tmp/gh_probe_device_fix_20261023/cpu_command.json",
+      "sha256": "26799e73df4c026f5304b5b9726263efce6d77f591267b4d5ff61f0eb1a12d2d",
+      "size": 1040
+    },
+    "cpu_regression_v1.log": {
+      "path": "/home/lzf/ldx/tmp/gh_probe_device_fix_20261023/cpu_regression_v1.log",
+      "sha256": "5769992d0b80cbe21941d61ecaab003069c23107174962cc585ef061d1a456fb",
+      "size": 894
+    },
+    "cpu_regression_v1.exit": {
+      "path": "/home/lzf/ldx/tmp/gh_probe_device_fix_20261023/cpu_regression_v1.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size": 2
+    },
+    "cpu_preflight_v2.log": {
+      "path": "/home/lzf/ldx/tmp/gh_probe_device_fix_20261023/cpu_preflight_v2.log",
+      "sha256": "55e8a5a4931f89e83dde25f033250d114765f595f7a9a2c686e2e03253058e5d",
+      "size": 30207
+    },
+    "cpu_preflight_v2.exit": {
+      "path": "/home/lzf/ldx/tmp/gh_probe_device_fix_20261023/cpu_preflight_v2.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size": 2
+    },
+    "old_attempt_before.json": {
+      "path": "/home/lzf/ldx/tmp/gh_probe_device_fix_20261023/old_attempt_before.json",
+      "sha256": "3b3a56e8aeec9b89990ad255fa07a5147b1576218766bf94101abf91f12f8773",
+      "size": 6606
+    },
+    "protection_after.json": {
+      "path": "/home/lzf/ldx/tmp/gh_probe_device_fix_20261023/protection_after.json",
+      "sha256": "18d72c78f4dd5657e390dc436f731fc7f718688fbc68c9ad8f545eba412e884e",
+      "size": 1227
+    }
+  }
+}

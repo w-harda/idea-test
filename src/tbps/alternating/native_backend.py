@@ -344,7 +344,7 @@ def loaded_backend(c,bundle,grant):
     grant.validate(c,grant.action)
     source=IRRASource.from_dict(read_json(c["sources"]["dataset_config"]["path"])["irra"])
     # 原生模型加载器必须在legacy命名空间会话外执行。
-    adapter=IRRAAdapter.from_source(source,device="cuda",allow_model_load=True)
+    adapter=IRRAAdapter.from_source(source,device="cuda:0",allow_model_load=True)
     with native_session(c,reuse=bundle.modules):
         backend=NativeBackend(c,bundle,grant,adapter)
         try:yield backend

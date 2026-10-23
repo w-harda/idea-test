@@ -2,7 +2,18 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：probe_v1已自动调用并FAIL，Attempt已消费
+## 当前阶段：probe_v2设备字符串CPU修复完成，等待新GPU授权
+
+基于7ba66d95新建codex/gh-probe-device-fix；不修改冻结后端工作树及原Watcher。
+唯一生产Python变更为native_backend.py:347的IRRA loader设备cuda→cuda:0，原加载器校验不变。
+276项CPU测试PASS（224原后端+39轮询+13新增设备/v2来源），0 skip；真实新配置CPU Preflight/完整父恢复PASS。
+新probe_v2.server.json绑定140框架producer、496原运行来源及新条件摘要，固定probe_v2/smoke_v2，显存硬门槛10240MiB。
+151378历史metadata、原probe_v1/Watcher28份SHA/stat和G60/H10/IRRA权重保持；旧FAIL永久保留。
+本轮CUDA、真实模型前向/JVP/更新0，probe_v2/smoke_v2未创建，未部署或启动新Watcher。
+[修复报告/CPU来源](framework/results/gh_probe_device_fix/REPORT.md)、[待授权执行协议](framework/results/gh_probe_device_fix/EXECUTION_PROTOCOL.md)。
+真实CUDA恢复、JVP/FD/梯度及资源仍PENDING；不自动执行探针、A1/B或训练。
+
+## 历史阶段：probe_v1已自动调用并FAIL，Attempt已消费
 
 2026-10-23 02:41:45 +08:00轮询器在52次检查/连续两次空闲24051MiB后，CPU预检PASS并调用原probe_v1。
 原子启动标记已消费；子进程PID1748064在02:41:55退出码1，监督器PID1349747按失败策略退出。

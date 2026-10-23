@@ -1,5 +1,12 @@
 # 架构边界与迁移约定
 
+## probe_v2设备参数与来源派生
+
+原IRRA loader严格要求cpu或cuda:index；真实后端只修正from_source设备参数为cuda:0，不改校验与数学。
+新独立配置重建完整producer/managed_roots及ConditionIdentity来源，保留原父状态/legacy源码。
+probe_v2与smoke_v2隔离；新Smoke只认同源码probe_v2回执。10GiB门槛进入新配置，不依赖旧Watcher。
+本轮只有CPU验证，原v1 FAIL与Watcher不动；新GPU执行仍待授权。见framework/results/gh_probe_device_fix/REPORT.md。
+
 ## 单次探针外部资源轮询器
 
 operations/gh_probe_watch.py是独立标准库监督程序，运行部署副本，不从新树导入冻结后端。
