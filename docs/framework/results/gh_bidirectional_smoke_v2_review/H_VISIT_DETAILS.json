@@ -1,0 +1,5538 @@
+[
+  {
+    "round": "A1-r1",
+    "IRRA_text_samples": 0,
+    "fixed_NOOP": true,
+    "optimizer_steps_this_step": 0,
+    "row_id": "cuhk:26530:0"
+  },
+  {
+    "round": "A1-r1",
+    "G_calls": 0,
+    "H_state_sha256_after": "735517e3d53929da7fbd3b19b622ec56de356a9627c2576f77b11314c658f49e",
+    "H_state_sha256_before": "d08802aca9bbd84e90bb415244500e20e7c47e25a0b2581b86ba89e42772b5fd",
+    "IRRA_image_calls": 0,
+    "IRRA_text_calls": 1,
+    "IRRA_text_samples": 3,
+    "K": 1,
+    "SCST_loss": 0.0,
+    "advantage": 0.0,
+    "bank_sha256": "4377f24fb586dc5c987040ad6289cb68752ea2410ec036f9c63e5c47140a7a6f",
+    "gradient_norm": 0.0,
+    "greedy_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 1,
+      "edits": 1,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 1
+    },
+    "greedy_reward": {
+      "R_rank": -0.012126386165618896,
+      "R_sim": -0.01892721652984619,
+      "adv_sim_drop": -0.01892721652984619,
+      "clean_margin_drop": -0.0029292702674865723,
+      "clean_sim_drop": -0.017873823642730713,
+      "synergy_increment": -0.0010533928871154785,
+      "total": -0.031053602695465088
+    },
+    "group_gradient_norm": {
+      "attribute_head": 0.0,
+      "byte_embedding": 0.0,
+      "encoder": 0.0,
+      "position_head": 0.0,
+      "replacement_head": 0.0
+    },
+    "old_bank_same_text_rewards": [
+      {
+        "R_rank": -0.015779346227645874,
+        "R_sim": -0.01543852686882019,
+        "adv_sim_drop": -0.01543852686882019,
+        "clean_margin_drop": -0.0029292702674865723,
+        "clean_sim_drop": -0.017873823642730713,
+        "synergy_increment": 0.0024352967739105225,
+        "total": -0.031217873096466064
+      },
+      {
+        "R_rank": -0.015779346227645874,
+        "R_sim": -0.01543852686882019,
+        "adv_sim_drop": -0.01543852686882019,
+        "clean_margin_drop": -0.0029292702674865723,
+        "clean_sim_drop": -0.017873823642730713,
+        "synergy_increment": 0.0024352967739105225,
+        "total": -0.031217873096466064
+      }
+    ],
+    "optimizer_steps_this_step": 1,
+    "parameter_delta_l2": 0.006242488171164139,
+    "parameter_delta_max_abs": 0.0001856386661529541,
+    "reward_delta_same_text": [
+      0.00016427040100097656,
+      0.00016427040100097656
+    ],
+    "row_id": "cuhk:26747:0",
+    "sampled_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 1,
+      "edits": 1,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 1
+    },
+    "sampled_reward": {
+      "R_rank": -0.012126386165618896,
+      "R_sim": -0.01892721652984619,
+      "adv_sim_drop": -0.01892721652984619,
+      "clean_margin_drop": -0.0029292702674865723,
+      "clean_sim_drop": -0.017873823642730713,
+      "synergy_increment": -0.0010533928871154785,
+      "total": -0.031053602695465088
+    },
+    "sequence_log_prob": -0.0005422568065114319,
+    "step": 20482,
+    "text_feature_numeric_sha256": "b8e649040859152f7f18c52b995297939b73b855e2cf4bbe5eec31130512a12f",
+    "token_sha256": "746cd1a050c2289b040bf97b3f7a95748293da5f5dadd529f0edac010e933f40",
+    "sampled_action": {
+      "original": "A man wearing a red and white cheerleader outfit is wearing a blond wig and has his arms up in the air",
+      "adversarial": "A mаn wearing a red and white cheerleader outfit is wearing a blond wig and has his arms up in the air",
+      "budget_k": 1,
+      "selected_attribute_ids": [
+        "a19834c40e72bf5597661d76"
+      ],
+      "edits": [
+        {
+          "attribute_id": "a19834c40e72bf5597661d76",
+          "canonical_value": "male",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 3,
+          "position": 3,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "gender",
+          "source_raw": "man",
+          "source_span": [
+            2,
+            5
+          ]
+        }
+      ]
+    },
+    "greedy_action": {
+      "original": "A man wearing a red and white cheerleader outfit is wearing a blond wig and has his arms up in the air",
+      "adversarial": "A mаn wearing a red and white cheerleader outfit is wearing a blond wig and has his arms up in the air",
+      "budget_k": 1,
+      "selected_attribute_ids": [
+        "a19834c40e72bf5597661d76"
+      ],
+      "edits": [
+        {
+          "attribute_id": "a19834c40e72bf5597661d76",
+          "canonical_value": "male",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 3,
+          "position": 3,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "gender",
+          "source_raw": "man",
+          "source_span": [
+            2,
+            5
+          ]
+        }
+      ]
+    },
+    "sampled_action_original_JSON_sha256": "2b9b1d2e6f37c603b98587834484efe7c6cdfb4a93f7de56b4d4db6462109a1a",
+    "advantage_delta_old_to_new_bank": 0.0
+  },
+  {
+    "round": "A1-r1",
+    "G_calls": 0,
+    "H_state_sha256_after": "faca9cb1fa041cc528aaa8dd0775f281eb47ed1c510929c1df1e54fcca4d6414",
+    "H_state_sha256_before": "735517e3d53929da7fbd3b19b622ec56de356a9627c2576f77b11314c658f49e",
+    "IRRA_image_calls": 0,
+    "IRRA_text_calls": 1,
+    "IRRA_text_samples": 3,
+    "K": 3,
+    "SCST_loss": 0.0,
+    "advantage": 0.0,
+    "bank_sha256": "4377f24fb586dc5c987040ad6289cb68752ea2410ec036f9c63e5c47140a7a6f",
+    "gradient_norm": 0.0,
+    "greedy_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 3,
+      "edits": 3,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 3
+    },
+    "greedy_reward": {
+      "R_rank": -0.027617856860160828,
+      "R_sim": -0.0242997407913208,
+      "adv_sim_drop": -0.0242997407913208,
+      "clean_margin_drop": 0.15351498126983643,
+      "clean_sim_drop": 0.07850432395935059,
+      "synergy_increment": -0.10280406475067139,
+      "total": -0.05191759765148163
+    },
+    "group_gradient_norm": {
+      "attribute_head": 0.0,
+      "byte_embedding": 0.0,
+      "encoder": 0.0,
+      "position_head": 0.0,
+      "replacement_head": 0.0
+    },
+    "old_bank_same_text_rewards": [
+      {
+        "R_rank": -0.03185966610908508,
+        "R_sim": -0.010795742273330688,
+        "adv_sim_drop": -0.010795742273330688,
+        "clean_margin_drop": 0.15351498126983643,
+        "clean_sim_drop": 0.07850432395935059,
+        "synergy_increment": -0.08930006623268127,
+        "total": -0.04265540838241577
+      },
+      {
+        "R_rank": -0.03185966610908508,
+        "R_sim": -0.010795742273330688,
+        "adv_sim_drop": -0.010795742273330688,
+        "clean_margin_drop": 0.15351498126983643,
+        "clean_sim_drop": 0.07850432395935059,
+        "synergy_increment": -0.08930006623268127,
+        "total": -0.04265540838241577
+      }
+    ],
+    "optimizer_steps_this_step": 1,
+    "parameter_delta_l2": 0.005621048048033325,
+    "parameter_delta_max_abs": 0.000167161226272583,
+    "reward_delta_same_text": [
+      -0.009262189269065857,
+      -0.009262189269065857
+    ],
+    "row_id": "cuhk:12746:0",
+    "sampled_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 3,
+      "edits": 3,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 3
+    },
+    "sampled_reward": {
+      "R_rank": -0.027617856860160828,
+      "R_sim": -0.0242997407913208,
+      "adv_sim_drop": -0.0242997407913208,
+      "clean_margin_drop": 0.15351498126983643,
+      "clean_sim_drop": 0.07850432395935059,
+      "synergy_increment": -0.10280406475067139,
+      "total": -0.05191759765148163
+    },
+    "sequence_log_prob": -1.171173095703125,
+    "step": 20483,
+    "text_feature_numeric_sha256": "da56a2a6983d80070637c74534982d56e2d3bc0e467ed30b5185f2acfc489762",
+    "token_sha256": "323e2701ee555d4fb188c1671e6cae30e07e2669c42c7439eec0131f5c343eb4",
+    "sampled_action": {
+      "original": "The boy is on an escalator. He is wearing a blue denim backpack, black  shirt, and tan chinos.",
+      "adversarial": "The bоy is on an escalator. He is wearing a blue denim backpаck, blаck  shirt, and tan chinos.",
+      "budget_k": 3,
+      "selected_attribute_ids": [
+        "dfdf8b544654cc57d3f81359",
+        "02d3dbaa72132d56d7a819ae",
+        "0cded23b0851e6a78eff2ede"
+      ],
+      "edits": [
+        {
+          "attribute_id": "dfdf8b544654cc57d3f81359",
+          "canonical_value": "yes",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 60,
+          "position": 60,
+          "position_in_attribute": 5,
+          "region": "carried",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "backpack",
+          "source_raw": "backpack",
+          "source_span": [
+            55,
+            63
+          ]
+        },
+        {
+          "attribute_id": "02d3dbaa72132d56d7a819ae",
+          "canonical_value": "male",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 5,
+          "position": 5,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "gender",
+          "source_raw": "boy",
+          "source_span": [
+            4,
+            7
+          ]
+        },
+        {
+          "attribute_id": "0cded23b0851e6a78eff2ede",
+          "canonical_value": "black",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 67,
+          "position": 67,
+          "position_in_attribute": 2,
+          "region": "upper",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "color",
+          "source_raw": "black",
+          "source_span": [
+            65,
+            70
+          ]
+        }
+      ]
+    },
+    "greedy_action": {
+      "original": "The boy is on an escalator. He is wearing a blue denim backpack, black  shirt, and tan chinos.",
+      "adversarial": "The bоy is on an escalator. He is wearing a blue denim backpаck, blаck  shirt, and tan chinos.",
+      "budget_k": 3,
+      "selected_attribute_ids": [
+        "dfdf8b544654cc57d3f81359",
+        "02d3dbaa72132d56d7a819ae",
+        "0cded23b0851e6a78eff2ede"
+      ],
+      "edits": [
+        {
+          "attribute_id": "dfdf8b544654cc57d3f81359",
+          "canonical_value": "yes",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 60,
+          "position": 60,
+          "position_in_attribute": 5,
+          "region": "carried",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "backpack",
+          "source_raw": "backpack",
+          "source_span": [
+            55,
+            63
+          ]
+        },
+        {
+          "attribute_id": "02d3dbaa72132d56d7a819ae",
+          "canonical_value": "male",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 5,
+          "position": 5,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "gender",
+          "source_raw": "boy",
+          "source_span": [
+            4,
+            7
+          ]
+        },
+        {
+          "attribute_id": "0cded23b0851e6a78eff2ede",
+          "canonical_value": "black",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 67,
+          "position": 67,
+          "position_in_attribute": 2,
+          "region": "upper",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "color",
+          "source_raw": "black",
+          "source_span": [
+            65,
+            70
+          ]
+        }
+      ]
+    },
+    "sampled_action_original_JSON_sha256": "a8abc00bce92fd1963972eaa2b941d4c648ac15f55ec351af0b3b81b4721a467",
+    "advantage_delta_old_to_new_bank": 0.0
+  },
+  {
+    "round": "A1-r1",
+    "G_calls": 0,
+    "H_state_sha256_after": "acd2f251eb98a3dece0b4342137340cf1c9b3886b7edab59e453dbc6d8867929",
+    "H_state_sha256_before": "faca9cb1fa041cc528aaa8dd0775f281eb47ed1c510929c1df1e54fcca4d6414",
+    "IRRA_image_calls": 0,
+    "IRRA_text_calls": 1,
+    "IRRA_text_samples": 3,
+    "K": 2,
+    "SCST_loss": 0.8923116326332092,
+    "advantage": 0.12869305908679962,
+    "bank_sha256": "4377f24fb586dc5c987040ad6289cb68752ea2410ec036f9c63e5c47140a7a6f",
+    "gradient_norm": 2.6328039794091835,
+    "greedy_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "greedy_reward": {
+      "R_rank": 0.002959340810775757,
+      "R_sim": -0.01077447459101677,
+      "adv_sim_drop": -0.01077447459101677,
+      "clean_margin_drop": 0.049511730670928955,
+      "clean_sim_drop": 0.02487623691558838,
+      "synergy_increment": -0.03565071150660515,
+      "total": -0.007815133780241013
+    },
+    "group_gradient_norm": {
+      "attribute_head": 2.212070165463151,
+      "byte_embedding": 0.16122166218166947,
+      "encoder": 1.3981986387237508,
+      "position_head": 0.0041029316401347635,
+      "replacement_head": 0.0
+    },
+    "old_bank_same_text_rewards": [
+      {
+        "R_rank": 0.08249808847904205,
+        "R_sim": 0.08192246407270432,
+        "adv_sim_drop": 0.08192246407270432,
+        "clean_margin_drop": 0.10248389840126038,
+        "clean_sim_drop": 0.0455191433429718,
+        "synergy_increment": 0.03640332072973251,
+        "total": 0.16442055255174637
+      },
+      {
+        "R_rank": 0.023334592580795288,
+        "R_sim": 0.00590088963508606,
+        "adv_sim_drop": 0.00590088963508606,
+        "clean_margin_drop": 0.049511730670928955,
+        "clean_sim_drop": 0.02487623691558838,
+        "synergy_increment": -0.01897534728050232,
+        "total": 0.029235482215881348
+      }
+    ],
+    "optimizer_steps_this_step": 1,
+    "parameter_delta_l2": 0.00860444253348671,
+    "parameter_delta_max_abs": 0.0002698521129786968,
+    "reward_delta_same_text": [
+      -0.04354263097047806,
+      -0.03705061599612236
+    ],
+    "row_id": "cuhk:9955:0",
+    "sampled_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "sampled_reward": {
+      "R_rank": 0.05617022514343262,
+      "R_sim": 0.0647076964378357,
+      "adv_sim_drop": 0.0647076964378357,
+      "clean_margin_drop": 0.10248389840126038,
+      "clean_sim_drop": 0.0455191433429718,
+      "synergy_increment": 0.01918855309486389,
+      "total": 0.12087792158126831
+    },
+    "sequence_log_prob": -6.933642387390137,
+    "step": 20484,
+    "text_feature_numeric_sha256": "263f179c2b3b3d1722bb5a4a5406d4303d5a9bb5eff50f77f1c8a86a113cf216",
+    "token_sha256": "b5cf8e75c00412edb2aee5a435b9f8692e138777f5aa235622707f0efd0d33c4",
+    "sampled_action": {
+      "original": "He has  short  black hair  and  is  wearing  a  black shirt . He is  also  wearing white  pants  .",
+      "adversarial": "Hе has  short  black hair  and  is  wearing  a  black shirt . He is  also  wearing whitе  pants  .",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "5143b71b1ce115bc122e3746",
+        "688c8ab1e3020a138b89f957"
+      ],
+      "edits": [
+        {
+          "attribute_id": "5143b71b1ce115bc122e3746",
+          "canonical_value": "male",
+          "original_char": "e",
+          "original_codepoint": "U+0065",
+          "original_utf8_offset": 1,
+          "position": 1,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "е",
+          "replacement_codepoint": "U+0435",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER IE",
+          "semantic_axis": "gender",
+          "source_raw": "He",
+          "source_span": [
+            0,
+            2
+          ]
+        },
+        {
+          "attribute_id": "688c8ab1e3020a138b89f957",
+          "canonical_value": "white",
+          "original_char": "e",
+          "original_codepoint": "U+0065",
+          "original_utf8_offset": 87,
+          "position": 87,
+          "position_in_attribute": 4,
+          "region": "lower",
+          "replacement_char": "е",
+          "replacement_codepoint": "U+0435",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER IE",
+          "semantic_axis": "color",
+          "source_raw": "white",
+          "source_span": [
+            83,
+            88
+          ]
+        }
+      ]
+    },
+    "greedy_action": {
+      "original": "He has  short  black hair  and  is  wearing  a  black shirt . He is  also  wearing white  pants  .",
+      "adversarial": "Hе has  shоrt  black hair  and  is  wearing  a  black shirt . He is  also  wearing white  pants  .",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "5143b71b1ce115bc122e3746",
+        "13d375cc76b287c91dd3bd36"
+      ],
+      "edits": [
+        {
+          "attribute_id": "5143b71b1ce115bc122e3746",
+          "canonical_value": "male",
+          "original_char": "e",
+          "original_codepoint": "U+0065",
+          "original_utf8_offset": 1,
+          "position": 1,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "е",
+          "replacement_codepoint": "U+0435",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER IE",
+          "semantic_axis": "gender",
+          "source_raw": "He",
+          "source_span": [
+            0,
+            2
+          ]
+        },
+        {
+          "attribute_id": "13d375cc76b287c91dd3bd36",
+          "canonical_value": "short",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 10,
+          "position": 10,
+          "position_in_attribute": 2,
+          "region": "head",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "hair_length",
+          "source_raw": "short",
+          "source_span": [
+            8,
+            13
+          ]
+        }
+      ]
+    },
+    "sampled_action_original_JSON_sha256": "07982ad028cbefd570a46c4eef7b5a821c45e7828d3ad3968e241fd1698c5394",
+    "advantage_delta_old_to_new_bank": -0.006492014974355698
+  },
+  {
+    "round": "A1-r1",
+    "G_calls": 0,
+    "H_state_sha256_after": "1daf9c493d9a6174468f51f5e5c13e81ffa2ed53a48be9706297683eb2e6ff6c",
+    "H_state_sha256_before": "acd2f251eb98a3dece0b4342137340cf1c9b3886b7edab59e453dbc6d8867929",
+    "IRRA_image_calls": 0,
+    "IRRA_text_calls": 1,
+    "IRRA_text_samples": 3,
+    "K": 3,
+    "SCST_loss": -0.006563181057572365,
+    "advantage": -0.0013327598571777344,
+    "bank_sha256": "4377f24fb586dc5c987040ad6289cb68752ea2410ec036f9c63e5c47140a7a6f",
+    "gradient_norm": 0.022966670356954214,
+    "greedy_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 3,
+      "edits": 3,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 3
+    },
+    "greedy_reward": {
+      "R_rank": -0.012064129114151001,
+      "R_sim": -0.01870560646057129,
+      "adv_sim_drop": -0.01870560646057129,
+      "clean_margin_drop": -0.00054207444190979,
+      "clean_sim_drop": -0.018671810626983643,
+      "synergy_increment": -3.3795833587646484e-05,
+      "total": -0.03076973557472229
+    },
+    "group_gradient_norm": {
+      "attribute_head": 0.01571048081521585,
+      "byte_embedding": 0.002256383372824285,
+      "encoder": 0.015414099247862781,
+      "position_head": 0.005513010360783186,
+      "replacement_head": 0.0
+    },
+    "old_bank_same_text_rewards": [
+      {
+        "R_rank": -7.332861423492432e-05,
+        "R_sim": -0.023360013961791992,
+        "adv_sim_drop": -0.023360013961791992,
+        "clean_margin_drop": -0.002099931240081787,
+        "clean_sim_drop": -0.01577049493789673,
+        "synergy_increment": -0.007589519023895264,
+        "total": -0.023433342576026917
+      },
+      {
+        "R_rank": -0.005501314997673035,
+        "R_sim": -0.017730116844177246,
+        "adv_sim_drop": -0.017730116844177246,
+        "clean_margin_drop": -0.00054207444190979,
+        "clean_sim_drop": -0.018671810626983643,
+        "synergy_increment": 0.0009416937828063965,
+        "total": -0.02323143184185028
+      }
+    ],
+    "optimizer_steps_this_step": 1,
+    "parameter_delta_l2": 0.007747981199922422,
+    "parameter_delta_max_abs": 0.00024299602955579758,
+    "reward_delta_same_text": [
+      -0.008669152855873108,
+      -0.007538303732872009
+    ],
+    "row_id": "cuhk:29253:0",
+    "sampled_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 3,
+      "edits": 3,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 3
+    },
+    "sampled_reward": {
+      "R_rank": -0.004585862159729004,
+      "R_sim": -0.02751663327217102,
+      "adv_sim_drop": -0.02751663327217102,
+      "clean_margin_drop": -0.002099931240081787,
+      "clean_sim_drop": -0.01577049493789673,
+      "synergy_increment": -0.011746138334274292,
+      "total": -0.032102495431900024
+    },
+    "sequence_log_prob": -4.924503803253174,
+    "step": 20485,
+    "text_feature_numeric_sha256": "228ab0ed91f5663785a5e28874fe41d4a401f2c3981f6d3231b063ff6f57b1d7",
+    "token_sha256": "ed5a4b8d9ee5c569e4435e25101b3066bd963e6d53a9f2cbb7c3fac1d0c6d5e6",
+    "sampled_action": {
+      "original": "The man is wearing black tennis shoes with grey socks and a pair of long black shorts that go past his knees. He is wearing a white tee-shirt with black graphics on the front and a plaid grey long-sleeved shirt. He has a backpack on his back.",
+      "adversarial": "The mаn is wearing black tennis shoes with grey socks and a pair of long black shorts that go past his knees. He is wearing a white tеe-shirt with black graphics on the front and a plaid grey long-sleevеd shirt. He has a backpack on his back.",
+      "budget_k": 3,
+      "selected_attribute_ids": [
+        "390d4818e2f12955a23893cb",
+        "3dbe7eebb0458cf3a90643f4",
+        "d84990a015cbfc414ea30400"
+      ],
+      "edits": [
+        {
+          "attribute_id": "390d4818e2f12955a23893cb",
+          "canonical_value": "male",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 5,
+          "position": 5,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "gender",
+          "source_raw": "man",
+          "source_span": [
+            4,
+            7
+          ]
+        },
+        {
+          "attribute_id": "3dbe7eebb0458cf3a90643f4",
+          "canonical_value": "t_shirt",
+          "original_char": "e",
+          "original_codepoint": "U+0065",
+          "original_utf8_offset": 133,
+          "position": 133,
+          "position_in_attribute": 1,
+          "region": "upper",
+          "replacement_char": "е",
+          "replacement_codepoint": "U+0435",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER IE",
+          "semantic_axis": "garment_type",
+          "source_raw": "tee",
+          "source_span": [
+            132,
+            135
+          ]
+        },
+        {
+          "attribute_id": "d84990a015cbfc414ea30400",
+          "canonical_value": "long",
+          "original_char": "e",
+          "original_codepoint": "U+0065",
+          "original_utf8_offset": 202,
+          "position": 202,
+          "position_in_attribute": 10,
+          "region": "upper",
+          "replacement_char": "е",
+          "replacement_codepoint": "U+0435",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER IE",
+          "semantic_axis": "sleeve_length",
+          "source_raw": "long-sleeved",
+          "source_span": [
+            192,
+            204
+          ]
+        }
+      ]
+    },
+    "greedy_action": {
+      "original": "The man is wearing black tennis shoes with grey socks and a pair of long black shorts that go past his knees. He is wearing a white tee-shirt with black graphics on the front and a plaid grey long-sleeved shirt. He has a backpack on his back.",
+      "adversarial": "The mаn is wearing black tennis shoes with grey socks and a pair of long black shorts that go past his knees. He is wearing a white tеe-shirt with black graphics on the front and a plaid grey lоng-sleeved shirt. He has a backpack on his back.",
+      "budget_k": 3,
+      "selected_attribute_ids": [
+        "390d4818e2f12955a23893cb",
+        "d84990a015cbfc414ea30400",
+        "3dbe7eebb0458cf3a90643f4"
+      ],
+      "edits": [
+        {
+          "attribute_id": "390d4818e2f12955a23893cb",
+          "canonical_value": "male",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 5,
+          "position": 5,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "gender",
+          "source_raw": "man",
+          "source_span": [
+            4,
+            7
+          ]
+        },
+        {
+          "attribute_id": "d84990a015cbfc414ea30400",
+          "canonical_value": "long",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 193,
+          "position": 193,
+          "position_in_attribute": 1,
+          "region": "upper",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "sleeve_length",
+          "source_raw": "long-sleeved",
+          "source_span": [
+            192,
+            204
+          ]
+        },
+        {
+          "attribute_id": "3dbe7eebb0458cf3a90643f4",
+          "canonical_value": "t_shirt",
+          "original_char": "e",
+          "original_codepoint": "U+0065",
+          "original_utf8_offset": 133,
+          "position": 133,
+          "position_in_attribute": 1,
+          "region": "upper",
+          "replacement_char": "е",
+          "replacement_codepoint": "U+0435",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER IE",
+          "semantic_axis": "garment_type",
+          "source_raw": "tee",
+          "source_span": [
+            132,
+            135
+          ]
+        }
+      ]
+    },
+    "sampled_action_original_JSON_sha256": "b63e36f9c7747b496d2b6827b7cc01076237f6b30af0c8d780eafb57b2798b59",
+    "advantage_delta_old_to_new_bank": -0.0011308491230010986
+  },
+  {
+    "round": "A1-r1",
+    "G_calls": 0,
+    "H_state_sha256_after": "b75e1beedd068aa2341bf7296cb092a3622416c5393502d7b7947e1c62067672",
+    "H_state_sha256_before": "1daf9c493d9a6174468f51f5e5c13e81ffa2ed53a48be9706297683eb2e6ff6c",
+    "IRRA_image_calls": 0,
+    "IRRA_text_calls": 1,
+    "IRRA_text_samples": 3,
+    "K": 2,
+    "SCST_loss": 0.0,
+    "advantage": 0.0,
+    "bank_sha256": "4377f24fb586dc5c987040ad6289cb68752ea2410ec036f9c63e5c47140a7a6f",
+    "gradient_norm": 0.0,
+    "greedy_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "greedy_reward": {
+      "R_rank": 0.014845728874206543,
+      "R_sim": 0.008653104305267334,
+      "adv_sim_drop": 0.008653104305267334,
+      "clean_margin_drop": 0.0315513014793396,
+      "clean_sim_drop": 0.08115321397781372,
+      "synergy_increment": -0.07250010967254639,
+      "total": 0.023498833179473877
+    },
+    "group_gradient_norm": {
+      "attribute_head": 0.0,
+      "byte_embedding": 0.0,
+      "encoder": 0.0,
+      "position_head": 0.0,
+      "replacement_head": 0.0
+    },
+    "old_bank_same_text_rewards": [
+      {
+        "R_rank": 0.022722721099853516,
+        "R_sim": 0.013255402445793152,
+        "adv_sim_drop": 0.013255402445793152,
+        "clean_margin_drop": 0.0315513014793396,
+        "clean_sim_drop": 0.08115321397781372,
+        "synergy_increment": -0.06789781153202057,
+        "total": 0.03597812354564667
+      },
+      {
+        "R_rank": 0.022722721099853516,
+        "R_sim": 0.013255402445793152,
+        "adv_sim_drop": 0.013255402445793152,
+        "clean_margin_drop": 0.0315513014793396,
+        "clean_sim_drop": 0.08115321397781372,
+        "synergy_increment": -0.06789781153202057,
+        "total": 0.03597812354564667
+      }
+    ],
+    "optimizer_steps_this_step": 1,
+    "parameter_delta_l2": 0.00697668050098983,
+    "parameter_delta_max_abs": 0.00021880585700273514,
+    "reward_delta_same_text": [
+      -0.01247929036617279,
+      -0.01247929036617279
+    ],
+    "row_id": "cuhk:21540:0",
+    "sampled_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "sampled_reward": {
+      "R_rank": 0.014845728874206543,
+      "R_sim": 0.008653104305267334,
+      "adv_sim_drop": 0.008653104305267334,
+      "clean_margin_drop": 0.0315513014793396,
+      "clean_sim_drop": 0.08115321397781372,
+      "synergy_increment": -0.07250010967254639,
+      "total": 0.023498833179473877
+    },
+    "sequence_log_prob": -0.7762819528579712,
+    "step": 20486,
+    "text_feature_numeric_sha256": "d28bb8f1cdbd12d8d9968d48ccae89ad8876c065904e4cdbf07d87c3d0c159ff",
+    "token_sha256": "765578ecc35fbdd72271aa2f028960d034f375200e9be8f67f00915417da97e0",
+    "sampled_action": {
+      "original": "The woman is wearing a black jacket, a pink top and black pants.  She is also wearing black boots and carrying a large white bag on her right shoulder.",
+      "adversarial": "The wоman is wearing a black jacket, a pink top and black pants.  She is also wearing black boots and carrying a large white bаg on her right shoulder.",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "09c5a1520d173efb19948b0a",
+        "c4e952adca1844b295658af7"
+      ],
+      "edits": [
+        {
+          "attribute_id": "09c5a1520d173efb19948b0a",
+          "canonical_value": "female",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 5,
+          "position": 5,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "gender",
+          "source_raw": "woman",
+          "source_span": [
+            4,
+            9
+          ]
+        },
+        {
+          "attribute_id": "c4e952adca1844b295658af7",
+          "canonical_value": "yes",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 126,
+          "position": 126,
+          "position_in_attribute": 1,
+          "region": "carried",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "bag",
+          "source_raw": "bag",
+          "source_span": [
+            125,
+            128
+          ]
+        }
+      ]
+    },
+    "greedy_action": {
+      "original": "The woman is wearing a black jacket, a pink top and black pants.  She is also wearing black boots and carrying a large white bag on her right shoulder.",
+      "adversarial": "The wоman is wearing a black jacket, a pink top and black pants.  She is also wearing black boots and carrying a large white bаg on her right shoulder.",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "09c5a1520d173efb19948b0a",
+        "c4e952adca1844b295658af7"
+      ],
+      "edits": [
+        {
+          "attribute_id": "09c5a1520d173efb19948b0a",
+          "canonical_value": "female",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 5,
+          "position": 5,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "gender",
+          "source_raw": "woman",
+          "source_span": [
+            4,
+            9
+          ]
+        },
+        {
+          "attribute_id": "c4e952adca1844b295658af7",
+          "canonical_value": "yes",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 126,
+          "position": 126,
+          "position_in_attribute": 1,
+          "region": "carried",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "bag",
+          "source_raw": "bag",
+          "source_span": [
+            125,
+            128
+          ]
+        }
+      ]
+    },
+    "sampled_action_original_JSON_sha256": "d87882a75898b5b09d83d0e7ded588110253863ef83598fe78e919fbf3eda759",
+    "advantage_delta_old_to_new_bank": 0.0
+  },
+  {
+    "round": "A1-r1",
+    "G_calls": 0,
+    "H_state_sha256_after": "865a3f9440c1a9e37478d4de3d46fe4085ba1fc6ba5487575801e4cd584d1ab5",
+    "H_state_sha256_before": "b75e1beedd068aa2341bf7296cb092a3622416c5393502d7b7947e1c62067672",
+    "IRRA_image_calls": 0,
+    "IRRA_text_calls": 1,
+    "IRRA_text_samples": 3,
+    "K": 2,
+    "SCST_loss": 0.0,
+    "advantage": 0.0,
+    "bank_sha256": "4377f24fb586dc5c987040ad6289cb68752ea2410ec036f9c63e5c47140a7a6f",
+    "gradient_norm": 0.0,
+    "greedy_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "greedy_reward": {
+      "R_rank": -0.04919049143791199,
+      "R_sim": -0.07321971654891968,
+      "adv_sim_drop": -0.07321971654891968,
+      "clean_margin_drop": -0.0024576187133789062,
+      "clean_sim_drop": 0.02544379234313965,
+      "synergy_increment": -0.09866350889205933,
+      "total": -0.12241020798683167
+    },
+    "group_gradient_norm": {
+      "attribute_head": 0.0,
+      "byte_embedding": 0.0,
+      "encoder": 0.0,
+      "position_head": 0.0,
+      "replacement_head": 0.0
+    },
+    "old_bank_same_text_rewards": [
+      {
+        "R_rank": -0.043129414319992065,
+        "R_sim": -0.06765803694725037,
+        "adv_sim_drop": -0.06765803694725037,
+        "clean_margin_drop": -0.0024576187133789062,
+        "clean_sim_drop": 0.02544379234313965,
+        "synergy_increment": -0.09310182929039001,
+        "total": -0.11078745126724243
+      },
+      {
+        "R_rank": -0.043129414319992065,
+        "R_sim": -0.06765803694725037,
+        "adv_sim_drop": -0.06765803694725037,
+        "clean_margin_drop": -0.0024576187133789062,
+        "clean_sim_drop": 0.02544379234313965,
+        "synergy_increment": -0.09310182929039001,
+        "total": -0.11078745126724243
+      }
+    ],
+    "optimizer_steps_this_step": 1,
+    "parameter_delta_l2": 0.006282145681134924,
+    "parameter_delta_max_abs": 0.00019702385179698467,
+    "reward_delta_same_text": [
+      -0.011622756719589233,
+      -0.011622756719589233
+    ],
+    "row_id": "cuhk:3127:0",
+    "sampled_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "sampled_reward": {
+      "R_rank": -0.04919049143791199,
+      "R_sim": -0.07321971654891968,
+      "adv_sim_drop": -0.07321971654891968,
+      "clean_margin_drop": -0.0024576187133789062,
+      "clean_sim_drop": 0.02544379234313965,
+      "synergy_increment": -0.09866350889205933,
+      "total": -0.12241020798683167
+    },
+    "sequence_log_prob": -1.5093530416488647,
+    "step": 20487,
+    "text_feature_numeric_sha256": "339f88f1650d174d26b1719556d65ad69c64e898feef12ac2890230d379ccbc0",
+    "token_sha256": "38ecc9251c6c7d7f85cf6eb76de93277abd72e5ad2d8400c98362ae5670bd27e",
+    "sampled_action": {
+      "original": "the person pictured is wearing a white and black shirt with black pants. the person has a strap over there shoulder and wearing light colored shoes.",
+      "adversarial": "the person pictured is wearing a white and black shіrt with black pаnts. the person has a strap over there shoulder and wearing light colored shoes.",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "a73f390e813a859e28f090dd",
+        "5dac2d810cd821a57c10617e"
+      ],
+      "edits": [
+        {
+          "attribute_id": "a73f390e813a859e28f090dd",
+          "canonical_value": "pants_trousers",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 67,
+          "position": 67,
+          "position_in_attribute": 1,
+          "region": "lower",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "garment_type",
+          "source_raw": "pants",
+          "source_span": [
+            66,
+            71
+          ]
+        },
+        {
+          "attribute_id": "5dac2d810cd821a57c10617e",
+          "canonical_value": "shirt",
+          "original_char": "i",
+          "original_codepoint": "U+0069",
+          "original_utf8_offset": 51,
+          "position": 51,
+          "position_in_attribute": 2,
+          "region": "upper",
+          "replacement_char": "і",
+          "replacement_codepoint": "U+0456",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I",
+          "semantic_axis": "garment_type",
+          "source_raw": "shirt",
+          "source_span": [
+            49,
+            54
+          ]
+        }
+      ]
+    },
+    "greedy_action": {
+      "original": "the person pictured is wearing a white and black shirt with black pants. the person has a strap over there shoulder and wearing light colored shoes.",
+      "adversarial": "the person pictured is wearing a white and black shіrt with black pаnts. the person has a strap over there shoulder and wearing light colored shoes.",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "a73f390e813a859e28f090dd",
+        "5dac2d810cd821a57c10617e"
+      ],
+      "edits": [
+        {
+          "attribute_id": "a73f390e813a859e28f090dd",
+          "canonical_value": "pants_trousers",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 67,
+          "position": 67,
+          "position_in_attribute": 1,
+          "region": "lower",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "garment_type",
+          "source_raw": "pants",
+          "source_span": [
+            66,
+            71
+          ]
+        },
+        {
+          "attribute_id": "5dac2d810cd821a57c10617e",
+          "canonical_value": "shirt",
+          "original_char": "i",
+          "original_codepoint": "U+0069",
+          "original_utf8_offset": 51,
+          "position": 51,
+          "position_in_attribute": 2,
+          "region": "upper",
+          "replacement_char": "і",
+          "replacement_codepoint": "U+0456",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I",
+          "semantic_axis": "garment_type",
+          "source_raw": "shirt",
+          "source_span": [
+            49,
+            54
+          ]
+        }
+      ]
+    },
+    "sampled_action_original_JSON_sha256": "e275057ad6d588678cb9698821e1ea2e5e3370a93a3970340bc6ad1a4f83088b",
+    "advantage_delta_old_to_new_bank": 0.0
+  },
+  {
+    "round": "A1-r1",
+    "G_calls": 0,
+    "H_state_sha256_after": "c01d6e292cca6ecaf6f2c7536bb219b9a242a26184affb6128f70311e96e6051",
+    "H_state_sha256_before": "865a3f9440c1a9e37478d4de3d46fe4085ba1fc6ba5487575801e4cd584d1ab5",
+    "IRRA_image_calls": 0,
+    "IRRA_text_calls": 1,
+    "IRRA_text_samples": 3,
+    "K": 2,
+    "SCST_loss": 0.0,
+    "advantage": 0.0,
+    "bank_sha256": "4377f24fb586dc5c987040ad6289cb68752ea2410ec036f9c63e5c47140a7a6f",
+    "gradient_norm": 0.0,
+    "greedy_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "greedy_reward": {
+      "R_rank": 0.023578017950057983,
+      "R_sim": 0.04482153058052063,
+      "adv_sim_drop": 0.04482153058052063,
+      "clean_margin_drop": 0.053723424673080444,
+      "clean_sim_drop": 0.05117043852806091,
+      "synergy_increment": -0.006348907947540283,
+      "total": 0.06839954853057861
+    },
+    "group_gradient_norm": {
+      "attribute_head": 0.0,
+      "byte_embedding": 0.0,
+      "encoder": 0.0,
+      "position_head": 0.0,
+      "replacement_head": 0.0
+    },
+    "old_bank_same_text_rewards": [
+      {
+        "R_rank": 0.02265763282775879,
+        "R_sim": 0.04644593596458435,
+        "adv_sim_drop": 0.04644593596458435,
+        "clean_margin_drop": 0.053723424673080444,
+        "clean_sim_drop": 0.05117043852806091,
+        "synergy_increment": -0.0047245025634765625,
+        "total": 0.06910356879234314
+      },
+      {
+        "R_rank": 0.02265763282775879,
+        "R_sim": 0.04644593596458435,
+        "adv_sim_drop": 0.04644593596458435,
+        "clean_margin_drop": 0.053723424673080444,
+        "clean_sim_drop": 0.05117043852806091,
+        "synergy_increment": -0.0047245025634765625,
+        "total": 0.06910356879234314
+      }
+    ],
+    "optimizer_steps_this_step": 1,
+    "parameter_delta_l2": 0.0056567671763164875,
+    "parameter_delta_max_abs": 0.0001774101983755827,
+    "reward_delta_same_text": [
+      -0.0007040202617645264,
+      -0.0007040202617645264
+    ],
+    "row_id": "cuhk:8385:0",
+    "sampled_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "sampled_reward": {
+      "R_rank": 0.023578017950057983,
+      "R_sim": 0.04482153058052063,
+      "adv_sim_drop": 0.04482153058052063,
+      "clean_margin_drop": 0.053723424673080444,
+      "clean_sim_drop": 0.05117043852806091,
+      "synergy_increment": -0.006348907947540283,
+      "total": 0.06839954853057861
+    },
+    "sequence_log_prob": -0.5817492008209229,
+    "step": 20488,
+    "text_feature_numeric_sha256": "a1fd1e14527629511c344dbcf5e301f943397d5dfde6681fecee64ce8bd040d4",
+    "token_sha256": "4227076763fa0fa0a91eb725adef19b1ec8f26fc220a6e8a6639c8fe69c58f1a",
+    "sampled_action": {
+      "original": "This woman has short hair and is wearing a plaid jacket, a beaded necklace, a white skirt with a print and white sandals.",
+      "adversarial": "This wоman has shоrt hair and is wearing a plaid jacket, a beaded necklace, a white skirt with a print and white sandals.",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "0d7eddcefd2d7e2cc999892e",
+        "101863116b8d91dec665e2da"
+      ],
+      "edits": [
+        {
+          "attribute_id": "0d7eddcefd2d7e2cc999892e",
+          "canonical_value": "female",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 6,
+          "position": 6,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "gender",
+          "source_raw": "woman",
+          "source_span": [
+            5,
+            10
+          ]
+        },
+        {
+          "attribute_id": "101863116b8d91dec665e2da",
+          "canonical_value": "short",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 17,
+          "position": 17,
+          "position_in_attribute": 2,
+          "region": "head",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "hair_length",
+          "source_raw": "short hair",
+          "source_span": [
+            15,
+            25
+          ]
+        }
+      ]
+    },
+    "greedy_action": {
+      "original": "This woman has short hair and is wearing a plaid jacket, a beaded necklace, a white skirt with a print and white sandals.",
+      "adversarial": "This wоman has shоrt hair and is wearing a plaid jacket, a beaded necklace, a white skirt with a print and white sandals.",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "0d7eddcefd2d7e2cc999892e",
+        "101863116b8d91dec665e2da"
+      ],
+      "edits": [
+        {
+          "attribute_id": "0d7eddcefd2d7e2cc999892e",
+          "canonical_value": "female",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 6,
+          "position": 6,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "gender",
+          "source_raw": "woman",
+          "source_span": [
+            5,
+            10
+          ]
+        },
+        {
+          "attribute_id": "101863116b8d91dec665e2da",
+          "canonical_value": "short",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 17,
+          "position": 17,
+          "position_in_attribute": 2,
+          "region": "head",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "hair_length",
+          "source_raw": "short hair",
+          "source_span": [
+            15,
+            25
+          ]
+        }
+      ]
+    },
+    "sampled_action_original_JSON_sha256": "cd50daa7b3a0bc660d5a7cbef9b3de43d6a675994aa941212da0dcd5a4909d4b",
+    "advantage_delta_old_to_new_bank": 0.0
+  },
+  {
+    "round": "A1-r2",
+    "IRRA_text_samples": 0,
+    "fixed_NOOP": true,
+    "optimizer_steps_this_step": 0,
+    "row_id": "cuhk:26530:0"
+  },
+  {
+    "round": "A1-r2",
+    "G_calls": 0,
+    "H_state_sha256_after": "7f471eca0c95e9e20b7af23749b670782fba84b51f2cf5f5005e753a2af63839",
+    "H_state_sha256_before": "c01d6e292cca6ecaf6f2c7536bb219b9a242a26184affb6128f70311e96e6051",
+    "IRRA_image_calls": 0,
+    "IRRA_text_calls": 1,
+    "IRRA_text_samples": 3,
+    "K": 1,
+    "SCST_loss": 0.0,
+    "advantage": 0.0,
+    "bank_sha256": "a5f5944be29f56f266ce91db8be337edc2b759f2feb5a4ac7c5e764e84b7f7b1",
+    "gradient_norm": 0.0,
+    "greedy_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 1,
+      "edits": 1,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 1
+    },
+    "greedy_reward": {
+      "R_rank": -0.011454403400421143,
+      "R_sim": -0.01874440908432007,
+      "adv_sim_drop": -0.01874440908432007,
+      "clean_margin_drop": -0.0029292702674865723,
+      "clean_sim_drop": -0.017873823642730713,
+      "synergy_increment": -0.0008705854415893555,
+      "total": -0.03019881248474121
+    },
+    "group_gradient_norm": {
+      "attribute_head": 0.0,
+      "byte_embedding": 0.0,
+      "encoder": 0.0,
+      "position_head": 0.0,
+      "replacement_head": 0.0
+    },
+    "old_bank_same_text_rewards": [
+      {
+        "R_rank": -0.012126386165618896,
+        "R_sim": -0.01892721652984619,
+        "adv_sim_drop": -0.01892721652984619,
+        "clean_margin_drop": -0.0029292702674865723,
+        "clean_sim_drop": -0.017873823642730713,
+        "synergy_increment": -0.0010533928871154785,
+        "total": -0.031053602695465088
+      },
+      {
+        "R_rank": -0.012126386165618896,
+        "R_sim": -0.01892721652984619,
+        "adv_sim_drop": -0.01892721652984619,
+        "clean_margin_drop": -0.0029292702674865723,
+        "clean_sim_drop": -0.017873823642730713,
+        "synergy_increment": -0.0010533928871154785,
+        "total": -0.031053602695465088
+      }
+    ],
+    "optimizer_steps_this_step": 1,
+    "parameter_delta_l2": 0.0050936398633918125,
+    "parameter_delta_max_abs": 0.00015974906273186207,
+    "reward_delta_same_text": [
+      0.000854790210723877,
+      0.000854790210723877
+    ],
+    "row_id": "cuhk:26747:0",
+    "sampled_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 1,
+      "edits": 1,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 1
+    },
+    "sampled_reward": {
+      "R_rank": -0.011454403400421143,
+      "R_sim": -0.01874440908432007,
+      "adv_sim_drop": -0.01874440908432007,
+      "clean_margin_drop": -0.0029292702674865723,
+      "clean_sim_drop": -0.017873823642730713,
+      "synergy_increment": -0.0008705854415893555,
+      "total": -0.03019881248474121
+    },
+    "sequence_log_prob": -0.0005038914969190955,
+    "step": 20490,
+    "text_feature_numeric_sha256": "b8e649040859152f7f18c52b995297939b73b855e2cf4bbe5eec31130512a12f",
+    "token_sha256": "746cd1a050c2289b040bf97b3f7a95748293da5f5dadd529f0edac010e933f40",
+    "sampled_action": {
+      "original": "A man wearing a red and white cheerleader outfit is wearing a blond wig and has his arms up in the air",
+      "adversarial": "A mаn wearing a red and white cheerleader outfit is wearing a blond wig and has his arms up in the air",
+      "budget_k": 1,
+      "selected_attribute_ids": [
+        "a19834c40e72bf5597661d76"
+      ],
+      "edits": [
+        {
+          "attribute_id": "a19834c40e72bf5597661d76",
+          "canonical_value": "male",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 3,
+          "position": 3,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "gender",
+          "source_raw": "man",
+          "source_span": [
+            2,
+            5
+          ]
+        }
+      ]
+    },
+    "greedy_action": {
+      "original": "A man wearing a red and white cheerleader outfit is wearing a blond wig and has his arms up in the air",
+      "adversarial": "A mаn wearing a red and white cheerleader outfit is wearing a blond wig and has his arms up in the air",
+      "budget_k": 1,
+      "selected_attribute_ids": [
+        "a19834c40e72bf5597661d76"
+      ],
+      "edits": [
+        {
+          "attribute_id": "a19834c40e72bf5597661d76",
+          "canonical_value": "male",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 3,
+          "position": 3,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "gender",
+          "source_raw": "man",
+          "source_span": [
+            2,
+            5
+          ]
+        }
+      ]
+    },
+    "sampled_action_original_JSON_sha256": "49d42d2d4d410b2c093d0c751557584d4ead15a00a6ddb7b562a667385f015bd",
+    "advantage_delta_old_to_new_bank": 0.0
+  },
+  {
+    "round": "A1-r2",
+    "G_calls": 0,
+    "H_state_sha256_after": "3396b8d7b6679dbe3668209bc771a35b039b075a81b564a69de8effbb3bb7936",
+    "H_state_sha256_before": "7f471eca0c95e9e20b7af23749b670782fba84b51f2cf5f5005e753a2af63839",
+    "IRRA_image_calls": 0,
+    "IRRA_text_calls": 1,
+    "IRRA_text_samples": 3,
+    "K": 3,
+    "SCST_loss": 0.11643364280462265,
+    "advantage": 0.043466463685035706,
+    "bank_sha256": "a5f5944be29f56f266ce91db8be337edc2b759f2feb5a4ac7c5e764e84b7f7b1",
+    "gradient_norm": 0.4442439468938,
+    "greedy_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 3,
+      "edits": 3,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 3
+    },
+    "greedy_reward": {
+      "R_rank": -0.025370359420776367,
+      "R_sim": -0.030964374542236328,
+      "adv_sim_drop": -0.030964374542236328,
+      "clean_margin_drop": 0.15351498126983643,
+      "clean_sim_drop": 0.07850432395935059,
+      "synergy_increment": -0.10946869850158691,
+      "total": -0.056334733963012695
+    },
+    "group_gradient_norm": {
+      "attribute_head": 0.26148997681821934,
+      "byte_embedding": 0.021409000258952517,
+      "encoder": 0.33047782945133697,
+      "position_head": 0.1269796972292395,
+      "replacement_head": 0.0065550156950232395
+    },
+    "old_bank_same_text_rewards": [
+      {
+        "R_rank": -0.002699926495552063,
+        "R_sim": -0.011339128017425537,
+        "adv_sim_drop": -0.011339128017425537,
+        "clean_margin_drop": 0.0884319543838501,
+        "clean_sim_drop": 0.025884956121444702,
+        "synergy_increment": -0.03722408413887024,
+        "total": -0.0140390545129776
+      },
+      {
+        "R_rank": -0.027617856860160828,
+        "R_sim": -0.0242997407913208,
+        "adv_sim_drop": -0.0242997407913208,
+        "clean_margin_drop": 0.15351498126983643,
+        "clean_sim_drop": 0.07850432395935059,
+        "synergy_increment": -0.10280406475067139,
+        "total": -0.05191759765148163
+      }
+    ],
+    "optimizer_steps_this_step": 1,
+    "parameter_delta_l2": 0.005055358337465017,
+    "parameter_delta_max_abs": 0.00020563602447509766,
+    "reward_delta_same_text": [
+      0.0011707842350006104,
+      -0.004417136311531067
+    ],
+    "row_id": "cuhk:12746:0",
+    "sampled_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 3,
+      "edits": 3,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 3
+    },
+    "sampled_reward": {
+      "R_rank": 0.0026000291109085083,
+      "R_sim": -0.015468299388885498,
+      "adv_sim_drop": -0.015468299388885498,
+      "clean_margin_drop": 0.0884319543838501,
+      "clean_sim_drop": 0.025884956121444702,
+      "synergy_increment": -0.0413532555103302,
+      "total": -0.01286827027797699
+    },
+    "sequence_log_prob": -2.6787006855010986,
+    "step": 20491,
+    "text_feature_numeric_sha256": "a76257d0d073dd72a5d7b3a54773f817399b4d87c9ec7fe5bc4ead0cd11f53ef",
+    "token_sha256": "64a11fef4ae43dcb86e2d5ae7c73f2981890e88c528897dd91129538fb72d93d",
+    "sampled_action": {
+      "original": "The boy is on an escalator. He is wearing a blue denim backpack, black  shirt, and tan chinos.",
+      "adversarial": "The bоy is on an escalator. He is wearing a blue denim bаckpack, blаck  shirt, and tan chinos.",
+      "budget_k": 3,
+      "selected_attribute_ids": [
+        "dfdf8b544654cc57d3f81359",
+        "02d3dbaa72132d56d7a819ae",
+        "0cded23b0851e6a78eff2ede"
+      ],
+      "edits": [
+        {
+          "attribute_id": "dfdf8b544654cc57d3f81359",
+          "canonical_value": "yes",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 56,
+          "position": 56,
+          "position_in_attribute": 1,
+          "region": "carried",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "backpack",
+          "source_raw": "backpack",
+          "source_span": [
+            55,
+            63
+          ]
+        },
+        {
+          "attribute_id": "02d3dbaa72132d56d7a819ae",
+          "canonical_value": "male",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 5,
+          "position": 5,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "gender",
+          "source_raw": "boy",
+          "source_span": [
+            4,
+            7
+          ]
+        },
+        {
+          "attribute_id": "0cded23b0851e6a78eff2ede",
+          "canonical_value": "black",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 67,
+          "position": 67,
+          "position_in_attribute": 2,
+          "region": "upper",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "color",
+          "source_raw": "black",
+          "source_span": [
+            65,
+            70
+          ]
+        }
+      ]
+    },
+    "greedy_action": {
+      "original": "The boy is on an escalator. He is wearing a blue denim backpack, black  shirt, and tan chinos.",
+      "adversarial": "The bоy is on an escalator. He is wearing a blue denim backpаck, blаck  shirt, and tan chinos.",
+      "budget_k": 3,
+      "selected_attribute_ids": [
+        "dfdf8b544654cc57d3f81359",
+        "02d3dbaa72132d56d7a819ae",
+        "0cded23b0851e6a78eff2ede"
+      ],
+      "edits": [
+        {
+          "attribute_id": "dfdf8b544654cc57d3f81359",
+          "canonical_value": "yes",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 60,
+          "position": 60,
+          "position_in_attribute": 5,
+          "region": "carried",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "backpack",
+          "source_raw": "backpack",
+          "source_span": [
+            55,
+            63
+          ]
+        },
+        {
+          "attribute_id": "02d3dbaa72132d56d7a819ae",
+          "canonical_value": "male",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 5,
+          "position": 5,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "gender",
+          "source_raw": "boy",
+          "source_span": [
+            4,
+            7
+          ]
+        },
+        {
+          "attribute_id": "0cded23b0851e6a78eff2ede",
+          "canonical_value": "black",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 67,
+          "position": 67,
+          "position_in_attribute": 2,
+          "region": "upper",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "color",
+          "source_raw": "black",
+          "source_span": [
+            65,
+            70
+          ]
+        }
+      ]
+    },
+    "sampled_action_original_JSON_sha256": "bfb76ad8d9fa1cacfb9bbf49fbf60aad8a6c1361047ad4fa6e79a032fd5c80ee",
+    "advantage_delta_old_to_new_bank": 0.005587920546531677
+  },
+  {
+    "round": "A1-r2",
+    "G_calls": 0,
+    "H_state_sha256_after": "86aaf97e9abda7b3cc22f9f2e6a0587678f2657899666b0cd8329374561a6cd7",
+    "H_state_sha256_before": "3396b8d7b6679dbe3668209bc771a35b039b075a81b564a69de8effbb3bb7936",
+    "IRRA_image_calls": 0,
+    "IRRA_text_calls": 1,
+    "IRRA_text_samples": 3,
+    "K": 2,
+    "SCST_loss": 0.0,
+    "advantage": 0.0,
+    "bank_sha256": "a5f5944be29f56f266ce91db8be337edc2b759f2feb5a4ac7c5e764e84b7f7b1",
+    "gradient_norm": 0.0,
+    "greedy_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "greedy_reward": {
+      "R_rank": 0.003784090280532837,
+      "R_sim": -0.013376250863075256,
+      "adv_sim_drop": -0.013376250863075256,
+      "clean_margin_drop": 0.049511730670928955,
+      "clean_sim_drop": 0.02487623691558838,
+      "synergy_increment": -0.038252487778663635,
+      "total": -0.00959216058254242
+    },
+    "group_gradient_norm": {
+      "attribute_head": 0.0,
+      "byte_embedding": 0.0,
+      "encoder": 0.0,
+      "position_head": 0.0,
+      "replacement_head": 0.0
+    },
+    "old_bank_same_text_rewards": [
+      {
+        "R_rank": 0.002959340810775757,
+        "R_sim": -0.01077447459101677,
+        "adv_sim_drop": -0.01077447459101677,
+        "clean_margin_drop": 0.049511730670928955,
+        "clean_sim_drop": 0.02487623691558838,
+        "synergy_increment": -0.03565071150660515,
+        "total": -0.007815133780241013
+      },
+      {
+        "R_rank": 0.002959340810775757,
+        "R_sim": -0.01077447459101677,
+        "adv_sim_drop": -0.01077447459101677,
+        "clean_margin_drop": 0.049511730670928955,
+        "clean_sim_drop": 0.02487623691558838,
+        "synergy_increment": -0.03565071150660515,
+        "total": -0.007815133780241013
+      }
+    ],
+    "optimizer_steps_this_step": 1,
+    "parameter_delta_l2": 0.004552094942394009,
+    "parameter_delta_max_abs": 0.00018519163131713867,
+    "reward_delta_same_text": [
+      -0.0017770268023014069,
+      -0.0017770268023014069
+    ],
+    "row_id": "cuhk:9955:0",
+    "sampled_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "sampled_reward": {
+      "R_rank": 0.003784090280532837,
+      "R_sim": -0.013376250863075256,
+      "adv_sim_drop": -0.013376250863075256,
+      "clean_margin_drop": 0.049511730670928955,
+      "clean_sim_drop": 0.02487623691558838,
+      "synergy_increment": -0.038252487778663635,
+      "total": -0.00959216058254242
+    },
+    "sequence_log_prob": -0.20266222953796387,
+    "step": 20492,
+    "text_feature_numeric_sha256": "840a8e3656f58fcf36a889503c3637b8cd7bd95268b0ea16e682d6d1c49078ad",
+    "token_sha256": "b323e69878d720c0e829280d593506bf4939157c65e714346cb57cacbd39ac6e",
+    "sampled_action": {
+      "original": "He has  short  black hair  and  is  wearing  a  black shirt . He is  also  wearing white  pants  .",
+      "adversarial": "Hе has  shоrt  black hair  and  is  wearing  a  black shirt . He is  also  wearing white  pants  .",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "5143b71b1ce115bc122e3746",
+        "13d375cc76b287c91dd3bd36"
+      ],
+      "edits": [
+        {
+          "attribute_id": "5143b71b1ce115bc122e3746",
+          "canonical_value": "male",
+          "original_char": "e",
+          "original_codepoint": "U+0065",
+          "original_utf8_offset": 1,
+          "position": 1,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "е",
+          "replacement_codepoint": "U+0435",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER IE",
+          "semantic_axis": "gender",
+          "source_raw": "He",
+          "source_span": [
+            0,
+            2
+          ]
+        },
+        {
+          "attribute_id": "13d375cc76b287c91dd3bd36",
+          "canonical_value": "short",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 10,
+          "position": 10,
+          "position_in_attribute": 2,
+          "region": "head",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "hair_length",
+          "source_raw": "short",
+          "source_span": [
+            8,
+            13
+          ]
+        }
+      ]
+    },
+    "greedy_action": {
+      "original": "He has  short  black hair  and  is  wearing  a  black shirt . He is  also  wearing white  pants  .",
+      "adversarial": "Hе has  shоrt  black hair  and  is  wearing  a  black shirt . He is  also  wearing white  pants  .",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "5143b71b1ce115bc122e3746",
+        "13d375cc76b287c91dd3bd36"
+      ],
+      "edits": [
+        {
+          "attribute_id": "5143b71b1ce115bc122e3746",
+          "canonical_value": "male",
+          "original_char": "e",
+          "original_codepoint": "U+0065",
+          "original_utf8_offset": 1,
+          "position": 1,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "е",
+          "replacement_codepoint": "U+0435",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER IE",
+          "semantic_axis": "gender",
+          "source_raw": "He",
+          "source_span": [
+            0,
+            2
+          ]
+        },
+        {
+          "attribute_id": "13d375cc76b287c91dd3bd36",
+          "canonical_value": "short",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 10,
+          "position": 10,
+          "position_in_attribute": 2,
+          "region": "head",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "hair_length",
+          "source_raw": "short",
+          "source_span": [
+            8,
+            13
+          ]
+        }
+      ]
+    },
+    "sampled_action_original_JSON_sha256": "f79bfdf66bb5ae5ba3e3d202ae66ada26130a6f6ba9c98d7ce6291fc9db17889",
+    "advantage_delta_old_to_new_bank": 0.0
+  },
+  {
+    "round": "A1-r2",
+    "G_calls": 0,
+    "H_state_sha256_after": "f022e0e742567181c0162d14e1acfeb1722e8890b7ad7a203004d310f7e4a7b4",
+    "H_state_sha256_before": "86aaf97e9abda7b3cc22f9f2e6a0587678f2657899666b0cd8329374561a6cd7",
+    "IRRA_image_calls": 0,
+    "IRRA_text_calls": 1,
+    "IRRA_text_samples": 3,
+    "K": 3,
+    "SCST_loss": 0.3978862166404724,
+    "advantage": 0.05553019046783447,
+    "bank_sha256": "a5f5944be29f56f266ce91db8be337edc2b759f2feb5a4ac7c5e764e84b7f7b1",
+    "gradient_norm": 1.1717056296763697,
+    "greedy_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 3,
+      "edits": 3,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 3
+    },
+    "greedy_reward": {
+      "R_rank": -0.014526903629302979,
+      "R_sim": -0.01754794269800186,
+      "adv_sim_drop": -0.01754794269800186,
+      "clean_margin_drop": -0.00054207444190979,
+      "clean_sim_drop": -0.018671810626983643,
+      "synergy_increment": 0.001123867928981781,
+      "total": -0.03207484632730484
+    },
+    "group_gradient_norm": {
+      "attribute_head": 0.6559887481850815,
+      "byte_embedding": 0.11407388189712173,
+      "encoder": 0.8608462996544332,
+      "position_head": 0.4124920454610965,
+      "replacement_head": 0.0
+    },
+    "old_bank_same_text_rewards": [
+      {
+        "R_rank": 0.013414904475212097,
+        "R_sim": 0.0015669018030166626,
+        "adv_sim_drop": 0.0015669018030166626,
+        "clean_margin_drop": 0.020944297313690186,
+        "clean_sim_drop": 0.002337336540222168,
+        "synergy_increment": -0.0007704347372055054,
+        "total": 0.01498180627822876
+      },
+      {
+        "R_rank": -0.012064129114151001,
+        "R_sim": -0.01870560646057129,
+        "adv_sim_drop": -0.01870560646057129,
+        "clean_margin_drop": -0.00054207444190979,
+        "clean_sim_drop": -0.018671810626983643,
+        "synergy_increment": -3.3795833587646484e-05,
+        "total": -0.03076973557472229
+      }
+    ],
+    "optimizer_steps_this_step": 1,
+    "parameter_delta_l2": 0.009029728493687644,
+    "parameter_delta_max_abs": 0.00031632184982299805,
+    "reward_delta_same_text": [
+      0.008473537862300873,
+      -0.00130511075258255
+    ],
+    "row_id": "cuhk:29253:0",
+    "sampled_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 3,
+      "edits": 3,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 3
+    },
+    "sampled_reward": {
+      "R_rank": 0.02017386257648468,
+      "R_sim": 0.0032814815640449524,
+      "adv_sim_drop": 0.0032814815640449524,
+      "clean_margin_drop": 0.020944297313690186,
+      "clean_sim_drop": 0.002337336540222168,
+      "synergy_increment": 0.0009441450238227844,
+      "total": 0.023455344140529633
+    },
+    "sequence_log_prob": -7.165223121643066,
+    "step": 20493,
+    "text_feature_numeric_sha256": "281dea8a7fb28e8e7b76b2dc43bd0ba32eb3260e13b40f589382be4b8d9afa83",
+    "token_sha256": "b0695a50e9c3696e0da52669e8ce808ad82599b187e2d320e796b806292873ae",
+    "sampled_action": {
+      "original": "The man is wearing black tennis shoes with grey socks and a pair of long black shorts that go past his knees. He is wearing a white tee-shirt with black graphics on the front and a plaid grey long-sleeved shirt. He has a backpack on his back.",
+      "adversarial": "The mаn is wearing black tennis shoes with grey socks and a pair of long black shorts that go past his knees. He is wearing a white teе-shirt with black graphics on the front and a plaid grey long-slеeved shirt. He has a backpack on his back.",
+      "budget_k": 3,
+      "selected_attribute_ids": [
+        "390d4818e2f12955a23893cb",
+        "3dbe7eebb0458cf3a90643f4",
+        "d84990a015cbfc414ea30400"
+      ],
+      "edits": [
+        {
+          "attribute_id": "390d4818e2f12955a23893cb",
+          "canonical_value": "male",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 5,
+          "position": 5,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "gender",
+          "source_raw": "man",
+          "source_span": [
+            4,
+            7
+          ]
+        },
+        {
+          "attribute_id": "3dbe7eebb0458cf3a90643f4",
+          "canonical_value": "t_shirt",
+          "original_char": "e",
+          "original_codepoint": "U+0065",
+          "original_utf8_offset": 134,
+          "position": 134,
+          "position_in_attribute": 2,
+          "region": "upper",
+          "replacement_char": "е",
+          "replacement_codepoint": "U+0435",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER IE",
+          "semantic_axis": "garment_type",
+          "source_raw": "tee",
+          "source_span": [
+            132,
+            135
+          ]
+        },
+        {
+          "attribute_id": "d84990a015cbfc414ea30400",
+          "canonical_value": "long",
+          "original_char": "e",
+          "original_codepoint": "U+0065",
+          "original_utf8_offset": 199,
+          "position": 199,
+          "position_in_attribute": 7,
+          "region": "upper",
+          "replacement_char": "е",
+          "replacement_codepoint": "U+0435",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER IE",
+          "semantic_axis": "sleeve_length",
+          "source_raw": "long-sleeved",
+          "source_span": [
+            192,
+            204
+          ]
+        }
+      ]
+    },
+    "greedy_action": {
+      "original": "The man is wearing black tennis shoes with grey socks and a pair of long black shorts that go past his knees. He is wearing a white tee-shirt with black graphics on the front and a plaid grey long-sleeved shirt. He has a backpack on his back.",
+      "adversarial": "The mаn is wearing black tennis shoes with grey socks and a pair of long black shorts that go past his knees. He is wearing a white tеe-shirt with black graphics on the front and a plaid grey lоng-sleeved shirt. He has a backpack on his back.",
+      "budget_k": 3,
+      "selected_attribute_ids": [
+        "390d4818e2f12955a23893cb",
+        "d84990a015cbfc414ea30400",
+        "3dbe7eebb0458cf3a90643f4"
+      ],
+      "edits": [
+        {
+          "attribute_id": "390d4818e2f12955a23893cb",
+          "canonical_value": "male",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 5,
+          "position": 5,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "gender",
+          "source_raw": "man",
+          "source_span": [
+            4,
+            7
+          ]
+        },
+        {
+          "attribute_id": "d84990a015cbfc414ea30400",
+          "canonical_value": "long",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 193,
+          "position": 193,
+          "position_in_attribute": 1,
+          "region": "upper",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "sleeve_length",
+          "source_raw": "long-sleeved",
+          "source_span": [
+            192,
+            204
+          ]
+        },
+        {
+          "attribute_id": "3dbe7eebb0458cf3a90643f4",
+          "canonical_value": "t_shirt",
+          "original_char": "e",
+          "original_codepoint": "U+0065",
+          "original_utf8_offset": 133,
+          "position": 133,
+          "position_in_attribute": 1,
+          "region": "upper",
+          "replacement_char": "е",
+          "replacement_codepoint": "U+0435",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER IE",
+          "semantic_axis": "garment_type",
+          "source_raw": "tee",
+          "source_span": [
+            132,
+            135
+          ]
+        }
+      ]
+    },
+    "sampled_action_original_JSON_sha256": "fb210d3f9247524d81bce19ac06c0beaba34363d90aefa70e415d72d64cd349d",
+    "advantage_delta_old_to_new_bank": 0.009778648614883423
+  },
+  {
+    "round": "A1-r2",
+    "G_calls": 0,
+    "H_state_sha256_after": "4e31be92c7de5e74d9fe1689c22d51f2dc001762b709847cd648077898964520",
+    "H_state_sha256_before": "f022e0e742567181c0162d14e1acfeb1722e8890b7ad7a203004d310f7e4a7b4",
+    "IRRA_image_calls": 0,
+    "IRRA_text_calls": 1,
+    "IRRA_text_samples": 3,
+    "K": 2,
+    "SCST_loss": 0.0,
+    "advantage": 0.0,
+    "bank_sha256": "a5f5944be29f56f266ce91db8be337edc2b759f2feb5a4ac7c5e764e84b7f7b1",
+    "gradient_norm": 0.0,
+    "greedy_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "greedy_reward": {
+      "R_rank": 0.01646241545677185,
+      "R_sim": 0.010911822319030762,
+      "adv_sim_drop": 0.010911822319030762,
+      "clean_margin_drop": 0.0315513014793396,
+      "clean_sim_drop": 0.08115321397781372,
+      "synergy_increment": -0.07024139165878296,
+      "total": 0.027374237775802612
+    },
+    "group_gradient_norm": {
+      "attribute_head": 0.0,
+      "byte_embedding": 0.0,
+      "encoder": 0.0,
+      "position_head": 0.0,
+      "replacement_head": 0.0
+    },
+    "old_bank_same_text_rewards": [
+      {
+        "R_rank": 0.014845728874206543,
+        "R_sim": 0.008653104305267334,
+        "adv_sim_drop": 0.008653104305267334,
+        "clean_margin_drop": 0.0315513014793396,
+        "clean_sim_drop": 0.08115321397781372,
+        "synergy_increment": -0.07250010967254639,
+        "total": 0.023498833179473877
+      },
+      {
+        "R_rank": 0.014845728874206543,
+        "R_sim": 0.008653104305267334,
+        "adv_sim_drop": 0.008653104305267334,
+        "clean_margin_drop": 0.0315513014793396,
+        "clean_sim_drop": 0.08115321397781372,
+        "synergy_increment": -0.07250010967254639,
+        "total": 0.023498833179473877
+      }
+    ],
+    "optimizer_steps_this_step": 1,
+    "parameter_delta_l2": 0.00813085642374694,
+    "parameter_delta_max_abs": 0.0002848505973815918,
+    "reward_delta_same_text": [
+      0.0038754045963287354,
+      0.0038754045963287354
+    ],
+    "row_id": "cuhk:21540:0",
+    "sampled_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "sampled_reward": {
+      "R_rank": 0.01646241545677185,
+      "R_sim": 0.010911822319030762,
+      "adv_sim_drop": 0.010911822319030762,
+      "clean_margin_drop": 0.0315513014793396,
+      "clean_sim_drop": 0.08115321397781372,
+      "synergy_increment": -0.07024139165878296,
+      "total": 0.027374237775802612
+    },
+    "sequence_log_prob": -0.769566535949707,
+    "step": 20494,
+    "text_feature_numeric_sha256": "d28bb8f1cdbd12d8d9968d48ccae89ad8876c065904e4cdbf07d87c3d0c159ff",
+    "token_sha256": "765578ecc35fbdd72271aa2f028960d034f375200e9be8f67f00915417da97e0",
+    "sampled_action": {
+      "original": "The woman is wearing a black jacket, a pink top and black pants.  She is also wearing black boots and carrying a large white bag on her right shoulder.",
+      "adversarial": "The wоman is wearing a black jacket, a pink top and black pants.  She is also wearing black boots and carrying a large white bаg on her right shoulder.",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "09c5a1520d173efb19948b0a",
+        "c4e952adca1844b295658af7"
+      ],
+      "edits": [
+        {
+          "attribute_id": "09c5a1520d173efb19948b0a",
+          "canonical_value": "female",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 5,
+          "position": 5,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "gender",
+          "source_raw": "woman",
+          "source_span": [
+            4,
+            9
+          ]
+        },
+        {
+          "attribute_id": "c4e952adca1844b295658af7",
+          "canonical_value": "yes",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 126,
+          "position": 126,
+          "position_in_attribute": 1,
+          "region": "carried",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "bag",
+          "source_raw": "bag",
+          "source_span": [
+            125,
+            128
+          ]
+        }
+      ]
+    },
+    "greedy_action": {
+      "original": "The woman is wearing a black jacket, a pink top and black pants.  She is also wearing black boots and carrying a large white bag on her right shoulder.",
+      "adversarial": "The wоman is wearing a black jacket, a pink top and black pants.  She is also wearing black boots and carrying a large white bаg on her right shoulder.",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "09c5a1520d173efb19948b0a",
+        "c4e952adca1844b295658af7"
+      ],
+      "edits": [
+        {
+          "attribute_id": "09c5a1520d173efb19948b0a",
+          "canonical_value": "female",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 5,
+          "position": 5,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "gender",
+          "source_raw": "woman",
+          "source_span": [
+            4,
+            9
+          ]
+        },
+        {
+          "attribute_id": "c4e952adca1844b295658af7",
+          "canonical_value": "yes",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 126,
+          "position": 126,
+          "position_in_attribute": 1,
+          "region": "carried",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "bag",
+          "source_raw": "bag",
+          "source_span": [
+            125,
+            128
+          ]
+        }
+      ]
+    },
+    "sampled_action_original_JSON_sha256": "c4f5e4282f8ebc16cf0a8c121649104c46511617cc32f3ef91bfbb4e051b1a67",
+    "advantage_delta_old_to_new_bank": 0.0
+  },
+  {
+    "round": "A1-r2",
+    "G_calls": 0,
+    "H_state_sha256_after": "562fa53cdefeb0329b75d79acb7de6d9c50df4f1b10667a2529f33ba825f456b",
+    "H_state_sha256_before": "4e31be92c7de5e74d9fe1689c22d51f2dc001762b709847cd648077898964520",
+    "IRRA_image_calls": 0,
+    "IRRA_text_calls": 1,
+    "IRRA_text_samples": 3,
+    "K": 2,
+    "SCST_loss": 0.04936366528272629,
+    "advantage": 0.026669681072235107,
+    "bank_sha256": "a5f5944be29f56f266ce91db8be337edc2b759f2feb5a4ac7c5e764e84b7f7b1",
+    "gradient_norm": 0.3929477121036915,
+    "greedy_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "greedy_reward": {
+      "R_rank": -0.05376806855201721,
+      "R_sim": -0.07675129175186157,
+      "adv_sim_drop": -0.07675129175186157,
+      "clean_margin_drop": -0.0024576187133789062,
+      "clean_sim_drop": 0.02544379234313965,
+      "synergy_increment": -0.10219508409500122,
+      "total": -0.13051936030387878
+    },
+    "group_gradient_norm": {
+      "attribute_head": 0.3392579582462068,
+      "byte_embedding": 0.02539700246821478,
+      "encoder": 0.1924047022816861,
+      "position_head": 0.0011185499922276851,
+      "replacement_head": 0.0
+    },
+    "old_bank_same_text_rewards": [
+      {
+        "R_rank": -0.045859575271606445,
+        "R_sim": -0.05365598201751709,
+        "adv_sim_drop": -0.05365598201751709,
+        "clean_margin_drop": 0.0033840537071228027,
+        "clean_sim_drop": -0.017426252365112305,
+        "synergy_increment": -0.036229729652404785,
+        "total": -0.09951555728912354
+      },
+      {
+        "R_rank": -0.04919049143791199,
+        "R_sim": -0.07321971654891968,
+        "adv_sim_drop": -0.07321971654891968,
+        "clean_margin_drop": -0.0024576187133789062,
+        "clean_sim_drop": 0.02544379234313965,
+        "synergy_increment": -0.09866350889205933,
+        "total": -0.12241020798683167
+      }
+    ],
+    "optimizer_steps_this_step": 1,
+    "parameter_delta_l2": 0.007446196371437628,
+    "parameter_delta_max_abs": 0.00025647878646850586,
+    "reward_delta_same_text": [
+      -0.004334121942520142,
+      -0.00810915231704712
+    ],
+    "row_id": "cuhk:3127:0",
+    "sampled_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "sampled_reward": {
+      "R_rank": -0.04762789607048035,
+      "R_sim": -0.05622178316116333,
+      "adv_sim_drop": -0.05622178316116333,
+      "clean_margin_drop": 0.0033840537071228027,
+      "clean_sim_drop": -0.017426252365112305,
+      "synergy_increment": -0.038795530796051025,
+      "total": -0.10384967923164368
+    },
+    "sequence_log_prob": -1.8509281873703003,
+    "step": 20495,
+    "text_feature_numeric_sha256": "0db1ccbdd92125f5f19e075a0b3fa5c41579bf3b68e776b9a23a67731b283c7f",
+    "token_sha256": "78175f81d52e275ad5f40e9cb97a460ec61c37f0a8b46088ae200d02e485277b",
+    "sampled_action": {
+      "original": "the person pictured is wearing a white and black shirt with black pants. the person has a strap over there shoulder and wearing light colored shoes.",
+      "adversarial": "the person pictured is wearing a white and black shirt with blаck pаnts. the person has a strap over there shoulder and wearing light colored shoes.",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "a73f390e813a859e28f090dd",
+        "ef7c20def11c18ec2a2f8c9b"
+      ],
+      "edits": [
+        {
+          "attribute_id": "a73f390e813a859e28f090dd",
+          "canonical_value": "pants_trousers",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 67,
+          "position": 67,
+          "position_in_attribute": 1,
+          "region": "lower",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "garment_type",
+          "source_raw": "pants",
+          "source_span": [
+            66,
+            71
+          ]
+        },
+        {
+          "attribute_id": "ef7c20def11c18ec2a2f8c9b",
+          "canonical_value": "black",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 62,
+          "position": 62,
+          "position_in_attribute": 2,
+          "region": "lower",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "color",
+          "source_raw": "black",
+          "source_span": [
+            60,
+            65
+          ]
+        }
+      ]
+    },
+    "greedy_action": {
+      "original": "the person pictured is wearing a white and black shirt with black pants. the person has a strap over there shoulder and wearing light colored shoes.",
+      "adversarial": "the person pictured is wearing a white and black shіrt with black pаnts. the person has a strap over there shoulder and wearing light colored shoes.",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "a73f390e813a859e28f090dd",
+        "5dac2d810cd821a57c10617e"
+      ],
+      "edits": [
+        {
+          "attribute_id": "a73f390e813a859e28f090dd",
+          "canonical_value": "pants_trousers",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 67,
+          "position": 67,
+          "position_in_attribute": 1,
+          "region": "lower",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "garment_type",
+          "source_raw": "pants",
+          "source_span": [
+            66,
+            71
+          ]
+        },
+        {
+          "attribute_id": "5dac2d810cd821a57c10617e",
+          "canonical_value": "shirt",
+          "original_char": "i",
+          "original_codepoint": "U+0069",
+          "original_utf8_offset": 51,
+          "position": 51,
+          "position_in_attribute": 2,
+          "region": "upper",
+          "replacement_char": "і",
+          "replacement_codepoint": "U+0456",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I",
+          "semantic_axis": "garment_type",
+          "source_raw": "shirt",
+          "source_span": [
+            49,
+            54
+          ]
+        }
+      ]
+    },
+    "sampled_action_original_JSON_sha256": "99fb60009318cbc609ea2ce9e94c34496055899df090cde527850a35ad58c647",
+    "advantage_delta_old_to_new_bank": 0.0037750303745269775
+  },
+  {
+    "round": "A1-r2",
+    "G_calls": 0,
+    "H_state_sha256_after": "fcf8cb458d68681b6091dcbfe20579bcce3c74dfe25e0e03d4c0052c17fd047e",
+    "H_state_sha256_before": "562fa53cdefeb0329b75d79acb7de6d9c50df4f1b10667a2529f33ba825f456b",
+    "IRRA_image_calls": 0,
+    "IRRA_text_calls": 1,
+    "IRRA_text_samples": 3,
+    "K": 2,
+    "SCST_loss": 0.08916128426790237,
+    "advantage": 0.056240975856781006,
+    "bank_sha256": "a5f5944be29f56f266ce91db8be337edc2b759f2feb5a4ac7c5e764e84b7f7b1",
+    "gradient_norm": 0.8244127538962257,
+    "greedy_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "greedy_reward": {
+      "R_rank": 0.015113741159439087,
+      "R_sim": 0.044447481632232666,
+      "adv_sim_drop": 0.044447481632232666,
+      "clean_margin_drop": 0.053723424673080444,
+      "clean_sim_drop": 0.05117043852806091,
+      "synergy_increment": -0.006722956895828247,
+      "total": 0.05956122279167175
+    },
+    "group_gradient_norm": {
+      "attribute_head": 0.751410848484217,
+      "byte_embedding": 0.04358273642824257,
+      "encoder": 0.32550075753059615,
+      "position_head": 0.04009963648120802,
+      "replacement_head": 0.007274752244043274
+    },
+    "old_bank_same_text_rewards": [
+      {
+        "R_rank": 0.032685548067092896,
+        "R_sim": 0.08842197060585022,
+        "adv_sim_drop": 0.08842197060585022,
+        "clean_margin_drop": 0.05959129333496094,
+        "clean_sim_drop": 0.0485803484916687,
+        "synergy_increment": 0.03984162211418152,
+        "total": 0.12110751867294312
+      },
+      {
+        "R_rank": 0.023578017950057983,
+        "R_sim": 0.04482153058052063,
+        "adv_sim_drop": 0.04482153058052063,
+        "clean_margin_drop": 0.053723424673080444,
+        "clean_sim_drop": 0.05117043852806091,
+        "synergy_increment": -0.006348907947540283,
+        "total": 0.06839954853057861
+      }
+    ],
+    "optimizer_steps_this_step": 1,
+    "parameter_delta_l2": 0.007038615013743906,
+    "parameter_delta_max_abs": 0.00023096799850463867,
+    "reward_delta_same_text": [
+      -0.0053053200244903564,
+      -0.00883832573890686
+    ],
+    "row_id": "cuhk:8385:0",
+    "sampled_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "sampled_reward": {
+      "R_rank": 0.027377158403396606,
+      "R_sim": 0.08842504024505615,
+      "adv_sim_drop": 0.08842504024505615,
+      "clean_margin_drop": 0.05959129333496094,
+      "clean_sim_drop": 0.0485803484916687,
+      "synergy_increment": 0.03984469175338745,
+      "total": 0.11580219864845276
+    },
+    "sequence_log_prob": -1.585343837738037,
+    "step": 20496,
+    "text_feature_numeric_sha256": "cbca5b95c2f236df4a55e28adb3bcea9f8062b4dc3db2359c5b0abd42b14fa45",
+    "token_sha256": "6e3ef55324764541b21bcd4f0af60fa9431a6f36c7929edff4f8ac00cd64d072",
+    "sampled_action": {
+      "original": "This woman has short hair and is wearing a plaid jacket, a beaded necklace, a white skirt with a print and white sandals.",
+      "adversarial": "This wоman has short hair and is wearing a plaid jackеt, a beaded necklace, a white skirt with a print and white sandals.",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "0d7eddcefd2d7e2cc999892e",
+        "ef259f8266887e5be3b2c3db"
+      ],
+      "edits": [
+        {
+          "attribute_id": "0d7eddcefd2d7e2cc999892e",
+          "canonical_value": "female",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 6,
+          "position": 6,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "gender",
+          "source_raw": "woman",
+          "source_span": [
+            5,
+            10
+          ]
+        },
+        {
+          "attribute_id": "ef259f8266887e5be3b2c3db",
+          "canonical_value": "jacket",
+          "original_char": "e",
+          "original_codepoint": "U+0065",
+          "original_utf8_offset": 53,
+          "position": 53,
+          "position_in_attribute": 4,
+          "region": "upper",
+          "replacement_char": "е",
+          "replacement_codepoint": "U+0435",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER IE",
+          "semantic_axis": "garment_type",
+          "source_raw": "jacket",
+          "source_span": [
+            49,
+            55
+          ]
+        }
+      ]
+    },
+    "greedy_action": {
+      "original": "This woman has short hair and is wearing a plaid jacket, a beaded necklace, a white skirt with a print and white sandals.",
+      "adversarial": "This wоman has shоrt hair and is wearing a plaid jacket, a beaded necklace, a white skirt with a print and white sandals.",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "0d7eddcefd2d7e2cc999892e",
+        "101863116b8d91dec665e2da"
+      ],
+      "edits": [
+        {
+          "attribute_id": "0d7eddcefd2d7e2cc999892e",
+          "canonical_value": "female",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 6,
+          "position": 6,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "gender",
+          "source_raw": "woman",
+          "source_span": [
+            5,
+            10
+          ]
+        },
+        {
+          "attribute_id": "101863116b8d91dec665e2da",
+          "canonical_value": "short",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 17,
+          "position": 17,
+          "position_in_attribute": 2,
+          "region": "head",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "hair_length",
+          "source_raw": "short hair",
+          "source_span": [
+            15,
+            25
+          ]
+        }
+      ]
+    },
+    "sampled_action_original_JSON_sha256": "725756d4c4ebabc02c685e685427dc3dd350f86b6a7a1906c8abf40e78d37a57",
+    "advantage_delta_old_to_new_bank": 0.003533005714416504
+  },
+  {
+    "round": "B-r1",
+    "IRRA_text_samples": 0,
+    "fixed_NOOP": true,
+    "optimizer_steps_this_step": 0,
+    "row_id": "cuhk:26530:0"
+  },
+  {
+    "round": "B-r1",
+    "G_calls": 0,
+    "H_state_sha256_after": "735517e3d53929da7fbd3b19b622ec56de356a9627c2576f77b11314c658f49e",
+    "H_state_sha256_before": "d08802aca9bbd84e90bb415244500e20e7c47e25a0b2581b86ba89e42772b5fd",
+    "IRRA_image_calls": 0,
+    "IRRA_text_calls": 1,
+    "IRRA_text_samples": 3,
+    "K": 1,
+    "SCST_loss": 0.0,
+    "advantage": 0.0,
+    "bank_sha256": "61345752dc2a355e212477dfb5fd030832500e6216ca676ac0abd1e77b019347",
+    "gradient_norm": 0.0,
+    "greedy_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 1,
+      "edits": 1,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 1
+    },
+    "greedy_reward": {
+      "R_rank": -0.01078939437866211,
+      "R_sim": -0.018880605697631836,
+      "adv_sim_drop": -0.018880605697631836,
+      "clean_margin_drop": -0.0029292702674865723,
+      "clean_sim_drop": -0.017873823642730713,
+      "synergy_increment": -0.001006782054901123,
+      "total": -0.029670000076293945
+    },
+    "group_gradient_norm": {
+      "attribute_head": 0.0,
+      "byte_embedding": 0.0,
+      "encoder": 0.0,
+      "position_head": 0.0,
+      "replacement_head": 0.0
+    },
+    "old_bank_same_text_rewards": [
+      {
+        "R_rank": -0.015779346227645874,
+        "R_sim": -0.01543852686882019,
+        "adv_sim_drop": -0.01543852686882019,
+        "clean_margin_drop": -0.0029292702674865723,
+        "clean_sim_drop": -0.017873823642730713,
+        "synergy_increment": 0.0024352967739105225,
+        "total": -0.031217873096466064
+      },
+      {
+        "R_rank": -0.015779346227645874,
+        "R_sim": -0.01543852686882019,
+        "adv_sim_drop": -0.01543852686882019,
+        "clean_margin_drop": -0.0029292702674865723,
+        "clean_sim_drop": -0.017873823642730713,
+        "synergy_increment": 0.0024352967739105225,
+        "total": -0.031217873096466064
+      }
+    ],
+    "optimizer_steps_this_step": 1,
+    "parameter_delta_l2": 0.006242488171164139,
+    "parameter_delta_max_abs": 0.0001856386661529541,
+    "reward_delta_same_text": [
+      0.0015478730201721191,
+      0.0015478730201721191
+    ],
+    "row_id": "cuhk:26747:0",
+    "sampled_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 1,
+      "edits": 1,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 1
+    },
+    "sampled_reward": {
+      "R_rank": -0.01078939437866211,
+      "R_sim": -0.018880605697631836,
+      "adv_sim_drop": -0.018880605697631836,
+      "clean_margin_drop": -0.0029292702674865723,
+      "clean_sim_drop": -0.017873823642730713,
+      "synergy_increment": -0.001006782054901123,
+      "total": -0.029670000076293945
+    },
+    "sequence_log_prob": -0.0005422568065114319,
+    "step": 20482,
+    "text_feature_numeric_sha256": "b8e649040859152f7f18c52b995297939b73b855e2cf4bbe5eec31130512a12f",
+    "token_sha256": "746cd1a050c2289b040bf97b3f7a95748293da5f5dadd529f0edac010e933f40",
+    "sampled_action": {
+      "original": "A man wearing a red and white cheerleader outfit is wearing a blond wig and has his arms up in the air",
+      "adversarial": "A mаn wearing a red and white cheerleader outfit is wearing a blond wig and has his arms up in the air",
+      "budget_k": 1,
+      "selected_attribute_ids": [
+        "a19834c40e72bf5597661d76"
+      ],
+      "edits": [
+        {
+          "attribute_id": "a19834c40e72bf5597661d76",
+          "canonical_value": "male",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 3,
+          "position": 3,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "gender",
+          "source_raw": "man",
+          "source_span": [
+            2,
+            5
+          ]
+        }
+      ]
+    },
+    "greedy_action": {
+      "original": "A man wearing a red and white cheerleader outfit is wearing a blond wig and has his arms up in the air",
+      "adversarial": "A mаn wearing a red and white cheerleader outfit is wearing a blond wig and has his arms up in the air",
+      "budget_k": 1,
+      "selected_attribute_ids": [
+        "a19834c40e72bf5597661d76"
+      ],
+      "edits": [
+        {
+          "attribute_id": "a19834c40e72bf5597661d76",
+          "canonical_value": "male",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 3,
+          "position": 3,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "gender",
+          "source_raw": "man",
+          "source_span": [
+            2,
+            5
+          ]
+        }
+      ]
+    },
+    "sampled_action_original_JSON_sha256": "2b9b1d2e6f37c603b98587834484efe7c6cdfb4a93f7de56b4d4db6462109a1a",
+    "advantage_delta_old_to_new_bank": 0.0
+  },
+  {
+    "round": "B-r1",
+    "G_calls": 0,
+    "H_state_sha256_after": "faca9cb1fa041cc528aaa8dd0775f281eb47ed1c510929c1df1e54fcca4d6414",
+    "H_state_sha256_before": "735517e3d53929da7fbd3b19b622ec56de356a9627c2576f77b11314c658f49e",
+    "IRRA_image_calls": 0,
+    "IRRA_text_calls": 1,
+    "IRRA_text_samples": 3,
+    "K": 3,
+    "SCST_loss": 0.0,
+    "advantage": 0.0,
+    "bank_sha256": "61345752dc2a355e212477dfb5fd030832500e6216ca676ac0abd1e77b019347",
+    "gradient_norm": 0.0,
+    "greedy_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 3,
+      "edits": 3,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 3
+    },
+    "greedy_reward": {
+      "R_rank": -0.027078300714492798,
+      "R_sim": -0.007852166891098022,
+      "adv_sim_drop": -0.007852166891098022,
+      "clean_margin_drop": 0.15351498126983643,
+      "clean_sim_drop": 0.07850432395935059,
+      "synergy_increment": -0.08635649085044861,
+      "total": -0.03493046760559082
+    },
+    "group_gradient_norm": {
+      "attribute_head": 0.0,
+      "byte_embedding": 0.0,
+      "encoder": 0.0,
+      "position_head": 0.0,
+      "replacement_head": 0.0
+    },
+    "old_bank_same_text_rewards": [
+      {
+        "R_rank": -0.03185966610908508,
+        "R_sim": -0.010795742273330688,
+        "adv_sim_drop": -0.010795742273330688,
+        "clean_margin_drop": 0.15351498126983643,
+        "clean_sim_drop": 0.07850432395935059,
+        "synergy_increment": -0.08930006623268127,
+        "total": -0.04265540838241577
+      },
+      {
+        "R_rank": -0.03185966610908508,
+        "R_sim": -0.010795742273330688,
+        "adv_sim_drop": -0.010795742273330688,
+        "clean_margin_drop": 0.15351498126983643,
+        "clean_sim_drop": 0.07850432395935059,
+        "synergy_increment": -0.08930006623268127,
+        "total": -0.04265540838241577
+      }
+    ],
+    "optimizer_steps_this_step": 1,
+    "parameter_delta_l2": 0.005621048048033325,
+    "parameter_delta_max_abs": 0.000167161226272583,
+    "reward_delta_same_text": [
+      0.007724940776824951,
+      0.007724940776824951
+    ],
+    "row_id": "cuhk:12746:0",
+    "sampled_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 3,
+      "edits": 3,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 3
+    },
+    "sampled_reward": {
+      "R_rank": -0.027078300714492798,
+      "R_sim": -0.007852166891098022,
+      "adv_sim_drop": -0.007852166891098022,
+      "clean_margin_drop": 0.15351498126983643,
+      "clean_sim_drop": 0.07850432395935059,
+      "synergy_increment": -0.08635649085044861,
+      "total": -0.03493046760559082
+    },
+    "sequence_log_prob": -1.171173095703125,
+    "step": 20483,
+    "text_feature_numeric_sha256": "da56a2a6983d80070637c74534982d56e2d3bc0e467ed30b5185f2acfc489762",
+    "token_sha256": "323e2701ee555d4fb188c1671e6cae30e07e2669c42c7439eec0131f5c343eb4",
+    "sampled_action": {
+      "original": "The boy is on an escalator. He is wearing a blue denim backpack, black  shirt, and tan chinos.",
+      "adversarial": "The bоy is on an escalator. He is wearing a blue denim backpаck, blаck  shirt, and tan chinos.",
+      "budget_k": 3,
+      "selected_attribute_ids": [
+        "dfdf8b544654cc57d3f81359",
+        "02d3dbaa72132d56d7a819ae",
+        "0cded23b0851e6a78eff2ede"
+      ],
+      "edits": [
+        {
+          "attribute_id": "dfdf8b544654cc57d3f81359",
+          "canonical_value": "yes",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 60,
+          "position": 60,
+          "position_in_attribute": 5,
+          "region": "carried",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "backpack",
+          "source_raw": "backpack",
+          "source_span": [
+            55,
+            63
+          ]
+        },
+        {
+          "attribute_id": "02d3dbaa72132d56d7a819ae",
+          "canonical_value": "male",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 5,
+          "position": 5,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "gender",
+          "source_raw": "boy",
+          "source_span": [
+            4,
+            7
+          ]
+        },
+        {
+          "attribute_id": "0cded23b0851e6a78eff2ede",
+          "canonical_value": "black",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 67,
+          "position": 67,
+          "position_in_attribute": 2,
+          "region": "upper",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "color",
+          "source_raw": "black",
+          "source_span": [
+            65,
+            70
+          ]
+        }
+      ]
+    },
+    "greedy_action": {
+      "original": "The boy is on an escalator. He is wearing a blue denim backpack, black  shirt, and tan chinos.",
+      "adversarial": "The bоy is on an escalator. He is wearing a blue denim backpаck, blаck  shirt, and tan chinos.",
+      "budget_k": 3,
+      "selected_attribute_ids": [
+        "dfdf8b544654cc57d3f81359",
+        "02d3dbaa72132d56d7a819ae",
+        "0cded23b0851e6a78eff2ede"
+      ],
+      "edits": [
+        {
+          "attribute_id": "dfdf8b544654cc57d3f81359",
+          "canonical_value": "yes",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 60,
+          "position": 60,
+          "position_in_attribute": 5,
+          "region": "carried",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "backpack",
+          "source_raw": "backpack",
+          "source_span": [
+            55,
+            63
+          ]
+        },
+        {
+          "attribute_id": "02d3dbaa72132d56d7a819ae",
+          "canonical_value": "male",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 5,
+          "position": 5,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "gender",
+          "source_raw": "boy",
+          "source_span": [
+            4,
+            7
+          ]
+        },
+        {
+          "attribute_id": "0cded23b0851e6a78eff2ede",
+          "canonical_value": "black",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 67,
+          "position": 67,
+          "position_in_attribute": 2,
+          "region": "upper",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "color",
+          "source_raw": "black",
+          "source_span": [
+            65,
+            70
+          ]
+        }
+      ]
+    },
+    "sampled_action_original_JSON_sha256": "a8abc00bce92fd1963972eaa2b941d4c648ac15f55ec351af0b3b81b4721a467",
+    "advantage_delta_old_to_new_bank": 0.0
+  },
+  {
+    "round": "B-r1",
+    "G_calls": 0,
+    "H_state_sha256_after": "3319cff95707349f9b6cec7bb8e5877b86cf4ad8bed06c21d7470986a1d5631a",
+    "H_state_sha256_before": "faca9cb1fa041cc528aaa8dd0775f281eb47ed1c510929c1df1e54fcca4d6414",
+    "IRRA_image_calls": 0,
+    "IRRA_text_calls": 1,
+    "IRRA_text_samples": 3,
+    "K": 2,
+    "SCST_loss": 0.759143590927124,
+    "advantage": 0.10948698222637177,
+    "bank_sha256": "61345752dc2a355e212477dfb5fd030832500e6216ca676ac0abd1e77b019347",
+    "gradient_norm": 2.23988581222645,
+    "greedy_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "greedy_reward": {
+      "R_rank": 0.016880840063095093,
+      "R_sim": -0.001711282879114151,
+      "adv_sim_drop": -0.001711282879114151,
+      "clean_margin_drop": 0.049511730670928955,
+      "clean_sim_drop": 0.02487623691558838,
+      "synergy_increment": -0.02658751979470253,
+      "total": 0.015169557183980942
+    },
+    "group_gradient_norm": {
+      "attribute_head": 1.881942116201402,
+      "byte_embedding": 0.13716102326809754,
+      "encoder": 1.1895322033743012,
+      "position_head": 0.003490612471894216,
+      "replacement_head": 0.0
+    },
+    "old_bank_same_text_rewards": [
+      {
+        "R_rank": 0.08249808847904205,
+        "R_sim": 0.08192246407270432,
+        "adv_sim_drop": 0.08192246407270432,
+        "clean_margin_drop": 0.10248389840126038,
+        "clean_sim_drop": 0.0455191433429718,
+        "synergy_increment": 0.03640332072973251,
+        "total": 0.16442055255174637
+      },
+      {
+        "R_rank": 0.023334592580795288,
+        "R_sim": 0.00590088963508606,
+        "adv_sim_drop": 0.00590088963508606,
+        "clean_margin_drop": 0.049511730670928955,
+        "clean_sim_drop": 0.02487623691558838,
+        "synergy_increment": -0.01897534728050232,
+        "total": 0.029235482215881348
+      }
+    ],
+    "optimizer_steps_this_step": 1,
+    "parameter_delta_l2": 0.007812399412463725,
+    "parameter_delta_max_abs": 0.0002547211479395628,
+    "reward_delta_same_text": [
+      -0.03976400941610336,
+      -0.014065925031900406
+    ],
+    "row_id": "cuhk:9955:0",
+    "sampled_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "sampled_reward": {
+      "R_rank": 0.058793842792510986,
+      "R_sim": 0.06586270034313202,
+      "adv_sim_drop": 0.06586270034313202,
+      "clean_margin_drop": 0.10248389840126038,
+      "clean_sim_drop": 0.0455191433429718,
+      "synergy_increment": 0.020343557000160217,
+      "total": 0.124656543135643
+    },
+    "sequence_log_prob": -6.933642387390137,
+    "step": 20484,
+    "text_feature_numeric_sha256": "263f179c2b3b3d1722bb5a4a5406d4303d5a9bb5eff50f77f1c8a86a113cf216",
+    "token_sha256": "b5cf8e75c00412edb2aee5a435b9f8692e138777f5aa235622707f0efd0d33c4",
+    "sampled_action": {
+      "original": "He has  short  black hair  and  is  wearing  a  black shirt . He is  also  wearing white  pants  .",
+      "adversarial": "Hе has  short  black hair  and  is  wearing  a  black shirt . He is  also  wearing whitе  pants  .",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "5143b71b1ce115bc122e3746",
+        "688c8ab1e3020a138b89f957"
+      ],
+      "edits": [
+        {
+          "attribute_id": "5143b71b1ce115bc122e3746",
+          "canonical_value": "male",
+          "original_char": "e",
+          "original_codepoint": "U+0065",
+          "original_utf8_offset": 1,
+          "position": 1,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "е",
+          "replacement_codepoint": "U+0435",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER IE",
+          "semantic_axis": "gender",
+          "source_raw": "He",
+          "source_span": [
+            0,
+            2
+          ]
+        },
+        {
+          "attribute_id": "688c8ab1e3020a138b89f957",
+          "canonical_value": "white",
+          "original_char": "e",
+          "original_codepoint": "U+0065",
+          "original_utf8_offset": 87,
+          "position": 87,
+          "position_in_attribute": 4,
+          "region": "lower",
+          "replacement_char": "е",
+          "replacement_codepoint": "U+0435",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER IE",
+          "semantic_axis": "color",
+          "source_raw": "white",
+          "source_span": [
+            83,
+            88
+          ]
+        }
+      ]
+    },
+    "greedy_action": {
+      "original": "He has  short  black hair  and  is  wearing  a  black shirt . He is  also  wearing white  pants  .",
+      "adversarial": "Hе has  shоrt  black hair  and  is  wearing  a  black shirt . He is  also  wearing white  pants  .",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "5143b71b1ce115bc122e3746",
+        "13d375cc76b287c91dd3bd36"
+      ],
+      "edits": [
+        {
+          "attribute_id": "5143b71b1ce115bc122e3746",
+          "canonical_value": "male",
+          "original_char": "e",
+          "original_codepoint": "U+0065",
+          "original_utf8_offset": 1,
+          "position": 1,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "е",
+          "replacement_codepoint": "U+0435",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER IE",
+          "semantic_axis": "gender",
+          "source_raw": "He",
+          "source_span": [
+            0,
+            2
+          ]
+        },
+        {
+          "attribute_id": "13d375cc76b287c91dd3bd36",
+          "canonical_value": "short",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 10,
+          "position": 10,
+          "position_in_attribute": 2,
+          "region": "head",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "hair_length",
+          "source_raw": "short",
+          "source_span": [
+            8,
+            13
+          ]
+        }
+      ]
+    },
+    "sampled_action_original_JSON_sha256": "07982ad028cbefd570a46c4eef7b5a821c45e7828d3ad3968e241fd1698c5394",
+    "advantage_delta_old_to_new_bank": -0.025698084384202957
+  },
+  {
+    "round": "B-r1",
+    "G_calls": 0,
+    "H_state_sha256_after": "33035ac8916abfebca42026b606c6f016f5209e8bd593014de7b83f41bb67a7f",
+    "H_state_sha256_before": "3319cff95707349f9b6cec7bb8e5877b86cf4ad8bed06c21d7470986a1d5631a",
+    "IRRA_image_calls": 0,
+    "IRRA_text_calls": 1,
+    "IRRA_text_samples": 3,
+    "K": 3,
+    "SCST_loss": -0.03572887182235718,
+    "advantage": -0.00725594162940979,
+    "bank_sha256": "61345752dc2a355e212477dfb5fd030832500e6216ca676ac0abd1e77b019347",
+    "gradient_norm": 0.12501839212734586,
+    "greedy_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 3,
+      "edits": 3,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 3
+    },
+    "greedy_reward": {
+      "R_rank": -0.008083462715148926,
+      "R_sim": -0.017352759838104248,
+      "adv_sim_drop": -0.017352759838104248,
+      "clean_margin_drop": -0.00054207444190979,
+      "clean_sim_drop": -0.018671810626983643,
+      "synergy_increment": 0.0013190507888793945,
+      "total": -0.025436222553253174
+    },
+    "group_gradient_norm": {
+      "attribute_head": 0.08551313484834457,
+      "byte_embedding": 0.012284316825333578,
+      "encoder": 0.08391505036056118,
+      "position_head": 0.030001927119868484,
+      "replacement_head": 0.0
+    },
+    "old_bank_same_text_rewards": [
+      {
+        "R_rank": -7.332861423492432e-05,
+        "R_sim": -0.023360013961791992,
+        "adv_sim_drop": -0.023360013961791992,
+        "clean_margin_drop": -0.002099931240081787,
+        "clean_sim_drop": -0.01577049493789673,
+        "synergy_increment": -0.007589519023895264,
+        "total": -0.023433342576026917
+      },
+      {
+        "R_rank": -0.005501314997673035,
+        "R_sim": -0.017730116844177246,
+        "adv_sim_drop": -0.017730116844177246,
+        "clean_margin_drop": -0.00054207444190979,
+        "clean_sim_drop": -0.018671810626983643,
+        "synergy_increment": 0.0009416937828063965,
+        "total": -0.02323143184185028
+      }
+    ],
+    "optimizer_steps_this_step": 1,
+    "parameter_delta_l2": 0.007148864045541968,
+    "parameter_delta_max_abs": 0.00023725628852844238,
+    "reward_delta_same_text": [
+      -0.009258821606636047,
+      -0.002204790711402893
+    ],
+    "row_id": "cuhk:29253:0",
+    "sampled_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 3,
+      "edits": 3,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 3
+    },
+    "sampled_reward": {
+      "R_rank": -0.004831403493881226,
+      "R_sim": -0.02786076068878174,
+      "adv_sim_drop": -0.02786076068878174,
+      "clean_margin_drop": -0.002099931240081787,
+      "clean_sim_drop": -0.01577049493789673,
+      "synergy_increment": -0.01209026575088501,
+      "total": -0.032692164182662964
+    },
+    "sequence_log_prob": -4.924084663391113,
+    "step": 20485,
+    "text_feature_numeric_sha256": "228ab0ed91f5663785a5e28874fe41d4a401f2c3981f6d3231b063ff6f57b1d7",
+    "token_sha256": "ed5a4b8d9ee5c569e4435e25101b3066bd963e6d53a9f2cbb7c3fac1d0c6d5e6",
+    "sampled_action": {
+      "original": "The man is wearing black tennis shoes with grey socks and a pair of long black shorts that go past his knees. He is wearing a white tee-shirt with black graphics on the front and a plaid grey long-sleeved shirt. He has a backpack on his back.",
+      "adversarial": "The mаn is wearing black tennis shoes with grey socks and a pair of long black shorts that go past his knees. He is wearing a white tеe-shirt with black graphics on the front and a plaid grey long-sleevеd shirt. He has a backpack on his back.",
+      "budget_k": 3,
+      "selected_attribute_ids": [
+        "390d4818e2f12955a23893cb",
+        "3dbe7eebb0458cf3a90643f4",
+        "d84990a015cbfc414ea30400"
+      ],
+      "edits": [
+        {
+          "attribute_id": "390d4818e2f12955a23893cb",
+          "canonical_value": "male",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 5,
+          "position": 5,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "gender",
+          "source_raw": "man",
+          "source_span": [
+            4,
+            7
+          ]
+        },
+        {
+          "attribute_id": "3dbe7eebb0458cf3a90643f4",
+          "canonical_value": "t_shirt",
+          "original_char": "e",
+          "original_codepoint": "U+0065",
+          "original_utf8_offset": 133,
+          "position": 133,
+          "position_in_attribute": 1,
+          "region": "upper",
+          "replacement_char": "е",
+          "replacement_codepoint": "U+0435",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER IE",
+          "semantic_axis": "garment_type",
+          "source_raw": "tee",
+          "source_span": [
+            132,
+            135
+          ]
+        },
+        {
+          "attribute_id": "d84990a015cbfc414ea30400",
+          "canonical_value": "long",
+          "original_char": "e",
+          "original_codepoint": "U+0065",
+          "original_utf8_offset": 202,
+          "position": 202,
+          "position_in_attribute": 10,
+          "region": "upper",
+          "replacement_char": "е",
+          "replacement_codepoint": "U+0435",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER IE",
+          "semantic_axis": "sleeve_length",
+          "source_raw": "long-sleeved",
+          "source_span": [
+            192,
+            204
+          ]
+        }
+      ]
+    },
+    "greedy_action": {
+      "original": "The man is wearing black tennis shoes with grey socks and a pair of long black shorts that go past his knees. He is wearing a white tee-shirt with black graphics on the front and a plaid grey long-sleeved shirt. He has a backpack on his back.",
+      "adversarial": "The mаn is wearing black tennis shoes with grey socks and a pair of long black shorts that go past his knees. He is wearing a white tеe-shirt with black graphics on the front and a plaid grey lоng-sleeved shirt. He has a backpack on his back.",
+      "budget_k": 3,
+      "selected_attribute_ids": [
+        "390d4818e2f12955a23893cb",
+        "d84990a015cbfc414ea30400",
+        "3dbe7eebb0458cf3a90643f4"
+      ],
+      "edits": [
+        {
+          "attribute_id": "390d4818e2f12955a23893cb",
+          "canonical_value": "male",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 5,
+          "position": 5,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "gender",
+          "source_raw": "man",
+          "source_span": [
+            4,
+            7
+          ]
+        },
+        {
+          "attribute_id": "d84990a015cbfc414ea30400",
+          "canonical_value": "long",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 193,
+          "position": 193,
+          "position_in_attribute": 1,
+          "region": "upper",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "sleeve_length",
+          "source_raw": "long-sleeved",
+          "source_span": [
+            192,
+            204
+          ]
+        },
+        {
+          "attribute_id": "3dbe7eebb0458cf3a90643f4",
+          "canonical_value": "t_shirt",
+          "original_char": "e",
+          "original_codepoint": "U+0065",
+          "original_utf8_offset": 133,
+          "position": 133,
+          "position_in_attribute": 1,
+          "region": "upper",
+          "replacement_char": "е",
+          "replacement_codepoint": "U+0435",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER IE",
+          "semantic_axis": "garment_type",
+          "source_raw": "tee",
+          "source_span": [
+            132,
+            135
+          ]
+        }
+      ]
+    },
+    "sampled_action_original_JSON_sha256": "01b002b58bc38a2c6437fe7fe6b5f8a31206cebddcb0c0bee5f5b67c0f0598bc",
+    "advantage_delta_old_to_new_bank": -0.007054030895233154
+  },
+  {
+    "round": "B-r1",
+    "G_calls": 0,
+    "H_state_sha256_after": "688f18fd0a9ab0a9bd42a2356b1f1aef913c6b37ec321ba35c1211e5fc20cb83",
+    "H_state_sha256_before": "33035ac8916abfebca42026b606c6f016f5209e8bd593014de7b83f41bb67a7f",
+    "IRRA_image_calls": 0,
+    "IRRA_text_calls": 1,
+    "IRRA_text_samples": 3,
+    "K": 2,
+    "SCST_loss": 0.0,
+    "advantage": 0.0,
+    "bank_sha256": "61345752dc2a355e212477dfb5fd030832500e6216ca676ac0abd1e77b019347",
+    "gradient_norm": 0.0,
+    "greedy_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "greedy_reward": {
+      "R_rank": 0.028435051441192627,
+      "R_sim": 0.017048805952072144,
+      "adv_sim_drop": 0.017048805952072144,
+      "clean_margin_drop": 0.0315513014793396,
+      "clean_sim_drop": 0.08115321397781372,
+      "synergy_increment": -0.06410440802574158,
+      "total": 0.04548385739326477
+    },
+    "group_gradient_norm": {
+      "attribute_head": 0.0,
+      "byte_embedding": 0.0,
+      "encoder": 0.0,
+      "position_head": 0.0,
+      "replacement_head": 0.0
+    },
+    "old_bank_same_text_rewards": [
+      {
+        "R_rank": 0.022722721099853516,
+        "R_sim": 0.013255402445793152,
+        "adv_sim_drop": 0.013255402445793152,
+        "clean_margin_drop": 0.0315513014793396,
+        "clean_sim_drop": 0.08115321397781372,
+        "synergy_increment": -0.06789781153202057,
+        "total": 0.03597812354564667
+      },
+      {
+        "R_rank": 0.022722721099853516,
+        "R_sim": 0.013255402445793152,
+        "adv_sim_drop": 0.013255402445793152,
+        "clean_margin_drop": 0.0315513014793396,
+        "clean_sim_drop": 0.08115321397781372,
+        "synergy_increment": -0.06789781153202057,
+        "total": 0.03597812354564667
+      }
+    ],
+    "optimizer_steps_this_step": 1,
+    "parameter_delta_l2": 0.006437180076866557,
+    "parameter_delta_max_abs": 0.0002136528491973877,
+    "reward_delta_same_text": [
+      0.009505733847618103,
+      0.009505733847618103
+    ],
+    "row_id": "cuhk:21540:0",
+    "sampled_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "sampled_reward": {
+      "R_rank": 0.028435051441192627,
+      "R_sim": 0.017048805952072144,
+      "adv_sim_drop": 0.017048805952072144,
+      "clean_margin_drop": 0.0315513014793396,
+      "clean_sim_drop": 0.08115321397781372,
+      "synergy_increment": -0.06410440802574158,
+      "total": 0.04548385739326477
+    },
+    "sequence_log_prob": -0.7765673398971558,
+    "step": 20486,
+    "text_feature_numeric_sha256": "d28bb8f1cdbd12d8d9968d48ccae89ad8876c065904e4cdbf07d87c3d0c159ff",
+    "token_sha256": "765578ecc35fbdd72271aa2f028960d034f375200e9be8f67f00915417da97e0",
+    "sampled_action": {
+      "original": "The woman is wearing a black jacket, a pink top and black pants.  She is also wearing black boots and carrying a large white bag on her right shoulder.",
+      "adversarial": "The wоman is wearing a black jacket, a pink top and black pants.  She is also wearing black boots and carrying a large white bаg on her right shoulder.",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "09c5a1520d173efb19948b0a",
+        "c4e952adca1844b295658af7"
+      ],
+      "edits": [
+        {
+          "attribute_id": "09c5a1520d173efb19948b0a",
+          "canonical_value": "female",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 5,
+          "position": 5,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "gender",
+          "source_raw": "woman",
+          "source_span": [
+            4,
+            9
+          ]
+        },
+        {
+          "attribute_id": "c4e952adca1844b295658af7",
+          "canonical_value": "yes",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 126,
+          "position": 126,
+          "position_in_attribute": 1,
+          "region": "carried",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "bag",
+          "source_raw": "bag",
+          "source_span": [
+            125,
+            128
+          ]
+        }
+      ]
+    },
+    "greedy_action": {
+      "original": "The woman is wearing a black jacket, a pink top and black pants.  She is also wearing black boots and carrying a large white bag on her right shoulder.",
+      "adversarial": "The wоman is wearing a black jacket, a pink top and black pants.  She is also wearing black boots and carrying a large white bаg on her right shoulder.",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "09c5a1520d173efb19948b0a",
+        "c4e952adca1844b295658af7"
+      ],
+      "edits": [
+        {
+          "attribute_id": "09c5a1520d173efb19948b0a",
+          "canonical_value": "female",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 5,
+          "position": 5,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "gender",
+          "source_raw": "woman",
+          "source_span": [
+            4,
+            9
+          ]
+        },
+        {
+          "attribute_id": "c4e952adca1844b295658af7",
+          "canonical_value": "yes",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 126,
+          "position": 126,
+          "position_in_attribute": 1,
+          "region": "carried",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "bag",
+          "source_raw": "bag",
+          "source_span": [
+            125,
+            128
+          ]
+        }
+      ]
+    },
+    "sampled_action_original_JSON_sha256": "6a5635845edaeed5a5e314486e0edce61031682597e0e6b802b59d46c29723d2",
+    "advantage_delta_old_to_new_bank": 0.0
+  },
+  {
+    "round": "B-r1",
+    "G_calls": 0,
+    "H_state_sha256_after": "248f57142b113d44d779a374f62962f5f9114b2059167b7d2b7482690c24e8f6",
+    "H_state_sha256_before": "688f18fd0a9ab0a9bd42a2356b1f1aef913c6b37ec321ba35c1211e5fc20cb83",
+    "IRRA_image_calls": 0,
+    "IRRA_text_calls": 1,
+    "IRRA_text_samples": 3,
+    "K": 2,
+    "SCST_loss": 0.0,
+    "advantage": 0.0,
+    "bank_sha256": "61345752dc2a355e212477dfb5fd030832500e6216ca676ac0abd1e77b019347",
+    "gradient_norm": 0.0,
+    "greedy_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "greedy_reward": {
+      "R_rank": -0.046548813581466675,
+      "R_sim": -0.06779402494430542,
+      "adv_sim_drop": -0.06779402494430542,
+      "clean_margin_drop": -0.0024576187133789062,
+      "clean_sim_drop": 0.02544379234313965,
+      "synergy_increment": -0.09323781728744507,
+      "total": -0.1143428385257721
+    },
+    "group_gradient_norm": {
+      "attribute_head": 0.0,
+      "byte_embedding": 0.0,
+      "encoder": 0.0,
+      "position_head": 0.0,
+      "replacement_head": 0.0
+    },
+    "old_bank_same_text_rewards": [
+      {
+        "R_rank": -0.043129414319992065,
+        "R_sim": -0.06765803694725037,
+        "adv_sim_drop": -0.06765803694725037,
+        "clean_margin_drop": -0.0024576187133789062,
+        "clean_sim_drop": 0.02544379234313965,
+        "synergy_increment": -0.09310182929039001,
+        "total": -0.11078745126724243
+      },
+      {
+        "R_rank": -0.043129414319992065,
+        "R_sim": -0.06765803694725037,
+        "adv_sim_drop": -0.06765803694725037,
+        "clean_margin_drop": -0.0024576187133789062,
+        "clean_sim_drop": 0.02544379234313965,
+        "synergy_increment": -0.09310182929039001,
+        "total": -0.11078745126724243
+      }
+    ],
+    "optimizer_steps_this_step": 1,
+    "parameter_delta_l2": 0.005796373113942772,
+    "parameter_delta_max_abs": 0.00019237399101257324,
+    "reward_delta_same_text": [
+      -0.003555387258529663,
+      -0.003555387258529663
+    ],
+    "row_id": "cuhk:3127:0",
+    "sampled_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "sampled_reward": {
+      "R_rank": -0.046548813581466675,
+      "R_sim": -0.06779402494430542,
+      "adv_sim_drop": -0.06779402494430542,
+      "clean_margin_drop": -0.0024576187133789062,
+      "clean_sim_drop": 0.02544379234313965,
+      "synergy_increment": -0.09323781728744507,
+      "total": -0.1143428385257721
+    },
+    "sequence_log_prob": -1.5094411373138428,
+    "step": 20487,
+    "text_feature_numeric_sha256": "339f88f1650d174d26b1719556d65ad69c64e898feef12ac2890230d379ccbc0",
+    "token_sha256": "38ecc9251c6c7d7f85cf6eb76de93277abd72e5ad2d8400c98362ae5670bd27e",
+    "sampled_action": {
+      "original": "the person pictured is wearing a white and black shirt with black pants. the person has a strap over there shoulder and wearing light colored shoes.",
+      "adversarial": "the person pictured is wearing a white and black shіrt with black pаnts. the person has a strap over there shoulder and wearing light colored shoes.",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "a73f390e813a859e28f090dd",
+        "5dac2d810cd821a57c10617e"
+      ],
+      "edits": [
+        {
+          "attribute_id": "a73f390e813a859e28f090dd",
+          "canonical_value": "pants_trousers",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 67,
+          "position": 67,
+          "position_in_attribute": 1,
+          "region": "lower",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "garment_type",
+          "source_raw": "pants",
+          "source_span": [
+            66,
+            71
+          ]
+        },
+        {
+          "attribute_id": "5dac2d810cd821a57c10617e",
+          "canonical_value": "shirt",
+          "original_char": "i",
+          "original_codepoint": "U+0069",
+          "original_utf8_offset": 51,
+          "position": 51,
+          "position_in_attribute": 2,
+          "region": "upper",
+          "replacement_char": "і",
+          "replacement_codepoint": "U+0456",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I",
+          "semantic_axis": "garment_type",
+          "source_raw": "shirt",
+          "source_span": [
+            49,
+            54
+          ]
+        }
+      ]
+    },
+    "greedy_action": {
+      "original": "the person pictured is wearing a white and black shirt with black pants. the person has a strap over there shoulder and wearing light colored shoes.",
+      "adversarial": "the person pictured is wearing a white and black shіrt with black pаnts. the person has a strap over there shoulder and wearing light colored shoes.",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "a73f390e813a859e28f090dd",
+        "5dac2d810cd821a57c10617e"
+      ],
+      "edits": [
+        {
+          "attribute_id": "a73f390e813a859e28f090dd",
+          "canonical_value": "pants_trousers",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 67,
+          "position": 67,
+          "position_in_attribute": 1,
+          "region": "lower",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "garment_type",
+          "source_raw": "pants",
+          "source_span": [
+            66,
+            71
+          ]
+        },
+        {
+          "attribute_id": "5dac2d810cd821a57c10617e",
+          "canonical_value": "shirt",
+          "original_char": "i",
+          "original_codepoint": "U+0069",
+          "original_utf8_offset": 51,
+          "position": 51,
+          "position_in_attribute": 2,
+          "region": "upper",
+          "replacement_char": "і",
+          "replacement_codepoint": "U+0456",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I",
+          "semantic_axis": "garment_type",
+          "source_raw": "shirt",
+          "source_span": [
+            49,
+            54
+          ]
+        }
+      ]
+    },
+    "sampled_action_original_JSON_sha256": "af7a8b7812cf4600743ea3dd43ca399068251c47b60fd438533f2414c4b04aed",
+    "advantage_delta_old_to_new_bank": 0.0
+  },
+  {
+    "round": "B-r1",
+    "G_calls": 0,
+    "H_state_sha256_after": "442515d89e749b5f246a2d08c79f5e57f3aa49fab65d5d080f5240b7c560fff3",
+    "H_state_sha256_before": "248f57142b113d44d779a374f62962f5f9114b2059167b7d2b7482690c24e8f6",
+    "IRRA_image_calls": 0,
+    "IRRA_text_calls": 1,
+    "IRRA_text_samples": 3,
+    "K": 2,
+    "SCST_loss": 0.0,
+    "advantage": 0.0,
+    "bank_sha256": "61345752dc2a355e212477dfb5fd030832500e6216ca676ac0abd1e77b019347",
+    "gradient_norm": 0.0,
+    "greedy_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "greedy_reward": {
+      "R_rank": 0.0305396169424057,
+      "R_sim": 0.04873053729534149,
+      "adv_sim_drop": 0.04873053729534149,
+      "clean_margin_drop": 0.053723424673080444,
+      "clean_sim_drop": 0.05117043852806091,
+      "synergy_increment": -0.0024399012327194214,
+      "total": 0.07927015423774719
+    },
+    "group_gradient_norm": {
+      "attribute_head": 0.0,
+      "byte_embedding": 0.0,
+      "encoder": 0.0,
+      "position_head": 0.0,
+      "replacement_head": 0.0
+    },
+    "old_bank_same_text_rewards": [
+      {
+        "R_rank": 0.02265763282775879,
+        "R_sim": 0.04644593596458435,
+        "adv_sim_drop": 0.04644593596458435,
+        "clean_margin_drop": 0.053723424673080444,
+        "clean_sim_drop": 0.05117043852806091,
+        "synergy_increment": -0.0047245025634765625,
+        "total": 0.06910356879234314
+      },
+      {
+        "R_rank": 0.02265763282775879,
+        "R_sim": 0.04644593596458435,
+        "adv_sim_drop": 0.04644593596458435,
+        "clean_margin_drop": 0.053723424673080444,
+        "clean_sim_drop": 0.05117043852806091,
+        "synergy_increment": -0.0047245025634765625,
+        "total": 0.06910356879234314
+      }
+    ],
+    "optimizer_steps_this_step": 1,
+    "parameter_delta_l2": 0.0052193454296842155,
+    "parameter_delta_max_abs": 0.00017321109771728516,
+    "reward_delta_same_text": [
+      0.010166585445404053,
+      0.010166585445404053
+    ],
+    "row_id": "cuhk:8385:0",
+    "sampled_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "sampled_reward": {
+      "R_rank": 0.0305396169424057,
+      "R_sim": 0.04873053729534149,
+      "adv_sim_drop": 0.04873053729534149,
+      "clean_margin_drop": 0.053723424673080444,
+      "clean_sim_drop": 0.05117043852806091,
+      "synergy_increment": -0.0024399012327194214,
+      "total": 0.07927015423774719
+    },
+    "sequence_log_prob": -0.5809241533279419,
+    "step": 20488,
+    "text_feature_numeric_sha256": "a1fd1e14527629511c344dbcf5e301f943397d5dfde6681fecee64ce8bd040d4",
+    "token_sha256": "4227076763fa0fa0a91eb725adef19b1ec8f26fc220a6e8a6639c8fe69c58f1a",
+    "sampled_action": {
+      "original": "This woman has short hair and is wearing a plaid jacket, a beaded necklace, a white skirt with a print and white sandals.",
+      "adversarial": "This wоman has shоrt hair and is wearing a plaid jacket, a beaded necklace, a white skirt with a print and white sandals.",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "0d7eddcefd2d7e2cc999892e",
+        "101863116b8d91dec665e2da"
+      ],
+      "edits": [
+        {
+          "attribute_id": "0d7eddcefd2d7e2cc999892e",
+          "canonical_value": "female",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 6,
+          "position": 6,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "gender",
+          "source_raw": "woman",
+          "source_span": [
+            5,
+            10
+          ]
+        },
+        {
+          "attribute_id": "101863116b8d91dec665e2da",
+          "canonical_value": "short",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 17,
+          "position": 17,
+          "position_in_attribute": 2,
+          "region": "head",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "hair_length",
+          "source_raw": "short hair",
+          "source_span": [
+            15,
+            25
+          ]
+        }
+      ]
+    },
+    "greedy_action": {
+      "original": "This woman has short hair and is wearing a plaid jacket, a beaded necklace, a white skirt with a print and white sandals.",
+      "adversarial": "This wоman has shоrt hair and is wearing a plaid jacket, a beaded necklace, a white skirt with a print and white sandals.",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "0d7eddcefd2d7e2cc999892e",
+        "101863116b8d91dec665e2da"
+      ],
+      "edits": [
+        {
+          "attribute_id": "0d7eddcefd2d7e2cc999892e",
+          "canonical_value": "female",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 6,
+          "position": 6,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "gender",
+          "source_raw": "woman",
+          "source_span": [
+            5,
+            10
+          ]
+        },
+        {
+          "attribute_id": "101863116b8d91dec665e2da",
+          "canonical_value": "short",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 17,
+          "position": 17,
+          "position_in_attribute": 2,
+          "region": "head",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "hair_length",
+          "source_raw": "short hair",
+          "source_span": [
+            15,
+            25
+          ]
+        }
+      ]
+    },
+    "sampled_action_original_JSON_sha256": "7b2175445f326670567c84bed945a6747a96e46d231b3f78844a10671098907b",
+    "advantage_delta_old_to_new_bank": 0.0
+  },
+  {
+    "round": "B-r2",
+    "IRRA_text_samples": 0,
+    "fixed_NOOP": true,
+    "optimizer_steps_this_step": 0,
+    "row_id": "cuhk:26530:0"
+  },
+  {
+    "round": "B-r2",
+    "G_calls": 0,
+    "H_state_sha256_after": "32a851833559f3c547492467df50eb267a6aee7e7a5cc1b9d2e0e3a829f0aaa1",
+    "H_state_sha256_before": "442515d89e749b5f246a2d08c79f5e57f3aa49fab65d5d080f5240b7c560fff3",
+    "IRRA_image_calls": 0,
+    "IRRA_text_calls": 1,
+    "IRRA_text_samples": 3,
+    "K": 1,
+    "SCST_loss": 0.0,
+    "advantage": 0.0,
+    "bank_sha256": "2bb6f3dcb8a66def353adbc12469f55810d7d167620a3ea868a6856af2d9b995",
+    "gradient_norm": 0.0,
+    "greedy_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 1,
+      "edits": 1,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 1
+    },
+    "greedy_reward": {
+      "R_rank": -0.011191010475158691,
+      "R_sim": -0.018857628107070923,
+      "adv_sim_drop": -0.018857628107070923,
+      "clean_margin_drop": -0.0029292702674865723,
+      "clean_sim_drop": -0.017873823642730713,
+      "synergy_increment": -0.00098380446434021,
+      "total": -0.030048638582229614
+    },
+    "group_gradient_norm": {
+      "attribute_head": 0.0,
+      "byte_embedding": 0.0,
+      "encoder": 0.0,
+      "position_head": 0.0,
+      "replacement_head": 0.0
+    },
+    "old_bank_same_text_rewards": [
+      {
+        "R_rank": -0.01078939437866211,
+        "R_sim": -0.018880605697631836,
+        "adv_sim_drop": -0.018880605697631836,
+        "clean_margin_drop": -0.0029292702674865723,
+        "clean_sim_drop": -0.017873823642730713,
+        "synergy_increment": -0.001006782054901123,
+        "total": -0.029670000076293945
+      },
+      {
+        "R_rank": -0.01078939437866211,
+        "R_sim": -0.018880605697631836,
+        "adv_sim_drop": -0.018880605697631836,
+        "clean_margin_drop": -0.0029292702674865723,
+        "clean_sim_drop": -0.017873823642730713,
+        "synergy_increment": -0.001006782054901123,
+        "total": -0.029670000076293945
+      }
+    ],
+    "optimizer_steps_this_step": 1,
+    "parameter_delta_l2": 0.004699751430259275,
+    "parameter_delta_max_abs": 0.00015598535537719727,
+    "reward_delta_same_text": [
+      -0.00037863850593566895,
+      -0.00037863850593566895
+    ],
+    "row_id": "cuhk:26747:0",
+    "sampled_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 1,
+      "edits": 1,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 1
+    },
+    "sampled_reward": {
+      "R_rank": -0.011191010475158691,
+      "R_sim": -0.018857628107070923,
+      "adv_sim_drop": -0.018857628107070923,
+      "clean_margin_drop": -0.0029292702674865723,
+      "clean_sim_drop": -0.017873823642730713,
+      "synergy_increment": -0.00098380446434021,
+      "total": -0.030048638582229614
+    },
+    "sequence_log_prob": -0.0005067511228844523,
+    "step": 20490,
+    "text_feature_numeric_sha256": "b8e649040859152f7f18c52b995297939b73b855e2cf4bbe5eec31130512a12f",
+    "token_sha256": "746cd1a050c2289b040bf97b3f7a95748293da5f5dadd529f0edac010e933f40",
+    "sampled_action": {
+      "original": "A man wearing a red and white cheerleader outfit is wearing a blond wig and has his arms up in the air",
+      "adversarial": "A mаn wearing a red and white cheerleader outfit is wearing a blond wig and has his arms up in the air",
+      "budget_k": 1,
+      "selected_attribute_ids": [
+        "a19834c40e72bf5597661d76"
+      ],
+      "edits": [
+        {
+          "attribute_id": "a19834c40e72bf5597661d76",
+          "canonical_value": "male",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 3,
+          "position": 3,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "gender",
+          "source_raw": "man",
+          "source_span": [
+            2,
+            5
+          ]
+        }
+      ]
+    },
+    "greedy_action": {
+      "original": "A man wearing a red and white cheerleader outfit is wearing a blond wig and has his arms up in the air",
+      "adversarial": "A mаn wearing a red and white cheerleader outfit is wearing a blond wig and has his arms up in the air",
+      "budget_k": 1,
+      "selected_attribute_ids": [
+        "a19834c40e72bf5597661d76"
+      ],
+      "edits": [
+        {
+          "attribute_id": "a19834c40e72bf5597661d76",
+          "canonical_value": "male",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 3,
+          "position": 3,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "gender",
+          "source_raw": "man",
+          "source_span": [
+            2,
+            5
+          ]
+        }
+      ]
+    },
+    "sampled_action_original_JSON_sha256": "424d4e2dd5f209c0ebd83408f3d353f78857fef036afbb30036cbc9182a2f1f4",
+    "advantage_delta_old_to_new_bank": 0.0
+  },
+  {
+    "round": "B-r2",
+    "G_calls": 0,
+    "H_state_sha256_after": "b5b06dda00e2e9999cac6ca8d73a447af2ff80532039ed0b9bfdd0188980ed43",
+    "H_state_sha256_before": "32a851833559f3c547492467df50eb267a6aee7e7a5cc1b9d2e0e3a829f0aaa1",
+    "IRRA_image_calls": 0,
+    "IRRA_text_calls": 1,
+    "IRRA_text_samples": 3,
+    "K": 3,
+    "SCST_loss": 0.05896492302417755,
+    "advantage": 0.022031143307685852,
+    "bank_sha256": "2bb6f3dcb8a66def353adbc12469f55810d7d167620a3ea868a6856af2d9b995",
+    "gradient_norm": 0.22490719387784164,
+    "greedy_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 3,
+      "edits": 3,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 3
+    },
+    "greedy_reward": {
+      "R_rank": -0.012511149048805237,
+      "R_sim": -0.0037982165813446045,
+      "adv_sim_drop": -0.0037982165813446045,
+      "clean_margin_drop": 0.15351498126983643,
+      "clean_sim_drop": 0.07850432395935059,
+      "synergy_increment": -0.08230254054069519,
+      "total": -0.01630936563014984
+    },
+    "group_gradient_norm": {
+      "attribute_head": 0.13257534224303213,
+      "byte_embedding": 0.010842039813643683,
+      "encoder": 0.16719372317138134,
+      "position_head": 0.06420094784433546,
+      "replacement_head": 0.0033221066849165822
+    },
+    "old_bank_same_text_rewards": [
+      {
+        "R_rank": -0.0089225172996521,
+        "R_sim": -0.0017525851726531982,
+        "adv_sim_drop": -0.0017525851726531982,
+        "clean_margin_drop": 0.0884319543838501,
+        "clean_sim_drop": 0.025884956121444702,
+        "synergy_increment": -0.0276375412940979,
+        "total": -0.010675102472305298
+      },
+      {
+        "R_rank": -0.027078300714492798,
+        "R_sim": -0.007852166891098022,
+        "adv_sim_drop": -0.007852166891098022,
+        "clean_margin_drop": 0.15351498126983643,
+        "clean_sim_drop": 0.07850432395935059,
+        "synergy_increment": -0.08635649085044861,
+        "total": -0.03493046760559082
+      }
+    ],
+    "optimizer_steps_this_step": 1,
+    "parameter_delta_l2": 0.004365734339853058,
+    "parameter_delta_max_abs": 0.000140458345413208,
+    "reward_delta_same_text": [
+      0.01639688014984131,
+      0.01862110197544098
+    ],
+    "row_id": "cuhk:12746:0",
+    "sampled_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 3,
+      "edits": 3,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 3
+    },
+    "sampled_reward": {
+      "R_rank": 0.004094600677490234,
+      "R_sim": 0.0016271770000457764,
+      "adv_sim_drop": 0.0016271770000457764,
+      "clean_margin_drop": 0.0884319543838501,
+      "clean_sim_drop": 0.025884956121444702,
+      "synergy_increment": -0.024257779121398926,
+      "total": 0.005721777677536011
+    },
+    "sequence_log_prob": -2.6764349937438965,
+    "step": 20491,
+    "text_feature_numeric_sha256": "a76257d0d073dd72a5d7b3a54773f817399b4d87c9ec7fe5bc4ead0cd11f53ef",
+    "token_sha256": "64a11fef4ae43dcb86e2d5ae7c73f2981890e88c528897dd91129538fb72d93d",
+    "sampled_action": {
+      "original": "The boy is on an escalator. He is wearing a blue denim backpack, black  shirt, and tan chinos.",
+      "adversarial": "The bоy is on an escalator. He is wearing a blue denim bаckpack, blаck  shirt, and tan chinos.",
+      "budget_k": 3,
+      "selected_attribute_ids": [
+        "dfdf8b544654cc57d3f81359",
+        "02d3dbaa72132d56d7a819ae",
+        "0cded23b0851e6a78eff2ede"
+      ],
+      "edits": [
+        {
+          "attribute_id": "dfdf8b544654cc57d3f81359",
+          "canonical_value": "yes",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 56,
+          "position": 56,
+          "position_in_attribute": 1,
+          "region": "carried",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "backpack",
+          "source_raw": "backpack",
+          "source_span": [
+            55,
+            63
+          ]
+        },
+        {
+          "attribute_id": "02d3dbaa72132d56d7a819ae",
+          "canonical_value": "male",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 5,
+          "position": 5,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "gender",
+          "source_raw": "boy",
+          "source_span": [
+            4,
+            7
+          ]
+        },
+        {
+          "attribute_id": "0cded23b0851e6a78eff2ede",
+          "canonical_value": "black",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 67,
+          "position": 67,
+          "position_in_attribute": 2,
+          "region": "upper",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "color",
+          "source_raw": "black",
+          "source_span": [
+            65,
+            70
+          ]
+        }
+      ]
+    },
+    "greedy_action": {
+      "original": "The boy is on an escalator. He is wearing a blue denim backpack, black  shirt, and tan chinos.",
+      "adversarial": "The bоy is on an escalator. He is wearing a blue denim backpаck, blаck  shirt, and tan chinos.",
+      "budget_k": 3,
+      "selected_attribute_ids": [
+        "dfdf8b544654cc57d3f81359",
+        "02d3dbaa72132d56d7a819ae",
+        "0cded23b0851e6a78eff2ede"
+      ],
+      "edits": [
+        {
+          "attribute_id": "dfdf8b544654cc57d3f81359",
+          "canonical_value": "yes",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 60,
+          "position": 60,
+          "position_in_attribute": 5,
+          "region": "carried",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "backpack",
+          "source_raw": "backpack",
+          "source_span": [
+            55,
+            63
+          ]
+        },
+        {
+          "attribute_id": "02d3dbaa72132d56d7a819ae",
+          "canonical_value": "male",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 5,
+          "position": 5,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "gender",
+          "source_raw": "boy",
+          "source_span": [
+            4,
+            7
+          ]
+        },
+        {
+          "attribute_id": "0cded23b0851e6a78eff2ede",
+          "canonical_value": "black",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 67,
+          "position": 67,
+          "position_in_attribute": 2,
+          "region": "upper",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "color",
+          "source_raw": "black",
+          "source_span": [
+            65,
+            70
+          ]
+        }
+      ]
+    },
+    "sampled_action_original_JSON_sha256": "3dc393c1f784d13fc954b16c451d39e0c7ab5954d3f8944d63b67c5dca22954f",
+    "advantage_delta_old_to_new_bank": -0.0022242218255996704
+  },
+  {
+    "round": "B-r2",
+    "G_calls": 0,
+    "H_state_sha256_after": "19d9de15b12f185d3f688a53ea02afa515412563e171da985e832dcb12132745",
+    "H_state_sha256_before": "b5b06dda00e2e9999cac6ca8d73a447af2ff80532039ed0b9bfdd0188980ed43",
+    "IRRA_image_calls": 0,
+    "IRRA_text_calls": 1,
+    "IRRA_text_samples": 3,
+    "K": 2,
+    "SCST_loss": 0.0,
+    "advantage": 0.0,
+    "bank_sha256": "2bb6f3dcb8a66def353adbc12469f55810d7d167620a3ea868a6856af2d9b995",
+    "gradient_norm": 0.0,
+    "greedy_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "greedy_reward": {
+      "R_rank": 0.015144944190979004,
+      "R_sim": -0.003041565418243408,
+      "adv_sim_drop": -0.003041565418243408,
+      "clean_margin_drop": 0.049511730670928955,
+      "clean_sim_drop": 0.02487623691558838,
+      "synergy_increment": -0.027917802333831787,
+      "total": 0.012103378772735596
+    },
+    "group_gradient_norm": {
+      "attribute_head": 0.0,
+      "byte_embedding": 0.0,
+      "encoder": 0.0,
+      "position_head": 0.0,
+      "replacement_head": 0.0
+    },
+    "old_bank_same_text_rewards": [
+      {
+        "R_rank": 0.016880840063095093,
+        "R_sim": -0.001711282879114151,
+        "adv_sim_drop": -0.001711282879114151,
+        "clean_margin_drop": 0.049511730670928955,
+        "clean_sim_drop": 0.02487623691558838,
+        "synergy_increment": -0.02658751979470253,
+        "total": 0.015169557183980942
+      },
+      {
+        "R_rank": 0.016880840063095093,
+        "R_sim": -0.001711282879114151,
+        "adv_sim_drop": -0.001711282879114151,
+        "clean_margin_drop": 0.049511730670928955,
+        "clean_sim_drop": 0.02487623691558838,
+        "synergy_increment": -0.02658751979470253,
+        "total": 0.015169557183980942
+      }
+    ],
+    "optimizer_steps_this_step": 1,
+    "parameter_delta_l2": 0.003931107889147947,
+    "parameter_delta_max_abs": 0.0001264810562133789,
+    "reward_delta_same_text": [
+      -0.003066178411245346,
+      -0.003066178411245346
+    ],
+    "row_id": "cuhk:9955:0",
+    "sampled_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "sampled_reward": {
+      "R_rank": 0.015144944190979004,
+      "R_sim": -0.003041565418243408,
+      "adv_sim_drop": -0.003041565418243408,
+      "clean_margin_drop": 0.049511730670928955,
+      "clean_sim_drop": 0.02487623691558838,
+      "synergy_increment": -0.027917802333831787,
+      "total": 0.012103378772735596
+    },
+    "sequence_log_prob": -0.1996537148952484,
+    "step": 20492,
+    "text_feature_numeric_sha256": "840a8e3656f58fcf36a889503c3637b8cd7bd95268b0ea16e682d6d1c49078ad",
+    "token_sha256": "b323e69878d720c0e829280d593506bf4939157c65e714346cb57cacbd39ac6e",
+    "sampled_action": {
+      "original": "He has  short  black hair  and  is  wearing  a  black shirt . He is  also  wearing white  pants  .",
+      "adversarial": "Hе has  shоrt  black hair  and  is  wearing  a  black shirt . He is  also  wearing white  pants  .",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "5143b71b1ce115bc122e3746",
+        "13d375cc76b287c91dd3bd36"
+      ],
+      "edits": [
+        {
+          "attribute_id": "5143b71b1ce115bc122e3746",
+          "canonical_value": "male",
+          "original_char": "e",
+          "original_codepoint": "U+0065",
+          "original_utf8_offset": 1,
+          "position": 1,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "е",
+          "replacement_codepoint": "U+0435",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER IE",
+          "semantic_axis": "gender",
+          "source_raw": "He",
+          "source_span": [
+            0,
+            2
+          ]
+        },
+        {
+          "attribute_id": "13d375cc76b287c91dd3bd36",
+          "canonical_value": "short",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 10,
+          "position": 10,
+          "position_in_attribute": 2,
+          "region": "head",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "hair_length",
+          "source_raw": "short",
+          "source_span": [
+            8,
+            13
+          ]
+        }
+      ]
+    },
+    "greedy_action": {
+      "original": "He has  short  black hair  and  is  wearing  a  black shirt . He is  also  wearing white  pants  .",
+      "adversarial": "Hе has  shоrt  black hair  and  is  wearing  a  black shirt . He is  also  wearing white  pants  .",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "5143b71b1ce115bc122e3746",
+        "13d375cc76b287c91dd3bd36"
+      ],
+      "edits": [
+        {
+          "attribute_id": "5143b71b1ce115bc122e3746",
+          "canonical_value": "male",
+          "original_char": "e",
+          "original_codepoint": "U+0065",
+          "original_utf8_offset": 1,
+          "position": 1,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "е",
+          "replacement_codepoint": "U+0435",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER IE",
+          "semantic_axis": "gender",
+          "source_raw": "He",
+          "source_span": [
+            0,
+            2
+          ]
+        },
+        {
+          "attribute_id": "13d375cc76b287c91dd3bd36",
+          "canonical_value": "short",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 10,
+          "position": 10,
+          "position_in_attribute": 2,
+          "region": "head",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "hair_length",
+          "source_raw": "short",
+          "source_span": [
+            8,
+            13
+          ]
+        }
+      ]
+    },
+    "sampled_action_original_JSON_sha256": "7d91441eb988fa80d8c6b1aeb05e57c47b737e57891030f1152ff08791be4ade",
+    "advantage_delta_old_to_new_bank": 0.0
+  },
+  {
+    "round": "B-r2",
+    "G_calls": 0,
+    "H_state_sha256_after": "9baf4dd37a6de34130bf77691b16c58d5e4e416114a5c998dc64fe768cf80198",
+    "H_state_sha256_before": "19d9de15b12f185d3f688a53ea02afa515412563e171da985e832dcb12132745",
+    "IRRA_image_calls": 0,
+    "IRRA_text_calls": 1,
+    "IRRA_text_samples": 3,
+    "K": 3,
+    "SCST_loss": 0.3203486204147339,
+    "advantage": 0.04462029039859772,
+    "bank_sha256": "2bb6f3dcb8a66def353adbc12469f55810d7d167620a3ea868a6856af2d9b995",
+    "gradient_norm": 0.9437290496258728,
+    "greedy_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 3,
+      "edits": 3,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 3
+    },
+    "greedy_reward": {
+      "R_rank": -0.008756399154663086,
+      "R_sim": -0.01516135036945343,
+      "adv_sim_drop": -0.01516135036945343,
+      "clean_margin_drop": -0.00054207444190979,
+      "clean_sim_drop": -0.018671810626983643,
+      "synergy_increment": 0.0035104602575302124,
+      "total": -0.023917749524116516
+    },
+    "group_gradient_norm": {
+      "attribute_head": 0.5296864790139972,
+      "byte_embedding": 0.0918890869400689,
+      "encoder": 0.6927326111144423,
+      "position_head": 0.33139183773552994,
+      "replacement_head": 0.0
+    },
+    "old_bank_same_text_rewards": [
+      {
+        "R_rank": 0.0179997980594635,
+        "R_sim": 0.004313617944717407,
+        "adv_sim_drop": 0.004313617944717407,
+        "clean_margin_drop": 0.020944297313690186,
+        "clean_sim_drop": 0.002337336540222168,
+        "synergy_increment": 0.0019762814044952393,
+        "total": 0.022313416004180908
+      },
+      {
+        "R_rank": -0.008083462715148926,
+        "R_sim": -0.017352759838104248,
+        "adv_sim_drop": -0.017352759838104248,
+        "clean_margin_drop": -0.00054207444190979,
+        "clean_sim_drop": -0.018671810626983643,
+        "synergy_increment": 0.0013190507888793945,
+        "total": -0.025436222553253174
+      }
+    ],
+    "optimizer_steps_this_step": 1,
+    "parameter_delta_l2": 0.0075670304232284364,
+    "parameter_delta_max_abs": 0.00031763315200805664,
+    "reward_delta_same_text": [
+      -0.001610875129699707,
+      0.0015184730291366577
+    ],
+    "row_id": "cuhk:29253:0",
+    "sampled_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 3,
+      "edits": 3,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 3
+    },
+    "sampled_reward": {
+      "R_rank": 0.012656599283218384,
+      "R_sim": 0.008045941591262817,
+      "adv_sim_drop": 0.008045941591262817,
+      "clean_margin_drop": 0.020944297313690186,
+      "clean_sim_drop": 0.002337336540222168,
+      "synergy_increment": 0.005708605051040649,
+      "total": 0.0207025408744812
+    },
+    "sequence_log_prob": -7.179438591003418,
+    "step": 20493,
+    "text_feature_numeric_sha256": "281dea8a7fb28e8e7b76b2dc43bd0ba32eb3260e13b40f589382be4b8d9afa83",
+    "token_sha256": "b0695a50e9c3696e0da52669e8ce808ad82599b187e2d320e796b806292873ae",
+    "sampled_action": {
+      "original": "The man is wearing black tennis shoes with grey socks and a pair of long black shorts that go past his knees. He is wearing a white tee-shirt with black graphics on the front and a plaid grey long-sleeved shirt. He has a backpack on his back.",
+      "adversarial": "The mаn is wearing black tennis shoes with grey socks and a pair of long black shorts that go past his knees. He is wearing a white teе-shirt with black graphics on the front and a plaid grey long-slеeved shirt. He has a backpack on his back.",
+      "budget_k": 3,
+      "selected_attribute_ids": [
+        "390d4818e2f12955a23893cb",
+        "3dbe7eebb0458cf3a90643f4",
+        "d84990a015cbfc414ea30400"
+      ],
+      "edits": [
+        {
+          "attribute_id": "390d4818e2f12955a23893cb",
+          "canonical_value": "male",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 5,
+          "position": 5,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "gender",
+          "source_raw": "man",
+          "source_span": [
+            4,
+            7
+          ]
+        },
+        {
+          "attribute_id": "3dbe7eebb0458cf3a90643f4",
+          "canonical_value": "t_shirt",
+          "original_char": "e",
+          "original_codepoint": "U+0065",
+          "original_utf8_offset": 134,
+          "position": 134,
+          "position_in_attribute": 2,
+          "region": "upper",
+          "replacement_char": "е",
+          "replacement_codepoint": "U+0435",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER IE",
+          "semantic_axis": "garment_type",
+          "source_raw": "tee",
+          "source_span": [
+            132,
+            135
+          ]
+        },
+        {
+          "attribute_id": "d84990a015cbfc414ea30400",
+          "canonical_value": "long",
+          "original_char": "e",
+          "original_codepoint": "U+0065",
+          "original_utf8_offset": 199,
+          "position": 199,
+          "position_in_attribute": 7,
+          "region": "upper",
+          "replacement_char": "е",
+          "replacement_codepoint": "U+0435",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER IE",
+          "semantic_axis": "sleeve_length",
+          "source_raw": "long-sleeved",
+          "source_span": [
+            192,
+            204
+          ]
+        }
+      ]
+    },
+    "greedy_action": {
+      "original": "The man is wearing black tennis shoes with grey socks and a pair of long black shorts that go past his knees. He is wearing a white tee-shirt with black graphics on the front and a plaid grey long-sleeved shirt. He has a backpack on his back.",
+      "adversarial": "The mаn is wearing black tennis shoes with grey socks and a pair of long black shorts that go past his knees. He is wearing a white tеe-shirt with black graphics on the front and a plaid grey lоng-sleeved shirt. He has a backpack on his back.",
+      "budget_k": 3,
+      "selected_attribute_ids": [
+        "390d4818e2f12955a23893cb",
+        "d84990a015cbfc414ea30400",
+        "3dbe7eebb0458cf3a90643f4"
+      ],
+      "edits": [
+        {
+          "attribute_id": "390d4818e2f12955a23893cb",
+          "canonical_value": "male",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 5,
+          "position": 5,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "gender",
+          "source_raw": "man",
+          "source_span": [
+            4,
+            7
+          ]
+        },
+        {
+          "attribute_id": "d84990a015cbfc414ea30400",
+          "canonical_value": "long",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 193,
+          "position": 193,
+          "position_in_attribute": 1,
+          "region": "upper",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "sleeve_length",
+          "source_raw": "long-sleeved",
+          "source_span": [
+            192,
+            204
+          ]
+        },
+        {
+          "attribute_id": "3dbe7eebb0458cf3a90643f4",
+          "canonical_value": "t_shirt",
+          "original_char": "e",
+          "original_codepoint": "U+0065",
+          "original_utf8_offset": 133,
+          "position": 133,
+          "position_in_attribute": 1,
+          "region": "upper",
+          "replacement_char": "е",
+          "replacement_codepoint": "U+0435",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER IE",
+          "semantic_axis": "garment_type",
+          "source_raw": "tee",
+          "source_span": [
+            132,
+            135
+          ]
+        }
+      ]
+    },
+    "sampled_action_original_JSON_sha256": "6795c2c7747dda81d4c32e91e56137e34ae984f7a76424e00cf18106bb3f7a8d",
+    "advantage_delta_old_to_new_bank": -0.0031293481588363647
+  },
+  {
+    "round": "B-r2",
+    "G_calls": 0,
+    "H_state_sha256_after": "6683a94c012805249f423c70819b550a45c7180e4828247a099acaf2c8258299",
+    "H_state_sha256_before": "9baf4dd37a6de34130bf77691b16c58d5e4e416114a5c998dc64fe768cf80198",
+    "IRRA_image_calls": 0,
+    "IRRA_text_calls": 1,
+    "IRRA_text_samples": 3,
+    "K": 2,
+    "SCST_loss": 0.0,
+    "advantage": 0.0,
+    "bank_sha256": "2bb6f3dcb8a66def353adbc12469f55810d7d167620a3ea868a6856af2d9b995",
+    "gradient_norm": 0.0,
+    "greedy_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "greedy_reward": {
+      "R_rank": 0.031127452850341797,
+      "R_sim": 0.01963818073272705,
+      "adv_sim_drop": 0.01963818073272705,
+      "clean_margin_drop": 0.0315513014793396,
+      "clean_sim_drop": 0.08115321397781372,
+      "synergy_increment": -0.06151503324508667,
+      "total": 0.05076563358306885
+    },
+    "group_gradient_norm": {
+      "attribute_head": 0.0,
+      "byte_embedding": 0.0,
+      "encoder": 0.0,
+      "position_head": 0.0,
+      "replacement_head": 0.0
+    },
+    "old_bank_same_text_rewards": [
+      {
+        "R_rank": 0.028435051441192627,
+        "R_sim": 0.017048805952072144,
+        "adv_sim_drop": 0.017048805952072144,
+        "clean_margin_drop": 0.0315513014793396,
+        "clean_sim_drop": 0.08115321397781372,
+        "synergy_increment": -0.06410440802574158,
+        "total": 0.04548385739326477
+      },
+      {
+        "R_rank": 0.028435051441192627,
+        "R_sim": 0.017048805952072144,
+        "adv_sim_drop": 0.017048805952072144,
+        "clean_margin_drop": 0.0315513014793396,
+        "clean_sim_drop": 0.08115321397781372,
+        "synergy_increment": -0.06410440802574158,
+        "total": 0.04548385739326477
+      }
+    ],
+    "optimizer_steps_this_step": 1,
+    "parameter_delta_l2": 0.006813765907976998,
+    "parameter_delta_max_abs": 0.0002860426902770996,
+    "reward_delta_same_text": [
+      0.005281776189804077,
+      0.005281776189804077
+    ],
+    "row_id": "cuhk:21540:0",
+    "sampled_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "sampled_reward": {
+      "R_rank": 0.031127452850341797,
+      "R_sim": 0.01963818073272705,
+      "adv_sim_drop": 0.01963818073272705,
+      "clean_margin_drop": 0.0315513014793396,
+      "clean_sim_drop": 0.08115321397781372,
+      "synergy_increment": -0.06151503324508667,
+      "total": 0.05076563358306885
+    },
+    "sequence_log_prob": -0.7698625922203064,
+    "step": 20494,
+    "text_feature_numeric_sha256": "d28bb8f1cdbd12d8d9968d48ccae89ad8876c065904e4cdbf07d87c3d0c159ff",
+    "token_sha256": "765578ecc35fbdd72271aa2f028960d034f375200e9be8f67f00915417da97e0",
+    "sampled_action": {
+      "original": "The woman is wearing a black jacket, a pink top and black pants.  She is also wearing black boots and carrying a large white bag on her right shoulder.",
+      "adversarial": "The wоman is wearing a black jacket, a pink top and black pants.  She is also wearing black boots and carrying a large white bаg on her right shoulder.",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "09c5a1520d173efb19948b0a",
+        "c4e952adca1844b295658af7"
+      ],
+      "edits": [
+        {
+          "attribute_id": "09c5a1520d173efb19948b0a",
+          "canonical_value": "female",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 5,
+          "position": 5,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "gender",
+          "source_raw": "woman",
+          "source_span": [
+            4,
+            9
+          ]
+        },
+        {
+          "attribute_id": "c4e952adca1844b295658af7",
+          "canonical_value": "yes",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 126,
+          "position": 126,
+          "position_in_attribute": 1,
+          "region": "carried",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "bag",
+          "source_raw": "bag",
+          "source_span": [
+            125,
+            128
+          ]
+        }
+      ]
+    },
+    "greedy_action": {
+      "original": "The woman is wearing a black jacket, a pink top and black pants.  She is also wearing black boots and carrying a large white bag on her right shoulder.",
+      "adversarial": "The wоman is wearing a black jacket, a pink top and black pants.  She is also wearing black boots and carrying a large white bаg on her right shoulder.",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "09c5a1520d173efb19948b0a",
+        "c4e952adca1844b295658af7"
+      ],
+      "edits": [
+        {
+          "attribute_id": "09c5a1520d173efb19948b0a",
+          "canonical_value": "female",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 5,
+          "position": 5,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "gender",
+          "source_raw": "woman",
+          "source_span": [
+            4,
+            9
+          ]
+        },
+        {
+          "attribute_id": "c4e952adca1844b295658af7",
+          "canonical_value": "yes",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 126,
+          "position": 126,
+          "position_in_attribute": 1,
+          "region": "carried",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "bag",
+          "source_raw": "bag",
+          "source_span": [
+            125,
+            128
+          ]
+        }
+      ]
+    },
+    "sampled_action_original_JSON_sha256": "eb567f915de19be0f1f637d13249902959cee8ab0e222acd48907d192ea3cedf",
+    "advantage_delta_old_to_new_bank": 0.0
+  },
+  {
+    "round": "B-r2",
+    "G_calls": 0,
+    "H_state_sha256_after": "8ee1aeafb4b256e6f2fa2668f6b70398efe8d9286e2a20429ba7e88d03348a94",
+    "H_state_sha256_before": "6683a94c012805249f423c70819b550a45c7180e4828247a099acaf2c8258299",
+    "IRRA_image_calls": 0,
+    "IRRA_text_calls": 1,
+    "IRRA_text_samples": 3,
+    "K": 2,
+    "SCST_loss": 0.0339035727083683,
+    "advantage": 0.01827213168144226,
+    "bank_sha256": "2bb6f3dcb8a66def353adbc12469f55810d7d167620a3ea868a6856af2d9b995",
+    "gradient_norm": 0.2695928481058558,
+    "greedy_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "greedy_reward": {
+      "R_rank": -0.042578354477882385,
+      "R_sim": -0.0629107803106308,
+      "adv_sim_drop": -0.0629107803106308,
+      "clean_margin_drop": -0.0024576187133789062,
+      "clean_sim_drop": 0.02544379234313965,
+      "synergy_increment": -0.08835457265377045,
+      "total": -0.10548913478851318
+    },
+    "group_gradient_norm": {
+      "attribute_head": 0.23288275219339133,
+      "byte_embedding": 0.01738619337743166,
+      "encoder": 0.13178987110758555,
+      "position_head": 0.0007743168845355884,
+      "replacement_head": 0.0
+    },
+    "old_bank_same_text_rewards": [
+      {
+        "R_rank": -0.041696205735206604,
+        "R_sim": -0.04961620271205902,
+        "adv_sim_drop": -0.04961620271205902,
+        "clean_margin_drop": 0.0033840537071228027,
+        "clean_sim_drop": -0.017426252365112305,
+        "synergy_increment": -0.032189950346946716,
+        "total": -0.09131240844726562
+      },
+      {
+        "R_rank": -0.046548813581466675,
+        "R_sim": -0.06779402494430542,
+        "adv_sim_drop": -0.06779402494430542,
+        "clean_margin_drop": -0.0024576187133789062,
+        "clean_sim_drop": 0.02544379234313965,
+        "synergy_increment": -0.09323781728744507,
+        "total": -0.1143428385257721
+      }
+    ],
+    "optimizer_steps_this_step": 1,
+    "parameter_delta_l2": 0.00620500466598911,
+    "parameter_delta_max_abs": 0.0002575516700744629,
+    "reward_delta_same_text": [
+      0.004095405340194702,
+      0.008853703737258911
+    ],
+    "row_id": "cuhk:3127:0",
+    "sampled_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "sampled_reward": {
+      "R_rank": -0.03980556130409241,
+      "R_sim": -0.047411441802978516,
+      "adv_sim_drop": -0.047411441802978516,
+      "clean_margin_drop": 0.0033840537071228027,
+      "clean_sim_drop": -0.017426252365112305,
+      "synergy_increment": -0.02998518943786621,
+      "total": -0.08721700310707092
+    },
+    "sequence_log_prob": -1.8554799556732178,
+    "step": 20495,
+    "text_feature_numeric_sha256": "0db1ccbdd92125f5f19e075a0b3fa5c41579bf3b68e776b9a23a67731b283c7f",
+    "token_sha256": "78175f81d52e275ad5f40e9cb97a460ec61c37f0a8b46088ae200d02e485277b",
+    "sampled_action": {
+      "original": "the person pictured is wearing a white and black shirt with black pants. the person has a strap over there shoulder and wearing light colored shoes.",
+      "adversarial": "the person pictured is wearing a white and black shirt with blаck pаnts. the person has a strap over there shoulder and wearing light colored shoes.",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "a73f390e813a859e28f090dd",
+        "ef7c20def11c18ec2a2f8c9b"
+      ],
+      "edits": [
+        {
+          "attribute_id": "a73f390e813a859e28f090dd",
+          "canonical_value": "pants_trousers",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 67,
+          "position": 67,
+          "position_in_attribute": 1,
+          "region": "lower",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "garment_type",
+          "source_raw": "pants",
+          "source_span": [
+            66,
+            71
+          ]
+        },
+        {
+          "attribute_id": "ef7c20def11c18ec2a2f8c9b",
+          "canonical_value": "black",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 62,
+          "position": 62,
+          "position_in_attribute": 2,
+          "region": "lower",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "color",
+          "source_raw": "black",
+          "source_span": [
+            60,
+            65
+          ]
+        }
+      ]
+    },
+    "greedy_action": {
+      "original": "the person pictured is wearing a white and black shirt with black pants. the person has a strap over there shoulder and wearing light colored shoes.",
+      "adversarial": "the person pictured is wearing a white and black shіrt with black pаnts. the person has a strap over there shoulder and wearing light colored shoes.",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "a73f390e813a859e28f090dd",
+        "5dac2d810cd821a57c10617e"
+      ],
+      "edits": [
+        {
+          "attribute_id": "a73f390e813a859e28f090dd",
+          "canonical_value": "pants_trousers",
+          "original_char": "a",
+          "original_codepoint": "U+0061",
+          "original_utf8_offset": 67,
+          "position": 67,
+          "position_in_attribute": 1,
+          "region": "lower",
+          "replacement_char": "а",
+          "replacement_codepoint": "U+0430",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+          "semantic_axis": "garment_type",
+          "source_raw": "pants",
+          "source_span": [
+            66,
+            71
+          ]
+        },
+        {
+          "attribute_id": "5dac2d810cd821a57c10617e",
+          "canonical_value": "shirt",
+          "original_char": "i",
+          "original_codepoint": "U+0069",
+          "original_utf8_offset": 51,
+          "position": 51,
+          "position_in_attribute": 2,
+          "region": "upper",
+          "replacement_char": "і",
+          "replacement_codepoint": "U+0456",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I",
+          "semantic_axis": "garment_type",
+          "source_raw": "shirt",
+          "source_span": [
+            49,
+            54
+          ]
+        }
+      ]
+    },
+    "sampled_action_original_JSON_sha256": "cf613980c26f84015724268be8798b99e6cd40cceb39515b3d3af28cdb68ad3d",
+    "advantage_delta_old_to_new_bank": -0.004758298397064209
+  },
+  {
+    "round": "B-r2",
+    "G_calls": 0,
+    "H_state_sha256_after": "ffd60ff9febf822d7db03a463534c5bbe92f2d954d1cd8899e92ae428246222f",
+    "H_state_sha256_before": "8ee1aeafb4b256e6f2fa2668f6b70398efe8d9286e2a20429ba7e88d03348a94",
+    "IRRA_image_calls": 0,
+    "IRRA_text_calls": 1,
+    "IRRA_text_samples": 3,
+    "K": 2,
+    "SCST_loss": 0.09529456496238708,
+    "advantage": 0.05963790416717529,
+    "bank_sha256": "2bb6f3dcb8a66def353adbc12469f55810d7d167620a3ea868a6856af2d9b995",
+    "gradient_norm": 0.8791198925059576,
+    "greedy_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "greedy_reward": {
+      "R_rank": 0.020537391304969788,
+      "R_sim": 0.05199553072452545,
+      "adv_sim_drop": 0.05199553072452545,
+      "clean_margin_drop": 0.053723424673080444,
+      "clean_sim_drop": 0.05117043852806091,
+      "synergy_increment": 0.0008250921964645386,
+      "total": 0.07253292202949524
+    },
+    "group_gradient_norm": {
+      "attribute_head": 0.8013899192143986,
+      "byte_embedding": 0.0463704221641074,
+      "encoder": 0.3468832877454549,
+      "position_head": 0.042424620339646044,
+      "replacement_head": 0.007731314686615913
+    },
+    "old_bank_same_text_rewards": [
+      {
+        "R_rank": 0.04777170717716217,
+        "R_sim": 0.09250922501087189,
+        "adv_sim_drop": 0.09250922501087189,
+        "clean_margin_drop": 0.05959129333496094,
+        "clean_sim_drop": 0.0485803484916687,
+        "synergy_increment": 0.043928876519203186,
+        "total": 0.14028093218803406
+      },
+      {
+        "R_rank": 0.0305396169424057,
+        "R_sim": 0.04873053729534149,
+        "adv_sim_drop": 0.04873053729534149,
+        "clean_margin_drop": 0.053723424673080444,
+        "clean_sim_drop": 0.05117043852806091,
+        "synergy_increment": -0.0024399012327194214,
+        "total": 0.07927015423774719
+      }
+    ],
+    "optimizer_steps_this_step": 1,
+    "parameter_delta_l2": 0.005969748458430349,
+    "parameter_delta_max_abs": 0.00023192167282104492,
+    "reward_delta_same_text": [
+      -0.008110098540782928,
+      -0.006737232208251953
+    ],
+    "row_id": "cuhk:8385:0",
+    "sampled_action_stats": {
+      "NOOP_output": 0,
+      "STOP_count": 0,
+      "STOP_ratio": 0.0,
+      "attribute_decisions": 2,
+      "edits": 2,
+      "position_NOOP_count": 0,
+      "position_NOOP_ratio": 0.0,
+      "position_decisions": 2
+    },
+    "sampled_reward": {
+      "R_rank": 0.036548271775245667,
+      "R_sim": 0.09562256187200546,
+      "adv_sim_drop": 0.09562256187200546,
+      "clean_margin_drop": 0.05959129333496094,
+      "clean_sim_drop": 0.0485803484916687,
+      "synergy_increment": 0.04704221338033676,
+      "total": 0.13217083364725113
+    },
+    "sequence_log_prob": -1.5978858470916748,
+    "step": 20496,
+    "text_feature_numeric_sha256": "cbca5b95c2f236df4a55e28adb3bcea9f8062b4dc3db2359c5b0abd42b14fa45",
+    "token_sha256": "6e3ef55324764541b21bcd4f0af60fa9431a6f36c7929edff4f8ac00cd64d072",
+    "sampled_action": {
+      "original": "This woman has short hair and is wearing a plaid jacket, a beaded necklace, a white skirt with a print and white sandals.",
+      "adversarial": "This wоman has short hair and is wearing a plaid jackеt, a beaded necklace, a white skirt with a print and white sandals.",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "0d7eddcefd2d7e2cc999892e",
+        "ef259f8266887e5be3b2c3db"
+      ],
+      "edits": [
+        {
+          "attribute_id": "0d7eddcefd2d7e2cc999892e",
+          "canonical_value": "female",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 6,
+          "position": 6,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "gender",
+          "source_raw": "woman",
+          "source_span": [
+            5,
+            10
+          ]
+        },
+        {
+          "attribute_id": "ef259f8266887e5be3b2c3db",
+          "canonical_value": "jacket",
+          "original_char": "e",
+          "original_codepoint": "U+0065",
+          "original_utf8_offset": 53,
+          "position": 53,
+          "position_in_attribute": 4,
+          "region": "upper",
+          "replacement_char": "е",
+          "replacement_codepoint": "U+0435",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER IE",
+          "semantic_axis": "garment_type",
+          "source_raw": "jacket",
+          "source_span": [
+            49,
+            55
+          ]
+        }
+      ]
+    },
+    "greedy_action": {
+      "original": "This woman has short hair and is wearing a plaid jacket, a beaded necklace, a white skirt with a print and white sandals.",
+      "adversarial": "This wоman has shоrt hair and is wearing a plaid jacket, a beaded necklace, a white skirt with a print and white sandals.",
+      "budget_k": 2,
+      "selected_attribute_ids": [
+        "0d7eddcefd2d7e2cc999892e",
+        "101863116b8d91dec665e2da"
+      ],
+      "edits": [
+        {
+          "attribute_id": "0d7eddcefd2d7e2cc999892e",
+          "canonical_value": "female",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 6,
+          "position": 6,
+          "position_in_attribute": 1,
+          "region": "person",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "gender",
+          "source_raw": "woman",
+          "source_span": [
+            5,
+            10
+          ]
+        },
+        {
+          "attribute_id": "101863116b8d91dec665e2da",
+          "canonical_value": "short",
+          "original_char": "o",
+          "original_codepoint": "U+006F",
+          "original_utf8_offset": 17,
+          "position": 17,
+          "position_in_attribute": 2,
+          "region": "head",
+          "replacement_char": "о",
+          "replacement_codepoint": "U+043E",
+          "replacement_unicode_name": "CYRILLIC SMALL LETTER O",
+          "semantic_axis": "hair_length",
+          "source_raw": "short hair",
+          "source_span": [
+            15,
+            25
+          ]
+        }
+      ]
+    },
+    "sampled_action_original_JSON_sha256": "ddf29c2f27713c4dff862b5cfe9e7f78d2e7b62aced42082ab675c1cd01e7c13",
+    "advantage_delta_old_to_new_bank": -0.0013728663325309753
+  }
+]

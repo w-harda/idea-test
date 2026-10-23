@@ -2,7 +2,20 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：CUDA_RNG_PASS，唯一A1/B两轮Smoke已真实后台启动
+## 当前阶段：A1/B四轮生成与结构完整；严格NOOP对照失败，原CPU审计FAIL
+
+smoke_v2原GPU执行退出0，GH_NATIVE_TWO_ROUND_SMOKE_GENERATED，1824.9946秒。
+四轮各27 G更新、8 H访问/7 Adam更新、2048图库；合计108/32/28/8192。
+原native_cli.py:178因first NOOP control differs失败；首NOOP条件/初始G/Loss相同，但梯度和更新后G SHA不同；首非NOOP的G_before也已不同。
+未改断言或阈值，不把原CPU FAIL转PASS；具体CUDA数值差异原因NOT_VERIFIED，未重新运行GPU。
+独立CPU只读review_v3核验16465单元/57637原文件及四轮双Adam/RNG/状态链/图库SHA/预算，结构PASS，严格协议结论FAIL（退出2）。
+原四项feedback表达式派生均true，但原审计在生成它们前已抛错；严格受控双向证据false。
+同文本Reward变化28/28，Advantage/非零H梯度12/28；16步零梯度仍参数变化，不全部归因于当前反馈。
+IRRA/reader冻结原执行断言及Checkpoint保护有效；原Smoke/控制日志、151378历史metadata、28旧FAIL/probe/父权重不变。
+本轮仅CPU读取和派生报告，12项CPU测试PASS，无GPU/训练/评估。解析工具的摘要空间与JSON tuple诊断记录另存，不改变原失败根因。
+[完整中文报告](framework/results/gh_bidirectional_smoke_v2_review/REPORT.md)、[原精度结构化结果](framework/results/gh_bidirectional_smoke_v2_review/RESULTS.json)、[SHA来源](framework/results/gh_bidirectional_smoke_v2_review/SOURCE_EVIDENCE.json)。
+
+## 历史阶段：CUDA_RNG_PASS，唯一A1/B两轮Smoke已真实后台启动
 
 2026-10-23，独立工具执行2f86593ca8226c238f972642cc71752322b4a5d8；生产代码/配置/probe_v2不变。
 19项当前生命周期与资源/互斥/单次执行CPU测试PASS。RNG仅2048MiB，Smoke仍10240MiB。

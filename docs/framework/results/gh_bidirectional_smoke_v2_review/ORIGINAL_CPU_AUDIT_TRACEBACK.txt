@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/home/lzf/ldx/envs/tbps-image/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/lzf/ldx/envs/tbps-image/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/alternating/native_cli.py", line 211, in <module>
+    if __name__=="__main__":main()
+  File "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/alternating/native_cli.py", line 204, in main
+    print(json.dumps(audit_smoke(verify_config(a.config)),ensure_ascii=False,indent=2))
+  File "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/alternating/native_cli.py", line 178, in audit_smoke
+    require(a[0]["G_before"]==b[0]["G_before"] and a[0]["G_after"]==b[0]["G_after"]
+  File "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/alternating/contracts.py", line 8, in require
+    raise ValueError(message)
+ValueError: first NOOP control differs

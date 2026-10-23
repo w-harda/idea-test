@@ -1,0 +1,1075 @@
+{
+  "analysis_base": "1de92e512585f332cc28966c5f5870bb6f6627d8",
+  "review_execution_commit": "d496d924fe1f1d1e05633b6141c096c420ddead1",
+  "production_execution_commit": "a7597f9c964dda0c8c48973e4678f0b9d3fa095a",
+  "production_source_key": "06b5c6a15061e635e49a9e13deb14022956fdbc272ad0ed378676e57ca5f826b",
+  "review_identity": "562d8bac1c4d7b7e9e20472d83b69590dab83e34ea666cf90599140cb8844134",
+  "config": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/configs/framework/gh_bidirectional_backend.probe_v2.shared.server.json",
+    "sha256": "77ae41af56189ece991ee7cf21fd0ea0f3be5645202bd1cb7cf7e0b2ae735649",
+    "bytes": 211828
+  },
+  "original_logs": {
+    "cpu_audit.log": {
+      "path": "/home/lzf/ldx/tmp/gh_smoke_wait_v1_20261023/cpu_audit.log",
+      "sha256": "6524384b33fbabe29cfc93e7af772990426945887b63d8fe566addb82dc3fe65",
+      "bytes": 1084
+    },
+    "monitor.FAIL": {
+      "path": "/home/lzf/ldx/tmp/gh_smoke_wait_v1_20261023/monitor.FAIL",
+      "sha256": "209abddb905c323427b478a8139552ba533f374e2a78ef45dd545de39ebb453e",
+      "bytes": 448
+    },
+    "status.json": {
+      "path": "/home/lzf/ldx/tmp/gh_smoke_wait_v1_20261023/status.json",
+      "sha256": "dea5c69c9eb2b1b7da92013eb7db62c5f8ed967346b8bbbe7982cc95c8f42f99",
+      "bytes": 908
+    },
+    "status.log": {
+      "path": "/home/lzf/ldx/tmp/gh_smoke_wait_v1_20261023/status.log",
+      "sha256": "f46c40e074bc41ffa0747b2bcc58bb36dbdf62e83a83325be53d8a0d43b940d9",
+      "bytes": 905
+    },
+    "smoke.log": {
+      "path": "/home/lzf/ldx/tmp/gh_smoke_wait_v1_20261023/smoke.log",
+      "sha256": "2adb1ae7ca24f64fabb8be3cf348c07a9910e74147a67d990032316108708743",
+      "bytes": 861426
+    },
+    "smoke.exit": {
+      "path": "/home/lzf/ldx/tmp/gh_smoke_wait_v1_20261023/smoke.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    "audit-smoke.exit": {
+      "path": "/home/lzf/ldx/tmp/gh_smoke_wait_v1_20261023/audit-smoke.exit",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "bytes": 2
+    },
+    "smoke_resources.json": {
+      "path": "/home/lzf/ldx/tmp/gh_smoke_wait_v1_20261023/smoke_resources.json",
+      "sha256": "f32d9944cadd6c132e01a90852d959c8770227d61042b99dc2d6efe8347ff778",
+      "bytes": 94
+    },
+    "audit-smoke_resources.json": {
+      "path": "/home/lzf/ldx/tmp/gh_smoke_wait_v1_20261023/audit-smoke_resources.json",
+      "sha256": "216f3468be72b1e64263c060edef363e2835938c68f215574ec52fb82823254a",
+      "bytes": 92
+    }
+  },
+  "review_logs": {
+    "CPU_tests.log": {
+      "path": "/home/lzf/ldx/tmp/gh_smoke_readonly_review_20261023/CPU_tests.log",
+      "sha256": "aebadd66519bd5e05747560ce9a6dd84eced8fb80d133c0de0087d03927fbbf9",
+      "bytes": 98
+    },
+    "CPU_hash_tests.log": {
+      "path": "/home/lzf/ldx/tmp/gh_smoke_readonly_review_20261023/CPU_hash_tests.log",
+      "sha256": "3fcb38e1fcfa38dc1085502533c71aa59ca438c8f584e3256efb4ba9c28a5474",
+      "bytes": 98
+    },
+    "CPU_condition_tests.log": {
+      "path": "/home/lzf/ldx/tmp/gh_smoke_readonly_review_20261023/CPU_condition_tests.log",
+      "sha256": "fb84cd66c2cd1e6e40e9046679ae0905473d883d78d1a8e2847e4af3fd67d9df",
+      "bytes": 98
+    },
+    "review.log": {
+      "path": "/home/lzf/ldx/tmp/gh_smoke_readonly_review_20261023/review.log",
+      "sha256": "67d08a7e55340ca1bd4888f0f9029daa2cb8c00e2c9bbf814d8b80e359a34d62",
+      "bytes": 400
+    },
+    "review.exit": {
+      "path": "/home/lzf/ldx/tmp/gh_smoke_readonly_review_20261023/review.exit",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "bytes": 2
+    },
+    "review_v2.log": {
+      "path": "/home/lzf/ldx/tmp/gh_smoke_readonly_review_20261023/review_v2.log",
+      "sha256": "fd254ef0dde884575725c15acd0ddd648bd4868fd42b065aec45f4dcb80175ef",
+      "bytes": 1113
+    },
+    "review_v2.exit": {
+      "path": "/home/lzf/ldx/tmp/gh_smoke_readonly_review_20261023/review_v2.exit",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "bytes": 2
+    },
+    "review_v3.log": {
+      "path": "/home/lzf/ldx/tmp/gh_smoke_readonly_review_20261023/review_v3.log",
+      "sha256": "bc4b39b3a47c96be2de91d204437c08dc0013857585ef56b0fdfa7bf3ef76668",
+      "bytes": 576
+    },
+    "review_v3.exit": {
+      "path": "/home/lzf/ldx/tmp/gh_smoke_readonly_review_20261023/review_v3.exit",
+      "sha256": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3",
+      "bytes": 2
+    }
+  },
+  "sources": {
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/alternating/native_cli.py": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/alternating/native_cli.py",
+      "sha256": "977ff32059933191949bb8a91417700d5b050daedb7b928f42c5db5ab41a4083",
+      "bytes": 13100
+    },
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/alternating/native_backend.py": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/alternating/native_backend.py",
+      "sha256": "6f96beb9275e29df188f8aaf5b9cb6bdff82234200d7da95453649b2cfba7960",
+      "bytes": 22955
+    },
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/alternating/runner.py": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/alternating/runner.py",
+      "sha256": "2f817e72eb5e62e779fcdf4fe6219d9808a64bf7073482555b21291f79a1ac27",
+      "bytes": 4361
+    },
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/alternating/state.py": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/alternating/state.py",
+      "sha256": "e7aedb7607e959721aa219db96168747dfe723458b2197817ea3d2d61ff684d3",
+      "bytes": 5973
+    },
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/models/irra.py": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/models/irra.py",
+      "sha256": "424e1dcd20b34061e3199d969f05eb34ca8aa3a6655e00a0e77770ee17fef0b2",
+      "bytes": 9688
+    },
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/feedback_backend.py": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/feedback_backend.py",
+      "sha256": "56c79e6c9f16e050a2dc2724c21c22ba7b36f8622b2a367f0c1de6f2f8ae5e19",
+      "bytes": 9281
+    },
+    "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase4_training.py": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase4_training.py",
+      "sha256": "649ae6b0e9ac63245c9d77f8cfcbe653b000ec9f466070e79990ece210d0466e",
+      "bytes": 4654
+    },
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-smoke-posthoc-audit-20261023/operations/gh_smoke_readonly_review.py": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-smoke-posthoc-audit-20261023/operations/gh_smoke_readonly_review.py",
+      "sha256": "a5a4e2ef0686e3e0178f3dee05fe7d42fe90d8eaf6bdc018e9891cc85dfd1fad",
+      "bytes": 22929
+    },
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-smoke-posthoc-audit-20261023/operations/gh_smoke_readonly_review_v2.py": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-smoke-posthoc-audit-20261023/operations/gh_smoke_readonly_review_v2.py",
+      "sha256": "e28fc1b051717a3397c390a53c9d13838c05459349bdb1bfed5ee5e8a26b36fd",
+      "bytes": 24189
+    },
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-smoke-posthoc-audit-20261023/operations/gh_smoke_readonly_review_v3.py": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-smoke-posthoc-audit-20261023/operations/gh_smoke_readonly_review_v3.py",
+      "sha256": "73effeec39bec73df8d40d755c082879b21a50ae4cd1bf1c353acb2ed709f594",
+      "bytes": 24508
+    }
+  },
+  "original_completed": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/completed/manifest.json",
+    "sha256": "621d721ac79d81c7c9ea5e5944b9a0b2a827ec2aaf976782e8364d81dd869964",
+    "bytes": 334
+  },
+  "original_native_report": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/completed/report.json",
+    "sha256": "16f649abe37907cf8135005f40013320f178b3daff13f43c1850720edefa963c",
+    "bytes": 277002
+  },
+  "full_findings": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-gh-smoke-review/readonly_v3/completed/findings.json",
+    "sha256": "d19c70b1a6eb3977ff929cbefd1219c42860a66b2f71329ef2e3e74bf159ca3f",
+    "bytes": 706464
+  },
+  "independent_review_completed": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-gh-smoke-review/readonly_v3/completed/manifest.json",
+    "sha256": "8423c5f643bc59cbb66ccadf06f0863242becc11b92cb65af5f9d3ffab080c81",
+    "bytes": 494
+  },
+  "CPU_tool_diagnostic_failures": {
+    "readonly_v1": {
+      "claim/manifest.json": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-gh-smoke-review/readonly_v1/claim/manifest.json",
+        "sha256": "3a52abe683871c8e699e708ca9718278cdc04c7877a41dc0e8b8ce0f7676ea6b",
+        "bytes": 637
+      },
+      "FAIL": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-gh-smoke-review/readonly_v1/FAIL",
+        "sha256": "36c08ea65e12ee44f99d48bfca01b089fe86b2b8f31ef7cba4792dc76906a977",
+        "bytes": 239
+      }
+    },
+    "readonly_v2": {
+      "claim/manifest.json": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-gh-smoke-review/readonly_v2/claim/manifest.json",
+        "sha256": "4db5a4fea455bb037feadd11a34b7edb764620bc77a76b7bfcd764f1db48e1b4",
+        "bytes": 640
+      },
+      "FAIL": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-gh-smoke-review/readonly_v2/FAIL",
+        "sha256": "36eec0dd604c223bf06f483c264d75af257f26b767a12cb099bd53912f14eb9d",
+        "bytes": 949
+      }
+    }
+  },
+  "round_evidence": {
+    "A1-r1": {
+      "state_sha256": {
+        "G": "4b125683f6d4a1e07a6bf9cd4215a535b4c6909e6f5697a790aef48a1cb7528c",
+        "G_Adam": "f211c435a0feb05e42e83e22f2ef21eab26d6eb4ab79869302fda4433ac75044",
+        "G_Adam_steps": [
+          484107
+        ],
+        "G_RNG": {
+          "CUDA_bytes": [
+            16
+          ],
+          "CUDA_devices": 1,
+          "components": {
+            "cuda": "2e4e7fa85259a1c127af07da700cb10dfb5bbd6b1df2352a81488fb5d3f4c2be",
+            "numpy": "8f57dcc4d5e07c80fe3f64e0f871f292751df8d68e6705f505ec98f060014ca7",
+            "python": "b4bc70dd9a8cc501bec2b4a8b836bd968f88aae35332687da0658ad213baf8cf",
+            "sampler": "1a113b62cba55e1e3bed1fa20d5ee79ad571cf86c693f1f31f7d42d535b5cdfa",
+            "torch_cpu": "d4492e37ad1f36f9823395b483ca45abeb960a638a5fbf94a9265a39c22935b4"
+          },
+          "state_sha256": "82a340a4e9f7ab8f2532be63bfdc764ec22aad52e860ccfa9655336aa2fd8b5d"
+        },
+        "G_optimizer_groups": [
+          {
+            "amsgrad": false,
+            "betas": [
+              0.5,
+              0.999
+            ],
+            "capturable": false,
+            "differentiable": false,
+            "eps": 1e-08,
+            "foreach": null,
+            "fused": null,
+            "lr": 0.0002,
+            "maximize": false,
+            "params": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53
+            ],
+            "weight_decay": 0
+          }
+        ],
+        "H": "be2ac7f8ac733c64e54f0f95764a1a44003b0556d9f391968a5648758fd57a7b",
+        "H_Adam": "007cab9c7e09881ac45b607bac5139daaa3883302237f1484c2155aae5f84793",
+        "H_Adam_steps": [
+          20131,
+          20255,
+          20377
+        ],
+        "H_RNG": {
+          "CUDA_bytes": [
+            16
+          ],
+          "CUDA_devices": 1,
+          "components": {
+            "cuda": "2e4e7fa85259a1c127af07da700cb10dfb5bbd6b1df2352a81488fb5d3f4c2be",
+            "numpy": "8f57dcc4d5e07c80fe3f64e0f871f292751df8d68e6705f505ec98f060014ca7",
+            "python": "b4bc70dd9a8cc501bec2b4a8b836bd968f88aae35332687da0658ad213baf8cf",
+            "sampler": "8386e60aa21249b03f0655357855622be9e78a1745d253a71c8aa5cf99701109",
+            "torch_cpu": "a0aee86edb18be1f9aa6bca174c41a0e266a4c5a5f3d1324de29ac709291f5ab"
+          },
+          "state_sha256": "1feb585ab341fd15d143a363e340e1e748bf38568c65e4c372092b7e4773bddd"
+        },
+        "H_native_ledger_sha256": "c01d6e292cca6ecaf6f2c7536bb219b9a242a26184affb6128f70311e96e6051",
+        "H_optimizer_groups": [
+          {
+            "amsgrad": false,
+            "betas": [
+              0.9,
+              0.999
+            ],
+            "capturable": false,
+            "differentiable": false,
+            "eps": 1e-08,
+            "foreach": null,
+            "fused": null,
+            "lr": 0.0001,
+            "maximize": false,
+            "params": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33
+            ],
+            "weight_decay": 0.0
+          }
+        ],
+        "cursor": {
+          "g_updates": 484107,
+          "h_updates": 20377,
+          "h_visits": 20488,
+          "round": 1
+        },
+        "parents": {
+          "G": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049",
+          "H": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd",
+          "protocol": "dbc8ad654378893c06e0c68af4526eb8a4cc9421b17ee34fd687ced467f7ded4"
+        }
+      },
+      "round_manifest": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/rounds/A1-r1/manifest.json",
+        "sha256": "2a49ff75bd2a81dd387dd1392f4dc98c891018b18e431f9c581f38ac43302554",
+        "bytes": 414
+      },
+      "round_claim": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/rounds/A1-r1-claim/manifest.json",
+        "sha256": "6f9e7d16d03d3304fb4b64bd7f09b240360543c1c26df94afa532f20c8ddcecb",
+        "bytes": 280
+      },
+      "ledger": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/rounds/A1-r1/ledger.json",
+        "sha256": "8276de1cea472b739d5e4751072908047d1ab04e75f0ed948a1313fc4d30fac4",
+        "bytes": 133194
+      },
+      "bank_completed": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/A1/bank_1/completed/manifest.json",
+        "sha256": "7c052117307f54da7dfc8a6acb52799ed05209508a245e184de6b96d1974f738",
+        "bytes": 30764
+      },
+      "bank_features": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/A1/bank_1/completed/features.pt",
+        "sha256": "2ebbf514c199e36a34ef0b8e407d9f72471ce67124fba9b63879e4564e8059d4",
+        "bytes": 4195484
+      }
+    },
+    "A1-r2": {
+      "state_sha256": {
+        "G": "0f630ae336341ecf32a0bb11e1c4843c4c0560681a980633815c58ae74e8dc69",
+        "G_Adam": "a391b1ddec43e9e1c7c5ed3b4a0a90295f72df18e93b1814646ae8094217045b",
+        "G_Adam_steps": [
+          484134
+        ],
+        "G_RNG": {
+          "CUDA_bytes": [
+            16
+          ],
+          "CUDA_devices": 1,
+          "components": {
+            "cuda": "2e4e7fa85259a1c127af07da700cb10dfb5bbd6b1df2352a81488fb5d3f4c2be",
+            "numpy": "8f57dcc4d5e07c80fe3f64e0f871f292751df8d68e6705f505ec98f060014ca7",
+            "python": "b4bc70dd9a8cc501bec2b4a8b836bd968f88aae35332687da0658ad213baf8cf",
+            "sampler": "1a113b62cba55e1e3bed1fa20d5ee79ad571cf86c693f1f31f7d42d535b5cdfa",
+            "torch_cpu": "d4492e37ad1f36f9823395b483ca45abeb960a638a5fbf94a9265a39c22935b4"
+          },
+          "state_sha256": "82a340a4e9f7ab8f2532be63bfdc764ec22aad52e860ccfa9655336aa2fd8b5d"
+        },
+        "G_optimizer_groups": [
+          {
+            "amsgrad": false,
+            "betas": [
+              0.5,
+              0.999
+            ],
+            "capturable": false,
+            "differentiable": false,
+            "eps": 1e-08,
+            "foreach": null,
+            "fused": null,
+            "lr": 0.0002,
+            "maximize": false,
+            "params": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53
+            ],
+            "weight_decay": 0
+          }
+        ],
+        "H": "67db378732ed24a4c6f811bcf63aff29891d2e029a3c9f406254962f464dd828",
+        "H_Adam": "c4eb4c11d12c2a2692336da3357c637469795410c873dfa2b47d74b2bf42d2ab",
+        "H_Adam_steps": [
+          20138,
+          20262,
+          20384
+        ],
+        "H_RNG": {
+          "CUDA_bytes": [
+            16
+          ],
+          "CUDA_devices": 1,
+          "components": {
+            "cuda": "2e4e7fa85259a1c127af07da700cb10dfb5bbd6b1df2352a81488fb5d3f4c2be",
+            "numpy": "8f57dcc4d5e07c80fe3f64e0f871f292751df8d68e6705f505ec98f060014ca7",
+            "python": "b4bc70dd9a8cc501bec2b4a8b836bd968f88aae35332687da0658ad213baf8cf",
+            "sampler": "3f33307a077dd6b429f1c278e0c7de7461ae97d4fd7369b5f512f69f28ffe050",
+            "torch_cpu": "a0aee86edb18be1f9aa6bca174c41a0e266a4c5a5f3d1324de29ac709291f5ab"
+          },
+          "state_sha256": "d1f5e332da37030029c2d9a42da3c09c8db2c7fc499756748995704827cc9511"
+        },
+        "H_native_ledger_sha256": "fcf8cb458d68681b6091dcbfe20579bcce3c74dfe25e0e03d4c0052c17fd047e",
+        "H_optimizer_groups": [
+          {
+            "amsgrad": false,
+            "betas": [
+              0.9,
+              0.999
+            ],
+            "capturable": false,
+            "differentiable": false,
+            "eps": 1e-08,
+            "foreach": null,
+            "fused": null,
+            "lr": 0.0001,
+            "maximize": false,
+            "params": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33
+            ],
+            "weight_decay": 0.0
+          }
+        ],
+        "cursor": {
+          "g_updates": 484134,
+          "h_updates": 20384,
+          "h_visits": 20496,
+          "round": 2
+        },
+        "parents": {
+          "G": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049",
+          "H": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd",
+          "protocol": "dbc8ad654378893c06e0c68af4526eb8a4cc9421b17ee34fd687ced467f7ded4"
+        }
+      },
+      "round_manifest": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/rounds/A1-r2/manifest.json",
+        "sha256": "dc18922368d65403de7749b3e383d4ca97fed0d6bcec8ed8352baf9661bf6bcb",
+        "bytes": 414
+      },
+      "round_claim": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/rounds/A1-r2-claim/manifest.json",
+        "sha256": "5bb4692d77ada434af6c417f81ce78787cffa9d809877be2f6ac59699a976368",
+        "bytes": 280
+      },
+      "ledger": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/rounds/A1-r2/ledger.json",
+        "sha256": "553b8526ab32e3722b12144add65a81ad91e0aa4a8f06929e2341512dc32cd65",
+        "bytes": 133464
+      },
+      "bank_completed": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/A1/bank_2/completed/manifest.json",
+        "sha256": "1608e1fda33a24dc00406a076bd465f865bd3fe05eef8b310ca6d915e3bdda4d",
+        "bytes": 30764
+      },
+      "bank_features": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/A1/bank_2/completed/features.pt",
+        "sha256": "05ed543ba5e091e9ec0da0305e24a58a2da02018b6a6bb64ff2c39980412a6bd",
+        "bytes": 4195484
+      }
+    },
+    "B-r1": {
+      "state_sha256": {
+        "G": "9f0a300599f65534db13d41823fc7f59d361d6612c2bcae82d80d0ce00b4b8cd",
+        "G_Adam": "2acdcf14f799a5f33c5f292c7698eaac0e675f455499706031addd05e50ea014",
+        "G_Adam_steps": [
+          484107
+        ],
+        "G_RNG": {
+          "CUDA_bytes": [
+            16
+          ],
+          "CUDA_devices": 1,
+          "components": {
+            "cuda": "2e4e7fa85259a1c127af07da700cb10dfb5bbd6b1df2352a81488fb5d3f4c2be",
+            "numpy": "8f57dcc4d5e07c80fe3f64e0f871f292751df8d68e6705f505ec98f060014ca7",
+            "python": "b4bc70dd9a8cc501bec2b4a8b836bd968f88aae35332687da0658ad213baf8cf",
+            "sampler": "1a113b62cba55e1e3bed1fa20d5ee79ad571cf86c693f1f31f7d42d535b5cdfa",
+            "torch_cpu": "d4492e37ad1f36f9823395b483ca45abeb960a638a5fbf94a9265a39c22935b4"
+          },
+          "state_sha256": "82a340a4e9f7ab8f2532be63bfdc764ec22aad52e860ccfa9655336aa2fd8b5d"
+        },
+        "G_optimizer_groups": [
+          {
+            "amsgrad": false,
+            "betas": [
+              0.5,
+              0.999
+            ],
+            "capturable": false,
+            "differentiable": false,
+            "eps": 1e-08,
+            "foreach": null,
+            "fused": null,
+            "lr": 0.0002,
+            "maximize": false,
+            "params": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53
+            ],
+            "weight_decay": 0
+          }
+        ],
+        "H": "eb1009a3681751a642212e8c995ffb482b5e7c266e905dbfeadd9066712ca8f0",
+        "H_Adam": "7d010132fa2c9556c2f0648bb70f557fc4dd5dadc6c33cc3a08a8ffcab8cd176",
+        "H_Adam_steps": [
+          20131,
+          20255,
+          20377
+        ],
+        "H_RNG": {
+          "CUDA_bytes": [
+            16
+          ],
+          "CUDA_devices": 1,
+          "components": {
+            "cuda": "2e4e7fa85259a1c127af07da700cb10dfb5bbd6b1df2352a81488fb5d3f4c2be",
+            "numpy": "8f57dcc4d5e07c80fe3f64e0f871f292751df8d68e6705f505ec98f060014ca7",
+            "python": "b4bc70dd9a8cc501bec2b4a8b836bd968f88aae35332687da0658ad213baf8cf",
+            "sampler": "8386e60aa21249b03f0655357855622be9e78a1745d253a71c8aa5cf99701109",
+            "torch_cpu": "a0aee86edb18be1f9aa6bca174c41a0e266a4c5a5f3d1324de29ac709291f5ab"
+          },
+          "state_sha256": "1feb585ab341fd15d143a363e340e1e748bf38568c65e4c372092b7e4773bddd"
+        },
+        "H_native_ledger_sha256": "442515d89e749b5f246a2d08c79f5e57f3aa49fab65d5d080f5240b7c560fff3",
+        "H_optimizer_groups": [
+          {
+            "amsgrad": false,
+            "betas": [
+              0.9,
+              0.999
+            ],
+            "capturable": false,
+            "differentiable": false,
+            "eps": 1e-08,
+            "foreach": null,
+            "fused": null,
+            "lr": 0.0001,
+            "maximize": false,
+            "params": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33
+            ],
+            "weight_decay": 0.0
+          }
+        ],
+        "cursor": {
+          "g_updates": 484107,
+          "h_updates": 20377,
+          "h_visits": 20488,
+          "round": 1
+        },
+        "parents": {
+          "G": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049",
+          "H": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd",
+          "protocol": "dbc8ad654378893c06e0c68af4526eb8a4cc9421b17ee34fd687ced467f7ded4"
+        }
+      },
+      "round_manifest": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/rounds/B-r1/manifest.json",
+        "sha256": "5f55e21651a913152ff89aee5ad668b6e74b26f824b375e6a59d730cc2b381e2",
+        "bytes": 413
+      },
+      "round_claim": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/rounds/B-r1-claim/manifest.json",
+        "sha256": "18987c8b812d6759993572538f318c9a1c677906d61d7843d70b3818be73582d",
+        "bytes": 279
+      },
+      "ledger": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/rounds/B-r1/ledger.json",
+        "sha256": "a0879721b39b3d2862173e9ebde36a2435f58b5aeb56ecf1bff29f8edd30fe4a",
+        "bytes": 133183
+      },
+      "bank_completed": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/B/bank_1/completed/manifest.json",
+        "sha256": "53d20e8325bfb6d255543e48c90bddd1976c91c71d0bc7e50ba65f69cf5db77f",
+        "bytes": 30763
+      },
+      "bank_features": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/B/bank_1/completed/features.pt",
+        "sha256": "437668f273b6b5266054c4312bed5f7c6ec48cd93d50deb7037ec93210ca1066",
+        "bytes": 4195484
+      }
+    },
+    "B-r2": {
+      "state_sha256": {
+        "G": "154bfc088887e71ac2cf944ee393530834a9cef94658ef6bf84699ab66ea9c45",
+        "G_Adam": "81768e485d822ce30358a3779f665e66f58e94917165bbf0cf903bd5b70ba5c3",
+        "G_Adam_steps": [
+          484134
+        ],
+        "G_RNG": {
+          "CUDA_bytes": [
+            16
+          ],
+          "CUDA_devices": 1,
+          "components": {
+            "cuda": "2e4e7fa85259a1c127af07da700cb10dfb5bbd6b1df2352a81488fb5d3f4c2be",
+            "numpy": "8f57dcc4d5e07c80fe3f64e0f871f292751df8d68e6705f505ec98f060014ca7",
+            "python": "b4bc70dd9a8cc501bec2b4a8b836bd968f88aae35332687da0658ad213baf8cf",
+            "sampler": "1a113b62cba55e1e3bed1fa20d5ee79ad571cf86c693f1f31f7d42d535b5cdfa",
+            "torch_cpu": "d4492e37ad1f36f9823395b483ca45abeb960a638a5fbf94a9265a39c22935b4"
+          },
+          "state_sha256": "82a340a4e9f7ab8f2532be63bfdc764ec22aad52e860ccfa9655336aa2fd8b5d"
+        },
+        "G_optimizer_groups": [
+          {
+            "amsgrad": false,
+            "betas": [
+              0.5,
+              0.999
+            ],
+            "capturable": false,
+            "differentiable": false,
+            "eps": 1e-08,
+            "foreach": null,
+            "fused": null,
+            "lr": 0.0002,
+            "maximize": false,
+            "params": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53
+            ],
+            "weight_decay": 0
+          }
+        ],
+        "H": "c5ec30e4a84003ee04a629e140b1e345fb378af59645e99130b7f175d072993c",
+        "H_Adam": "47bae1468291519a5cb7802ce5f50617b90f170999f036309e4d774de38494d7",
+        "H_Adam_steps": [
+          20138,
+          20262,
+          20384
+        ],
+        "H_RNG": {
+          "CUDA_bytes": [
+            16
+          ],
+          "CUDA_devices": 1,
+          "components": {
+            "cuda": "2e4e7fa85259a1c127af07da700cb10dfb5bbd6b1df2352a81488fb5d3f4c2be",
+            "numpy": "8f57dcc4d5e07c80fe3f64e0f871f292751df8d68e6705f505ec98f060014ca7",
+            "python": "b4bc70dd9a8cc501bec2b4a8b836bd968f88aae35332687da0658ad213baf8cf",
+            "sampler": "3f33307a077dd6b429f1c278e0c7de7461ae97d4fd7369b5f512f69f28ffe050",
+            "torch_cpu": "a0aee86edb18be1f9aa6bca174c41a0e266a4c5a5f3d1324de29ac709291f5ab"
+          },
+          "state_sha256": "d1f5e332da37030029c2d9a42da3c09c8db2c7fc499756748995704827cc9511"
+        },
+        "H_native_ledger_sha256": "ffd60ff9febf822d7db03a463534c5bbe92f2d954d1cd8899e92ae428246222f",
+        "H_optimizer_groups": [
+          {
+            "amsgrad": false,
+            "betas": [
+              0.9,
+              0.999
+            ],
+            "capturable": false,
+            "differentiable": false,
+            "eps": 1e-08,
+            "foreach": null,
+            "fused": null,
+            "lr": 0.0001,
+            "maximize": false,
+            "params": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33
+            ],
+            "weight_decay": 0.0
+          }
+        ],
+        "cursor": {
+          "g_updates": 484134,
+          "h_updates": 20384,
+          "h_visits": 20496,
+          "round": 2
+        },
+        "parents": {
+          "G": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049",
+          "H": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd",
+          "protocol": "dbc8ad654378893c06e0c68af4526eb8a4cc9421b17ee34fd687ced467f7ded4"
+        }
+      },
+      "round_manifest": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/rounds/B-r2/manifest.json",
+        "sha256": "4785744369063ed8514b29bdd14c21361341387bfb8025af655462605979761a",
+        "bytes": 413
+      },
+      "round_claim": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/rounds/B-r2-claim/manifest.json",
+        "sha256": "beb733052a0e439468b5c1d151c0026bcd44771765563a0283eb1e2984adae2c",
+        "bytes": 279
+      },
+      "ledger": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/rounds/B-r2/ledger.json",
+        "sha256": "f84b6dc405c73b80d5530981b502c63da2c6aa65e661a1de70c1c6bf1b0f078c",
+        "bytes": 133465
+      },
+      "bank_completed": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/B/bank_2/completed/manifest.json",
+        "sha256": "4146964bedc16c76d30b00ce1353f849b643cc43fa96f9d5cfce62e0424584c6",
+        "bytes": 30763
+      },
+      "bank_features": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/B/bank_2/completed/features.pt",
+        "sha256": "b1f912a6a00a6927ef8d24f626a2f90fdd73bd4d535b90bc1385039391627720",
+        "bytes": 4195484
+      }
+    }
+  },
+  "history": {
+    "history_metadata_files": 151378,
+    "old_FAIL_Watcher_SHA_metadata_files": 28,
+    "parents_SHA_unchanged": true,
+    "probe_v2_SHA_metadata_unchanged": true
+  },
+  "original_file_count": 57637,
+  "verified_artifact_units": 16465,
+  "ordered_verified_unit_manifest_digest": "2aa92504403bad2c3b1c3516603a9685ca1dbc5f3ca3d7fb1b876bc3875c6157",
+  "original_files_and_control_metadata_unchanged": true,
+  "CPU_tests_passed": 12,
+  "new_GPU_calls": 0,
+  "scope": "只读结构与协议复核。新completed/findings记录协议FAIL，不是原审计PASS。",
+  "parent_checkpoints": {
+    "G": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0060/checkpoint.pt",
+      "sha256": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049"
+    },
+    "H": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00020480/checkpoint.pt",
+      "sha256": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd"
+    },
+    "IRRA": {
+      "path": "/home/lzf/Attack/IRRA/logs/CUHK-PEDES/best.pth",
+      "sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+    }
+  },
+  "derived_tables": {
+    "RESULTS.json": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-smoke-posthoc-audit-20261023/docs/framework/results/gh_bidirectional_smoke_v2_review/RESULTS.json",
+      "sha256": "8617909610cd20e30b559cada7a9b0435dba2680ea0339e83db7d359744b0fd3"
+    },
+    "G_UPDATE_DETAILS.json": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-smoke-posthoc-audit-20261023/docs/framework/results/gh_bidirectional_smoke_v2_review/G_UPDATE_DETAILS.json",
+      "sha256": "4fe3dad75cf3318b4a3cabc3d8f03a0cf6759e778e7696fde1d82015d6fa00c5"
+    },
+    "H_VISIT_DETAILS.json": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-smoke-posthoc-audit-20261023/docs/framework/results/gh_bidirectional_smoke_v2_review/H_VISIT_DETAILS.json",
+      "sha256": "e342d8facf65cb0ea28dc6a672df1b6d2c96bda4999e19b67972617f8253b4bf"
+    }
+  }
+}

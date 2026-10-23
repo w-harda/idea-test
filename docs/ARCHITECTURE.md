@@ -1,5 +1,15 @@
 # 架构边界与迁移约定
 
+## 双向Smoke只读复核与严格控制边界
+
+冻结native_cli原audit-smoke在首NOOP exact控制失败后不发布审计回执；不能以完成四轮或存在梯度差替代前置控制。
+独立operations只读复核使用新输出身份：验证已保存结构/内容/SHA，保留严格协议FAIL。
+H原生state_sha与框架tree_sha的编码不同，必须调用各自锁定摘要函数对应Ledger；ConditionIdentity从JSON无损恢复tuple，不改变内容身份。
+本固定Smoke四图库与双状态完整，但首非NOOP前已承接NOOP数值分化，A1/B因果归因未验证。
+Reward/Advantage/非零梯度/参数变化分别统计，尤其零梯度Adam动量更新不等于新反馈学习。
+见framework/results/gh_bidirectional_smoke_v2_review/REPORT.md；不改训练、Loss、Reward或原审计。
+
+
 ## 独立RNG门槛与Smoke单次后台监督
 
 operations层把仅随机数CUDA验证的显存门槛设2048MiB，原Smoke10240MiB/RAM/磁盘/inode不变；不改生产producer/配置或probe回执。

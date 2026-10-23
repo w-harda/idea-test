@@ -1,5 +1,16 @@
 # 历史实验注册表
 
+## A1/B两轮Smoke完成、原CPU审计FAIL及只读复核（2026-10-23）
+
+GPU原生a7597f9c：4Round生成PASS，G108/H访问32/H更新28，四份2048图库完整，耗时1824.994606591761秒；reserved1158MiB。
+原审计native_cli.py:178拒绝首NOOP exact；更新前相同，但梯度/G_after SHA不同，首非NOOP前态已分化。原FAIL保留。
+只读复核执行d496d924fe1f1d1e05633b6141c096c420ddead1，新readonly_v3回执记录结构PASS/严格协议FAIL，未写原audit目录。
+16465 Artifact/57637文件内容及metadata、四轮状态/双Adam/RNG/图库有序身份/预算验证；12 CPU测试PASS。
+同文本Reward变化28、Advantage变化12、非零H梯度12、H参数变化28，其中16步零梯度已有动量。原四项反馈表达式派生true不等于原审计PASS或严格因果成立。
+本轮无GPU/模型前向/训练/新奖励或排名；原产物及历史保护通过，未改变阈值与算法。
+[报告](framework/results/gh_bidirectional_smoke_v2_review/REPORT.md)、[结构化结果](framework/results/gh_bidirectional_smoke_v2_review/RESULTS.json)。
+
+
 ## CUDA RNG验证PASS与A1/B两轮Smoke运行中（2026-10-23部署快照）
 
 独立工具2f86593ca8226c238f972642cc71752322b4a5d8，生产仍a7597f9c/配置77ae41af…5649，probe_v2同来源PASS保持。
