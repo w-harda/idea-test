@@ -1,0 +1,165 @@
+{
+  "counts": {
+    "G": 4,
+    "H": 1,
+    "IRRA_image": 4,
+    "IRRA_text": 6,
+    "JVP": 1,
+    "reader": 1
+  },
+  "elapsed_seconds": 14.204803325235844,
+  "frozen_sources": true,
+  "full_gallery_generations": 0,
+  "model_restores": {
+    "G": 1,
+    "H": 1,
+    "IRRA": 1,
+    "reader": 1
+  },
+  "nonnoop_gradient_max_abs": 0.005286501720547676,
+  "noop_gradient_max_abs": 4.1443854570388794e-08,
+  "optimizer_steps": 0,
+  "original_text_cache_max_abs": 0.0,
+  "peak_RSS_bytes": 2425774080,
+  "peak_allocated_bytes": 1083664896,
+  "peak_reserved_bytes": 1105199104,
+  "protocol_sha256": "dbc8ad654378893c06e0c68af4526eb8a4cc9421b17ee34fd687ced467f7ded4",
+  "scope": "fixed two Train captions; original first G-step Loss gradient only; not complete K+1 update",
+  "source_sha256": "06b5c6a15061e635e49a9e13deb14022956fdbc272ad0ed378676e57ca5f826b",
+  "startup_events": [
+    "cpu_sources_verified",
+    "cpu_isolation_exited",
+    "cuda_initialization_call"
+  ],
+  "status": "GH_NATIVE_NUMERIC_PROBE_PASS",
+  "comparisons": {
+    "nonnoop": {
+      "context_gradient_sha256": "ee89d2c068730678c873f4113f117b775ebfe6202fa826df48fc9c9e7b989295",
+      "context_loss": 0.4904400408267975,
+      "max_abs": 0.005286501720547676,
+      "original_gradient_sha256": "0edca4de862ea9e8ed48c5925157179dd7031434a6d9bd1ba73e57ce09f531bf",
+      "original_loss": 0.47378572821617126
+    },
+    "noop": {
+      "context_gradient_sha256": "c709af7817002b3313e180af10944a7e0990a62bb76eefffbadddfdb2acfd331",
+      "context_loss": 0.3706851899623871,
+      "max_abs": 4.1443854570388794e-08,
+      "original_gradient_sha256": "c8cbb5800c06535ad85ddc25cb1154ffc1168b6f30f24532ee161b368bde6803",
+      "original_loss": 0.3706851899623871
+    }
+  },
+  "JVP_checks": [
+    {
+      "central_fd_relative_error": 0.0005382464902543462,
+      "direction_norm": 0.03990959137026973,
+      "instance_id": "3f284f87e4e11cfbcfa9fb6f",
+      "mapping": "JVP original block8->blocks9-12->ln_final->text_projection->EOT->L2",
+      "tangent_radial_dot": -1.4551915228366852e-11,
+      "unit_hidden_delta_norm": 0.9999999855425731,
+      "zero_exact": true
+    }
+  ],
+  "condition_payload_content_sha256": [
+    "3cef64f380a69e6b68e11b40adfc1a1ad8dcc08e3deff9ec7ac716ac7e44d03c",
+    "2109fae523ed3ee872fd47f014ea710d2f4090dd32346281735a639c1e422dec"
+  ],
+  "Unicode_action": [
+    {
+      "attribute_id": "a19834c40e72bf5597661d76",
+      "canonical_value": "male",
+      "original_char": "a",
+      "original_codepoint": "U+0061",
+      "original_utf8_offset": 3,
+      "position": 3,
+      "position_in_attribute": 1,
+      "region": "person",
+      "replacement_char": "а",
+      "replacement_codepoint": "U+0430",
+      "replacement_unicode_name": "CYRILLIC SMALL LETTER A",
+      "semantic_axis": "gender",
+      "source_raw": "man",
+      "source_span": [
+        2,
+        5
+      ]
+    }
+  ],
+  "tokenizer_lengths": {
+    "after": {
+      "utf8_length": 103,
+      "total_length": 26,
+      "truncated": false
+    },
+    "before": {
+      "utf8_length": 102,
+      "total_length": 24,
+      "truncated": false
+    }
+  },
+  "new_context_eot_index": 25,
+  "parent_CPU_restore": {
+    "status": "GH_NATIVE_PARENT_CPU_RESTORE_PASS",
+    "G_state": "5d48caab6a891a1afd3aaaa6f3594eb5f860ccd7b6090708d289224e6c819e47",
+    "H_state": "1b1e3888ee8dc0e4dff39af3438ec48987cd472746cbfde71ad4d10f562ad24d",
+    "G_Adam": "84ffa5fdd8132fb60ecbb4caf40d3242973168666841264c098d2aa36575ae14",
+    "H_Adam": "dfe930621066f140b5dd37d77d5a4fc4226cdef3f74ff05bc181de86423b6a4d",
+    "G_Adam_steps": [
+      484080
+    ],
+    "H_Adam_step_min": 20124,
+    "H_Adam_step_max": 20370,
+    "G_RNG": "82a340a4e9f7ab8f2532be63bfdc764ec22aad52e860ccfa9655336aa2fd8b5d",
+    "H_RNG": "5333ea5b83ab3a2839988413067517ef7583f35efdd44fc31713b1b9ee01430e",
+    "CPU_RNG_exact": true,
+    "CUDA_RNG_preserved": true,
+    "CUDA_RNG_restored": false,
+    "parent_protocol": {
+      "G": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049",
+      "H": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd",
+      "protocol": "dbc8ad654378893c06e0c68af4526eb8a4cc9421b17ee34fd687ced467f7ded4"
+    },
+    "guards": {
+      "loads": [
+        "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0060/checkpoint.pt",
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00020480/checkpoint.pt"
+      ],
+      "forwards": 0,
+      "optimizer_steps": 0,
+      "CUDA": false
+    },
+    "real_model_forwards": 0,
+    "updates": 0
+  },
+  "coverage": {
+    "fresh_context_JVP_FD": "VERIFIED",
+    "NOOP_gradient_control": "VERIFIED",
+    "nonNOOP_gradient_difference": "VERIFIED",
+    "model_and_Adam_unchanged": "VERIFIED_BY_NATIVE_ASSERTIONS",
+    "CPU_RNG_parent_restore": "VERIFIED_BY_CPU_PREFLIGHT",
+    "CUDA_RNG_restore": "PENDING: frozen numerical_probe does not call enter_phase_rng/restore_rng; no GPU restore roundtrip evidence",
+    "G_gradient_L2_norms": "NOT_RECORDED: only gradient SHA, losses and max_abs differences retained",
+    "G_to_H_reward_feedback": "NOT_RUN",
+    "A1_B_two_round_Smoke": "NOT_RUN"
+  },
+  "resource_start": {
+    "GPU": "NVIDIA GeForce RTX 4090, 21957, 24564, 89",
+    "compute_processes": "GPU-350a0fd7-5695-b5e8-c541-cd2b5682e126, 3255229, /home/lzf/jmk/envs/foa_v5/bin/python, 2086",
+    "available_ram_bytes": 122773651456,
+    "free_disk_bytes": 6178506125312,
+    "free_inodes": 240217919,
+    "checks": {
+      "gpu": true,
+      "ram": true,
+      "disk": true,
+      "inodes": true
+    },
+    "resource_eligible": true,
+    "GPU_authorized": false,
+    "policy": "single shared_observe_only snapshot; no launch",
+    "recorded_at": "2026-10-23T12:24:24.500499+08:00",
+    "effective_probe_minimum_free_mib": 6144,
+    "unchanged_smoke_minimum_free_mib": 10240
+  },
+  "process_wall_seconds": 22.7,
+  "G_gradient_L2_norms": null
+}

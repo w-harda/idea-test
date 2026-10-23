@@ -1,5 +1,17 @@
 # 历史实验注册表
 
+## G/H probe_v2：真实数值PASS与只读审计（2026-10-23）
+
+执行a7597f9c，派生Probe6144MiB；旧f970配置/Smoke10240MiB不变。289 CPU测试PASS。
+12:24:24至12:24:47唯一真实调用，GH_NATIVE_NUMERIC_PROBE_PASS；completed Manifest d6e0b960e20a1ba5128f9e0b4edf497e7ea4b098fbf5cd3125799d2ad1136764。
+G4/H1/IRRA image4/text6/reader1/JVP1，更新0；NOOP差4.1443854570388794e-08，非NOOP差0.005286501720547676。
+真实JVP/FD相对误差0.0005382464902543462，allocated1083664896/reserved1105199104 bytes，RSS2425774080 bytes。
+后续CPU只读回执、条件内容和历史保护PASS；151378 metadata/28旧FAIL与Watcher/父权重不变。
+CUDA RNG恢复读回PENDING、梯度L2未记录；不将原生数值PASS推广为完整A1/B技术验证。
+不自动重试、不运行Smoke/训练/Validation/Test。
+[完整报告](framework/results/gh_probe_shared/REPORT.md)、[来源](framework/results/gh_probe_shared/SOURCE_EVIDENCE.json)。
+
+
 ## G/H probe_v2设备字符串修复（CPU-only，2026-10-23）
 
 基准7ba66d95；独立codex/gh-probe-device-fix。

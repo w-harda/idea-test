@@ -2,12 +2,16 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：Probe专用6144MiB派生协议，执行一次真实数值探针
+## 当前阶段：probe_v2原生数值PASS，CUDA RNG恢复证据仍PENDING
 
-基于f9701c7e，codex/gh-probe-shared；原v2配置保持，新增共享GPU派生配置和新source_key。
-只对Probe覆盖最低空闲6144MiB；Smoke/训练门槛及算法不变。289 CPU测试PASS，0 skip。
-本轮用户授权来源/CPU/资源检查后直接执行一次未消费probe_v2，不启动Watcher或A1/B。
-[协议与来源](framework/results/gh_probe_shared/PROTOCOL.md)，实际GPU结果执行后登记，不提前宣称PASS。
+2026-10-23唯一probe_v2已真实执行，执行Commit a7597f9c964dda0c8c48973e4678f0b9d3fa095a。
+Probe专用6144MiB派生配置，Smoke仍10240MiB；289 CPU测试和真实来源/父状态预检PASS。
+G4/H1/IRRA image4/text6/reader1/JVP1，Optimizer与图库刷新0；模型和双Adam前后不变。
+NOOP梯度max_abs4.1443854570388794e-08，非NOOP0.005286501720547676，新JVP/FD相对误差0.0005382464902543462。
+原生GH_NATIVE_NUMERIC_PROBE_PASS及后续CPU只读回执/内容/来源/历史保护核验PASS。
+CUDA RNG实际恢复读回未执行，梯度L2范数未保存，明确PENDING/NOT_RECORDED；不宣称完整A1/B已验证。
+151378历史metadata、28份旧FAIL/Watcher及父Checkpoint保持；probe_v2已消费，无重试、无新Watcher、Smoke未运行。
+[报告与原始数值](framework/results/gh_probe_shared/REPORT.md)、[证据](framework/results/gh_probe_shared/SOURCE_EVIDENCE.json)。
 
 ## 历史阶段：probe_v2设备字符串修复（f9701c7e快照）
 

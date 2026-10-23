@@ -1,0 +1,210 @@
+{
+  "base_commit": "f9701c7ea924f734d83f6cfeeaa38b0b83c30f01",
+  "execution_commit": "a7597f9c964dda0c8c48973e4678f0b9d3fa095a",
+  "branch": "codex/gh-probe-shared",
+  "worktree": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023",
+  "config": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/configs/framework/gh_bidirectional_backend.probe_v2.shared.server.json",
+    "sha256": "77ae41af56189ece991ee7cf21fd0ea0f3be5645202bd1cb7cf7e0b2ae735649",
+    "bytes": 211828
+  },
+  "source_key": "06b5c6a15061e635e49a9e13deb14022956fdbc272ad0ed378676e57ca5f826b",
+  "condition_space_sha256": "bb9ba7d89eb09a9a68bedcfdf01889766178dc8e081585390bc129dc416bd9bd",
+  "prototype_protocol_sha256": "dbc8ad654378893c06e0c68af4526eb8a4cc9421b17ee34fd687ced467f7ded4",
+  "current_sources": {
+    "src/tbps/alternating/native_cli.py": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/alternating/native_cli.py",
+      "sha256": "977ff32059933191949bb8a91417700d5b050daedb7b928f42c5db5ab41a4083",
+      "bytes": 13100
+    },
+    "src/tbps/alternating/native_sources.py": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/alternating/native_sources.py",
+      "sha256": "b2cc0366d83b124a3b6f3c0867fed2d623d4f8f1d5485db0f33e4e4b00555e13",
+      "bytes": 8824
+    },
+    "src/tbps/alternating/native_numeric.py": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/alternating/native_numeric.py",
+      "sha256": "698c5e9b08b3313866b042c4a75aa2224d67c5869e68fb9659a7ddc4067b83ec",
+      "bytes": 2677
+    },
+    "src/tbps/alternating/native_backend.py": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/alternating/native_backend.py",
+      "sha256": "6f96beb9275e29df188f8aaf5b9cb6bdff82234200d7da95453649b2cfba7960",
+      "bytes": 22955
+    },
+    "src/tbps/alternating/conditions.py": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/alternating/conditions.py",
+      "sha256": "62c796f485c1dd2941611220bdedb90b1f76f318dde176781f3b6bff45633c11",
+      "bytes": 9774
+    },
+    "src/tbps/alternating/token_bridge.py": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/alternating/token_bridge.py",
+      "sha256": "ee7040a49dcd32b78aed2b7cd0ba2d6e1429877117ea0856664139137c9cfa08",
+      "bytes": 3823
+    },
+    "src/tbps/alternating/parents.py": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/src/tbps/alternating/parents.py",
+      "sha256": "b30c71f5b5638025ec74c53e010b1302a010b4277bd3da707976f28c1656736f",
+      "bytes": 8749
+    },
+    "tests/framework/test_alternating_probe_resources.py": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/tests/framework/test_alternating_probe_resources.py",
+      "sha256": "0d11fddfdb6ff93652133d5aa3718451626d6ffaeaab72b1eac779a480a7f30c",
+      "bytes": 2973
+    }
+  },
+  "producer_count": 140,
+  "legacy_runtime_count": 496,
+  "parent_checkpoints": {
+    "G": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0060/checkpoint.pt",
+      "sha256": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049"
+    },
+    "H": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00020480/checkpoint.pt",
+      "sha256": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd"
+    },
+    "IRRA": {
+      "path": "/home/lzf/Attack/IRRA/logs/CUHK-PEDES/best.pth",
+      "sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+    }
+  },
+  "old_config": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-device-fix-20261023/configs/framework/gh_bidirectional_backend.probe_v2.server.json",
+    "sha256": "8b6fce14ce4236f76bd66233c061f2f06a32d975d6771cbad77f15a45ea5e443",
+    "metadata": [
+      212527,
+      1792726762349273556,
+      16979548
+    ]
+  },
+  "result_root": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2",
+  "execution_control": "/home/lzf/ldx/tmp/gh_probe_v2_shared_execution_20261023",
+  "completed_manifest_sha256": "d6e0b960e20a1ba5128f9e0b4edf497e7ea4b098fbf5cd3125799d2ad1136764",
+  "completed_report": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/completed/report.json",
+    "sha256": "29fffea13b4eeb28c6b8fb83b7baeda8933117f693aa8549426722566cebe545",
+    "bytes": 31723
+  },
+  "artifact_file_index": "CPU_RECEIPT_AUDIT.json#artifact_files",
+  "logs": {
+    "CPU_tests.log": {
+      "path": "/home/lzf/ldx/tmp/gh_probe_v2_shared_execution_20261023/CPU_tests.log",
+      "sha256": "18cef120ef188474319673b19d78550c5b7ee451073c27173aa1a5a12e7811f6",
+      "bytes": 974
+    },
+    "CPU_tests.exit": {
+      "path": "/home/lzf/ldx/tmp/gh_probe_v2_shared_execution_20261023/CPU_tests.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    "CPU_command.json": {
+      "path": "/home/lzf/ldx/tmp/gh_probe_v2_shared_execution_20261023/CPU_command.json",
+      "sha256": "0c8e155d8ec1fe7b84ce38aae53c511a19fb0df4413b9a8542ba922b8ae529d1",
+      "bytes": 915
+    },
+    "CPU_preflight.log": {
+      "path": "/home/lzf/ldx/tmp/gh_probe_v2_shared_execution_20261023/CPU_preflight.log",
+      "sha256": "9306fb716adca299c25c1a7520e20f28d5229661af7f38cc50c29826df4e127b",
+      "bytes": 30207
+    },
+    "CPU_preflight.exit": {
+      "path": "/home/lzf/ldx/tmp/gh_probe_v2_shared_execution_20261023/CPU_preflight.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    "CPU_PREFLIGHT.json": {
+      "path": "/home/lzf/ldx/tmp/gh_probe_v2_shared_execution_20261023/CPU_PREFLIGHT.json",
+      "sha256": "c928b7b8846c04672e93d65d9b8c5f0f3fbf7feb5469ed7ba60f738d79f0873f",
+      "bytes": 29892
+    },
+    "protection_before.json": {
+      "path": "/home/lzf/ldx/tmp/gh_probe_v2_shared_execution_20261023/protection_before.json",
+      "sha256": "2d2770e382d84172cc4dd7b56b607263221d4ae866d2cff943590738979b656f",
+      "bytes": 1116
+    },
+    "resources_before.json": {
+      "path": "/home/lzf/ldx/tmp/gh_probe_v2_shared_execution_20261023/resources_before.json",
+      "sha256": "47213f001e155a94da30033acf62c4b33820de42d66883e71fee556fa9522ca1",
+      "bytes": 630
+    },
+    "run_probe.sh": {
+      "path": "/home/lzf/ldx/tmp/gh_probe_v2_shared_execution_20261023/run_probe.sh",
+      "sha256": "144719febd411e12be1d04b1f35b30bf008fce8c8762a9c898d74d4e2fe7f0f8",
+      "bytes": 1012
+    },
+    "launch_consumed.json": {
+      "path": "/home/lzf/ldx/tmp/gh_probe_v2_shared_execution_20261023/launch_consumed.json",
+      "sha256": "0af57861be8fb89be386c3584582bc0245326dc2cff13e1c2ed5b9804eb97350",
+      "bytes": 763
+    },
+    "launcher.pid": {
+      "path": "/home/lzf/ldx/tmp/gh_probe_v2_shared_execution_20261023/launcher.pid",
+      "sha256": "92f00356cc32ccff2ee692fb6c2912045fbf757717482e4b1708c2e7231c38a6",
+      "bytes": 8
+    },
+    "probe.log": {
+      "path": "/home/lzf/ldx/tmp/gh_probe_v2_shared_execution_20261023/probe.log",
+      "sha256": "b2b89273a282bc2253ae4b930227c8d9ed8bf11de5d1ad5608f53875fdf73eff",
+      "bytes": 70917
+    },
+    "probe.exit": {
+      "path": "/home/lzf/ldx/tmp/gh_probe_v2_shared_execution_20261023/probe.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    "process_resources.log": {
+      "path": "/home/lzf/ldx/tmp/gh_probe_v2_shared_execution_20261023/process_resources.log",
+      "sha256": "71d2bbc72e6fde7da9718452427ce20abc171f06e2cce68d3dd542d27b0a1b0b",
+      "bytes": 987
+    },
+    "receipt_audit.json": {
+      "path": "/home/lzf/ldx/tmp/gh_probe_v2_shared_execution_20261023/receipt_audit.json",
+      "sha256": "7bf5349f8e0c350feddd47bf5016e057c8a0dabee2599d5119ed01b4a75ae89b",
+      "bytes": 12567
+    }
+  },
+  "history_protection": {
+    "metadata_count": 151378,
+    "mismatches": 0,
+    "snapshot": {
+      "path": "/home/lzf/ldx/tmp/hv1_g60_adaptation_development_20261021/protected_before.json",
+      "sha256": "fb785cd86aa441e5acb36eb51a835f0c98bbaafc7f8300e0e173fa354f43517d",
+      "metadata": [
+        23402028,
+        1792596299807777556,
+        238830623
+      ]
+    },
+    "old_FAIL_Watcher_count": 28,
+    "SHA_and_metadata_unchanged": true,
+    "index": {
+      "path": "/home/lzf/ldx/tmp/gh_probe_device_fix_20261023/old_attempt_before.json",
+      "sha256": "3b3a56e8aeec9b89990ad255fa07a5147b1576218766bf94101abf91f12f8773",
+      "metadata": [
+        6606,
+        1792726762341711146,
+        16979547
+      ]
+    },
+    "semantics": "151378项检查size/mtime_ns/inode；28份旧失败/Watcher文件检查SHA和metadata；父权重重新SHA。不是151378文件全量SHA重扫。"
+  },
+  "native_status": "GH_NATIVE_NUMERIC_PROBE_PASS",
+  "CPU_receipt_audit_status": "CPU_READONLY_RECEIPT_SOURCE_PROTECTION_PASS",
+  "coverage": {
+    "fresh_context_JVP_FD": "VERIFIED",
+    "NOOP_gradient_control": "VERIFIED",
+    "nonNOOP_gradient_difference": "VERIFIED",
+    "model_and_Adam_unchanged": "VERIFIED_BY_NATIVE_ASSERTIONS",
+    "CPU_RNG_parent_restore": "VERIFIED_BY_CPU_PREFLIGHT",
+    "CUDA_RNG_restore": "PENDING: frozen numerical_probe does not call enter_phase_rng/restore_rng; no GPU restore roundtrip evidence",
+    "G_gradient_L2_norms": "NOT_RECORDED: only gradient SHA, losses and max_abs differences retained",
+    "G_to_H_reward_feedback": "NOT_RUN",
+    "A1_B_two_round_Smoke": "NOT_RUN"
+  },
+  "generated_result": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/docs/framework/results/gh_probe_shared/NUMERIC_RESULTS.json",
+    "sha256": "0fbd281760da05f8f54655f181afec352a39d0c5a4dbd1a269d6c094031c6e09",
+    "bytes": 5979
+  }
+}

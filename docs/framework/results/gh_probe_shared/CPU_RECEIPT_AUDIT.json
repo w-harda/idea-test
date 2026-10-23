@@ -1,0 +1,294 @@
+{
+  "status": "CPU_READONLY_RECEIPT_SOURCE_PROTECTION_PASS",
+  "timestamp": "2026-10-23T12:31:52.077387+08:00",
+  "native_status": "GH_NATIVE_NUMERIC_PROBE_PASS",
+  "execution_commit": "a7597f9c964dda0c8c48973e4678f0b9d3fa095a",
+  "config": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/configs/framework/gh_bidirectional_backend.probe_v2.shared.server.json",
+    "sha256": "77ae41af56189ece991ee7cf21fd0ea0f3be5645202bd1cb7cf7e0b2ae735649",
+    "metadata": [
+      211828,
+      1792729121809690674,
+      16981337
+    ]
+  },
+  "source_key": "06b5c6a15061e635e49a9e13deb14022956fdbc272ad0ed378676e57ca5f826b",
+  "condition_space_sha256": "bb9ba7d89eb09a9a68bedcfdf01889766178dc8e081585390bc129dc416bd9bd",
+  "producer_count": 140,
+  "legacy_runtime_count": 496,
+  "artifact_units_verified": [
+    "claim",
+    "rollout_0000",
+    "condition_0000",
+    "rollout_0001",
+    "condition_0001",
+    "completed"
+  ],
+  "condition_payload_content_sha_verified": true,
+  "completed_manifest_sha256": "d6e0b960e20a1ba5128f9e0b4edf497e7ea4b098fbf5cd3125799d2ad1136764",
+  "artifact_files": {
+    "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/.writer.lock": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/.writer.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "metadata": [
+        0,
+        1792729472084173695,
+        16984807
+      ]
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/claim/completed.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/claim/completed.json",
+      "sha256": "b696ef2189afcb5b81776dc115de3b201f622ff4ae39072bfabe6e11ce028cc1",
+      "metadata": [
+        121,
+        1792729472113524469,
+        16984813
+      ]
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/claim/manifest.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/claim/manifest.json",
+      "sha256": "9b5ea83a1d68bcf7484ff25490f46ca390b8dbed1fe72cf23d24f6a966fea438",
+      "metadata": [
+        356,
+        1792729472106379736,
+        16984812
+      ]
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/claim/preflight.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/claim/preflight.json",
+      "sha256": "3905c5d65ad5076da77fdd65fa1b81cbe0eda507eb2452276bcf32fc3af2a0ca",
+      "metadata": [
+        25457,
+        1792729472094319103,
+        16984810
+      ]
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/claim/resources.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/claim/resources.json",
+      "sha256": "d8fbb289a0dd1a3fab12944e1167b033b9db2503ca711b8163787807bae6f7f6",
+      "metadata": [
+        423,
+        1792729472100122762,
+        16984811
+      ]
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/completed/completed.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/completed/completed.json",
+      "sha256": "87a34bb5809cce4b8cd9b4a97960935309851729570745d484b71d984bbe4a9e",
+      "metadata": [
+        121,
+        1792729486451554252,
+        16984961
+      ]
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/completed/manifest.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/completed/manifest.json",
+      "sha256": "d6e0b960e20a1ba5128f9e0b4edf497e7ea4b098fbf5cd3125799d2ad1136764",
+      "metadata": [
+        334,
+        1792729486443236810,
+        16984960
+      ]
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/completed/report.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/completed/report.json",
+      "sha256": "29fffea13b4eeb28c6b8fb83b7baeda8933117f693aa8549426722566cebe545",
+      "metadata": [
+        31723,
+        1792729486422653639,
+        16984959
+      ]
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/condition_0000/completed.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/condition_0000/completed.json",
+      "sha256": "6a461365b34564abc0d59d6d358e8b925d615f3a977394e24540e06e86d894aa",
+      "metadata": [
+        121,
+        1792729482932031299,
+        16984931
+      ]
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/condition_0000/condition.pt": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/condition_0000/condition.pt",
+      "sha256": "a0c6184b6f813727d4b1267495a5d3f2985851204c93fbebfb673ff61f94fb30",
+      "metadata": [
+        6476,
+        1792729482873892507,
+        16984926
+      ]
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/condition_0000/evidence.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/condition_0000/evidence.json",
+      "sha256": "0641715403fbe66b09f1d5cbf6452b777e50278accd916906f36ed7b275f8364",
+      "metadata": [
+        775,
+        1792729482898918801,
+        16984915
+      ]
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/condition_0000/manifest.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/condition_0000/manifest.json",
+      "sha256": "6f3af1487eb314ad3b84b6e5b01e23245b5f3357fbdba1440a248fef2f4084dd",
+      "metadata": [
+        677,
+        1792729482916236996,
+        16984930
+      ]
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/condition_0001/completed.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/condition_0001/completed.json",
+      "sha256": "bf91d2a117710bcd0283a751c0b30eaa4f3ba35c977e1ce72ee056b26131312e",
+      "metadata": [
+        121,
+        1792729485481512761,
+        16984950
+      ]
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/condition_0001/condition.pt": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/condition_0001/condition.pt",
+      "sha256": "8a1ef3d8dcf6b02ef9409092a6824aa94ddbb570dbb18acca7c7a845cb4ad65c",
+      "metadata": [
+        8716,
+        1792729485447860726,
+        16984947
+      ]
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/condition_0001/evidence.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/condition_0001/evidence.json",
+      "sha256": "eb9d1559b93118063f31360d5022f111b0b585b22225c1a7158a9d5a6a2a7356",
+      "metadata": [
+        13345,
+        1792729485459968151,
+        16984948
+      ]
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/condition_0001/manifest.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/condition_0001/manifest.json",
+      "sha256": "b7737c980536058d7e28010e16355d8dd931572601cb8c23ef73a48f09bd85c2",
+      "metadata": [
+        677,
+        1792729485469638169,
+        16984949
+      ]
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/rollout_0000/action.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/rollout_0000/action.json",
+      "sha256": "62498ec7454cc20d04d0b463edac18fdd2d9ab46a7201d4a942d32126fcb4322",
+      "metadata": [
+        428,
+        1792729482072242305,
+        16984906
+      ]
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/rollout_0000/completed.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/rollout_0000/completed.json",
+      "sha256": "ba8842880b59eb63325149dfc890fe49ee017dd71fac5a905e8646cf51a399cc",
+      "metadata": [
+        121,
+        1792729482111260132,
+        16984908
+      ]
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/rollout_0000/manifest.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/rollout_0000/manifest.json",
+      "sha256": "5c85730bc9e6fc664fb8cb140d08232e4c600b94d227e635e30f2977b62ad383",
+      "metadata": [
+        335,
+        1792729482093910748,
+        16984907
+      ]
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/rollout_0001/action.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/rollout_0001/action.json",
+      "sha256": "eb078d209c349d7ec20b9e5b8a25ba57ad015eaced198e13df2a2d1098fcab2e",
+      "metadata": [
+        2625,
+        1792729482510262261,
+        16984917
+      ]
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/rollout_0001/completed.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/rollout_0001/completed.json",
+      "sha256": "e3e976aff75a7e69c1c29f4b58901f8ecdf7bb0ea4a5a4e11ffe2dfcd91bbc7a",
+      "metadata": [
+        121,
+        1792729482524117961,
+        16984919
+      ]
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/rollout_0001/manifest.json": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/rollout_0001/manifest.json",
+      "sha256": "bb34d14578ba85746bdbf140cdda0e62102b8f95dd41e4600479e86846d8e3a2",
+      "metadata": [
+        335,
+        1792729482516993965,
+        16984918
+      ]
+    }
+  },
+  "history_snapshot": {
+    "path": "/home/lzf/ldx/tmp/hv1_g60_adaptation_development_20261021/protected_before.json",
+    "sha256": "fb785cd86aa441e5acb36eb51a835f0c98bbaafc7f8300e0e173fa354f43517d",
+    "metadata": [
+      23402028,
+      1792596299807777556,
+      238830623
+    ]
+  },
+  "history_metadata_files": 151378,
+  "history_metadata_mismatches": [],
+  "old_FAIL_Watcher_index": {
+    "path": "/home/lzf/ldx/tmp/gh_probe_device_fix_20261023/old_attempt_before.json",
+    "sha256": "3b3a56e8aeec9b89990ad255fa07a5147b1576218766bf94101abf91f12f8773",
+    "metadata": [
+      6606,
+      1792726762341711146,
+      16979547
+    ]
+  },
+  "old_FAIL_Watcher_files": 28,
+  "old_FAIL_Watcher_SHA_metadata_unchanged": true,
+  "parent_checkpoints": {
+    "G": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0060/checkpoint.pt",
+      "sha256": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049"
+    },
+    "H": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00020480/checkpoint.pt",
+      "sha256": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd"
+    },
+    "IRRA": {
+      "path": "/home/lzf/Attack/IRRA/logs/CUHK-PEDES/best.pth",
+      "sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+    }
+  },
+  "old_v2_config": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-device-fix-20261023/configs/framework/gh_bidirectional_backend.probe_v2.server.json",
+    "sha256": "8b6fce14ce4236f76bd66233c061f2f06a32d975d6771cbad77f15a45ea5e443",
+    "metadata": [
+      212527,
+      1792726762349273556,
+      16979548
+    ]
+  },
+  "Smoke_output_absent": true,
+  "CUDA_initialized_during_CPU_audit": false,
+  "model_forward_during_CPU_audit": 0,
+  "native_numerical_probe_AST_unchanged": true,
+  "production_source_diff": [
+    "src/tbps/alternating/native_cli.py",
+    "src/tbps/alternating/native_sources.py"
+  ],
+  "original_artifact_bytes_metadata_unchanged_by_audit": true,
+  "coverage": {
+    "fresh_context_JVP_FD": "VERIFIED",
+    "NOOP_gradient_control": "VERIFIED",
+    "nonNOOP_gradient_difference": "VERIFIED",
+    "model_and_Adam_unchanged": "VERIFIED_BY_NATIVE_ASSERTIONS",
+    "CPU_RNG_parent_restore": "VERIFIED_BY_CPU_PREFLIGHT",
+    "CUDA_RNG_restore": "PENDING: frozen numerical_probe does not call enter_phase_rng/restore_rng; no GPU restore roundtrip evidence",
+    "G_gradient_L2_norms": "NOT_RECORDED: only gradient SHA, losses and max_abs differences retained",
+    "G_to_H_reward_feedback": "NOT_RUN",
+    "A1_B_two_round_Smoke": "NOT_RUN"
+  }
+}

@@ -1,5 +1,15 @@
 # 架构边界与迁移约定
 
+## Probe专用资源派生与数值验证边界
+
+resource_protocol(c,action)只对显式Probe覆盖6144MiB，Smoke继续使用原prototype的10240MiB。
+verify_config仍核验完整producer/来源，派生配置重算source_key及ConditionIdentity；未消费的probe_v2首次绑定新身份。
+native_cli仅改资源协议选择，numerical_probe与f970 AST一致，未改原算法。
+唯一GPU探针已验证新语境JVP/FD和H→G第一步梯度，不执行Adam或完整图库刷新。
+CUDA RNG恢复读回未被该冻结探针调用覆盖，完整双向反馈仍待单独授权验证。
+见[真实结果](framework/results/gh_probe_shared/REPORT.md)；下面设备修复/CPU准备条目保留各自阶段边界。
+
+
 ## probe_v2设备参数与来源派生
 
 原IRRA loader严格要求cpu或cuda:index；真实后端只修正from_source设备参数为cuda:0，不改校验与数学。
