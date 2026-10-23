@@ -1,0 +1,134 @@
+{
+  "status": "CPU_COMPLETE_GPU_DIAGNOSTIC_RESOURCE_BUSY",
+  "diagnostic_execution_commit": "cc0521b9520258aecc4947a1aae02f1b77d9249a",
+  "diagnostic_attempt": "/home/lzf/ldx/outputs/tbps-framework-gh-noop-determinism/noop_determinism_diag_v1",
+  "diagnostic_attempt_exists": false,
+  "CUDA_initialized_this_task": false,
+  "new_GPU_forwards": 0,
+  "new_backwards": 0,
+  "new_Adam_steps": 0,
+  "SAME_ARM_REPEAT_EXACT": "NOT_RUN",
+  "SAME_NOOP_GRADIENT_EXACT": "NOT_RUN",
+  "SAME_NOOP_GRADIENT_NUMERIC": "NOT_RECORDED_THIS_TASK",
+  "SAME_NOOP_UPDATE_EXACT": "NOT_RUN",
+  "SAME_NOOP_UPDATE_NUMERIC": "NOT_RECORDED_THIS_TASK",
+  "FIRST_DIVERGENCE_STAGE": {
+    "earliest_saved_historical_stage": "first NOOP G parameter gradient record",
+    "actual_first_operator": "NOT_VERIFIED"
+  },
+  "NONDETERMINISTIC_KERNEL_CONFIRMED": false,
+  "known_nondeterministic_operator_present_in_source": true,
+  "STATE_LEAK_CONFIRMED": false,
+  "state_leak_excluded_by_GPU_diagnostic": false,
+  "original_audit_remains": "FAIL: first NOOP control differs",
+  "historical_first_NOOP": {
+    "A1": {
+      "G_before": "5d48caab6a891a1afd3aaaa6f3594eb5f860ccd7b6090708d289224e6c819e47",
+      "G_after": "aff751d548935c8d1c07ce73786e66bd534d076076c2543829af5cc2866107b7",
+      "gradient": {
+        "gradient_sha256": "8381442ed23f4608e912a137b1f63bfa81db0c4160184e0ae25dfab853558b39",
+        "record": {
+          "G_gradient_l2": 0.5205852405058475,
+          "budget_saturation_ratio": 0.6413710117340088,
+          "cumulative_linf": 0.0313725471496582,
+          "finite_gradients": true,
+          "global": 0.3706851899623871,
+          "instance_id": null,
+          "local": 0.0,
+          "next_reference_score": null,
+          "phase": "joint",
+          "pixel_saturation_ratio": 0.01030815951526165,
+          "previous_instance_id": null,
+          "previous_reference_score": null,
+          "projection_endpoint_ratio": 0.6516791582107544,
+          "retain": 0.0,
+          "strict_projection_clipping_ratio": 0.0116712786257267,
+          "total": 0.3706851899623871,
+          "update_index": 1
+        }
+      }
+    },
+    "B": {
+      "G_before": "5d48caab6a891a1afd3aaaa6f3594eb5f860ccd7b6090708d289224e6c819e47",
+      "G_after": "27c6ef00c943e68de05272e1abc236062c7a76b25dc6484ca2b572cf9c752e07",
+      "gradient": {
+        "gradient_sha256": "6b85d28129f0feb3949925bf672aceb3beef847f29d5fc583741fe14c9026e81",
+        "record": {
+          "G_gradient_l2": 0.5205852190515232,
+          "budget_saturation_ratio": 0.6413710117340088,
+          "cumulative_linf": 0.0313725471496582,
+          "finite_gradients": true,
+          "global": 0.3706851899623871,
+          "instance_id": null,
+          "local": 0.0,
+          "next_reference_score": null,
+          "phase": "joint",
+          "pixel_saturation_ratio": 0.01030815951526165,
+          "previous_instance_id": null,
+          "previous_reference_score": null,
+          "projection_endpoint_ratio": 0.6516791582107544,
+          "retain": 0.0,
+          "strict_projection_clipping_ratio": 0.0116712786257267,
+          "total": 0.3706851899623871,
+          "update_index": 1
+        }
+      }
+    }
+  },
+  "historical_probe_NOOP_max_abs": 4.1443854570388794e-08,
+  "historical_probe_scope": "autograd.grad, no Adam; not current serial backward/update diagnostic",
+  "CPU_tests": {
+    "base_related_unique_passed": 121,
+    "new_diagnostic_unique_passed": 12,
+    "real_frozen_source_unique_passed": 4,
+    "total_unique_passed": 137,
+    "old_lifecycle_test_not_applicable": "test_v2_identity_budget_and_complete_condition_sources: requires old unused probe/smoke",
+    "earlier_preparation_errors_preserved": true
+  },
+  "CPU_preflight": "PASS: independent output lifecycle, unchanged full source and parent checks",
+  "producer_count": 140,
+  "runtime_pin_count": 496,
+  "resources": {
+    "status": "RESOURCE_BUSY",
+    "GPU_snapshot": "NVIDIA GeForce RTX 4090, 1346, 24564, 88",
+    "gpu_free_mib": 1346,
+    "minimum_free_mib": 6144,
+    "compute_processes": [
+      {
+        "pid": 4059826,
+        "name": "/home/lzf/jmk/envs/foa_v5/bin/python",
+        "used_mib": 5680
+      },
+      {
+        "pid": 4065316,
+        "name": "/usr/local/lib/ollama/llama-server",
+        "used_mib": 17012
+      }
+    ],
+    "snapshot_origin": "执行前即时nvidia-smi单次检查；未再次轮询",
+    "record_written_at": "2026-10-23T17:50:41.979349+08:00",
+    "available_ram_bytes": 113131012096,
+    "free_disk_bytes": 6162592235520,
+    "free_inodes": 240129469,
+    "inherited_limits": {
+      "minimum_free_mib": 10240,
+      "minimum_ram_bytes": 34359738368,
+      "minimum_disk_bytes": 26843545600,
+      "minimum_free_inodes": 80000
+    },
+    "CUDA_initialized_by_task": false,
+    "G_forwards": 0,
+    "backwards": 0,
+    "Adam_steps": 0,
+    "H_forwards": 0,
+    "diagnostic_attempt_created": false,
+    "attempt_exists": false
+  },
+  "history": {
+    "history_metadata_files": 151378,
+    "old_FAIL_Watcher_SHA_metadata_files": 28,
+    "probe_v2_SHA_metadata_unchanged": true,
+    "parents_SHA_unchanged": true
+  },
+  "limits": "no full GPU/Smoke/probe/Training/Validation/Test/ranking; no old audit rerun"
+}

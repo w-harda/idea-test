@@ -1,5 +1,15 @@
 # 历史实验注册表
 
+## NOOP复现性独立诊断准备与RESOURCE_BUSY（2026-10-23）
+
+基准f2925aef，冻结生产a7597f9c/配置77ae41af…5649不变，独立代码cc0521b9520258aecc4947a1aae02f1b77d9249a。
+137不同CPU测试、真实新生命周期来源/父恢复PASS；原阶段准备态测试及失败日志保留，不修改生产审计。
+G的CUDA bilinear反向存在已知非确定性实现风险；原probe容差1e-6与Smoke exact标准不同，实际首算子/同臂重现仍NOT_VERIFIED。
+执行前GPU空闲1346MiB不足6144MiB，独立noop_determinism_diag_v1不存在；CUDA、G/H/IRRA前向、JVP、Adam均0。
+未启动Watcher或后台GPU任务；原smoke_v2四轮与CPU FAIL、151378历史/28旧FAIL/probe/父权重保护。
+[报告](framework/results/gh_noop_determinism_diag/REPORT.md)、[数值状态](framework/results/gh_noop_determinism_diag/FINDINGS.json)、[新A/B候选合同](framework/results/gh_noop_determinism_diag/NEXT_AB_PROTOCOL.md)。
+
+
 ## A1/B两轮Smoke完成、原CPU审计FAIL及只读复核（2026-10-23）
 
 GPU原生a7597f9c：4Round生成PASS，G108/H访问32/H更新28，四份2048图库完整，耗时1824.994606591761秒；reserved1158MiB。

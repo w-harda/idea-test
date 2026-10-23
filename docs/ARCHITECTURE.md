@@ -1,5 +1,15 @@
 # 架构边界与迁移约定
 
+## 独立NOOP数值诊断与实验生命周期
+
+operations/gh_noop_determinism_diag仅调用冻结NativeBackend.g_update和原K0训练首步；最多四次，外部Hook只保存Tensor。
+原smoke_v2已完成，不能再通过要求旧目录不存在的prepare_cpu_gate；独立工具verify_config原来源后，只为标准库preflight派生新诊断output_base，保留全部其他断言与父状态身份。
+CPUStartupGate及原producer/SHA/Checkpoint保护继续执行，Claim绑定新诊断脚本/协议，不伪造旧probe来源。
+已知bilinear CUDA反向非确定性实现不等于已确认该次分叉根因；必须由Tensor边界实测，不能从SHA或范数差推导向量差。
+本轮显存不足未执行GPU，旧严格审计不变。下一版同父态fork/数值合同是研究提案，尚未实施。
+见framework/results/gh_noop_determinism_diag/REPORT.md。
+
+
 ## 双向Smoke只读复核与严格控制边界
 
 冻结native_cli原audit-smoke在首NOOP exact控制失败后不发布审计回执；不能以完成四轮或存在梯度差替代前置控制。

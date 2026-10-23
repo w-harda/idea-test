@@ -2,7 +2,18 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：A1/B四轮生成与结构完整；严格NOOP对照失败，原CPU审计FAIL
+## 当前阶段：首NOOP复现性CPU溯源完成，独立GPU诊断RESOURCE_BUSY未消费
+
+原smoke_v2与严格CPU审计FAIL保持。新分支codex/gh-noop-determinism，仅新增operations诊断、CPU测试与报告；生产src、模型、Loss/Adam和预算不改。
+诊断代码cc0521b9520258aecc4947a1aae02f1b77d9249a，固定NOOP四次原首步、完整Tensor/双Adam/RNG记录，未执行完整Smoke。
+137项不同CPU测试PASS；真实独立生命周期CPU来源/父恢复PASS，保留所有准备期错误日志，不放宽原SHA或旧断言。
+原fp32_runtime不保证bitwise；G含两次bilinear，PyTorch2.5.1默认CUDA反向atomicAdd为具体候选风险，但尚未GPU定位，也未确认状态泄漏。
+即时GPU空闲1346MiB（外部5680+17012MiB）不足小诊断6144MiB准入；未创建noop_determinism_diag_v1、未初始化CUDA、前向/反向/Adam0，不轮询、不干预其他进程。
+151378历史metadata、28旧FAIL/Watcher、父Checkpoint/probe及原Smoke/日志只读保护通过。
+下一版同父态fork和Tensor容差仅为待审查候选，不改写旧FAIL，不自动运行任何Smoke/训练/评估。
+[中文溯源与限制](framework/results/gh_noop_determinism_diag/REPORT.md)、[诊断协议](framework/results/gh_noop_determinism_diag/EXECUTION_PROTOCOL.md)、[结构化结果](framework/results/gh_noop_determinism_diag/FINDINGS.json)。
+
+## 历史阶段：A1/B四轮生成与结构完整；严格NOOP对照失败，原CPU审计FAIL
 
 smoke_v2原GPU执行退出0，GH_NATIVE_TWO_ROUND_SMOKE_GENERATED，1824.9946秒。
 四轮各27 G更新、8 H访问/7 Adam更新、2048图库；合计108/32/28/8192。

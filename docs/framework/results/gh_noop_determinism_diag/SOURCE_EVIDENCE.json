@@ -1,0 +1,182 @@
+{
+  "analysis_base": "f2925aef84154ae2a19ba0ecab9afa252ac20e09",
+  "production_commit": "a7597f9c964dda0c8c48973e4678f0b9d3fa095a",
+  "diagnostic_code_commit": "cc0521b9520258aecc4947a1aae02f1b77d9249a",
+  "script": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-noop-determinism-20261023/operations/gh_noop_determinism_diag.py",
+    "sha256": "6799f0f6ac73e0ceb90c80a3ed6562e3d1a22afc707bd7bbf1d3a124f569a1a3"
+  },
+  "frozen_config_sha256": "77ae41af56189ece991ee7cf21fd0ea0f3be5645202bd1cb7cf7e0b2ae735649",
+  "frozen_source_key": "06b5c6a15061e635e49a9e13deb14022956fdbc272ad0ed378676e57ca5f826b",
+  "probe_manifest_sha256": "d6e0b960e20a1ba5128f9e0b4edf497e7ea4b098fbf5cd3125799d2ad1136764",
+  "sources": [
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/configs/framework/gh_bidirectional_backend.probe_v2.shared.server.json",
+      "sha256": "77ae41af56189ece991ee7cf21fd0ea0f3be5645202bd1cb7cf7e0b2ae735649"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/completed/manifest.json",
+      "sha256": "621d721ac79d81c7c9ea5e5944b9a0b2a827ec2aaf976782e8364d81dd869964"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/completed/report.json",
+      "sha256": "16f649abe37907cf8135005f40013320f178b3daff13f43c1850720edefa963c"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_smoke_wait_v1_20261023/cpu_audit.log",
+      "sha256": "6524384b33fbabe29cfc93e7af772990426945887b63d8fe566addb82dc3fe65"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_smoke_wait_v1_20261023/monitor.FAIL",
+      "sha256": "209abddb905c323427b478a8139552ba533f374e2a78ef45dd545de39ebb453e"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_smoke_wait_v1_20261023/status.json",
+      "sha256": "dea5c69c9eb2b1b7da92013eb7db62c5f8ed967346b8bbbe7982cc95c8f42f99"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/completed/manifest.json",
+      "sha256": "d6e0b960e20a1ba5128f9e0b4edf497e7ea4b098fbf5cd3125799d2ad1136764"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/completed/report.json",
+      "sha256": "29fffea13b4eeb28c6b8fb83b7baeda8933117f693aa8549426722566cebe545"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/rounds/A1-r1/manifest.json",
+      "sha256": "2a49ff75bd2a81dd387dd1392f4dc98c891018b18e431f9c581f38ac43302554"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/rounds/A1-r1/ledger.json",
+      "sha256": "8276de1cea472b739d5e4751072908047d1ab04e75f0ed948a1313fc4d30fac4"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/rounds/A1-r1/completed.json",
+      "sha256": "f8be0150124c29c2f7427d73dcb98cc79bf10c202dac171e048f26631857c951"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/rounds/A1-r2/manifest.json",
+      "sha256": "dc18922368d65403de7749b3e383d4ca97fed0d6bcec8ed8352baf9661bf6bcb"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/rounds/A1-r2/ledger.json",
+      "sha256": "553b8526ab32e3722b12144add65a81ad91e0aa4a8f06929e2341512dc32cd65"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/rounds/A1-r2/completed.json",
+      "sha256": "92646e72b06d482dec1a4ad04afecee91641e664af1bf03635c0eb0d38ddf6fe"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/rounds/B-r1/manifest.json",
+      "sha256": "5f55e21651a913152ff89aee5ad668b6e74b26f824b375e6a59d730cc2b381e2"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/rounds/B-r1/ledger.json",
+      "sha256": "a0879721b39b3d2862173e9ebde36a2435f58b5aeb56ecf1bff29f8edd30fe4a"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/rounds/B-r1/completed.json",
+      "sha256": "0a738f3c4a9a90199042505d3945799366684a1e028e6be189968c6e88ee574b"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/rounds/B-r2/manifest.json",
+      "sha256": "4785744369063ed8514b29bdd14c21361341387bfb8025af655462605979761a"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/rounds/B-r2/ledger.json",
+      "sha256": "f84b6dc405c73b80d5530981b502c63da2c6aa65e661a1de70c1c6bf1b0f078c"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/rounds/B-r2/completed.json",
+      "sha256": "d447d85a7c79fd14032cdea3539350f9909287e2b351fa928a672d85578f4e29"
+    }
+  ],
+  "parent_checkpoints": {
+    "G60": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0060/checkpoint.pt",
+      "sha256": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049"
+    },
+    "H10": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00020480/checkpoint.pt",
+      "sha256": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd"
+    }
+  },
+  "IRRA_checkpoint_sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009",
+  "history": {
+    "history_metadata_files": 151378,
+    "old_FAIL_Watcher_SHA_metadata_files": 28,
+    "probe_v2_SHA_metadata_unchanged": true,
+    "parents_SHA_unchanged": true
+  },
+  "original_metadata_snapshot": {
+    "path": "/home/lzf/ldx/tmp/gh_noop_determinism_diag_v1/original_files_metadata.json",
+    "sha256": "b91f4352103d892329f88a85812dcb9d409ab4ffa164d3004bcf256061436888",
+    "smoke_files": 57637,
+    "control_files": 24
+  },
+  "CPU_logs": [
+    {
+      "path": "/home/lzf/ldx/tmp/gh_noop_determinism_diag_v1/CPU_diagnostic_final.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_noop_determinism_diag_v1/CPU_diagnostic_final.log",
+      "sha256": "13000c4d1ede3c21ddd36d7a145f956b91db0138040df2ae3ab9197ec1e29dda"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_noop_determinism_diag_v1/CPU_source_tests.exit",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_noop_determinism_diag_v1/CPU_source_tests.log",
+      "sha256": "fd13092d028538bfd7c9b76667888c533f30993781b0a21c4779f92739e0edd1"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_noop_determinism_diag_v1/CPU_source_tests_frozen.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_noop_determinism_diag_v1/CPU_source_tests_frozen.log",
+      "sha256": "3834b447ba96661d0fb86481a51670043c9472547a153ef5213c7ba6f0bcf09a"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_noop_determinism_diag_v1/CPU_tests.exit",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_noop_determinism_diag_v1/CPU_tests.log",
+      "sha256": "e22165b46766de2d3862c1cdf510a9cffef0c094bb4cf2ac6b733774e93ad80a"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_noop_determinism_diag_v1/CPU_tests_verified.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_noop_determinism_diag_v1/CPU_tests_verified.log",
+      "sha256": "81c2605d36868032e2e08562621830b2361fe63c3ceb3949110ec6713312b250"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_noop_determinism_diag_v1/RESOURCE_BUSY.json",
+      "sha256": "d57ec87f47f5ad9a9b54420180c17d6a550f451f96591814f06a45f832190413"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_noop_determinism_diag_v1/cpu_preflight.exit",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_noop_determinism_diag_v1/cpu_preflight.log",
+      "sha256": "7992572b900abc3b2936bdb702f846edd5c950e33a3df5dd0434239122108a3f"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_noop_determinism_diag_v1/cpu_preflight_diagnostic.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_noop_determinism_diag_v1/cpu_preflight_diagnostic.log",
+      "sha256": "db3be43308e3bac3ceb414848284da1f6de096c79084a38be9c3b21dd28e572b"
+    }
+  ],
+  "all_static_source_SHA_rechecked": true,
+  "GPU_attempt_created": false,
+  "status": "RESOURCE_BUSY_NOT_NUMERICAL_FAIL"
+}
