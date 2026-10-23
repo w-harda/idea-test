@@ -1,0 +1,123 @@
+{
+  "status": "RESOURCE_BUSY",
+  "timestamp": "2026-10-23T13:02:05.208303+08:00",
+  "failure_location": "operations/gh_cuda_rng_validation.py:94, resource_eligible before Claim and gate.initialize_cuda",
+  "resources_diagnostic_after_rejection": {
+    "GPU": "NVIDIA GeForce RTX 4090, 3865, 24564, 0",
+    "compute_processes": "GPU-350a0fd7-5695-b5e8-c541-cd2b5682e126, 3352822, /usr/local/lib/ollama/llama-server, 20178",
+    "available_ram_bytes": 114862227456,
+    "free_disk_bytes": 6178286866432,
+    "free_inodes": 240213840,
+    "checks": {
+      "gpu": false,
+      "ram": true,
+      "disk": true,
+      "inodes": true
+    },
+    "resource_eligible": false,
+    "GPU_authorized": false,
+    "policy": "single shared_observe_only snapshot; no launch"
+  },
+  "limits": {
+    "minimum_free_mib": 10240,
+    "minimum_ram_bytes": 34359738368,
+    "minimum_disk_bytes": 26843545600,
+    "minimum_free_inodes": 80000
+  },
+  "CUDA_RNG_result": "NOT_RUN",
+  "CUDA_initializations": 0,
+  "neural_forwards": 0,
+  "optimizer_updates": 0,
+  "RNG_Attempt_created": false,
+  "Smoke_Attempt_created": false,
+  "supervisor_started": false,
+  "existing_probe_manifest": "d6e0b960e20a1ba5128f9e0b4edf497e7ea4b098fbf5cd3125799d2ad1136764",
+  "existing_probe_unchanged": true,
+  "config_sha256": "77ae41af56189ece991ee7cf21fd0ea0f3be5645202bd1cb7cf7e0b2ae735649",
+  "source_key": "06b5c6a15061e635e49a9e13deb14022956fdbc272ad0ed378676e57ca5f826b",
+  "CPU_preflight": "prepare_cpu_gate completed; traceback occurs after CPU source/parent/gate and full history checks",
+  "history_before_resource_gate": "verify_history completed: 151378 metadata, 28 old FAIL/Watcher, parent SHA and probe artifact checks",
+  "retry": false,
+  "Watcher_deployed": false,
+  "policy": "resource shortage => stop, no additional waiting or polling",
+  "history_after_stop": {
+    "history_metadata_files": 151378,
+    "old_FAIL_Watcher_SHA_metadata_files": 28,
+    "probe_v2_SHA_metadata_unchanged": true,
+    "parents_SHA_unchanged": true
+  },
+  "ops_commit": "5018113ed989fcd01f187dccc440ae00ad99fcba",
+  "production_commit": "aafc7715ddafa78f9a30410b6a6ed8852e81780a",
+  "production_numeric_commit": "a7597f9c964dda0c8c48973e4678f0b9d3fa095a",
+  "logs": {
+    "CPU_tests.log": {
+      "path": "/home/lzf/ldx/tmp/gh_rng_smoke_v2_20261023/CPU_tests.log",
+      "sha256": "f67808eaa927375f3d8638cb6d216cc1eeeb6ebe3bb49c802da76e81ee8de467",
+      "bytes": 191
+    },
+    "CPU_tests.exit": {
+      "path": "/home/lzf/ldx/tmp/gh_rng_smoke_v2_20261023/CPU_tests.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    "CPU_server_tests.log": {
+      "path": "/home/lzf/ldx/tmp/gh_rng_smoke_v2_20261023/CPU_server_tests.log",
+      "sha256": "d8d2993fdc4844537ad57c639a205cba4533a8483ffda8ac0cfc6cd44d6c5513",
+      "bytes": 15711
+    },
+    "CPU_server_tests.exit": {
+      "path": "/home/lzf/ldx/tmp/gh_rng_smoke_v2_20261023/CPU_server_tests.exit",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "bytes": 2
+    },
+    "CPU_frozen_server_tests.log": {
+      "path": "/home/lzf/ldx/tmp/gh_rng_smoke_v2_20261023/CPU_frozen_server_tests.log",
+      "sha256": "2f148e302b0f6fdcabc75f0d8ef84675287fffc3d71543e41d6e5192e9e62b28",
+      "bytes": 3308
+    },
+    "CPU_frozen_server_tests.exit": {
+      "path": "/home/lzf/ldx/tmp/gh_rng_smoke_v2_20261023/CPU_frozen_server_tests.exit",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "bytes": 2
+    },
+    "cuda_rng.log": {
+      "path": "/home/lzf/ldx/tmp/gh_rng_smoke_v2_20261023/cuda_rng.log",
+      "sha256": "28135862477957525538ade7c8ec75f1966f40e48d4297d5fbd1b6e4269d4995",
+      "bytes": 678
+    },
+    "cuda_rng.exit": {
+      "path": "/home/lzf/ldx/tmp/gh_rng_smoke_v2_20261023/cuda_rng.exit",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "bytes": 2
+    },
+    "rng_process_resources.log": {
+      "path": "/home/lzf/ldx/tmp/gh_rng_smoke_v2_20261023/rng_process_resources.log",
+      "sha256": "46c3992a44b2ceb3cb73498e4eb350d27ce57a02aaf373a5f7c31b0ac786330c",
+      "bytes": 940
+    },
+    "rng_called.json": {
+      "path": "/home/lzf/ldx/tmp/gh_rng_smoke_v2_20261023/rng_called.json",
+      "sha256": "73c5590d95bc6c9c4ae61c2f4ca7ce94efbb70e27b395e183f502ebbe81b3723",
+      "bytes": 107
+    },
+    "resource_blocked.json": {
+      "path": "/home/lzf/ldx/tmp/gh_rng_smoke_v2_20261023/resource_blocked.json",
+      "sha256": "368eae4c80c02018ff3829de16c988678e5270fced12e76b0289802adf0a3c14",
+      "bytes": 1817
+    }
+  },
+  "operations": {
+    "gh_cuda_rng_validation.py": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-rng-smoke-20261023/operations/gh_cuda_rng_validation.py",
+      "sha256": "9276df0232dbb09b45e1101f3d4965e33f48ebd74136496b9fcfffab02bddcfb"
+    },
+    "gh_smoke_checks.py": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-rng-smoke-20261023/operations/gh_smoke_checks.py",
+      "sha256": "d46aea4ca969d63779214254cd20a875ff103f1c115b7d80beb27a1db894ee99"
+    },
+    "run_gh_rng_smoke.sh": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-rng-smoke-20261023/operations/run_gh_rng_smoke.sh",
+      "sha256": "c694ea01fd8920a2632b1cf496bed462e6b72e253d799e0276c912779b13f009"
+    }
+  }
+}

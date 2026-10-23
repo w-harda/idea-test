@@ -1,5 +1,14 @@
 # 历史实验注册表
 
+## CUDA RNG/A1-B启动资源阻塞（2026-10-23）
+
+操作代码5018113e；冻结生产仍a7597f9c/配置77ae41af…5649/现有probe_v2 PASS不变。
+CPU prepare_cpu_gate及保护检查完成后，在CUDA前资源检查拒绝；诊断空闲3865MiB，Ollama PID3352822。
+CUDA RNG与smoke_v2均NOT_RUN/无Claim，无GPU进程、更新或新图库；停止、不轮询、不重试。
+新增RNG5项CPU测试PASS；旧准备态probe必须不存在的断言不适用于已封存状态，原失败日志保留，不宣称整套旧测试通过。
+[报告](framework/results/gh_rng_smoke_launch/REPORT.md)、[证据](framework/results/gh_rng_smoke_launch/SOURCE_EVIDENCE.json)。
+
+
 ## G/H probe_v2：真实数值PASS与只读审计（2026-10-23）
 
 执行a7597f9c，派生Probe6144MiB；旧f970配置/Smoke10240MiB不变。289 CPU测试PASS。

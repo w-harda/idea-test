@@ -1,5 +1,12 @@
 # 架构边界与迁移约定
 
+## 独立CUDA RNG与Smoke执行管理
+
+新增operations层调用冻结生产树，不改变producer或旧probe回执。RNG验证通过原restore/capture和阶段切换方法执行，单独Claim及脚本SHA；Smoke仍由原native_cli授权门禁执行。
+单次flock/持久化启动标记、来源/唯一Attempt及原CPU门禁不放宽；完成后自动调用原CPU审计。
+当前执行因资源不足在CUDA/Claim前停止，真实CUDA验证与Smoke仍PENDING。见framework/results/gh_rng_smoke_launch/REPORT.md。
+
+
 ## Probe专用资源派生与数值验证边界
 
 resource_protocol(c,action)只对显式Probe覆盖6144MiB，Smoke继续使用原prototype的10240MiB。

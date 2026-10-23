@@ -2,7 +2,17 @@
 
 状态来自Git、实际代码与不可变实验记录；旧阶段报告与旧Commit中的PENDING/等待状态是历史快照。
 
-## 当前阶段：probe_v2原生数值PASS，CUDA RNG恢复证据仍PENDING
+## 当前阶段：CUDA RNG与A1/B启动在CUDA前RESOURCE_BUSY
+
+独立操作工具5018113e不修改冻结生产源码或配置。既有probe_v2原生数值PASS/回执保持。
+2026-10-23授权先验证CUDA RNG、通过后启动唯一smoke_v2；执行前空闲显存降至3865MiB，低于原10240MiB门槛。
+Ollama PID3352822占20178MiB，未干预；RAM/磁盘/inode通过。
+CPU来源/父双Adam恢复/隔离/历史保护通过，但CUDA尚未初始化，cuda_rng_v1及smoke_v2均未创建。
+新增5项CPU RNG组合测试PASS；旧服务器准备态测试有probe必须不存在的生命周期断言，不改断言、不伪报整套PASS。
+没有启动后台监督器/Watcher，没有执行任何GPU或更新，不等待、不重试。
+[阻塞报告与CPU审查](framework/results/gh_rng_smoke_launch/REPORT.md)、[来源](framework/results/gh_rng_smoke_launch/SOURCE_EVIDENCE.json)。
+
+## 历史阶段：probe_v2原生数值PASS，CUDA RNG恢复证据仍PENDING
 
 2026-10-23唯一probe_v2已真实执行，执行Commit a7597f9c964dda0c8c48973e4678f0b9d3fa095a。
 Probe专用6144MiB派生配置，Smoke仍10240MiB；289 CPU测试和真实来源/父状态预检PASS。
