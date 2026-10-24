@@ -1,0 +1,1838 @@
+{
+  "status": "CPU_READY_PILOT_RESOURCE_BLOCKED",
+  "generated_at": "2026-10-24T12:49:28.879513+08:00",
+  "branch": "codex/gh-formal-b",
+  "production_commit": "a7597f9c964dda0c8c48973e4678f0b9d3fa095a",
+  "formal_configuration": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/configs/framework/gh_b_formal.server.json",
+    "sha256": "e0220fe92bdd4480bdb751e5b67a6da8a26a74a543694871b28ea1627c97bf74"
+  },
+  "native_configs": {
+    "pilot": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/configs/framework/gh_b_formal.pilot.native.server.json",
+      "sha256": "be5dbd2b250692d4ef4d6e496e072016056195f39ffb5e75da5d96760057cfc3"
+    },
+    "train": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/configs/framework/gh_b_formal.train.native.server.json",
+      "sha256": "eb5704c5006fb21682686b203f81300497b60d31e58a540f65f5470d28980e59"
+    }
+  },
+  "producer_count": 146,
+  "original_140_byte_exact": true,
+  "runtime_pins": 496,
+  "CPU_tests": {
+    "passed": 154,
+    "skipped": 5,
+    "new_formal_cases": 27,
+    "original_frozen_IRRA_extra_pass": 1,
+    "skip_reason": "5 optional original server-config checks not enabled; current real formal CPU preflight passed separately"
+  },
+  "preflight_pilot": {
+    "status": "GH_B_FORMAL_CPU_PREFLIGHT_PASS",
+    "legacy_source_audit": {
+      "status": "GH_ALTERNATING_CPU_SOURCE_PREFLIGHT_PASS",
+      "parent_sha256": {
+        "G": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049",
+        "H": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd",
+        "IRRA": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+      },
+      "source_files": 49,
+      "legacy_producers": 113,
+      "new_producers": 146,
+      "G_producers": 7,
+      "G_upstream": 4450,
+      "H_training_sources": 76,
+      "Clean_gallery_source_files": 8192,
+      "samples": [
+        {
+          "row_id": "cuhk:26530:0",
+          "G_K": 0,
+          "H_eligible": false,
+          "H_reasons": [
+            "no_canonical_attributes",
+            "no_legal_token_changing_edit"
+          ],
+          "original_caption": "The person is a blur but looks to have a top knot for a hair style and a multicolored type of robe."
+        },
+        {
+          "row_id": "cuhk:26747:0",
+          "G_K": 1,
+          "H_eligible": true,
+          "H_reasons": [],
+          "original_caption": "A man wearing a red and white cheerleader outfit is wearing a blond wig and has his arms up in the air"
+        },
+        {
+          "row_id": "cuhk:12746:0",
+          "G_K": 2,
+          "H_eligible": true,
+          "H_reasons": [],
+          "original_caption": "The boy is on an escalator. He is wearing a blue denim backpack, black  shirt, and tan chinos."
+        },
+        {
+          "row_id": "cuhk:9955:0",
+          "G_K": 3,
+          "H_eligible": true,
+          "H_reasons": [],
+          "original_caption": "He has  short  black hair  and  is  wearing  a  black shirt . He is  also  wearing white  pants  ."
+        },
+        {
+          "row_id": "cuhk:29253:0",
+          "G_K": 4,
+          "H_eligible": true,
+          "H_reasons": [],
+          "original_caption": "The man is wearing black tennis shoes with grey socks and a pair of long black shorts that go past his knees. He is wearing a white tee-shirt with black graphics on the front and a plaid grey long-sleeved shirt. He has a backpack on his back."
+        },
+        {
+          "row_id": "cuhk:21540:0",
+          "G_K": 3,
+          "H_eligible": true,
+          "H_reasons": [],
+          "original_caption": "The woman is wearing a black jacket, a pink top and black pants.  She is also wearing black boots and carrying a large white bag on her right shoulder."
+        },
+        {
+          "row_id": "cuhk:3127:0",
+          "G_K": 3,
+          "H_eligible": true,
+          "H_reasons": [],
+          "original_caption": "the person pictured is wearing a white and black shirt with black pants. the person has a strap over there shoulder and wearing light colored shoes."
+        },
+        {
+          "row_id": "cuhk:8385:0",
+          "G_K": 3,
+          "H_eligible": true,
+          "H_reasons": [],
+          "original_caption": "This woman has short hair and is wearing a plaid jacket, a beaded necklace, a white skirt with a print and white sandals."
+        }
+      ],
+      "G_updates_per_round": 27,
+      "H_updates_max_per_round": 7,
+      "Train": 2048,
+      "Validation": 128,
+      "PID_isolation": true,
+      "model_loads": 0,
+      "model_forwards": 0,
+      "CUDA_initialized": false,
+      "real_parent_restore": "PENDING GPU phase; original complete parent metadata verified",
+      "new_JVP_numeric_equivalence": "PENDING explicit GPU authorization",
+      "config_sha256": "100d33eb15621f5bba6be7f4f3afc460dec4be907af6c2dd3f31240adb17ea91"
+    },
+    "legacy_projection_sha256": "100d33eb15621f5bba6be7f4f3afc460dec4be907af6c2dd3f31240adb17ea91",
+    "formal_native_source": "be5dbd2b250692d4ef4d6e496e072016056195f39ffb5e75da5d96760057cfc3",
+    "formal_config_sha256": "e0220fe92bdd4480bdb751e5b67a6da8a26a74a543694871b28ea1627c97bf74",
+    "scope": "pilot",
+    "members": {
+      "Train": 2048,
+      "eligible_H": 2037,
+      "G_K_total": 6020,
+      "G_updates_per_round": 8068,
+      "K_distribution": {
+        "3": 842,
+        "4": 463,
+        "2": 639,
+        "1": 34,
+        "6": 3,
+        "5": 61,
+        "0": 5,
+        "7": 1
+      },
+      "strict_anchor_failures": []
+    },
+    "budget": {
+      "G_samples_per_round": 2048,
+      "G_updates_per_round": 8068,
+      "H_visits_per_round": 2048,
+      "H_valid_updates_per_round": 2037,
+      "gallery_images_per_round": 2048,
+      "new_G_updates": 403400,
+      "new_H_visits": 102400,
+      "new_H_updates": 101850,
+      "final_G_updates": 887480,
+      "final_H_visits": 122880,
+      "final_H_updates": 122220,
+      "full_gallery_refreshes": 50,
+      "gallery_images": 102400,
+      "new_JVP_upper_bound": 301000
+    },
+    "old_evidence": {
+      "probe": "PASS original source only",
+      "CUDA_RNG": "PASS original parents",
+      "old_smoke_native": "GENERATED",
+      "old_exact_audit": "FAIL preserved; not formal B acceptance"
+    },
+    "model_forwards": 0,
+    "CUDA": false,
+    "imports": {
+      "status": "GH_NATIVE_IMPORT_CLOSURE_PASS",
+      "entries": [
+        "image_only_generator",
+        "budget_projection",
+        "condition_schema",
+        "serial_training",
+        "inference_once",
+        "losses",
+        "irra_image_adapter",
+        "epoch_checkpoint",
+        "contracts",
+        "constraints",
+        "policy",
+        "tokenizer_probe",
+        "text_frontend",
+        "phase4_training",
+        "formal_training.checkpoint",
+        "formal_training.data",
+        "formal_training.runtime",
+        "training_inputs",
+        "importance",
+        "attribute_interface",
+        "attribute_tta",
+        "paired_prefix",
+        "learned_reader",
+        "attributes.irra_token_alignment",
+        "utils.simple_tokenizer"
+      ],
+      "executed_sources": {
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/image_only_generator.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/image_only_generator.py",
+          "sha256": "4745e6947308fdc4f5d5496b6a99c9a68699abef8131f2a211e1bd13470eec85",
+          "size": 2273,
+          "mtime_ns": 1791992015182887266
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/budget_projection.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/budget_projection.py",
+          "sha256": "a4c391b5d0f4a1d4ddcac0431431615de86fd982eaaa009a0774c2cc3fbd88c0",
+          "size": 3342,
+          "mtime_ns": 1791992015182845262
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/condition_schema.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/condition_schema.py",
+          "sha256": "f13932c2688cab4e135d063eed6f066016f6ba26e2316cbc201f19b246b298b4",
+          "size": 4819,
+          "mtime_ns": 1791990835181518181
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/serial_training.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/serial_training.py",
+          "sha256": "e42fa8bd6ea933530bda8e2e67d5149e7059151f4b2caa0b662dbaaa856e105d",
+          "size": 9745,
+          "mtime_ns": 1791993628618003801
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/losses.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/losses.py",
+          "sha256": "d415dfe326cc2f580d202d0220d5bb0c5895ed626115b0828e516b598df8f0b2",
+          "size": 3394,
+          "mtime_ns": 1791992015182909791
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/inference_once.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/inference_once.py",
+          "sha256": "83d38a6c782581acd53c3d8c5272c24c89ae85a32f5c7da9230edff1a8f97e6a",
+          "size": 1299,
+          "mtime_ns": 1792033770113452007
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/irra_image_adapter.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/irra_image_adapter.py",
+          "sha256": "148d2cfe8749cb8723b00e38ca68ff8dee6f86948f1fe2a15605c792dbb2eba4",
+          "size": 3653,
+          "mtime_ns": 1791994820613974033
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/cache_io.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/cache_io.py",
+          "sha256": "63b2973af40a5f654bd0574c7280d5fcef25311332796c1d759ecdb021d26dfe",
+          "size": 5755,
+          "mtime_ns": 1791990835181693230
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/epoch_checkpoint.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/epoch_checkpoint.py",
+          "sha256": "43ee3f312276f3039e33efe5163830fc6ed46523a4bba5597a0e4802a209ff74",
+          "size": 5524,
+          "mtime_ns": 1792040546904811833
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/contracts.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/contracts.py",
+          "sha256": "2dc90ad865dcdc9b72b5ebb3fe4772a5b0c4c082f91694d1da244a07b72de0e9",
+          "size": 2877,
+          "mtime_ns": 1792075686159908145
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/constraints.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/constraints.py",
+          "sha256": "7b9202d2885165302aa1ec475feaefe0150869b12660aa40d4552a0f29759264",
+          "size": 3932,
+          "mtime_ns": 1792075686160058668
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/policy.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/policy.py",
+          "sha256": "0bbcd430e02eb61c38857b7a812b87f163d1bd0a09f0b147cede23e5712fbed3",
+          "size": 8413,
+          "mtime_ns": 1792076822667944627
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/tokenizer_probe.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/tokenizer_probe.py",
+          "sha256": "38ad32a813e2e2114cd5e549bf0b84042bd472f59b22a0da27a4436701c2d287",
+          "size": 2526,
+          "mtime_ns": 1792075686160000912
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/text_frontend.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/text_frontend.py",
+          "sha256": "f9fc38d5bdcb40d77f5a0bfa350ff7a9540f2d51c50f4dc4bea84b1d208e3b6d",
+          "size": 2880,
+          "mtime_ns": 1792078262312332159
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase2_sources.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase2_sources.py",
+          "sha256": "5afd80d60cb6b6198569b6032f72ef146934ffe20a7a9b6827a359172587b1df",
+          "size": 2060,
+          "mtime_ns": 1792078262279633348
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase4_training.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase4_training.py",
+          "sha256": "649ae6b0e9ac63245c9d77f8cfcbe653b000ec9f466070e79990ece210d0466e",
+          "size": 4654,
+          "mtime_ns": 1792123160294310180
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/feedback_backend.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/feedback_backend.py",
+          "sha256": "56c79e6c9f16e050a2dc2724c21c22ba7b36f8622b2a367f0c1de6f2f8ae5e19",
+          "size": 9281,
+          "mtime_ns": 1792078433586052409
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/rewards.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/rewards.py",
+          "sha256": "4591d7fbb993eb2fcb5470931ebca4b24b88f92a22e118660b822a9c5fb769df",
+          "size": 4072,
+          "mtime_ns": 1792075981592777441
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/scst.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/scst.py",
+          "sha256": "3edb22ac84791f2cd451a5ef93ea87fc75e88827a3703b5648a51b302b988c36",
+          "size": 2383,
+          "mtime_ns": 1792075686160209052
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/__init__.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/__init__.py",
+          "sha256": "72cffde59203076c5606a782fe96d28b433109119092fa5b4ae00f3d678c4494",
+          "size": 74,
+          "mtime_ns": 1792125900205042669
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/checkpoint.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/checkpoint.py",
+          "sha256": "b579c18f94c8c5a81075fd36c832002a775d58a4adb3c30992cb9f39a16756a7",
+          "size": 8447,
+          "mtime_ns": 1792126570595588711
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase4_checkpoint.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase4_checkpoint.py",
+          "sha256": "9b828efbb0ebfff0aaf670b50094f002433d6f0edec2a7f66944e75c983fa1de",
+          "size": 7910,
+          "mtime_ns": 1792123160271842256
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/real_feature_cache.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/real_feature_cache.py",
+          "sha256": "a49b209d3079d389d63923da048b77b85f63c6067f9aadb502c6d46ed52986e2",
+          "size": 8474,
+          "mtime_ns": 1792079826688821851
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase3_inputs.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase3_inputs.py",
+          "sha256": "01d022fd517c37a6d5d81697d680d44f99df053e819cd164eb770013791dd9cd",
+          "size": 5727,
+          "mtime_ns": 1792079825694237379
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/training_inputs.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/training_inputs.py",
+          "sha256": "cf67a8929abc4777d5531b5977f75de953087acc0ba8787662b299b94f201c93",
+          "size": 7024,
+          "mtime_ns": 1792078484548358562
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/common.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/common.py",
+          "sha256": "d112612cc3d3e7be3fa54db2c3bcd6bf2851d191fb9339c2b006e194ec4ca4cd",
+          "size": 3868,
+          "mtime_ns": 1792126568602016804
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/data.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/data.py",
+          "sha256": "d4f2c5ba75bea719f9fd82efe17d3e1b38b2283196038159ba0fd6cd1dca8a11",
+          "size": 8300,
+          "mtime_ns": 1792126569635481562
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/runtime.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/runtime.py",
+          "sha256": "d68bed7ec961dbf056aa16f3eb4330565588d71041eff36a9ccf8d6835d34ab6",
+          "size": 6543,
+          "mtime_ns": 1792126851122906088
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/real_feedback.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/real_feedback.py",
+          "sha256": "b0615a44f26c7286520df37dcd35eb1ff381979e5d873545e4b7c8237c91fe38",
+          "size": 7389,
+          "mtime_ns": 1792079825692347787
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_importance_step51_20261003/importance.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_importance_step51_20261003/importance.py",
+          "sha256": "a6dc10128e16a21db0c7fb8ad239506f827b2d44fef3bb1557c1a162fd922eba",
+          "size": 10590,
+          "mtime_ns": 1791967807523018698
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_unit_v55_interface_20261003/attribute_interface.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_unit_v55_interface_20261003/attribute_interface.py",
+          "sha256": "5ec8d0c9e941b9583deae721ce59c9ba9cf2fa8045fc4f3e041b6b59cf0fdcca",
+          "size": 12807,
+          "mtime_ns": 1791967807703526638
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_unit_v54_axis_audit_20261003/axis_audit.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_unit_v54_axis_audit_20261003/axis_audit.py",
+          "sha256": "ea0481121d004ab059c8656451aa224a55c423a755098cc372cdf763f320d287",
+          "size": 28820,
+          "mtime_ns": 1791967807695257002
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_unit_v53_factorized_ontology_20261003/factorized.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_unit_v53_factorized_ontology_20261003/factorized.py",
+          "sha256": "579d5c71d8d511048ab834925508ec1f9810b3dd22b927a338a37f29e3efdec7",
+          "size": 31382,
+          "mtime_ns": 1791967807694236833
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_tta_step72_20261003/attribute_tta.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_tta_step72_20261003/attribute_tta.py",
+          "sha256": "169dc1676d66f172de7079d9b083a23e09ced35dd0ba583b7f2fac86b8ff4051",
+          "size": 8537,
+          "mtime_ns": 1791967807590271921
+        },
+        "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/__init__.py": {
+          "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/__init__.py",
+          "sha256": "b490a62a3ef47974cad62f3eee6f242cb18c3897f623617883174ea1382e1b28",
+          "size": 353,
+          "mtime_ns": 1790836321000000000
+        },
+        "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/attribute_scoring.py": {
+          "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/attribute_scoring.py",
+          "sha256": "9bfffc6b90f1ce0e2f12b357fec1151f2c00a7ca66505594e0d152886003f8cc",
+          "size": 4386,
+          "mtime_ns": 1790836321000000000
+        },
+        "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/visual_canonicalizer.py": {
+          "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/visual_canonicalizer.py",
+          "sha256": "17c39508e3def98047167cf94cad0da45c8b03c36a13b38055db2190656454b8",
+          "size": 4942,
+          "mtime_ns": 1790836321000000000
+        },
+        "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/text_extractor.py": {
+          "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/text_extractor.py",
+          "sha256": "22426f6dbc4387b0d52170e95ed299d02821bfaec63224aaad9f64d2041d433c",
+          "size": 20864,
+          "mtime_ns": 1790836321000000000
+        },
+        "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/generator_framework.py": {
+          "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/generator_framework.py",
+          "sha256": "ba7f4ab65f701993b80a0efb618f00d6a9fc28363362cca7f4191286f16c6d11",
+          "size": 13093,
+          "mtime_ns": 1790836321000000000
+        },
+        "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/attack_scheduler.py": {
+          "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/attack_scheduler.py",
+          "sha256": "c42fbcb199bf0c422d52b01cfe4c80e92aee556be8e9102056c569dfce5fae61",
+          "size": 7236,
+          "mtime_ns": 1790836321000000000
+        },
+        "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/rank_objective.py": {
+          "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/rank_objective.py",
+          "sha256": "19f19b42aea022d6d0265100054e5986db33f36a7b2318b1975e84a6fa729273",
+          "size": 3215,
+          "mtime_ns": 1790836321000000000
+        },
+        "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/tta_adapter.py": {
+          "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/tta_adapter.py",
+          "sha256": "88ae830ac8356d575690ba4444efe29bc0b2cd84f089318b15a8e8c3e0cf2cd0",
+          "size": 7080,
+          "mtime_ns": 1790836321000000000
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_tta_step74_dynamic_k_20261004/paired_prefix.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_tta_step74_dynamic_k_20261004/paired_prefix.py",
+          "sha256": "8c4f37cc7a92d6ad96269468577f86feccf751acc3367b20b7a729b62689ed05",
+          "size": 3647,
+          "mtime_ns": 1791967807642187502
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_tta_step74_dynamic_k_20261004/deps.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_tta_step74_dynamic_k_20261004/deps.py",
+          "sha256": "702d360cf6ab674fec94748cbd42cbf3d06b43f7df1e170cb80c92ac0dfbf631",
+          "size": 1818,
+          "mtime_ns": 1791967807641829240
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_tta_step74_dynamic_k_20261004/selection_audit.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_tta_step74_dynamic_k_20261004/selection_audit.py",
+          "sha256": "46213fc3f0e09cdb9c37b2c1abb8880fac94d4989739aaa21e51e4385c68a409",
+          "size": 10615,
+          "mtime_ns": 1791967807649643492
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_tta_step732_20261004/prefix_tta.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_tta_step732_20261004/prefix_tta.py",
+          "sha256": "2bc6e62ad438083d21156d08375757ec2c642d704482da53a82944bee4ed01a9",
+          "size": 14077,
+          "mtime_ns": 1791967807596610145
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1/prototypes/attribute_tta_step73_20261004/controlled_tta.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1/prototypes/attribute_tta_step73_20261004/controlled_tta.py",
+          "sha256": "cace0619fd91a75869a99b3d3db5ef2fb1ddffba7559e1cf11b612698a5d71ed",
+          "size": 13994,
+          "mtime_ns": 1791047552985231146
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_unit_v4_learned_reader_20261003/learned_reader.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_unit_v4_learned_reader_20261003/learned_reader.py",
+          "sha256": "ad5ac0da64aef505dd6cce739a9296ec3a0bce3c973d6aea6fbd82e70d85a9a1",
+          "size": 13404,
+          "mtime_ns": 1791967807691688273
+        },
+        "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/irra_token_alignment.py": {
+          "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/irra_token_alignment.py",
+          "sha256": "dd34559be0de195057f00b6326d855b1dbee0bbc5bfe7bc3dcd660c9f5a72404",
+          "size": 15470,
+          "mtime_ns": 1790873957000000000
+        },
+        "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/irra_paired_rank_drop.py": {
+          "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/irra_paired_rank_drop.py",
+          "sha256": "2851e79a314e77e4335b781614e618f5ffcca24e1ff19199265bf6ea09dc5411",
+          "size": 20567,
+          "mtime_ns": 1790857512000000000
+        },
+        "/home/lzf/Attack/IRRA-main/IRRA-main/utils/__init__.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/__init__.py",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size": 0,
+          "mtime_ns": 1742974283000000000
+        },
+        "/home/lzf/Attack/IRRA-main/IRRA-main/utils/simple_tokenizer.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/simple_tokenizer.py",
+          "sha256": "19b06ade7532bcff961c4b90590197fcac0d466f08d0b6b801d3d19a36568d67",
+          "size": 5016,
+          "mtime_ns": 1742974283000000000
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/src/attributes/__init__.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/src/attributes/__init__.py",
+          "sha256": "41f0e3cef1c985424c4996a8566c67d5999c0f547f14f2d9ff35fa5cb0cdd3b1",
+          "size": 344,
+          "mtime_ns": 1791967807460287255
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/src/attributes/attribute_scoring.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/src/attributes/attribute_scoring.py",
+          "sha256": "adf87942e8de78b78079bc453c3db4758d2c442fc65fcba38961d144b2de6bc1",
+          "size": 4282,
+          "mtime_ns": 1791967807460326469
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/src/attributes/visual_canonicalizer.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/src/attributes/visual_canonicalizer.py",
+          "sha256": "7b91d939420bc85f56a41a8980c425b45a551c9d94c66b88c7686c70ff363dc6",
+          "size": 4831,
+          "mtime_ns": 1791967807460790616
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/src/attributes/text_extractor.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/src/attributes/text_extractor.py",
+          "sha256": "47deccbf7c86ac6d2d6000ecb7997b8f7f2aff0ebb3c96b814e1cd7c665253b3",
+          "size": 20424,
+          "mtime_ns": 1791967807460790616
+        }
+      },
+      "forbidden_attempts": {},
+      "vendor_import_guard": {
+        "loads": [],
+        "forwards": 0,
+        "optimizer_steps": 0,
+        "CUDA": false
+      },
+      "namespace_restored": true,
+      "model_loads": 0,
+      "model_forwards": 0,
+      "CUDA": false
+    },
+    "native_orders": {
+      "1": {
+        "G_absolute_epoch": 61,
+        "H_absolute_epoch": 11,
+        "G_order_sha": "d468334f1d322fe220e9d24d51350af4e8d9add7db7804f5851114b86a9ebd17",
+        "H_order_sha": "450f0664f8aed16ccd1067f4c3ab73edb15a1cb1c96a82c34e63761f0f646769"
+      },
+      "50": {
+        "G_absolute_epoch": 110,
+        "H_absolute_epoch": 60,
+        "G_order_sha": "b15113448611a9688bc486f97a61a569ca1870dd9130f0dc0294161ec7ad9b5c",
+        "H_order_sha": "f420e388bb1265d39e3cef4f6b4350d0b6c7082d6719946b9779b27becfe3f0e"
+      }
+    },
+    "parent_restore": {
+      "status": "GH_NATIVE_PARENT_CPU_RESTORE_PASS",
+      "G_state": "5d48caab6a891a1afd3aaaa6f3594eb5f860ccd7b6090708d289224e6c819e47",
+      "H_state": "1b1e3888ee8dc0e4dff39af3438ec48987cd472746cbfde71ad4d10f562ad24d",
+      "G_Adam": "84ffa5fdd8132fb60ecbb4caf40d3242973168666841264c098d2aa36575ae14",
+      "H_Adam": "dfe930621066f140b5dd37d77d5a4fc4226cdef3f74ff05bc181de86423b6a4d",
+      "G_Adam_steps": [
+        484080
+      ],
+      "H_Adam_step_min": 20124,
+      "H_Adam_step_max": 20370,
+      "G_RNG": "82a340a4e9f7ab8f2532be63bfdc764ec22aad52e860ccfa9655336aa2fd8b5d",
+      "H_RNG": "5333ea5b83ab3a2839988413067517ef7583f35efdd44fc31713b1b9ee01430e",
+      "CPU_RNG_exact": true,
+      "CUDA_RNG_preserved": true,
+      "CUDA_RNG_restored": false,
+      "parent_protocol": {
+        "G": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049",
+        "H": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd",
+        "protocol": "3861d8a2d3a2c9ab17139ab71f5b982c42f84ae7a55acfbcbb917da12e48c636"
+      },
+      "guards": {
+        "loads": [
+          "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0060/checkpoint.pt",
+          "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00020480/checkpoint.pt"
+        ],
+        "forwards": 0,
+        "optimizer_steps": 0,
+        "CUDA": false
+      },
+      "real_model_forwards": 0,
+      "updates": 0
+    },
+    "startup_events": [
+      "cpu_sources_verified",
+      "cpu_isolation_exited"
+    ],
+    "history": {
+      "history_metadata": 151378,
+      "FAIL_Watcher": 28,
+      "parent_probe_preserved": true
+    }
+  },
+  "preflight_train": {
+    "status": "GH_B_FORMAL_CPU_PREFLIGHT_PASS",
+    "legacy_source_audit": {
+      "status": "GH_ALTERNATING_CPU_SOURCE_PREFLIGHT_PASS",
+      "parent_sha256": {
+        "G": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049",
+        "H": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd",
+        "IRRA": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+      },
+      "source_files": 49,
+      "legacy_producers": 113,
+      "new_producers": 146,
+      "G_producers": 7,
+      "G_upstream": 4450,
+      "H_training_sources": 76,
+      "Clean_gallery_source_files": 8192,
+      "samples": [
+        {
+          "row_id": "cuhk:26530:0",
+          "G_K": 0,
+          "H_eligible": false,
+          "H_reasons": [
+            "no_canonical_attributes",
+            "no_legal_token_changing_edit"
+          ],
+          "original_caption": "The person is a blur but looks to have a top knot for a hair style and a multicolored type of robe."
+        },
+        {
+          "row_id": "cuhk:26747:0",
+          "G_K": 1,
+          "H_eligible": true,
+          "H_reasons": [],
+          "original_caption": "A man wearing a red and white cheerleader outfit is wearing a blond wig and has his arms up in the air"
+        },
+        {
+          "row_id": "cuhk:12746:0",
+          "G_K": 2,
+          "H_eligible": true,
+          "H_reasons": [],
+          "original_caption": "The boy is on an escalator. He is wearing a blue denim backpack, black  shirt, and tan chinos."
+        },
+        {
+          "row_id": "cuhk:9955:0",
+          "G_K": 3,
+          "H_eligible": true,
+          "H_reasons": [],
+          "original_caption": "He has  short  black hair  and  is  wearing  a  black shirt . He is  also  wearing white  pants  ."
+        },
+        {
+          "row_id": "cuhk:29253:0",
+          "G_K": 4,
+          "H_eligible": true,
+          "H_reasons": [],
+          "original_caption": "The man is wearing black tennis shoes with grey socks and a pair of long black shorts that go past his knees. He is wearing a white tee-shirt with black graphics on the front and a plaid grey long-sleeved shirt. He has a backpack on his back."
+        },
+        {
+          "row_id": "cuhk:21540:0",
+          "G_K": 3,
+          "H_eligible": true,
+          "H_reasons": [],
+          "original_caption": "The woman is wearing a black jacket, a pink top and black pants.  She is also wearing black boots and carrying a large white bag on her right shoulder."
+        },
+        {
+          "row_id": "cuhk:3127:0",
+          "G_K": 3,
+          "H_eligible": true,
+          "H_reasons": [],
+          "original_caption": "the person pictured is wearing a white and black shirt with black pants. the person has a strap over there shoulder and wearing light colored shoes."
+        },
+        {
+          "row_id": "cuhk:8385:0",
+          "G_K": 3,
+          "H_eligible": true,
+          "H_reasons": [],
+          "original_caption": "This woman has short hair and is wearing a plaid jacket, a beaded necklace, a white skirt with a print and white sandals."
+        }
+      ],
+      "G_updates_per_round": 27,
+      "H_updates_max_per_round": 7,
+      "Train": 2048,
+      "Validation": 128,
+      "PID_isolation": true,
+      "model_loads": 0,
+      "model_forwards": 0,
+      "CUDA_initialized": false,
+      "real_parent_restore": "PENDING GPU phase; original complete parent metadata verified",
+      "new_JVP_numeric_equivalence": "PENDING explicit GPU authorization",
+      "config_sha256": "6f661dbfe12e56c554911e763bdd2acc8a8b658d5022d6e7575d3a3e8ae582d0"
+    },
+    "legacy_projection_sha256": "6f661dbfe12e56c554911e763bdd2acc8a8b658d5022d6e7575d3a3e8ae582d0",
+    "formal_native_source": "eb5704c5006fb21682686b203f81300497b60d31e58a540f65f5470d28980e59",
+    "formal_config_sha256": "e0220fe92bdd4480bdb751e5b67a6da8a26a74a543694871b28ea1627c97bf74",
+    "scope": "train",
+    "members": {
+      "Train": 2048,
+      "eligible_H": 2037,
+      "G_K_total": 6020,
+      "G_updates_per_round": 8068,
+      "K_distribution": {
+        "3": 842,
+        "4": 463,
+        "2": 639,
+        "1": 34,
+        "6": 3,
+        "5": 61,
+        "0": 5,
+        "7": 1
+      },
+      "strict_anchor_failures": []
+    },
+    "budget": {
+      "G_samples_per_round": 2048,
+      "G_updates_per_round": 8068,
+      "H_visits_per_round": 2048,
+      "H_valid_updates_per_round": 2037,
+      "gallery_images_per_round": 2048,
+      "new_G_updates": 403400,
+      "new_H_visits": 102400,
+      "new_H_updates": 101850,
+      "final_G_updates": 887480,
+      "final_H_visits": 122880,
+      "final_H_updates": 122220,
+      "full_gallery_refreshes": 50,
+      "gallery_images": 102400,
+      "new_JVP_upper_bound": 301000
+    },
+    "old_evidence": {
+      "probe": "PASS original source only",
+      "CUDA_RNG": "PASS original parents",
+      "old_smoke_native": "GENERATED",
+      "old_exact_audit": "FAIL preserved; not formal B acceptance"
+    },
+    "model_forwards": 0,
+    "CUDA": false,
+    "imports": {
+      "status": "GH_NATIVE_IMPORT_CLOSURE_PASS",
+      "entries": [
+        "image_only_generator",
+        "budget_projection",
+        "condition_schema",
+        "serial_training",
+        "inference_once",
+        "losses",
+        "irra_image_adapter",
+        "epoch_checkpoint",
+        "contracts",
+        "constraints",
+        "policy",
+        "tokenizer_probe",
+        "text_frontend",
+        "phase4_training",
+        "formal_training.checkpoint",
+        "formal_training.data",
+        "formal_training.runtime",
+        "training_inputs",
+        "importance",
+        "attribute_interface",
+        "attribute_tta",
+        "paired_prefix",
+        "learned_reader",
+        "attributes.irra_token_alignment",
+        "utils.simple_tokenizer"
+      ],
+      "executed_sources": {
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/image_only_generator.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/image_only_generator.py",
+          "sha256": "4745e6947308fdc4f5d5496b6a99c9a68699abef8131f2a211e1bd13470eec85",
+          "size": 2273,
+          "mtime_ns": 1791992015182887266
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/budget_projection.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/budget_projection.py",
+          "sha256": "a4c391b5d0f4a1d4ddcac0431431615de86fd982eaaa009a0774c2cc3fbd88c0",
+          "size": 3342,
+          "mtime_ns": 1791992015182845262
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/condition_schema.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/condition_schema.py",
+          "sha256": "f13932c2688cab4e135d063eed6f066016f6ba26e2316cbc201f19b246b298b4",
+          "size": 4819,
+          "mtime_ns": 1791990835181518181
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/serial_training.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/serial_training.py",
+          "sha256": "e42fa8bd6ea933530bda8e2e67d5149e7059151f4b2caa0b662dbaaa856e105d",
+          "size": 9745,
+          "mtime_ns": 1791993628618003801
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/losses.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/losses.py",
+          "sha256": "d415dfe326cc2f580d202d0220d5bb0c5895ed626115b0828e516b598df8f0b2",
+          "size": 3394,
+          "mtime_ns": 1791992015182909791
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/inference_once.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/inference_once.py",
+          "sha256": "83d38a6c782581acd53c3d8c5272c24c89ae85a32f5c7da9230edff1a8f97e6a",
+          "size": 1299,
+          "mtime_ns": 1792033770113452007
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/irra_image_adapter.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/irra_image_adapter.py",
+          "sha256": "148d2cfe8749cb8723b00e38ca68ff8dee6f86948f1fe2a15605c792dbb2eba4",
+          "size": 3653,
+          "mtime_ns": 1791994820613974033
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/cache_io.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/cache_io.py",
+          "sha256": "63b2973af40a5f654bd0574c7280d5fcef25311332796c1d759ecdb021d26dfe",
+          "size": 5755,
+          "mtime_ns": 1791990835181693230
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/epoch_checkpoint.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/epoch_checkpoint.py",
+          "sha256": "43ee3f312276f3039e33efe5163830fc6ed46523a4bba5597a0e4802a209ff74",
+          "size": 5524,
+          "mtime_ns": 1792040546904811833
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/contracts.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/contracts.py",
+          "sha256": "2dc90ad865dcdc9b72b5ebb3fe4772a5b0c4c082f91694d1da244a07b72de0e9",
+          "size": 2877,
+          "mtime_ns": 1792075686159908145
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/constraints.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/constraints.py",
+          "sha256": "7b9202d2885165302aa1ec475feaefe0150869b12660aa40d4552a0f29759264",
+          "size": 3932,
+          "mtime_ns": 1792075686160058668
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/policy.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/policy.py",
+          "sha256": "0bbcd430e02eb61c38857b7a812b87f163d1bd0a09f0b147cede23e5712fbed3",
+          "size": 8413,
+          "mtime_ns": 1792076822667944627
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/tokenizer_probe.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/tokenizer_probe.py",
+          "sha256": "38ad32a813e2e2114cd5e549bf0b84042bd472f59b22a0da27a4436701c2d287",
+          "size": 2526,
+          "mtime_ns": 1792075686160000912
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/text_frontend.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/text_frontend.py",
+          "sha256": "f9fc38d5bdcb40d77f5a0bfa350ff7a9540f2d51c50f4dc4bea84b1d208e3b6d",
+          "size": 2880,
+          "mtime_ns": 1792078262312332159
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase2_sources.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase2_sources.py",
+          "sha256": "5afd80d60cb6b6198569b6032f72ef146934ffe20a7a9b6827a359172587b1df",
+          "size": 2060,
+          "mtime_ns": 1792078262279633348
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase4_training.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase4_training.py",
+          "sha256": "649ae6b0e9ac63245c9d77f8cfcbe653b000ec9f466070e79990ece210d0466e",
+          "size": 4654,
+          "mtime_ns": 1792123160294310180
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/feedback_backend.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/feedback_backend.py",
+          "sha256": "56c79e6c9f16e050a2dc2724c21c22ba7b36f8622b2a367f0c1de6f2f8ae5e19",
+          "size": 9281,
+          "mtime_ns": 1792078433586052409
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/rewards.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/rewards.py",
+          "sha256": "4591d7fbb993eb2fcb5470931ebca4b24b88f92a22e118660b822a9c5fb769df",
+          "size": 4072,
+          "mtime_ns": 1792075981592777441
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/scst.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/scst.py",
+          "sha256": "3edb22ac84791f2cd451a5ef93ea87fc75e88827a3703b5648a51b302b988c36",
+          "size": 2383,
+          "mtime_ns": 1792075686160209052
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/__init__.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/__init__.py",
+          "sha256": "72cffde59203076c5606a782fe96d28b433109119092fa5b4ae00f3d678c4494",
+          "size": 74,
+          "mtime_ns": 1792125900205042669
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/checkpoint.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/checkpoint.py",
+          "sha256": "b579c18f94c8c5a81075fd36c832002a775d58a4adb3c30992cb9f39a16756a7",
+          "size": 8447,
+          "mtime_ns": 1792126570595588711
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase4_checkpoint.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase4_checkpoint.py",
+          "sha256": "9b828efbb0ebfff0aaf670b50094f002433d6f0edec2a7f66944e75c983fa1de",
+          "size": 7910,
+          "mtime_ns": 1792123160271842256
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/real_feature_cache.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/real_feature_cache.py",
+          "sha256": "a49b209d3079d389d63923da048b77b85f63c6067f9aadb502c6d46ed52986e2",
+          "size": 8474,
+          "mtime_ns": 1792079826688821851
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase3_inputs.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/phase3_inputs.py",
+          "sha256": "01d022fd517c37a6d5d81697d680d44f99df053e819cd164eb770013791dd9cd",
+          "size": 5727,
+          "mtime_ns": 1792079825694237379
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/training_inputs.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/training_inputs.py",
+          "sha256": "cf67a8929abc4777d5531b5977f75de953087acc0ba8787662b299b94f201c93",
+          "size": 7024,
+          "mtime_ns": 1792078484548358562
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/common.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/common.py",
+          "sha256": "d112612cc3d3e7be3fa54db2c3bcd6bf2851d191fb9339c2b006e194ec4ca4cd",
+          "size": 3868,
+          "mtime_ns": 1792126568602016804
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/data.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/data.py",
+          "sha256": "d4f2c5ba75bea719f9fd82efe17d3e1b38b2283196038159ba0fd6cd1dca8a11",
+          "size": 8300,
+          "mtime_ns": 1792126569635481562
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/runtime.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/formal_training/runtime.py",
+          "sha256": "d68bed7ec961dbf056aa16f3eb4330565588d71041eff36a9ccf8d6835d34ab6",
+          "size": 6543,
+          "mtime_ns": 1792126851122906088
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/real_feedback.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/real_feedback.py",
+          "sha256": "b0615a44f26c7286520df37dcd35eb1ff381979e5d873545e4b7c8237c91fe38",
+          "size": 7389,
+          "mtime_ns": 1792079825692347787
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_importance_step51_20261003/importance.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_importance_step51_20261003/importance.py",
+          "sha256": "a6dc10128e16a21db0c7fb8ad239506f827b2d44fef3bb1557c1a162fd922eba",
+          "size": 10590,
+          "mtime_ns": 1791967807523018698
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_unit_v55_interface_20261003/attribute_interface.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_unit_v55_interface_20261003/attribute_interface.py",
+          "sha256": "5ec8d0c9e941b9583deae721ce59c9ba9cf2fa8045fc4f3e041b6b59cf0fdcca",
+          "size": 12807,
+          "mtime_ns": 1791967807703526638
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_unit_v54_axis_audit_20261003/axis_audit.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_unit_v54_axis_audit_20261003/axis_audit.py",
+          "sha256": "ea0481121d004ab059c8656451aa224a55c423a755098cc372cdf763f320d287",
+          "size": 28820,
+          "mtime_ns": 1791967807695257002
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_unit_v53_factorized_ontology_20261003/factorized.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_unit_v53_factorized_ontology_20261003/factorized.py",
+          "sha256": "579d5c71d8d511048ab834925508ec1f9810b3dd22b927a338a37f29e3efdec7",
+          "size": 31382,
+          "mtime_ns": 1791967807694236833
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_tta_step72_20261003/attribute_tta.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_tta_step72_20261003/attribute_tta.py",
+          "sha256": "169dc1676d66f172de7079d9b083a23e09ced35dd0ba583b7f2fac86b8ff4051",
+          "size": 8537,
+          "mtime_ns": 1791967807590271921
+        },
+        "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/__init__.py": {
+          "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/__init__.py",
+          "sha256": "b490a62a3ef47974cad62f3eee6f242cb18c3897f623617883174ea1382e1b28",
+          "size": 353,
+          "mtime_ns": 1790836321000000000
+        },
+        "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/attribute_scoring.py": {
+          "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/attribute_scoring.py",
+          "sha256": "9bfffc6b90f1ce0e2f12b357fec1151f2c00a7ca66505594e0d152886003f8cc",
+          "size": 4386,
+          "mtime_ns": 1790836321000000000
+        },
+        "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/visual_canonicalizer.py": {
+          "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/visual_canonicalizer.py",
+          "sha256": "17c39508e3def98047167cf94cad0da45c8b03c36a13b38055db2190656454b8",
+          "size": 4942,
+          "mtime_ns": 1790836321000000000
+        },
+        "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/text_extractor.py": {
+          "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/text_extractor.py",
+          "sha256": "22426f6dbc4387b0d52170e95ed299d02821bfaec63224aaad9f64d2041d433c",
+          "size": 20864,
+          "mtime_ns": 1790836321000000000
+        },
+        "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/generator_framework.py": {
+          "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/generator_framework.py",
+          "sha256": "ba7f4ab65f701993b80a0efb618f00d6a9fc28363362cca7f4191286f16c6d11",
+          "size": 13093,
+          "mtime_ns": 1790836321000000000
+        },
+        "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/attack_scheduler.py": {
+          "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/attack_scheduler.py",
+          "sha256": "c42fbcb199bf0c422d52b01cfe4c80e92aee556be8e9102056c569dfce5fae61",
+          "size": 7236,
+          "mtime_ns": 1790836321000000000
+        },
+        "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/rank_objective.py": {
+          "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/rank_objective.py",
+          "sha256": "19f19b42aea022d6d0265100054e5986db33f36a7b2318b1975e84a6fa729273",
+          "size": 3215,
+          "mtime_ns": 1790836321000000000
+        },
+        "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/tta_adapter.py": {
+          "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/tta_adapter.py",
+          "sha256": "88ae830ac8356d575690ba4444efe29bc0b2cd84f089318b15a8e8c3e0cf2cd0",
+          "size": 7080,
+          "mtime_ns": 1790836321000000000
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_tta_step74_dynamic_k_20261004/paired_prefix.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_tta_step74_dynamic_k_20261004/paired_prefix.py",
+          "sha256": "8c4f37cc7a92d6ad96269468577f86feccf751acc3367b20b7a729b62689ed05",
+          "size": 3647,
+          "mtime_ns": 1791967807642187502
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_tta_step74_dynamic_k_20261004/deps.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_tta_step74_dynamic_k_20261004/deps.py",
+          "sha256": "702d360cf6ab674fec94748cbd42cbf3d06b43f7df1e170cb80c92ac0dfbf631",
+          "size": 1818,
+          "mtime_ns": 1791967807641829240
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_tta_step74_dynamic_k_20261004/selection_audit.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_tta_step74_dynamic_k_20261004/selection_audit.py",
+          "sha256": "46213fc3f0e09cdb9c37b2c1abb8880fac94d4989739aaa21e51e4385c68a409",
+          "size": 10615,
+          "mtime_ns": 1791967807649643492
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_tta_step732_20261004/prefix_tta.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_tta_step732_20261004/prefix_tta.py",
+          "sha256": "2bc6e62ad438083d21156d08375757ec2c642d704482da53a82944bee4ed01a9",
+          "size": 14077,
+          "mtime_ns": 1791967807596610145
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1/prototypes/attribute_tta_step73_20261004/controlled_tta.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1/prototypes/attribute_tta_step73_20261004/controlled_tta.py",
+          "sha256": "cace0619fd91a75869a99b3d3db5ef2fb1ddffba7559e1cf11b612698a5d71ed",
+          "size": 13994,
+          "mtime_ns": 1791047552985231146
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_unit_v4_learned_reader_20261003/learned_reader.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_unit_v4_learned_reader_20261003/learned_reader.py",
+          "sha256": "ad5ac0da64aef505dd6cce739a9296ec3a0bce3c973d6aea6fbd82e70d85a9a1",
+          "size": 13404,
+          "mtime_ns": 1791967807691688273
+        },
+        "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/irra_token_alignment.py": {
+          "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/irra_token_alignment.py",
+          "sha256": "dd34559be0de195057f00b6326d855b1dbee0bbc5bfe7bc3dcd660c9f5a72404",
+          "size": 15470,
+          "mtime_ns": 1790873957000000000
+        },
+        "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/irra_paired_rank_drop.py": {
+          "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/src/attributes/irra_paired_rank_drop.py",
+          "sha256": "2851e79a314e77e4335b781614e618f5ffcca24e1ff19199265bf6ea09dc5411",
+          "size": 20567,
+          "mtime_ns": 1790857512000000000
+        },
+        "/home/lzf/Attack/IRRA-main/IRRA-main/utils/__init__.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/__init__.py",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size": 0,
+          "mtime_ns": 1742974283000000000
+        },
+        "/home/lzf/Attack/IRRA-main/IRRA-main/utils/simple_tokenizer.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/simple_tokenizer.py",
+          "sha256": "19b06ade7532bcff961c4b90590197fcac0d466f08d0b6b801d3d19a36568d67",
+          "size": 5016,
+          "mtime_ns": 1742974283000000000
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/src/attributes/__init__.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/src/attributes/__init__.py",
+          "sha256": "41f0e3cef1c985424c4996a8566c67d5999c0f547f14f2d9ff35fa5cb0cdd3b1",
+          "size": 344,
+          "mtime_ns": 1791967807460287255
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/src/attributes/attribute_scoring.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/src/attributes/attribute_scoring.py",
+          "sha256": "adf87942e8de78b78079bc453c3db4758d2c442fc65fcba38961d144b2de6bc1",
+          "size": 4282,
+          "mtime_ns": 1791967807460326469
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/src/attributes/visual_canonicalizer.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/src/attributes/visual_canonicalizer.py",
+          "sha256": "7b91d939420bc85f56a41a8980c425b45a551c9d94c66b88c7686c70ff363dc6",
+          "size": 4831,
+          "mtime_ns": 1791967807460790616
+        },
+        "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/src/attributes/text_extractor.py": {
+          "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/src/attributes/text_extractor.py",
+          "sha256": "47deccbf7c86ac6d2d6000ecb7997b8f7f2aff0ebb3c96b814e1cd7c665253b3",
+          "size": 20424,
+          "mtime_ns": 1791967807460790616
+        }
+      },
+      "forbidden_attempts": {},
+      "vendor_import_guard": {
+        "loads": [],
+        "forwards": 0,
+        "optimizer_steps": 0,
+        "CUDA": false
+      },
+      "namespace_restored": true,
+      "model_loads": 0,
+      "model_forwards": 0,
+      "CUDA": false
+    },
+    "native_orders": {
+      "1": {
+        "G_absolute_epoch": 61,
+        "H_absolute_epoch": 11,
+        "G_order_sha": "d468334f1d322fe220e9d24d51350af4e8d9add7db7804f5851114b86a9ebd17",
+        "H_order_sha": "450f0664f8aed16ccd1067f4c3ab73edb15a1cb1c96a82c34e63761f0f646769"
+      },
+      "50": {
+        "G_absolute_epoch": 110,
+        "H_absolute_epoch": 60,
+        "G_order_sha": "b15113448611a9688bc486f97a61a569ca1870dd9130f0dc0294161ec7ad9b5c",
+        "H_order_sha": "f420e388bb1265d39e3cef4f6b4350d0b6c7082d6719946b9779b27becfe3f0e"
+      }
+    },
+    "parent_restore": {
+      "status": "GH_NATIVE_PARENT_CPU_RESTORE_PASS",
+      "G_state": "5d48caab6a891a1afd3aaaa6f3594eb5f860ccd7b6090708d289224e6c819e47",
+      "H_state": "1b1e3888ee8dc0e4dff39af3438ec48987cd472746cbfde71ad4d10f562ad24d",
+      "G_Adam": "84ffa5fdd8132fb60ecbb4caf40d3242973168666841264c098d2aa36575ae14",
+      "H_Adam": "dfe930621066f140b5dd37d77d5a4fc4226cdef3f74ff05bc181de86423b6a4d",
+      "G_Adam_steps": [
+        484080
+      ],
+      "H_Adam_step_min": 20124,
+      "H_Adam_step_max": 20370,
+      "G_RNG": "82a340a4e9f7ab8f2532be63bfdc764ec22aad52e860ccfa9655336aa2fd8b5d",
+      "H_RNG": "5333ea5b83ab3a2839988413067517ef7583f35efdd44fc31713b1b9ee01430e",
+      "CPU_RNG_exact": true,
+      "CUDA_RNG_preserved": true,
+      "CUDA_RNG_restored": false,
+      "parent_protocol": {
+        "G": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049",
+        "H": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd",
+        "protocol": "ea1c1b7d58ae0f6334a63e28403dde1141275e035053c11f18146fe29fe8567f"
+      },
+      "guards": {
+        "loads": [
+          "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0060/checkpoint.pt",
+          "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00020480/checkpoint.pt"
+        ],
+        "forwards": 0,
+        "optimizer_steps": 0,
+        "CUDA": false
+      },
+      "real_model_forwards": 0,
+      "updates": 0
+    },
+    "startup_events": [
+      "cpu_sources_verified",
+      "cpu_isolation_exited"
+    ],
+    "history": {
+      "history_metadata": 151378,
+      "FAIL_Watcher": 28,
+      "parent_probe_preserved": true
+    }
+  },
+  "resources_last_snapshot": {
+    "GPU": "NVIDIA GeForce RTX 4090, 1368, 24564, 44",
+    "compute_processes": "GPU-350a0fd7-5695-b5e8-c541-cd2b5682e126, 1034924, /usr/local/lib/ollama/llama-server, 17044\nGPU-350a0fd7-5695-b5e8-c541-cd2b5682e126, 1981163, /home/lzf/jmk/envs/foa_v5/bin/python, 5626",
+    "available_ram_bytes": 103455354880,
+    "free_disk_bytes": 6150653665280,
+    "free_inodes": 240070729,
+    "checks": {
+      "gpu": false,
+      "ram": true,
+      "disk": true,
+      "inodes": true
+    },
+    "resource_eligible": false,
+    "GPU_authorized": false,
+    "policy": "single shared_observe_only snapshot; no launch"
+  },
+  "resource_snapshot_log": {
+    "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/formal_preflight_final.log",
+    "sha256": "1e04275fb6a7e6c6f725e3e0fc10a2763e49cdce0200034f30951e1e0f1bf298"
+  },
+  "official_Test": {
+    "gallery": 3074,
+    "query": 6156,
+    "PID": 1000,
+    "manifest_sha256": "a338f5429b64393b8062e0a7127773d72adb5dd6832eeb89d24c2c63c2f4d9eb",
+    "historical_G60_IRRA_Engine_manifest_exact": true,
+    "historical_protocol": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/irra/result/protocol.json",
+      "sha256": "a6925c002abb95ac382a2609c8effb8efc8ca9dd14fbc22c1684899d3dc4922e"
+    }
+  },
+  "protected": {
+    "history": {
+      "history_metadata": 151378,
+      "FAIL_Watcher": 28,
+      "parent_probe_preserved": true
+    },
+    "old_diagnostic_published_units": [
+      "A1_repeat_1",
+      "A1_cross",
+      "claim",
+      "A1_repeat_2",
+      "B_cross",
+      "completed"
+    ],
+    "old_diagnostic_pending": [],
+    "GPU_or_training_executed_by_this_task": false
+  },
+  "scope": {
+    "GPU_Pilot": "NOT_STARTED_RESOURCE_BUSY",
+    "formal_training": "NOT_STARTED",
+    "Validation_Test_Full": "NOT_STARTED",
+    "Attempt_absence": {
+      "pilot": true,
+      "train": true
+    }
+  },
+  "source_files": {
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/__init__.py": "7215b414d63b13481ddd7252dd976985c2348f61099b463e5d419da3dd75050c",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/ablations/__init__.py": "18a63924c7a7b1bf897a7645fba61884d0ba90a5e949ac99eff4684eba5c7b0d",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/ablations/g60_h_bridge.py": "aec52ab788e1825bb7277835a7be060e0d85f5aac18c2e2ca49f21e57bc0ff3d",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/ablations/g60_h_validation.py": "5efc28734056d22aaa699f08442a9ea111cd41bbf9dcf35fc7e2bd03fe717c24",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/ablations/gh_attribute_audit.py": "53f243f8cc7019b3796bfbbc547a160499cba41c8c64b6aa991149ad05724ebf",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/ablations/gh_attribute_category_overlap.py": "71288851f126227e08703f2b6750ec0f1073e0a760fd7c611f37bb87f5550451",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/ablations/gh_attribute_supplement.py": "256089a3c724710979d89fae53eba4773871470b698fc4ab2c76374f56a0c258",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/ablations/gv2_epoch60_results.py": "12325d1635b241cd8a301c870b6c9c8adbe43defad87c49023dc397fe87ecd17",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/ablations/gv2_epoch_state.py": "a1c24c9c786f3fbe6dcbbc87d3836f58fa88b66352845bdba62805627c41b1cb",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/ablations/gv2_epochs.py": "d2f5e60a79aa2923499ee3a95bb36af1488704e04fc7b26ca021d227a782303c",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/ablations/gv2_sweep.py": "13a551c89a5ceff962a5d2020b2de2f91ab3e95cfe49fdf9890b691a081499ba",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/ablations/gv2_sweep_target.py": "93d154de9168c92101cd06cd3e5bd950fd98b17b69a120c5b1e561bc985240fa",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/ablations/hv1_g60_adaptation.py": "5fcd675c13362c54c4e9ff0a1926955a96ccf25dbf81d8ec07b4375e2b297445",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/ablations/hv1_g60_audit.py": "8d81de1d8ecbf6ce494fc9144b0b266bf281ac917cd6165ff5514331684366cc",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/ablations/hv1_g60_audit_repair.py": "edf7ae3b4c67d4a544e500141bc863dc8d1d5128d070c5bb74e029643dfa43b6",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/ablations/hv1_g60_posthoc.py": "33d4db53326ff6770bdd58bbe32b3624662ed69d3d9a8a760d78d79592554952",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/ablations/hv1_g60_posthoc_diagnostics.py": "fcd6a5b0153a2c127b2d7275fb145a580bd7d42dda68d1c8f84312b3653e790c",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/ablations/hv1_g60_repaired_results.py": "9c88ac9f1cbfb1f5c77ff5bf7f983e476703dc99cec1c65a445f24c558e404d0",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/ablations/hv1_g60_results.py": "39a7ab52140034debe7f908576c8cda3f5a9e9b9ca446837ad3ec5ea2d0973eb",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/ablations/hv1_g60_state.py": "95a96ff7aa39aac9d527270c325772328a1d6aba6473a51fde0f2ee77472de41",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/ablations/plot_gh_attribute_audit.py": "e22836e0d6ab93d5d8e9955c16c476160994aaeda833325bee353812d81a9614",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/ablations/plot_hv1_g60_posthoc.py": "df24bb369852a2ec59e4bbc3cb9b21582028ce23e1fb45149fbdba56733fd70b",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/ablations/report_gh_attribute_audit.py": "8f057b97dc8393ec80c6bf2b082205b334289767464684629832dde936986c1f",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/ablations/report_hv1_g60_posthoc.py": "6d3c2844275eebc80a201b0371f6134c5289a895270311195660d2bf62794db2",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/ablations/validate_gh_attribute_audit.py": "0c99656616c99ba0cc8499f4c2dc53fe97adc2b21096341983bb03295ca0809a",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/ablations/validate_hv1_g60_posthoc.py": "8db33ef5575dcf5873be67c3b95a6ee86df4f261473c3b170d30bfc6bf732d17",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/alternating/__init__.py": "8ce30be622417914b541518739c7f4897b25f49eb4a8c1e2598d8b27867ee344",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/alternating/conditions.py": "62c796f485c1dd2941611220bdedb90b1f76f318dde176781f3b6bff45633c11",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/alternating/contracts.py": "52a8bbcb02b74d7f931107067253b1fb2af9dab887bbeff1ddf68c74b5ef8cab",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/alternating/formal_audit.py": "6b8933660b60a6996c3d471aabd79fc2ee4febe896aa5cbef97afe1fbb6bfb53",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/alternating/formal_backend.py": "36dfb79970bfde3761a9688fe0a9c620a592fc5cbda59ac57ade6de962e28b46",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/alternating/formal_cli.py": "b72617a4ebb5f33b803d7b9ad855b48950747e1649d8246d233a6ab42fcdbb7c",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/alternating/formal_evaluation.py": "58006b158be74ac0b75c04de8515d0382cac1b146e62794bca18680ceb6081c1",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/alternating/formal_sources.py": "1dbc406177db174e1ca0526dfdff6c0a547f7c9f90e166639f304d829cedb1c1",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/alternating/formal_state.py": "d9695d090b8c4e9dcdeece552cffd610699c210f4a6e785df59c7851a7207646",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/alternating/native_backend.py": "6f96beb9275e29df188f8aaf5b9cb6bdff82234200d7da95453649b2cfba7960",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/alternating/native_cli.py": "977ff32059933191949bb8a91417700d5b050daedb7b928f42c5db5ab41a4083",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/alternating/native_gate.py": "c2afeff486d1fbffb7ca78744ab4a300fede8ff394c55585eeb2a345e72e43b4",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/alternating/native_numeric.py": "698c5e9b08b3313866b042c4a75aa2224d67c5869e68fb9659a7ddc4067b83ec",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/alternating/native_sources.py": "b2cc0366d83b124a3b6f3c0867fed2d623d4f8f1d5485db0f33e4e4b00555e13",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/alternating/parents.py": "b30c71f5b5638025ec74c53e010b1302a010b4277bd3da707976f28c1656736f",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/alternating/preflight.py": "9fdd2f86941d27426df07767a069e09c6784e4def73af344eef644782c55f089",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/alternating/runner.py": "2f817e72eb5e62e779fcdf4fe6219d9808a64bf7073482555b21291f79a1ac27",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/alternating/state.py": "e7aedb7607e959721aa219db96168747dfe723458b2197817ea3d2d61ff684d3",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/alternating/token_bridge.py": "ee7040a49dcd32b78aed2b7cd0ba2d6e1429877117ea0856664139137c9cfa08",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/aptm_eval.py": "58ad427af4fb796cb32cce1ff6f0184c2c251276b4bc8b5300cae4f997a5519d",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/artifacts.py": "b7d7486df6b401705157a604daec236c7bc9ce79a8518ccf2c3df5e07c61c940",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/attacks/__init__.py": "278854696782f31a17141ee937f96cc22bcd0a24cf15e5920873539a43b54e47",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/attacks/base.py": "5c3693244bc121db8234cae46b036e235d53dfa87fc77b5c16a2632fc8982823",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/attacks/configuration.py": "f225c7eae2a2e8c14ac1883e0b4512932bc5058deef858aff7fd3bae731d9cf1",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/attacks/gv2.py": "e72685a12f65549210b2ae005219b7fa38c787f0c7a1af0a875ab672fefe4b12",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/attacks/hv1.py": "51b60e0e4b5ee1a822598f9342a7afca1509b7360e0fe2d5987e679b2ab4b25d",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/attacks/joint.py": "6b375e5390b35651f67d74a1a3d21e97237015c8c920a65706849aa8a07b4a1f",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/attacks/legacy_runtime.py": "d328c5b7b188610896aa330f72c68d18aa699634a6f633fbf64691bc4cf99476",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/attacks/provenance.py": "051b3717b32ab3a57d50fde45bb17f6a8f4e99c30d9d28b1f60f6ce941a4ff07",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/attacks/registry.py": "739b22531b4855f184733da7806ba1a4a7cc7b52a28cfd539594dd757d541b62",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/attacks/storage.py": "7158cf935bafb1192a1afb8e881fb6f4b07907e5361cfe528f836a43215d7773",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/b3_eval.py": "57fd328637e636659ad70472763cb659c652e6fc245d8c0bfaf949ef2d306ae1",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/baselines/__init__.py": "86e3dd9402c6cd505cc41954c0c9b02f4ee9cb42b7475ac7f75b89f56d59579a",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/baselines/ap_b3.py": "86f4049317984bbccf0de41d9c2910f57853c931166a013a35d33a895e04c82a",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/baselines/comparison.py": "fe9a0e6be552dcc1dbce569a27097e3509651242611e141716a171115a88d13d",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/baselines/dra_full.py": "d598d3dc698b4c1e4e5d54d40d94fc87de04915d0ad72a773a644006a77ca1a7",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/baselines/dra_full_target.py": "1a6d58492db65f91d453be8419adcbf10bb10e50494a74410e0555b1cfb31a83",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/baselines/dra_irra.py": "382f4d0a62e06c67e9e22a262f6eb60ac3de0b6ed4f98d1bd828766762e59ef9",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/baselines/dra_official.py": "817efdf47df0ff5c17a7cf59d7d3a93ec9879bf42c6ea881eb05315fdc643ffc",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/baselines/dra_target.py": "88432a1f81c95dff780ac00bb82a002e47902759a209c0361c1c0dee7753ef93",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/baselines/launch.py": "3b85cc1092026f7742422eed3062d0ed9ac858bc6e7aed4432abb6de30d94779",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/baselines/sga_attack.py": "83289d7f418f0994b52f09cb76abd04fcadf320dae57eac6e9903d144db23823",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/baselines/sga_batch8_capacity.py": "dfa6c521fb92427025363fa9ac216173508df2868263c1a2ae401b74ed35fc04",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/baselines/sga_full_execution.py": "6abc8d937f68317006881834df2f3c606af193935a5d1537b57dd2d520dd5a92",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/baselines/sga_irra.py": "c560b6f9a7d8c92b6b4dc5df04a201e1753205e602d12a36bd272b826ed93c23",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/baselines/sga_irra_smoke_scores.py": "c805c5503e02e544578e24918fb7ab67691f4163ad064d83e7744e6073c77509",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/baselines/sga_official_io.py": "d922d7c017692a24e658c46aba31b6613759b9fa950b5a2704d32efd0a4c7f73",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/baselines/sga_whitebox.py": "96f217e31f0e47a4116db2a961a4cba8ee33545c0f3f88b74a6bcf7977bd93f8",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/check_attack_runtime.py": "3c9891694323c93c66c7918a6d177c54e06c3ebeb1605367aa7e6bfc0ba8e569",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/compat/__init__.py": "a0ce605ebfd16c166f2dcc237e62460d3f3aef2deaa845feeb4a2e9b21924dcb",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/compat/legacy_assets.py": "a88fa9cf12ec1e573e4763efd6f1bd70618f9759f39445de9830249706324ebe",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/config.py": "2546fbf969c533fc2a50b9f7a7a4c880053cb056599612c3dfaa6f5691eac70f",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/contracts.py": "2049faf65bf6bd99de3c9c50263451d0fbfd2d2fe2741891f9fb0b220de64fed",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/datasets/__init__.py": "5002fe92b67ac786ead8b87ceb2f0993bbc57d98d5051c54900b529fe66f17db",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/datasets/cuhk_pedes.py": "3d7cc570430ede48533728c103d49d6bd0e1fe8596f6c112fe3b5e5358b2b968",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/datasets/historical_membership.py": "9622f342b2259091d437b29f75004b7b5e458b85606b4c9ed97f34e7ec49b31a",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/engines/__init__.py": "7acfc64557fa446bc5346fb045a50a4ee15b66c65acbd9aaddb68c5e874e784f",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/engines/aptm_score_cache.py": "3126c2c7e51f5f86534aae349ee5d5914df8a5a615e035eff2abff7eb79392bf",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/engines/evaluation.py": "957eea289a0164c865fb84dd007901e60da82fb1de9bbbae6f946e93b1374124",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/engines/historical_contracts.py": "167f03a553ba8db4aa34fcbfdd574f35609df085ca83aee7a8365791e57dce89",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/engines/historical_loader.py": "64a5d95f0bba16c81c31a39b420caa1dd0af4bb8a65f616643728f2b2e527239",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/engines/historical_sources.py": "e9b3eadd6a1fba4be93ddc75d49168a8c38be50511b84d150f7ee43c377a4986",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/engines/legacy.py": "3f730b4f3bdb1858614a4337369aee1e33134f35cf3f3d179c08eeb9e72c7465",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/engines/materialized_aptm.py": "9d1acd5ead14869070c3843529c6ed126ef225eddc60c6c22cc718932ec51411",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/engines/materialized_cache.py": "0e3445eacfc0f969eb9d68cbfcb10db208833d9b1811a737abaaab41437e527a",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/engines/materialized_inputs.py": "001e06aec70fb97571a79b30c5d32d63a730fc697aa0d825f541325e2c491a14",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/engines/materialized_irra.py": "8c4c77b762729337925b0de59c8cac754b6520b3e9fcbb9dbeb1fc4346f3c5b2",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/engines/materialized_rasa.py": "0730ecee07a2fbff57067de4f55eefe697dac477e776d42d9879ca00a3ba1732",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/engines/metrics.py": "6a09838fa9c17cc95755acf5e2e608af86127bd517b951c050910f24c38459b5",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/engines/native_cache.py": "eacfdfdc19ac4f0c09f503314cd748d84ebb42d29d3a96a476bec0ef2a3b5b1b",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/engines/native_score_cache.py": "01b8ad3de0dad9655db1c15c7b480d4f3d25f0eb0b7af3d0065661ba51c4533c",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/engines/provenance.py": "d76877f3e13e8e324b4e0f9afdba701a1bd74f115bfca382cbd953cff515b413",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/engines/replay_acceptance.py": "c7abf7c77bc3eaecb6f89c1c65e8a4cd77b3d42d50e801184baea05a118a3d1a",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/engines/replay_control.py": "c5b6c3dc90bde5bf8bf8d2a145a191e19bc017a9e1eec84dfa4cbcffe9298306",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/engines/replay_cpu.py": "385e35d6cc6df9d4d5c57431fee8d01bde86e6c63881b9ada5b87d665e748eb9",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/engines/replay_oracle.py": "2024187d02dac1a0fd4b6b8573888a8e5e6a6353949a2737183e1b81328f9d4e",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/gv2_epoch_eval.py": "0fb9d5f0532a02ecd74c0453954540eb59875eeb9bd2ccab4ffe8d4855e31f45",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/materialization/__init__.py": "2028561dfd64b76d92d53f7b2508dc3d94d03ffafbb8e54301db23e44eb4da3b",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/materialization/audit_retained.py": "3beadbc5d31b482d848aa730d931f86fb8fc2fadbc1e19b255a632c7fc1b3cac",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/materialization/audit_sources.py": "f1a1bc2bf08c087956e1bb42b4ce910911cbfe2f26103aeda25238b4f9fbbe3c",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/materialization/bulk_session.py": "b74a37584a3748ac6c97d9f50dc4fa1537d6e320c25f3bcdcd340ecb147143d4",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/materialization/checkpoint_layout.py": "e6a3724c2330723525bde196038a700c8ac9db1ecf063690b3fc52a7778408fa",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/materialization/claim_recovery.py": "2c97f50c93abcc8152d10eb06fbc05f6d230687edfc6dfe3b6a1a5533639f334",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/materialization/contracts.py": "671cba96eac0a9cec263c361dde116ee29db566c21dd1e66275033b637e5d7af",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/materialization/full_audit.py": "97c49b23f139dc677a359538e82775460ee2d2c7bc289a418d9485daab9ba8b3",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/materialization/full_gpu.py": "6e4b3aaf264c468762315f498cd4c8651dc0871e5b970352fbc1257d983614bc",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/materialization/full_gpu_audit.py": "9006c6eec3e10ad8aa380e5e6fa9bc3581384e625e5ada2615b9d590052cc628",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/materialization/full_prepare.py": "d530625c41c7e2d5ab9cb0067a962fb98a26f0f105c4a78412b62cbb403a25ae",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/materialization/full_runner.py": "c2607cfe2d3ad172d7be7b42e6bee29448a4fbbe52697d135f3c3ce90d92d908",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/materialization/generation.py": "d550de127a713382540f3dc202d552750b237f473e3d1fb22b109733bdbfe0bd",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/materialization/gpu_safety.py": "b756d61a3b0d66340508c695d3211c842eefd7ef4bbbd36de7536b97a1e1dc86",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/materialization/irra_only.py": "5629af052e5db23e4532eac5cd37f0fd35911fd34af1963b4213cd32f7304eec",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/materialization/irra_startup.py": "eb5f0bb0993ae96055e9ec95b8b5c46e110e1bcaed1d4619f1bb9d222a78106a",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/materialization/legacy_text.py": "e33e952ced95e1e5a173afd50a5225199b230ccb52593ef84e4d7898e30e50ea",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/materialization/pipeline.py": "c347df5b8281c7b3d966c1dd918a579d271e907dd2460ab81c9409aa72bcaf9d",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/materialization/retained_inputs.py": "e6bf371da7a405f888bec5521bc37ccd5a657294b7784502e3d351e8e207deb1",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/materialization/smoke.py": "19d5564d143c07bedc1c3d7741dec77dca7af641d4e0b91b4917a75a7bf40de7",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/materialization/smoke_support.py": "7f2089f6bd51be6fbedb795115399d3b37504e07948a497c01e5c4f4dff85cd8",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/materialization/store.py": "378d3477822922a99576a8b9542e23574ccf482313bdb4173c099952327e8a9d",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/materialization/throughput.py": "dbb12c468ad474a529061c442ba9a4a4c0f622a1a2e5b3472120c0613a57f729",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/models/__init__.py": "cb584e9a6b181426679b38a7488bb570ff8f3bfc7abc27eadd6d44e2f3b36221",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/models/aptm.py": "daa85058a2d4d66795a4e1ab8be03c608c857fc4a48ead160c012c299c600341",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/models/base.py": "e74baa789b6d1a4e671870e3155ff7792eb3e381bfbf967283d1dcad211cd8f5",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/models/dra_irra_source.py": "07ad4e34d8f6878b9ff3477e0df033e5b96c513bdfd34466b58f156b0bfaab7d",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/models/irra.py": "424e1dcd20b34061e3199d969f05eb34ca8aa3a6655e00a0e77770ee17fef0b2",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/models/irra_cached.py": "3e30643619250c8ba7d6e09c12a0c23f49fb336a84cd5027c4e358ab90c0e122",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/models/irra_cpu_checks.py": "b953dde85322baf0b87330c198e0303049d23b4d0c39d7c6c768d346bc83eecf",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/models/irra_io.py": "3bd668f28fe788659296af7d1d4c31e4131c23eb96b266887e356f9b32376205",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/models/irra_source.py": "fcf22ad01836804bc40fdce6c1817de2ff1941fd302b549a765e15f5287dd0b6",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/models/rasa.py": "946e89fe97ec0d189545ff9d98fc348c049ce4002564d8504bc3675d4799ee0b",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/models/sga_irra_source.py": "73b0f92f5feb3b019b010bd70313f0d9dab1f019bfcdd7ab17f672f834926fda",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/models/sga_surrogate.py": "31daea9dee81d3cce9ca3eb0490b3b9a3c992a7d03a0145e44cef89a85a8dfb5",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/operations/gh_probe_watch.py": "d24da60b6b68264ed9ef2099bc83582cebc9adb85ac721dbee49cce6764b83d3",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/preflight.py": "e2e2772ad5446d1a61bdc4fbf41338a50b1a9b292aaee0b91c0bde33d2e176a3",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/rasa_eval.py": "c345fb3b9ec0c14cd0cb13c36c9ad0b083e5165ede51d214dd6c81d700f8298c",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/runtime_closure.py": "6ca4824108d71985963aa59d3b16181ee72d7963f079e3a36816bf57b77450e5",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/sga_eval.py": "7e6741d5afa8708c361477689fea118bc4f1202ee5ab8fcb2dc259d143c30db1",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/smoke_attacks.py": "5e66a22a2d29ea9651db9f73ba4c8f11b879508039536388aa848c9f09e97499",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/smoke_attacks_gated.py": "a600141540b5f86b704decc7287bd395918dc6113442ea780e6ca08784ee672e",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/src/tbps/smoke_irra.py": "e3b28a08e22259a1603fdc354cee54c231fba3f95328a1cfe4430bb4f259044f"
+  },
+  "tools": {
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/operations/gh_formal_b.py": "6ea07d70067ec1b9c272d6c935bdb0832c70cb22553db1fa7050d0d010ed9c6a",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/operations/gh_formal_baseline_audit.py": "446aaacb1346b8ee7b40540ebdeb25dc79ee5f65bad7b09a85f1b5c8396c28e1",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/operations/gh_formal_freeze.py": "8c93fd100b66b4849a6ffe03ef827a6387803b1084dcb53422eddabe4dc4d79e",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/operations/run_gh_formal_b.sh": "341c8fdaa6d6d7395f1068900793bfab045bb3ee04405971117f55310cf6b088",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/operations/gh_formal_prepare_eval.py": "df25e10532322e94843e2db6be0dc9a9685b474ad45803864776d4db7c2af3c2"
+  },
+  "functions": {
+    "src/tbps/alternating/formal_sources.py": {
+      "sha256": "1dbc406177db174e1ca0526dfdff6c0a547f7c9f90e166639f304d829cedb1c1",
+      "functions": {
+        "ref": 12,
+        "load_formal": 15,
+        "derived_native": 39,
+        "verified_native": 75,
+        "full_members": 80,
+        "validate_budget": 104,
+        "historical_receipts": 116,
+        "source_preflight": 131,
+        "prepare_cpu": 145,
+        "FormalGrant": 182,
+        "FormalGrant.__init__": 185,
+        "FormalGrant.validate": 190
+      }
+    },
+    "src/tbps/alternating/formal_backend.py": {
+      "sha256": "36dfb79970bfde3761a9688fe0a9c620a592fc5cbda59ac57ade6de962e28b46",
+      "functions": {
+        "FormalBackend": 11,
+        "loaded_formal_backend": 53,
+        "FormalBackend.restore_complete": 12,
+        "FormalBackend.begin_round": 18,
+        "FormalBackend.bank_ref": 24,
+        "FormalBackend.restore_bank": 27,
+        "FormalBackend.original_orders": 40
+      }
+    },
+    "src/tbps/alternating/formal_state.py": {
+      "sha256": "d9695d090b8c4e9dcdeece552cffd610699c210f4a6e785df59c7851a7207646",
+      "functions": {
+        "tensor_bytes": 8,
+        "FormalJournal": 12,
+        "run_rounds": 61,
+        "FormalJournal.__init__": 13,
+        "FormalJournal.initialize": 16,
+        "FormalJournal.begin": 20,
+        "FormalJournal.commit": 26,
+        "FormalJournal.load_boundary": 33,
+        "FormalJournal.record_resume": 46,
+        "FormalJournal.stop_boundary": 52,
+        "FormalJournal.finish": 56
+      }
+    },
+    "src/tbps/alternating/formal_cli.py": {
+      "sha256": "b72617a4ebb5f33b803d7b9ad855b48950747e1649d8246d233a6ab42fcdbb7c",
+      "functions": {
+        "locked_ref": 16,
+        "history": 20,
+        "ready_for_training": 36,
+        "run": 51,
+        "main": 144
+      }
+    },
+    "src/tbps/alternating/formal_audit.py": {
+      "sha256": "6b8933660b60a6996c3d471aabd79fc2ee4febe896aa5cbef97afe1fbb6bfb53",
+      "functions": {
+        "audit": 11
+      }
+    },
+    "src/tbps/alternating/formal_evaluation.py": {
+      "sha256": "58006b158be74ac0b75c04de8515d0382cac1b146e62794bca18680ceb6081c1",
+      "functions": {
+        "ref": 18,
+        "utf8": 19,
+        "asr_at_r1": 21,
+        "score_cached": 36,
+        "select_weights": 61,
+        "materialize": 80,
+        "encode_and_score": 117,
+        "comparison_checkpoint": 162,
+        "run": 171,
+        "main": 204
+      }
+    },
+    "src/tbps/alternating/native_backend.py": {
+      "sha256": "6f96beb9275e29df188f8aaf5b9cb6bdff82234200d7da95453649b2cfba7960",
+      "functions": {
+        "native_image_view": 14,
+        "tensor_bytes": 18,
+        "assert_pixels": 22,
+        "TextVictim": 29,
+        "TextRuntime": 40,
+        "NativeBackend": 56,
+        "loaded_backend": 338,
+        "TextVictim.__init__": 30,
+        "TextVictim.encode_texts": 32,
+        "TextRuntime.__init__": 42,
+        "TextRuntime.assert_frozen": 45,
+        "TextRuntime.encode_text": 46,
+        "NativeBackend.__init__": 58,
+        "NativeBackend._versions": 140,
+        "NativeBackend.assert_frozen_sources": 142,
+        "NativeBackend.final_frozen": 147,
+        "NativeBackend.close": 152,
+        "NativeBackend.g_fingerprint": 155,
+        "NativeBackend.h_fingerprint": 156,
+        "NativeBackend.restore_complete": 157,
+        "NativeBackend.enter_phase_rng": 162,
+        "NativeBackend.leave_phase_rng": 166,
+        "NativeBackend.public_text": 167,
+        "NativeBackend.h_rollout": 170,
+        "NativeBackend.condition": 193,
+        "NativeBackend.image": 223,
+        "NativeBackend.g_update": 231,
+        "NativeBackend.load_reward_inputs": 244,
+        "NativeBackend.refresh_bank": 260,
+        "NativeBackend.install_new_reward_bank": 300,
+        "NativeBackend.h_update": 305,
+        "NativeBackend.complete_state": 332
+      }
+    },
+    "src/tbps/alternating/conditions.py": {
+      "sha256": "62c796f485c1dd2941611220bdedb90b1f76f318dde176781f3b6bff45633c11",
+      "functions": {
+        "PreparedCondition": 7,
+        "prepare_condition": 12,
+        "LegacyContextKernel": 45,
+        "LegacySteps": 91,
+        "CanonicalLocator": 111,
+        "trace_from_legacy": 152,
+        "LegacyContextKernel.__init__": 50,
+        "LegacyContextKernel.recompute": 57,
+        "LegacySteps.__init__": 93,
+        "LegacySteps.update_g": 96,
+        "LegacySteps.update_h": 104,
+        "CanonicalLocator.__init__": 113,
+        "CanonicalLocator.__call__": 119
+      }
+    },
+    "src/tbps/engines/metrics.py": {
+      "sha256": "6a09838fa9c17cc95755acf5e2e608af86127bd517b951c050910f24c38459b5",
+      "functions": {
+        "ranking": 13,
+        "drops": 42
+      }
+    }
+  },
+  "references": {
+    "H60": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-hv1-g60-adaptation-epoch60/training/checkpoints/visit_00122880/checkpoint.pt",
+      "sha256": "c0de26658c5f36083aaeb04dde3948cdd5bf941d30b1b5c97f7bb2c796404094"
+    },
+    "H60_training_audit": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-hv1-g60-adaptation-epoch60/training_audit/result/report.json",
+      "sha256": "1074819f085e9d434682ad9adc2e12c70bea3f074b6ff8ca693310da7afe9d7c"
+    },
+    "H60_training_complete": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-hv1-g60-adaptation-epoch60/training/completed.json",
+      "sha256": "434ab1883f8074c6b1da5476c6d2d69fbc977420336eda69592d2a2f13cc40a2"
+    },
+    "H60_training_protocol": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-hv1-g60-adaptation-epoch60/training/protocol.json",
+      "sha256": "c12d9736c4834f71d42a02259cc9fca2c6879af2763741d69f464847f09ce3e2"
+    },
+    "baseline_identity": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-formal-b-20261024/docs/framework/results/gh_formal_b/BASELINE_AUDIT.json",
+      "sha256": "174b0561a603cbf46ad00ba8d38442efb4f9db50690a7690e912e83327b48649"
+    },
+    "history_index": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/docs/framework/results/gh_probe_shared/CPU_RECEIPT_AUDIT.json",
+      "sha256": "7bf5349f8e0c350feddd47bf5016e057c8a0dabee2599d5119ed01b4a75ae89b"
+    },
+    "native_parent": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-probe-shared-20261023/configs/framework/gh_bidirectional_backend.probe_v2.shared.server.json",
+      "sha256": "77ae41af56189ece991ee7cf21fd0ea0f3be5645202bd1cb7cf7e0b2ae735649"
+    },
+    "old_smoke_audit_fail": {
+      "path": "/home/lzf/ldx/tmp/gh_smoke_wait_v1_20261023/cpu_audit.log",
+      "sha256": "6524384b33fbabe29cfc93e7af772990426945887b63d8fe566addb82dc3fe65"
+    },
+    "old_smoke_report": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/smoke_v2/completed/report.json",
+      "sha256": "16f649abe37907cf8135005f40013320f178b3daff13f43c1850720edefa963c"
+    },
+    "probe": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/probe_v2/completed/manifest.json",
+      "sha256": "d6e0b960e20a1ba5128f9e0b4edf497e7ea4b098fbf5cd3125799d2ad1136764"
+    },
+    "rng": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-bidirectional-backend/cuda_rng_v1/completed/manifest.json",
+      "sha256": "62b2748566c3c1eec61a286f48fa7846f5529e82877b5239d34a5dd3947e9905"
+    }
+  },
+  "CPU_logs": [
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/baseline_cpu.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/baseline_cpu.log",
+      "sha256": "bab2a072c17dd955991bb45d8f6af47e5461acf5cc165883d35acb0723b92d25"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/bash_syntax.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/bash_syntax.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/bash_syntax_final.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/bash_syntax_final.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/bash_syntax_v2.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/bash_syntax_v2.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/bash_syntax_v3.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/bash_syntax_v3.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/delivery_protection.json",
+      "sha256": "6379012f00dc7a67743dcc5073b2790dd2614d709b53df72d990924479160481"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/formal_preflight_final.exit",
+      "sha256": "84b9bb077be0d8a29d0d01ef350d718b77c2ec5f40c3ab90502b1b4b5016c550"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/formal_preflight_final.log",
+      "sha256": "1e04275fb6a7e6c6f725e3e0fc10a2763e49cdce0200034f30951e1e0f1bf298"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/formal_preflight_v1.exit",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/formal_preflight_v1.log",
+      "sha256": "f9798b101c2fef0d2dd809d02652aeba0ac9ed308c31f005d04b5f8df64d3a66"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/formal_preflight_v2.exit",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/formal_preflight_v2.log",
+      "sha256": "1b1c0aea8ec756dc098596307ac729b3ef901b9681f1e9198b76998344183bed"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/formal_preflight_v3.exit",
+      "sha256": "84b9bb077be0d8a29d0d01ef350d718b77c2ec5f40c3ab90502b1b4b5016c550"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/formal_preflight_v3.log",
+      "sha256": "08b72b9a3df19da556d1ebbd3357c5c5d39f1918dfae689537e62ce2cf0e57b9"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/formal_tests_final.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/formal_tests_final.log",
+      "sha256": "b562e0082a1bc4aa610eb5c0dabc66881b4cc15806df03d097678f37a144d8dd"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/formal_tests_v1.exit",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/formal_tests_v1.log",
+      "sha256": "29c42fdaec15b486109c20796b98ca04ae261123e0e3d5834db0e375d74a6099"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/formal_tests_v2.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/formal_tests_v2.log",
+      "sha256": "be4021917550d7e179715710e4f91c5201eb66761807f269ca1c2a29c05702a5"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/formal_tests_v3.exit",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/formal_tests_v3.log",
+      "sha256": "7f5d3784bf5d5f1a8fce63c110cd88030ee8b8d6e2260bcb062122ec35437bc0"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/formal_tests_v4.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/formal_tests_v4.log",
+      "sha256": "e7993f1f2bb8b88b93baacb879825e631b1b6c77224862086cadd56e92a84560"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/formal_tests_v5.exit",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/formal_tests_v5.log",
+      "sha256": "3ff3faabb353d02a459a9d0a892f8f6a2b4206530fbe8bd1c983c52f0e98131b"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/formal_tests_v6.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/formal_tests_v6.log",
+      "sha256": "348a92584bd8dffd8901418e357240570b6a6221fe211e7e310756f45e46d155"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/freeze.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/freeze.log",
+      "sha256": "19ec3472fac0fe600d13c0ebcbe1f1073c02987d149b6b07e1ccca6ac0ebea3d"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/freeze_final.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/freeze_final.log",
+      "sha256": "4981c5db1f738f5fb5721fd07a9735a384fe7b2033dc98203050cc856624d2d6"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/freeze_publication.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/freeze_publication.log",
+      "sha256": "aa73c8485bcd86f9e58260071de1374ebf17bb0e95eed0869c146f3cfa16cec7"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/freeze_release.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/freeze_release.log",
+      "sha256": "d26c9b8d877251f51fd6961f38226a30e03e142cdbc56c4226f55aaa79c08967"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/freeze_v2.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/freeze_v2.log",
+      "sha256": "a6bd697024a419b0686ca2826f853a08bb59be721a4f9ed032331ce498e9e64e"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/freeze_v3.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/freeze_v3.log",
+      "sha256": "bd0390c6a0d6e45c98a83f6209d98fe97adc43f759a1fc8986fe33290c3fff4b"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/legacy_irra_original_tree.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/legacy_irra_original_tree.log",
+      "sha256": "d712501db6a5dd648dfe7d9ad8c2bf2d7c16acd6d77e574e1749d0cd9084e473"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/publication_pilot_cpu.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/publication_pilot_cpu.log",
+      "sha256": "99b02e26aaba88fd3522881b22c71df8c572c39674a2d9e5f468037158bacc44"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/publication_train_cpu.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/publication_train_cpu.log",
+      "sha256": "126116bd56e05cd2bd526ff076991404401019cbe58c896e53acd0012442be5e"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/release_pilot_cpu.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/release_pilot_cpu.log",
+      "sha256": "c0126890df87f4e53335d305c933105dac9cf58f4146d8db4808c78b446f1fe7"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/release_train_cpu.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/release_train_cpu.log",
+      "sha256": "46d099af67da5b6e6147f6bb84f1a8d01f27b36c33bb6c76a310674b2228b71a"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/tests_delivery.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/tests_delivery.log",
+      "sha256": "0c1b480a73d437d57a9703b3e070025eefe9cda356e86516e07f1aafce8c9245"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/tests_delivery.xml",
+      "sha256": "1270dedd92830ebb815ad62eb1d0baec2ef76fbbeae158997a73895c487be7a8"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/tests_final.xml",
+      "sha256": "00f9cbf3efd682b89c54d31dbaf756f90a26bbedb862ef3766f1361ed48a44d6"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/tests_publication.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/tests_publication.log",
+      "sha256": "c59d6d1516eea987b9eb8567eeedddf5f4497adce79f3956ab8063dfe00d07fe"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/tests_publication.xml",
+      "sha256": "b81d23b4aaaaff4517b9abb10d37232d150cf25f3ad48809d894db8f34386776"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/tests_release.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/tests_release.log",
+      "sha256": "7bed05a1d7abc3c67b769d3a008732b6fe736d67cf42af6fd0e6c90854f634c9"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/tests_release.xml",
+      "sha256": "642fabae615fe5b38a88f044bb1138547ad5729fb4d0a3faa96d8af0b5771f60"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/train_scope_cpu_preflight.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_formal_b_cpu_20261024/train_scope_cpu_preflight.log",
+      "sha256": "a179621c7de122d3fc196c80cb21091d3c64300ada1b97f3ba4ca34bafd0a408"
+    }
+  ]
+}

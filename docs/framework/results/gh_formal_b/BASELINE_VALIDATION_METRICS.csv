@@ -1,0 +1,5 @@
+Scope,Attack Method,R@1,R@5,R@10,mAP
+internal Validation 128/128,Clean,100.0,100.0,100.0,100.0
+internal Validation 128/128,Image-only,39.84375,59.375,65.625,48.80861282348633
+internal Validation 128/128,Text-only,98.4375,100.0,100.0,99.21875
+internal Validation 128/128,Joint,35.15625,51.5625,55.46875,42.874080657958984

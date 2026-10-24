@@ -1,5 +1,16 @@
 # 历史实验注册表
 
+## B正式训练与G60/H60统一评估准备（2026-10-24，未执行GPU）
+
+独立codex/gh-formal-b；保留原140份生产数学源码和旧Smoke exact审计FAIL，停止NOOP kernel调查。
+G60/H10/H60真实Checkpoint已核验：适配H60=H10新增50轮固定G60图库，最终122880 visits/122220更新；现有128条内部Validation，不把G60/H7 Test Full冒充H60。
+新增B独立Round调度、完整双Adam/RNG边界恢复、完整Train图库版本绑定、原生IRRA统一四模式评估与条件ASR@R1；无新K、Loss、Reward。
+154项相关CPU回归PASS，5项可选旧服务器配置用例SKIP；新Pilot/Train真实CPU Preflight PASS，2048严格Canonical映射通过，146当前producer/496运行来源核验。
+预注册B50 Round：新增G更新403400、H访问102400/合法更新101850、50份完整Train图库共102400张；仅匹配H预算，不是等总计算量比较。
+即时GPU空闲1368MiB不足10240MiB；Pilot与正式train目录均未创建，无本任务GPU进程/Watcher，不启动CUDA、训练或Test。
+151378历史metadata/28旧FAIL与Watcher/父权重/probe保持，原诊断已发布单元SHA只读核验；不改变原失败判定。
+[中文报告](framework/results/gh_formal_b/REPORT.md)、[基线审查](framework/results/gh_formal_b/BASELINE_AUDIT.md)、[执行协议](framework/results/gh_formal_b/EXECUTION_PROTOCOL.md)、[来源](framework/results/gh_formal_b/SOURCE_EVIDENCE.json)。
+
 ## NOOP复现性独立诊断准备与RESOURCE_BUSY（2026-10-23）
 
 基准f2925aef，冻结生产a7597f9c/配置77ae41af…5649不变，独立代码cc0521b9520258aecc4947a1aae02f1b77d9249a。

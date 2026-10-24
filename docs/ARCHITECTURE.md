@@ -1,5 +1,15 @@
 # 架构边界与迁移约定
 
+## 独立B正式调度与共同IRRA比较
+
+formal_*在冻结NativeBackend外增加B单臂Round调度、独立范围授权与完整Round事务，不修改原G/H训练数学、JVP或原Smoke审计。
+状态只在启动/显式边界恢复时恢复一次；下一Round使用更新后的H条件和G参数。G变化后完整2048奖励bank失效并刷新，持久绑定G SHA及顺序。
+新状态包含G/H、双Adam、分开的阶段RNG、绝对累计游标和bank来源；后续Claim/IO/pending阻止重播，已登记旧FAIL与新失败分别处理。
+operations独立进程入口保持legacy命名空间保护；来源预检投影与完整2048映射/预算/绝对Epoch排序检查分别记录，不宣称旧八样本预检等价于Full验证。
+统一推理保持G(I)、H(T)，生成固定FP32攻击输入后使用IRRAAdapter/FeatureCache/EvaluationEngine；公共指标增加明确条件分母的ASR@R1，不从相似度变化推断攻击成功。
+B正式训练/审计完成后才可建立新比较配置，绑定最终Round50和真实适配H60；不修改原训练配置，不使用Test选模。
+当前只有CPU证据，Pilot显存不足未执行，长训练/新Test均关闭。见[完整协议](framework/results/gh_formal_b/EXECUTION_PROTOCOL.md)。
+
 ## 独立NOOP数值诊断与实验生命周期
 
 operations/gh_noop_determinism_diag仅调用冻结NativeBackend.g_update和原K0训练首步；最多四次，外部Hook只保存Tensor。
