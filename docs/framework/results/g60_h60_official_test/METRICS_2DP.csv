@@ -1,0 +1,7 @@
+Target,Method,R@1,R@5,R@10,mAP,Scope,Gallery,Query,PID,G_checkpoint_sha256,H_checkpoint_sha256,Source_summary
+IRRA,Clean,73.15,89.88,93.71,66.10,official_test_full,3074,6156,1000,,,/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/completed/summary.json
+IRRA,G60 Image-only,21.05,37.88,45.52,17.51,official_test_full,3074,6156,1000,9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049,,/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/irra/completed/summary.json
+RaSa,Clean,76.22,90.29,94.09,69.18,official_test_full,3074,6156,1000,,,/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/completed/summary.json
+RaSa,G60 Image-only,33.12,50.49,58.46,26.47,official_test_full,3074,6156,1000,9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049,,/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/rasa/completed/summary.json
+APTM,Clean,74.61,89.26,93.18,64.13,official_test_full,3074,6156,1000,,,/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/completed/summary.json
+APTM,G60 Image-only,42.72,62.00,69.95,32.11,official_test_full,3074,6156,1000,9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049,,/home/lzf/ldx/outputs/tbps-framework-gv2-epoch-sweep/full/epoch_0060/aptm/completed/summary.json

@@ -1,0 +1,19 @@
+{
+  "status": "READ_ONLY_EXTRACTION_AND_DERIVED_FILES_PASS",
+  "G60_H60_official_Test": "NOT_FOUND",
+  "verified_Test_rows": 6,
+  "missing_H60_Test_rows": 6,
+  "source_files_unchanged": 221,
+  "existing_audit_not_rerun": true,
+  "new_GPU_calls": 0,
+  "output_sha256": {
+    "HISTORICAL_IDENTITY_REFERENCE.csv": "8a9c26076820b521108c996d267ee611b01fe195feb89c3d12bfc3eecdca32c8",
+    "METRICS.csv": "fbc3ebd950653056cd4d094eaa7f81757dac16fb18b38b30a7ad0b736a420a5b",
+    "REPORT.md": "224706851246a4d480022395bfd1752d847f430b90603b5788554af69ce49101",
+    "METRICS_2DP.csv": "86cb4ff5bc17401fbf2e8b50b01f2719196f9a100cef1319369baa6d7ffb7421",
+    "SOURCE_EVIDENCE.json": "674046400755628560547f37925e77dabfd785c902e0083d34e1c285fa3aed19",
+    "RESULT_STATUS.csv": "d6cc9fbb8e9509fe7b743c61a305063ae5ce333b8db443fa25804a75a0077f76",
+    "VALIDATION_REFERENCE.csv": "b4694ea65b381845877b35471f74eb3e0e9dfb3d2a36c40b58f8bd7cb60af313",
+    "DROPS.csv": "9ac54678625394f0a7a393f7c032a7d18e7b8e0f6642d4b1839a0c3754366dc6"
+  }
+}

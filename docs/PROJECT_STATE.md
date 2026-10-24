@@ -1,6 +1,15 @@
 # 项目当前状态（唯一权威入口）
 
-## 当前阶段：B正式训练与统一IRRA评估CPU准备完成，Pilot资源阻塞（2026-10-24）
+## 当前核验：G60/H60官方Test结果找回（2026-10-24，仅CPU读取）
+
+G60/H60权重SHA、内部Epoch/visit与训练协议匹配，原训练及独立CPU审计PASS。
+检索outputs/projects/tmp及现有全部GitHub分支，未找到H60 Text-only或G60+H60 Joint的官方Test Full。
+已有三模型G60 Image-only Test及CPU审计PASS；Epoch Sweep Joint绑定H7，不可改签H60。
+G60/H60已找到IRRA128/128内部Validation：Joint R@1=35.15625、mAP=42.874080657958984，非Test。
+仅新增报告/CSV/SHA索引，无GPU、评分、训练、Pilot或等待器部署。
+[报告](framework/results/g60_h60_official_test/REPORT.md)、[来源](framework/results/g60_h60_official_test/SOURCE_EVIDENCE.json)。
+
+## 上阶段记录：B正式训练与统一IRRA评估CPU准备完成，Pilot资源阻塞（2026-10-24）
 
 独立codex/gh-formal-b；保留原140份生产数学源码和旧Smoke exact审计FAIL，停止NOOP kernel调查。
 G60/H10/H60真实Checkpoint已核验：适配H60=H10新增50轮固定G60图库，最终122880 visits/122220更新；现有128条内部Validation，不把G60/H7 Test Full冒充H60。

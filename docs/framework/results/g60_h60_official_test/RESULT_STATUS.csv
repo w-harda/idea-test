@@ -1,0 +1,13 @@
+Target,Method,Scope,Status,Gallery,Query,PID
+IRRA,Clean,official_test_full,VERIFIED_AVAILABLE,3074,6156,1000
+IRRA,G60 Image-only,official_test_full,VERIFIED_AVAILABLE,3074,6156,1000
+IRRA,H60 Text-only,official_test_full,NOT_FOUND,3074,6156,1000
+IRRA,G60+H60 Joint,official_test_full,NOT_FOUND,3074,6156,1000
+RaSa,Clean,official_test_full,VERIFIED_AVAILABLE,3074,6156,1000
+RaSa,G60 Image-only,official_test_full,VERIFIED_AVAILABLE,3074,6156,1000
+RaSa,H60 Text-only,official_test_full,NOT_FOUND,3074,6156,1000
+RaSa,G60+H60 Joint,official_test_full,NOT_FOUND,3074,6156,1000
+APTM,Clean,official_test_full,VERIFIED_AVAILABLE,3074,6156,1000
+APTM,G60 Image-only,official_test_full,VERIFIED_AVAILABLE,3074,6156,1000
+APTM,H60 Text-only,official_test_full,NOT_FOUND,3074,6156,1000
+APTM,G60+H60 Joint,official_test_full,NOT_FOUND,3074,6156,1000

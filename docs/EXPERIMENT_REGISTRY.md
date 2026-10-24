@@ -1,5 +1,13 @@
 # 历史实验注册表
 
+## G60/H60官方Test找回核验（2026-10-24，仅CPU）
+
+指定G60/H60与Checkpoint内部身份及原训练审计一致；未找到H60官方Test Text-only/Joint及对应完成审计。
+三模型G60 Image-only正式3074/6156/1000PID结果及原CPU审计PASS：IRRA mAP17.507509231567383、RaSa26.466453552246094、APTM32.11079406738281。
+Epoch Sweep Joint为H7；G60/H60的IRRA Joint mAP42.874080657958984是128内部Validation。
+只生成派生报告/CSV/来源索引，无GPU、重评估或旧审计重跑。
+[报告](framework/results/g60_h60_official_test/REPORT.md)。
+
 ## B正式训练与G60/H60统一评估准备（2026-10-24，未执行GPU）
 
 独立codex/gh-formal-b；保留原140份生产数学源码和旧Smoke exact审计FAIL，停止NOOP kernel调查。
