@@ -1,0 +1,103 @@
+{
+  "schema": "derived-report-file-index-1",
+  "files": [
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_aligned_evaluation/BASELINE_TABLE.csv",
+      "sha256": "79f82e1e9a5b81752fde3a6c8796fdd1d7e086e48f82dd64a674235780eea72d",
+      "bytes": 92231,
+      "mtime_ns": 1793023118160511654
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_aligned_evaluation/BASELINE_TABLE.md",
+      "sha256": "867e40cc2227497ed5b862a1b114c547f3ce5a12e3ea07f6a41bcf7ebbfbba87",
+      "bytes": 12502,
+      "mtime_ns": 1793023118161014734
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_aligned_evaluation/CITATION_GUIDE.md",
+      "sha256": "5f118f17d698464910d425594f04f2f866a43371eb68782f7102ba3d934b3595",
+      "bytes": 4243,
+      "mtime_ns": 1793023118161323379
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_aligned_evaluation/CPU_CHECKS.json",
+      "sha256": "906491d7baa00b65dc480d2f0a5d16cf5206384f7995ea68a05615d908d653ab",
+      "bytes": 2814,
+      "mtime_ns": 1793023125206353797
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_aligned_evaluation/CPU_PREPROCESS_TOKENIZER_CHECK.json",
+      "sha256": "cb733d1adb2891154e87cdba0c69ba31eff3b457de22d61fcba4e630e0ac4784",
+      "bytes": 4416,
+      "mtime_ns": 1793023125207070498
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_aligned_evaluation/ENVIRONMENT_DIFFERENCES.md",
+      "sha256": "958a6e856573d1d6e989c6dd11ad98066a31226026ce3df27dc4fafcd9942f21",
+      "bytes": 4947,
+      "mtime_ns": 1793023118161254094
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_aligned_evaluation/EVALUATION_STANDARD.json",
+      "sha256": "9ae211ae9b9b068e809485bc2d70eb986548992df6c0f655b83e4bc66b07aa88",
+      "bytes": 1960,
+      "mtime_ns": 1793023118161208164
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_aligned_evaluation/INPUT_PROTECTION_CHECK.json",
+      "sha256": "cf6b1c92b463458c118e3e75d4511d51fccb3867d759e17f2b4d3afbfed4b597",
+      "bytes": 29848,
+      "mtime_ns": 1793023125205987814
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_aligned_evaluation/IRRA_OFFICIAL_SOURCE_CHECK.json",
+      "sha256": "7de72355efab9eef53045d1cc82af40dfc2dec270503842289cb01c5bbc4373d",
+      "bytes": 17434,
+      "mtime_ns": 1793023125206816743
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_aligned_evaluation/NATIVE_SOURCE_INDEX.json",
+      "sha256": "3359ef031f52229a9190e0dbd416f8db299830130ad671a692f012a5422ccd20",
+      "bytes": 14477,
+      "mtime_ns": 1793023125208061076
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_aligned_evaluation/PUBLIC_CODE_SEARCH.json",
+      "sha256": "3fa447fd9095928bf9bc8dc82908d0cfc33db97dd3d60151793a1eec4e798deb",
+      "bytes": 1047,
+      "mtime_ns": 1793023125207686383
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_aligned_evaluation/R2TUA_ALIGNED_EVALUATION_PROTOCOL.md",
+      "sha256": "061310a9a51778182585db0e98aaba82946d6a07623ee250c4be9b89c6be19ad",
+      "bytes": 8117,
+      "mtime_ns": 1793023118161106870
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_aligned_evaluation/REPORT.md",
+      "sha256": "13bcd9409c005691f4002b389dda41420a8ce6f28f8da9f0349f729ac7cbabe2",
+      "bytes": 9804,
+      "mtime_ns": 1793023251888075064
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_aligned_evaluation/SOURCE_EVIDENCE.json",
+      "sha256": "de39b2a32e0d1eeecc1e18a73c257e0e539b07d561cfa63b58600da500819ab5",
+      "bytes": 12836,
+      "mtime_ns": 1793023125208841180
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_aligned_evaluation/TABLE1_VALUE_CHECK.json",
+      "sha256": "a5c5b6334aff285f521f1662b533e752554212ec4042b2952b463b04d9536103",
+      "bytes": 12030,
+      "mtime_ns": 1793023125207569821
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_aligned_evaluation/UNVERIFIED_SETTINGS.md",
+      "sha256": "178b8ef4c99d071af714ed27d65dfcb9ccab340ecd558b729417ce3b06d1be6b",
+      "bytes": 3714,
+      "mtime_ns": 1793023118161299837
+    }
+  ],
+  "source_base": "c2062e430c664d626c07782490128fc3316dfa61",
+  "note": "本索引不递归包含自身SHA；提交身份由Git记录"
+}

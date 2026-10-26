@@ -1,0 +1,312 @@
+{
+  "schema": "r2tua-aligned-evaluation-evidence-1",
+  "date": "2026-10-26",
+  "base_commit": "c2062e430c664d626c07782490128fc3316dfa61",
+  "branch": "codex/r2tua-aligned-evaluation",
+  "worktree": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026",
+  "scope": "CPU read-only source/data research and new derived reports only",
+  "paper": {
+    "main": {
+      "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Wang_R2TUA_Reconstruction-residual_Based_Targeted_and_Untargeted_Attack_Against_Text-Image_Person_CVPR_2026_paper.pdf",
+      "path": "/home/lzf/ldx/tmp/r2tua_protocol_audit_20261026/R2TUA_CVPR2026.pdf",
+      "sha256": "911618a179881424f184801f53ea9254a04c0781072ce4fae4ddaf40a1b3828b",
+      "anchors": {
+        "p4_22860": "own epsilon8/255 and curriculum24→8; SCF",
+        "p5_22861": "datasets, methods and implementation",
+        "p6_22862": "Table1 all33rows",
+        "p7_22863": "Table3 differing black-box configuration"
+      }
+    },
+    "supplement": {
+      "url": "https://openaccess.thecvf.com/content/CVPR2026/supplemental/Wang_R2TUA_Reconstruction-residual_Based_CVPR_2026_supplemental.pdf",
+      "path": "/home/lzf/ldx/tmp/r2tua_protocol_audit_20261026/R2TUA_supplement.pdf",
+      "sha256": "103c2f6fc6423136de5e6d731d443e2a59b58dec2b3b85faa34b777d8b935690"
+    }
+  },
+  "previous_audit": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_protocol_consistency_audit",
+    "json_sources": [
+      {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_protocol_consistency_audit/OUR_CONFIG.json",
+        "sha256": "a7497c1755e8861379aae472f88717955be82f7f11458816f835bd50ebfbbf73",
+        "bytes": 107312,
+        "mtime_ns": 1793021046961911882
+      },
+      {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_protocol_consistency_audit/PAPER_CONFIG.json",
+        "sha256": "5a163d0ddcd96c3a2230443a9880a29d722ce96b4c37ac97039500e0c8cca3e6",
+        "bytes": 14879,
+        "mtime_ns": 1793021046961911882
+      },
+      {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_protocol_consistency_audit/PAPER_TABLES.json",
+        "sha256": "a473dd837bdb1584a1d77072d53936ffcb070aa7896704ea5c7d00fea1bad0d0",
+        "bytes": 12608,
+        "mtime_ns": 1793021046961911882
+      },
+      {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_protocol_consistency_audit/SOURCE_EVIDENCE.json",
+        "sha256": "242f6d30ef2c4f5993c5d7ff8a1603463e0ca68b1e44e799d0e53496fb8b3a05",
+        "bytes": 259456,
+        "mtime_ns": 1793021046962911888
+      }
+    ]
+  },
+  "IRRA_official": {
+    "repo": "https://github.com/anosorae/IRRA",
+    "commit": "cfc23785545ead82dee2749fa0fc0ad948c96430",
+    "file_checks": "IRRA_OFFICIAL_SOURCE_CHECK.json",
+    "public_weight_link": "https://drive.google.com/file/d/1OBhFhpZpltRMZ88K6ceNUv4vZgevsFCW/view?usp=share_link",
+    "weight_download_this_task": false,
+    "publisher_archive_hash_match": "NOT_VERIFIED",
+    "R2TUA_checkpoint_hash": "NOT_REPORTED",
+    "modified_other_worktree_not_used": "/home/lzf/Attack/IRRA current working files are not the actually-loaded frozen source or the Git-object reference"
+  },
+  "native_references": {
+    "RaSa": {
+      "repo": "https://github.com/Flame-Chasers/RaSa",
+      "commit": "bd16aa1a15f149548a90d196fcf10a27d7ab7c66",
+      "public_weight_link": "https://drive.google.com/file/d/1BC1L-5JuIXHt6NR_l2ENHG3NZhncU91s/view",
+      "actual_config": "configs/PS_cuhk_pedes.yaml"
+    },
+    "APTM": {
+      "repo": "https://github.com/Shuyu-XJTU/APTM",
+      "local_source_commit": "b20025445471eb4b743164a6faec29a9eccfb293",
+      "local_remote_type": "local bundle; not treated as proof of publisher remote",
+      "paper": "https://www.zdzheng.xyz/files/MM23_Yang.pdf",
+      "clean_anchor": "Table3 CUHK-PEDES",
+      "public_weight_folder": "https://drive.google.com/drive/folders/1N1Lumvb4epP0awHLcJ3RzQmv5zwrAFBh?usp=sharing",
+      "actual_config": "configs/Retrieval_cuhk.yaml"
+    }
+  },
+  "actual_checkpoints": [
+    {
+      "path": "/home/lzf/Attack/IRRA/logs/CUHK-PEDES/best.pth",
+      "sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009",
+      "bytes": 1320992076,
+      "mtime_ns": 1679070842000000000
+    },
+    {
+      "path": "/home/lzf/ldx/checkpoints/RaSa/rasa_cuhk_checkpoint.pth",
+      "sha256": "bc85da09c2991d5de503c2c2ac4f032e20cc536fec5094f0acff45e93d0104d2",
+      "bytes": 1816575847,
+      "mtime_ns": 1792242576745995446
+    },
+    {
+      "path": "/home/lzf/ldx/checkpoints/APTM/aptm_cuhk_checkpoint_best.pth",
+      "sha256": "521c9bf784e7e821ade471deaafa2f25e2501950591e574dc60ca177e9be5a2c",
+      "bytes": 859801179,
+      "mtime_ns": 1792253063578433276
+    }
+  ],
+  "actual_raw_clean_controls": [
+    {
+      "model": "irra",
+      "metrics": {
+        "R@1": 73.14814758300781,
+        "R@10": 93.71344757080078,
+        "R@5": 89.87979125976562,
+        "mAP": 66.09744262695312,
+        "mINP": 50.27766799926758
+      },
+      "gallery": 3074,
+      "query": 6156,
+      "summary_source": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/completed/summary.json",
+        "sha256": "4530f3f97156d6e9f65c07b0775588324c39679feb0f16ae66b356692b017eb0",
+        "bytes": 1843,
+        "mtime_ns": 1792241204047469070
+      },
+      "metrics_source": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/completed/metrics.csv",
+        "sha256": "63bb20c0c40925f14f1eddb5afb15e65c88296013ad37a2bac17dcca4395aa22",
+        "bytes": 805,
+        "mtime_ns": 1792241204052704451
+      }
+    },
+    {
+      "model": "rasa",
+      "metrics": {
+        "R@1": 76.21832275390625,
+        "R@10": 94.08706665039062,
+        "R@5": 90.28589630126953,
+        "mAP": 69.18406677246094,
+        "mINP": 54.622215270996094
+      },
+      "gallery": 3074,
+      "query": 6156,
+      "summary_source": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/completed/summary.json",
+        "sha256": "12b3a90ca761c632bdf7781e7d52b43b753ddb5e7bdf36ad53e65515d7fc37ac",
+        "bytes": 1841,
+        "mtime_ns": 1792263124164694453
+      },
+      "metrics_source": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/completed/metrics.csv",
+        "sha256": "f2b8fefc83b7c6eac8866262c10cb46f15da9ba8aa676784bd16057ba6e9189f",
+        "bytes": 803,
+        "mtime_ns": 1792263124169435542
+      }
+    },
+    {
+      "model": "aptm",
+      "metrics": {
+        "R@1": 74.61013793945312,
+        "R@10": 93.1773910522461,
+        "R@5": 89.26251220703125,
+        "mAP": 64.12683868408203,
+        "mINP": 45.67755126953125
+      },
+      "gallery": 3074,
+      "query": 6156,
+      "summary_source": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/completed/summary.json",
+        "sha256": "8944ea0cd29e5c9f4410bf9ad7ccc65f67e3c26ad8a794e2a8af6915bca36d18",
+        "bytes": 1835,
+        "mtime_ns": 1792272368585734270
+      },
+      "metrics_source": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/completed/metrics.csv",
+        "sha256": "d7ac6ab18e9601597358949adda84eb284764219d722ae1b9a104164178e64d8",
+        "bytes": 797,
+        "mtime_ns": 1792272368591128924
+      }
+    }
+  ],
+  "dataset_source": {
+    "path": "/home/lzf/TBPS/Datasets/CUHK-PEDES/reid_raw.json",
+    "sha256": "fc3d15542f91dd70e23028c2cb40171a8f41734a39afddb9505e352e396cabf0",
+    "bytes": 30051967,
+    "mtime_ns": 1681127516000000000
+  },
+  "evaluation_source": {
+    "dataset": "CUHK-PEDES official Test",
+    "Gallery": 3074,
+    "Query": 6156,
+    "PIDs": 1000,
+    "manifest_sha256": "a338f5429b64393b8062e0a7127773d72adb5dd6832eeb89d24c2c63c2f4d9eb",
+    "raw_bridge": "PIL RGB -> bilinear Resize384x128 -> FP32 [0,1]; stored adv Tensor never requantized to PIL/JPEG",
+    "precision": "FP32/math/no_tf32",
+    "image_batch": 1,
+    "query_chunk": 128,
+    "fusion_topK": 128,
+    "metrics": "complete Query x Gallery; all same PID positives; no camera filter; AP mean precision at all positive ranks, all-query mean; R@k any positive in first k; default torch.argsort stable=False",
+    "model_space": {
+      "irra": {
+        "checkpoint_sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009",
+        "model_id": "irra",
+        "precision": "fp32/math/no_tf32",
+        "preprocess_sha256": "61f02eb3fd01e909b2bd0272c2c7dce2b9a2fddf41794989ba3ca27e1529fb25",
+        "scoring_protocol_sha256": "5032f7f1f46e87b3b26eee137cfbd99d7b3f5c65751b160ec8ccafc6baa2c5b4",
+        "sources_sha256": "a2765a2602f21acdd10cdacb072f481a0d19f17f0d2703626d9d8bf2ea42f87d",
+        "tokenizer_sha256": "f0c9ac2862623d9274d8c546f55a41de978fa2d8730bf640e100cd234f8f7bad"
+      },
+      "rasa": {
+        "checkpoint_sha256": "bc85da09c2991d5de503c2c2ac4f032e20cc536fec5094f0acff45e93d0104d2",
+        "model_id": "rasa",
+        "precision": "fp32/math/no_tf32",
+        "preprocess_sha256": "4d5d67c45ea01a6bf8f922b0c3e9df7c1c2cba84cf2293b7921175ccba998035",
+        "scoring_protocol_sha256": "d09c3e7b87f9c3500e435212d9babb14624ab1c8e4a91a1ff02ef645331033cb",
+        "sources_sha256": "e76c248e67cdc59691c228bf2431b5b7d2f6ed1af14b8c8036cfc319f4b91777",
+        "tokenizer_sha256": "1bd8efb0d45496dd2c8fd1430d212390e398d7a0819e66cf946efab5ae6f5d7c"
+      },
+      "aptm": {
+        "checkpoint_sha256": "521c9bf784e7e821ade471deaafa2f25e2501950591e574dc60ca177e9be5a2c",
+        "model_id": "aptm",
+        "precision": "fp32/math/no_tf32",
+        "preprocess_sha256": "29356ae6ac4b921edab0f4f95fb0e765e81efae1c960248fb48a03ae87e845f7",
+        "scoring_protocol_sha256": "530916023ab893ce8fd56ed425475c7b5edf43c87733f9c31a4ceb1f579483a3",
+        "sources_sha256": "0b05373c46630c19a93b83ca140a43c06e8db1eef2e72fa812db5fd37953bbfa",
+        "tokenizer_sha256": "4c1cba3a8e707a7439429b636ce349d28b23f9509939e79c4396b74b47a282d9"
+      }
+    },
+    "preprocess": {
+      "IRRA": {
+        "size": [
+          384,
+          128
+        ],
+        "mean": [
+          0.48145466,
+          0.4578275,
+          0.40821073
+        ],
+        "std": [
+          0.26862954,
+          0.26130258,
+          0.27577711
+        ],
+        "tokenizer": "CLIP Byte-BPE77",
+        "score": "L2 image/text dot product"
+      },
+      "RaSa": {
+        "size": [
+          384,
+          384
+        ],
+        "tensor_resize": "BICUBIC antialias=True from common materialized pixels",
+        "mean": [
+          0.48145466,
+          0.4578275,
+          0.40821073
+        ],
+        "std": [
+          0.26862954,
+          0.26130258,
+          0.27577711
+        ],
+        "tokenizer": "BERT WordPiece; pre_caption50, max_tokens50",
+        "score": "native global Top128; final ITM CLS positive logit, no global addition"
+      },
+      "APTM": {
+        "size": [
+          384,
+          128
+        ],
+        "tensor_resize": "BICUBIC antialias=True",
+        "mean": [
+          0.38901278,
+          0.3651612,
+          0.34836376
+        ],
+        "std": [
+          0.24344306,
+          0.23738699,
+          0.23368555
+        ],
+        "tokenizer": "BERT WordPiece; pre_caption56/max_tokens56",
+        "score": "native ITM + global with full Query-set normalization"
+      }
+    }
+  },
+  "precision_source_anchors": {
+    "official": [
+      "model/build.py::build_model convert_weights",
+      "model/clip_model.py::convert_weights / dtype",
+      "model/build.py::encode_image / encode_text return float"
+    ],
+    "framework": [
+      "src/tbps/models/irra_source.py:101 model.float",
+      "src/tbps/models/irra.py::fp32_runtime / _initialize"
+    ]
+  },
+  "public_code_search_result": "NOT_FOUND_IN_CHECKED_PUBLIC_SOURCES; not proof of nonexistence",
+  "public_code_search_index": "PUBLIC_CODE_SEARCH.json",
+  "cpu_checks": "CPU_CHECKS.json",
+  "protection": "INPUT_PROTECTION_CHECK.json",
+  "limitations": [
+    "No R²TUA author runtime configuration or per-baseline epsilon/source manifest located",
+    "No original public weight archive hash verified against our files",
+    "No feature encoding or metric recomputation",
+    "Only 3 fixed image CPU resize checks, all6156 tokenization checks",
+    "No causal attribution or recalibration of historical Clean"
+  ],
+  "execution_counts": {
+    "CUDA_initialization": 0,
+    "model_load": 0,
+    "neural_forward": 0,
+    "ranking": 0,
+    "training": 0,
+    "old_audit_rerun": 0
+  }
+}

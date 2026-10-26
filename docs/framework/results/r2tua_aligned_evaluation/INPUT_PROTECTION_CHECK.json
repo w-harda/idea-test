@@ -1,0 +1,757 @@
+{
+  "status": "PASS",
+  "scope": "实际读取的指定历史文件；不声称扫描151378份历史metadata",
+  "count": 50,
+  "files": [
+    {
+      "before": {
+        "path": "/home/lzf/Attack/IRRA/logs/CUHK-PEDES/best.pth",
+        "sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009",
+        "bytes": 1320992076,
+        "mtime_ns": 1679070842000000000
+      },
+      "after": {
+        "path": "/home/lzf/Attack/IRRA/logs/CUHK-PEDES/best.pth",
+        "sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009",
+        "bytes": 1320992076,
+        "mtime_ns": 1679070842000000000
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/checkpoints/RaSa/rasa_cuhk_checkpoint.pth",
+        "sha256": "bc85da09c2991d5de503c2c2ac4f032e20cc536fec5094f0acff45e93d0104d2",
+        "bytes": 1816575847,
+        "mtime_ns": 1792242576745995446
+      },
+      "after": {
+        "path": "/home/lzf/ldx/checkpoints/RaSa/rasa_cuhk_checkpoint.pth",
+        "sha256": "bc85da09c2991d5de503c2c2ac4f032e20cc536fec5094f0acff45e93d0104d2",
+        "bytes": 1816575847,
+        "mtime_ns": 1792242576745995446
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/checkpoints/APTM/aptm_cuhk_checkpoint_best.pth",
+        "sha256": "521c9bf784e7e821ade471deaafa2f25e2501950591e574dc60ca177e9be5a2c",
+        "bytes": 859801179,
+        "mtime_ns": 1792253063578433276
+      },
+      "after": {
+        "path": "/home/lzf/ldx/checkpoints/APTM/aptm_cuhk_checkpoint_best.pth",
+        "sha256": "521c9bf784e7e821ade471deaafa2f25e2501950591e574dc60ca177e9be5a2c",
+        "bytes": 859801179,
+        "mtime_ns": 1792253063578433276
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_protocol_consistency_audit/NEXT_EXPERIMENTS.md",
+        "sha256": "53b13d704cb173ce8c5a57efff724fc755d1dd4d26e322a03d2515d626c49ec0",
+        "bytes": 4701,
+        "mtime_ns": 1793021046960911876
+      },
+      "after": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_protocol_consistency_audit/NEXT_EXPERIMENTS.md",
+        "sha256": "53b13d704cb173ce8c5a57efff724fc755d1dd4d26e322a03d2515d626c49ec0",
+        "bytes": 4701,
+        "mtime_ns": 1793021046960911876
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_protocol_consistency_audit/FAIRNESS_AUDIT.md",
+        "sha256": "bc7b90cf66d5c924461c0311e1a39784b49fd16b871c812f79e24ea7b3a23341",
+        "bytes": 4188,
+        "mtime_ns": 1793021046960911876
+      },
+      "after": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_protocol_consistency_audit/FAIRNESS_AUDIT.md",
+        "sha256": "bc7b90cf66d5c924461c0311e1a39784b49fd16b871c812f79e24ea7b3a23341",
+        "bytes": 4188,
+        "mtime_ns": 1793021046960911876
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_protocol_consistency_audit/REPORT.md",
+        "sha256": "08e8fa72b8b9f4dab2437c2e06d194b8cf9c9630888761fc23438e89e87df59a",
+        "bytes": 24842,
+        "mtime_ns": 1793021046961911882
+      },
+      "after": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_protocol_consistency_audit/REPORT.md",
+        "sha256": "08e8fa72b8b9f4dab2437c2e06d194b8cf9c9630888761fc23438e89e87df59a",
+        "bytes": 24842,
+        "mtime_ns": 1793021046961911882
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_protocol_consistency_audit/VALIDATION.json",
+        "sha256": "ce036739e614f524fa1052915f08028b1425fd1d6c4e62c29d5841a5add036e0",
+        "bytes": 2070,
+        "mtime_ns": 1793021046962911888
+      },
+      "after": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_protocol_consistency_audit/VALIDATION.json",
+        "sha256": "ce036739e614f524fa1052915f08028b1425fd1d6c4e62c29d5841a5add036e0",
+        "bytes": 2070,
+        "mtime_ns": 1793021046962911888
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_protocol_consistency_audit/PAPER_CONFIG.json",
+        "sha256": "5a163d0ddcd96c3a2230443a9880a29d722ce96b4c37ac97039500e0c8cca3e6",
+        "bytes": 14879,
+        "mtime_ns": 1793021046961911882
+      },
+      "after": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_protocol_consistency_audit/PAPER_CONFIG.json",
+        "sha256": "5a163d0ddcd96c3a2230443a9880a29d722ce96b4c37ac97039500e0c8cca3e6",
+        "bytes": 14879,
+        "mtime_ns": 1793021046961911882
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_protocol_consistency_audit/DELIVERY_MANIFEST.json",
+        "sha256": "cc2e18ca56c22bfc5d8a1566dbc37384de5fcb972fb7fc7bd41e3f0f25894ff9",
+        "bytes": 1643,
+        "mtime_ns": 1793021046960911876
+      },
+      "after": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_protocol_consistency_audit/DELIVERY_MANIFEST.json",
+        "sha256": "cc2e18ca56c22bfc5d8a1566dbc37384de5fcb972fb7fc7bd41e3f0f25894ff9",
+        "bytes": 1643,
+        "mtime_ns": 1793021046960911876
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_protocol_consistency_audit/COMPARISON.csv",
+        "sha256": "5bc61a6569c74fd9b69e789f960aacc307c1d504aab0bd012aa91c99ac05fdc4",
+        "bytes": 135821,
+        "mtime_ns": 1793021046960911876
+      },
+      "after": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_protocol_consistency_audit/COMPARISON.csv",
+        "sha256": "5bc61a6569c74fd9b69e789f960aacc307c1d504aab0bd012aa91c99ac05fdc4",
+        "bytes": 135821,
+        "mtime_ns": 1793021046960911876
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_protocol_consistency_audit/OUR_CONFIG.json",
+        "sha256": "a7497c1755e8861379aae472f88717955be82f7f11458816f835bd50ebfbbf73",
+        "bytes": 107312,
+        "mtime_ns": 1793021046961911882
+      },
+      "after": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_protocol_consistency_audit/OUR_CONFIG.json",
+        "sha256": "a7497c1755e8861379aae472f88717955be82f7f11458816f835bd50ebfbbf73",
+        "bytes": 107312,
+        "mtime_ns": 1793021046961911882
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_protocol_consistency_audit/SOURCE_EVIDENCE.json",
+        "sha256": "242f6d30ef2c4f5993c5d7ff8a1603463e0ca68b1e44e799d0e53496fb8b3a05",
+        "bytes": 259456,
+        "mtime_ns": 1793021046962911888
+      },
+      "after": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_protocol_consistency_audit/SOURCE_EVIDENCE.json",
+        "sha256": "242f6d30ef2c4f5993c5d7ff8a1603463e0ca68b1e44e799d0e53496fb8b3a05",
+        "bytes": 259456,
+        "mtime_ns": 1793021046962911888
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_protocol_consistency_audit/PAPER_TABLES.json",
+        "sha256": "a473dd837bdb1584a1d77072d53936ffcb070aa7896704ea5c7d00fea1bad0d0",
+        "bytes": 12608,
+        "mtime_ns": 1793021046961911882
+      },
+      "after": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_protocol_consistency_audit/PAPER_TABLES.json",
+        "sha256": "a473dd837bdb1584a1d77072d53936ffcb070aa7896704ea5c7d00fea1bad0d0",
+        "bytes": 12608,
+        "mtime_ns": 1793021046961911882
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_protocol_consistency_audit/COMPARISON.md",
+        "sha256": "b3bb2f0b6f3f45eb89cc65cef0cc9fd90b9363ebdebd41d9d955464b22c2e013",
+        "bytes": 147945,
+        "mtime_ns": 1793021046960911876
+      },
+      "after": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/docs/framework/results/r2tua_protocol_consistency_audit/COMPARISON.md",
+        "sha256": "b3bb2f0b6f3f45eb89cc65cef0cc9fd90b9363ebdebd41d9d955464b22c2e013",
+        "bytes": 147945,
+        "mtime_ns": 1793021046960911876
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/configs/irra_cuhk_official.yaml",
+        "sha256": "8a9c1921ebcf93babcfdc07d35525a8d13572aeebdec5605e390289c536c5175",
+        "bytes": 1030,
+        "mtime_ns": 1790836321000000000
+      },
+      "after": {
+        "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/configs/irra_cuhk_official.yaml",
+        "sha256": "8a9c1921ebcf93babcfdc07d35525a8d13572aeebdec5605e390289c536c5175",
+        "bytes": 1030,
+        "mtime_ns": 1790836321000000000
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/data/bpe_simple_vocab_16e6.txt.gz",
+        "sha256": "924691ac288e54409236115652ad4aa250f48203de50a9e4722a6ecd48d6804a",
+        "bytes": 1356917,
+        "mtime_ns": 1742974283000000000
+      },
+      "after": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/data/bpe_simple_vocab_16e6.txt.gz",
+        "sha256": "924691ac288e54409236115652ad4aa250f48203de50a9e4722a6ecd48d6804a",
+        "bytes": 1356917,
+        "mtime_ns": 1742974283000000000
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/completed/summary.json",
+        "sha256": "4530f3f97156d6e9f65c07b0775588324c39679feb0f16ae66b356692b017eb0",
+        "bytes": 1843,
+        "mtime_ns": 1792241204047469070
+      },
+      "after": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/completed/summary.json",
+        "sha256": "4530f3f97156d6e9f65c07b0775588324c39679feb0f16ae66b356692b017eb0",
+        "bytes": 1843,
+        "mtime_ns": 1792241204047469070
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/completed/metrics.csv",
+        "sha256": "63bb20c0c40925f14f1eddb5afb15e65c88296013ad37a2bac17dcca4395aa22",
+        "bytes": 805,
+        "mtime_ns": 1792241204052704451
+      },
+      "after": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-irra-materialized-evaluation/full/completed/metrics.csv",
+        "sha256": "63bb20c0c40925f14f1eddb5afb15e65c88296013ad37a2bac17dcca4395aa22",
+        "bytes": 805,
+        "mtime_ns": 1792241204052704451
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/completed/summary.json",
+        "sha256": "12b3a90ca761c632bdf7781e7d52b43b753ddb5e7bdf36ad53e65515d7fc37ac",
+        "bytes": 1841,
+        "mtime_ns": 1792263124164694453
+      },
+      "after": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/completed/summary.json",
+        "sha256": "12b3a90ca761c632bdf7781e7d52b43b753ddb5e7bdf36ad53e65515d7fc37ac",
+        "bytes": 1841,
+        "mtime_ns": 1792263124164694453
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/completed/metrics.csv",
+        "sha256": "f2b8fefc83b7c6eac8866262c10cb46f15da9ba8aa676784bd16057ba6e9189f",
+        "bytes": 803,
+        "mtime_ns": 1792263124169435542
+      },
+      "after": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-rasa-materialized-evaluation/full/completed/metrics.csv",
+        "sha256": "f2b8fefc83b7c6eac8866262c10cb46f15da9ba8aa676784bd16057ba6e9189f",
+        "bytes": 803,
+        "mtime_ns": 1792263124169435542
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/completed/summary.json",
+        "sha256": "8944ea0cd29e5c9f4410bf9ad7ccc65f67e3c26ad8a794e2a8af6915bca36d18",
+        "bytes": 1835,
+        "mtime_ns": 1792272368585734270
+      },
+      "after": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/completed/summary.json",
+        "sha256": "8944ea0cd29e5c9f4410bf9ad7ccc65f67e3c26ad8a794e2a8af6915bca36d18",
+        "bytes": 1835,
+        "mtime_ns": 1792272368585734270
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/completed/metrics.csv",
+        "sha256": "d7ac6ab18e9601597358949adda84eb284764219d722ae1b9a104164178e64d8",
+        "bytes": 797,
+        "mtime_ns": 1792272368591128924
+      },
+      "after": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-aptm-materialized-evaluation/full/completed/metrics.csv",
+        "sha256": "d7ac6ab18e9601597358949adda84eb284764219d722ae1b9a104164178e64d8",
+        "bytes": 797,
+        "mtime_ns": 1792272368591128924
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/src/tbps/models/irra_source.py",
+        "sha256": "fcf22ad01836804bc40fdce6c1817de2ff1941fd302b549a765e15f5287dd0b6",
+        "bytes": 6255,
+        "mtime_ns": 1793021047400914619
+      },
+      "after": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/src/tbps/models/irra_source.py",
+        "sha256": "fcf22ad01836804bc40fdce6c1817de2ff1941fd302b549a765e15f5287dd0b6",
+        "bytes": 6255,
+        "mtime_ns": 1793021047400914619
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/src/tbps/models/irra_io.py",
+        "sha256": "3bd668f28fe788659296af7d1d4c31e4131c23eb96b266887e356f9b32376205",
+        "bytes": 4892,
+        "mtime_ns": 1793021047399914613
+      },
+      "after": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/src/tbps/models/irra_io.py",
+        "sha256": "3bd668f28fe788659296af7d1d4c31e4131c23eb96b266887e356f9b32376205",
+        "bytes": 4892,
+        "mtime_ns": 1793021047399914613
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/src/tbps/models/irra.py",
+        "sha256": "424e1dcd20b34061e3199d969f05eb34ca8aa3a6655e00a0e77770ee17fef0b2",
+        "bytes": 9688,
+        "mtime_ns": 1793021047399914613
+      },
+      "after": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/src/tbps/models/irra.py",
+        "sha256": "424e1dcd20b34061e3199d969f05eb34ca8aa3a6655e00a0e77770ee17fef0b2",
+        "bytes": 9688,
+        "mtime_ns": 1793021047399914613
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/src/tbps/engines/metrics.py",
+        "sha256": "6a09838fa9c17cc95755acf5e2e608af86127bd517b951c050910f24c38459b5",
+        "bytes": 2893,
+        "mtime_ns": 1793021047267913790
+      },
+      "after": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/src/tbps/engines/metrics.py",
+        "sha256": "6a09838fa9c17cc95755acf5e2e608af86127bd517b951c050910f24c38459b5",
+        "bytes": 2893,
+        "mtime_ns": 1793021047267913790
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/external/RaSa/README.md",
+        "sha256": "1f7973573e27ae09b9bc576f0578c34e3a6c425a7dd03b43d1bf97e126566a53",
+        "bytes": 8320,
+        "mtime_ns": 1792242645807315496
+      },
+      "after": {
+        "path": "/home/lzf/ldx/external/RaSa/README.md",
+        "sha256": "1f7973573e27ae09b9bc576f0578c34e3a6c425a7dd03b43d1bf97e126566a53",
+        "bytes": 8320,
+        "mtime_ns": 1792242645807315496
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/external/RaSa/dataset/__init__.py",
+        "sha256": "a8dd42153ba17eb92cb8b73bf71c95e9c7bee693a4918cca7f5661e688f5886a",
+        "bytes": 2519,
+        "mtime_ns": 1792242645807986705
+      },
+      "after": {
+        "path": "/home/lzf/ldx/external/RaSa/dataset/__init__.py",
+        "sha256": "a8dd42153ba17eb92cb8b73bf71c95e9c7bee693a4918cca7f5661e688f5886a",
+        "bytes": 2519,
+        "mtime_ns": 1792242645807986705
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/external/RaSa/dataset/utils.py",
+        "sha256": "71867c4759e53eeaab578b09a4363570f967c6ceb67e33cdeff97073431dc054",
+        "bytes": 528,
+        "mtime_ns": 1792242645808120843
+      },
+      "after": {
+        "path": "/home/lzf/ldx/external/RaSa/dataset/utils.py",
+        "sha256": "71867c4759e53eeaab578b09a4363570f967c6ceb67e33cdeff97073431dc054",
+        "bytes": 528,
+        "mtime_ns": 1792242645808120843
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/external/RaSa/configs/PS_cuhk_pedes.yaml",
+        "sha256": "e075bf80eb247397b5cec1c0da086fc2a42c539d2cb1d259c039db83b4516946",
+        "bytes": 896,
+        "mtime_ns": 1792242645807315496
+      },
+      "after": {
+        "path": "/home/lzf/ldx/external/RaSa/configs/PS_cuhk_pedes.yaml",
+        "sha256": "e075bf80eb247397b5cec1c0da086fc2a42c539d2cb1d259c039db83b4516946",
+        "bytes": 896,
+        "mtime_ns": 1792242645807315496
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/external/RaSa/Retrieval.py",
+        "sha256": "13450e0e891a435795c857541a8282615860bbc83a7f9dc5997f6763cd1f91f8",
+        "bytes": 15562,
+        "mtime_ns": 1792242645807315496
+      },
+      "after": {
+        "path": "/home/lzf/ldx/external/RaSa/Retrieval.py",
+        "sha256": "13450e0e891a435795c857541a8282615860bbc83a7f9dc5997f6763cd1f91f8",
+        "bytes": 15562,
+        "mtime_ns": 1792242645807315496
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/external/APTM/README.md",
+        "sha256": "25a6e7bdb2c3edb215b2c8f56a05adbcb6bd5aa78796f16be9c5802ccbe591fc",
+        "bytes": 12348,
+        "mtime_ns": 1792252853112531764
+      },
+      "after": {
+        "path": "/home/lzf/ldx/external/APTM/README.md",
+        "sha256": "25a6e7bdb2c3edb215b2c8f56a05adbcb6bd5aa78796f16be9c5802ccbe591fc",
+        "bytes": 12348,
+        "mtime_ns": 1792252853112531764
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/external/APTM/dataset/__init__.py",
+        "sha256": "982294f350e5c3df2a3e9ba0cf0a0748979fb180a4e4ee2faa34b2e2ba367dbd",
+        "bytes": 5682,
+        "mtime_ns": 1792252853128845282
+      },
+      "after": {
+        "path": "/home/lzf/ldx/external/APTM/dataset/__init__.py",
+        "sha256": "982294f350e5c3df2a3e9ba0cf0a0748979fb180a4e4ee2faa34b2e2ba367dbd",
+        "bytes": 5682,
+        "mtime_ns": 1792252853128845282
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/external/APTM/dataset/utils.py",
+        "sha256": "c5b37d420b6547631bab92c45c85c6f4e8da6a5d5e9b585e814af6d99d27a50e",
+        "bytes": 980,
+        "mtime_ns": 1792252853128986776
+      },
+      "after": {
+        "path": "/home/lzf/ldx/external/APTM/dataset/utils.py",
+        "sha256": "c5b37d420b6547631bab92c45c85c6f4e8da6a5d5e9b585e814af6d99d27a50e",
+        "bytes": 980,
+        "mtime_ns": 1792252853128986776
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/external/APTM/configs/Retrieval_cuhk.yaml",
+        "sha256": "310baed31594048695cbf2539cbf19e3ee20b08c4999ff63ff28f5e0efa60873",
+        "bytes": 923,
+        "mtime_ns": 1792252853128531921
+      },
+      "after": {
+        "path": "/home/lzf/ldx/external/APTM/configs/Retrieval_cuhk.yaml",
+        "sha256": "310baed31594048695cbf2539cbf19e3ee20b08c4999ff63ff28f5e0efa60873",
+        "bytes": 923,
+        "mtime_ns": 1792252853128531921
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/ldx/external/APTM/Retrieval.py",
+        "sha256": "fb49de21f81ac1cf43bc9de69178b35a55580cc1a64175790cae80b4597d8fbd",
+        "bytes": 15036,
+        "mtime_ns": 1792252853112531764
+      },
+      "after": {
+        "path": "/home/lzf/ldx/external/APTM/Retrieval.py",
+        "sha256": "fb49de21f81ac1cf43bc9de69178b35a55580cc1a64175790cae80b4597d8fbd",
+        "bytes": 15036,
+        "mtime_ns": 1792252853112531764
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/README.md",
+        "sha256": "2c5d191669c3f240857bdbe5e1bc7456b727177965737f6c26b1ed39a962906a",
+        "bytes": 6349,
+        "mtime_ns": 1742974283000000000
+      },
+      "after": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/README.md",
+        "sha256": "2c5d191669c3f240857bdbe5e1bc7456b727177965737f6c26b1ed39a962906a",
+        "bytes": 6349,
+        "mtime_ns": 1742974283000000000
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/test.py",
+        "sha256": "c217136f2b036039c81b6d8b766359265151d78c27be2928111dc5f9ca6a3959",
+        "bytes": 1164,
+        "mtime_ns": 1742974283000000000
+      },
+      "after": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/test.py",
+        "sha256": "c217136f2b036039c81b6d8b766359265151d78c27be2928111dc5f9ca6a3959",
+        "bytes": 1164,
+        "mtime_ns": 1742974283000000000
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/build.py",
+        "sha256": "e99987047a9ba7e396c8fd9ac23da797f01b09f517bec03d7fb1016a5eb477b6",
+        "bytes": 6984,
+        "mtime_ns": 1742974283000000000
+      },
+      "after": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/build.py",
+        "sha256": "e99987047a9ba7e396c8fd9ac23da797f01b09f517bec03d7fb1016a5eb477b6",
+        "bytes": 6984,
+        "mtime_ns": 1742974283000000000
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/bases.py",
+        "sha256": "8e1fc03ea1f32629f209a2c4fabd1c65b8e9162c0323c4092b15f68dd8c7b2b6",
+        "bytes": 6979,
+        "mtime_ns": 1742974283000000000
+      },
+      "after": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/bases.py",
+        "sha256": "8e1fc03ea1f32629f209a2c4fabd1c65b8e9162c0323c4092b15f68dd8c7b2b6",
+        "bytes": 6979,
+        "mtime_ns": 1742974283000000000
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/cuhkpedes.py",
+        "sha256": "5110b7102d0a95dc6818808eacc0c6d5a9eb7e0c18429a533bcb4bf72a95c386",
+        "bytes": 4086,
+        "mtime_ns": 1742974283000000000
+      },
+      "after": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/cuhkpedes.py",
+        "sha256": "5110b7102d0a95dc6818808eacc0c6d5a9eb7e0c18429a533bcb4bf72a95c386",
+        "bytes": 4086,
+        "mtime_ns": 1742974283000000000
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/metrics.py",
+        "sha256": "94910252a9e42f0820d49c11203b31d3b67951f58624f66abff4bf662500d5fb",
+        "bytes": 3767,
+        "mtime_ns": 1742974283000000000
+      },
+      "after": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/metrics.py",
+        "sha256": "94910252a9e42f0820d49c11203b31d3b67951f58624f66abff4bf662500d5fb",
+        "bytes": 3767,
+        "mtime_ns": 1742974283000000000
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/options.py",
+        "sha256": "72b75fec88278c951eea900ede5a9f98514546dbe7afa3f88867b692127d2220",
+        "bytes": 4527,
+        "mtime_ns": 1742974283000000000
+      },
+      "after": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/options.py",
+        "sha256": "72b75fec88278c951eea900ede5a9f98514546dbe7afa3f88867b692127d2220",
+        "bytes": 4527,
+        "mtime_ns": 1742974283000000000
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/simple_tokenizer.py",
+        "sha256": "19b06ade7532bcff961c4b90590197fcac0d466f08d0b6b801d3d19a36568d67",
+        "bytes": 5016,
+        "mtime_ns": 1742974283000000000
+      },
+      "after": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/simple_tokenizer.py",
+        "sha256": "19b06ade7532bcff961c4b90590197fcac0d466f08d0b6b801d3d19a36568d67",
+        "bytes": 5016,
+        "mtime_ns": 1742974283000000000
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/iotools.py",
+        "sha256": "13260ab0306929ddcf10a6a209f792b3499590d9e20c785c4eee62d1b3c12c3c",
+        "bytes": 1893,
+        "mtime_ns": 1742974283000000000
+      },
+      "after": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/iotools.py",
+        "sha256": "13260ab0306929ddcf10a6a209f792b3499590d9e20c785c4eee62d1b3c12c3c",
+        "bytes": 1893,
+        "mtime_ns": 1742974283000000000
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/model/build.py",
+        "sha256": "bb8176ab1fc6a88cb49d0cbd8317b1c1aa6ebd4f035988170d60508f5df508b2",
+        "bytes": 6325,
+        "mtime_ns": 1742974283000000000
+      },
+      "after": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/model/build.py",
+        "sha256": "bb8176ab1fc6a88cb49d0cbd8317b1c1aa6ebd4f035988170d60508f5df508b2",
+        "bytes": 6325,
+        "mtime_ns": 1742974283000000000
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/model/clip_model.py",
+        "sha256": "81f9553ff6d4c6a96bcdb1e41451694aab0c208ad84865ac344ef6b6bbd002a9",
+        "bytes": 24746,
+        "mtime_ns": 1742974283000000000
+      },
+      "after": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/model/clip_model.py",
+        "sha256": "81f9553ff6d4c6a96bcdb1e41451694aab0c208ad84865ac344ef6b6bbd002a9",
+        "bytes": 24746,
+        "mtime_ns": 1742974283000000000
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/TBPS/Datasets/CUHK-PEDES/imgs/train_query/p8848_s17661.jpg",
+        "sha256": "6756e64194c981af646ade08ea47de531e4f95c057393e836cb0b3609fb465de",
+        "bytes": 10607,
+        "mtime_ns": 1680333426000000000
+      },
+      "after": {
+        "path": "/home/lzf/TBPS/Datasets/CUHK-PEDES/imgs/train_query/p8848_s17661.jpg",
+        "sha256": "6756e64194c981af646ade08ea47de531e4f95c057393e836cb0b3609fb465de",
+        "bytes": 10607,
+        "mtime_ns": 1680333426000000000
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/TBPS/Datasets/CUHK-PEDES/imgs/train_query/p8848_s17662.jpg",
+        "sha256": "6ae0e1bcf3fc46ddb4307ac49a5594626bf483cc5b3d273bdf6ae9c81a411cb0",
+        "bytes": 9415,
+        "mtime_ns": 1680333426000000000
+      },
+      "after": {
+        "path": "/home/lzf/TBPS/Datasets/CUHK-PEDES/imgs/train_query/p8848_s17662.jpg",
+        "sha256": "6ae0e1bcf3fc46ddb4307ac49a5594626bf483cc5b3d273bdf6ae9c81a411cb0",
+        "bytes": 9415,
+        "mtime_ns": 1680333426000000000
+      },
+      "unchanged": true
+    },
+    {
+      "before": {
+        "path": "/home/lzf/TBPS/Datasets/CUHK-PEDES/imgs/train_query/p8848_s17663.jpg",
+        "sha256": "d2a63cc55de9d2224854367b89fbbfcf21f4c1657fe7ef500d3f650ccca8aced",
+        "bytes": 4744,
+        "mtime_ns": 1680333426000000000
+      },
+      "after": {
+        "path": "/home/lzf/TBPS/Datasets/CUHK-PEDES/imgs/train_query/p8848_s17663.jpg",
+        "sha256": "d2a63cc55de9d2224854367b89fbbfcf21f4c1657fe7ef500d3f650ccca8aced",
+        "bytes": 4744,
+        "mtime_ns": 1680333426000000000
+      },
+      "unchanged": true
+    }
+  ]
+}

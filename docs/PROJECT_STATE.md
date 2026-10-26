@@ -1,6 +1,16 @@
 # 项目当前状态（唯一权威入口）
 
-## 当前阶段：B正式训练与统一IRRA评估CPU准备完成，Pilot资源阻塞（2026-10-24）
+## 当前阶段：R²TUA文献Baseline引用与评测环境核验完成（2026-10-26，CPU只读）
+
+独立codex/r2tua-aligned-evaluation，基准c2062e43；目标是引用已发表Baseline，不重现全部攻击算法。
+Table1全33物理行/三数据集99条、396个指标逐值核验，独立CSV保留Source/模态/epsilon未知字段，Targeted与Untargeted分离。
+实际IRRA加载副本11文件与官方固定Git对象一致；全6156 Raw Caption Token ID一致，固定3图IRRA像素差0。
+相对公开参考确认IRRA编码精度路径不同，RaSa/APTM共同物化桥与原图直接bicubic存在像素差异；不声称已证明Clean指标差距因果。
+允许† author-reported文献参考，不宣称Table1全部同8/255/同Source；PUBLIC_IRRA_REFERENCE仅为未来评测设计，未改Loader或运行配置。
+只做CPU解析与像素/Tokenizer验证；模型加载、神经前向、GPU、训练、攻击、排名和旧审计重跑均0，原实验保持。
+[报告](framework/results/r2tua_aligned_evaluation/REPORT.md)、[标准](framework/results/r2tua_aligned_evaluation/R2TUA_ALIGNED_EVALUATION_PROTOCOL.md)、[完整论文表](framework/results/r2tua_aligned_evaluation/BASELINE_TABLE.csv)、[引用说明](framework/results/r2tua_aligned_evaluation/CITATION_GUIDE.md)。
+
+## 历史阶段（当时快照）：B正式训练与统一IRRA评估CPU准备完成，Pilot资源阻塞（2026-10-24）
 
 独立codex/gh-formal-b；保留原140份生产数学源码和旧Smoke exact审计FAIL，停止NOOP kernel调查。
 G60/H10/H60真实Checkpoint已核验：适配H60=H10新增50轮固定G60图库，最终122880 visits/122220更新；现有128条内部Validation，不把G60/H7 Test Full冒充H60。

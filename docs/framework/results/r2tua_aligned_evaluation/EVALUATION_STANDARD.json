@@ -1,0 +1,57 @@
+{
+  "schema": "r2tua-aligned-reference-evaluation-design-1",
+  "status": "DOCUMENTED_NOT_ACTIVATED",
+  "dataset": "CUHK-PEDES official Test",
+  "gallery": 3074,
+  "query": 6156,
+  "test_PIDs": 1000,
+  "annotation_sha256": "fc3d15542f91dd70e23028c2cb40171a8f41734a39afddb9505e352e396cabf0",
+  "manifest_sha256": "a338f5429b64393b8062e0a7127773d72adb5dd6832eeb89d24c2c63c2f4d9eb",
+  "irra_official_commit": "cfc23785545ead82dee2749fa0fc0ad948c96430",
+  "irra_checkpoint": {
+    "path": "/home/lzf/Attack/IRRA/logs/CUHK-PEDES/best.pth",
+    "sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+  },
+  "irra_config": {
+    "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/configs/irra_cuhk_official.yaml",
+    "sha256": "8a9c1921ebcf93babcfdc07d35525a8d13572aeebdec5605e390289c536c5175"
+  },
+  "preprocess": {
+    "size": [
+      384,
+      128
+    ],
+    "mean": [
+      0.48145466,
+      0.4578275,
+      0.40821073
+    ],
+    "std": [
+      0.26862954,
+      0.26130258,
+      0.27577711
+    ],
+    "tokenizer": "CLIP Byte-BPE77",
+    "score": "L2 image/text dot product"
+  },
+  "raw_resize": "PIL bilinear384x128",
+  "tokenizer": "CLIP Byte-BPE77 Raw captions; no pre_caption30",
+  "epsilon_RGB": 0.03137254901960784,
+  "metric": "complete Query mean, all same PID positives; native IRRA cosine; no ITM",
+  "recommended_future_profile": {
+    "name": "PUBLIC_IRRA_REFERENCE",
+    "dtype": "official convert_weights mixed parameter precision; embeddings and ranking float32",
+    "implementation_status": "not activated; current loader forces FP32",
+    "R2TUA_actual_dtype": "UNKNOWN"
+  },
+  "historical_profile": {
+    "name": "LEGACY_RAW_FP32",
+    "dtype": "fp32/math/no_tf32",
+    "status": "existing results immutable",
+    "image_batch": 1,
+    "text_batch": 1,
+    "query_chunk": 128
+  },
+  "unified_all_baseline_epsilon8_confirmed": false,
+  "new_experiment_authorization_required": true
+}

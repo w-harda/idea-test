@@ -1,0 +1,450 @@
+[
+  {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/src/tbps/models/irra_source.py",
+    "sha256": "fcf22ad01836804bc40fdce6c1817de2ff1941fd302b549a765e15f5287dd0b6",
+    "bytes": 6255,
+    "mtime_ns": 1793021047400914619,
+    "anchors": [
+      {
+        "line": 101,
+        "text": "    model.float().eval().requires_grad_(False)"
+      }
+    ]
+  },
+  {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/src/tbps/models/irra_io.py",
+    "sha256": "3bd668f28fe788659296af7d1d4c31e4131c23eb96b266887e356f9b32376205",
+    "bytes": 4892,
+    "mtime_ns": 1793021047399914613,
+    "anchors": [
+      {
+        "line": 14,
+        "text": "PREPROCESS={\"schema\":\"tbps-irra-preprocess-1\",\"size_hw\":list(SIZE),\"pixels\":\"RGB float32 [0,1]\","
+      },
+      {
+        "line": 17,
+        "text": "            \"feature_normalization\":\"torch F.normalize p=2 dim=-1 eps=1e-12\"}"
+      },
+      {
+        "line": 18,
+        "text": "METRICS={\"schema\":\"tbps-irra-ranking-1\",\"orientation\":\"Query x Gallery\",\"score\":\"L2(text) @ L2(image).T\","
+      },
+      {
+        "line": 19,
+        "text": "         \"sort\":\"torch.argsort descending=True, default stable=False; no new tie breaking\","
+      },
+      {
+        "line": 22,
+        "text": "         \"CMC\":\"first positive hit; R@1/5/10\",\"mINP\":\"mean(num positives / last positive rank)\","
+      },
+      {
+        "line": 23,
+        "text": "         \"unit\":\"percentage\",\"missing_positive\":\"reject in DatasetManifest before ranking\","
+      },
+      {
+        "line": 24,
+        "text": "         \"official_rank\":\"utils/metrics.py::rank(get_mAP=True,max_rank=10)\"}"
+      },
+      {
+        "line": 76,
+        "text": "    return transforms.Compose([transforms.Resize(SIZE),transforms.ToTensor()])(image.convert(\"RGB\"))"
+      },
+      {
+        "line": 78,
+        "text": "def normalize_pixels(pixels):"
+      }
+    ]
+  },
+  {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/src/tbps/models/irra.py",
+    "sha256": "424e1dcd20b34061e3199d969f05eb34ca8aa3a6655e00a0e77770ee17fef0b2",
+    "bytes": 9688,
+    "mtime_ns": 1793021047399914613,
+    "anchors": [
+      {
+        "line": 10,
+        "text": "from .irra_io import PREPROCESS, METRICS, normalize_pixels, official_tokenizer"
+      },
+      {
+        "line": 14,
+        "text": "def fp32_runtime():"
+      },
+      {
+        "line": 42,
+        "text": "        self._backend=backend.float().eval().requires_grad_(False);self._tokenizer=tokenizer"
+      },
+      {
+        "line": 50,
+        "text": "        preprocess=digest({\"contract\":PREPROCESS,\"runtime\":{k:version(k) for k in (\"torch\",\"torchvision\",\"Pillow\")}})"
+      },
+      {
+        "line": 53,
+        "text": "        space=ModelSpace(\"irra\",source.checkpoint.sha256,source_identity,preprocess,tokenizer.fingerprint,"
+      },
+      {
+        "line": 54,
+        "text": "                         digest({\"contract\":METRICS,\"official_rank_sha256\":source.ref(\"utils/metrics.py\").sha256}),\"fp32/math/no_tf32\")"
+      },
+      {
+        "line": 77,
+        "text": "            tuple(batch.payload.shape),str(batch.payload.dtype),\"l2\",self.space.preprocess_sha256,"
+      },
+      {
+        "line": 105,
+        "text": "    def _normalize(self,feature,n):"
+      },
+      {
+        "line": 110,
+        "text": "        return F.normalize(feature.float(),dim=-1)"
+      },
+      {
+        "line": 113,
+        "text": "        result=self._run(lambda:self._normalize(a._backend.encode_image(normalize_pixels(pixels)),len(pixels)))"
+      },
+      {
+        "line": 125,
+        "text": "        result=self._run(lambda:self._normalize(self._adapter._backend.encode_text(tokens.to(device)),len(tokens)))"
+      },
+      {
+        "line": 131,
+        "text": "                raise ArtifactError(\"foreign model/preprocess/Tokenizer/representation space\")"
+      },
+      {
+        "line": 136,
+        "text": "                raise ArtifactError(\"expected native L2-normalized retrieval space\")"
+      }
+    ]
+  },
+  {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-r2tua-aligned-environment-20261026/src/tbps/engines/metrics.py",
+    "sha256": "6a09838fa9c17cc95755acf5e2e608af86127bd517b951c050910f24c38459b5",
+    "bytes": 2893,
+    "mtime_ns": 1793021047267913790,
+    "anchors": [
+      {
+        "line": 7,
+        "text": "           \"sort\":\"torch.argsort(dim=1,descending=True,stable=False)\","
+      },
+      {
+        "line": 8,
+        "text": "           \"AP\":\"mean precision at every positive rank\","
+      },
+      {
+        "line": 9,
+        "text": "           \"INP\":\"number of positives / last positive rank\",\"max_rank\":10,"
+      },
+      {
+        "line": 13,
+        "text": "def ranking(scores, identity, *, direction=\"higher_better\"):"
+      },
+      {
+        "line": 23,
+        "text": "    order=torch.argsort(scores if direction==\"higher_better\" else -scores,dim=1,descending=True)"
+      }
+    ]
+  },
+  {
+    "path": "/home/lzf/ldx/external/RaSa/README.md",
+    "sha256": "1f7973573e27ae09b9bc576f0578c34e3a6c425a7dd03b43d1bf97e126566a53",
+    "bytes": 8320,
+    "mtime_ns": 1792242645807315496,
+    "anchors": [
+      {
+        "line": 175,
+        "text": "| **RaSa (ours)** | **76.51** | **90.29** | **94.25** | **69.38** |"
+      }
+    ]
+  },
+  {
+    "path": "/home/lzf/ldx/external/RaSa/dataset/__init__.py",
+    "sha256": "a8dd42153ba17eb92cb8b73bf71c95e9c7bee693a4918cca7f5661e688f5886a",
+    "bytes": 2519,
+    "mtime_ns": 1792242645807986705,
+    "anchors": [
+      {
+        "line": 8,
+        "text": "    normalize = transforms.Normalize((0.48145466, 0.4578275, 0.40821073), (0.26862954, 0.26130258, 0.27577711))"
+      },
+      {
+        "line": 10,
+        "text": "        transforms.Resize((config['image_res'], config['image_res']), interpolation=InterpolationMode.BICUBIC),"
+      },
+      {
+        "line": 13,
+        "text": "        normalize,"
+      },
+      {
+        "line": 16,
+        "text": "        transforms.Resize((config['image_res'], config['image_res']), interpolation=InterpolationMode.BICUBIC),"
+      },
+      {
+        "line": 18,
+        "text": "        normalize,"
+      },
+      {
+        "line": 22,
+        "text": "                                         config['max_words'], config['weak_pos_pair_probability'])"
+      },
+      {
+        "line": 23,
+        "text": "        val_dataset = ps_eval_dataset(config['val_file'], test_transform, config['val_image_root'], config['max_words'])"
+      },
+      {
+        "line": 24,
+        "text": "        test_dataset = ps_eval_dataset(config['test_file'], test_transform, config['test_image_root'], config['max_words'])"
+      },
+      {
+        "line": 27,
+        "text": "def create_sampler(datasets, shuffles, num_tasks, global_rank):"
+      },
+      {
+        "line": 30,
+        "text": "        sampler = torch.utils.data.DistributedSampler(dataset, num_replicas=num_tasks, rank=global_rank,"
+      }
+    ]
+  },
+  {
+    "path": "/home/lzf/ldx/external/RaSa/dataset/utils.py",
+    "sha256": "71867c4759e53eeaab578b09a4363570f967c6ceb67e33cdeff97073431dc054",
+    "bytes": 528,
+    "mtime_ns": 1792242645808120843,
+    "anchors": [
+      {
+        "line": 3,
+        "text": "def pre_caption(caption, max_words):"
+      },
+      {
+        "line": 18,
+        "text": "    if len(caption_words)>max_words:"
+      },
+      {
+        "line": 19,
+        "text": "        caption = ' '.join(caption_words[:max_words])"
+      }
+    ]
+  },
+  {
+    "path": "/home/lzf/ldx/external/RaSa/configs/PS_cuhk_pedes.yaml",
+    "sha256": "e075bf80eb247397b5cec1c0da086fc2a42c539d2cb1d259c039db83b4516946",
+    "bytes": 896,
+    "mtime_ns": 1792242645807315496,
+    "anchors": [
+      {
+        "line": 10,
+        "text": "max_words: 50"
+      },
+      {
+        "line": 11,
+        "text": "image_res: 384"
+      },
+      {
+        "line": 23,
+        "text": "k_test: 128"
+      }
+    ]
+  },
+  {
+    "path": "/home/lzf/ldx/external/RaSa/Retrieval.py",
+    "sha256": "13450e0e891a435795c857541a8282615860bbc83a7f9dc5997f6763cd1f91f8",
+    "bytes": 15562,
+    "mtime_ns": 1792242645807315496,
+    "anchors": [
+      {
+        "line": 43,
+        "text": "        text_input1 = tokenizer(text1, padding='longest', max_length=config['max_words'], return_tensors=\"pt\").to(device)"
+      },
+      {
+        "line": 44,
+        "text": "        text_input2 = tokenizer(text2, padding='longest', max_length=config['max_words'], return_tensors=\"pt\").to(device)"
+      },
+      {
+        "line": 87,
+        "text": "        text_input = tokenizer(text, padding='max_length', truncation=True, max_length=config['max_words'], return_tensors=\"pt\").to(device)"
+      },
+      {
+        "line": 90,
+        "text": "        text_embed = F.normalize(model.text_proj(text_feat[:, 0, :]))"
+      },
+      {
+        "line": 104,
+        "text": "        image_embed = F.normalize(image_embed, dim=-1)"
+      },
+      {
+        "line": 112,
+        "text": "    # take the top-k candidates and calculate their ITM score sitm for ranking"
+      },
+      {
+        "line": 114,
+        "text": "    rank = utils.get_rank()"
+      },
+      {
+        "line": 116,
+        "text": "    start = rank * step"
+      },
+      {
+        "line": 119,
+        "text": "        topk_sim, topk_idx = sims.topk(k=config['k_test'], dim=0)"
+      },
+      {
+        "line": 122,
+        "text": "        output = model.text_encoder.bert(encoder_embeds=text_feats[start + i].repeat(config['k_test'], 1, 1),"
+      },
+      {
+        "line": 123,
+        "text": "                                         attention_mask=text_atts[start + i].repeat(config['k_test'], 1),"
+      },
+      {
+        "line": 129,
+        "text": "        score = model.itm_head(output.last_hidden_state[:, 0, :])[:, 1]"
+      },
+      {
+        "line": 143,
+        "text": "    index = torch.argsort(scores_t2i, dim=-1, descending=True)"
+      },
+      {
+        "line": 186,
+        "text": "    seed = args.seed + utils.get_rank()"
+      },
+      {
+        "line": 198,
+        "text": "        global_rank = utils.get_rank()"
+      },
+      {
+        "line": 199,
+        "text": "        samplers = create_sampler([train_dataset], [True], num_tasks, global_rank) + [None, None]"
+      },
+      {
+        "line": 291,
+        "text": "                        torch.save(save_obj, os.path.join(args.output_dir, 'checkpoint_best.pth'))"
+      }
+    ]
+  },
+  {
+    "path": "/home/lzf/ldx/external/APTM/README.md",
+    "sha256": "25a6e7bdb2c3edb215b2c8f56a05adbcb6bd5aa78796f16be9c5802ccbe591fc",
+    "bytes": 12348,
+    "mtime_ns": 1792252853112531764,
+    "anchors": [
+      {
+        "line": 137,
+        "text": "python3 run.py --task \"itr_cuhk\" --evaluate --dist \"f4\" --output_dir \"output/ft_cuhk/test\" --checkpoint \"output/ft_cuhk/checkpoint_best.pth\""
+      }
+    ]
+  },
+  {
+    "path": "/home/lzf/ldx/external/APTM/dataset/__init__.py",
+    "sha256": "982294f350e5c3df2a3e9ba0cf0a0748979fb180a4e4ee2faa34b2e2ba367dbd",
+    "bytes": 5682,
+    "mtime_ns": 1792252853128845282,
+    "anchors": [
+      {
+        "line": 44,
+        "text": "        #                              scale=(0.5, 1.0), interpolation=InterpolationMode.BICUBIC),"
+      },
+      {
+        "line": 45,
+        "text": "        transforms.Resize((config['h'], config['w']), interpolation=InterpolationMode.BICUBIC),"
+      },
+      {
+        "line": 58,
+        "text": "                                     scale=(0.5, 1.0), interpolation=InterpolationMode.BICUBIC),"
+      },
+      {
+        "line": 59,
+        "text": "        transforms.Resize((config['h'], config['w']), interpolation=InterpolationMode.BICUBIC),"
+      },
+      {
+        "line": 71,
+        "text": "        transforms.Resize((config['h'], config['w']), interpolation=InterpolationMode.BICUBIC),"
+      },
+      {
+        "line": 98,
+        "text": "def create_sampler(datasets, shuffles, num_tasks, global_rank):"
+      },
+      {
+        "line": 101,
+        "text": "        sampler = torch.utils.data.DistributedSampler(dataset, num_replicas=num_tasks, rank=global_rank,"
+      }
+    ]
+  },
+  {
+    "path": "/home/lzf/ldx/external/APTM/dataset/utils.py",
+    "sha256": "c5b37d420b6547631bab92c45c85c6f4e8da6a5d5e9b585e814af6d99d27a50e",
+    "bytes": 980,
+    "mtime_ns": 1792252853128986776,
+    "anchors": [
+      {
+        "line": 14,
+        "text": "def pre_caption(caption, max_words, icfg_rstp=False, is_eda=False, eda_p=0.5):"
+      },
+      {
+        "line": 33,
+        "text": "    if len(caption_words) > max_words:"
+      },
+      {
+        "line": 34,
+        "text": "        caption = ' '.join(caption_words[:max_words])"
+      },
+      {
+        "line": 37,
+        "text": "        raise ValueError(\"pre_caption yields invalid text\")"
+      }
+    ]
+  },
+  {
+    "path": "/home/lzf/ldx/external/APTM/configs/Retrieval_cuhk.yaml",
+    "sha256": "310baed31594048695cbf2539cbf19e3ee20b08c4999ff63ff28f5e0efa60873",
+    "bytes": 923,
+    "mtime_ns": 1792252853128531921,
+    "anchors": [
+      {
+        "line": 2,
+        "text": "test_file: 'data/finetune/cuhk_test.json'"
+      },
+      {
+        "line": 9,
+        "text": "image_res: 384"
+      },
+      {
+        "line": 25,
+        "text": "max_tokens: 56"
+      },
+      {
+        "line": 26,
+        "text": "max_words: 56"
+      },
+      {
+        "line": 30,
+        "text": "k_test: 128"
+      }
+    ]
+  },
+  {
+    "path": "/home/lzf/ldx/external/APTM/Retrieval.py",
+    "sha256": "fb49de21f81ac1cf43bc9de69178b35a55580cc1a64175790cae80b4597d8fbd",
+    "bytes": 15036,
+    "mtime_ns": 1792252853112531764,
+    "anchors": [
+      {
+        "line": 45,
+        "text": "    seed = args.seed + utils.get_rank()"
+      },
+      {
+        "line": 142,
+        "text": "            global_rank = utils.get_rank()"
+      },
+      {
+        "line": 144,
+        "text": "                samplers = create_sampler([train_dataset], [True], num_tasks, global_rank) + [None]"
+      },
+      {
+        "line": 146,
+        "text": "                samplers = create_sampler([train_dataset], [True], num_tasks, global_rank) + [None, None]"
+      },
+      {
+        "line": 253,
+        "text": "                    torch.save(save_obj, os.path.join(args.output_dir, 'checkpoint_best.pth'))"
+      }
+    ]
+  }
+]

@@ -1,0 +1,375 @@
+{
+  "official_commit": "cfc23785545ead82dee2749fa0fc0ad948c96430",
+  "verification": "GitHub API commit corroborated; pinned git objects compared to frozen actually-loaded source; modified /home/lzf/Attack/IRRA worktree files not used as official reference",
+  "files": [
+    {
+      "path": "README.md",
+      "official_commit": "cfc23785545ead82dee2749fa0fc0ad948c96430",
+      "public_url": "https://github.com/anosorae/IRRA/blob/cfc23785545ead82dee2749fa0fc0ad948c96430/README.md",
+      "blob_sha256": "2c5d191669c3f240857bdbe5e1bc7456b727177965737f6c26b1ed39a962906a",
+      "git_object_materialization": "/home/lzf/ldx/tmp/r2tua_aligned_environment_20261026/IRRA_git_objects/README.md",
+      "loaded_source_path": "/home/lzf/Attack/IRRA-main/IRRA-main/README.md",
+      "loaded_source_exists": true,
+      "loaded_source_sha256": "2c5d191669c3f240857bdbe5e1bc7456b727177965737f6c26b1ed39a962906a",
+      "byte_exact": true,
+      "anchors": []
+    },
+    {
+      "path": "test.py",
+      "official_commit": "cfc23785545ead82dee2749fa0fc0ad948c96430",
+      "public_url": "https://github.com/anosorae/IRRA/blob/cfc23785545ead82dee2749fa0fc0ad948c96430/test.py",
+      "blob_sha256": "c217136f2b036039c81b6d8b766359265151d78c27be2928111dc5f9ca6a3959",
+      "git_object_materialization": "/home/lzf/ldx/tmp/r2tua_aligned_environment_20261026/IRRA_git_objects/test.py",
+      "loaded_source_path": "/home/lzf/Attack/IRRA-main/IRRA-main/test.py",
+      "loaded_source_exists": true,
+      "loaded_source_sha256": "c217136f2b036039c81b6d8b766359265151d78c27be2928111dc5f9ca6a3959",
+      "byte_exact": true,
+      "anchors": []
+    },
+    {
+      "path": "datasets/build.py",
+      "official_commit": "cfc23785545ead82dee2749fa0fc0ad948c96430",
+      "public_url": "https://github.com/anosorae/IRRA/blob/cfc23785545ead82dee2749fa0fc0ad948c96430/datasets/build.py",
+      "blob_sha256": "e99987047a9ba7e396c8fd9ac23da797f01b09f517bec03d7fb1016a5eb477b6",
+      "git_object_materialization": "/home/lzf/ldx/tmp/r2tua_aligned_environment_20261026/IRRA_git_objects/datasets/build.py",
+      "loaded_source_path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/build.py",
+      "loaded_source_exists": true,
+      "loaded_source_sha256": "e99987047a9ba7e396c8fd9ac23da797f01b09f517bec03d7fb1016a5eb477b6",
+      "byte_exact": true,
+      "anchors": [
+        {
+          "line": 20,
+          "text": "def build_transforms(img_size=(384, 128), aug=False, is_train=True):"
+        }
+      ]
+    },
+    {
+      "path": "datasets/bases.py",
+      "official_commit": "cfc23785545ead82dee2749fa0fc0ad948c96430",
+      "public_url": "https://github.com/anosorae/IRRA/blob/cfc23785545ead82dee2749fa0fc0ad948c96430/datasets/bases.py",
+      "blob_sha256": "8e1fc03ea1f32629f209a2c4fabd1c65b8e9162c0323c4092b15f68dd8c7b2b6",
+      "git_object_materialization": "/home/lzf/ldx/tmp/r2tua_aligned_environment_20261026/IRRA_git_objects/datasets/bases.py",
+      "loaded_source_path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/bases.py",
+      "loaded_source_exists": true,
+      "loaded_source_sha256": "8e1fc03ea1f32629f209a2c4fabd1c65b8e9162c0323c4092b15f68dd8c7b2b6",
+      "byte_exact": true,
+      "anchors": [
+        {
+          "line": 42,
+          "text": "def tokenize(caption: str, tokenizer, text_length=77, truncate=True) -> torch.LongTensor:"
+        },
+        {
+          "line": 110,
+          "text": "class TextDataset(Dataset):"
+        }
+      ]
+    },
+    {
+      "path": "datasets/cuhkpedes.py",
+      "official_commit": "cfc23785545ead82dee2749fa0fc0ad948c96430",
+      "public_url": "https://github.com/anosorae/IRRA/blob/cfc23785545ead82dee2749fa0fc0ad948c96430/datasets/cuhkpedes.py",
+      "blob_sha256": "5110b7102d0a95dc6818808eacc0c6d5a9eb7e0c18429a533bcb4bf72a95c386",
+      "git_object_materialization": "/home/lzf/ldx/tmp/r2tua_aligned_environment_20261026/IRRA_git_objects/datasets/cuhkpedes.py",
+      "loaded_source_path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/cuhkpedes.py",
+      "loaded_source_exists": true,
+      "loaded_source_sha256": "5110b7102d0a95dc6818808eacc0c6d5a9eb7e0c18429a533bcb4bf72a95c386",
+      "byte_exact": true,
+      "anchors": [
+        {
+          "line": 8,
+          "text": "class CUHKPEDES(BaseDataset):"
+        }
+      ]
+    },
+    {
+      "path": "utils/metrics.py",
+      "official_commit": "cfc23785545ead82dee2749fa0fc0ad948c96430",
+      "public_url": "https://github.com/anosorae/IRRA/blob/cfc23785545ead82dee2749fa0fc0ad948c96430/utils/metrics.py",
+      "blob_sha256": "94910252a9e42f0820d49c11203b31d3b67951f58624f66abff4bf662500d5fb",
+      "git_object_materialization": "/home/lzf/ldx/tmp/r2tua_aligned_environment_20261026/IRRA_git_objects/utils/metrics.py",
+      "loaded_source_path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/metrics.py",
+      "loaded_source_exists": true,
+      "loaded_source_sha256": "94910252a9e42f0820d49c11203b31d3b67951f58624f66abff4bf662500d5fb",
+      "byte_exact": true,
+      "anchors": [
+        {
+          "line": 9,
+          "text": "def rank(similarity, q_pids, g_pids, max_rank=10, get_mAP=True):"
+        }
+      ]
+    },
+    {
+      "path": "utils/options.py",
+      "official_commit": "cfc23785545ead82dee2749fa0fc0ad948c96430",
+      "public_url": "https://github.com/anosorae/IRRA/blob/cfc23785545ead82dee2749fa0fc0ad948c96430/utils/options.py",
+      "blob_sha256": "72b75fec88278c951eea900ede5a9f98514546dbe7afa3f88867b692127d2220",
+      "git_object_materialization": "/home/lzf/ldx/tmp/r2tua_aligned_environment_20261026/IRRA_git_objects/utils/options.py",
+      "loaded_source_path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/options.py",
+      "loaded_source_exists": true,
+      "loaded_source_sha256": "72b75fec88278c951eea900ede5a9f98514546dbe7afa3f88867b692127d2220",
+      "byte_exact": true,
+      "anchors": []
+    },
+    {
+      "path": "utils/simple_tokenizer.py",
+      "official_commit": "cfc23785545ead82dee2749fa0fc0ad948c96430",
+      "public_url": "https://github.com/anosorae/IRRA/blob/cfc23785545ead82dee2749fa0fc0ad948c96430/utils/simple_tokenizer.py",
+      "blob_sha256": "19b06ade7532bcff961c4b90590197fcac0d466f08d0b6b801d3d19a36568d67",
+      "git_object_materialization": "/home/lzf/ldx/tmp/r2tua_aligned_environment_20261026/IRRA_git_objects/utils/simple_tokenizer.py",
+      "loaded_source_path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/simple_tokenizer.py",
+      "loaded_source_exists": true,
+      "loaded_source_sha256": "19b06ade7532bcff961c4b90590197fcac0d466f08d0b6b801d3d19a36568d67",
+      "byte_exact": true,
+      "anchors": [
+        {
+          "line": 6,
+          "text": "import ftfy"
+        },
+        {
+          "line": 51,
+          "text": "    text = ftfy.fix_text(text)"
+        },
+        {
+          "line": 126,
+          "text": "        text = whitespace_clean(basic_clean(text)).lower()"
+        }
+      ]
+    },
+    {
+      "path": "utils/iotools.py",
+      "official_commit": "cfc23785545ead82dee2749fa0fc0ad948c96430",
+      "public_url": "https://github.com/anosorae/IRRA/blob/cfc23785545ead82dee2749fa0fc0ad948c96430/utils/iotools.py",
+      "blob_sha256": "13260ab0306929ddcf10a6a209f792b3499590d9e20c785c4eee62d1b3c12c3c",
+      "git_object_materialization": "/home/lzf/ldx/tmp/r2tua_aligned_environment_20261026/IRRA_git_objects/utils/iotools.py",
+      "loaded_source_path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/iotools.py",
+      "loaded_source_exists": true,
+      "loaded_source_sha256": "13260ab0306929ddcf10a6a209f792b3499590d9e20c785c4eee62d1b3c12c3c",
+      "byte_exact": true,
+      "anchors": [
+        {
+          "line": 18,
+          "text": "def read_image(img_path):"
+        }
+      ]
+    },
+    {
+      "path": "model/build.py",
+      "official_commit": "cfc23785545ead82dee2749fa0fc0ad948c96430",
+      "public_url": "https://github.com/anosorae/IRRA/blob/cfc23785545ead82dee2749fa0fc0ad948c96430/model/build.py",
+      "blob_sha256": "bb8176ab1fc6a88cb49d0cbd8317b1c1aa6ebd4f035988170d60508f5df508b2",
+      "git_object_materialization": "/home/lzf/ldx/tmp/r2tua_aligned_environment_20261026/IRRA_git_objects/model/build.py",
+      "loaded_source_path": "/home/lzf/Attack/IRRA-main/IRRA-main/model/build.py",
+      "loaded_source_exists": true,
+      "loaded_source_sha256": "bb8176ab1fc6a88cb49d0cbd8317b1c1aa6ebd4f035988170d60508f5df508b2",
+      "byte_exact": true,
+      "anchors": [
+        {
+          "line": 2,
+          "text": "from .clip_model import Transformer, QuickGELU, LayerNorm, build_CLIP_from_openai_pretrained, convert_weights"
+        },
+        {
+          "line": 81,
+          "text": "    def encode_image(self, image):"
+        },
+        {
+          "line": 86,
+          "text": "    def encode_text(self, text):"
+        },
+        {
+          "line": 149,
+          "text": "    convert_weights(model)"
+        }
+      ]
+    },
+    {
+      "path": "model/clip_model.py",
+      "official_commit": "cfc23785545ead82dee2749fa0fc0ad948c96430",
+      "public_url": "https://github.com/anosorae/IRRA/blob/cfc23785545ead82dee2749fa0fc0ad948c96430/model/clip_model.py",
+      "blob_sha256": "81f9553ff6d4c6a96bcdb1e41451694aab0c208ad84865ac344ef6b6bbd002a9",
+      "git_object_materialization": "/home/lzf/ldx/tmp/r2tua_aligned_environment_20261026/IRRA_git_objects/model/clip_model.py",
+      "loaded_source_path": "/home/lzf/Attack/IRRA-main/IRRA-main/model/clip_model.py",
+      "loaded_source_exists": true,
+      "loaded_source_sha256": "81f9553ff6d4c6a96bcdb1e41451694aab0c208ad84865ac344ef6b6bbd002a9",
+      "byte_exact": true,
+      "anchors": [
+        {
+          "line": 405,
+          "text": "    def dtype(self):"
+        },
+        {
+          "line": 408,
+          "text": "    def encode_image(self, image):"
+        },
+        {
+          "line": 411,
+          "text": "    def encode_text(self, text):"
+        },
+        {
+          "line": 484,
+          "text": "def convert_weights(model: nn.Module):"
+        },
+        {
+          "line": 487,
+          "text": "    def _convert_weights_to_fp16(l):"
+        },
+        {
+          "line": 505,
+          "text": "    model.apply(_convert_weights_to_fp16)"
+        },
+        {
+          "line": 595,
+          "text": "    # convert_weights(model)"
+        }
+      ]
+    }
+  ],
+  "irra_source": {
+    "root": "/home/lzf/Attack/IRRA-main/IRRA-main",
+    "checkpoint": {
+      "path": "/home/lzf/Attack/IRRA/logs/CUHK-PEDES/best.pth",
+      "sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+    },
+    "config": {
+      "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/configs/irra_cuhk_official.yaml",
+      "sha256": "8a9c1921ebcf93babcfdc07d35525a8d13572aeebdec5605e390289c536c5175"
+    },
+    "clip_bootstrap": {
+      "path": "/home/lzf/ldx/cache/clip/ViT-B-16.pt",
+      "sha256": "5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f"
+    },
+    "bpe": {
+      "path": "/home/lzf/Attack/IRRA-main/IRRA-main/data/bpe_simple_vocab_16e6.txt.gz",
+      "sha256": "924691ac288e54409236115652ad4aa250f48203de50a9e4722a6ecd48d6804a"
+    },
+    "code": {
+      "datasets/__init__.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/__init__.py",
+        "sha256": "fee17e0309d1d428593ce4f4426c7de36317e54d5df2ea4d9fcdd4d5fd5a0aa0"
+      },
+      "datasets/bases.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/bases.py",
+        "sha256": "8e1fc03ea1f32629f209a2c4fabd1c65b8e9162c0323c4092b15f68dd8c7b2b6"
+      },
+      "datasets/build.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/build.py",
+        "sha256": "e99987047a9ba7e396c8fd9ac23da797f01b09f517bec03d7fb1016a5eb477b6"
+      },
+      "datasets/cuhkpedes.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/cuhkpedes.py",
+        "sha256": "5110b7102d0a95dc6818808eacc0c6d5a9eb7e0c18429a533bcb4bf72a95c386"
+      },
+      "datasets/icfgpedes.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/icfgpedes.py",
+        "sha256": "89ba2acb1dad4779ba27f191f6046d5f245b1cc134d5a104b1c6feae48df7862"
+      },
+      "datasets/preprocessing.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/preprocessing.py",
+        "sha256": "624c28b443e7173ddf2ea1eb2c1b7e2ebc609978a33152d222cc59b0be41009d"
+      },
+      "datasets/rstpreid.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/rstpreid.py",
+        "sha256": "369d398b0e2123b268c71b8e9f826e36d84c05c182adf2230b79c97e349fbe9d"
+      },
+      "datasets/sampler.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/sampler.py",
+        "sha256": "d95ee53f729f14b8ec0cbd259a32c50f8b0fe171dba4e14443f2995890c54157"
+      },
+      "datasets/sampler_ddp.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/sampler_ddp.py",
+        "sha256": "da5ad1e918680d477aa66afa1b447b3a2642ab7396b96f4839ff09c88a445ba0"
+      },
+      "model/__init__.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/model/__init__.py",
+        "sha256": "0d8e897820044d180f6af594df5f58666d3ba42737afb6f54ecfeaa411f394d4"
+      },
+      "model/build.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/model/build.py",
+        "sha256": "bb8176ab1fc6a88cb49d0cbd8317b1c1aa6ebd4f035988170d60508f5df508b2"
+      },
+      "model/clip_model.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/model/clip_model.py",
+        "sha256": "81f9553ff6d4c6a96bcdb1e41451694aab0c208ad84865ac344ef6b6bbd002a9"
+      },
+      "model/objectives.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/model/objectives.py",
+        "sha256": "41c7a683e3e52e60257e4f0b2a780240d567d9cac826d879e70b1c9f0213e283"
+      },
+      "processor/__init__.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/processor/__init__.py",
+        "sha256": "dc9ad41ea468de419d5f33b6dd86b1599bfc924a33f59af8383c46c7191c896c"
+      },
+      "processor/processor.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/processor/processor.py",
+        "sha256": "0197dba7fb3268231d48c1adffbb0aaf9edd1554e06ee046bfed998fe92b8c31"
+      },
+      "solver/__init__.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/solver/__init__.py",
+        "sha256": "f142c1367f436894f4bd5b2b24f9e64fa0d4372c171c8d410b957a74f52749a8"
+      },
+      "solver/build.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/solver/build.py",
+        "sha256": "387a5d305df40d5a25fab7e2391638bad5f87633aead5f9df30011f1e2c323bd"
+      },
+      "solver/lr_scheduler.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/solver/lr_scheduler.py",
+        "sha256": "5f89bb63533ebeabcc038ee49f88efe721e7c4c4521f47b54edd348aeb43bb77"
+      },
+      "test.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/test.py",
+        "sha256": "c217136f2b036039c81b6d8b766359265151d78c27be2928111dc5f9ca6a3959"
+      },
+      "train.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/train.py",
+        "sha256": "e77e47b4b029906b823f4c579351e9259ba969bbe0d8936ea303da1f38af5677"
+      },
+      "utils/__init__.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "utils/checkpoint.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/checkpoint.py",
+        "sha256": "fdd2821d894b853ac319d6c2370919918c13c314d171e7ab0d366ea181bfdb44"
+      },
+      "utils/comm.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/comm.py",
+        "sha256": "05f7ec76fa049d0ca57a90f028471e2a18203e32f2ab28f9448e7fb89dd34b4e"
+      },
+      "utils/iotools.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/iotools.py",
+        "sha256": "13260ab0306929ddcf10a6a209f792b3499590d9e20c785c4eee62d1b3c12c3c"
+      },
+      "utils/logger.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/logger.py",
+        "sha256": "14afe54df8c16abe73d455c786f63999b64c9fe407909b2f00c5f7f91da0f131"
+      },
+      "utils/meter.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/meter.py",
+        "sha256": "0245aa40c9a6ade9a9ac0a0f882d1a1d7b06260c667ea43e2ecb3ba846311796"
+      },
+      "utils/metrics.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/metrics.py",
+        "sha256": "94910252a9e42f0820d49c11203b31d3b67951f58624f66abff4bf662500d5fb"
+      },
+      "utils/options.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/options.py",
+        "sha256": "72b75fec88278c951eea900ede5a9f98514546dbe7afa3f88867b692127d2220"
+      },
+      "utils/simple_tokenizer.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/simple_tokenizer.py",
+        "sha256": "19b06ade7532bcff961c4b90590197fcac0d466f08d0b6b801d3d19a36568d67"
+      },
+      "visualize.py": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/visualize.py",
+        "sha256": "8692cbcf59c7c8ee3b165a6295ae128bf109f2fe60b5fd10fae773eb8975c05d"
+      }
+    },
+    "weight_training_dataset": "CUHK-PEDES official train"
+  },
+  "dataset": {
+    "annotation": {
+      "path": "/home/lzf/TBPS/Datasets/CUHK-PEDES/reid_raw.json",
+      "sha256": "fc3d15542f91dd70e23028c2cb40171a8f41734a39afddb9505e352e396cabf0"
+    },
+    "image_root": "/home/lzf/TBPS/Datasets/CUHK-PEDES/imgs"
+  }
+}

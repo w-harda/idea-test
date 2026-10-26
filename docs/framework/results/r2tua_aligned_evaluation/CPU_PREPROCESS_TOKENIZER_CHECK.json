@@ -1,0 +1,174 @@
+{
+  "scope": "CPU clean-image preprocessing + token IDs only, no real embedding or ranking",
+  "image_count": 3,
+  "pixel_checks": [
+    {
+      "gallery_index": 0,
+      "image_path": "/home/lzf/TBPS/Datasets/CUHK-PEDES/imgs/train_query/p8848_s17661.jpg",
+      "source_image_sha256": "6756e64194c981af646ade08ea47de531e4f95c057393e836cb0b3609fb465de",
+      "original_size_wh": [
+        169,
+        450
+      ],
+      "IRRA_current_bridge_vs_public_transform": {
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "different_elements": 0,
+        "elements": 147456,
+        "a_range": [
+          0.0,
+          1.0
+        ],
+        "b_range": [
+          0.0,
+          1.0
+        ]
+      },
+      "RaSa_common_bridge_vs_public_raw_PIL": {
+        "max_abs": 0.094117671251297,
+        "mean_abs": 0.00357792838579123,
+        "different_elements": 348216,
+        "elements": 442368,
+        "a_range": [
+          -0.0020334080327302217,
+          1.0013072490692139
+        ],
+        "b_range": [
+          0.0,
+          1.0
+        ]
+      },
+      "APTM_common_bridge_vs_public_raw_PIL": {
+        "max_abs": 0.058823540806770325,
+        "mean_abs": 0.0027970324442744892,
+        "different_elements": 56694,
+        "elements": 147456,
+        "a_range": [
+          0.0,
+          1.0
+        ],
+        "b_range": [
+          0.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "gallery_index": 1,
+      "image_path": "/home/lzf/TBPS/Datasets/CUHK-PEDES/imgs/train_query/p8848_s17662.jpg",
+      "source_image_sha256": "6ae0e1bcf3fc46ddb4307ac49a5594626bf483cc5b3d273bdf6ae9c81a411cb0",
+      "original_size_wh": [
+        155,
+        447
+      ],
+      "IRRA_current_bridge_vs_public_transform": {
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "different_elements": 0,
+        "elements": 147456,
+        "a_range": [
+          0.007843137718737125,
+          0.9960784316062927
+        ],
+        "b_range": [
+          0.007843137718737125,
+          0.9960784316062927
+        ]
+      },
+      "RaSa_common_bridge_vs_public_raw_PIL": {
+        "max_abs": 0.11401551216840744,
+        "mean_abs": 0.0031283399498555037,
+        "different_elements": 344002,
+        "elements": 442368,
+        "a_range": [
+          0.007843137718737125,
+          0.9970952272415161
+        ],
+        "b_range": [
+          0.0,
+          1.0
+        ]
+      },
+      "APTM_common_bridge_vs_public_raw_PIL": {
+        "max_abs": 0.0470588356256485,
+        "mean_abs": 0.002549594065581257,
+        "different_elements": 57650,
+        "elements": 147456,
+        "a_range": [
+          0.007843137718737125,
+          0.9960784316062927
+        ],
+        "b_range": [
+          0.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "gallery_index": 2,
+      "image_path": "/home/lzf/TBPS/Datasets/CUHK-PEDES/imgs/train_query/p8848_s17663.jpg",
+      "source_image_sha256": "d2a63cc55de9d2224854367b89fbbfcf21f4c1657fe7ef500d3f650ccca8aced",
+      "original_size_wh": [
+        89,
+        285
+      ],
+      "IRRA_current_bridge_vs_public_transform": {
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "different_elements": 0,
+        "elements": 147456,
+        "a_range": [
+          0.027450980618596077,
+          1.0
+        ],
+        "b_range": [
+          0.027450980618596077,
+          1.0
+        ]
+      },
+      "RaSa_common_bridge_vs_public_raw_PIL": {
+        "max_abs": 0.05635371804237366,
+        "mean_abs": 0.003031635301572014,
+        "different_elements": 342864,
+        "elements": 442368,
+        "a_range": [
+          0.020769771188497543,
+          1.0
+        ],
+        "b_range": [
+          0.003921568859368563,
+          1.0
+        ]
+      },
+      "APTM_common_bridge_vs_public_raw_PIL": {
+        "max_abs": 0.05098041892051697,
+        "mean_abs": 0.0026866638854698977,
+        "different_elements": 59115,
+        "elements": 147456,
+        "a_range": [
+          0.027450980618596077,
+          1.0
+        ],
+        "b_range": [
+          0.003921568859368563,
+          1.0
+        ]
+      }
+    }
+  ],
+  "tokenizer": {
+    "queries": 6156,
+    "mismatches": 0,
+    "truncated": 15,
+    "max_untruncated_token_length": 115,
+    "context": 77,
+    "same_pinned_tokenizer": true
+  },
+  "neural_forward": 0,
+  "CUDA_initialized": false,
+  "models_loaded": 0,
+  "real_ranking": 0,
+  "versions": {
+    "torch": "2.5.1+cu124"
+  }
+}

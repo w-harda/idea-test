@@ -1,0 +1,107 @@
+{
+  "status": "PASS",
+  "checks_passed": 20,
+  "checks": [
+    {
+      "name": "TABLE1_PDF_VALUE_MATCH",
+      "pass": true,
+      "detail": "33物理行、99数据集行、396数字逐项匹配"
+    },
+    {
+      "name": "BASELINE_ROW_COUNT",
+      "pass": true,
+      "detail": "包含全部Table1数据集，不漏Targeted行"
+    },
+    {
+      "name": "BASELINE_UNIQUE",
+      "pass": true,
+      "detail": "模型/数据集/方法组合唯一"
+    },
+    {
+      "name": "CUHK_ROW_COUNT",
+      "pass": true,
+      "detail": "3模型×11行"
+    },
+    {
+      "name": "OTHER_DATASETS_SEPARATE",
+      "pass": true,
+      "detail": "保留其他数据，不混当前公平比较"
+    },
+    {
+      "name": "TARGETED_SEPARATE",
+      "pass": true,
+      "detail": "目标成功↑不得冒充非目标下降↓"
+    },
+    {
+      "name": "UNKNOWN_BASELINE_EPSILON_NOT_FILLED",
+      "pass": true,
+      "detail": "不拿各原论文默认值补齐R²TUA适配参数"
+    },
+    {
+      "name": "R2TUA_OWN_EPSILON",
+      "pass": true,
+      "detail": "仅R²TUA本身的名义预算有正文依据"
+    },
+    {
+      "name": "UNKNOWN_SOURCE_NOT_IRRA",
+      "pass": true,
+      "detail": "未将Baseline Source臆定IRRA"
+    },
+    {
+      "name": "IRRA_OFFICIAL_SOURCE_MATCH",
+      "pass": true,
+      "detail": "实际加载副本与固定官方Git对象一致"
+    },
+    {
+      "name": "TOKENIZER_ALL_RAW_QUERIES",
+      "pass": true,
+      "detail": "实际CPU逐条Token ID比较，无神经编码"
+    },
+    {
+      "name": "TOKENIZER_TRUNCATION_VISIBLE",
+      "pass": true,
+      "detail": "保留全部Query及官方截断"
+    },
+    {
+      "name": "IRRA_PIXEL_FIXTURE_EQUAL",
+      "pass": true,
+      "detail": "只覆盖固定3图，不外推全体特征"
+    },
+    {
+      "name": "RASA_PREPROCESS_DIFFERENCE",
+      "pass": true,
+      "detail": "只确认处理路径和像素不同，不确认指标因果"
+    },
+    {
+      "name": "APTM_PREPROCESS_DIFFERENCE",
+      "pass": true,
+      "detail": "只确认处理路径和像素不同，不确认指标因果"
+    },
+    {
+      "name": "THREE_CHECKPOINTS_UNCHANGED",
+      "pass": true,
+      "detail": "只读文件SHA，无模型加载"
+    },
+    {
+      "name": "CONTROLS_FROM_REAL_FULL",
+      "pass": true,
+      "detail": "原metrics/summary读取；未重新排名"
+    },
+    {
+      "name": "NO_GPU_OR_NEURAL",
+      "pass": true,
+      "detail": "CPU像素/Token核验及文档构建"
+    },
+    {
+      "name": "HISTORICAL_INPUTS_PROTECTED",
+      "pass": true,
+      "detail": "50份指定来源SHA/stat核验"
+    },
+    {
+      "name": "CSV_LOSSLESS_NUMBERS",
+      "pass": true,
+      "detail": "CSV两位数与已发表精度一致，不制造原始高精度"
+    }
+  ],
+  "not_model_regression_tests": true
+}
