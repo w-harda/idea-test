@@ -1,0 +1,88 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-10-26T20:47:46.699138+08:00",
+  "checks": [
+    {
+      "check": "matrix_no_empty_fields",
+      "pass": true
+    },
+    {
+      "check": "matrix_required_columns",
+      "pass": true
+    },
+    {
+      "check": "Table1_99_rows",
+      "pass": true
+    },
+    {
+      "check": "Table2_18_rows",
+      "pass": true
+    },
+    {
+      "check": "Table3_16_rows",
+      "pass": true
+    },
+    {
+      "check": "no_duplicate_scenario_method_dataset_victim",
+      "pass": true
+    },
+    {
+      "check": "Table3_star_budget",
+      "pass": true
+    },
+    {
+      "check": "no_APTM_unseen_target",
+      "pass": true
+    },
+    {
+      "check": "H60_missing_not_Validation_substitution",
+      "pass": true
+    },
+    {
+      "check": "no_paper_baseline_budget_inheritance",
+      "pass": true
+    },
+    {
+      "check": "raw_CSV_summary_exact",
+      "pass": true
+    },
+    {
+      "check": "originals_preserved",
+      "pass": true
+    },
+    {
+      "check": "all_8_weight_identities",
+      "pass": true
+    },
+    {
+      "check": "frozen_worktree_base",
+      "pass": true
+    },
+    {
+      "check": "current_train_internal_Validation_official_Test_PID_disjoint",
+      "pass": true
+    }
+  ],
+  "count": 15,
+  "not_training_regression": true,
+  "GPU": false,
+  "outputs": 184,
+  "scenario_counts": {
+    "OUR_OFFICIAL_TEST": 18,
+    "OUR_B_STATUS_ONLY": 1,
+    "R2TUA_TABLE1_CLEAN": 9,
+    "R2TUA_TABLE1_UNTARGETED_DOWN": 72,
+    "R2TUA_TABLE1_TARGETED_UP": 18,
+    "R2TUA_TABLE2_IMAGE_REID_UNTARGETED_DOWN": 15,
+    "R2TUA_TABLE2_IMAGE_REID_TARGETED_UP": 3,
+    "R2TUA_TABLE3_META_TRANSFER_UNTARGETED_DOWN": 10,
+    "R2TUA_TABLE3_META_TRANSFER_TARGETED_UP": 6,
+    "ORIGINAL_METHOD_NOT_R2TUA_REIMPLEMENTATION": 8,
+    "OUR_OFFICIAL_ALGORITHM_IRRA_PORT": 24
+  },
+  "derived_CSV_format_fix": {
+    "cause": "csv default CRLF interpreted as trailing whitespace by repository Git configuration",
+    "fix": "LF only; before/after all 6 metric columns string-exact for184 rows",
+    "original_result_modified": false
+  }
+}
