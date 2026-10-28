@@ -1,0 +1,7 @@
+{
+  "status": "RESOURCE_BUSY",
+  "error": "ArtifactError('RESOURCE_BUSY')",
+  "gpu": "1302, 24564, 84\n",
+  "compute_processes": "2411159, /home/lzf/jmk/envs/foa_v5/bin/python, 7760\n3763832, /usr/local/lib/ollama/llama-server, 14976\n",
+  "time": "2026-10-28T22:54:50.211103+08:00"
+}

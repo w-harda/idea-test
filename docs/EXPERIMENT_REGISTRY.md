@@ -675,3 +675,10 @@ H20新增候选最低40.427635%，历史H9为40.425480%；H60为42.874081%，不
 [设计](framework/results/gh_bidirectional_prototype/REPORT.md)、
 [实际CPU/资源/保护证据](framework/results/gh_bidirectional_prototype/SOURCE_EVIDENCE.json)。
 不重发任何历史完成回执，不自动启动后续训练。
+
+
+## 2026-10-28：C-PGC与SEP三数据集原生评测接线
+
+新增独立tbps.baselines.cpgc_sep，支持CUHK/ICFG/RSTP专用IRRA与RaSa权重、作者预训练UAP及原SEP DPP候选机制。旧框架与历史实验只读。96项CPU回归及两个真实环境预检PASS，GPU/Full仍以实际不可变回执为准。详见[实验记录](framework/results/cpgc_sep_tbps/REPORT.md)。
+
+当前资源阻塞：1302MiB空闲，GPU Attempt未创建，Full0/12。无后台任务，不能标记Full完成。详细证据见framework/results/cpgc_sep_tbps/RESOURCE_STATUS.json。

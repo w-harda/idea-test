@@ -437,3 +437,10 @@ mAP按上述方法顺序：IRRA 66.10/40.43/32.28，RaSa 69.18/39.99/35.05，APT
 - RaSa实现及等待器：174eb51f4c346a6d74ace3f61f1ea170aeccf00b，见framework/RASA_MATERIALIZED_EVALUATION.md、framework/RASA_GPU_WAIT.md。
 - APTM实现：2f21e910d9e560aa96ae29adcdb3d712c38dd4d6；自动链实现568eba1fd08407b7d6daabba8e47f1735c9cd98d、部署文档525488a1a7de7f3258d71e195019c2bdc0a79e8f，见framework/APTM_MATERIALIZED_EVALUATION.md、framework/APTM_GPU_WAIT.md。其中“尚未执行”保留原阶段快照属性，最新完成状态以本文及正式结果报告为准。
 - Stage3B/4C/4D旧FAIL证据与历史源码/缓存永久保留，本轮没有改签或清理。
+
+
+## 2026-10-28：C-PGC与SEP三数据集原生评测接线
+
+新增独立tbps.baselines.cpgc_sep，支持CUHK/ICFG/RSTP专用IRRA与RaSa权重、作者预训练UAP及原SEP DPP候选机制。旧框架与历史实验只读。96项CPU回归及两个真实环境预检PASS，GPU/Full仍以实际不可变回执为准。详见[实验记录](framework/results/cpgc_sep_tbps/REPORT.md)。
+
+当前资源阻塞：1302MiB空闲，GPU Attempt未创建，Full0/12。无后台任务，不能标记Full完成。详细证据见framework/results/cpgc_sep_tbps/RESOURCE_STATUS.json。

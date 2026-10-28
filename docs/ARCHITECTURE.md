@@ -458,3 +458,8 @@ A1不消费新文本条件，B消费，二者均刷新G→H反馈。Loss/Reward/
 双Adam与G/H阶段RNG分别存储，原子round、不可变Claim与完整边界恢复；未完成事务拒绝自动重播。
 当前仅CPU Fixture执行，真实后端组装与GPU数值验收PENDING；CLI只有只读预检，无训练动作。
 协议/接口/缓存失效及预算见framework/results/gh_bidirectional_prototype/和ADR-0015。
+
+
+## 2026-10-28：C-PGC与SEP三数据集原生评测接线
+
+新增独立tbps.baselines.cpgc_sep，支持CUHK/ICFG/RSTP专用IRRA与RaSa权重、作者预训练UAP及原SEP DPP候选机制。旧框架与历史实验只读。96项CPU回归及两个真实环境预检PASS，GPU/Full仍以实际不可变回执为准。详见[实验记录](framework/results/cpgc_sep_tbps/REPORT.md)。
