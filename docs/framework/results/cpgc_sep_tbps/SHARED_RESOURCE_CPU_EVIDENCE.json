@@ -1,0 +1,32 @@
+{
+  "parent_commit": "c134cb394dd8a21a39c7bc9aa2642fe33e38a6d0",
+  "config_sha256": "be0054037dbade5e73503dad2e354acd431efd7da67127382ba74a1534d38e5e",
+  "CPU_summary": "101 passed, 10 warnings in 22.49s",
+  "logs": {
+    "cpu.exit": {
+      "path": "/home/lzf/ldx/tmp/cpgc_sep_shared_prepare_20261029/cpu.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "preflight_victim.exit": {
+      "path": "/home/lzf/ldx/tmp/cpgc_sep_shared_prepare_20261029/preflight_victim.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "preflight_victim.log": {
+      "path": "/home/lzf/ldx/tmp/cpgc_sep_shared_prepare_20261029/preflight_victim.log",
+      "sha256": "eeccbdeaec79bc47d891f78c9804c1ae4dbcce5c860f11c7b0fbc6bdbd757334"
+    },
+    "cpu.log": {
+      "path": "/home/lzf/ldx/tmp/cpgc_sep_shared_prepare_20261029/cpu.log",
+      "sha256": "6baf924d55033a9c54889a120c08db3f9da2ab730dd0ef357cdb1baec437d94d"
+    },
+    "preflight_source.log": {
+      "path": "/home/lzf/ldx/tmp/cpgc_sep_shared_prepare_20261029/preflight_source.log",
+      "sha256": "63c68e94af58be8b38672b375916e4e19a410a60e2d5ad00e65b4a80b2d2ebb9"
+    },
+    "preflight_source.exit": {
+      "path": "/home/lzf/ldx/tmp/cpgc_sep_shared_prepare_20261029/preflight_source.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  },
+  "GPU_attempt_created": false
+}

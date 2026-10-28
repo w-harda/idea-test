@@ -67,6 +67,12 @@ def audit(c,method,dataset,victim,scope):
     "groups":groups,"config_sha256":c["sha256"],"result":asdict(ref(root/"completed/manifest.json"))}
   out.publish("completed",{"audit.json":json_bytes(report)},{"kind":"independent_CPU_audit"},sources=(ref(root/"completed/manifest.json"),ref(c["path"])))
  print("CPGC_SEP_INDEPENDENT_CPU_AUDIT_PASS",method,dataset,victim,scope,flush=True);return 0
+def require_smoke_headroom(c,report):
+ limit=c.get("shared_resource_validation")
+ if limit:
+  peak=report["peak_GPU_reserved_bytes"]
+  require(type(peak)is int and peak>0,"real GPU Smoke peak required")
+  require(peak+limit["safety_margin_mib"]*1024**2<=c["resource_gate"]["minimum_free_mib"]*1024**2,"measured Smoke peak plus safety margin exceeds Full gate")
 def smoke_ready(c,method):
  for ds in ("cuhk","rstp","icfg"):
   for victim in ("irra","rasa"):
@@ -74,4 +80,10 @@ def smoke_ready(c,method):
    s=ArtifactStore(p,new_base=c["output_base"]);s.verify("completed")
    r=json.loads((p/"completed/audit.json").read_text())
    require(r["status"]=="PASS" and r["scope"]=="smoke" and r["method"]==method and r["dataset"]==ds and r["victim"]==victim and r["config_sha256"]==c["sha256"],"all real Smoke and CPU audit required")
+   if c.get("shared_resource_validation"):
+    require_smoke_headroom(c,json.loads((Path(c["output_base"])/"smoke"/method/ds/victim/"completed/summary.json").read_text()))
+    source=Path(c["output_base"])/"smoke"/(method+"_source")/ds
+    if method=="sep":source=source/victim
+    ArtifactStore(source,new_base=c["output_base"]).verify("completed")
+    require_smoke_headroom(c,json.loads((source/"completed/report.json").read_text()))
  return True

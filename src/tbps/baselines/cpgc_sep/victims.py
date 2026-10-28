@@ -52,7 +52,7 @@ class VictimSource:
  def space(self):
   if self.model=="irra":
    return ModelSpace("irra",self.checkpoint.sha256,self.fingerprint,digest({"native_PIL":"RGB Resize384x128 bilinear ToTensor",**IRRA_PREPROCESS}),digest({"bpe":asdict(self.bpe),"context":77}),digest(METRICS),"official_convert_weights_mixed_parameters;float32_features")
-  return ModelSpace("rasa",self.checkpoint.sha256,self.fingerprint,digest({"native_PIL":"RGB direct bicubic384x384",**RASA_PREPROCESS}),digest({"bert":self.data["bert"],"pre_caption_words":50,"tokens":50}),digest({**SCORING,"fusion_batch":"native k_test128"}),"native_fp32")
+  return ModelSpace("rasa",self.checkpoint.sha256,self.fingerprint,digest({"native_PIL":"RGB direct bicubic384x384",**RASA_PREPROCESS}),digest({"bert":self.data["bert"],"pre_caption_words":50,"tokens":50}),digest({**SCORING,"fusion_batch":self.config["evaluation"].get("fusion_batch",128)}),"native_fp32")
 class NativeIRRAView(IRRAView):
  def _run(self,callback):
   import torch
@@ -67,7 +67,7 @@ class NativeIRRA(IRRAAdapter):
   self.spec=IRRA;self.space=space;self.source_verified=True
 class NativeRasa(RasaAdapter):
  def score(self,query,gallery):
-  """复用官方Retrieval.py Top128全局候选→一次128-pair融合→ITM正类logit。"""
+  """复用官方Retrieval.py Top128全局候选→全部128-pair分块融合→ITM正类logit。"""
   import torch
   q,g=query.payload,gallery.payload
   validate_payload(q,len(q["global"]),"text");validate_payload(g,len(g["global"]),"image")
@@ -77,13 +77,17 @@ class NativeRasa(RasaAdapter):
    sims=q["global"].to(self.device)@g["global"].to(self.device).T
    for i,row in enumerate(sims):
     ids=row.topk(k=min(128,ng)).indices
-    image=g["tokens"][ids.cpu()].to(self.device)
-    image_atts=torch.ones(image.size()[:-1],dtype=torch.long,device=self.device)
-    output=self.backend.text_encoder.bert(encoder_embeds=q["tokens"][i:i+1].to(self.device).repeat(len(ids),1,1),
-      attention_mask=q["attention"][i:i+1].to(self.device).repeat(len(ids),1),
-      encoder_hidden_states=image,encoder_attention_mask=image_atts,return_dict=True,mode="fusion")
-    scores=self.backend.itm_head(output.last_hidden_state[:,0,:])[:,1]
-    result[i,ids.cpu()]=scores.float().cpu()
+    batch=getattr(self,"fusion_batch",128)
+    require(type(batch)is int and 1<=batch<=128,"native fusion batch range")
+    for start in range(0,len(ids),batch):
+     selected=ids[start:start+batch]
+     image=g["tokens"][selected.cpu()].to(self.device)
+     image_atts=torch.ones(image.size()[:-1],dtype=torch.long,device=self.device)
+     output=self.backend.text_encoder.bert(encoder_embeds=q["tokens"][i:i+1].to(self.device).repeat(len(selected),1,1),
+       attention_mask=q["attention"][i:i+1].to(self.device).repeat(len(selected),1),
+       encoder_hidden_states=image,encoder_attention_mask=image_atts,return_dict=True,mode="fusion")
+     scores=self.backend.itm_head(output.last_hidden_state[:,0,:])[:,1]
+     result[i,selected.cpu()]=scores.float().cpu()
     self.counts["fusion_pairs"]+=len(ids)
   self.counts["score_calls"]+=1
   return ScoreBatch(result,self.space.id,self.space.score_id)
@@ -97,6 +101,7 @@ def load_victim(config,model,dataset,device="cuda:0",*,smoke=False):
   with load_rasa(source,device=device,smoke=smoke) as base:
    adapter=NativeRasa(base.backend,base.tokenizer,base.pre_caption,base.space,device,smoke=smoke)
    adapter.neural_counts=base.neural_counts
+   adapter.fusion_batch=config["evaluation"].get("fusion_batch",128)
    yield adapter,adapter.backend,source
   return
  def local_clip(url,root):

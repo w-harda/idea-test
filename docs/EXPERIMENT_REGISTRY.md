@@ -682,3 +682,8 @@ H20新增候选最低40.427635%，历史H9为40.425480%；H60为42.874081%，不
 新增独立tbps.baselines.cpgc_sep，支持CUHK/ICFG/RSTP专用IRRA与RaSa权重、作者预训练UAP及原SEP DPP候选机制。旧框架与历史实验只读。96项CPU回归及两个真实环境预检PASS，GPU/Full仍以实际不可变回执为准。详见[实验记录](framework/results/cpgc_sep_tbps/REPORT.md)。
 
 当前资源阻塞：1302MiB空闲，GPU Attempt未创建，Full0/12。无后台任务，不能标记Full完成。详细证据见framework/results/cpgc_sep_tbps/RESOURCE_STATUS.json。
+
+
+## 2026-10-29：C-PGC/SEP共享资源执行版本
+
+基于c134cb3独立工作树派生8GiB容量Smoke、RaSa融合16/完整Top128、Query Chunk32；算法、权重及历史资产不变。Full需真实Smoke峰值+2GiB余量及同来源独立审计，未验证前不宣称GPU通过。[适配记录](framework/results/cpgc_sep_tbps/SHARED_RESOURCE_EXECUTION.md)。

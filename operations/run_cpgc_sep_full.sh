@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # 独立一次性监督器：CPU来源→各方法真实Smoke与CPU审计→正式Full；首错停止。
 set -Eeuo pipefail
-ROOT=/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-20261028
+ROOT=/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-shared-20261029
 CONTROL=/home/lzf/ldx/tmp/cpgc_sep_full_v1_20261028
-CONFIG="$ROOT/configs/framework/cpgc_sep_tbps.server.json"
+CONFIG="$ROOT/configs/framework/cpgc_sep_tbps.shared.server.json"
 SOURCE_PY=/home/lzf/ldx/envs/sga-irra-source/bin/python
 VICTIM_PY=/home/lzf/ldx/envs/tbps-image/bin/python
 export PYTHONPATH="$ROOT/src"
@@ -57,5 +57,7 @@ for method in cpgc sep; do
  done
 done
 run RESULTS_SUMMARY "$VICTIM_PY" --action report
+status "PUBLISHING_RESULTS"
+"$VICTIM_PY" -u -B "$ROOT/operations/cpgc_sep_publish_results.py" > "$CONTROL/publish.log" 2>&1
 status "SUCCESS | CPGC_SEP_TWELVE_FULL_AND_CPU_AUDIT"
 printf '0\n' > "$CONTROL/exit"

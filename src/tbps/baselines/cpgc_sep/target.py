@@ -52,6 +52,7 @@ def evaluate(c,method,dataset,victim,scope,*,resume=False):
    protocol={"method":method,"dataset":dataset,"victim":victim,"scope":scope,"config_sha256":c["sha256"],
     "model_space":asdict(adapter.space),"manifest":asdict(manifest),"matched_manifest":asdict(matched),
     "source_completion":asdict(ref(source.root/"completed/manifest.json")),
+    "engineering_execution":c["evaluation"],
     "native_input":"original PIL -> native Resize/ToTensor -> RGB UAP -> native Normalize; no extra JPEG/PIL quantization",
     "Raw_Clean":"original Caption","Matched_Clean":"official attack preprocessing only; no replacement",
     "text_attack_permissions":"Source only" if method=="cpgc" else "IRRA+RaSa ensemble includes evaluated Target",
@@ -126,10 +127,10 @@ def evaluate(c,method,dataset,victim,scope,*,resume=False):
     inputs["adv_gallery"]=banks["adv_gallery"].bound(origin=origin,originals=orig_g)
    scorer=NativeScorer(adapter,victim,banks,store=store,config=c,resume=resume)
    engine=TBPSEvaluationEngine(manifest,scorer,model_source.checkpoint)
-   ep,result,scores=engine.run(inputs,modes=modes,query_chunk=128)
+   ep,result,scores=engine.run(inputs,modes=modes,query_chunk=c["evaluation"]["query_chunk"])
    matched_inputs={"clean_text":banks["matched_text"].bound(),
     "clean_gallery":rebind_gallery(inputs["clean_gallery"],manifest,matched,ref(path/"matched-projection/manifest.json"))}
-   mp,mr,ms=TBPSEvaluationEngine(matched,scorer,model_source.checkpoint).run(matched_inputs,modes=("Clean",),query_chunk=128)
+   mp,mr,ms=TBPSEvaluationEngine(matched,scorer,model_source.checkpoint).run(matched_inputs,modes=("Clean",),query_chunk=c["evaluation"]["query_chunk"])
    groups={mode:{k:result["groups"][mode][k] for k in METRICS} for mode in modes}
    groups["Matched Clean"]={k:mr["groups"]["Clean"][k] for k in METRICS}
    for mode,matrix in scores.items():
