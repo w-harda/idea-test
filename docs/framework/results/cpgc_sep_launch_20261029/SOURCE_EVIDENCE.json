@@ -1,0 +1,84 @@
+{
+  "status": "SMOKE_TARGET_FAIL_FULL_NOT_STARTED",
+  "execution_commit": "db7e3e2ba382ac944c0911211f0d5d562c100933",
+  "parent_commit": "c134cb394dd8a21a39c7bc9aa2642fe33e38a6d0",
+  "config_sha256": "be0054037dbade5e73503dad2e354acd431efd7da67127382ba74a1534d38e5e",
+  "supervisor_PID": 4083864,
+  "supervisor_PGID": 4083864,
+  "supervisor_SID": 4083864,
+  "supervisor_PPID_during_execution": 1,
+  "supervisor_TTY": "?",
+  "supervisor_alive": false,
+  "Full_pass_count": 0,
+  "Full_started": false,
+  "Source_smoke": {
+    "status": "PASS",
+    "queries": 2,
+    "gallery": 128,
+    "counts": {
+      "backward": 0,
+      "generator_forward": 0,
+      "optimizer": 0,
+      "source_image_samples": 0,
+      "source_text_batches": 4,
+      "source_text_samples": 44
+    },
+    "peak_GPU_allocated_bytes": 1973078528,
+    "peak_GPU_reserved_bytes": 2147483648,
+    "elapsed_seconds": 20.043223537504673,
+    "source_frozen": true
+  },
+  "Target_failure": {
+    "error": "ArtifactError('unsupported native payload or non-CPU/gradient Tensor')",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-shared-20261029/src/tbps/baselines/cpgc_sep/runtime.py\", line 61, in attempt\n    try:yield store\n  File \"/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-shared-20261029/src/tbps/baselines/cpgc_sep/target.py\", line 74, in evaluate\n    noise_report={\"source_sha256\":c[\"resources\"][\"cpgc_noise\"][\"sha256\"],\"source_tensor_sha256\":payload_digest(raw_noise),\n  File \"/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-shared-20261029/src/tbps/engines/provenance.py\", line 17, in payload_digest\n    raise ArtifactError(\"unsupported native payload or non-CPU/gradient Tensor\")\ntbps.artifacts.ArtifactError: unsupported native payload or non-CPU/gradient Tensor\n",
+    "time": 1793205671.8564503
+  },
+  "CPU_UAP_metadata": {
+    "shape": [
+      3,
+      384,
+      384
+    ],
+    "dtype": "torch.float32",
+    "device": "cpu",
+    "requires_grad": true,
+    "is_leaf": true,
+    "CUDA_initialized": false
+  },
+  "original_fail_preserved": true,
+  "automatic_retry": false,
+  "logs": {
+    "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v1/smoke/cpgc_source/cuhk/completed/report.json": {
+      "sha256": "2405fac0fc80d00edeff468504357e437daabd48d550ac5e3bdb394e74c207fb",
+      "bytes": 220693
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v1/smoke/cpgc/cuhk/irra/FAIL.json": {
+      "sha256": "79bfaa288350ff758162293626a042caeb699b3718c90f97ea3d380eb345ff0c",
+      "bytes": 900
+    },
+    "/home/lzf/ldx/tmp/cpgc_sep_full_v1_20261028/status.log": {
+      "sha256": "81cea98a78b3780bc94f9b7d22b279e0e14fad31968e021967a3114dc3e59b1b",
+      "bytes": 253
+    },
+    "/home/lzf/ldx/tmp/cpgc_sep_full_v1_20261028/launcher.log": {
+      "sha256": "81cea98a78b3780bc94f9b7d22b279e0e14fad31968e021967a3114dc3e59b1b",
+      "bytes": 253
+    },
+    "/home/lzf/ldx/tmp/cpgc_sep_full_v1_20261028/exit": {
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "bytes": 2
+    },
+    "/home/lzf/ldx/tmp/cpgc_sep_full_v1_20261028/cpgc_smoke_cuhk_irra_TARGET.log": {
+      "sha256": "df527d04b9d535f25cbb39ac7077cbd745a7c8326d261d9fee5576fd907d8c1b",
+      "bytes": 2541
+    },
+    "/home/lzf/ldx/tmp/cpgc_sep_full_v1_20261028/spawn.json": {
+      "sha256": "5d9fe79e75936a1be1b72f1618881b116c7bf4d0ba2e11b9c84924cd466782c4",
+      "bytes": 802
+    },
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-shared-20261029/configs/framework/cpgc_sep_tbps.shared.server.json": {
+      "sha256": "be0054037dbade5e73503dad2e354acd431efd7da67127382ba74a1534d38e5e",
+      "bytes": 65154
+    }
+  }
+}

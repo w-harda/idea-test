@@ -449,3 +449,8 @@ mAP按上述方法顺序：IRRA 66.10/40.43/32.28，RaSa 69.18/39.99/35.05，APT
 ## 2026-10-29：C-PGC/SEP共享资源执行版本
 
 基于c134cb3独立工作树派生8GiB容量Smoke、RaSa融合16/完整Top128、Query Chunk32；算法、权重及历史资产不变。Full需真实Smoke峰值+2GiB余量及同来源独立审计，未验证前不宣称GPU通过。[适配记录](framework/results/cpgc_sep_tbps/SHARED_RESOURCE_EXECUTION.md)。
+
+
+## 2026-10-29：C-PGC共享资源真实启动后Target Smoke失败
+
+执行db7e3e2，101项CPU PASS；Source真实GPU Smoke PASS，但IRRA Target在作者UAP requires_grad=True的摘要契约处失败，非OOM。原FAIL保留，监督器已退出，无自动修复或重试；Full0/12，不能认定GPU链路通过。[证据报告](framework/results/cpgc_sep_launch_20261029/REPORT.md)。
