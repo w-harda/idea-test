@@ -454,3 +454,8 @@ mAP按上述方法顺序：IRRA 66.10/40.43/32.28，RaSa 69.18/39.99/35.05，APT
 ## 2026-10-29：C-PGC UAP只读detach修复与独立v2
 
 只修Target/Audit各一行detach，provenance拒绝契约不改。107项CPU及两个真实环境预检PASS，旧v1共45份文件保护PASS；新配置、输出及控制身份隔离，Source Smoke在新空间独立执行，不重生UAP。[本轮报告](framework/results/cpgc_sep_uap_detach/REPORT.md)。GPU状态以真实回执为准，不把CPU PASS当GPU完成。
+
+
+## 2026-10-29：UAP detach修复后v2正式Full真实启动
+
+执行36cf91f，107 CPU PASS；C-PGC六组真实Target Smoke及独立CPU审计PASS，正式Full进入CUHK Source生成。独立监督器4125880，PPID1/无TTY，串行推进12组并最终审计。SEP仍需自己的Smoke门禁；尚未完成的Full不宣称PASS。[启动证据](framework/results/cpgc_sep_uap_detach_launch/REPORT.md)。

@@ -1,0 +1,233 @@
+{
+  "snapshot_time": "2026-10-29T01:14:08.652419+08:00",
+  "execution_commit": "36cf91f97ea3c483883eb6d93456c51ef7d662f0",
+  "config_sha256": "4b56eb60a3f2c928ef084fad64f1648bee17129e450b707a4d166169bc8a370a",
+  "phase": "cpgc_full_cuhk_SOURCE",
+  "Full_started": true,
+  "Full_pass_count": 0,
+  "Full_total": 12,
+  "source_text_committed": 1719,
+  "source_text_total": 6156,
+  "supervisor_process": "4125880       1 4125880 4125880 ?        Ss   bash /home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/operations/run_cpgc_sep_full.sh",
+  "GPU_processes": "3763832, /usr/local/lib/ollama/llama-server, 14976\n4170803, /home/lzf/ldx/envs/sga-irra-source/bin/python, 2504",
+  "CPGC_smokes": [
+    {
+      "dataset": "cuhk",
+      "victim": "irra",
+      "scope": "smoke",
+      "Gallery": 128,
+      "Query": 2,
+      "GPU_PASS": true,
+      "CPU_AUDIT_PASS": true,
+      "peak_reserved_MiB": 458.0,
+      "peak_allocated_MiB": 442.3466796875,
+      "counts": {
+        "backward": 0,
+        "image_samples": 256,
+        "optimizer": 0,
+        "text_samples": 6
+      },
+      "frozen": true,
+      "elapsed_seconds": 39.91313010081649
+    },
+    {
+      "dataset": "cuhk",
+      "victim": "rasa",
+      "scope": "smoke",
+      "Gallery": 128,
+      "Query": 2,
+      "GPU_PASS": true,
+      "CPU_AUDIT_PASS": true,
+      "peak_reserved_MiB": 2114.0,
+      "peak_allocated_MiB": 1921.84326171875,
+      "counts": {
+        "backward": 0,
+        "image_samples": 256,
+        "optimizer": 0,
+        "text_samples": 6
+      },
+      "frozen": true,
+      "elapsed_seconds": 59.79575838521123
+    },
+    {
+      "dataset": "rstp",
+      "victim": "irra",
+      "scope": "smoke",
+      "Gallery": 128,
+      "Query": 2,
+      "GPU_PASS": true,
+      "CPU_AUDIT_PASS": true,
+      "peak_reserved_MiB": 446.0,
+      "peak_allocated_MiB": 435.4638671875,
+      "counts": {
+        "backward": 0,
+        "image_samples": 256,
+        "optimizer": 0,
+        "text_samples": 6
+      },
+      "frozen": true,
+      "elapsed_seconds": 37.516516387462616
+    },
+    {
+      "dataset": "rstp",
+      "victim": "rasa",
+      "scope": "smoke",
+      "Gallery": 128,
+      "Query": 2,
+      "GPU_PASS": true,
+      "CPU_AUDIT_PASS": true,
+      "peak_reserved_MiB": 2114.0,
+      "peak_allocated_MiB": 1921.84326171875,
+      "counts": {
+        "backward": 0,
+        "image_samples": 256,
+        "optimizer": 0,
+        "text_samples": 6
+      },
+      "frozen": true,
+      "elapsed_seconds": 55.71914950758219
+    },
+    {
+      "dataset": "icfg",
+      "victim": "irra",
+      "scope": "smoke",
+      "Gallery": 128,
+      "Query": 2,
+      "GPU_PASS": true,
+      "CPU_AUDIT_PASS": true,
+      "peak_reserved_MiB": 446.0,
+      "peak_allocated_MiB": 434.59375,
+      "counts": {
+        "backward": 0,
+        "image_samples": 256,
+        "optimizer": 0,
+        "text_samples": 6
+      },
+      "frozen": true,
+      "elapsed_seconds": 36.61117008700967
+    },
+    {
+      "dataset": "icfg",
+      "victim": "rasa",
+      "scope": "smoke",
+      "Gallery": 128,
+      "Query": 2,
+      "GPU_PASS": true,
+      "CPU_AUDIT_PASS": true,
+      "peak_reserved_MiB": 2114.0,
+      "peak_allocated_MiB": 1921.84326171875,
+      "counts": {
+        "backward": 0,
+        "image_samples": 256,
+        "optimizer": 0,
+        "text_samples": 6
+      },
+      "frozen": true,
+      "elapsed_seconds": 61.21296051889658
+    }
+  ],
+  "SEP_smoke": "not yet executed; remains a mandatory gate before SEP Full",
+  "old_v1_files_verified_unchanged": 45,
+  "author_UAP_SHA_verified": "3701c038bb1db7352eda31edbef0c6acdb99b7584c05896266b961ef023f1a2f",
+  "references": {
+    "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc/cuhk/irra/completed/summary.json": {
+      "sha256": "d5f296af97dea2cec344942c4c96da89a0c5559edb422ced814d051bce1f7554"
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/audit/cpgc/cuhk/irra/completed/audit.json": {
+      "sha256": "455fb6b25c5aa44a13794d140f7ee96ab7b89d76e6a5989f6bba1f868918fd75"
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc/cuhk/irra/completed/manifest.json": {
+      "sha256": "680a3460613593f02ccf4f26d1aa66e925cd6ba9fe76af53cdf743a18e06952f"
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/audit/cpgc/cuhk/irra/completed/manifest.json": {
+      "sha256": "90655ad90772cbf61d279b62f0107dab666107d4aaef50fe41631efa0a368559"
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc/cuhk/rasa/completed/summary.json": {
+      "sha256": "60ec158e5250efa236e7288a89e19f0a659c841c5db95b92567d5fd0f5ba1646"
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/audit/cpgc/cuhk/rasa/completed/audit.json": {
+      "sha256": "80ab6811a1277ac86948d1632f52d8570499c64c537dba7d1065969a312c2451"
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc/cuhk/rasa/completed/manifest.json": {
+      "sha256": "c77644c001006e60d3d9d424cb09673de5b6dc85767f7a4eeb9c3c7c209e9c76"
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/audit/cpgc/cuhk/rasa/completed/manifest.json": {
+      "sha256": "ef7638fe50d7a90d772debd2034f0f280517f2a73e03b4ee92a12a62fe735278"
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc/rstp/irra/completed/summary.json": {
+      "sha256": "a7e808bbace0f8ff4d428a39875c12fc52046993c26463d89c7b4d38f7338b93"
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/audit/cpgc/rstp/irra/completed/audit.json": {
+      "sha256": "fadc95ac2e950d86e7f4c733c248fd91adf43c095e574c6db91c6bf865bf038a"
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc/rstp/irra/completed/manifest.json": {
+      "sha256": "0d1e9f4007b381befdf5b27ba0aeee411580b864b8941e264a3e51859ad23ebb"
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/audit/cpgc/rstp/irra/completed/manifest.json": {
+      "sha256": "60c15dd139ca264010cde422f14fbf0cd38c5ae1a924295ae1635c677fa52645"
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc/rstp/rasa/completed/summary.json": {
+      "sha256": "7600cf2d3e588eace9e58b5e5fd3886ff2b4c9379bb5825f357720177a31f77a"
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/audit/cpgc/rstp/rasa/completed/audit.json": {
+      "sha256": "8dd2a39e403380e5c69589c33473f4a9bb235a11a45dc8536098066647286a4a"
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc/rstp/rasa/completed/manifest.json": {
+      "sha256": "5893324b6fff71a41c2617d3c499bd119cb11b5d8da4a3033c8a03b3cf3c9eb3"
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/audit/cpgc/rstp/rasa/completed/manifest.json": {
+      "sha256": "b76e0955cce9072fe508500606758517abf7a41a0c2ef71212db3f162b3be819"
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc/icfg/irra/completed/summary.json": {
+      "sha256": "296b60d8f1831e24dd59543f9723de1a0cfc5f758d372e3da599b367bab5e194"
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/audit/cpgc/icfg/irra/completed/audit.json": {
+      "sha256": "4b8e6ca7ffd6f842c9f25a3c7d5ae11af5112ebcec3614af4fed566aaeaedea9"
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc/icfg/irra/completed/manifest.json": {
+      "sha256": "eedc52dd7794f41f9a340bac682a43671be82d795fd1a703332a362314ef606c"
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/audit/cpgc/icfg/irra/completed/manifest.json": {
+      "sha256": "9d893981ff13f459de4f3c81f5942fd8bad45ac9223c9a16461a5e5dcf487264"
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc/icfg/rasa/completed/summary.json": {
+      "sha256": "e1a50bb708ae51959ae50d81eeb35f6cb64057ec4c867e8a70aaf1379a6a6cf2"
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/audit/cpgc/icfg/rasa/completed/audit.json": {
+      "sha256": "4c349fdfff2b29fc17ce6236d5894f126cddd54d0fc7d5380254385e8e67a6f4"
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc/icfg/rasa/completed/manifest.json": {
+      "sha256": "43fadcb40bd218aef674cc416256f22d957f99d535c175760e81b50dc350e0ad"
+    },
+    "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/audit/cpgc/icfg/rasa/completed/manifest.json": {
+      "sha256": "13ad059be90eb579aa138d26dc2dc151110a77878a7f86bfb419dd6cad9fe6a2"
+    },
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/configs/framework/cpgc_sep_tbps.uap_detach.server.json": {
+      "sha256": "4b56eb60a3f2c928ef084fad64f1648bee17129e450b707a4d166169bc8a370a",
+      "snapshot_note": "append-only live logs can grow after this snapshot"
+    },
+    "/home/lzf/ldx/tmp/cpgc_sep_full_v2_20261029/spawn.json": {
+      "sha256": "4009e8e56916a8a19d21da4ecd11cab422e0c0f167c2fd34388c923d69ea2b13",
+      "snapshot_note": "append-only live logs can grow after this snapshot"
+    },
+    "/home/lzf/ldx/tmp/cpgc_sep_full_v2_20261029/status.log": {
+      "sha256": "133a510ea72112622d724ca11ca28f05c74b287c5e6636ebda5e483f74d4a34b",
+      "snapshot_note": "append-only live logs can grow after this snapshot"
+    },
+    "/home/lzf/ldx/tmp/cpgc_sep_full_v2_20261029/execution_commit": {
+      "sha256": "21f45e98332f9b5cee4860f89f1b86b6d2efca4f0f982ec030dd40cca7dbef92",
+      "snapshot_note": "append-only live logs can grow after this snapshot"
+    },
+    "/home/lzf/ldx/tmp/cpgc_sep_full_v2_20261029/config.sha256": {
+      "sha256": "6f79be5ed28c3f1ba9432300ee9066be1283c146bea5dc02f6cf734fe64fea0e",
+      "snapshot_note": "append-only live logs can grow after this snapshot"
+    }
+  },
+  "automatic_order": [
+    "CPGC remaining Source and IRRA/RaSa Full+CPU audit for CUHK,RSTP,ICFG",
+    "SEP six real Smoke+CPU audit",
+    "SEP six Full+CPU audit",
+    "independent result publication"
+  ],
+  "retry_policy": "first real error stops; no automatic retry; no other-user process signals"
+}
