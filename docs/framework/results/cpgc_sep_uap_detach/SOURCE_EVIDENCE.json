@@ -1,0 +1,49 @@
+{
+  "parent_execution": "db7e3e2ba382ac944c0911211f0d5d562c100933",
+  "parent_failure_report": "4c33c810225cfcd3ec684aeeacda0c3a014645ee",
+  "config_sha256": "4b56eb60a3f2c928ef084fad64f1648bee17129e450b707a4d166169bc8a370a",
+  "CPU_summary": "107 passed, 10 warnings in 20.08s",
+  "protected_old_files": 45,
+  "old_files_unchanged": true,
+  "source_reuse": false,
+  "source_reuse_reason": "config-wide source identity and fixed source output path differ; no implicit compatibility layer; independently repeat necessary Source Smoke",
+  "output_base": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2",
+  "control": "/home/lzf/ldx/tmp/cpgc_sep_full_v2_20261029",
+  "UAP": {
+    "path": "/home/lzf/ldx/checkpoints/cpgc_sep_official_20261028/cpgc_uap_noise_39.pth",
+    "url": "https://drive.usercontent.google.com/download?id=1cpV6JQ30y9Mb6CULDCrYzt75oXS6lmFR&export=download&confirm=t",
+    "bytes": 1770677,
+    "sha256": "3701c038bb1db7352eda31edbef0c6acdb99b7584c05896266b961ef023f1a2f",
+    "completed_unix": 1793193686.385448
+  },
+  "logs": {
+    "old_attempt_protection.json": {
+      "path": "/home/lzf/ldx/tmp/cpgc_sep_uap_detach_prepare_20261029/old_attempt_protection.json",
+      "sha256": "00c50e03b8a69c87c1796f565391895dbaecf39f4c0ec84af7d8dcecef27ce29"
+    },
+    "cpu.exit": {
+      "path": "/home/lzf/ldx/tmp/cpgc_sep_uap_detach_prepare_20261029/cpu.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "preflight_victim.exit": {
+      "path": "/home/lzf/ldx/tmp/cpgc_sep_uap_detach_prepare_20261029/preflight_victim.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "preflight_victim.log": {
+      "path": "/home/lzf/ldx/tmp/cpgc_sep_uap_detach_prepare_20261029/preflight_victim.log",
+      "sha256": "b501ab5c2c879197b7d61d973fc0397ba13299d375545c717da4e912fdb27084"
+    },
+    "cpu.log": {
+      "path": "/home/lzf/ldx/tmp/cpgc_sep_uap_detach_prepare_20261029/cpu.log",
+      "sha256": "e063e164adcbd8fb55b313ee1736e7d21e01810d27013f5abd3d2c1bd0cb1f26"
+    },
+    "preflight_source.log": {
+      "path": "/home/lzf/ldx/tmp/cpgc_sep_uap_detach_prepare_20261029/preflight_source.log",
+      "sha256": "9d7283e09b529b6af2256e3d1ccf543a06d9672702b60b24b80dae90c4aee177"
+    },
+    "preflight_source.exit": {
+      "path": "/home/lzf/ldx/tmp/cpgc_sep_uap_detach_prepare_20261029/preflight_source.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  }
+}

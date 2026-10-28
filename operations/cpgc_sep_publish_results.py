@@ -3,20 +3,20 @@ from pathlib import Path
 import json,subprocess,shutil,hashlib
 def main():
  root=Path(__file__).resolve().parents[1]
- c=json.loads((root/"configs/framework/cpgc_sep_tbps.shared.server.json").read_text())
+ c=json.loads((root/"configs/framework/cpgc_sep_tbps.uap_detach.server.json").read_text())
  derived=Path(c["output_base"])/"derived_report"
  m=json.loads((derived/"RUN_MANIFEST.json").read_text())
  assert m["Full_pass_count"]==12 and len(m["rows"])==12
  assert all(r["Status"]=="FULL_AND_CPU_AUDIT_PASS" for r in m["rows"])
  commit=subprocess.check_output(["git","-C",str(root),"rev-parse","HEAD"],text=True).strip()
- checkout=Path("/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-full-results-20261029")
+ checkout=Path("/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-full-v2-results-20261029")
  assert not checkout.exists(),"publication worktree exists; do not overwrite"
- branch="codex/cpgc-sep-full-results"
+ branch="codex/cpgc-sep-full-v2-results"
  subprocess.run(["git","-C",str(root),"worktree","add","-b",branch,str(checkout),commit],check=True)
  d=checkout/"docs/framework/results/cpgc_sep_tbps_full";d.mkdir()
  for name in ["RESULTS.csv","RESULTS_2DP.csv","CLEAN_BASELINES.csv","RUN_MANIFEST.json"]:
   shutil.copyfile(derived/name,d/name)
- shutil.copyfile(root/"configs/framework/cpgc_sep_tbps.shared.server.json",d/"CONFIGS.json")
+ shutil.copyfile(root/"configs/framework/cpgc_sep_tbps.uap_detach.server.json",d/"CONFIGS.json")
  for name in ["CPGC_OFFICIAL_UAP_AUDIT.md","SEP_TBPS_ADAPTATION_AUDIT.md","THREAT_MODEL.md","FAILURES.md"]:
   shutil.copyfile(root/"docs/framework/results/cpgc_sep_tbps"/name,d/name)
  lines=["# C-PGC与SEP三数据集正式Full结果","",
@@ -29,7 +29,7 @@ def main():
   values=[r["Method"],r["Dataset"],r["Victim"]]+[format(r[p+" "+k],".2f") for p in ["Clean","Attack"] for k in ["R@1","R@5","R@10","mAP"]]
   lines.append("| "+" | ".join(values)+" |")
  (d/"REPORT.md").write_text("\n".join(lines)+"\n")
- source={"execution_commit":commit,"config_sha256":hashlib.sha256((root/"configs/framework/cpgc_sep_tbps.shared.server.json").read_bytes()).hexdigest(),"evidence":m["evidence"],"output_base":c["output_base"]}
+ source={"execution_commit":commit,"config_sha256":hashlib.sha256((root/"configs/framework/cpgc_sep_tbps.uap_detach.server.json").read_bytes()).hexdigest(),"evidence":m["evidence"],"output_base":c["output_base"]}
  (d/"SOURCE_EVIDENCE.json").write_text(json.dumps(source,ensure_ascii=False,indent=2)+"\n")
  for name in ["PROJECT_STATE.md","EXPERIMENT_REGISTRY.md"]:
   with (checkout/"docs"/name).open("a") as f:f.write("\n\n## C-PGC与SEP正式Full完成\n\n12/12原生Full与独立CPU审计PASS，报告与原精度结果见[正式结果](framework/results/cpgc_sep_tbps_full/REPORT.md)。执行版本"+commit+"；发布在独立工作树，不修改原始产物。\n")

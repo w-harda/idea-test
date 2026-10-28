@@ -449,3 +449,8 @@ mAP按上述方法顺序：IRRA 66.10/40.43/32.28，RaSa 69.18/39.99/35.05，APT
 ## 2026-10-29：C-PGC/SEP共享资源执行版本
 
 基于c134cb3独立工作树派生8GiB容量Smoke、RaSa融合16/完整Top128、Query Chunk32；算法、权重及历史资产不变。Full需真实Smoke峰值+2GiB余量及同来源独立审计，未验证前不宣称GPU通过。[适配记录](framework/results/cpgc_sep_tbps/SHARED_RESOURCE_EXECUTION.md)。
+
+
+## 2026-10-29：C-PGC UAP只读detach修复与独立v2
+
+只修Target/Audit各一行detach，provenance拒绝契约不改。107项CPU及两个真实环境预检PASS，旧v1共45份文件保护PASS；新配置、输出及控制身份隔离，Source Smoke在新空间独立执行，不重生UAP。[本轮报告](framework/results/cpgc_sep_uap_detach/REPORT.md)。GPU状态以真实回执为准，不把CPU PASS当GPU完成。

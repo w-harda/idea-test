@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # 独立一次性监督器：CPU来源→各方法真实Smoke与CPU审计→正式Full；首错停止。
 set -Eeuo pipefail
-ROOT=/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-shared-20261029
-CONTROL=/home/lzf/ldx/tmp/cpgc_sep_full_v1_20261028
-CONFIG="$ROOT/configs/framework/cpgc_sep_tbps.shared.server.json"
+ROOT=/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029
+CONTROL=/home/lzf/ldx/tmp/cpgc_sep_full_v2_20261029
+CONFIG="$ROOT/configs/framework/cpgc_sep_tbps.uap_detach.server.json"
 SOURCE_PY=/home/lzf/ldx/envs/sga-irra-source/bin/python
 VICTIM_PY=/home/lzf/ldx/envs/tbps-image/bin/python
 export PYTHONPATH="$ROOT/src"

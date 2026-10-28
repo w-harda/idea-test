@@ -34,7 +34,7 @@ def audit(c,method,dataset,victim,scope):
   store.verify(p.parent.name);units+=1
  if method=="cpgc":
   import torch.nn.functional as F
-  noise=torch.load(c["resources"]["cpgc_noise"]["path"],map_location="cpu",weights_only=True).unsqueeze(0)
+  noise=torch.load(c["resources"]["cpgc_noise"]["path"],map_location="cpu",weights_only=True).detach().unsqueeze(0)
   if victim=="irra":noise=F.interpolate(noise,size=(384,128),mode="bilinear",align_corners=False)
   maximum=0.
   for i,g in enumerate(manifest.gallery):

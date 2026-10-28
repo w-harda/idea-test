@@ -1,0 +1,736 @@
+{
+  "schema": "tbps-cpgc-sep-three-dataset-1",
+  "output_base": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2",
+  "output_parent": "/home/lzf/ldx/outputs",
+  "resource_gate": {
+    "minimum_free_mib": 8192,
+    "RAM_bytes": 34359738368,
+    "disk_bytes": 107374182400,
+    "inodes": 80000,
+    "policy": "shared_observe_only"
+  },
+  "official": {
+    "cpgc": {
+      "root": "/home/lzf/ldx/external/CPGC-official-20261028",
+      "commit": "248fbdaa02a7d34c9f1f68772c3a82c8e19dbfed",
+      "files": {
+        "/home/lzf/ldx/external/CPGC-official-20261028/train.py": "1e8835ff550fb3e2a5e3cab972083e11d273c2f82208c4df9d0ebe8cca67e158",
+        "/home/lzf/ldx/external/CPGC-official-20261028/dataset.py": "037958f468c22a88930aa1490a6860ea96fae2f368ab93500f1d653bf6ccf119",
+        "/home/lzf/ldx/external/CPGC-official-20261028/utils.py": "4bfff3fed904ef84d412271d739d159fbbc1fa072c8eb206321aa0e4a2e91350",
+        "/home/lzf/ldx/external/CPGC-official-20261028/environment.yml": "623b8e8ce56319855ea2e6b85ccbf8a9baba79f78e4993f891a1641007e0a4ba",
+        "/home/lzf/ldx/external/CPGC-official-20261028/attention.py": "ae29d9007ba3544417590e253e060b97ba95d33954c0bfb1e9534216a8cedaa1",
+        "/home/lzf/ldx/external/CPGC-official-20261028/attacker.py": "02151cfccb41b68a792a5699797daf768c381ec5e2c97a98ba634ef6f4236ffe",
+        "/home/lzf/ldx/external/CPGC-official-20261028/README.md": "b1823fee8332636cb1c5f80b1fa293dda4c517eb2c5956b101788d843ff8f6fc",
+        "/home/lzf/ldx/external/CPGC-official-20261028/eval.py": "b12d8a70dee6e7377f8351fb55affdbffcae7642ab0e3d51dd847795720d3d66",
+        "/home/lzf/ldx/external/CPGC-official-20261028/generator.py": "518c208a849b0dcaceeb528074a62a24516cab412733ace06d3a25eb074539c2",
+        "/home/lzf/ldx/external/CPGC-official-20261028/configs/config_bert.json": "9889156dd010b7c60ad36990428ce30ac3d6446ec838b496524c62bca35d44ed",
+        "/home/lzf/ldx/external/CPGC-official-20261028/configs/Retrieval_coco_test.yaml": "7041e938e058f9a12e7868acf42fccbadebdeb1ab066a01a086506196b0ccb8e",
+        "/home/lzf/ldx/external/CPGC-official-20261028/configs/Retrieval_coco_train.yaml": "328a96b19e8b46ee60548b26a04e09ee3ac5a7b057ee9633e1eed4b02fb27934",
+        "/home/lzf/ldx/external/CPGC-official-20261028/configs/Retrieval_flickr_test.yaml": "163839a90c52bd1c99bfb0971d73d4bbb2bd1101dfa67304c96186f13c1a40e6",
+        "/home/lzf/ldx/external/CPGC-official-20261028/configs/Retrieval_flickr_train.yaml": "c4143d56a3bb0333038288ffd3faaf57a5ba229b1da881231d4b09153cfd8b37",
+        "/home/lzf/ldx/external/CPGC-official-20261028/data_annotation/flickr30k_test.json": "5d2a8e7365ff2220cf885e3fb656dd33b72b3a8f8c761067deebb0b22718806d",
+        "/home/lzf/ldx/external/CPGC-official-20261028/data_annotation/flickr30k_train.json": "b28e3dc03ea152b60b2c60cf6f6443303dd8e5303446d7de1292877f263d240a",
+        "/home/lzf/ldx/external/CPGC-official-20261028/data_annotation/coco_test.json": "5b202a235ee2a4e13f82b984ef9293b8e2d34f9b1f92147bf8340580f20faf15",
+        "/home/lzf/ldx/external/CPGC-official-20261028/data_annotation/coco_train.json": "04cc201e8edb3641af29b9d3d7ae99169d6d483c8d139920cbc0191a8621dd1d",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/tokenization_bert.py": "7723a9acc1a44bfe0eb435cb9d49a36677700e87cf572e7347329763c41cdfbf",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/model_pretrain.py": "477cf4ea4fb79c175a8777f39d9f8778bb8742b91c5ac2974812a06f81bd4632",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/vit.py": "d482466fe148e3d8bc17769e3f341f8ed6e7b94037d056de967a5d41979b6faf",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/xbert.py": "777755453bd1880056541c943f4650742c70f88dbe8f16dcdc5142bc40befcfd",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/model_retrieval.py": "e19b7b99dc4e38a65495ea00e84c65e30011d834f05b90821936de21d2b7f9c7",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/__init__.py": "a670f79361064b9fa372388523d63f33384361bca699883cf102d5aba75d950a",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/xvlm_model/clip_vit.py": "c2ea389be5586e82fecea8743fc6919bca45a2ab7b6dd86d5236475ee1b3ecae",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/xvlm_model/Retrieval_mscoco.yaml": "aa2f98ab7df3440a8bcf2a0f56781f6f241b0d4511594cad73d4dad907524bcf",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/xvlm_model/config_bert.json": "d66b3e5c536558fe666a1b81a7c81ccb50cf375e92b7427ac20c278b4f260653",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/xvlm_model/model_captioning_pretrain.py": "97eb8acc9023fd916819c734cefd9c723071efd849a3a64aeb74397fbf704930",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/xvlm_model/xroberta.py": "240d448f05b5666c8a5f18afcb6b2158dc70c11ce28c787a7ffa4a551c751bc5",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/xvlm_model/tokenization_bert.py": "3010acb7000bd94b46fdc0a69b75b91a3813959acf9374312d26fccc651ccd50",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/xvlm_model/xvlm.py": "5dcdcd8ebe6c63325ff9dba1b55caf3c06953cc4cb3427d3e03799498f93e781",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/xvlm_model/Retrieval_flickr30k.yaml": "2d82bad3afaf0c1edfa5f22296ecf6ee558ff2e540f7daa8df4b1d8112c8b8de",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/xvlm_model/model_pretrain.py": "8f3b27754b3912da71341e722bb17ffe7c41544303d5311ca16ff3a624cb1665",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/xvlm_model/model_bbox_pretrain.py": "ea4a30edbae6ba7cb10fa5c713d7aeb60e0b09db24680e4bca707e276aa50cc6",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/xvlm_model/model_captioning.py": "b4a4bf61a4d4ddd64f807bc8285b8dff647d617368a9db67cae8da15bbcfd32a",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/xvlm_model/model_nlvr.py": "7842c13daa709fea68cf9932ec5919995661a6e205f7047974b2fe2664038b83",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/xvlm_model/swin_transformer.py": "6ad728f9eb9276b292cbdabe6f3f77bfea3c8603b8b672ec02331c9d467c386c",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/xvlm_model/vit.py": "8fd52ec3dc953917a13eee912d0b93068d7cb0a8841be0506a22d8f376bf63cc",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/xvlm_model/box_ops.py": "f82bd949600e22a8219cda0d1f4c6c60bf7f52e416498794342ea79a36a9b75a",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/xvlm_model/tokenization_roberta.py": "564ff97c1e1147f558ddefda258955507f4769a3e499badcf2061828ffa453b2",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/xvlm_model/xbert.py": "872b5f9aed57193b2ce8958683328933877a22d098e1d7f341f9ce3187e8c0e2",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/xvlm_model/model_retrieval.py": "b48327cca17550ddba6d44e6ab996b1cf04555a12e941d97928148df4b0f5205",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/xvlm_model/model_nlvr_pretrain.py": "0424902de37005241a7dd02257b4827cb58820aed749835fca340d695bbdcf6d",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/xvlm_model/model_vqa.py": "0034c60a9197fb2acf0fc29bbf3ab72e4c2dc10ba6b50102dbb6bc320451df68",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/xvlm_model/config_swinB_384.json": "6b4ebb9c9475acfa10cf6ac5c436a91b3f661e7e9db8433973e65ec488055cde",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/xvlm_model/model_bbox.py": "0ac7db724d1cf0656938d3f7991c1bdabbfe905d7be239928b9073de9cea58f1",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/xvlm_model/__init__.py": "00f0fd3a5e3dcef4f03424b53b905da7555b58b89ea98c13416bd6817cd3bdf0",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/blip_model/blip_nlvr.py": "5cb0f25afee8844e5b62c0b28749d364e5c021339a5eae788c470205459a64de",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/blip_model/nlvr_encoder.py": "f96125f8a52052e154f51df3b53f3987a28da911bd2300e2239c1aa44deff499",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/blip_model/med_config.json": "d8b5029cc3c0124313d17009d043f0701bbe497f3721fa4ceb818720fe665326",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/blip_model/blip.py": "8043ada6a79d4f0de47424531c93ef71e24ece0b82a99f32075b6455d013cd74",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/blip_model/vit.py": "c16ef04bd471dc4d6ea1cae57982891670949bd9117ad209750bc88622539454",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/blip_model/med.py": "b5a5a2b866e277443ff38b5cd9271a3505db426d57abc2e311cfc4a6984fa494",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/blip_model/blip_itm.py": "4bb11306222f9f1db2c6a2894d798be50eaec875714715f5a3f7e1c8b6745a12",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/blip_model/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/blip_model/blip_retrieval.py": "479ba0e8802a366b5020a325ce1217c4bd125ab019fc1f4612fb95c6135b5f12",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/clip_model/model.py": "458f60f3dc4171d0136d5787f31b4bbfe806a8dbc3ddc815d81f80de77e05e1d",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/clip_model/clip.py": "f6a01a95931bdf6d89fbb81bd1ccaf4c7bc7c833cc68f674cbab0b90f28f0895",
+        "/home/lzf/ldx/external/CPGC-official-20261028/models/clip_model/simple_tokenizer.py": "acf0cda10cad73193af7a0d7184364cca3139b7de464f163fd4953bf2648c608"
+      }
+    },
+    "sep": {
+      "root": "/home/lzf/ldx/external/SEP-Attack-official-20261028",
+      "commit": "3a6d848a48097aee79be0299da8959e78db543c7",
+      "files": {
+        "/home/lzf/ldx/external/SEP-Attack-official-20261028/SEP_utils.py": "b5ec6cce43214eedb5d2e5c12e15cceda70bb5ab1597687ade296881b7849cca",
+        "/home/lzf/ldx/external/SEP-Attack-official-20261028/comp_cos_sim_mat.py": "3417ba1efc8e99ea8ef8007ba8dd4a5fb4d810763ead6dd73eac590e8d88c271",
+        "/home/lzf/ldx/external/SEP-Attack-official-20261028/dataloader.py": "7a69b5ffd8afced734daf934cc21177eef026bd0ec7adc44435fdb7eefe4ebd8",
+        "/home/lzf/ldx/external/SEP-Attack-official-20261028/data.py": "ff3a7cee92a198f147bf4adfb9fe198661b6449e9acf420353586c61bb2048f2",
+        "/home/lzf/ldx/external/SEP-Attack-official-20261028/SEP_Attack.py": "fbf09d92d5e3a98263374920ad1e0d541d3b2d9fe66ac26179df9a3b6b06c0eb",
+        "/home/lzf/ldx/external/SEP-Attack-official-20261028/README.md": "03a21b6ebf927d771e09421ceecfde617e8d2d26f80db604ab3497d98cc6f729",
+        "/home/lzf/ldx/external/SEP-Attack-official-20261028/criteria.py": "732aa4108e1834e3f99ae7c18364447e69acc3d222c8c0399fb317bc5f0a18d0"
+      }
+    }
+  },
+  "datasets": {
+    "cuhk": {
+      "id": "cuhk",
+      "root": "/home/lzf/TBPS/Datasets/CUHK-PEDES",
+      "annotation": {
+        "path": "/home/lzf/TBPS/Datasets/CUHK-PEDES/reid_raw.json",
+        "sha256": "fc3d15542f91dd70e23028c2cb40171a8f41734a39afddb9505e352e396cabf0"
+      }
+    },
+    "icfg": {
+      "id": "icfg",
+      "root": "/home/lzf/TBPS/Datasets/ICFG-PEDES",
+      "annotation": {
+        "path": "/home/lzf/TBPS/Datasets/ICFG-PEDES/ICFG-PEDES.json",
+        "sha256": "d070c40dbc01bd503ac9b2cb393b18a1b6786c06603dff0f3abb7a688fe03c50"
+      }
+    },
+    "rstp": {
+      "id": "rstp",
+      "root": "/home/lzf/TBPS/Datasets/RSTPReid",
+      "annotation": {
+        "path": "/home/lzf/TBPS/Datasets/RSTPReid/data_captions.json",
+        "sha256": "97ea46fde66a22f41f821b563d0f89bb239baaf7d98b141aae367e8f470454fb"
+      }
+    }
+  },
+  "victims": {
+    "irra": {
+      "root": "/home/lzf/Attack/IRRA-main/IRRA-main",
+      "clip_bootstrap": {
+        "path": "/home/lzf/ldx/cache/clip/ViT-B-16.pt",
+        "sha256": "5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f"
+      },
+      "bpe": {
+        "path": "/home/lzf/Attack/IRRA-main/IRRA-main/data/bpe_simple_vocab_16e6.txt.gz",
+        "sha256": "924691ac288e54409236115652ad4aa250f48203de50a9e4722a6ecd48d6804a"
+      },
+      "code": {
+        "datasets/__init__.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/__init__.py",
+          "sha256": "fee17e0309d1d428593ce4f4426c7de36317e54d5df2ea4d9fcdd4d5fd5a0aa0"
+        },
+        "datasets/bases.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/bases.py",
+          "sha256": "8e1fc03ea1f32629f209a2c4fabd1c65b8e9162c0323c4092b15f68dd8c7b2b6"
+        },
+        "datasets/build.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/build.py",
+          "sha256": "e99987047a9ba7e396c8fd9ac23da797f01b09f517bec03d7fb1016a5eb477b6"
+        },
+        "datasets/cuhkpedes.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/cuhkpedes.py",
+          "sha256": "5110b7102d0a95dc6818808eacc0c6d5a9eb7e0c18429a533bcb4bf72a95c386"
+        },
+        "datasets/icfgpedes.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/icfgpedes.py",
+          "sha256": "89ba2acb1dad4779ba27f191f6046d5f245b1cc134d5a104b1c6feae48df7862"
+        },
+        "datasets/preprocessing.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/preprocessing.py",
+          "sha256": "624c28b443e7173ddf2ea1eb2c1b7e2ebc609978a33152d222cc59b0be41009d"
+        },
+        "datasets/rstpreid.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/rstpreid.py",
+          "sha256": "369d398b0e2123b268c71b8e9f826e36d84c05c182adf2230b79c97e349fbe9d"
+        },
+        "datasets/sampler.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/sampler.py",
+          "sha256": "d95ee53f729f14b8ec0cbd259a32c50f8b0fe171dba4e14443f2995890c54157"
+        },
+        "datasets/sampler_ddp.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/sampler_ddp.py",
+          "sha256": "da5ad1e918680d477aa66afa1b447b3a2642ab7396b96f4839ff09c88a445ba0"
+        },
+        "model/__init__.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/model/__init__.py",
+          "sha256": "0d8e897820044d180f6af594df5f58666d3ba42737afb6f54ecfeaa411f394d4"
+        },
+        "model/build.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/model/build.py",
+          "sha256": "bb8176ab1fc6a88cb49d0cbd8317b1c1aa6ebd4f035988170d60508f5df508b2"
+        },
+        "model/clip_model.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/model/clip_model.py",
+          "sha256": "81f9553ff6d4c6a96bcdb1e41451694aab0c208ad84865ac344ef6b6bbd002a9"
+        },
+        "model/objectives.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/model/objectives.py",
+          "sha256": "41c7a683e3e52e60257e4f0b2a780240d567d9cac826d879e70b1c9f0213e283"
+        },
+        "processor/__init__.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/processor/__init__.py",
+          "sha256": "dc9ad41ea468de419d5f33b6dd86b1599bfc924a33f59af8383c46c7191c896c"
+        },
+        "processor/processor.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/processor/processor.py",
+          "sha256": "0197dba7fb3268231d48c1adffbb0aaf9edd1554e06ee046bfed998fe92b8c31"
+        },
+        "solver/__init__.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/solver/__init__.py",
+          "sha256": "f142c1367f436894f4bd5b2b24f9e64fa0d4372c171c8d410b957a74f52749a8"
+        },
+        "solver/build.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/solver/build.py",
+          "sha256": "387a5d305df40d5a25fab7e2391638bad5f87633aead5f9df30011f1e2c323bd"
+        },
+        "solver/lr_scheduler.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/solver/lr_scheduler.py",
+          "sha256": "5f89bb63533ebeabcc038ee49f88efe721e7c4c4521f47b54edd348aeb43bb77"
+        },
+        "test.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/test.py",
+          "sha256": "c217136f2b036039c81b6d8b766359265151d78c27be2928111dc5f9ca6a3959"
+        },
+        "train.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/train.py",
+          "sha256": "e77e47b4b029906b823f4c579351e9259ba969bbe0d8936ea303da1f38af5677"
+        },
+        "utils/__init__.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/__init__.py",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "utils/checkpoint.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/checkpoint.py",
+          "sha256": "fdd2821d894b853ac319d6c2370919918c13c314d171e7ab0d366ea181bfdb44"
+        },
+        "utils/comm.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/comm.py",
+          "sha256": "05f7ec76fa049d0ca57a90f028471e2a18203e32f2ab28f9448e7fb89dd34b4e"
+        },
+        "utils/iotools.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/iotools.py",
+          "sha256": "13260ab0306929ddcf10a6a209f792b3499590d9e20c785c4eee62d1b3c12c3c"
+        },
+        "utils/logger.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/logger.py",
+          "sha256": "14afe54df8c16abe73d455c786f63999b64c9fe407909b2f00c5f7f91da0f131"
+        },
+        "utils/meter.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/meter.py",
+          "sha256": "0245aa40c9a6ade9a9ac0a0f882d1a1d7b06260c667ea43e2ecb3ba846311796"
+        },
+        "utils/metrics.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/metrics.py",
+          "sha256": "94910252a9e42f0820d49c11203b31d3b67951f58624f66abff4bf662500d5fb"
+        },
+        "utils/options.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/options.py",
+          "sha256": "72b75fec88278c951eea900ede5a9f98514546dbe7afa3f88867b692127d2220"
+        },
+        "utils/simple_tokenizer.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/utils/simple_tokenizer.py",
+          "sha256": "19b06ade7532bcff961c4b90590197fcac0d466f08d0b6b801d3d19a36568d67"
+        },
+        "visualize.py": {
+          "path": "/home/lzf/Attack/IRRA-main/IRRA-main/visualize.py",
+          "sha256": "8692cbcf59c7c8ee3b165a6295ae128bf109f2fe60b5fd10fae773eb8975c05d"
+        }
+      },
+      "files": {
+        "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/__init__.py": "fee17e0309d1d428593ce4f4426c7de36317e54d5df2ea4d9fcdd4d5fd5a0aa0",
+        "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/bases.py": "8e1fc03ea1f32629f209a2c4fabd1c65b8e9162c0323c4092b15f68dd8c7b2b6",
+        "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/build.py": "e99987047a9ba7e396c8fd9ac23da797f01b09f517bec03d7fb1016a5eb477b6",
+        "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/cuhkpedes.py": "5110b7102d0a95dc6818808eacc0c6d5a9eb7e0c18429a533bcb4bf72a95c386",
+        "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/icfgpedes.py": "89ba2acb1dad4779ba27f191f6046d5f245b1cc134d5a104b1c6feae48df7862",
+        "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/preprocessing.py": "624c28b443e7173ddf2ea1eb2c1b7e2ebc609978a33152d222cc59b0be41009d",
+        "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/rstpreid.py": "369d398b0e2123b268c71b8e9f826e36d84c05c182adf2230b79c97e349fbe9d",
+        "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/sampler.py": "d95ee53f729f14b8ec0cbd259a32c50f8b0fe171dba4e14443f2995890c54157",
+        "/home/lzf/Attack/IRRA-main/IRRA-main/datasets/sampler_ddp.py": "da5ad1e918680d477aa66afa1b447b3a2642ab7396b96f4839ff09c88a445ba0",
+        "/home/lzf/Attack/IRRA-main/IRRA-main/model/__init__.py": "0d8e897820044d180f6af594df5f58666d3ba42737afb6f54ecfeaa411f394d4",
+        "/home/lzf/Attack/IRRA-main/IRRA-main/model/build.py": "bb8176ab1fc6a88cb49d0cbd8317b1c1aa6ebd4f035988170d60508f5df508b2",
+        "/home/lzf/Attack/IRRA-main/IRRA-main/model/clip_model.py": "81f9553ff6d4c6a96bcdb1e41451694aab0c208ad84865ac344ef6b6bbd002a9",
+        "/home/lzf/Attack/IRRA-main/IRRA-main/model/objectives.py": "41c7a683e3e52e60257e4f0b2a780240d567d9cac826d879e70b1c9f0213e283",
+        "/home/lzf/Attack/IRRA-main/IRRA-main/processor/__init__.py": "dc9ad41ea468de419d5f33b6dd86b1599bfc924a33f59af8383c46c7191c896c",
+        "/home/lzf/Attack/IRRA-main/IRRA-main/processor/processor.py": "0197dba7fb3268231d48c1adffbb0aaf9edd1554e06ee046bfed998fe92b8c31",
+        "/home/lzf/Attack/IRRA-main/IRRA-main/solver/__init__.py": "f142c1367f436894f4bd5b2b24f9e64fa0d4372c171c8d410b957a74f52749a8",
+        "/home/lzf/Attack/IRRA-main/IRRA-main/solver/build.py": "387a5d305df40d5a25fab7e2391638bad5f87633aead5f9df30011f1e2c323bd",
+        "/home/lzf/Attack/IRRA-main/IRRA-main/solver/lr_scheduler.py": "5f89bb63533ebeabcc038ee49f88efe721e7c4c4521f47b54edd348aeb43bb77",
+        "/home/lzf/Attack/IRRA-main/IRRA-main/test.py": "c217136f2b036039c81b6d8b766359265151d78c27be2928111dc5f9ca6a3959",
+        "/home/lzf/Attack/IRRA-main/IRRA-main/train.py": "e77e47b4b029906b823f4c579351e9259ba969bbe0d8936ea303da1f38af5677",
+        "/home/lzf/Attack/IRRA-main/IRRA-main/utils/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "/home/lzf/Attack/IRRA-main/IRRA-main/utils/checkpoint.py": "fdd2821d894b853ac319d6c2370919918c13c314d171e7ab0d366ea181bfdb44",
+        "/home/lzf/Attack/IRRA-main/IRRA-main/utils/comm.py": "05f7ec76fa049d0ca57a90f028471e2a18203e32f2ab28f9448e7fb89dd34b4e",
+        "/home/lzf/Attack/IRRA-main/IRRA-main/utils/iotools.py": "13260ab0306929ddcf10a6a209f792b3499590d9e20c785c4eee62d1b3c12c3c",
+        "/home/lzf/Attack/IRRA-main/IRRA-main/utils/logger.py": "14afe54df8c16abe73d455c786f63999b64c9fe407909b2f00c5f7f91da0f131",
+        "/home/lzf/Attack/IRRA-main/IRRA-main/utils/meter.py": "0245aa40c9a6ade9a9ac0a0f882d1a1d7b06260c667ea43e2ecb3ba846311796",
+        "/home/lzf/Attack/IRRA-main/IRRA-main/utils/metrics.py": "94910252a9e42f0820d49c11203b31d3b67951f58624f66abff4bf662500d5fb",
+        "/home/lzf/Attack/IRRA-main/IRRA-main/utils/options.py": "72b75fec88278c951eea900ede5a9f98514546dbe7afa3f88867b692127d2220",
+        "/home/lzf/Attack/IRRA-main/IRRA-main/utils/simple_tokenizer.py": "19b06ade7532bcff961c4b90590197fcac0d466f08d0b6b801d3d19a36568d67",
+        "/home/lzf/Attack/IRRA-main/IRRA-main/visualize.py": "8692cbcf59c7c8ee3b165a6295ae128bf109f2fe60b5fd10fae773eb8975c05d"
+      },
+      "base_config": {
+        "path": "/home/lzf/ldx/outputs/idea-TBPS-test1/stage03-attribute-unit-v2-20261002/code/configs/irra_cuhk_official.yaml",
+        "sha256": "8a9c1921ebcf93babcfdc07d35525a8d13572aeebdec5605e390289c536c5175"
+      },
+      "datasets": {
+        "cuhk": {
+          "model": "irra",
+          "weight_dataset": "cuhk",
+          "num_classes": 11003,
+          "checkpoint": {
+            "path": "/home/lzf/Attack/IRRA/logs/CUHK-PEDES/best.pth",
+            "sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+          }
+        },
+        "icfg": {
+          "model": "irra",
+          "weight_dataset": "icfg",
+          "num_classes": 3102,
+          "checkpoint": {
+            "path": "/home/lzf/Attack/IRRA/logs/ICFG-PEDES/best.pth",
+            "sha256": "a6b90aecee40307b240efcc2404b956f4f3e5a7a7373b91e2bc88dc298e74c38"
+          }
+        },
+        "rstp": {
+          "model": "irra",
+          "weight_dataset": "rstp",
+          "num_classes": 3701,
+          "checkpoint": {
+            "path": "/home/lzf/Attack/IRRA/logs/RSTPReid/best.pth",
+            "sha256": "17b4735bf55665467ef379b5cbc9d6d3859c76899aa5cbc6aa6a234d2814c03f"
+          }
+        }
+      }
+    },
+    "rasa": {
+      "root": "/home/lzf/ldx/external/RaSa",
+      "bert": "/home/lzf/.cache/huggingface/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594",
+      "files": {
+        "/home/lzf/ldx/external/RaSa/utils.py": "0f7c838a31e233529601d2e9e83371f0d0048dfb063a029f61433423b4f2940c",
+        "/home/lzf/ldx/external/RaSa/Retrieval.py": "13450e0e891a435795c857541a8282615860bbc83a7f9dc5997f6763cd1f91f8",
+        "/home/lzf/ldx/external/RaSa/data_process.py": "81a2817145a3312e2bb2ca81ace38f82b542555cca70178a0f6e25d45b485729",
+        "/home/lzf/ldx/external/RaSa/configs/PS_icfg_pedes.yaml": "033ac6855d3cf36eb259953f5193fdcc9145cf7f9c38f61c4e6dcb7fd12a6df1",
+        "/home/lzf/ldx/external/RaSa/configs/config_bert.json": "e20759eceda36082f9880ead487083abdd55de7d2161a0fcec3683570a4235f5",
+        "/home/lzf/ldx/external/RaSa/configs/PS_rstp_reid.yaml": "c274cb36594297e51f5c8be9147bcfa8fa3210236c5efb2bd7405a87d8397a63",
+        "/home/lzf/ldx/external/RaSa/configs/PS_cuhk_pedes.yaml": "e075bf80eb247397b5cec1c0da086fc2a42c539d2cb1d259c039db83b4516946",
+        "/home/lzf/ldx/external/RaSa/optim/nadam.py": "b288c8645ac8eb4f2c8e2a5c0264069bc65823a6a7df0102fe7e194d0d3a2987",
+        "/home/lzf/ldx/external/RaSa/optim/adamp.py": "311a1b886c8f02041705a09dabe02900731845c37bb9d455c87b9c7773b356a5",
+        "/home/lzf/ldx/external/RaSa/optim/optim_factory.py": "46fedd9ca0fbe775bc812ab0bf9d53e32dce50e3627e3eed5aee1a7cc963d300",
+        "/home/lzf/ldx/external/RaSa/optim/rmsprop_tf.py": "30708c92097bb654085083c70355f2437f424fd8f4693f175e32908f891c0df1",
+        "/home/lzf/ldx/external/RaSa/optim/nvnovograd.py": "88cd66af428b64a3b283f124f34ddc017884777ec7b56d594597a96807bd8e5f",
+        "/home/lzf/ldx/external/RaSa/optim/radam.py": "7c947f26ca01f1af09aa936e35527847221b2d409c23a73d8bcdf42ecd230faf",
+        "/home/lzf/ldx/external/RaSa/optim/adafactor.py": "33519b74a769488d34d8e4b91790848b89998cc96fc3df7910a991cf8a9a5914",
+        "/home/lzf/ldx/external/RaSa/optim/adamw.py": "32331eeca262241f1907194b623b82c40717ee2bfbb72fc998c56d9a0df02029",
+        "/home/lzf/ldx/external/RaSa/optim/adahessian.py": "bc9b50f1b65318bae4318b863ce25d80efb957c86356f336225f874aa839f40a",
+        "/home/lzf/ldx/external/RaSa/optim/lookahead.py": "7bfed9e0a55a005924bb55424d8617a97f4767027fb0af0b23711aaaf36fcb5a",
+        "/home/lzf/ldx/external/RaSa/optim/sgdp.py": "20de1e18ad152964ee123bffe20ba9fd4574fa4fcfa85c6bcd66c84f88996e10",
+        "/home/lzf/ldx/external/RaSa/optim/novograd.py": "85caf09387410397d6f7cba87c1a0db40c86fa578a05e518b9a803d4f6a34570",
+        "/home/lzf/ldx/external/RaSa/optim/__init__.py": "349d05c06198dd42707ddfff186f52a90c236ced863c7519812d4fbc1111b90c",
+        "/home/lzf/ldx/external/RaSa/dataset/ps_dataset.py": "267a7d0939fa036710993d92276e3b5c14cde857607145bc21b91278d6ac3a9f",
+        "/home/lzf/ldx/external/RaSa/dataset/utils.py": "71867c4759e53eeaab578b09a4363570f967c6ceb67e33cdeff97073431dc054",
+        "/home/lzf/ldx/external/RaSa/dataset/__init__.py": "a8dd42153ba17eb92cb8b73bf71c95e9c7bee693a4918cca7f5661e688f5886a",
+        "/home/lzf/ldx/external/RaSa/scheduler/plateau_lr.py": "f37d4b07c5c4da71824a65d279685237c6c3aff4b8ad2f66011d5364d97eb6d0",
+        "/home/lzf/ldx/external/RaSa/scheduler/tanh_lr.py": "24aa0c5bdfd0518df0a259348fc9612d2ed3743a3065f22218fb68c528336cd0",
+        "/home/lzf/ldx/external/RaSa/scheduler/step_lr.py": "d8bf2e03f9aae7fdb98cbd16012367690dc8917f6ae5c66013bf3d3c1357af28",
+        "/home/lzf/ldx/external/RaSa/scheduler/scheduler.py": "b7517bb0f79a3334e2a3ac5ecb14bdcf69cb28c62dd3c734c4e3d212d0955228",
+        "/home/lzf/ldx/external/RaSa/scheduler/scheduler_factory.py": "ec023cb5266c1525f99a30173e68f1010d66b84e2610272bdc124609a0136a2a",
+        "/home/lzf/ldx/external/RaSa/scheduler/cosine_lr.py": "4bd7693cc5b77419a8ce4cd60eb9d7b9686955596e4c38f85ca17507e60aeefa",
+        "/home/lzf/ldx/external/RaSa/scheduler/__init__.py": "ebe28574439380008037c670e4fdfe3f8ef742bfd63f87687e47fd1314e9c479",
+        "/home/lzf/ldx/external/RaSa/models/tokenization_bert.py": "dedf666836379ed18cff60d99d3c633dcb5cdc3019d9b252ec4a3ac1630275dd",
+        "/home/lzf/ldx/external/RaSa/models/vit.py": "61163e33b10f7ad7e833b760aca1448718ae015e66e3cc3bbbd27d939bf4df2d",
+        "/home/lzf/ldx/external/RaSa/models/xbert.py": "0c14a6a3ee44c3e62a3afca562270da95b186100bcd5a070bb5b5b7ce825717b",
+        "/home/lzf/ldx/external/RaSa/models/model_person_search.py": "36ddb7613c678bb65d412bded5fe5b960a1e6dbdcf691e4b80dfafcaf0410d32",
+        "/home/lzf/ldx/external/RaSa/models/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "/home/lzf/.cache/huggingface/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/config.json": "7160e1553ad2ca51d8c1cb066be533db31826e12d173824c1bb0cb1a4f187d20",
+        "/home/lzf/.cache/huggingface/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/model.safetensors": "68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3",
+        "/home/lzf/.cache/huggingface/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/tokenizer_config.json": "a025160ef0431f1a392f6f050c1310f4c5d9fb6f275932dbccba73c4d214bf10",
+        "/home/lzf/.cache/huggingface/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/tokenizer.json": "ce64fce797c24f68df90b40a3f74f579b336a493db14bd583fd520ea0d8c9a98",
+        "/home/lzf/.cache/huggingface/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+      },
+      "official_commit": "bd16aa1a15f149548a90d196fcf10a27d7ab7c66",
+      "datasets": {
+        "cuhk": {
+          "model": "rasa",
+          "weight_dataset": "cuhk",
+          "checkpoint": {
+            "path": "/home/lzf/ldx/checkpoints/RaSa/rasa_cuhk_checkpoint.pth",
+            "sha256": "bc85da09c2991d5de503c2c2ac4f032e20cc536fec5094f0acff45e93d0104d2"
+          }
+        },
+        "icfg": {
+          "model": "rasa",
+          "weight_dataset": "icfg",
+          "checkpoint": {
+            "path": "/home/lzf/ldx/checkpoints/cpgc_sep_official_20261028/rasa_icfg_checkpoint.pth",
+            "sha256": "91531bb30090923c8fb97b4a83662a9c610510ce4cd0ee208e82661798b62497"
+          }
+        },
+        "rstp": {
+          "model": "rasa",
+          "weight_dataset": "rstp",
+          "checkpoint": {
+            "path": "/home/lzf/ldx/checkpoints/cpgc_sep_official_20261028/rasa_rstp_checkpoint.pth",
+            "sha256": "7e62ca69bd0e334a7fdcbd65ad675c6858e3fbe2d8a5ab406063a4ab5c948ff6"
+          }
+        }
+      }
+    }
+  },
+  "resources": {
+    "cpgc_noise": {
+      "path": "/home/lzf/ldx/checkpoints/cpgc_sep_official_20261028/cpgc_uap_noise_39.pth",
+      "url": "https://drive.usercontent.google.com/download?id=1cpV6JQ30y9Mb6CULDCrYzt75oXS6lmFR&export=download&confirm=t",
+      "bytes": 1770677,
+      "sha256": "3701c038bb1db7352eda31edbef0c6acdb99b7584c05896266b961ef023f1a2f",
+      "completed_unix": 1793193686.385448
+    },
+    "cpgc_embedding": {
+      "path": "/home/lzf/ldx/checkpoints/cpgc_sep_official_20261028/cpgc_uap_embedding_39.pth",
+      "url": "https://drive.usercontent.google.com/download?id=1T81RN5ISz6rTKsXUY-W87EoAai-4E_qI&export=download&confirm=t",
+      "bytes": 4297,
+      "sha256": "9a0f823b052637155f823645b3e6df28fd7454eb51a9e7a4a3369dced6becbec",
+      "completed_unix": 1793193685.9641802
+    },
+    "cpgc_word_idx": {
+      "path": "/home/lzf/ldx/checkpoints/cpgc_sep_official_20261028/cpgc_word_idx_ALBEF.npy",
+      "url": "https://drive.usercontent.google.com/download?id=1QSpHcy6l_YtGLuXsgunZW7lIYX0auHra&export=download&confirm=t",
+      "bytes": 143744,
+      "sha256": "e065770a6df85803c749677c07427f37733efa9a4341a9bba65090cae7bf577c",
+      "completed_unix": 1793193685.8245926
+    },
+    "cpgc_word_embedding": {
+      "path": "/home/lzf/ldx/checkpoints/cpgc_sep_official_20261028/cpgc_word_embedding_ALBEF.pth",
+      "url": "https://drive.usercontent.google.com/download?id=1J5YBp03kZ3cSfND4bdBxVnE8cR4qm6Eo&export=download&confirm=t",
+      "bytes": 93764893,
+      "sha256": "dc87cc9c4323f20ca1c8d2588d3ab1d797f62092b058d3e8a3343dcb4ad36f8d",
+      "completed_unix": 1793193728.5859563
+    },
+    "rasa_icfg": {
+      "path": "/home/lzf/ldx/checkpoints/cpgc_sep_official_20261028/rasa_icfg_checkpoint.pth",
+      "url": "https://drive.usercontent.google.com/download?id=1lLB332ANq87v2jV2bLdsV7rQ7OBAnP9X&export=download&confirm=t",
+      "bytes": 1816575847,
+      "sha256": "91531bb30090923c8fb97b4a83662a9c610510ce4cd0ee208e82661798b62497",
+      "completed_unix": 1793193989.5932004
+    },
+    "rasa_rstp": {
+      "path": "/home/lzf/ldx/checkpoints/cpgc_sep_official_20261028/rasa_rstp_checkpoint.pth",
+      "url": "https://drive.usercontent.google.com/download?id=1e5KPmfoij22J2zZOZxhSodU4SNz76BjX&export=download&confirm=t",
+      "bytes": 1816575847,
+      "sha256": "7e62ca69bd0e334a7fdcbd65ad675c6858e3fbe2d8a5ab406063a4ab5c948ff6",
+      "completed_unix": 1793194126.0722654
+    },
+    "sep_vectors": {
+      "path": "/home/lzf/ldx/checkpoints/cpgc_sep_official_20261028/sep_counter-fitted-vectors.unpacked.txt",
+      "bytes": 185631578,
+      "sha256": "9425fe0518834fef3b78dd495ac108cc2294e7bf2d52eed60a55aceb61dadf98",
+      "derived_from": "/home/lzf/ldx/checkpoints/cpgc_sep_official_20261028/sep_counter-fitted-vectors.txt",
+      "archive_sha256": "6f67f40c9b2e757695b3af2209bcd4393377962ca440dd4fad542937d01e7d56",
+      "member": "counter-fitted-vectors.txt"
+    },
+    "sep_neighbors": {
+      "path": "/home/lzf/ldx/checkpoints/cpgc_sep_official_20261028/sep_mat.txt",
+      "url": "https://drive.usercontent.google.com/download?id=1AIz8Imvv8OmHxVwY5kx10iwKAUzD6ODx&export=download&confirm=t",
+      "bytes": 223949445,
+      "sha256": "f667e7a13b7ad75c2f29eb5ab8ba93b9b27d77916f883b22edaa8ae10677fc31",
+      "completed_unix": 1793193847.1143336
+    },
+    "albef_flickr": {
+      "path": "/home/lzf/ldx/checkpoints/cpgc_sep_official_20261028/albef_flickr30k.pth",
+      "url": "https://storage.googleapis.com/sfr-pcl-data-research/ALBEF/flickr30k.pth",
+      "bytes": 838449862,
+      "sha256": "22a0b0e47b3095b46005d8accd7250d432a3bae7f9ca736fde0d2b12a9328a23",
+      "completed_unix": 1793194305.1838827
+    }
+  },
+  "producers": {
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/__init__.py": "7215b414d63b13481ddd7252dd976985c2348f61099b463e5d419da3dd75050c",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/ablations/__init__.py": "18a63924c7a7b1bf897a7645fba61884d0ba90a5e949ac99eff4684eba5c7b0d",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/ablations/g60_h_bridge.py": "aec52ab788e1825bb7277835a7be060e0d85f5aac18c2e2ca49f21e57bc0ff3d",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/ablations/g60_h_validation.py": "5efc28734056d22aaa699f08442a9ea111cd41bbf9dcf35fc7e2bd03fe717c24",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/ablations/gh_attribute_audit.py": "53f243f8cc7019b3796bfbbc547a160499cba41c8c64b6aa991149ad05724ebf",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/ablations/gh_attribute_category_overlap.py": "71288851f126227e08703f2b6750ec0f1073e0a760fd7c611f37bb87f5550451",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/ablations/gh_attribute_supplement.py": "256089a3c724710979d89fae53eba4773871470b698fc4ab2c76374f56a0c258",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/ablations/gv2_epoch60_results.py": "12325d1635b241cd8a301c870b6c9c8adbe43defad87c49023dc397fe87ecd17",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/ablations/gv2_epoch_state.py": "a1c24c9c786f3fbe6dcbbc87d3836f58fa88b66352845bdba62805627c41b1cb",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/ablations/gv2_epochs.py": "d2f5e60a79aa2923499ee3a95bb36af1488704e04fc7b26ca021d227a782303c",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/ablations/gv2_sweep.py": "13a551c89a5ceff962a5d2020b2de2f91ab3e95cfe49fdf9890b691a081499ba",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/ablations/gv2_sweep_target.py": "93d154de9168c92101cd06cd3e5bd950fd98b17b69a120c5b1e561bc985240fa",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/ablations/hv1_g60_adaptation.py": "5fcd675c13362c54c4e9ff0a1926955a96ccf25dbf81d8ec07b4375e2b297445",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/ablations/hv1_g60_audit.py": "8d81de1d8ecbf6ce494fc9144b0b266bf281ac917cd6165ff5514331684366cc",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/ablations/hv1_g60_audit_repair.py": "edf7ae3b4c67d4a544e500141bc863dc8d1d5128d070c5bb74e029643dfa43b6",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/ablations/hv1_g60_posthoc.py": "33d4db53326ff6770bdd58bbe32b3624662ed69d3d9a8a760d78d79592554952",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/ablations/hv1_g60_posthoc_diagnostics.py": "fcd6a5b0153a2c127b2d7275fb145a580bd7d42dda68d1c8f84312b3653e790c",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/ablations/hv1_g60_repaired_results.py": "9c88ac9f1cbfb1f5c77ff5bf7f983e476703dc99cec1c65a445f24c558e404d0",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/ablations/hv1_g60_results.py": "39a7ab52140034debe7f908576c8cda3f5a9e9b9ca446837ad3ec5ea2d0973eb",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/ablations/hv1_g60_state.py": "95a96ff7aa39aac9d527270c325772328a1d6aba6473a51fde0f2ee77472de41",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/ablations/plot_gh_attribute_audit.py": "e22836e0d6ab93d5d8e9955c16c476160994aaeda833325bee353812d81a9614",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/ablations/plot_hv1_g60_posthoc.py": "df24bb369852a2ec59e4bbc3cb9b21582028ce23e1fb45149fbdba56733fd70b",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/ablations/report_gh_attribute_audit.py": "8f057b97dc8393ec80c6bf2b082205b334289767464684629832dde936986c1f",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/ablations/report_hv1_g60_posthoc.py": "6d3c2844275eebc80a201b0371f6134c5289a895270311195660d2bf62794db2",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/ablations/validate_gh_attribute_audit.py": "0c99656616c99ba0cc8499f4c2dc53fe97adc2b21096341983bb03295ca0809a",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/ablations/validate_hv1_g60_posthoc.py": "8db33ef5575dcf5873be67c3b95a6ee86df4f261473c3b170d30bfc6bf732d17",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/alternating/__init__.py": "8ce30be622417914b541518739c7f4897b25f49eb4a8c1e2598d8b27867ee344",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/alternating/conditions.py": "62c796f485c1dd2941611220bdedb90b1f76f318dde176781f3b6bff45633c11",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/alternating/contracts.py": "52a8bbcb02b74d7f931107067253b1fb2af9dab887bbeff1ddf68c74b5ef8cab",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/alternating/formal_audit.py": "6b8933660b60a6996c3d471aabd79fc2ee4febe896aa5cbef97afe1fbb6bfb53",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/alternating/formal_backend.py": "36dfb79970bfde3761a9688fe0a9c620a592fc5cbda59ac57ade6de962e28b46",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/alternating/formal_cli.py": "b72617a4ebb5f33b803d7b9ad855b48950747e1649d8246d233a6ab42fcdbb7c",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/alternating/formal_evaluation.py": "58006b158be74ac0b75c04de8515d0382cac1b146e62794bca18680ceb6081c1",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/alternating/formal_sources.py": "1dbc406177db174e1ca0526dfdff6c0a547f7c9f90e166639f304d829cedb1c1",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/alternating/formal_state.py": "d9695d090b8c4e9dcdeece552cffd610699c210f4a6e785df59c7851a7207646",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/alternating/native_backend.py": "6f96beb9275e29df188f8aaf5b9cb6bdff82234200d7da95453649b2cfba7960",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/alternating/native_cli.py": "977ff32059933191949bb8a91417700d5b050daedb7b928f42c5db5ab41a4083",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/alternating/native_gate.py": "c2afeff486d1fbffb7ca78744ab4a300fede8ff394c55585eeb2a345e72e43b4",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/alternating/native_numeric.py": "698c5e9b08b3313866b042c4a75aa2224d67c5869e68fb9659a7ddc4067b83ec",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/alternating/native_sources.py": "b2cc0366d83b124a3b6f3c0867fed2d623d4f8f1d5485db0f33e4e4b00555e13",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/alternating/parents.py": "b30c71f5b5638025ec74c53e010b1302a010b4277bd3da707976f28c1656736f",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/alternating/preflight.py": "9fdd2f86941d27426df07767a069e09c6784e4def73af344eef644782c55f089",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/alternating/runner.py": "2f817e72eb5e62e779fcdf4fe6219d9808a64bf7073482555b21291f79a1ac27",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/alternating/state.py": "e7aedb7607e959721aa219db96168747dfe723458b2197817ea3d2d61ff684d3",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/alternating/token_bridge.py": "ee7040a49dcd32b78aed2b7cd0ba2d6e1429877117ea0856664139137c9cfa08",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/aptm_eval.py": "58ad427af4fb796cb32cce1ff6f0184c2c251276b4bc8b5300cae4f997a5519d",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/artifacts.py": "b7d7486df6b401705157a604daec236c7bc9ce79a8518ccf2c3df5e07c61c940",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/attacks/__init__.py": "278854696782f31a17141ee937f96cc22bcd0a24cf15e5920873539a43b54e47",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/attacks/base.py": "5c3693244bc121db8234cae46b036e235d53dfa87fc77b5c16a2632fc8982823",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/attacks/configuration.py": "f225c7eae2a2e8c14ac1883e0b4512932bc5058deef858aff7fd3bae731d9cf1",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/attacks/gv2.py": "e72685a12f65549210b2ae005219b7fa38c787f0c7a1af0a875ab672fefe4b12",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/attacks/hv1.py": "51b60e0e4b5ee1a822598f9342a7afca1509b7360e0fe2d5987e679b2ab4b25d",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/attacks/joint.py": "6b375e5390b35651f67d74a1a3d21e97237015c8c920a65706849aa8a07b4a1f",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/attacks/legacy_runtime.py": "d328c5b7b188610896aa330f72c68d18aa699634a6f633fbf64691bc4cf99476",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/attacks/provenance.py": "051b3717b32ab3a57d50fde45bb17f6a8f4e99c30d9d28b1f60f6ce941a4ff07",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/attacks/registry.py": "739b22531b4855f184733da7806ba1a4a7cc7b52a28cfd539594dd757d541b62",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/attacks/storage.py": "7158cf935bafb1192a1afb8e881fb6f4b07907e5361cfe528f836a43215d7773",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/b3_eval.py": "57fd328637e636659ad70472763cb659c652e6fc245d8c0bfaf949ef2d306ae1",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/baselines/__init__.py": "86e3dd9402c6cd505cc41954c0c9b02f4ee9cb42b7475ac7f75b89f56d59579a",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/baselines/ap_b3.py": "86f4049317984bbccf0de41d9c2910f57853c931166a013a35d33a895e04c82a",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/baselines/comparison.py": "fe9a0e6be552dcc1dbce569a27097e3509651242611e141716a171115a88d13d",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/baselines/cpgc_sep/__init__.py": "1f7cfcbdca3e98bbf85687829d063bc0a85b2ed6d096b9d104f8f52023241bb4",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/baselines/cpgc_sep/audit.py": "55eb4949edf0705df41b855010aada36cfc2d03e77d9dd5dfaac7b2ed951cbba",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/baselines/cpgc_sep/cache.py": "578bbc05672a73f55b18c29e746219c66b1b57632fc55a9ded2c0a7fb144e51e",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/baselines/cpgc_sep/cli.py": "e57868d873527ccc03f325e43e0a9b9c3d0249c2d5167c36d8dfe1b46efcd81e",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/baselines/cpgc_sep/cpgc_source.py": "98864254116e297da6c264133990ab444b8e5b637b3150c125dbf866375a1f00",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/baselines/cpgc_sep/dataset.py": "a71c0a2731468b210120ae07f749e3543f817205a73972dc96405d3a48841efb",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/baselines/cpgc_sep/official.py": "01fe734a57d5de1f2f8c015ad44569bfbf6f5df7754fd5faafaf87d176818626",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/baselines/cpgc_sep/preflight.py": "b57ee08eb42f42109a6020b21bfa7d46f5d586702a915205be3cff8b6db62e3f",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/baselines/cpgc_sep/report.py": "1db31d853346f4d7c9bdd74cb39021d892513ad81a3d735b4eaecaff3cf3b442",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/baselines/cpgc_sep/runtime.py": "f03dff619a43e2ef10b341c20dd547e699ae83c1b3dd663c1288d40769188e14",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/baselines/cpgc_sep/sep_bridge.py": "93084434436303433e1bd4fa1c567494a0a6c1acaaf3d6c9b25f3fb50d5aa68f",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/baselines/cpgc_sep/sep_source.py": "22eb10fc2272a3dced67b0a71dbcaaa9aad8073a854cf098c1912463b24b2a95",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/baselines/cpgc_sep/target.py": "1a2f9041b42f4559f15a59d68cb120014facff0833dc76fca1535bd39b662d2c",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/baselines/cpgc_sep/victims.py": "1fbc1945b9d78e870e845000a681714bdaf32c256f816fe65bd48b31b1016975",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/baselines/dra_full.py": "d598d3dc698b4c1e4e5d54d40d94fc87de04915d0ad72a773a644006a77ca1a7",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/baselines/dra_full_target.py": "1a6d58492db65f91d453be8419adcbf10bb10e50494a74410e0555b1cfb31a83",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/baselines/dra_irra.py": "382f4d0a62e06c67e9e22a262f6eb60ac3de0b6ed4f98d1bd828766762e59ef9",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/baselines/dra_official.py": "817efdf47df0ff5c17a7cf59d7d3a93ec9879bf42c6ea881eb05315fdc643ffc",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/baselines/dra_target.py": "88432a1f81c95dff780ac00bb82a002e47902759a209c0361c1c0dee7753ef93",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/baselines/launch.py": "3b85cc1092026f7742422eed3062d0ed9ac858bc6e7aed4432abb6de30d94779",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/baselines/sga_attack.py": "83289d7f418f0994b52f09cb76abd04fcadf320dae57eac6e9903d144db23823",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/baselines/sga_batch8_capacity.py": "dfa6c521fb92427025363fa9ac216173508df2868263c1a2ae401b74ed35fc04",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/baselines/sga_full_execution.py": "6abc8d937f68317006881834df2f3c606af193935a5d1537b57dd2d520dd5a92",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/baselines/sga_irra.py": "c560b6f9a7d8c92b6b4dc5df04a201e1753205e602d12a36bd272b826ed93c23",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/baselines/sga_irra_smoke_scores.py": "c805c5503e02e544578e24918fb7ab67691f4163ad064d83e7744e6073c77509",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/baselines/sga_official_io.py": "d922d7c017692a24e658c46aba31b6613759b9fa950b5a2704d32efd0a4c7f73",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/baselines/sga_whitebox.py": "96f217e31f0e47a4116db2a961a4cba8ee33545c0f3f88b74a6bcf7977bd93f8",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/check_attack_runtime.py": "3c9891694323c93c66c7918a6d177c54e06c3ebeb1605367aa7e6bfc0ba8e569",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/compat/__init__.py": "a0ce605ebfd16c166f2dcc237e62460d3f3aef2deaa845feeb4a2e9b21924dcb",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/compat/legacy_assets.py": "a88fa9cf12ec1e573e4763efd6f1bd70618f9759f39445de9830249706324ebe",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/config.py": "2546fbf969c533fc2a50b9f7a7a4c880053cb056599612c3dfaa6f5691eac70f",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/contracts.py": "2049faf65bf6bd99de3c9c50263451d0fbfd2d2fe2741891f9fb0b220de64fed",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/datasets/__init__.py": "5002fe92b67ac786ead8b87ceb2f0993bbc57d98d5051c54900b529fe66f17db",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/datasets/cuhk_pedes.py": "3d7cc570430ede48533728c103d49d6bd0e1fe8596f6c112fe3b5e5358b2b968",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/datasets/historical_membership.py": "9622f342b2259091d437b29f75004b7b5e458b85606b4c9ed97f34e7ec49b31a",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/engines/__init__.py": "7acfc64557fa446bc5346fb045a50a4ee15b66c65acbd9aaddb68c5e874e784f",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/engines/aptm_score_cache.py": "3126c2c7e51f5f86534aae349ee5d5914df8a5a615e035eff2abff7eb79392bf",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/engines/evaluation.py": "957eea289a0164c865fb84dd007901e60da82fb1de9bbbae6f946e93b1374124",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/engines/historical_contracts.py": "167f03a553ba8db4aa34fcbfdd574f35609df085ca83aee7a8365791e57dce89",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/engines/historical_loader.py": "64a5d95f0bba16c81c31a39b420caa1dd0af4bb8a65f616643728f2b2e527239",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/engines/historical_sources.py": "e9b3eadd6a1fba4be93ddc75d49168a8c38be50511b84d150f7ee43c377a4986",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/engines/legacy.py": "3f730b4f3bdb1858614a4337369aee1e33134f35cf3f3d179c08eeb9e72c7465",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/engines/materialized_aptm.py": "9d1acd5ead14869070c3843529c6ed126ef225eddc60c6c22cc718932ec51411",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/engines/materialized_cache.py": "0e3445eacfc0f969eb9d68cbfcb10db208833d9b1811a737abaaab41437e527a",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/engines/materialized_inputs.py": "001e06aec70fb97571a79b30c5d32d63a730fc697aa0d825f541325e2c491a14",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/engines/materialized_irra.py": "8c4c77b762729337925b0de59c8cac754b6520b3e9fcbb9dbeb1fc4346f3c5b2",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/engines/materialized_rasa.py": "0730ecee07a2fbff57067de4f55eefe697dac477e776d42d9879ca00a3ba1732",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/engines/metrics.py": "6a09838fa9c17cc95755acf5e2e608af86127bd517b951c050910f24c38459b5",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/engines/native_cache.py": "eacfdfdc19ac4f0c09f503314cd748d84ebb42d29d3a96a476bec0ef2a3b5b1b",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/engines/native_score_cache.py": "01b8ad3de0dad9655db1c15c7b480d4f3d25f0eb0b7af3d0065661ba51c4533c",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/engines/provenance.py": "d76877f3e13e8e324b4e0f9afdba701a1bd74f115bfca382cbd953cff515b413",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/engines/replay_acceptance.py": "c7abf7c77bc3eaecb6f89c1c65e8a4cd77b3d42d50e801184baea05a118a3d1a",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/engines/replay_control.py": "c5b6c3dc90bde5bf8bf8d2a145a191e19bc017a9e1eec84dfa4cbcffe9298306",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/engines/replay_cpu.py": "385e35d6cc6df9d4d5c57431fee8d01bde86e6c63881b9ada5b87d665e748eb9",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/engines/replay_oracle.py": "2024187d02dac1a0fd4b6b8573888a8e5e6a6353949a2737183e1b81328f9d4e",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/gv2_epoch_eval.py": "0fb9d5f0532a02ecd74c0453954540eb59875eeb9bd2ccab4ffe8d4855e31f45",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/materialization/__init__.py": "2028561dfd64b76d92d53f7b2508dc3d94d03ffafbb8e54301db23e44eb4da3b",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/materialization/audit_retained.py": "3beadbc5d31b482d848aa730d931f86fb8fc2fadbc1e19b255a632c7fc1b3cac",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/materialization/audit_sources.py": "f1a1bc2bf08c087956e1bb42b4ce910911cbfe2f26103aeda25238b4f9fbbe3c",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/materialization/bulk_session.py": "b74a37584a3748ac6c97d9f50dc4fa1537d6e320c25f3bcdcd340ecb147143d4",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/materialization/checkpoint_layout.py": "e6a3724c2330723525bde196038a700c8ac9db1ecf063690b3fc52a7778408fa",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/materialization/claim_recovery.py": "2c97f50c93abcc8152d10eb06fbc05f6d230687edfc6dfe3b6a1a5533639f334",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/materialization/contracts.py": "671cba96eac0a9cec263c361dde116ee29db566c21dd1e66275033b637e5d7af",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/materialization/full_audit.py": "97c49b23f139dc677a359538e82775460ee2d2c7bc289a418d9485daab9ba8b3",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/materialization/full_gpu.py": "6e4b3aaf264c468762315f498cd4c8651dc0871e5b970352fbc1257d983614bc",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/materialization/full_gpu_audit.py": "9006c6eec3e10ad8aa380e5e6fa9bc3581384e625e5ada2615b9d590052cc628",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/materialization/full_prepare.py": "d530625c41c7e2d5ab9cb0067a962fb98a26f0f105c4a78412b62cbb403a25ae",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/materialization/full_runner.py": "c2607cfe2d3ad172d7be7b42e6bee29448a4fbbe52697d135f3c3ce90d92d908",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/materialization/generation.py": "d550de127a713382540f3dc202d552750b237f473e3d1fb22b109733bdbfe0bd",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/materialization/gpu_safety.py": "b756d61a3b0d66340508c695d3211c842eefd7ef4bbbd36de7536b97a1e1dc86",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/materialization/irra_only.py": "5629af052e5db23e4532eac5cd37f0fd35911fd34af1963b4213cd32f7304eec",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/materialization/irra_startup.py": "eb5f0bb0993ae96055e9ec95b8b5c46e110e1bcaed1d4619f1bb9d222a78106a",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/materialization/legacy_text.py": "e33e952ced95e1e5a173afd50a5225199b230ccb52593ef84e4d7898e30e50ea",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/materialization/pipeline.py": "c347df5b8281c7b3d966c1dd918a579d271e907dd2460ab81c9409aa72bcaf9d",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/materialization/retained_inputs.py": "e6bf371da7a405f888bec5521bc37ccd5a657294b7784502e3d351e8e207deb1",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/materialization/smoke.py": "19d5564d143c07bedc1c3d7741dec77dca7af641d4e0b91b4917a75a7bf40de7",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/materialization/smoke_support.py": "7f2089f6bd51be6fbedb795115399d3b37504e07948a497c01e5c4f4dff85cd8",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/materialization/store.py": "378d3477822922a99576a8b9542e23574ccf482313bdb4173c099952327e8a9d",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/materialization/throughput.py": "dbb12c468ad474a529061c442ba9a4a4c0f622a1a2e5b3472120c0613a57f729",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/models/__init__.py": "cb584e9a6b181426679b38a7488bb570ff8f3bfc7abc27eadd6d44e2f3b36221",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/models/aptm.py": "daa85058a2d4d66795a4e1ab8be03c608c857fc4a48ead160c012c299c600341",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/models/base.py": "e74baa789b6d1a4e671870e3155ff7792eb3e381bfbf967283d1dcad211cd8f5",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/models/dra_irra_source.py": "07ad4e34d8f6878b9ff3477e0df033e5b96c513bdfd34466b58f156b0bfaab7d",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/models/irra.py": "424e1dcd20b34061e3199d969f05eb34ca8aa3a6655e00a0e77770ee17fef0b2",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/models/irra_cached.py": "3e30643619250c8ba7d6e09c12a0c23f49fb336a84cd5027c4e358ab90c0e122",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/models/irra_cpu_checks.py": "b953dde85322baf0b87330c198e0303049d23b4d0c39d7c6c768d346bc83eecf",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/models/irra_io.py": "3bd668f28fe788659296af7d1d4c31e4131c23eb96b266887e356f9b32376205",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/models/irra_source.py": "fcf22ad01836804bc40fdce6c1817de2ff1941fd302b549a765e15f5287dd0b6",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/models/rasa.py": "946e89fe97ec0d189545ff9d98fc348c049ce4002564d8504bc3675d4799ee0b",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/models/sga_irra_source.py": "73b0f92f5feb3b019b010bd70313f0d9dab1f019bfcdd7ab17f672f834926fda",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/models/sga_surrogate.py": "31daea9dee81d3cce9ca3eb0490b3b9a3c992a7d03a0145e44cef89a85a8dfb5",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/operations/gh_probe_watch.py": "d24da60b6b68264ed9ef2099bc83582cebc9adb85ac721dbee49cce6764b83d3",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/preflight.py": "e2e2772ad5446d1a61bdc4fbf41338a50b1a9b292aaee0b91c0bde33d2e176a3",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/rasa_eval.py": "c345fb3b9ec0c14cd0cb13c36c9ad0b083e5165ede51d214dd6c81d700f8298c",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/runtime_closure.py": "6ca4824108d71985963aa59d3b16181ee72d7963f079e3a36816bf57b77450e5",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/sga_eval.py": "7e6741d5afa8708c361477689fea118bc4f1202ee5ab8fcb2dc259d143c30db1",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/smoke_attacks.py": "5e66a22a2d29ea9651db9f73ba4c8f11b879508039536388aa848c9f09e97499",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/smoke_attacks_gated.py": "a600141540b5f86b704decc7287bd395918dc6113442ea780e6ca08784ee672e",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/src/tbps/smoke_irra.py": "e3b28a08e22259a1603fdc354cee54c231fba3f95328a1cfe4430bb4f259044f",
+    "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-uap-detach-20261029/operations/cpgc_sep_public_relay.py": "da35af4fa60ec0a279a6be5c122899a0b0c5bd2ab1405edf88890442fa2e8e61"
+  },
+  "bert_source": "/home/lzf/.cache/huggingface/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594",
+  "cpgc_protocol": {
+    "Source": "ALBEF",
+    "UAP_train_dataset": "flickr30k",
+    "epoch": 39,
+    "epsilon": 0.047058823529411764,
+    "text_words": 1,
+    "seed": 42,
+    "pre_caption_words": 30,
+    "source_batch_size": 4,
+    "selection": "README+eval defaults only",
+    "CPU_reference_adv_words": [
+      "pauline"
+    ]
+  },
+  "sep_protocol": {
+    "surrogates": [
+      "irra",
+      "rasa"
+    ],
+    "DPP_random_weight_space": 100,
+    "DPP_keep_rule": "len(surrogates)",
+    "DPP_keep_actual": 2,
+    "iterations": 10,
+    "patience": 5,
+    "eta": 0.2,
+    "epsilon": 0.15,
+    "gamma": 0.02,
+    "max_change_rate": 0.2,
+    "synonym_num": 50,
+    "k_margin": 0.9,
+    "candidate_top_k": 1,
+    "numpy_seed": 0,
+    "python_seed": 0,
+    "torch_seed": 0,
+    "victim_in_surrogates": true
+  },
+  "evaluation": {
+    "metric_unit": "percent",
+    "metrics": [
+      "R@1",
+      "R@5",
+      "R@10",
+      "mAP"
+    ],
+    "query_chunk": 32,
+    "cache_chunk": 8,
+    "image_batch": 1,
+    "text_batch": 8,
+    "ITM_TopK": 128,
+    "precision": "IRRA native convert_weights mixed; RaSa native float32",
+    "exact_full_gallery_ranking": true,
+    "fusion_batch": 16
+  },
+  "nltk_root": "/home/lzf/ldx/cache/cpgc-sep-nltk-ready-20261028",
+  "runtime_versions": {
+    "source": {
+      "torch": "2.0.0+cu118",
+      "torchvision": "0.15.0+cu118",
+      "transformers": "4.28.1",
+      "timm": "0.6.13",
+      "numpy": "1.26.4",
+      "Pillow": "11.3.0"
+    },
+    "victim": {
+      "torch": "2.5.1+cu124",
+      "torchvision": "0.20.1+cu124",
+      "transformers": "4.44.2",
+      "timm": "0.9.8",
+      "numpy": "1.26.4",
+      "Pillow": "11.3.0"
+    }
+  },
+  "source_python": "/home/lzf/ldx/envs/sga-irra-source/bin/python",
+  "victim_python": "/home/lzf/ldx/envs/tbps-image/bin/python",
+  "smoke": {
+    "Gallery": 128,
+    "Query": 2,
+    "selection": "official Test fixed first128 Gallery and first2 paired Queries; tests complete native RaSa Top128"
+  },
+  "protected_files": {
+    "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0060/checkpoint.pt": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049",
+    "/home/lzf/ldx/outputs/tbps-framework-hv1-g60-adaptation-epoch60/training/checkpoints/visit_00122880/checkpoint.pt": "c0de26658c5f36083aaeb04dde3948cdd5bf941d30b1b5c97f7bb2c796404094"
+  },
+  "victim_git": {
+    "rasa": "bd16aa1a15f149548a90d196fcf10a27d7ab7c66"
+  },
+  "shared_resource_validation": {
+    "parent_commit": "c134cb394dd8a21a39c7bc9aa2642fe33e38a6d0",
+    "parent_config_sha256": "da64c7019cf54906932da925f28b3756750049102c3d8c0ffbfbe5d4d77f4ce5",
+    "safety_margin_mib": 2048,
+    "Full_gate": "all six same-config real method Smoke+CPU audits and each measured reserved peak + 2048MiB <=8192MiB",
+    "changes": {
+      "minimum_free_mib": [
+        10240,
+        8192
+      ],
+      "query_chunk": [
+        128,
+        32
+      ],
+      "fusion_batch": [
+        128,
+        16
+      ]
+    },
+    "unchanged": "UAP,SEP,DPP,weights,Gallery,Query,precision,input,Top128,complete-ranking metrics"
+  },
+  "attempt_identity": {
+    "name": "uap-detach-v2",
+    "parent_execution_commit": "db7e3e2ba382ac944c0911211f0d5d562c100933",
+    "parent_config_sha256": "be0054037dbade5e73503dad2e354acd431efd7da67127382ba74a1534d38e5e",
+    "old_attempt_readonly": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v1",
+    "old_Source_reused": false,
+    "reason": "whole-config and producer identity differs; repeat necessary two-Query Source Smoke in fresh output; no UAP regeneration"
+  }
+}

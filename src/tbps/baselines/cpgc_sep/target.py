@@ -67,7 +67,7 @@ def evaluate(c,method,dataset,victim,scope,*,resume=False):
    banks={};counts={"image_samples":0,"text_samples":0,"backward":0,"optimizer":0}
    noise=None;noise_report=None;pixel_hashes=[]
    if method=="cpgc":
-    raw_noise=torch.load(c["resources"]["cpgc_noise"]["path"],map_location="cpu",weights_only=True)
+    raw_noise=torch.load(c["resources"]["cpgc_noise"]["path"],map_location="cpu",weights_only=True).detach()
     require(raw_noise.dtype==torch.float32 and tuple(raw_noise.shape)==(3,384,384),"original CPGC UAP shape/dtype")
     target_size=(384,128) if victim=="irra" else (384,384)
     noise=F.interpolate(raw_noise.unsqueeze(0),size=target_size,mode="bilinear",align_corners=False) if target_size!=(384,384) else raw_noise.unsqueeze(0).clone()
