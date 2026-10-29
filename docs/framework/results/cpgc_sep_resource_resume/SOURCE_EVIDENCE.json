@@ -1,0 +1,181 @@
+{
+  "native_execution_commit": "36cf91f97ea3c483883eb6d93456c51ef7d662f0",
+  "native_config_sha256": "4b56eb60a3f2c928ef084fad64f1648bee17129e450b707a4d166169bc8a370a",
+  "CPU_tests": "23 passed in 0.26s",
+  "resource_snapshot": {
+    "time": "2026-10-29T18:26:08.992800+08:00",
+    "status": "READY",
+    "actual": {
+      "minimum_free_mib": 24051,
+      "RAM_bytes": 123047337984,
+      "disk_bytes": 6128994463744,
+      "inodes": 239963827
+    },
+    "required": {
+      "minimum_free_mib": 8192,
+      "RAM_bytes": 34359738368,
+      "disk_bytes": 107374182400,
+      "inodes": 80000
+    },
+    "blocked": {},
+    "GPU_total_MiB": 24564,
+    "GPU_utilization": 0,
+    "compute_processes": []
+  },
+  "historical_RESOURCE_BUSY_specific_metric": "NOT_RECORDED: original OR-combined guard did not persist failed snapshot; current all gates pass",
+  "verified_reuse": [
+    {
+      "label": "cpgc_smoke_cuhk_source",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc_source/cuhk/completed/manifest.json",
+      "sha256": "fb8b4d819b44a7eb0ca23e336297b0346445776df3d36b8d56e2aedc9b905ee4",
+      "deep_payload_SHA": true
+    },
+    {
+      "label": "cpgc_smoke_cuhk_irra_target",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc/cuhk/irra/completed/manifest.json",
+      "sha256": "680a3460613593f02ccf4f26d1aa66e925cd6ba9fe76af53cdf743a18e06952f",
+      "deep_payload_SHA": true
+    },
+    {
+      "label": "cpgc_smoke_cuhk_irra_audit",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/audit/cpgc/cuhk/irra/completed/manifest.json",
+      "sha256": "90655ad90772cbf61d279b62f0107dab666107d4aaef50fe41631efa0a368559",
+      "deep_payload_SHA": true
+    },
+    {
+      "label": "cpgc_smoke_cuhk_rasa_target",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc/cuhk/rasa/completed/manifest.json",
+      "sha256": "c77644c001006e60d3d9d424cb09673de5b6dc85767f7a4eeb9c3c7c209e9c76",
+      "deep_payload_SHA": true
+    },
+    {
+      "label": "cpgc_smoke_cuhk_rasa_audit",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/audit/cpgc/cuhk/rasa/completed/manifest.json",
+      "sha256": "ef7638fe50d7a90d772debd2034f0f280517f2a73e03b4ee92a12a62fe735278",
+      "deep_payload_SHA": true
+    },
+    {
+      "label": "cpgc_smoke_rstp_source",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc_source/rstp/completed/manifest.json",
+      "sha256": "85fa5ad483d9c8bec8cb177b7bb18bbc83c707b2c6413f6b24bce0644c52c8af",
+      "deep_payload_SHA": true
+    },
+    {
+      "label": "cpgc_smoke_rstp_irra_target",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc/rstp/irra/completed/manifest.json",
+      "sha256": "0d1e9f4007b381befdf5b27ba0aeee411580b864b8941e264a3e51859ad23ebb",
+      "deep_payload_SHA": true
+    },
+    {
+      "label": "cpgc_smoke_rstp_irra_audit",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/audit/cpgc/rstp/irra/completed/manifest.json",
+      "sha256": "60c15dd139ca264010cde422f14fbf0cd38c5ae1a924295ae1635c677fa52645",
+      "deep_payload_SHA": true
+    },
+    {
+      "label": "cpgc_smoke_rstp_rasa_target",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc/rstp/rasa/completed/manifest.json",
+      "sha256": "5893324b6fff71a41c2617d3c499bd119cb11b5d8da4a3033c8a03b3cf3c9eb3",
+      "deep_payload_SHA": true
+    },
+    {
+      "label": "cpgc_smoke_rstp_rasa_audit",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/audit/cpgc/rstp/rasa/completed/manifest.json",
+      "sha256": "b76e0955cce9072fe508500606758517abf7a41a0c2ef71212db3f162b3be819",
+      "deep_payload_SHA": true
+    },
+    {
+      "label": "cpgc_smoke_icfg_source",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc_source/icfg/completed/manifest.json",
+      "sha256": "61b9f9a8d5f8d7f7c9749858c570677672f0c1f0b966cd089da5d47b3e673e6e",
+      "deep_payload_SHA": true
+    },
+    {
+      "label": "cpgc_smoke_icfg_irra_target",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc/icfg/irra/completed/manifest.json",
+      "sha256": "eedc52dd7794f41f9a340bac682a43671be82d795fd1a703332a362314ef606c",
+      "deep_payload_SHA": true
+    },
+    {
+      "label": "cpgc_smoke_icfg_irra_audit",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/audit/cpgc/icfg/irra/completed/manifest.json",
+      "sha256": "9d893981ff13f459de4f3c81f5942fd8bad45ac9223c9a16461a5e5dcf487264",
+      "deep_payload_SHA": true
+    },
+    {
+      "label": "cpgc_smoke_icfg_rasa_target",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc/icfg/rasa/completed/manifest.json",
+      "sha256": "43fadcb40bd218aef674cc416256f22d957f99d535c175760e81b50dc350e0ad",
+      "deep_payload_SHA": true
+    },
+    {
+      "label": "cpgc_smoke_icfg_rasa_audit",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/audit/cpgc/icfg/rasa/completed/manifest.json",
+      "sha256": "13ad059be90eb579aa138d26dc2dc151110a77878a7f86bfb419dd6cad9fe6a2",
+      "deep_payload_SHA": true
+    },
+    {
+      "label": "cpgc_full_cuhk_source",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc_source/cuhk/completed/manifest.json",
+      "sha256": "8e0c720d944fb7cf1e30c505aae2ebc225dca84ec3b08bbe3a18c883db7a6a6a",
+      "deep_payload_SHA": true
+    },
+    {
+      "label": "cpgc_full_cuhk_irra_target",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc/cuhk/irra/completed/manifest.json",
+      "sha256": "c26af4adaaf523b89c9d628f90cd74aa9a2802abcc7ab9a4c18d801b7f3c227d",
+      "deep_payload_SHA": true
+    },
+    {
+      "label": "cpgc_full_cuhk_irra_audit",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/audit/cpgc/cuhk/irra/completed/manifest.json",
+      "sha256": "799b32fc69c0673f9779f6dbb7ebc81b87769c04f42080bbe630a2c0cd41d05c",
+      "deep_payload_SHA": true
+    }
+  ],
+  "Full_completed": 1,
+  "IRRA_metrics": {
+    "Clean": {
+      "R@1": 73.14814758300781,
+      "R@10": 93.72969055175781,
+      "R@5": 89.83106231689453,
+      "mAP": 66.09468841552734
+    },
+    "Joint": {
+      "R@1": 47.270957946777344,
+      "R@10": 79.4671859741211,
+      "R@5": 70.98765563964844,
+      "mAP": 42.760501861572266
+    },
+    "Matched Clean": {
+      "R@1": 69.44444274902344,
+      "R@10": 92.02404022216797,
+      "R@5": 87.2157211303711,
+      "mAP": 63.01728439331055
+    }
+  },
+  "protection_snapshot_path": "/home/lzf/ldx/tmp/cpgc_sep_resume_prepare_20261029/protected_prior_control_and_irra.json",
+  "protection_snapshot_sha256": "1aa6b0473a51231a27bcd21061eeed4f78cdd06d085f9dd2e7f9e091d13a28db",
+  "log_references": {
+    "cpu.exit": {
+      "path": "/home/lzf/ldx/tmp/cpgc_sep_resume_prepare_20261029/cpu.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "inspect.exit": {
+      "path": "/home/lzf/ldx/tmp/cpgc_sep_resume_prepare_20261029/inspect.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "inspect.log": {
+      "path": "/home/lzf/ldx/tmp/cpgc_sep_resume_prepare_20261029/inspect.log",
+      "sha256": "db5f5b0457957b8f8bb0fcaf56dac3278ce2996c54ed973f466706243155e688"
+    },
+    "cpu.log": {
+      "path": "/home/lzf/ldx/tmp/cpgc_sep_resume_prepare_20261029/cpu.log",
+      "sha256": "ffed5a7e4cc03e20f9317a9d99c3d85a541cd95b8f58d8b41b1b042cb3f96512"
+    },
+    "protected_prior_control_and_irra.json": {
+      "path": "/home/lzf/ldx/tmp/cpgc_sep_resume_prepare_20261029/protected_prior_control_and_irra.json",
+      "sha256": "1aa6b0473a51231a27bcd21061eeed4f78cdd06d085f9dd2e7f9e091d13a28db"
+    }
+  }
+}

@@ -692,3 +692,8 @@ H20新增候选最低40.427635%，历史H9为40.425480%；H60为42.874081%，不
 ## 2026-10-29：C-PGC UAP只读detach修复与独立v2
 
 只修Target/Audit各一行detach，provenance拒绝契约不改。107项CPU及两个真实环境预检PASS，旧v1共45份文件保护PASS；新配置、输出及控制身份隔离，Source Smoke在新空间独立执行，不重生UAP。[本轮报告](framework/results/cpgc_sep_uap_detach/REPORT.md)。GPU状态以真实回执为准，不把CPU PASS当GPU完成。
+
+
+## 2026-10-29：C-PGC/SEP v2资源恢复调度
+
+CUHK IRRA正式Full与独立CPU审计PASS（Joint R@1 47.27/mAP42.76），总1/12。旧RaSa在创建Attempt前RESOURCE_BUSY退出，历史具体不足项未记录；当前资源全部通过。18个已有步骤全payload/Manifest/SHA只读复用，23项恢复工具CPU测试PASS。只新增独立operations调度与每5分钟/总12小时资源等待，冻结执行36cf91f及配置不改，先恢复RaSa Target。[恢复记录](framework/results/cpgc_sep_resource_resume/REPORT.md)。
