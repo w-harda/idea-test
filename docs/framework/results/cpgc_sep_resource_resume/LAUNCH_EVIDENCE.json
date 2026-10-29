@@ -1,0 +1,48 @@
+{
+  "snapshot_time": "2026-10-29T18:37:00.985323+08:00",
+  "scheduler_execution_commit": "bb7874427ecd45b80ba89bc74890ad0372759040",
+  "scheduler_code_sha256": "f60fd59333a671f33ce99595cbf0c298364c07db21264c981ee18f6f87b1e8f9",
+  "native_commit": "36cf91f97ea3c483883eb6d93456c51ef7d662f0",
+  "config_sha256": "4b56eb60a3f2c928ef084fad64f1648bee17129e450b707a4d166169bc8a370a",
+  "supervisor": "2733135       1 2733135 2733135 ?        Ss   /home/lzf/ldx/envs/tbps-image/bin/python -u -B /home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-resume-20261029/operations/cpgc_sep_resume.py --allow-resume",
+  "current_state": {
+    "time": "2026-10-29T18:32:42.340444+08:00",
+    "phase": "RUNNING_STEP",
+    "step": "cpgc_full_cuhk_rasa_target",
+    "resource_wait_used_seconds": 0.0,
+    "resource_wait_limit_seconds": 43200,
+    "log": "/home/lzf/ldx/tmp/cpgc_sep_resume_v1_20261029/0001_cpgc_full_cuhk_rasa_target.log",
+    "gpu_allowed": true
+  },
+  "latest_resource_snapshot": {
+    "time": "2026-10-29T18:32:42.316580+08:00",
+    "status": "READY",
+    "actual": {
+      "minimum_free_mib": 24051,
+      "RAM_bytes": 122953052160,
+      "disk_bytes": 6128994119680,
+      "inodes": 239963783
+    },
+    "required": {
+      "minimum_free_mib": 8192,
+      "RAM_bytes": 34359738368,
+      "disk_bytes": 107374182400,
+      "inodes": 80000
+    },
+    "blocked": {},
+    "GPU_total_MiB": 24564,
+    "GPU_utilization": 0,
+    "compute_processes": []
+  },
+  "verified_reuse_steps": 18,
+  "native_cpu_preflight_source_pass": true,
+  "native_cpu_preflight_victim_pass": true,
+  "Rasa_pixel_units_committed": 1220,
+  "Rasa_total_Gallery": 3074,
+  "Full_completed": 1,
+  "Full_total": 12,
+  "original_v2_control_and_IRRA_protected": true,
+  "GPU_processes": "2734815, /home/lzf/ldx/envs/tbps-image/bin/python, 2278",
+  "new_control": "/home/lzf/ldx/tmp/cpgc_sep_resume_v1_20261029",
+  "output_root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2"
+}

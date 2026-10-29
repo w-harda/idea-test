@@ -37,3 +37,7 @@
 | C-PGC Joint | 47.27 | 70.99 | 79.47 | 42.76 |
 
 百分数；原精度CSV与审计/summary严格一致。不可把Source、Smoke或其他历史G/H指标混入Full。后台是否真正运行以新控制status.json、PID和阶段日志为准，准备报告不预先宣布恢复成功。
+
+## 实际恢复部署
+
+恢复监督器PID/PGID/SID=2733135，PPID=1/无TTY，启动SSH已退出仍存活。真实Source/Victim CPU预检PASS，18个已验证步骤明确跳过，当前已开始CUHK RaSa Target、GPU计算进程已出现，图像物化提交进度与状态见LAUNCH_EVIDENCE.json。已完成正式Full仍1/12。后续自动串行推进，其余C-PGC Full、SEP Smoke门禁及六组Full/审计不需要Agent持续在线。旧控制及IRRA文件保护复核PASS，没有修改原生代码或配置。

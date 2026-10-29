@@ -697,3 +697,5 @@ H20新增候选最低40.427635%，历史H9为40.425480%；H60为42.874081%，不
 ## 2026-10-29：C-PGC/SEP v2资源恢复调度
 
 CUHK IRRA正式Full与独立CPU审计PASS（Joint R@1 47.27/mAP42.76），总1/12。旧RaSa在创建Attempt前RESOURCE_BUSY退出，历史具体不足项未记录；当前资源全部通过。18个已有步骤全payload/Manifest/SHA只读复用，23项恢复工具CPU测试PASS。只新增独立operations调度与每5分钟/总12小时资源等待，冻结执行36cf91f及配置不改，先恢复RaSa Target。[恢复记录](framework/results/cpgc_sep_resource_resume/REPORT.md)。
+
+恢复链已真实启动：监督器2733135、PPID1/无TTY，当前CUHK RaSa Target已创建合法首次Attempt并提交图像物化，已完成18步骤跳过；正式1/12，其余串行推进。[部署证据](framework/results/cpgc_sep_resource_resume/LAUNCH_EVIDENCE.json)。
