@@ -1,9 +1,10 @@
 # 项目当前状态（唯一权威入口）
 
-## C-PGC/SEP取消固定GPU显存门槛恢复准备（2026-11-01）
+## C-PGC/SEP无固定显存门槛恢复运行，真实Smoke/CPU审计PASS（2026-11-01）
 
 6/12完成，v3等待器909831已核实后停止，原现场保留。新codex/cpgc-sep-no-gpu-floor仅移除活动GPU显存否决、保留主机与来源门禁。
-6份Full+审计及27个已完成v3步骤通过只读核验；不重复Source/Target/审计。新版本首个未完成步骤SEP ICFG IRRA Target Smoke，GPU/独立审计与后台启动以实际新回执为准。
+6份Full+审计及27个已完成v3步骤通过只读核验；不重复Source/Target/审计。新版本首个未完成步骤SEP ICFG IRRA Target Smoke及独立CPU审计真实PASS。监督器2960820，PPID1、PGID/SID2960820、无TTY，已推进ICFG/RaSa Source Smoke。
+执行源码14f247fb5557d1d8eb40d71a470a4aecbe801655；当前6/12完成，剩余SEP串行执行，不提前宣称全量完成。
 [报告](framework/results/cpgc_sep_no_gpu_floor/REPORT.md)、[协议](framework/results/cpgc_sep_no_gpu_floor/EXECUTION_PROTOCOL.md)。
 
 ## C-PGC/SEP v3吞吐量优化与隔离恢复准备（2026-10-31）

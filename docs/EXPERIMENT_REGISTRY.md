@@ -703,3 +703,5 @@ H20新增候选最低40.427635%，历史H9为40.425480%；H60为42.874081%，不
 ## 2026-11-01 C-PGC/SEP no-floor v4
 
 移除固定GPU空闲显存要求，保留RAM/disk/inode与实际OOM停止；数值路径及64GiB缓存不变。6个CPGC Full只读保留，新namespace tbps-framework-cpgc-sep-no-gpu-floor-v4。GPU Smoke与后续SEP Full以新控制目录实际回执为准。
+
+部署验收：14f247fb5557d1d8eb40d71a470a4aecbe801655，新ICFG/IRRA Target GPU Smoke与CPU审计PASS；监督器2960820独立后台，已自动推进后续SEP。6/12完成，未宣称Full全部PASS。

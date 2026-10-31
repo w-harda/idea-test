@@ -35,6 +35,14 @@
     "cache_scheduler_cpu.log": {
       "path": "/home/lzf/ldx/tmp/cpgc_sep_no_gpu_floor_prepare_20261101/cache_scheduler_cpu.log",
       "sha256": "68d03101da40c4eead6db449be253234177354d00e2fefeef902961d4a26ae20"
+    },
+    "cache_scheduler_cpu_fixed.log": {
+      "path": "/home/lzf/ldx/tmp/cpgc_sep_no_gpu_floor_prepare_20261101/cache_scheduler_cpu_fixed.log",
+      "sha256": "42f2464c885a98dd62a50e8e49346d28a59b613632b990c2d112a999486ef0ca"
+    },
+    "resources_before.json": {
+      "path": "/home/lzf/ldx/tmp/cpgc_sep_no_gpu_floor_prepare_20261101/resources_before.json",
+      "sha256": "51ada12c4a014b1e26eb9a76e07384ba9d3c137538853a0cbfc6f1f015f6459e"
     }
   }
 }

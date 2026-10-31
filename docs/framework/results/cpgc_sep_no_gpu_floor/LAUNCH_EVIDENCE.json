@@ -1,0 +1,41 @@
+{
+  "time": "2026-11-01T00:35:38.269306+08:00",
+  "execution_commit": "14f247fb5557d1d8eb40d71a470a4aecbe801655",
+  "config_sha256": "d3a5bf917d2d4d28a19dee1b14f6c61d546670b039efadba727db7f6d5f347ad",
+  "supervisor": {
+    "PID": 2960820,
+    "PPID": 1,
+    "PGID": 2960820,
+    "SID": 2960820,
+    "TTY": "?"
+  },
+  "process": "    PID    PPID    PGID     SID TT           ELAPSED COMMAND\n2960820       1 2960820 2960820 ?              06:24 /home/lzf/ldx/envs/tbps-image/bin/python -u -B /home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-no-gpu-floor-20261101/operations/cpgc_sep_throughput_run.py --allow-no-gpu-floor\n",
+  "child": "    PID    PPID    PGID     SID TT           ELAPSED COMMAND\n2988491 2960820 2960820 2960820 ?              01:52 /home/lzf/ldx/envs/tbps-image/bin/python -u -B -m tbps.baselines.cpgc_sep.cli --config /home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-no-gpu-floor-20261101/configs/framework/cpgc_sep_tbps.no_gpu_floor.server.json --action sep-source --method sep --scope smoke --dataset icfg --victim rasa --allow-gpu-smoke\n",
+  "status": {
+    "time": "2026-11-01T00:33:46.049604+08:00",
+    "phase": "RUNNING_STEP",
+    "step": "sep_smoke_icfg_rasa_source",
+    "completed_Full": 6,
+    "wait_seconds": 0.0,
+    "log": "/home/lzf/ldx/tmp/cpgc_sep_no_gpu_floor_v4_20261101/0003_sep_smoke_icfg_rasa_source.log",
+    "gpu": true
+  },
+  "GPU": "21047, 24564, 21\n",
+  "stdin": "/dev/null",
+  "stdout": "/home/lzf/ldx/tmp/cpgc_sep_no_gpu_floor_v4_20261101/launcher.log",
+  "real_smoke": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/smoke/sep/icfg/irra/completed/summary.json",
+    "sha256": "bb483b91cea4f28e0e938cbd0dc87e4231f055bd7134134efffde80c03f386f8",
+    "status": "PASS",
+    "allocated_MiB": 434.59375,
+    "reserved_MiB": 446.0,
+    "elapsed_seconds": 14.027783945202827
+  },
+  "CPU_audit": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/smoke/audit/sep/icfg/irra/completed/audit.json",
+    "sha256": "23139291d1b8bd5b54db37d091f93b948625e49e65b5e17d6ef3a00c9bf2dd83",
+    "status": "PASS",
+    "CUDA": false,
+    "neural_forward": 0
+  }
+}

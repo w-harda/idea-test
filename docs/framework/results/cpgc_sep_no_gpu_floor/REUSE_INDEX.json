@@ -1,0 +1,441 @@
+{
+  "status": "PASS",
+  "Full_audits": 6,
+  "items": [
+    {
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc/cuhk/irra",
+      "manifest_sha256": "c26af4adaaf523b89c9d628f90cd74aa9a2802abcc7ab9a4c18d801b7f3c227d",
+      "kind": "target",
+      "groups": {
+        "Clean": {
+          "R@1": 73.14814758300781,
+          "R@10": 93.72969055175781,
+          "R@5": 89.83106231689453,
+          "mAP": 66.09468841552734
+        },
+        "Joint": {
+          "R@1": 47.270957946777344,
+          "R@10": 79.4671859741211,
+          "R@5": 70.98765563964844,
+          "mAP": 42.760501861572266
+        },
+        "Matched Clean": {
+          "R@1": 69.44444274902344,
+          "R@10": 92.02404022216797,
+          "R@5": 87.2157211303711,
+          "mAP": 63.01728439331055
+        }
+      }
+    },
+    {
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/audit/cpgc/cuhk/irra",
+      "manifest_sha256": "799b32fc69c0673f9779f6dbb7ebc81b87769c04f42080bbe630a2c0cd41d05c",
+      "kind": "audit",
+      "groups": {
+        "Clean": {
+          "R@1": 73.14814758300781,
+          "R@10": 93.72969055175781,
+          "R@5": 89.83106231689453,
+          "mAP": 66.09468841552734
+        },
+        "Joint": {
+          "R@1": 47.270957946777344,
+          "R@10": 79.4671859741211,
+          "R@5": 70.98765563964844,
+          "mAP": 42.760501861572266
+        },
+        "Matched Clean": {
+          "R@1": 69.44444274902344,
+          "R@10": 92.02404022216797,
+          "R@5": 87.2157211303711,
+          "mAP": 63.01728439331055
+        }
+      }
+    },
+    {
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc/cuhk/rasa",
+      "manifest_sha256": "2b86878d7df8de470915aa7e8e7b39b0128512d9fdf54b66a6281b332727db20",
+      "kind": "target",
+      "groups": {
+        "Clean": {
+          "R@1": 76.38076782226562,
+          "R@10": 94.23326873779297,
+          "R@5": 90.20468139648438,
+          "mAP": 69.29170227050781
+        },
+        "Joint": {
+          "R@1": 3.6387264728546143,
+          "R@10": 9.015594482421875,
+          "R@5": 6.855100631713867,
+          "mAP": 2.5758867263793945
+        },
+        "Matched Clean": {
+          "R@1": 74.59388732910156,
+          "R@10": 93.42105102539062,
+          "R@5": 89.05133056640625,
+          "mAP": 67.51131439208984
+        }
+      }
+    },
+    {
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/audit/cpgc/cuhk/rasa",
+      "manifest_sha256": "76bf7d0a309ba9c24ac195ff87d21b1193cfeff8d90bd7e319503ac540c33ebc",
+      "kind": "audit",
+      "groups": {
+        "Clean": {
+          "R@1": 76.38076782226562,
+          "R@10": 94.23326873779297,
+          "R@5": 90.20468139648438,
+          "mAP": 69.29170227050781
+        },
+        "Joint": {
+          "R@1": 3.6387264728546143,
+          "R@10": 9.015594482421875,
+          "R@5": 6.855100631713867,
+          "mAP": 2.5758867263793945
+        },
+        "Matched Clean": {
+          "R@1": 74.59388732910156,
+          "R@10": 93.42105102539062,
+          "R@5": 89.05133056640625,
+          "mAP": 67.51131439208984
+        }
+      }
+    },
+    {
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc/rstp/irra",
+      "manifest_sha256": "d9c570274cf337baa232fb6bf9d6bedb0c556192e41b664f2a9e522053c5ca8b",
+      "kind": "target",
+      "groups": {
+        "Clean": {
+          "R@1": 60.29999923706055,
+          "R@10": 88.20000457763672,
+          "R@5": 81.5,
+          "mAP": 47.19553756713867
+        },
+        "Joint": {
+          "R@1": 34.85000228881836,
+          "R@10": 73.6500015258789,
+          "R@5": 60.70000076293945,
+          "mAP": 26.74063491821289
+        },
+        "Matched Clean": {
+          "R@1": 54.25,
+          "R@10": 86.5,
+          "R@5": 78.1500015258789,
+          "mAP": 43.4832649230957
+        }
+      }
+    },
+    {
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/audit/cpgc/rstp/irra",
+      "manifest_sha256": "0034a6cc736754d3e84abf421a375d259ad51d9ef651230089c04c3e8774212a",
+      "kind": "audit",
+      "groups": {
+        "Clean": {
+          "R@1": 60.29999923706055,
+          "R@10": 88.20000457763672,
+          "R@5": 81.5,
+          "mAP": 47.19553756713867
+        },
+        "Joint": {
+          "R@1": 34.85000228881836,
+          "R@10": 73.6500015258789,
+          "R@5": 60.70000076293945,
+          "mAP": 26.74063491821289
+        },
+        "Matched Clean": {
+          "R@1": 54.25,
+          "R@10": 86.5,
+          "R@5": 78.1500015258789,
+          "mAP": 43.4832649230957
+        }
+      }
+    },
+    {
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc/rstp/rasa",
+      "manifest_sha256": "921123b08fc9ac57e69acd402c97d6e4a48f63303c3bc91d50fd02808628913a",
+      "kind": "target",
+      "groups": {
+        "Clean": {
+          "R@1": 66.64999389648438,
+          "R@10": 91.19999694824219,
+          "R@5": 86.29999542236328,
+          "mAP": 52.251380920410156
+        },
+        "Joint": {
+          "R@1": 1.7999999523162842,
+          "R@10": 8.449999809265137,
+          "R@5": 5.600000381469727,
+          "mAP": 1.810570478439331
+        },
+        "Matched Clean": {
+          "R@1": 65.1500015258789,
+          "R@10": 91.0,
+          "R@5": 85.69999694824219,
+          "mAP": 51.2349853515625
+        }
+      }
+    },
+    {
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/audit/cpgc/rstp/rasa",
+      "manifest_sha256": "8a02152afba3e14318b18ff51992105acdbae116972d3bbf7eeee5069482dda2",
+      "kind": "audit",
+      "groups": {
+        "Clean": {
+          "R@1": 66.64999389648438,
+          "R@10": 91.19999694824219,
+          "R@5": 86.29999542236328,
+          "mAP": 52.251380920410156
+        },
+        "Joint": {
+          "R@1": 1.7999999523162842,
+          "R@10": 8.449999809265137,
+          "R@5": 5.600000381469727,
+          "mAP": 1.810570478439331
+        },
+        "Matched Clean": {
+          "R@1": 65.1500015258789,
+          "R@10": 91.0,
+          "R@5": 85.69999694824219,
+          "mAP": 51.2349853515625
+        }
+      }
+    },
+    {
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc/icfg/irra",
+      "manifest_sha256": "71ba9f3d0425f4f67994ec38608790e1991a9d25d1a7d18928ef393e0d0484dc",
+      "kind": "target",
+      "groups": {
+        "Clean": {
+          "R@1": 63.4371223449707,
+          "R@10": 85.76683044433594,
+          "R@5": 80.34562683105469,
+          "mAP": 38.04403305053711
+        },
+        "Joint": {
+          "R@1": 20.22873878479004,
+          "R@10": 47.757957458496094,
+          "R@5": 38.8804931640625,
+          "mAP": 10.106147766113281
+        },
+        "Matched Clean": {
+          "R@1": 37.79222106933594,
+          "R@10": 66.7372055053711,
+          "R@5": 58.036075592041016,
+          "mAP": 22.03257179260254
+        }
+      }
+    },
+    {
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/audit/cpgc/icfg/irra",
+      "manifest_sha256": "ad671fa3453968a063c13406c19316ac6c2bb444dc5438598ed6b3e0b4759c49",
+      "kind": "audit",
+      "groups": {
+        "Clean": {
+          "R@1": 63.4371223449707,
+          "R@10": 85.76683044433594,
+          "R@5": 80.34562683105469,
+          "mAP": 38.04403305053711
+        },
+        "Joint": {
+          "R@1": 20.22873878479004,
+          "R@10": 47.757957458496094,
+          "R@5": 38.8804931640625,
+          "mAP": 10.106147766113281
+        },
+        "Matched Clean": {
+          "R@1": 37.79222106933594,
+          "R@10": 66.7372055053711,
+          "R@5": 58.036075592041016,
+          "mAP": 22.03257179260254
+        }
+      }
+    },
+    {
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/full/cpgc/icfg/rasa",
+      "manifest_sha256": "e831de7d2132143cdcb85a3028c713715bad91e9cfbc1941db63b99646e08442",
+      "kind": "target",
+      "groups": {
+        "Clean": {
+          "R@1": 65.31640625,
+          "R@10": 85.2025375366211,
+          "R@5": 80.59249877929688,
+          "mAP": 41.26274108886719
+        },
+        "Joint": {
+          "R@1": 1.4107215404510498,
+          "R@10": 4.872027397155762,
+          "R@5": 3.481459140777588,
+          "mAP": 0.4436641335487366
+        },
+        "Matched Clean": {
+          "R@1": 45.33958053588867,
+          "R@10": 73.00483703613281,
+          "R@5": 65.24082946777344,
+          "mAP": 28.697322845458984
+        }
+      }
+    },
+    {
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/full/audit/cpgc/icfg/rasa",
+      "manifest_sha256": "69d87db7d6d65e192bbb04eeaef2892583bdc0ac35710466cca3bea2e2c8485b",
+      "kind": "audit",
+      "groups": {
+        "Clean": {
+          "R@1": 65.31640625,
+          "R@10": 85.2025375366211,
+          "R@5": 80.59249877929688,
+          "mAP": 41.26274108886719
+        },
+        "Joint": {
+          "R@1": 1.4107215404510498,
+          "R@10": 4.872027397155762,
+          "R@5": 3.481459140777588,
+          "mAP": 0.4436641335487366
+        },
+        "Matched Clean": {
+          "R@1": 45.33958053588867,
+          "R@10": 73.00483703613281,
+          "R@5": 65.24082946777344,
+          "mAP": 28.697322845458984
+        }
+      }
+    },
+    {
+      "key": "smoke/cpgc/cuhk/irra/target",
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/cpgc/cuhk/irra",
+      "manifest_sha256": "4e24c33ce23520bc3623d5a294993138368dfaf957660dc1a4f605ddf2dce7e5"
+    },
+    {
+      "key": "smoke/cpgc/cuhk/irra/audit",
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/cpgc/cuhk/irra",
+      "manifest_sha256": "c18b3f3040dc277ae272e453f5b87f69b9c9be1f453d61fd706eac203f4f49d5"
+    },
+    {
+      "key": "smoke/cpgc/cuhk/rasa/target",
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/cpgc/cuhk/rasa",
+      "manifest_sha256": "f0c7e2cbf3902fe6c724388c61fb0c6748c5ddc804e9a3f136fba52251f88cf7"
+    },
+    {
+      "key": "smoke/cpgc/cuhk/rasa/audit",
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/cpgc/cuhk/rasa",
+      "manifest_sha256": "31ead5c366b1b47ed2a1a63cb790bc9c8f366340b4d118b6818e3830d59a5b54"
+    },
+    {
+      "key": "smoke/cpgc/rstp/irra/target",
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/cpgc/rstp/irra",
+      "manifest_sha256": "4f125d3f1b31b4d50a8b59c2b705c04a13f34b9ce9aed6c9a2d074ef3478dcfb"
+    },
+    {
+      "key": "smoke/cpgc/rstp/irra/audit",
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/cpgc/rstp/irra",
+      "manifest_sha256": "29bd19f34f494ab2dd35309f83dd0886bda19f6c48420e73f43c20c74a01e7fc"
+    },
+    {
+      "key": "smoke/cpgc/rstp/rasa/target",
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/cpgc/rstp/rasa",
+      "manifest_sha256": "eec2c1fafeb5aed33db814e1767d34f98678b5f226dd63967c8be505fa3c519f"
+    },
+    {
+      "key": "smoke/cpgc/rstp/rasa/audit",
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/cpgc/rstp/rasa",
+      "manifest_sha256": "34f8bc9bda7f124f915cb89634618c98122c42292c6b14d45818efad94517e9f"
+    },
+    {
+      "key": "smoke/cpgc/icfg/irra/target",
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/cpgc/icfg/irra",
+      "manifest_sha256": "9b203ae3fabcbe72722e93638cb0c206a656cf5c67ee3e8a338d29df5532163b"
+    },
+    {
+      "key": "smoke/cpgc/icfg/irra/audit",
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/cpgc/icfg/irra",
+      "manifest_sha256": "ad67d369692e41b093b68112113d428c05e6321e1cd3b60222ae3e8fd831b495"
+    },
+    {
+      "key": "smoke/cpgc/icfg/rasa/target",
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/cpgc/icfg/rasa",
+      "manifest_sha256": "bb4a388a6f5e9e69e168da72527298456717ead2fc7ef9841f8eab0c1002ef3c"
+    },
+    {
+      "key": "smoke/cpgc/icfg/rasa/audit",
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/cpgc/icfg/rasa",
+      "manifest_sha256": "91258091d79c94341eef433e47b9008fcc1fbbd431518ca65ab1179b4ffd39a8"
+    },
+    {
+      "key": "full/cpgc/icfg/rasa/target",
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/full/cpgc/icfg/rasa",
+      "manifest_sha256": "e831de7d2132143cdcb85a3028c713715bad91e9cfbc1941db63b99646e08442"
+    },
+    {
+      "key": "full/cpgc/icfg/rasa/audit",
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/full/audit/cpgc/icfg/rasa",
+      "manifest_sha256": "69d87db7d6d65e192bbb04eeaef2892583bdc0ac35710466cca3bea2e2c8485b"
+    },
+    {
+      "key": "smoke/sep/cuhk/irra/source",
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep_source/cuhk/irra",
+      "manifest_sha256": "48d460312a8374dc6ae9746baf9c8b385a1f36a530ccd827013250780d10de0f"
+    },
+    {
+      "key": "smoke/sep/cuhk/irra/target",
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep/cuhk/irra",
+      "manifest_sha256": "da235f7366feeceeb8a95e9b5260ec6b68e68855ee8c1217a702de91b1bf35f7"
+    },
+    {
+      "key": "smoke/sep/cuhk/irra/audit",
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/sep/cuhk/irra",
+      "manifest_sha256": "529d6e21c8c195fbbbfc59b3ed18a8e527e86f74d97bddc384e6f3625d762e4b"
+    },
+    {
+      "key": "smoke/sep/cuhk/rasa/source",
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep_source/cuhk/rasa",
+      "manifest_sha256": "284564881f7500826a516ee60e4a8bcec79c701d3b7a788cfab7d8ebc998eb2c"
+    },
+    {
+      "key": "smoke/sep/cuhk/rasa/target",
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep/cuhk/rasa",
+      "manifest_sha256": "98006306deab184f08261d6958166451d729edefe9bb6320d841d0e89b3598df"
+    },
+    {
+      "key": "smoke/sep/cuhk/rasa/audit",
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/sep/cuhk/rasa",
+      "manifest_sha256": "975b6278f2997193aa943a7c7391669f127e3dd0e0d3b905b747eb43fd18c9ed"
+    },
+    {
+      "key": "smoke/sep/rstp/irra/source",
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep_source/rstp/irra",
+      "manifest_sha256": "3af4216b58466788ad4c78558dd6d4f9fd7a9e7d6a3c76d40b29555ba4bb0c75"
+    },
+    {
+      "key": "smoke/sep/rstp/irra/target",
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep/rstp/irra",
+      "manifest_sha256": "a45e73570050a26b672ceff86db4e8349daf5d77833b6aa4de153b6aab88af95"
+    },
+    {
+      "key": "smoke/sep/rstp/irra/audit",
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/sep/rstp/irra",
+      "manifest_sha256": "bff49630619499deef60d73fe6b4ecc1bf5586ccf8bd70012339910584d99bb1"
+    },
+    {
+      "key": "smoke/sep/rstp/rasa/source",
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep_source/rstp/rasa",
+      "manifest_sha256": "e81e9ad7f678a35eb3612afed29e6cb883edf4cafafe975bf42d77a2c8f999a6"
+    },
+    {
+      "key": "smoke/sep/rstp/rasa/target",
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep/rstp/rasa",
+      "manifest_sha256": "bdc84482a788b717338886760fea7a8c7a6ca2999b17ff961823a2f64cea14f3"
+    },
+    {
+      "key": "smoke/sep/rstp/rasa/audit",
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/sep/rstp/rasa",
+      "manifest_sha256": "0eeb6311f773cb0a86b1fe7ba8c4d21167c1c5e543bf91b40094dd78d34253d0"
+    },
+    {
+      "key": "smoke/sep/icfg/irra/source",
+      "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep_source/icfg/irra",
+      "manifest_sha256": "e86f1449f4849d6b8698afc5fecfbf6c7b1c7bb0627902015ebcccf34de4703e"
+    }
+  ]
+}
