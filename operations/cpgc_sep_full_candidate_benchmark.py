@@ -24,7 +24,7 @@ def metrics(s,m):
 def main():
  p=argparse.ArgumentParser();p.add_argument("--config",required=True);p.add_argument("--allow-gpu-benchmark",action="store_true");a=p.parse_args()
  require(a.allow_gpu_benchmark,"explicit GPU benchmark authorization");c=config(a.config);rs=resources(c)
- require(rs["memory.free"]>=20000,"candidate benchmark resources")
+ # GPU memory is recorded only; actual CUDA errors stop this unique diagnostic.
  out=BASE/"full_candidate_check";require(not out.exists(),"unique diagnostic consumed");out.mkdir()
  write(out/"Claim.json",{"configuration":a.config,"config_sha":sha_file(a.config),"resources":rs,"time":time.time()})
  torch.set_num_threads(2);t=time.monotonic()

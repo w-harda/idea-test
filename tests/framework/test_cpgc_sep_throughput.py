@@ -89,9 +89,9 @@ def test_v3_schedule_keeps_five_old_full_out_of_gpu_plan():
  m=importlib.util.module_from_spec(spec);sys.modules[spec.name]=m;spec.loader.exec_module(m)
  c=json.loads((root/'configs/framework/cpgc_sep_tbps.throughput_v3.server.json').read_text())
  steps=list(m.schedule(c));full=[s for s in steps if s.scope=='full' and s.kind=='target']
- assert len(full)==7 and full[0].label=='cpgc_full_icfg_rasa_target'
- assert [(s.method,s.dataset,s.victim)for s in full[1:]]==[('sep',d,v)for d in('cuhk','rstp','icfg')for v in('irra','rasa')]
- assert sum(s.scope=='smoke'and s.method=='cpgc'and s.kind=='audit'for s in steps)==6
+ assert len(full)==6 and full[0].label=='sep_full_cuhk_irra_target'
+ assert [(s.method,s.dataset,s.victim)for s in full]==[('sep',d,v)for d in('cuhk','rstp','icfg')for v in('irra','rasa')]
+ assert sum(s.scope=='smoke'and s.method=='sep'and s.kind=='audit'for s in steps)==6
 def test_v3_failure_guard():
  root=Path(__file__).resolve().parents[2];s=(root/'operations/cpgc_sep_throughput_run.py').read_text()
  assert 'm.safe_prelaunch_busy' in s and 'global_lock' in s and 'started' in s

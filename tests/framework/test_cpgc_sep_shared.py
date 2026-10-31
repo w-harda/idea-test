@@ -29,8 +29,8 @@ def test_all_top128_pairs_are_scored_in_batches_of16(monkeypatch):
  calls.clear();a.fusion_batch=16;actual=a.score(qb,gb).payload
  assert calls==[16]*8 and torch.equal(reference,actual)
  assert a.counts["fusion_pairs"]==256
-@pytest.mark.parametrize("peak,allowed",[(6144,True),(6145,False),(0,False)])
-def test_full_requires_measured_real_smoke_headroom(peak,allowed):
+@pytest.mark.parametrize("peak,allowed",[(6144,True),(6145,True),(32768,True),(0,False)])
+def test_full_keeps_real_peak_evidence_without_a_free_memory_floor(peak,allowed):
  c={"shared_resource_validation":{"safety_margin_mib":2048},"resource_gate":{"minimum_free_mib":8192}}
  r={"peak_GPU_reserved_bytes":peak*1024**2}
  if allowed:require_smoke_headroom(c,r)

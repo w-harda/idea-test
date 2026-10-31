@@ -41,7 +41,7 @@ def rank(s,pids,qpid):
 def main():
  p=argparse.ArgumentParser();p.add_argument("--config",required=True);p.add_argument("--allow-gpu-benchmark",action="store_true");a=p.parse_args()
  require(a.allow_gpu_benchmark,"explicit authorization");c,_=preflight(a.config);rs=resources(c)
- require(rs["memory.free"]>=20000,"benchmark needs >=20000MiB")
+ # GPU memory is recorded only; actual CUDA errors stop this unique diagnostic.
  require(not ROOT.exists(),"unique benchmark consumed")
  ROOT.mkdir();save(ROOT/"Claim.json",{"config":str(a.config),"sha256":sha_file(a.config),"time":time.time(),"resources":rs})
  events=[];stop=threading.Event()

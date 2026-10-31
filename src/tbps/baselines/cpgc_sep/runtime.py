@@ -14,7 +14,7 @@ def config(path):
  for r in c["resources"].values():checked(FileRef(r["path"],r["sha256"]))
  return c
 def ref(path):return FileRef(str(Path(path).resolve()),sha_file(path))
-def resources(c):
+def resource_snapshot(c):
  s={}
  for field in ["memory.free","memory.total","utilization.gpu"]:
   r=subprocess.run(["nvidia-smi","--id=0","--query-gpu="+field,"--format=csv,noheader,nounits"],capture_output=True,text=True,timeout=10)
@@ -26,7 +26,16 @@ def resources(c):
  disk=shutil.disk_usage(c["output_parent"]);fs=os.statvfs(c["output_parent"])
  s.update(RAM_available=mem["MemAvailable"],disk_available=disk.free,inode_available=fs.f_favail,time_unix=time.time(),policy="shared_observe_only; never signal external processes")
  lim=c["resource_gate"]
- require(s["memory.free"]>=lim["minimum_free_mib"] and s["RAM_available"]>=lim["RAM_bytes"] and s["disk_available"]>=lim["disk_bytes"] and s["inode_available"]>=lim["inodes"],"RESOURCE_BUSY")
+ # GPU occupancy is diagnostic only, even when reading a legacy configuration.
+ # Never infer admissibility from current free VRAM or another process.
+ s["GPU_memory_policy"]="observe_only_no_fixed_minimum"
+ s["blocked"]={k:{"actual":s[field],"required":lim[k],"deficit":lim[k]-s[field]}
+  for k,field in (("RAM_bytes","RAM_available"),("disk_bytes","disk_available"),("inodes","inode_available")) if s[field]<lim[k]}
+ s["status"]="RESOURCE_BUSY" if s["blocked"] else "READY"
+ return s
+def resources(c):
+ s=resource_snapshot(c)
+ require(not s["blocked"],"RESOURCE_BUSY")
  return s
 def tensor_bytes(x):
  import torch

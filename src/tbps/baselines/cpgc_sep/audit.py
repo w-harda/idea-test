@@ -12,8 +12,8 @@ def audit(c,method,dataset,victim,scope):
  import torch
  require(not torch.cuda.is_initialized(),"independent CPU audit only")
  torch.set_num_threads(2)
- root=Path(c["output_base"])/scope/method/dataset/victim
- store=ArtifactStore(root,new_base=c["output_base"]);store.verify("completed")
+ from .step_reuse import resolve_step
+ store=resolve_step(c,method,dataset,victim,scope,"target");root=store.root;store.verify("completed")
  summary=json.loads((root/"completed/summary.json").read_text())
  manifest=scoped_manifest(read_test(c["datasets"][dataset]),scope)
  require(summary["status"]=="PASS" and summary["scope"]==scope and summary["dataset"]==dataset and summary["victim"]==victim,"scope/model/source")
@@ -73,16 +73,17 @@ def require_smoke_headroom(c,report):
  if limit:
   peak=report["peak_GPU_reserved_bytes"]
   require(type(peak)is int and peak>0,"real GPU Smoke peak required")
-  require(peak+limit["safety_margin_mib"]*1024**2<=c["resource_gate"]["minimum_free_mib"]*1024**2,"measured Smoke peak plus safety margin exceeds Full gate")
+  # Measurement remains mandatory; peak/free-VRAM arithmetic is never an admission gate.
 def smoke_ready(c,method):
  for ds in ("cuhk","rstp","icfg"):
   for victim in ("irra","rasa"):
-   p=Path(c["output_base"])/"smoke/audit"/method/ds/victim
-   s=ArtifactStore(p,new_base=c["output_base"]);s.verify("completed")
+   from .step_reuse import resolve_step
+   s=resolve_step(c,method,ds,victim,"smoke","audit");p=s.root;s.verify("completed")
    r=json.loads((p/"completed/audit.json").read_text())
-   require(r["status"]=="PASS" and r["scope"]=="smoke" and r["method"]==method and r["dataset"]==ds and r["victim"]==victim and r["config_sha256"]==c["sha256"],"all real Smoke and CPU audit required")
+   require(r["status"]=="PASS" and r["scope"]=="smoke" and r["method"]==method and r["dataset"]==ds and r["victim"]==victim,"all real Smoke and CPU audit required")
    if c.get("shared_resource_validation"):
-    require_smoke_headroom(c,json.loads((Path(c["output_base"])/"smoke"/method/ds/victim/"completed/summary.json").read_text()))
+    target=resolve_step(c,method,ds,victim,"smoke","target")
+    require_smoke_headroom(c,json.loads((target.root/"completed/summary.json").read_text()))
     from .source_reuse import resolve
     source_store=resolve(c,method,ds,"smoke",victim);source=source_store.root
     source_store.verify("completed")

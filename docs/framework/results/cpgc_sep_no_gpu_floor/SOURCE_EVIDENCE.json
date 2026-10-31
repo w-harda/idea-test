@@ -1,0 +1,40 @@
+{
+  "parent_commit": "4c8eab66860d40b74a6f55116b510f53dc9d38de",
+  "configuration": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-no-gpu-floor-20261101/configs/framework/cpgc_sep_tbps.no_gpu_floor.server.json",
+    "sha256": "d3a5bf917d2d4d28a19dee1b14f6c61d546670b039efadba727db7f6d5f347ad"
+  },
+  "completed_Full": 6,
+  "step_reuse_bindings": 27,
+  "policy": "GPU observe only, no fixed free-memory floor; actual CUDA failure stops once",
+  "evidence": {
+    "stop_before.json": {
+      "path": "/home/lzf/ldx/tmp/cpgc_sep_no_gpu_floor_prepare_20261101/stop_before.json",
+      "sha256": "9a1f9ef8dbb6e636f52c3cc1a16afe85c0d4f170d2ad7cfa78a2c794b12b1714"
+    },
+    "authorized_stop.json": {
+      "path": "/home/lzf/ldx/tmp/cpgc_sep_no_gpu_floor_prepare_20261101/authorized_stop.json",
+      "sha256": "4e8882b474df09c34e928e87140b68d93ec561c77a848f86fad242f7dbad6da9"
+    },
+    "verified_reuse.json": {
+      "path": "/home/lzf/ldx/tmp/cpgc_sep_no_gpu_floor_prepare_20261101/verified_reuse.json",
+      "sha256": "664f4caaa823cf966b6b0de1d064055956de844c135796a0b608eeb7d03333e2"
+    },
+    "inventory.log": {
+      "path": "/home/lzf/ldx/tmp/cpgc_sep_no_gpu_floor_prepare_20261101/inventory.log",
+      "sha256": "430904bd000de4f7241a2edb745d3cfb240c518122ca10e6e299fcf2d38b5c13"
+    },
+    "inventory_configuration.json": {
+      "path": "/home/lzf/ldx/tmp/cpgc_sep_no_gpu_floor_prepare_20261101/inventory_configuration.json",
+      "sha256": "488cb60e048ce3d73d54b0e101f0d029471485194dc2cc063d5d601dcb25d5f9"
+    },
+    "cpu.log": {
+      "path": "/home/lzf/ldx/tmp/cpgc_sep_no_gpu_floor_prepare_20261101/cpu.log",
+      "sha256": "35a81bac23f154e15195f4062570473a6f69c8b35b72c1414d6fff17ab4b970b"
+    },
+    "cache_scheduler_cpu.log": {
+      "path": "/home/lzf/ldx/tmp/cpgc_sep_no_gpu_floor_prepare_20261101/cache_scheduler_cpu.log",
+      "sha256": "68d03101da40c4eead6db449be253234177354d00e2fefeef902961d4a26ae20"
+    }
+  }
+}

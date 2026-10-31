@@ -7,6 +7,9 @@ from .dataset import require
 SEMANTIC_FIELDS=("schema","official","datasets","victims","resources","bert_source","cpgc_protocol","sep_protocol","nltk_root","runtime_versions","victim_git","protected_files","smoke")
 ENGINEERING_FIELDS={"query_chunk","cache_chunk","image_batch","text_batch","fusion_batch","token_cache_bytes","sep_fusion_batch"}
 def resolve(c,method,dataset,scope,victim=None):
+ from .step_reuse import step_key,resolve_step
+ if step_key(method,dataset,victim,scope,"source") in c.get("successful_step_reuse",{}):
+  return resolve_step(c,method,dataset,victim,scope,"source")
  key="/".join((scope,method,dataset))
  binding=c.get("source_reuse",{}).get(key)
  if binding is None:
