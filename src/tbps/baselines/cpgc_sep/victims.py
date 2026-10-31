@@ -102,6 +102,9 @@ def load_victim(config,model,dataset,device="cuda:0",*,smoke=False):
    adapter=NativeRasa(base.backend,base.tokenizer,base.pre_caption,base.space,device,smoke=smoke)
    adapter.neural_counts=base.neural_counts
    adapter.fusion_batch=config["evaluation"].get("fusion_batch",128)
+   from .cache import BlockCache
+   if config["evaluation"].get("token_cache_bytes",0):
+    adapter.token_block_cache=BlockCache(config["evaluation"]["token_cache_bytes"])
    yield adapter,adapter.backend,source
   return
  def local_clip(url,root):

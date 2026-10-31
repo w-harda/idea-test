@@ -3,6 +3,7 @@ from pathlib import Path
 import json,csv,math
 from dataclasses import asdict
 from tbps.artifacts import ArtifactStore,json_bytes,digest
+from .verified_store import VerifiedArtifactStore as ArtifactStore
 from tbps.engines.metrics import ranking
 from .dataset import read_test,scoped_manifest,require
 from .runtime import load_tensor,ref,attempt
@@ -82,8 +83,8 @@ def smoke_ready(c,method):
    require(r["status"]=="PASS" and r["scope"]=="smoke" and r["method"]==method and r["dataset"]==ds and r["victim"]==victim and r["config_sha256"]==c["sha256"],"all real Smoke and CPU audit required")
    if c.get("shared_resource_validation"):
     require_smoke_headroom(c,json.loads((Path(c["output_base"])/"smoke"/method/ds/victim/"completed/summary.json").read_text()))
-    source=Path(c["output_base"])/"smoke"/(method+"_source")/ds
-    if method=="sep":source=source/victim
-    ArtifactStore(source,new_base=c["output_base"]).verify("completed")
+    from .source_reuse import resolve
+    source_store=resolve(c,method,ds,"smoke",victim);source=source_store.root
+    source_store.verify("completed")
     require_smoke_headroom(c,json.loads((source/"completed/report.json").read_text()))
  return True

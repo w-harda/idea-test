@@ -76,9 +76,10 @@ def run(c,dataset,victim,scope,*,resume=False):
     "DPP":{"random_space":100,"keep_rule":"len(surrogates)","actual_keep":2},"training":False}
   if not (path/"protocol").exists():store.publish("protocol",{"protocol.json":json_bytes(protocol)},{"config_sha":c["sha256"]},sources=(ref(c["path"]),))
   else:store.verify("protocol",expected_provenance={"config_sha":c["sha256"]})
+  source_config=copy.deepcopy(c);source_config["evaluation"]["fusion_batch"]=c["evaluation"].get("sep_fusion_batch",16)
   adapters={};models={};before={};banks={}
   for name in ("irra","rasa"):
-   adapter,model,source=stack.enter_context(load_victim(c,name,dataset,"cuda:0",smoke=scope=="smoke"))
+   adapter,model,source=stack.enter_context(load_victim(source_config,name,dataset,"cuda:0",smoke=scope=="smoke"))
    adapters[name]=adapter;models[name]=model;before[name]=snapshot(model)
    bank=FeatureBank(c,store,"gallery-"+name,adapter,manifest,tuple(g.image_id for g in manifest.gallery),tuple(g.image_sha256 for g in manifest.gallery),modality="image")
    for i in range(0,len(manifest.gallery),8):

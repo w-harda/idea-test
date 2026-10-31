@@ -3,6 +3,7 @@ from pathlib import Path
 from dataclasses import asdict
 import json,os,time,shutil,subprocess,io,contextlib,fcntl
 from tbps.artifacts import ArtifactStore,FileRef,checked,sha_file,digest,json_bytes,ArtifactError
+from .verified_store import VerifiedArtifactStore as ArtifactStore
 from .dataset import require
 def config(path):
  p=Path(path).resolve();c=json.loads(p.read_text());c["path"]=str(p);c["sha256"]=sha_file(p)

@@ -1,0 +1,149 @@
+{
+  "status": "PASS",
+  "chunks": {
+    "32": {
+      "seconds": 0.20526892691850662,
+      "top128_identity_and_order_exact": true,
+      "different_candidate_positions": 0,
+      "global_max_abs": 0.0
+    },
+    "64": {
+      "seconds": 0.000872783362865448,
+      "top128_identity_and_order_exact": true,
+      "different_candidate_positions": 0,
+      "global_max_abs": 0.0
+    },
+    "128": {
+      "seconds": 0.0002603791654109955,
+      "top128_identity_and_order_exact": true,
+      "different_candidate_positions": 0,
+      "global_max_abs": 0.0
+    }
+  },
+  "fusion": [
+    {
+      "fusion_batch": 16,
+      "seconds": 298.9573755040765,
+      "queries": 128,
+      "Gallery": 19848,
+      "pairs": 16384,
+      "max_abs": 0.0,
+      "l2_difference": 0.0,
+      "relative_l2": 0.0,
+      "ranking_exact": true,
+      "metrics": {
+        "R@1": 81.25,
+        "R@5": 90.625,
+        "R@10": 92.1875,
+        "mAP": 61.06011716151443
+      },
+      "metrics_exact": true,
+      "allocated": 2050292224,
+      "reserved": 2250244096,
+      "cache": {
+        "hits": 15020,
+        "misses": 1492,
+        "resident_bytes": 20962134016,
+        "limit_bytes": 68719476736,
+        "read_seconds": 257.29234924167395,
+        "bytes_read": 20962134016
+      },
+      "accepted": true,
+      "v2_score_tensor_exact": true
+    },
+    {
+      "fusion_batch": 32,
+      "seconds": 157.89416361227632,
+      "queries": 128,
+      "Gallery": 19848,
+      "pairs": 16384,
+      "max_abs": 7.510185241699219e-06,
+      "l2_difference": 0.00011451727072639807,
+      "relative_l2": 7.20795447329959e-10,
+      "ranking_exact": false,
+      "metrics": {
+        "R@1": 81.25,
+        "R@5": 90.625,
+        "R@10": 92.1875,
+        "mAP": 61.06011716151443
+      },
+      "metrics_exact": true,
+      "allocated": 2228785152,
+      "reserved": 2589982720,
+      "cache": {
+        "hits": 15020,
+        "misses": 1492,
+        "resident_bytes": 20962134016,
+        "limit_bytes": 68719476736,
+        "read_seconds": 128.58111521974206,
+        "bytes_read": 20962134016
+      },
+      "accepted": false
+    },
+    {
+      "fusion_batch": 64,
+      "seconds": 96.53279883041978,
+      "queries": 128,
+      "Gallery": 19848,
+      "pairs": 16384,
+      "max_abs": 6.67572021484375e-06,
+      "l2_difference": 0.00011309550938685633,
+      "relative_l2": 7.118465866539143e-10,
+      "ranking_exact": false,
+      "metrics": {
+        "R@1": 81.25,
+        "R@5": 90.625,
+        "R@10": 92.1875,
+        "mAP": 61.06011716151443
+      },
+      "metrics_exact": true,
+      "allocated": 2592758784,
+      "reserved": 3256877056,
+      "cache": {
+        "hits": 15020,
+        "misses": 1492,
+        "resident_bytes": 20962134016,
+        "limit_bytes": 68719476736,
+        "read_seconds": 69.44812111184001,
+        "bytes_read": 20962134016
+      },
+      "accepted": false
+    },
+    {
+      "fusion_batch": 128,
+      "seconds": 96.7485366165638,
+      "queries": 128,
+      "Gallery": 19848,
+      "pairs": 16384,
+      "max_abs": 7.987022399902344e-06,
+      "l2_difference": 0.00010976906865025424,
+      "relative_l2": 6.909092789138076e-10,
+      "ranking_exact": false,
+      "metrics": {
+        "R@1": 81.25,
+        "R@5": 90.625,
+        "R@10": 92.1875,
+        "mAP": 61.06011716151443
+      },
+      "metrics_exact": true,
+      "allocated": 3303605760,
+      "reserved": 4580179968,
+      "cache": {
+        "hits": 15020,
+        "misses": 1492,
+        "resident_bytes": 20962134016,
+        "limit_bytes": 68719476736,
+        "read_seconds": 69.31561284139752,
+        "bytes_read": 20962134016
+      },
+      "accepted": false
+    }
+  ],
+  "old_scores_exact": true,
+  "selected_fusion_batch": 16,
+  "query_chunk": 32,
+  "elapsed_seconds": 683.6056375056505,
+  "RSS": 26382618624,
+  "config_sha256": "a355ecf39f51e668add3aa97578aef3f4a01d3ef97f21d16b4a48b5afb8cea34",
+  "notes": "first run cold cache; rank changes reject an optimization; keep chunk32 mathematical path"
+}

@@ -3,6 +3,7 @@ from pathlib import Path
 from dataclasses import asdict,replace
 import io,json,time,hashlib,resource
 from tbps.artifacts import ArtifactStore,json_bytes,digest
+from .verified_store import VerifiedArtifactStore as ArtifactStore
 from tbps.contracts import AttackBudget,ImageBudget,TextBudget,DatasetManifest
 from tbps.engines.provenance import AttackOrigin,BoundRepresentation,payload_digest
 from tbps.engines.native_cache import compact
@@ -12,9 +13,8 @@ from .victims import load_victim,native_pixels,encode_images,encode_texts,snapsh
 from .cache import FeatureBank,NativeScorer,TBPSEvaluationEngine
 METRICS=("R@1","R@5","R@10","mAP")
 def source_texts(c,method,dataset,scope,victim=None):
- root=Path(c["output_base"])/scope/(method+"_source")/dataset
- if method=="sep":root=root/victim
- store=ArtifactStore(root,new_base=c["output_base"]);store.verify("completed")
+ from .source_reuse import resolve
+ store=resolve(c,method,dataset,scope,victim);root=store.root;store.verify("completed")
  report=json.loads((root/"completed/report.json").read_text())
  require(report["status"]=="PASS" and report["scope"]==scope and report["dataset"]==dataset,"source completion identity")
  rows=[]
@@ -87,29 +87,34 @@ def evaluate(c,method,dataset,victim,scope,*,resume=False):
      unit(store,f"pixels-{i:06d}",produce_pixels,provenance,sources=(ref(path/"protocol/manifest.json"),),resume=resume)
      meta=json.loads((path/f"pixels-{i:06d}/details.json").read_text())
      pixel_hashes.append(meta["adversarial_sha"]);noise_report["actual_max_RGB_linf"]=max(noise_report["actual_max_RGB_linf"],meta["linf"])
+   cache_chunk=c["evaluation"].get("cache_chunk",8)
+   image_batch=c["evaluation"].get("image_batch",1)
+   text_batch=c["evaluation"].get("text_batch",8)
    image_families=["clean_gallery"]+(["adv_gallery"] if method=="cpgc" else [])
    for family in image_families:
-    bank=FeatureBank(c,store,family,adapter,manifest,ids_g,pixel_hashes if family=="adv_gallery" else orig_g,modality="image")
-    for i in range(0,len(ids_g),8):
-     end=min(i+8,len(ids_g))
+    bank=FeatureBank(c,store,family,adapter,manifest,ids_g,pixel_hashes if family=="adv_gallery" else orig_g,modality="image",chunk=cache_chunk)
+    for i in range(0,len(ids_g),cache_chunk):
+     end=min(i+cache_chunk,len(ids_g))
      def produce_features():
-      parts=[]
+      parts=[];pixels=[]
       for j in range(i,end):
        if method=="cpgc":
         pixelstore=store;pixelstore.verify(f"pixels-{j:06d}")
         data=torch.load(path/f"pixels-{j:06d}/pixels.pt",map_location="cpu",weights_only=True)
         x=data["adversarial" if family=="adv_gallery" else "original"]
        else:x=native_pixels(Path(c["datasets"][dataset]["root"])/"imgs"/manifest.gallery[j].image_rel_path,victim)
-       parts.append(encode_images(adapter,x,victim));counts["image_samples"]+=len(x)
+       pixels.append(x)
+      for b in range(0,len(pixels),image_batch):
+       x=torch.cat(pixels[b:b+image_batch]);parts.append(encode_images(adapter,x,victim));counts["image_samples"]+=len(x)
       return cat_payload(parts)
      bank.put(i,end,produce_features,resume=resume)
      if end%128==0 or end==len(ids_g):print("TARGET_IMAGE_PROGRESS",method,dataset,victim,scope,family,end,len(ids_g),flush=True)
     bank.read_globals();banks[family]=bank
    for family,texts,m in [("clean_text",clean_text,manifest),("adv_text",adv_text,manifest),("matched_text",matched_text,matched)]:
     hashes=tuple(hashlib.sha256(t.encode()).hexdigest() for t in texts)
-    bank=FeatureBank(c,store,family,adapter,m,ids_q,hashes,modality="text")
-    for i in range(0,len(ids_q),8):
-     end=min(i+8,len(ids_q))
+    bank=FeatureBank(c,store,family,adapter,m,ids_q,hashes,modality="text",chunk=text_batch)
+    for i in range(0,len(ids_q),text_batch):
+     end=min(i+text_batch,len(ids_q))
      def produce_text():
       x=encode_texts(adapter,texts[i:end],victim);counts["text_samples"]+=end-i
       return x
@@ -148,6 +153,7 @@ def evaluate(c,method,dataset,victim,scope,*,resume=False):
      "native_scored_ITM_pairs":scorer.native_pairs,"model_before":before,"model_after":after,"noise":noise_report,
      "resources_before":snapshot_resources,"peak_GPU_allocated_bytes":torch.cuda.max_memory_allocated(),"peak_GPU_reserved_bytes":torch.cuda.max_memory_reserved(),
      "peak_RSS_bytes":resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024,"elapsed_seconds":time.monotonic()-start,
+     "token_cache":adapter.token_block_cache.statistics() if getattr(adapter,"token_block_cache",None) else None,
      "native_complete_ranking":True,"attack_mode":"Joint" if method=="cpgc" else "Text-only"}
    refs=tuple(ref(p) for p in sorted(path.glob("*/manifest.json")) if p.parent.name!="completed")
    store.publish("completed",{"summary.json":json_bytes(report),"metrics.csv":csv_data(False),"metrics_2dp.csv":csv_data(True)},{"kind":"official_TBPS_completed"},sources=refs)

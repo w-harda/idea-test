@@ -692,3 +692,10 @@ H20新增候选最低40.427635%，历史H9为40.425480%；H60为42.874081%，不
 ## 2026-10-29：C-PGC UAP只读detach修复与独立v2
 
 只修Target/Audit各一行detach，provenance拒绝契约不改。107项CPU及两个真实环境预检PASS，旧v1共45份文件保护PASS；新配置、输出及控制身份隔离，Source Smoke在新空间独立执行，不重生UAP。[本轮报告](framework/results/cpgc_sep_uap_detach/REPORT.md)。GPU状态以真实回执为准，不把CPU PASS当GPU完成。
+
+## 2026-10-31 C-PGC/SEP v3吞吐量与第六组恢复
+
+独立输出tbps-framework-cpgc-sep-official-v3，v2前五组只读复用，第六组旧Partial永久保留。
+工程缓存优化不改变模型/攻击/排名；完整ICFG 128 Query数值对照exact，较大融合Batch因排名差异拒绝。
+新GPU Smoke、CPU审计和正式启动以独立控制目录cpgc_sep_throughput_v3_20261031实际回执为准。
+详见[报告](framework/results/cpgc_sep_throughput_v3/REPORT.md)。

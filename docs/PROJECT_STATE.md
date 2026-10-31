@@ -1,5 +1,12 @@
 # 项目当前状态（唯一权威入口）
 
+## C-PGC/SEP v3吞吐量优化与隔离恢复准备（2026-10-31）
+
+用户授权停止v2第六组，保留原Partial与前五组成功结果。独立codex/cpgc-sep-throughput-v3。
+58个不同CPU用例PASS；真实128 Query×19848 Gallery旧评分逐元素再现。较大编码/融合Batch不满足exact排名，回退原Batch；采用64GiB CPU Token缓存与stat失效SHA缓存。
+新配置必须取得自己的六组Smoke、CPU审计与新旧对照后才放行第六组及SEP六组；本代码提交时后台尚未启动，不宣称12组完成。
+[报告](framework/results/cpgc_sep_throughput_v3/REPORT.md)、[执行协议](framework/results/cpgc_sep_throughput_v3/EXECUTION_PROTOCOL.md)。
+
 ## 当前阶段：R²TUA文献Baseline引用与评测环境核验完成（2026-10-26，CPU只读）
 
 独立codex/r2tua-aligned-evaluation，基准c2062e43；目标是引用已发表Baseline，不重现全部攻击算法。

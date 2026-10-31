@@ -2,7 +2,7 @@
 from pathlib import Path
 from dataclasses import asdict
 from collections import OrderedDict
-import io
+import io,time
 from tbps.artifacts import ArtifactStore,digest,json_bytes
 from tbps.models.base import RepresentationBatch,ScoreBatch,InputBinding
 from tbps.engines.provenance import BoundRepresentation,payload_digest
@@ -10,12 +10,33 @@ from tbps.engines.evaluation import EvaluationEngine
 from tbps.engines.native_cache import compact
 from .runtime import unit,load_tensor,ref
 from .dataset import require
+class BlockCache:
+ """进程内有界CPU缓存；只缓存通过Manifest/SHA验证的不可变Token块。"""
+ def __init__(self,maximum_bytes):
+  self.maximum_bytes=maximum_bytes;self.used=0;self.entries=OrderedDict()
+  self.hits=0;self.misses=0;self.read_seconds=0.;self.bytes_read=0
+ @staticmethod
+ def nbytes(x):
+  return sum(v.numel()*v.element_size() for v in x.values()) if isinstance(x,dict) else x.numel()*x.element_size()
+ def get(self,key,loader):
+  if key in self.entries:
+   self.hits+=1;self.entries.move_to_end(key);return self.entries[key]
+  self.misses+=1;t=time.monotonic();x=loader();self.read_seconds+=time.monotonic()-t
+  n=self.nbytes(x);self.bytes_read+=n
+  while self.entries and self.used+n>self.maximum_bytes:
+   _,old=self.entries.popitem(last=False);self.used-=self.nbytes(old)
+  if n<=self.maximum_bytes:self.entries[key]=x;self.used+=n
+  return x
+ def statistics(self):
+  return dict(hits=self.hits,misses=self.misses,resident_bytes=self.used,limit_bytes=self.maximum_bytes,read_seconds=self.read_seconds,bytes_read=self.bytes_read)
 class FeatureBank:
  def __init__(self,c,store,family,adapter,manifest,ids,input_hashes,*,modality,chunk=8):
   self.c,self.store,self.family,self.adapter,self.manifest=c,store,family,adapter,manifest
   self.ids=tuple(ids);self.input_hashes=tuple(input_hashes);self.modality=modality;self.chunk=chunk;self.lru=OrderedDict()
   self.binding=InputBinding(adapter.space.id,digest(asdict(manifest)),self.input_hashes,modality,self.ids)
   self.globals=None
+  shared=getattr(adapter,"token_block_cache",None)
+  self.block_cache=shared
  def key(self,start):return self.family+"-"+str(start//self.chunk).zfill(6)
  def provenance(self,start,end):
   return {"kind":"native_feature_block","binding":asdict(self.binding),"start":start,"end":end,"config_sha":self.c["sha256"]}
@@ -30,7 +51,8 @@ class FeatureBank:
  def block(self,start):
   key=self.key(start);end=min(start+self.chunk,len(self.ids))
   self.store.verify(key,expected_provenance=self.provenance(start,end))
-  x=load_tensor(self.store,key)
+  import torch
+  x=torch.load(self.store.root/key/"features.pt",map_location="cpu",weights_only=True)
   return x
  def read_globals(self):
   import torch
@@ -46,11 +68,15 @@ class FeatureBank:
   for i in indices:
    require(0<=i<len(self.ids),"feature index")
    start=(i//self.chunk)*self.chunk
-   if start not in self.lru:
-    self.lru[start]=self.block(start)
-    if len(self.lru)>16:self.lru.popitem(last=False)
-   x=self.lru[start];self.lru.move_to_end(start);j=i-start
-   parts.append({k:v[j:j+1].clone() for k,v in x.items()} if isinstance(x,dict) else x[j:j+1].clone())
+   if self.block_cache is not None:
+    x=self.block_cache.get((str(self.store.root),self.family,start),lambda:self.block(start))
+   else:
+    if start not in self.lru:
+     self.lru[start]=self.block(start)
+     if len(self.lru)>16:self.lru.popitem(last=False)
+    x=self.lru[start];self.lru.move_to_end(start)
+   j=i-start
+   parts.append({k:v[j:j+1] for k,v in x.items()} if isinstance(x,dict) else x[j:j+1])
   return {k:torch.cat([p[k] for p in parts]) for k in parts[0]} if isinstance(parts[0],dict) else torch.cat(parts)
  def bound(self,origin=None,originals=()):
   g=self.globals if self.globals is not None else self.read_globals()
