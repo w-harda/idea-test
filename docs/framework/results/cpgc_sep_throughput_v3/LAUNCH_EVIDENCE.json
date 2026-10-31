@@ -1,0 +1,44 @@
+{
+  "time": "2026-10-31T12:12:52.373621+08:00",
+  "execution_commit": "4c8eab66860d40b74a6f55116b510f53dc9d38de",
+  "config_sha256": "a52e31c7ed3e455e14d1b5c17a4262e3c212f4d784681d39685a19615f45f903",
+  "status": {
+    "time": "2026-10-31T12:04:44.694583+08:00",
+    "phase": "RUNNING_STEP",
+    "step": "cpgc_full_icfg_rasa_target",
+    "completed_Full": 5,
+    "wait_seconds": 0.0,
+    "log": "/home/lzf/ldx/tmp/cpgc_sep_throughput_v3_20261031/0013_cpgc_full_icfg_rasa_target.log",
+    "gpu": true
+  },
+  "processes": "    PID    PPID    PGID     SID TT           ELAPSED COMMAND\n 909831       1  909831  909831 ?              17:43 /home/lzf/ldx/envs/tbps-image/bin/python -u -B /home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-throughput-v3-20261031/operations/cpgc_sep_throughput_run.py --allow-v3\n 950195  909831  909831  909831 ?              08:07 /home/lzf/ldx/envs/tbps-image/bin/python -u -B -m tbps.baselines.cpgc_sep.cli --config /home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-throughput-v3-20261031/configs/framework/cpgc_sep_tbps.throughput_v3.server.json --action target --method cpgc --scope full --dataset icfg --victim rasa --allow-full\n",
+  "GPU_processes": "950195, 2278\n",
+  "supervisor": {
+    "PID": 909831,
+    "PPID": 1,
+    "PGID": 909831,
+    "SID": 909831,
+    "TTY": "?"
+  },
+  "target_PID": 950195,
+  "pixels_completed": 2715,
+  "Gallery": 19848,
+  "Query": 19848,
+  "history_protection": {
+    "time": "2026-10-31T12:04:44.630207+08:00",
+    "phase": "HISTORY_PROTECTED",
+    "step": "cpgc_full_icfg_rasa_target",
+    "completed_Full": 5,
+    "wait_seconds": 0.0,
+    "files": 535776
+  },
+  "source_readonly": "original v2 CPGC Source manifests explicitly bound in new config",
+  "full_attempt": {
+    "config_sha256": "a52e31c7ed3e455e14d1b5c17a4262e3c212f4d784681d39685a19615f45f903",
+    "scope": "full",
+    "pid": 950195,
+    "time": 1793419522.7394018
+  },
+  "control": "/home/lzf/ldx/tmp/cpgc_sep_throughput_v3_20261031",
+  "output": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/full/cpgc/icfg/rasa"
+}

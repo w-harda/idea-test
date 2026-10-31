@@ -1,10 +1,12 @@
 # 项目当前状态（唯一权威入口）
 
-## C-PGC/SEP v3吞吐量优化与隔离恢复准备（2026-10-31）
+## C-PGC/SEP v3新Smoke/审计与数值对照PASS，第六组Full已启动（2026-10-31）
 
 用户授权停止v2第六组，保留原Partial与前五组成功结果。独立codex/cpgc-sep-throughput-v3。
 58个不同CPU用例PASS；真实128 Query×19848 Gallery旧评分逐元素再现。较大编码/融合Batch不满足exact排名，回退原Batch；采用64GiB CPU Token缓存与stat失效SHA缓存。
-新配置必须取得自己的六组Smoke、CPU审计与新旧对照后才放行第六组及SEP六组；本代码提交时后台尚未启动，不宣称12组完成。
+新六组Smoke、六份CPU审计和六份新旧数值对照全PASS；前五组完整SHA/审计复核PASS，535776个v2文件状态不变。
+执行源码4c8eab66860d40b74a6f55116b510f53dc9d38de；独立监督器909831，PPID1/无TTY，第六组Full子进程950195。
+当前5/12完成，v3 C-PGC ICFG RaSa正在完整图像物化；后续串行推进SEP并独立审计，不宣称12组完成。
 [报告](framework/results/cpgc_sep_throughput_v3/REPORT.md)、[执行协议](framework/results/cpgc_sep_throughput_v3/EXECUTION_PROTOCOL.md)。
 
 ## 当前阶段：R²TUA文献Baseline引用与评测环境核验完成（2026-10-26，CPU只读）

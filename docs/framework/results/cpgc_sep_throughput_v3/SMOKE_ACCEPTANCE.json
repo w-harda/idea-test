@@ -1,0 +1,254 @@
+{
+  "cuhk_irra": {
+    "summary": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/cpgc/cuhk/irra/completed/summary.json",
+    "summary_sha256": "b7d3b097d0cd55189f3f9decde31ad67ebd7fcdc31709728fc73f0bda050fa70",
+    "audit": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/cpgc/cuhk/irra/completed/audit.json",
+    "audit_sha256": "64e72c1c2f57b7a149963d6bd9f9f428c38cbf68cabf9156d5251d023a387008",
+    "parity": {
+      "status": "PASS",
+      "dataset": "cuhk",
+      "victim": "irra",
+      "pixel_feature_blocks_exact": 163,
+      "scores": {
+        "clean": {
+          "exact": true,
+          "max_abs": 0.0,
+          "L2_difference": 0.0,
+          "ranking_exact": true
+        },
+        "joint": {
+          "exact": true,
+          "max_abs": 0.0,
+          "L2_difference": 0.0,
+          "ranking_exact": true
+        },
+        "matched": {
+          "exact": true,
+          "max_abs": 0.0,
+          "L2_difference": 0.0,
+          "ranking_exact": true
+        }
+      },
+      "metrics_exact": true,
+      "old": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc/cuhk/irra",
+      "new": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/cpgc/cuhk/irra",
+      "old_manifest_sha": "680a3460613593f02ccf4f26d1aa66e925cd6ba9fe76af53cdf743a18e06952f",
+      "new_manifest_sha": "4e24c33ce23520bc3623d5a294993138368dfaf957660dc1a4f605ddf2dce7e5",
+      "GPU": false
+    },
+    "elapsed_seconds": 35.20461704581976,
+    "allocated_MiB": 442.3466796875,
+    "reserved_MiB": 458.0,
+    "peak_RSS_GiB": 2.0710525512695312
+  },
+  "cuhk_rasa": {
+    "summary": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/cpgc/cuhk/rasa/completed/summary.json",
+    "summary_sha256": "ada44a2aa7411d09b969b14b49d5bbd72fc44adecb9528721484853bc5fd18ce",
+    "audit": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/cpgc/cuhk/rasa/completed/audit.json",
+    "audit_sha256": "cda49fc5b632d8f5407aa60b363b0bc9aeee462c74a45ecc03089e69e6a62d79",
+    "parity": {
+      "status": "PASS",
+      "dataset": "cuhk",
+      "victim": "rasa",
+      "pixel_feature_blocks_exact": 163,
+      "scores": {
+        "clean": {
+          "exact": true,
+          "max_abs": 0.0,
+          "L2_difference": 0.0,
+          "ranking_exact": true
+        },
+        "joint": {
+          "exact": true,
+          "max_abs": 0.0,
+          "L2_difference": 0.0,
+          "ranking_exact": true
+        },
+        "matched": {
+          "exact": true,
+          "max_abs": 0.0,
+          "L2_difference": 0.0,
+          "ranking_exact": true
+        }
+      },
+      "metrics_exact": true,
+      "old": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc/cuhk/rasa",
+      "new": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/cpgc/cuhk/rasa",
+      "old_manifest_sha": "c77644c001006e60d3d9d424cb09673de5b6dc85767f7a4eeb9c3c7c209e9c76",
+      "new_manifest_sha": "f0c7e2cbf3902fe6c724388c61fb0c6748c5ddc804e9a3f136fba52251f88cf7",
+      "GPU": false
+    },
+    "elapsed_seconds": 49.82249877229333,
+    "allocated_MiB": 1921.84326171875,
+    "reserved_MiB": 2114.0,
+    "peak_RSS_GiB": 3.8889694213867188
+  },
+  "rstp_irra": {
+    "summary": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/cpgc/rstp/irra/completed/summary.json",
+    "summary_sha256": "ed492803df2061a2dc9d4277332d39fd0bfb273aa0bebdd50ee17112114b459e",
+    "audit": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/cpgc/rstp/irra/completed/audit.json",
+    "audit_sha256": "a29bc76321084a3083fb49eabde6ee8fa227a803d987755610409a8c8737dcb9",
+    "parity": {
+      "status": "PASS",
+      "dataset": "rstp",
+      "victim": "irra",
+      "pixel_feature_blocks_exact": 163,
+      "scores": {
+        "clean": {
+          "exact": true,
+          "max_abs": 0.0,
+          "L2_difference": 0.0,
+          "ranking_exact": true
+        },
+        "joint": {
+          "exact": true,
+          "max_abs": 0.0,
+          "L2_difference": 0.0,
+          "ranking_exact": true
+        },
+        "matched": {
+          "exact": true,
+          "max_abs": 0.0,
+          "L2_difference": 0.0,
+          "ranking_exact": true
+        }
+      },
+      "metrics_exact": true,
+      "old": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc/rstp/irra",
+      "new": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/cpgc/rstp/irra",
+      "old_manifest_sha": "0d1e9f4007b381befdf5b27ba0aeee411580b864b8941e264a3e51859ad23ebb",
+      "new_manifest_sha": "4f125d3f1b31b4d50a8b59c2b705c04a13f34b9ce9aed6c9a2d074ef3478dcfb",
+      "GPU": false
+    },
+    "elapsed_seconds": 31.493784956634045,
+    "allocated_MiB": 435.4638671875,
+    "reserved_MiB": 446.0,
+    "peak_RSS_GiB": 2.034557342529297
+  },
+  "rstp_rasa": {
+    "summary": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/cpgc/rstp/rasa/completed/summary.json",
+    "summary_sha256": "013953a4b71a3423812356a153105aabc5685e9a84678cf7bcde00470c811e9a",
+    "audit": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/cpgc/rstp/rasa/completed/audit.json",
+    "audit_sha256": "ac3da9145326afdbbc57299791b7808a0121c4761c927e2fc69b92db4f492fcc",
+    "parity": {
+      "status": "PASS",
+      "dataset": "rstp",
+      "victim": "rasa",
+      "pixel_feature_blocks_exact": 163,
+      "scores": {
+        "clean": {
+          "exact": true,
+          "max_abs": 0.0,
+          "L2_difference": 0.0,
+          "ranking_exact": true
+        },
+        "joint": {
+          "exact": true,
+          "max_abs": 0.0,
+          "L2_difference": 0.0,
+          "ranking_exact": true
+        },
+        "matched": {
+          "exact": true,
+          "max_abs": 0.0,
+          "L2_difference": 0.0,
+          "ranking_exact": true
+        }
+      },
+      "metrics_exact": true,
+      "old": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc/rstp/rasa",
+      "new": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/cpgc/rstp/rasa",
+      "old_manifest_sha": "5893324b6fff71a41c2617d3c499bd119cb11b5d8da4a3033c8a03b3cf3c9eb3",
+      "new_manifest_sha": "eec2c1fafeb5aed33db814e1767d34f98678b5f226dd63967c8be505fa3c519f",
+      "GPU": false
+    },
+    "elapsed_seconds": 49.76697687059641,
+    "allocated_MiB": 1921.84326171875,
+    "reserved_MiB": 2114.0,
+    "peak_RSS_GiB": 3.888458251953125
+  },
+  "icfg_irra": {
+    "summary": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/cpgc/icfg/irra/completed/summary.json",
+    "summary_sha256": "fb9c48b72595d875c07c1aef4607a773cd310a6c53f48e17ecbe02d945a99dbe",
+    "audit": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/cpgc/icfg/irra/completed/audit.json",
+    "audit_sha256": "c819b07494b1bd9e191fd47405fe783facee9c175f3802ab2f128cafa873e271",
+    "parity": {
+      "status": "PASS",
+      "dataset": "icfg",
+      "victim": "irra",
+      "pixel_feature_blocks_exact": 163,
+      "scores": {
+        "clean": {
+          "exact": true,
+          "max_abs": 0.0,
+          "L2_difference": 0.0,
+          "ranking_exact": true
+        },
+        "joint": {
+          "exact": true,
+          "max_abs": 0.0,
+          "L2_difference": 0.0,
+          "ranking_exact": true
+        },
+        "matched": {
+          "exact": true,
+          "max_abs": 0.0,
+          "L2_difference": 0.0,
+          "ranking_exact": true
+        }
+      },
+      "metrics_exact": true,
+      "old": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc/icfg/irra",
+      "new": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/cpgc/icfg/irra",
+      "old_manifest_sha": "eedc52dd7794f41f9a340bac682a43671be82d795fd1a703332a362314ef606c",
+      "new_manifest_sha": "9b203ae3fabcbe72722e93638cb0c206a656cf5c67ee3e8a338d29df5532163b",
+      "GPU": false
+    },
+    "elapsed_seconds": 31.10949183255434,
+    "allocated_MiB": 434.59375,
+    "reserved_MiB": 446.0,
+    "peak_RSS_GiB": 2.0398826599121094
+  },
+  "icfg_rasa": {
+    "summary": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/cpgc/icfg/rasa/completed/summary.json",
+    "summary_sha256": "2558e02a1f53ee5f68b8b77ea52e80a2e40ed83058d8dcafe3bb7f66664f1193",
+    "audit": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/cpgc/icfg/rasa/completed/audit.json",
+    "audit_sha256": "b2d6db494491b87d106d142963601510cf09e1c2350bb33e1e31ccf2f6320561",
+    "parity": {
+      "status": "PASS",
+      "dataset": "icfg",
+      "victim": "rasa",
+      "pixel_feature_blocks_exact": 163,
+      "scores": {
+        "clean": {
+          "exact": true,
+          "max_abs": 0.0,
+          "L2_difference": 0.0,
+          "ranking_exact": true
+        },
+        "joint": {
+          "exact": true,
+          "max_abs": 0.0,
+          "L2_difference": 0.0,
+          "ranking_exact": true
+        },
+        "matched": {
+          "exact": true,
+          "max_abs": 0.0,
+          "L2_difference": 0.0,
+          "ranking_exact": true
+        }
+      },
+      "metrics_exact": true,
+      "old": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc/icfg/rasa",
+      "new": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/cpgc/icfg/rasa",
+      "old_manifest_sha": "43fadcb40bd218aef674cc416256f22d957f99d535c175760e81b50dc350e0ad",
+      "new_manifest_sha": "bb4a388a6f5e9e69e168da72527298456717ead2fc7ef9841f8eab0c1002ef3c",
+      "GPU": false
+    },
+    "elapsed_seconds": 48.740099009126425,
+    "allocated_MiB": 1921.84326171875,
+    "reserved_MiB": 2114.0,
+    "peak_RSS_GiB": 3.888355255126953
+  }
+}

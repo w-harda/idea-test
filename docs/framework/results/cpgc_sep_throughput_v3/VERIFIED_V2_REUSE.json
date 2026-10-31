@@ -1,0 +1,181 @@
+{
+  "status": "PASS",
+  "Full_audits": 5,
+  "completed_steps": 28,
+  "elapsed_seconds": 2399.6074011214077,
+  "proof_path": "/home/lzf/ldx/tmp/cpgc_sep_throughput_prepare_v3_20261031/verified_v2_reuse.json",
+  "proof_sha256": "bc4978b7b846c65ce6c66b942e790bfa38442268199cbcda4417e52105a0b7e2",
+  "wrapper_file": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-throughput-v3-20261031/operations/verify_cpgc_sep_v2_reuse.py",
+  "steps": [
+    {
+      "label": "cpgc_smoke_cuhk_source",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc_source/cuhk/completed/manifest.json",
+      "sha256": "fb8b4d819b44a7eb0ca23e336297b0346445776df3d36b8d56e2aedc9b905ee4",
+      "deep_payload_SHA": false
+    },
+    {
+      "label": "cpgc_smoke_cuhk_irra_target",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc/cuhk/irra/completed/manifest.json",
+      "sha256": "680a3460613593f02ccf4f26d1aa66e925cd6ba9fe76af53cdf743a18e06952f",
+      "deep_payload_SHA": false
+    },
+    {
+      "label": "cpgc_smoke_cuhk_irra_audit",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/audit/cpgc/cuhk/irra/completed/manifest.json",
+      "sha256": "90655ad90772cbf61d279b62f0107dab666107d4aaef50fe41631efa0a368559",
+      "deep_payload_SHA": false
+    },
+    {
+      "label": "cpgc_smoke_cuhk_rasa_target",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc/cuhk/rasa/completed/manifest.json",
+      "sha256": "c77644c001006e60d3d9d424cb09673de5b6dc85767f7a4eeb9c3c7c209e9c76",
+      "deep_payload_SHA": false
+    },
+    {
+      "label": "cpgc_smoke_cuhk_rasa_audit",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/audit/cpgc/cuhk/rasa/completed/manifest.json",
+      "sha256": "ef7638fe50d7a90d772debd2034f0f280517f2a73e03b4ee92a12a62fe735278",
+      "deep_payload_SHA": false
+    },
+    {
+      "label": "cpgc_smoke_rstp_source",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc_source/rstp/completed/manifest.json",
+      "sha256": "85fa5ad483d9c8bec8cb177b7bb18bbc83c707b2c6413f6b24bce0644c52c8af",
+      "deep_payload_SHA": false
+    },
+    {
+      "label": "cpgc_smoke_rstp_irra_target",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc/rstp/irra/completed/manifest.json",
+      "sha256": "0d1e9f4007b381befdf5b27ba0aeee411580b864b8941e264a3e51859ad23ebb",
+      "deep_payload_SHA": false
+    },
+    {
+      "label": "cpgc_smoke_rstp_irra_audit",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/audit/cpgc/rstp/irra/completed/manifest.json",
+      "sha256": "60c15dd139ca264010cde422f14fbf0cd38c5ae1a924295ae1635c677fa52645",
+      "deep_payload_SHA": false
+    },
+    {
+      "label": "cpgc_smoke_rstp_rasa_target",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc/rstp/rasa/completed/manifest.json",
+      "sha256": "5893324b6fff71a41c2617d3c499bd119cb11b5d8da4a3033c8a03b3cf3c9eb3",
+      "deep_payload_SHA": false
+    },
+    {
+      "label": "cpgc_smoke_rstp_rasa_audit",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/audit/cpgc/rstp/rasa/completed/manifest.json",
+      "sha256": "b76e0955cce9072fe508500606758517abf7a41a0c2ef71212db3f162b3be819",
+      "deep_payload_SHA": false
+    },
+    {
+      "label": "cpgc_smoke_icfg_source",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc_source/icfg/completed/manifest.json",
+      "sha256": "61b9f9a8d5f8d7f7c9749858c570677672f0c1f0b966cd089da5d47b3e673e6e",
+      "deep_payload_SHA": false
+    },
+    {
+      "label": "cpgc_smoke_icfg_irra_target",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc/icfg/irra/completed/manifest.json",
+      "sha256": "eedc52dd7794f41f9a340bac682a43671be82d795fd1a703332a362314ef606c",
+      "deep_payload_SHA": false
+    },
+    {
+      "label": "cpgc_smoke_icfg_irra_audit",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/audit/cpgc/icfg/irra/completed/manifest.json",
+      "sha256": "9d893981ff13f459de4f3c81f5942fd8bad45ac9223c9a16461a5e5dcf487264",
+      "deep_payload_SHA": false
+    },
+    {
+      "label": "cpgc_smoke_icfg_rasa_target",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/cpgc/icfg/rasa/completed/manifest.json",
+      "sha256": "43fadcb40bd218aef674cc416256f22d957f99d535c175760e81b50dc350e0ad",
+      "deep_payload_SHA": false
+    },
+    {
+      "label": "cpgc_smoke_icfg_rasa_audit",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/smoke/audit/cpgc/icfg/rasa/completed/manifest.json",
+      "sha256": "13ad059be90eb579aa138d26dc2dc151110a77878a7f86bfb419dd6cad9fe6a2",
+      "deep_payload_SHA": false
+    },
+    {
+      "label": "cpgc_full_cuhk_source",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc_source/cuhk/completed/manifest.json",
+      "sha256": "8e0c720d944fb7cf1e30c505aae2ebc225dca84ec3b08bbe3a18c883db7a6a6a",
+      "deep_payload_SHA": false
+    },
+    {
+      "label": "cpgc_full_cuhk_irra_target",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc/cuhk/irra/completed/manifest.json",
+      "sha256": "c26af4adaaf523b89c9d628f90cd74aa9a2802abcc7ab9a4c18d801b7f3c227d",
+      "deep_payload_SHA": false
+    },
+    {
+      "label": "cpgc_full_cuhk_irra_audit",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/audit/cpgc/cuhk/irra/completed/manifest.json",
+      "sha256": "799b32fc69c0673f9779f6dbb7ebc81b87769c04f42080bbe630a2c0cd41d05c",
+      "deep_payload_SHA": false
+    },
+    {
+      "label": "cpgc_full_cuhk_rasa_target",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc/cuhk/rasa/completed/manifest.json",
+      "sha256": "2b86878d7df8de470915aa7e8e7b39b0128512d9fdf54b66a6281b332727db20",
+      "deep_payload_SHA": false
+    },
+    {
+      "label": "cpgc_full_cuhk_rasa_audit",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/audit/cpgc/cuhk/rasa/completed/manifest.json",
+      "sha256": "76bf7d0a309ba9c24ac195ff87d21b1193cfeff8d90bd7e319503ac540c33ebc",
+      "deep_payload_SHA": false
+    },
+    {
+      "label": "cpgc_full_rstp_source",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc_source/rstp/completed/manifest.json",
+      "sha256": "74cd40c171bd51e31ef564b3d3df3af68befeeba0c9a5a754d7d839c3bb2a82e",
+      "deep_payload_SHA": false
+    },
+    {
+      "label": "cpgc_full_rstp_irra_target",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc/rstp/irra/completed/manifest.json",
+      "sha256": "d9c570274cf337baa232fb6bf9d6bedb0c556192e41b664f2a9e522053c5ca8b",
+      "deep_payload_SHA": false
+    },
+    {
+      "label": "cpgc_full_rstp_irra_audit",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/audit/cpgc/rstp/irra/completed/manifest.json",
+      "sha256": "0034a6cc736754d3e84abf421a375d259ad51d9ef651230089c04c3e8774212a",
+      "deep_payload_SHA": false
+    },
+    {
+      "label": "cpgc_full_rstp_rasa_target",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc/rstp/rasa/completed/manifest.json",
+      "sha256": "921123b08fc9ac57e69acd402c97d6e4a48f63303c3bc91d50fd02808628913a",
+      "deep_payload_SHA": false
+    },
+    {
+      "label": "cpgc_full_rstp_rasa_audit",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/audit/cpgc/rstp/rasa/completed/manifest.json",
+      "sha256": "8a02152afba3e14318b18ff51992105acdbae116972d3bbf7eeee5069482dda2",
+      "deep_payload_SHA": false
+    },
+    {
+      "label": "cpgc_full_icfg_source",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc_source/icfg/completed/manifest.json",
+      "sha256": "570b170066e6cd52d7b68fe5c1cee205d7ec93057bc1e8605b993421ef14a15d",
+      "deep_payload_SHA": false
+    },
+    {
+      "label": "cpgc_full_icfg_irra_target",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc/icfg/irra/completed/manifest.json",
+      "sha256": "71ba9f3d0425f4f67994ec38608790e1991a9d25d1a7d18928ef393e0d0484dc",
+      "deep_payload_SHA": false
+    },
+    {
+      "label": "cpgc_full_icfg_irra_audit",
+      "manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/audit/cpgc/icfg/irra/completed/manifest.json",
+      "sha256": "ad671fa3453968a063c13406c19316ac6c2bb444dc5438598ed6b3e0b4759c49",
+      "deep_payload_SHA": false
+    }
+  ],
+  "note": "wrapper deep_verify explicitly verifies every artifact payload with VerifiedArtifactStore; inner metadata helper deep_payload_SHA flag describes only the final duplicate metadata check",
+  "wrapper_sha256": "f2a77cb0b213b6eb083f98f11604edcd97ab516c148adfc65f38b5eadc21ec08"
+}
