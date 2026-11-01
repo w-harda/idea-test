@@ -1,0 +1,9 @@
+Victim,Mode,R@1,R@5,R@10,mAP
+IRRA,Matched Clean,69.44,87.22,92.02,63.02
+IRRA,Image-only,63.65,83.02,88.95,56.47
+IRRA,Text-only,54.09,75.52,83.17,49.40
+IRRA,Joint,47.27,70.99,79.47,42.76
+RaSa,Matched Clean,74.59,89.05,93.42,67.51
+RaSa,Image-only,4.16,8.02,10.79,3.03
+RaSa,Text-only,56.64,76.09,83.11,50.84
+RaSa,Joint,3.64,6.86,9.02,2.58
