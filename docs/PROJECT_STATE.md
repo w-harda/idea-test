@@ -1,5 +1,9 @@
 # 项目当前状态（唯一权威入口）
 
+## C-PGC CUHK单模态：共享GPU包装器（2026-11-01）
+
+用户明确允许保留SEP并共享GPU。只新增operations包装器与7项CPU测试，冻结数值源码7973128及配置SHA不变。原等待器安全停止、未消费评分Attempt；新独立控制目录启动后的真实状态见回执。[共享执行协议](framework/results/cpgc_cuhk_modal_ablation/SHARED_GPU_EXECUTION.md)。
+
 ## C-PGC CUHK两Victim单模态补充准备（2026-11-01）
 
 独立codex/cpgc-cuhk-modal-ablation；只读复用原Full特征，显式matched_text桥接。43项CPU测试PASS。新两模式评分/审计以实际回执为准；默认等待SEP释放全局锁，绝不干预原后台任务。[报告](framework/results/cpgc_cuhk_modal_ablation/REPORT.md)。
