@@ -1,5 +1,9 @@
 # 项目当前状态（唯一权威入口）
 
+## C-PGC CUHK两Victim单模态补充准备（2026-11-01）
+
+独立codex/cpgc-cuhk-modal-ablation；只读复用原Full特征，显式matched_text桥接。43项CPU测试PASS。新两模式评分/审计以实际回执为准；默认等待SEP释放全局锁，绝不干预原后台任务。[报告](framework/results/cpgc_cuhk_modal_ablation/REPORT.md)。
+
 ## C-PGC/SEP取消固定GPU显存门槛恢复准备（2026-11-01）
 
 6/12完成，v3等待器909831已核实后停止，原现场保留。新codex/cpgc-sep-no-gpu-floor仅移除活动GPU显存否决、保留主机与来源门禁。

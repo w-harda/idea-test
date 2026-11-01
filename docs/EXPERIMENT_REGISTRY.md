@@ -703,3 +703,8 @@ H20新增候选最低40.427635%，历史H9为40.425480%；H60为42.874081%，不
 ## 2026-11-01 C-PGC/SEP no-floor v4
 
 移除固定GPU空闲显存要求，保留RAM/disk/inode与实际OOM停止；数值路径及64GiB缓存不变。6个CPGC Full只读保留，新namespace tbps-framework-cpgc-sep-no-gpu-floor-v4。GPU Smoke与后续SEP Full以新控制目录实际回执为准。
+
+
+## C-PGC CUHK单模态补充（2026-11-01）
+
+新输出`/home/lzf/ldx/outputs/tbps-framework-cpgc-cuhk-modal-ablation-v1`；原v2 Full只读。仅IRRA/RaSa各两项新增评分，Image-only严格使用matched_text。独立CPU审计、唯一启动、失败不重试。执行入口operations/run_cpgc_modal_ablation.py；状态以新控制目录回执为准。
