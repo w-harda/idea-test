@@ -473,3 +473,7 @@ A1不消费新文本条件，B消费，二者均刷新G→H反馈。Loss/Reward/
 ### C-PGC多数据集单模态补充
 
 modal_ablation复用原NativeScorer/EvaluationEngine，仅按独立配置泛化Dataset、尺寸和输出身份；Matched Manifest保持原输入桥。operations/run_cpgc_modal_three_datasets.py串行调度四组Full与独立CPU审计，report工具只读合并已审计CUHK得到24行；不改变攻击或Victim数学。
+
+### G-v2跨数据集v2 CPU护栏
+
+精确无状态Resize类型仅对CPU图像放行，ToTensor原样；其余nn.Module仍阻断。所有真实Optimizer覆写step与JVP入口显式阻断，ExitStack恢复。v2隔离输出/控制并将原v1 FAIL目录纳入历史保护，未变更生成/评分/排名数学。

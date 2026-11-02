@@ -137,6 +137,7 @@ def audit(c,ds,scope):
  require(not torch.cuda.is_initialized(),'independent CPU audit');torch.set_num_threads(2)
  ensure_preflight(c);m=get_manifest(c,ds,scope);s=store_for(c,ds,scope)
  with no_backward(cpu=True):
+  # 仅原生纯CPU Resize/ToTensor可通过护栏；G/IRRA前向与所有训练入口仍禁止。
   verified=VerifiedArtifactStore(s.root,new_base=c['output_base']);units=0
   for p in sorted(s.root.glob('*/manifest.json')):
    verified.verify(p.parent.name);units+=1

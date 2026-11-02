@@ -1,5 +1,10 @@
 # 项目当前状态（唯一权威入口）
 
+## G-v2跨数据集v2精准修复与CPU验证（2026-11-02）
+
+独立codex/gv2-cross-dataset-v2，基准1ed89e4。CPU护栏仅放行所需纯CPU Resize/ToTensor，神经前向/CUDA/Backward/真实Optimizer/JVP仍拒绝。原112+新增29共141项CPU回归PASS；v1真实Artifact隔离副本完整audit与错误像素拒绝通过，原264失败文件SHA/stat不变。原FAIL保留；新真实Smoke/Full状态以v2独立Supervisor回执为准。[报告](framework/results/gv2_cross_dataset_v2/REPORT.md)。
+
+
 ## G-v2跨数据集迁移：RSTP Smoke CPU审计失败并停止（2026-11-02）
 
 执行3277fa12935501ed22adad61ce3a3a44ef058318；CPU预检PASS，RSTP真实G10张和IRRA10 Query评分完成，但独立CPU审计误拦截纯CPU torchvision Resize而FAIL。原FAIL/源码/产物保留；ICFG Smoke和两个Full均未启动，无自动修复/重试。112 CPU用例未覆盖该组合边界，不宣称Smoke整体PASS或正式指标。历史123738文件stat及权重SHA只读复核保持。[失败报告](framework/results/gv2_cross_dataset/REPORT.md)。

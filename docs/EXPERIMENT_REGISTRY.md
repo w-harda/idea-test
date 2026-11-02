@@ -1,5 +1,10 @@
 # 历史实验注册表
 
+## G-v2跨数据集v2修复Attempt（2026-11-02，准备）
+
+基准1ed89e4，原CUHK G-v2 E60与两域IRRA不变，只有审计边界修复和新版本命名空间。141 CPU回归PASS；新两Smoke/Full未提前宣称完成。v1 FAIL永久保留；原264文件SHA/stat一致。详见framework/results/gv2_cross_dataset_v2/REPORT.md。
+
+
 ## G-v2 E60跨数据集迁移：FAIL_STOPPED_NO_RETRY（2026-11-02）
 
 CPU预检两个目标PASS；RSTP真实10图生成/10 Query评分完成，CPU审计因新增nn.Module护栏误拦截Resize而FAIL。原执行3277fa1、来源/日志/输出封存；ICFG Smoke及两个Full NOT_RUN，正式指标0行，不重复启动。G/投影/原生IRRA/评分数学未改，后续修复与新Attempt须另行授权。详见framework/results/gv2_cross_dataset/REPORT.md。

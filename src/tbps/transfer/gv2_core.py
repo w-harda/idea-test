@@ -27,7 +27,7 @@ def load_config(path):
  require(c['gpu_policy']=='shared_observe_only' and set(c['resource_gate'])=={'RAM_bytes','disk_bytes','inodes'},'no GPU VRAM floor permitted')
  require(set(c['modes'])=={'Clean','Image-only'} and len(c['modes'])==2,'image-only protocol')
  base=Path(c['output_base']).resolve()
- require(base.parent==Path('/home/lzf/ldx/outputs') and base.name=='tbps-framework-gv2-cross-dataset-20261102','isolated output namespace')
+ require(base.parent==Path('/home/lzf/ldx/outputs') and base.name=='tbps-framework-gv2-cross-dataset-v2-20261102','isolated output namespace')
  for p,h in c['producers'].items():checked(FileRef(p,h))
  for r in c['sources'].values():checked(FileRef(**r))
  for p,h in c['legacy_sources'].items():checked(FileRef(p,h))
@@ -70,16 +70,42 @@ def verify_history(c):
 
 @contextmanager
 def no_backward(cpu=False):
- # torchvision首次导入会初始化Dynamo规则表；先在原Torch函数身份下导入，随后才安装禁用护栏。
- import torchvision.transforms
- def forbid(*a,**k):raise RuntimeError('inference/audit forbids CUDA or neural forward in CPU mode; backward/optimizer/JVP always forbidden')
+ # 首次导入会初始化Dynamo规则表；先在原Torch函数身份下导入。
+ from torchvision.transforms import Resize
+ from PIL.Image import Image as PILImage
  from contextlib import ExitStack
+ def forbid(*a,**k):
+  raise RuntimeError('inference/audit forbids neural forward, CUDA, backward, optimizer and JVP')
+ original_call=torch.nn.Module._call_impl
+ resize_forward=Resize.forward
+ def cpu_image(value):
+  return isinstance(value,PILImage) or (isinstance(value,torch.Tensor) and value.device.type=='cpu' and not value.requires_grad)
+ def cpu_module_call(module,*args,**kwargs):
+  # 仅放行实际审计所需的精确Resize类型；ToTensor不是nn.Module，不触发此门禁。
+  allowed=(type(module)is Resize and len(args)==1 and not kwargs and cpu_image(args[0])
+    and not module._parameters and not module._buffers and not module._modules
+    and not module._forward_pre_hooks and not module._forward_hooks
+    and getattr(module.forward,'__func__',None)is resize_forward)
+  if not allowed:forbid()
+  value=original_call(module,*args,**kwargs)
+  if not cpu_image(value):forbid()
+  return value
+ def optimizer_classes():
+  found=set();pending=[torch.optim.Optimizer]
+  while pending:
+   cls=pending.pop()
+   if cls not in found:found.add(cls);pending.extend(cls.__subclasses__())
+  return found
  with ExitStack() as stack:
-  for obj,key in ((torch.Tensor,'backward'),(torch.autograd,'backward'),(torch.autograd,'grad'),(torch.optim.Optimizer,'step')):
+  for obj,key in ((torch.Tensor,'backward'),(torch.autograd,'backward'),(torch.autograd,'grad'),
+                  (torch.autograd.functional,'jvp'),(torch.func,'jvp'),(torch.autograd.forward_ad,'make_dual')):
    stack.enter_context(patch.object(obj,key,forbid))
+  # Adam/SGD等覆写step；只补丁基类无法拦住这些真实Optimizer。
+  for cls in optimizer_classes():
+   if 'step' in cls.__dict__:stack.enter_context(patch.object(cls,'step',forbid))
   if cpu:
    stack.enter_context(patch.object(torch.cuda,'_lazy_init',forbid))
-   stack.enter_context(patch.object(torch.nn.Module,'_call_impl',forbid))
+   stack.enter_context(patch.object(torch.nn.Module,'_call_impl',cpu_module_call))
   yield
 
 def read_weights(c):

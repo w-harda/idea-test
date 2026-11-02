@@ -23,6 +23,11 @@ def main():
  if a.status:
   r=json.loads((control/'status.json').read_text());r['supervisor']={k:(control/('supervisor.'+k)).read_text().strip() for k in ('pid','ppid','pgid','sid')}
   r['progress']=[json.loads(x.read_text()) for x in sorted(control.glob('progress_*.json'))]
+  r['receipts']={}
+  for scope in ('smoke','full'):
+   for ds in ('rstp','icfg'):
+    case=Path(c['output_base'])/scope/ds
+    r['receipts'][scope+'_'+ds]={key:(json.loads((case/rel).read_text()).get('status','PENDING') if (case/rel).exists() else 'PENDING') for key,rel in [('generation','generation_completed/report.json'),('scoring','completed/summary.json'),('cpu_audit','cpu_audit/report.json')]}
   print(json.dumps(r,ensure_ascii=False,indent=2));return
  if not a.allow_smoke_and_auto_full:p.error('explicit real Smoke and automatic Full authorization required')
  control.mkdir(parents=True,exist_ok=True)
