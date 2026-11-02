@@ -1,3 +1,7 @@
+## FROZEN：G60 + H7跨数据集8组Full与独立CPU审计全部PASS
+
+正式CSV及来源见[结果报告](framework/results/gh_cross_dataset/REPORT.md)。未重新训练/微调；原v2与失败现场保持只读。
+
 # 项目当前状态（唯一权威入口）
 
 ## CURRENT：CUHK冻结G60 + H7跨数据集Text-only/Joint独立补齐（2026-11-02）
