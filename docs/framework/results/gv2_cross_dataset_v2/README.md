@@ -9,3 +9,7 @@
 ```
 
 控制/status.json与supervisor.log位于/home/lzf/ldx/tmp/gv2_cross_dataset_v2_20261102。输出为/home/lzf/ldx/outputs/tbps-framework-gv2-cross-dataset-v2-20261102。真实失败禁止自动重试或覆盖，模型/预算/Batch/精度不降级，显存只观察无最低门槛。
+
+## 审计后自动发布
+
+独立operations/finalize_gv2_cross_dataset.py仅等待主监督器SUCCESS，重新核验两Smoke/两Full审计、4行正式指标、旧FAIL保护后提交/推送报告并核对远端SHA；不启动、恢复或重跑实验。publication_status.json位于同一v2控制目录。失败只记录并停止，不重试。其新增文件不属于运行中的冻结模型/评分依赖，执行Commit仍为618cc19。
