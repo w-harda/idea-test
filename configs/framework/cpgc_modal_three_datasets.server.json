@@ -1,0 +1,732 @@
+{
+  "schema": "tbps-cpgc-three-dataset-modality-1",
+  "output_base": "/home/lzf/ldx/outputs/tbps-framework-cpgc-modal-three-datasets-v1",
+  "cases": [
+    {
+      "dataset": "rstp",
+      "victim": "irra",
+      "config": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/configs/framework/cpgc_modal_rstp_irra.server.json",
+        "sha256": "43db1d15275160af4124c576b3af012c644f6c652d1a723c7c85c1899aaecf08"
+      }
+    },
+    {
+      "dataset": "rstp",
+      "victim": "rasa",
+      "config": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/configs/framework/cpgc_modal_rstp_rasa.server.json",
+        "sha256": "7464cbbcedf52500e0574d6de4cf710fb58d71661cec01183a19cbb4a96c4ba6"
+      }
+    },
+    {
+      "dataset": "icfg",
+      "victim": "irra",
+      "config": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/configs/framework/cpgc_modal_icfg_irra.server.json",
+        "sha256": "0d3cd099cffdbc0547f07f901be9c9457aae71dd8dfb0c8ebe03f90eb4eb7295"
+      }
+    },
+    {
+      "dataset": "icfg",
+      "victim": "rasa",
+      "config": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/configs/framework/cpgc_modal_icfg_rasa.server.json",
+        "sha256": "baab671a9d2e22ab41fab61af908f7d4fead64e1ae5fa3bb69c93f972ba19881"
+      }
+    }
+  ],
+  "cuhk": {
+    "output_base": "/home/lzf/ldx/outputs/tbps-framework-cpgc-cuhk-modal-ablation-v1",
+    "config": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-cuhk-modal-ablation-20261101/configs/framework/cpgc_cuhk_modal_ablation.server.json",
+      "sha256": "8d6d63e90fa79828de8e5fd45f6bcf76872bc4ae32f48b386aec0973f31fe8e7"
+    },
+    "report_commit": "b6b913943f874d7d8ce54f2f32d7a3c64d9c63a5",
+    "irra": {
+      "target": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-cuhk-modal-ablation-v1/irra/completed/manifest.json",
+        "sha256": "e72e4f0f0d42e1d49a26bbe6551c207e8d0771226431c6f9ef89a7d41c61cca2"
+      },
+      "audit": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-cuhk-modal-ablation-v1/audit/irra/completed/manifest.json",
+        "sha256": "dafcda42df87378642075e3f1443f635a940fb09b7ade8e0d94df5b230753900"
+      }
+    },
+    "rasa": {
+      "target": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-cuhk-modal-ablation-v1/rasa/completed/manifest.json",
+        "sha256": "076f5676116b9b1367e091b09f73eea3940baf259425115661ad5b69924bd73a"
+      },
+      "audit": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-cuhk-modal-ablation-v1/audit/rasa/completed/manifest.json",
+        "sha256": "f4c9f0e366aebd75048bbc46a73de45d2a725748d74efca881f549dc4e4a7545"
+      }
+    }
+  },
+  "producers": [
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/__init__.py",
+      "sha256": "7215b414d63b13481ddd7252dd976985c2348f61099b463e5d419da3dd75050c"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/ablations/__init__.py",
+      "sha256": "18a63924c7a7b1bf897a7645fba61884d0ba90a5e949ac99eff4684eba5c7b0d"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/ablations/g60_h_bridge.py",
+      "sha256": "aec52ab788e1825bb7277835a7be060e0d85f5aac18c2e2ca49f21e57bc0ff3d"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/ablations/g60_h_validation.py",
+      "sha256": "5efc28734056d22aaa699f08442a9ea111cd41bbf9dcf35fc7e2bd03fe717c24"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/ablations/gh_attribute_audit.py",
+      "sha256": "53f243f8cc7019b3796bfbbc547a160499cba41c8c64b6aa991149ad05724ebf"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/ablations/gh_attribute_category_overlap.py",
+      "sha256": "71288851f126227e08703f2b6750ec0f1073e0a760fd7c611f37bb87f5550451"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/ablations/gh_attribute_supplement.py",
+      "sha256": "256089a3c724710979d89fae53eba4773871470b698fc4ab2c76374f56a0c258"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/ablations/gv2_epoch60_results.py",
+      "sha256": "12325d1635b241cd8a301c870b6c9c8adbe43defad87c49023dc397fe87ecd17"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/ablations/gv2_epoch_state.py",
+      "sha256": "a1c24c9c786f3fbe6dcbbc87d3836f58fa88b66352845bdba62805627c41b1cb"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/ablations/gv2_epochs.py",
+      "sha256": "d2f5e60a79aa2923499ee3a95bb36af1488704e04fc7b26ca021d227a782303c"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/ablations/gv2_sweep.py",
+      "sha256": "13a551c89a5ceff962a5d2020b2de2f91ab3e95cfe49fdf9890b691a081499ba"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/ablations/gv2_sweep_target.py",
+      "sha256": "93d154de9168c92101cd06cd3e5bd950fd98b17b69a120c5b1e561bc985240fa"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/ablations/hv1_g60_adaptation.py",
+      "sha256": "5fcd675c13362c54c4e9ff0a1926955a96ccf25dbf81d8ec07b4375e2b297445"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/ablations/hv1_g60_audit.py",
+      "sha256": "8d81de1d8ecbf6ce494fc9144b0b266bf281ac917cd6165ff5514331684366cc"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/ablations/hv1_g60_audit_repair.py",
+      "sha256": "edf7ae3b4c67d4a544e500141bc863dc8d1d5128d070c5bb74e029643dfa43b6"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/ablations/hv1_g60_posthoc.py",
+      "sha256": "33d4db53326ff6770bdd58bbe32b3624662ed69d3d9a8a760d78d79592554952"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/ablations/hv1_g60_posthoc_diagnostics.py",
+      "sha256": "fcd6a5b0153a2c127b2d7275fb145a580bd7d42dda68d1c8f84312b3653e790c"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/ablations/hv1_g60_repaired_results.py",
+      "sha256": "9c88ac9f1cbfb1f5c77ff5bf7f983e476703dc99cec1c65a445f24c558e404d0"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/ablations/hv1_g60_results.py",
+      "sha256": "39a7ab52140034debe7f908576c8cda3f5a9e9b9ca446837ad3ec5ea2d0973eb"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/ablations/hv1_g60_state.py",
+      "sha256": "95a96ff7aa39aac9d527270c325772328a1d6aba6473a51fde0f2ee77472de41"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/ablations/plot_gh_attribute_audit.py",
+      "sha256": "e22836e0d6ab93d5d8e9955c16c476160994aaeda833325bee353812d81a9614"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/ablations/plot_hv1_g60_posthoc.py",
+      "sha256": "df24bb369852a2ec59e4bbc3cb9b21582028ce23e1fb45149fbdba56733fd70b"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/ablations/report_gh_attribute_audit.py",
+      "sha256": "8f057b97dc8393ec80c6bf2b082205b334289767464684629832dde936986c1f"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/ablations/report_hv1_g60_posthoc.py",
+      "sha256": "6d3c2844275eebc80a201b0371f6134c5289a895270311195660d2bf62794db2"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/ablations/validate_gh_attribute_audit.py",
+      "sha256": "0c99656616c99ba0cc8499f4c2dc53fe97adc2b21096341983bb03295ca0809a"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/ablations/validate_hv1_g60_posthoc.py",
+      "sha256": "8db33ef5575dcf5873be67c3b95a6ee86df4f261473c3b170d30bfc6bf732d17"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/alternating/__init__.py",
+      "sha256": "8ce30be622417914b541518739c7f4897b25f49eb4a8c1e2598d8b27867ee344"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/alternating/conditions.py",
+      "sha256": "62c796f485c1dd2941611220bdedb90b1f76f318dde176781f3b6bff45633c11"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/alternating/contracts.py",
+      "sha256": "52a8bbcb02b74d7f931107067253b1fb2af9dab887bbeff1ddf68c74b5ef8cab"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/alternating/formal_audit.py",
+      "sha256": "6b8933660b60a6996c3d471aabd79fc2ee4febe896aa5cbef97afe1fbb6bfb53"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/alternating/formal_backend.py",
+      "sha256": "36dfb79970bfde3761a9688fe0a9c620a592fc5cbda59ac57ade6de962e28b46"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/alternating/formal_cli.py",
+      "sha256": "b72617a4ebb5f33b803d7b9ad855b48950747e1649d8246d233a6ab42fcdbb7c"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/alternating/formal_evaluation.py",
+      "sha256": "58006b158be74ac0b75c04de8515d0382cac1b146e62794bca18680ceb6081c1"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/alternating/formal_sources.py",
+      "sha256": "1dbc406177db174e1ca0526dfdff6c0a547f7c9f90e166639f304d829cedb1c1"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/alternating/formal_state.py",
+      "sha256": "d9695d090b8c4e9dcdeece552cffd610699c210f4a6e785df59c7851a7207646"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/alternating/native_backend.py",
+      "sha256": "6f96beb9275e29df188f8aaf5b9cb6bdff82234200d7da95453649b2cfba7960"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/alternating/native_cli.py",
+      "sha256": "977ff32059933191949bb8a91417700d5b050daedb7b928f42c5db5ab41a4083"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/alternating/native_gate.py",
+      "sha256": "c2afeff486d1fbffb7ca78744ab4a300fede8ff394c55585eeb2a345e72e43b4"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/alternating/native_numeric.py",
+      "sha256": "698c5e9b08b3313866b042c4a75aa2224d67c5869e68fb9659a7ddc4067b83ec"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/alternating/native_sources.py",
+      "sha256": "b2cc0366d83b124a3b6f3c0867fed2d623d4f8f1d5485db0f33e4e4b00555e13"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/alternating/parents.py",
+      "sha256": "b30c71f5b5638025ec74c53e010b1302a010b4277bd3da707976f28c1656736f"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/alternating/preflight.py",
+      "sha256": "9fdd2f86941d27426df07767a069e09c6784e4def73af344eef644782c55f089"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/alternating/runner.py",
+      "sha256": "2f817e72eb5e62e779fcdf4fe6219d9808a64bf7073482555b21291f79a1ac27"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/alternating/state.py",
+      "sha256": "e7aedb7607e959721aa219db96168747dfe723458b2197817ea3d2d61ff684d3"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/alternating/token_bridge.py",
+      "sha256": "ee7040a49dcd32b78aed2b7cd0ba2d6e1429877117ea0856664139137c9cfa08"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/aptm_eval.py",
+      "sha256": "58ad427af4fb796cb32cce1ff6f0184c2c251276b4bc8b5300cae4f997a5519d"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/artifacts.py",
+      "sha256": "b7d7486df6b401705157a604daec236c7bc9ce79a8518ccf2c3df5e07c61c940"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/attacks/__init__.py",
+      "sha256": "278854696782f31a17141ee937f96cc22bcd0a24cf15e5920873539a43b54e47"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/attacks/base.py",
+      "sha256": "5c3693244bc121db8234cae46b036e235d53dfa87fc77b5c16a2632fc8982823"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/attacks/configuration.py",
+      "sha256": "f225c7eae2a2e8c14ac1883e0b4512932bc5058deef858aff7fd3bae731d9cf1"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/attacks/gv2.py",
+      "sha256": "e72685a12f65549210b2ae005219b7fa38c787f0c7a1af0a875ab672fefe4b12"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/attacks/hv1.py",
+      "sha256": "51b60e0e4b5ee1a822598f9342a7afca1509b7360e0fe2d5987e679b2ab4b25d"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/attacks/joint.py",
+      "sha256": "6b375e5390b35651f67d74a1a3d21e97237015c8c920a65706849aa8a07b4a1f"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/attacks/legacy_runtime.py",
+      "sha256": "d328c5b7b188610896aa330f72c68d18aa699634a6f633fbf64691bc4cf99476"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/attacks/provenance.py",
+      "sha256": "051b3717b32ab3a57d50fde45bb17f6a8f4e99c30d9d28b1f60f6ce941a4ff07"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/attacks/registry.py",
+      "sha256": "739b22531b4855f184733da7806ba1a4a7cc7b52a28cfd539594dd757d541b62"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/attacks/storage.py",
+      "sha256": "7158cf935bafb1192a1afb8e881fb6f4b07907e5361cfe528f836a43215d7773"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/b3_eval.py",
+      "sha256": "57fd328637e636659ad70472763cb659c652e6fc245d8c0bfaf949ef2d306ae1"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/__init__.py",
+      "sha256": "86e3dd9402c6cd505cc41954c0c9b02f4ee9cb42b7475ac7f75b89f56d59579a"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/ap_b3.py",
+      "sha256": "86f4049317984bbccf0de41d9c2910f57853c931166a013a35d33a895e04c82a"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/comparison.py",
+      "sha256": "fe9a0e6be552dcc1dbce569a27097e3509651242611e141716a171115a88d13d"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/cpgc_sep/__init__.py",
+      "sha256": "1f7cfcbdca3e98bbf85687829d063bc0a85b2ed6d096b9d104f8f52023241bb4"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/cpgc_sep/audit.py",
+      "sha256": "1e3ae5e8da9c1499d6e3b721b75fbbead79a520c9056ade9eab191bcf8776ea5"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/cpgc_sep/cache.py",
+      "sha256": "68abc0ce80f6a0adf757f6c04f45f41863b0113499dec882d01eae3a0e1cb5c0"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/cpgc_sep/cli.py",
+      "sha256": "e57868d873527ccc03f325e43e0a9b9c3d0249c2d5167c36d8dfe1b46efcd81e"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/cpgc_sep/cpgc_source.py",
+      "sha256": "98864254116e297da6c264133990ab444b8e5b637b3150c125dbf866375a1f00"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/cpgc_sep/dataset.py",
+      "sha256": "a71c0a2731468b210120ae07f749e3543f817205a73972dc96405d3a48841efb"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/cpgc_sep/modal_ablation.py",
+      "sha256": "d98018e9d6161d6298a17e840bbf0051073a56b542f6c8efb78e9a47668225d4"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/cpgc_sep/official.py",
+      "sha256": "01fe734a57d5de1f2f8c015ad44569bfbf6f5df7754fd5faafaf87d176818626"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/cpgc_sep/preflight.py",
+      "sha256": "b57ee08eb42f42109a6020b21bfa7d46f5d586702a915205be3cff8b6db62e3f"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/cpgc_sep/report.py",
+      "sha256": "1db31d853346f4d7c9bdd74cb39021d892513ad81a3d735b4eaecaff3cf3b442"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/cpgc_sep/runtime.py",
+      "sha256": "0fba3cb70077f394cc5de96fc0d4ed7d42b9f77a54b9af8f8bd183e16f473d1c"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/cpgc_sep/sep_bridge.py",
+      "sha256": "93084434436303433e1bd4fa1c567494a0a6c1acaaf3d6c9b25f3fb50d5aa68f"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/cpgc_sep/sep_source.py",
+      "sha256": "71137fdd7a962dfcb6d17fa9f454f002c4921e3c628c9d71651fa352f15c003f"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/cpgc_sep/source_reuse.py",
+      "sha256": "df7c23f985a624cbb5813f9219988c14fcfb736d94577c4fb9914588501218db"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/cpgc_sep/step_reuse.py",
+      "sha256": "6b8c0fbb845c5ab5ba19670dae6d3f32bf93e1d24764b61a74364934ed8a5d5a"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/cpgc_sep/target.py",
+      "sha256": "7520dff7b57765884f7b2e7d02859082f55c38256d4be16001e570a56363be0a"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/cpgc_sep/verified_store.py",
+      "sha256": "1d36524b2b249ba1ea22839fcb9cebdd9386e2a98ef4863e4095a14f6dcc080d"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/cpgc_sep/victims.py",
+      "sha256": "949b6bb88818536533589032de9588adf51864c234bc895e1946d8291a9d63aa"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/dra_full.py",
+      "sha256": "d598d3dc698b4c1e4e5d54d40d94fc87de04915d0ad72a773a644006a77ca1a7"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/dra_full_target.py",
+      "sha256": "1a6d58492db65f91d453be8419adcbf10bb10e50494a74410e0555b1cfb31a83"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/dra_irra.py",
+      "sha256": "382f4d0a62e06c67e9e22a262f6eb60ac3de0b6ed4f98d1bd828766762e59ef9"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/dra_official.py",
+      "sha256": "817efdf47df0ff5c17a7cf59d7d3a93ec9879bf42c6ea881eb05315fdc643ffc"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/dra_target.py",
+      "sha256": "88432a1f81c95dff780ac00bb82a002e47902759a209c0361c1c0dee7753ef93"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/launch.py",
+      "sha256": "3b85cc1092026f7742422eed3062d0ed9ac858bc6e7aed4432abb6de30d94779"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/sga_attack.py",
+      "sha256": "83289d7f418f0994b52f09cb76abd04fcadf320dae57eac6e9903d144db23823"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/sga_batch8_capacity.py",
+      "sha256": "dfa6c521fb92427025363fa9ac216173508df2868263c1a2ae401b74ed35fc04"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/sga_full_execution.py",
+      "sha256": "6abc8d937f68317006881834df2f3c606af193935a5d1537b57dd2d520dd5a92"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/sga_irra.py",
+      "sha256": "c560b6f9a7d8c92b6b4dc5df04a201e1753205e602d12a36bd272b826ed93c23"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/sga_irra_smoke_scores.py",
+      "sha256": "c805c5503e02e544578e24918fb7ab67691f4163ad064d83e7744e6073c77509"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/sga_official_io.py",
+      "sha256": "d922d7c017692a24e658c46aba31b6613759b9fa950b5a2704d32efd0a4c7f73"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/baselines/sga_whitebox.py",
+      "sha256": "96f217e31f0e47a4116db2a961a4cba8ee33545c0f3f88b74a6bcf7977bd93f8"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/check_attack_runtime.py",
+      "sha256": "3c9891694323c93c66c7918a6d177c54e06c3ebeb1605367aa7e6bfc0ba8e569"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/compat/__init__.py",
+      "sha256": "a0ce605ebfd16c166f2dcc237e62460d3f3aef2deaa845feeb4a2e9b21924dcb"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/compat/legacy_assets.py",
+      "sha256": "a88fa9cf12ec1e573e4763efd6f1bd70618f9759f39445de9830249706324ebe"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/config.py",
+      "sha256": "2546fbf969c533fc2a50b9f7a7a4c880053cb056599612c3dfaa6f5691eac70f"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/contracts.py",
+      "sha256": "2049faf65bf6bd99de3c9c50263451d0fbfd2d2fe2741891f9fb0b220de64fed"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/datasets/__init__.py",
+      "sha256": "5002fe92b67ac786ead8b87ceb2f0993bbc57d98d5051c54900b529fe66f17db"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/datasets/cuhk_pedes.py",
+      "sha256": "3d7cc570430ede48533728c103d49d6bd0e1fe8596f6c112fe3b5e5358b2b968"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/datasets/historical_membership.py",
+      "sha256": "9622f342b2259091d437b29f75004b7b5e458b85606b4c9ed97f34e7ec49b31a"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/engines/__init__.py",
+      "sha256": "7acfc64557fa446bc5346fb045a50a4ee15b66c65acbd9aaddb68c5e874e784f"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/engines/aptm_score_cache.py",
+      "sha256": "3126c2c7e51f5f86534aae349ee5d5914df8a5a615e035eff2abff7eb79392bf"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/engines/evaluation.py",
+      "sha256": "957eea289a0164c865fb84dd007901e60da82fb1de9bbbae6f946e93b1374124"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/engines/historical_contracts.py",
+      "sha256": "167f03a553ba8db4aa34fcbfdd574f35609df085ca83aee7a8365791e57dce89"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/engines/historical_loader.py",
+      "sha256": "64a5d95f0bba16c81c31a39b420caa1dd0af4bb8a65f616643728f2b2e527239"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/engines/historical_sources.py",
+      "sha256": "e9b3eadd6a1fba4be93ddc75d49168a8c38be50511b84d150f7ee43c377a4986"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/engines/legacy.py",
+      "sha256": "3f730b4f3bdb1858614a4337369aee1e33134f35cf3f3d179c08eeb9e72c7465"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/engines/materialized_aptm.py",
+      "sha256": "9d1acd5ead14869070c3843529c6ed126ef225eddc60c6c22cc718932ec51411"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/engines/materialized_cache.py",
+      "sha256": "0e3445eacfc0f969eb9d68cbfcb10db208833d9b1811a737abaaab41437e527a"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/engines/materialized_inputs.py",
+      "sha256": "001e06aec70fb97571a79b30c5d32d63a730fc697aa0d825f541325e2c491a14"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/engines/materialized_irra.py",
+      "sha256": "8c4c77b762729337925b0de59c8cac754b6520b3e9fcbb9dbeb1fc4346f3c5b2"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/engines/materialized_rasa.py",
+      "sha256": "0730ecee07a2fbff57067de4f55eefe697dac477e776d42d9879ca00a3ba1732"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/engines/metrics.py",
+      "sha256": "6a09838fa9c17cc95755acf5e2e608af86127bd517b951c050910f24c38459b5"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/engines/native_cache.py",
+      "sha256": "eacfdfdc19ac4f0c09f503314cd748d84ebb42d29d3a96a476bec0ef2a3b5b1b"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/engines/native_score_cache.py",
+      "sha256": "01b8ad3de0dad9655db1c15c7b480d4f3d25f0eb0b7af3d0065661ba51c4533c"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/engines/provenance.py",
+      "sha256": "d76877f3e13e8e324b4e0f9afdba701a1bd74f115bfca382cbd953cff515b413"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/engines/replay_acceptance.py",
+      "sha256": "c7abf7c77bc3eaecb6f89c1c65e8a4cd77b3d42d50e801184baea05a118a3d1a"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/engines/replay_control.py",
+      "sha256": "c5b6c3dc90bde5bf8bf8d2a145a191e19bc017a9e1eec84dfa4cbcffe9298306"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/engines/replay_cpu.py",
+      "sha256": "385e35d6cc6df9d4d5c57431fee8d01bde86e6c63881b9ada5b87d665e748eb9"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/engines/replay_oracle.py",
+      "sha256": "2024187d02dac1a0fd4b6b8573888a8e5e6a6353949a2737183e1b81328f9d4e"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/gv2_epoch_eval.py",
+      "sha256": "0fb9d5f0532a02ecd74c0453954540eb59875eeb9bd2ccab4ffe8d4855e31f45"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/materialization/__init__.py",
+      "sha256": "2028561dfd64b76d92d53f7b2508dc3d94d03ffafbb8e54301db23e44eb4da3b"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/materialization/audit_retained.py",
+      "sha256": "3beadbc5d31b482d848aa730d931f86fb8fc2fadbc1e19b255a632c7fc1b3cac"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/materialization/audit_sources.py",
+      "sha256": "f1a1bc2bf08c087956e1bb42b4ce910911cbfe2f26103aeda25238b4f9fbbe3c"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/materialization/bulk_session.py",
+      "sha256": "b74a37584a3748ac6c97d9f50dc4fa1537d6e320c25f3bcdcd340ecb147143d4"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/materialization/checkpoint_layout.py",
+      "sha256": "e6a3724c2330723525bde196038a700c8ac9db1ecf063690b3fc52a7778408fa"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/materialization/claim_recovery.py",
+      "sha256": "2c97f50c93abcc8152d10eb06fbc05f6d230687edfc6dfe3b6a1a5533639f334"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/materialization/contracts.py",
+      "sha256": "671cba96eac0a9cec263c361dde116ee29db566c21dd1e66275033b637e5d7af"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/materialization/full_audit.py",
+      "sha256": "97c49b23f139dc677a359538e82775460ee2d2c7bc289a418d9485daab9ba8b3"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/materialization/full_gpu.py",
+      "sha256": "6e4b3aaf264c468762315f498cd4c8651dc0871e5b970352fbc1257d983614bc"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/materialization/full_gpu_audit.py",
+      "sha256": "9006c6eec3e10ad8aa380e5e6fa9bc3581384e625e5ada2615b9d590052cc628"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/materialization/full_prepare.py",
+      "sha256": "d530625c41c7e2d5ab9cb0067a962fb98a26f0f105c4a78412b62cbb403a25ae"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/materialization/full_runner.py",
+      "sha256": "c2607cfe2d3ad172d7be7b42e6bee29448a4fbbe52697d135f3c3ce90d92d908"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/materialization/generation.py",
+      "sha256": "d550de127a713382540f3dc202d552750b237f473e3d1fb22b109733bdbfe0bd"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/materialization/gpu_safety.py",
+      "sha256": "b756d61a3b0d66340508c695d3211c842eefd7ef4bbbd36de7536b97a1e1dc86"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/materialization/irra_only.py",
+      "sha256": "5629af052e5db23e4532eac5cd37f0fd35911fd34af1963b4213cd32f7304eec"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/materialization/irra_startup.py",
+      "sha256": "eb5f0bb0993ae96055e9ec95b8b5c46e110e1bcaed1d4619f1bb9d222a78106a"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/materialization/legacy_text.py",
+      "sha256": "e33e952ced95e1e5a173afd50a5225199b230ccb52593ef84e4d7898e30e50ea"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/materialization/pipeline.py",
+      "sha256": "c347df5b8281c7b3d966c1dd918a579d271e907dd2460ab81c9409aa72bcaf9d"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/materialization/retained_inputs.py",
+      "sha256": "e6bf371da7a405f888bec5521bc37ccd5a657294b7784502e3d351e8e207deb1"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/materialization/smoke.py",
+      "sha256": "19d5564d143c07bedc1c3d7741dec77dca7af641d4e0b91b4917a75a7bf40de7"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/materialization/smoke_support.py",
+      "sha256": "7f2089f6bd51be6fbedb795115399d3b37504e07948a497c01e5c4f4dff85cd8"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/materialization/store.py",
+      "sha256": "378d3477822922a99576a8b9542e23574ccf482313bdb4173c099952327e8a9d"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/materialization/throughput.py",
+      "sha256": "dbb12c468ad474a529061c442ba9a4a4c0f622a1a2e5b3472120c0613a57f729"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/models/__init__.py",
+      "sha256": "cb584e9a6b181426679b38a7488bb570ff8f3bfc7abc27eadd6d44e2f3b36221"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/models/aptm.py",
+      "sha256": "daa85058a2d4d66795a4e1ab8be03c608c857fc4a48ead160c012c299c600341"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/models/base.py",
+      "sha256": "e74baa789b6d1a4e671870e3155ff7792eb3e381bfbf967283d1dcad211cd8f5"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/models/dra_irra_source.py",
+      "sha256": "07ad4e34d8f6878b9ff3477e0df033e5b96c513bdfd34466b58f156b0bfaab7d"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/models/irra.py",
+      "sha256": "424e1dcd20b34061e3199d969f05eb34ca8aa3a6655e00a0e77770ee17fef0b2"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/models/irra_cached.py",
+      "sha256": "3e30643619250c8ba7d6e09c12a0c23f49fb336a84cd5027c4e358ab90c0e122"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/models/irra_cpu_checks.py",
+      "sha256": "b953dde85322baf0b87330c198e0303049d23b4d0c39d7c6c768d346bc83eecf"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/models/irra_io.py",
+      "sha256": "3bd668f28fe788659296af7d1d4c31e4131c23eb96b266887e356f9b32376205"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/models/irra_source.py",
+      "sha256": "fcf22ad01836804bc40fdce6c1817de2ff1941fd302b549a765e15f5287dd0b6"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/models/rasa.py",
+      "sha256": "946e89fe97ec0d189545ff9d98fc348c049ce4002564d8504bc3675d4799ee0b"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/models/sga_irra_source.py",
+      "sha256": "73b0f92f5feb3b019b010bd70313f0d9dab1f019bfcdd7ab17f672f834926fda"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/models/sga_surrogate.py",
+      "sha256": "31daea9dee81d3cce9ca3eb0490b3b9a3c992a7d03a0145e44cef89a85a8dfb5"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/operations/gh_probe_watch.py",
+      "sha256": "d24da60b6b68264ed9ef2099bc83582cebc9adb85ac721dbee49cce6764b83d3"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/preflight.py",
+      "sha256": "e2e2772ad5446d1a61bdc4fbf41338a50b1a9b292aaee0b91c0bde33d2e176a3"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/rasa_eval.py",
+      "sha256": "c345fb3b9ec0c14cd0cb13c36c9ad0b083e5165ede51d214dd6c81d700f8298c"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/runtime_closure.py",
+      "sha256": "6ca4824108d71985963aa59d3b16181ee72d7963f079e3a36816bf57b77450e5"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/sga_eval.py",
+      "sha256": "7e6741d5afa8708c361477689fea118bc4f1202ee5ab8fcb2dc259d143c30db1"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/smoke_attacks.py",
+      "sha256": "5e66a22a2d29ea9651db9f73ba4c8f11b879508039536388aa848c9f09e97499"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/smoke_attacks_gated.py",
+      "sha256": "a600141540b5f86b704decc7287bd395918dc6113442ea780e6ca08784ee672e"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/src/tbps/smoke_irra.py",
+      "sha256": "e3b28a08e22259a1603fdc354cee54c231fba3f95328a1cfe4430bb4f259044f"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/operations/run_cpgc_modal_three_datasets.py",
+      "sha256": "76950104620ab581d476d81140edc98b47f8258dae7ba9a7da0731b52745ab56"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/operations/cpgc_modal_three_dataset_report.py",
+      "sha256": "e8fe0858a03b42d42fc9a1f78a190ac5fd41b264abdce327045196e81c7b7dc3"
+    }
+  ]
+}

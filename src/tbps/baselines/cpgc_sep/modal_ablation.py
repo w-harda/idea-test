@@ -1,4 +1,4 @@
-"""C-PGC CUHK两项单模态补充；只读复用冻结Full特征，显式Matched输入桥。"""
+"""C-PGC多数据集两项单模态补充；只读复用冻结Full特征，显式Matched输入桥。"""
 from pathlib import Path
 from dataclasses import asdict,replace
 from types import SimpleNamespace
@@ -18,9 +18,19 @@ NEW_MODES=("Image-only","Text-only")
 FAMILIES={"Matched Clean":("matched_text","clean_gallery"),"Image-only":("matched_text","adv_gallery"),
           "Text-only":("adv_text","clean_gallery"),"Joint":("adv_text","adv_gallery")}
 
+SIZES={"rstp":(1000,2000),"icfg":(19848,19848)}
+def dimensions(c):
+ require(c.get("dataset") in SIZES,"only authorized RSTP/ICFG extension")
+ require(tuple(c.get("expected_size",()))==SIZES[c["dataset"]],"fixed official Full dimensions")
+ return SIZES[c["dataset"]]
+def result_root(c,victim,*,audit=False):
+ require(victim in c["targets"],"configured Victim only")
+ root=Path(c["output_base"])
+ return root/"audit"/c["dataset"]/victim if audit else root/c["dataset"]/victim
+
 def settings(path):
  p=Path(path).resolve();c=json.loads(p.read_text())
- require(c["schema"]=="tbps-cpgc-cuhk-modal-ablation-1","ablation config schema")
+ require(c["schema"]=="tbps-cpgc-modal-ablation-2","ablation config schema");dimensions(c)
  require(c["modes"]=={k:list(v) for k,v in FAMILIES.items()},"explicit matched family map")
  checked(FileRef(**c["parent_config"]))
  for name,h in c["producers"].items():checked(FileRef(name,h))
@@ -57,7 +67,7 @@ def history(c,old,victim):
  import torch
  require(not torch.cuda.is_initialized(),"CPU history check before CUDA")
  root=Path(c["targets"][victim]["path"])
- require(root==Path(old["output_base"])/"full/cpgc/cuhk"/victim,"exact historical Target path")
+ require(root==Path(old["output_base"])/"full/cpgc"/c["dataset"]/victim,"exact historical Target path")
  store=VerifiedArtifactStore(root,new_base=old["output_base"])
  checked(FileRef(**c["targets"][victim]["manifest"]))
  n=check_store(store)
@@ -65,12 +75,12 @@ def history(c,old,victim):
  report=json.loads((root/"completed/summary.json").read_text())
  require(proto["config_sha256"]==old["sha256"],"original config identity")
  require(report["status"]=="PASS" and report["victim"]==victim and report["method"]=="cpgc"
-  and report["scope"]=="full" and (report["Gallery"],report["Query"])==(3074,6156),"real completed Full only")
+  and report["scope"]=="full" and (report["Gallery"],report["Query"])==dimensions(c) and report["dataset"]==c["dataset"],"real completed Full only")
  require(report["model_before"]==report["model_after"] and report["counts"]["backward"]==report["counts"]["optimizer"]==0,"frozen historical model")
  require(proto["engineering_execution"]==old["evaluation"],"original evaluation configuration")
- manifest=read_test(old["datasets"]["cuhk"])
+ manifest=read_test(old["datasets"][c["dataset"]])
  require(digest(asdict(manifest))==digest(proto["manifest"]),"full ordered Dataset Manifest")
- source,rows=source_texts(old,"cpgc","cuhk","full",victim)
+ source,rows=source_texts(old,"cpgc",c["dataset"],"full",victim)
  check_store(source)
  matched=DatasetManifest(manifest.dataset_id,"test",manifest.annotation,manifest.gallery,
   tuple(replace(q,caption=rows[q.query_id]["matched_clean"]) for q in manifest.queries))
@@ -153,8 +163,8 @@ def preflight(path,output):
  require(all(importlib.metadata.version(k)==v for k,v in old["runtime_versions"]["victim"].items()),"native victim runtime")
  roots=[v["path"] for key in ("targets","audits") for v in c[key].values()]
  protection=snapshot_files(roots);evidence={}
- for victim in ("irra","rasa"):
-  VictimSource(old,victim,"cuhk").verify()
+ for victim in c["targets"]:
+  VictimSource(old,victim,c["dataset"]).verify()
   s,p,m,mm,source,rows,controls,n=history(c,old,victim)
   protection.update(snapshot_files([source.root]))
   evidence[victim]={"units":n,"groups":controls,"Target":asdict(ref(s.root/"completed/manifest.json")),
@@ -174,15 +184,15 @@ def run(path,victim,preflight_path):
  store,proto,manifest,matched,source,rows,controls,n=history(c,old,victim)
  from tbps.baselines.cpgc_sep.runtime import resources
  resource_before=resources(old)
- outpath=Path(c["output_base"])/victim
+ outpath=result_root(c,victim)
  with attempt(c,outpath,"full") as out:
-  with load_victim(old,victim,"cuhk","cuda:0",smoke=False) as (adapter,model,model_source):
+  with load_victim(old,victim,c["dataset"],"cuda:0",smoke=False) as (adapter,model,model_source):
    require(asdict(adapter.space)==proto["model_space"],"same native model space")
    before=snapshot(model)
    adapter.token_block_cache=BlockCache(c["token_cache_bytes"])
    banks=banks_for(old,store,adapter,manifest,matched,rows)
    out.publish("protocol",{"protocol.json":json_bytes({"parent":asdict(ref(store.root/"protocol/manifest.json")),
-     "MatchedManifest":asdict(matched),"modes":FAMILIES,"Gallery":3074,"Query":6156,
+     "MatchedManifest":asdict(matched),"modes":FAMILIES,"Gallery":dimensions(c)[0],"Query":dimensions(c)[1],"dataset":c["dataset"],
      "config_sha256":c["sha256"],"victim":victim,"evaluation":old["evaluation"],
      "no_generation":True,"no_encoding":True})},{"kind":"explicit_matched_caption_bridge"},sources=(ref(c["path"]),ref(store.root/"completed/manifest.json")))
    inputs=matched_inputs(old,banks,manifest,matched,source,ref(outpath/"protocol/manifest.json"))
@@ -207,7 +217,7 @@ def run(path,victim,preflight_path):
    counts=dict(getattr(adapter,"neural_counts",{"image_samples":0,"text_samples":0}))
    require(counts.get("image_samples",0)==counts.get("text_samples",0)==0,"encoding forbidden")
    unchanged(pre["protection"])
-   summary={"status":"PASS","scope":"full","victim":victim,"Gallery":3074,"Query":6156,"groups":groups,
+   summary={"status":"PASS","scope":"full","victim":victim,"Gallery":dimensions(c)[0],"Query":dimensions(c)[1],"dataset":c["dataset"],"groups":groups,
     "unit":"percent","modes":FAMILIES,"parent_target":c["targets"][victim]["manifest"],"config_sha256":c["sha256"],
     "model_before":before,"model_after":after,"neural_counts":counts,"generation":0,"backward":0,"optimizer":0,
     "native_TopK":128 if victim=="rasa" else None,"native_pairs":scorer.native_pairs,"historical_score_parity":parity,
@@ -217,7 +227,7 @@ def run(path,victim,preflight_path):
    refs=tuple(ref(p) for p in sorted(outpath.glob("*/manifest.json")))
    out.publish("completed",{"summary.json":json_bytes(summary),"engine_protocol.json":json_bytes(ep),"engine_result.json":json_bytes(result),
       "metrics.csv":csv_bytes(victim,groups,False),"metrics_2dp.csv":csv_bytes(victim,groups,True)},{"kind":"CPGC_matched_single_modality_full"},sources=refs)
- print("CPGC_MODAL_FULL_PASS",victim,flush=True)
+ print("CPGC_MODAL_FULL_PASS",c["dataset"],victim,flush=True)
 
 def audit(path,victim,preflight_path):
  import torch
@@ -226,10 +236,10 @@ def audit(path,victim,preflight_path):
  pre=json.loads(Path(preflight_path).read_text());require(pre["config"]==asdict(ref(path)),"audit preflight config")
  unchanged(pre["protection"])
  original,proto,m,mm,source,rows,controls,n=history(c,old,victim)
- store=VerifiedArtifactStore(Path(c["output_base"])/victim,new_base=c["output_base"])
+ store=VerifiedArtifactStore(result_root(c,victim),new_base=c["output_base"])
  count=check_store(store);r=json.loads((store.root/"completed/summary.json").read_text())
  require(r["status"]=="PASS" and r["config_sha256"]==c["sha256"] and r["modes"]=={k:list(v) for k,v in FAMILIES.items()},"matched mode/source identity")
- require((r["Gallery"],r["Query"])==(3074,6156) and r["model_before"]==r["model_after"],"full frozen model")
+ require((r["Gallery"],r["Query"])==dimensions(c) and r["dataset"]==c["dataset"] and r["model_before"]==r["model_after"],"full frozen model")
  require(r["generation"]==r["backward"]==r["optimizer"]==0 and r["neural_counts"]["image_samples"]==r["neural_counts"]["text_samples"]==0,"no generation/encoding/training")
  ep=json.loads((store.root/"completed/engine_protocol.json").read_text());er=json.loads((store.root/"completed/engine_result.json").read_text())
  require(digest(ep["dataset_manifest"])==digest(asdict(mm)) and ep["modes"]==list(NEW_MODES) and er["protocol_sha256"]==digest(ep),"engine matched protocol")
@@ -240,9 +250,9 @@ def audit(path,victim,preflight_path):
  groups=dict(controls)
  for mode in NEW_MODES:
   qf,gf=FAMILIES[mode];score=load_tensor(store,"scores-"+mode.lower().replace("-",""),"scores.pt")
-  require(tuple(score.shape)==(6156,3074) and score.dtype==torch.float32,"full FP32 matrix")
+  require(tuple(score.shape)==(dimensions(c)[1],dimensions(c)[0]) and score.dtype==torch.float32,"full FP32 matrix")
   chunks=[]
-  for start in range(0,6156,32):
+  for start in range(0,dimensions(c)[1],old["evaluation"]["query_chunk"]):
    part=load_tensor(store,f"scorechunk-{qf}--{gf}-{start:06d}","scores.pt");chunks.append(part)
    if victim=="rasa":
     selected=load_tensor(store,f"candidates-{qf}--{gf}-{start:06d}","indices.pt")
@@ -258,13 +268,13 @@ def audit(path,victim,preflight_path):
   require((store.root/"completed"/name).read_bytes()==csv_bytes(victim,groups,rounded),"CSV exact")
  require(not torch.cuda.is_initialized(),"audit CUDA")
  unchanged(pre["protection"])
- outpath=Path(c["output_base"])/"audit"/victim
+ outpath=result_root(c,victim,audit=True)
  with attempt(c,outpath,"full") as out:
   out.publish("completed",{"audit.json":json_bytes({"status":"PASS","CUDA":False,"neural_forward":0,
-    "victim":victim,"Gallery":3074,"Query":6156,"groups":groups,"units_verified":count,"history_unchanged":True,
+    "victim":victim,"Gallery":dimensions(c)[0],"Query":dimensions(c)[1],"dataset":c["dataset"],"groups":groups,"units_verified":count,"history_unchanged":True,
     "result":asdict(ref(store.root/"completed/manifest.json")),"config":asdict(ref(path))})},
     {"kind":"independent_CPGC_matched_modality_CPU_audit"},sources=(ref(store.root/"completed/manifest.json"),ref(path)))
- print("CPGC_MODAL_INDEPENDENT_CPU_AUDIT_PASS",victim,flush=True)
+ print("CPGC_MODAL_INDEPENDENT_CPU_AUDIT_PASS",c["dataset"],victim,flush=True)
 
 def main():
  import argparse

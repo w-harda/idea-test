@@ -1,0 +1,76 @@
+{
+  "status": "CPU_TESTS_PASS_NEW_FULL_NOT_YET_STARTED",
+  "reference_numeric_commit": "7973128ec1fc73ab8e2428dfbdea600a565421a9",
+  "CUHK_report_commit": "b6b913943f874d7d8ce54f2f32d7a3c64d9c63a5",
+  "plan": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/configs/framework/cpgc_modal_three_datasets.server.json",
+    "sha256": "ac32e1884c2839f3c9bef2e05cebf351f0e4bbd033711fb4a58af3e2df2852fd"
+  },
+  "cases": [
+    {
+      "dataset": "rstp",
+      "victim": "irra",
+      "config": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/configs/framework/cpgc_modal_rstp_irra.server.json",
+        "sha256": "43db1d15275160af4124c576b3af012c644f6c652d1a723c7c85c1899aaecf08"
+      }
+    },
+    {
+      "dataset": "rstp",
+      "victim": "rasa",
+      "config": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/configs/framework/cpgc_modal_rstp_rasa.server.json",
+        "sha256": "7464cbbcedf52500e0574d6de4cf710fb58d71661cec01183a19cbb4a96c4ba6"
+      }
+    },
+    {
+      "dataset": "icfg",
+      "victim": "irra",
+      "config": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/configs/framework/cpgc_modal_icfg_irra.server.json",
+        "sha256": "0d3cd099cffdbc0547f07f901be9c9457aae71dd8dfb0c8ebe03f90eb4eb7295"
+      }
+    },
+    {
+      "dataset": "icfg",
+      "victim": "rasa",
+      "config": {
+        "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/configs/framework/cpgc_modal_icfg_rasa.server.json",
+        "sha256": "baab671a9d2e22ab41fab61af908f7d4fead64e1ae5fa3bb69c93f972ba19881"
+      }
+    }
+  ],
+  "CUHK": {
+    "output_base": "/home/lzf/ldx/outputs/tbps-framework-cpgc-cuhk-modal-ablation-v1",
+    "config": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-cuhk-modal-ablation-20261101/configs/framework/cpgc_cuhk_modal_ablation.server.json",
+      "sha256": "8d6d63e90fa79828de8e5fd45f6bcf76872bc4ae32f48b386aec0973f31fe8e7"
+    },
+    "report_commit": "b6b913943f874d7d8ce54f2f32d7a3c64d9c63a5",
+    "irra": {
+      "target": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-cuhk-modal-ablation-v1/irra/completed/manifest.json",
+        "sha256": "e72e4f0f0d42e1d49a26bbe6551c207e8d0771226431c6f9ef89a7d41c61cca2"
+      },
+      "audit": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-cuhk-modal-ablation-v1/audit/irra/completed/manifest.json",
+        "sha256": "dafcda42df87378642075e3f1443f635a940fb09b7ade8e0d94df5b230753900"
+      }
+    },
+    "rasa": {
+      "target": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-cuhk-modal-ablation-v1/rasa/completed/manifest.json",
+        "sha256": "076f5676116b9b1367e091b09f73eea3940baf259425115661ad5b69924bd73a"
+      },
+      "audit": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-cuhk-modal-ablation-v1/audit/rasa/completed/manifest.json",
+        "sha256": "f4c9f0e366aebd75048bbc46a73de45d2a725748d74efca881f549dc4e4a7545"
+      }
+    }
+  },
+  "CPU_distinct_tests": 72,
+  "protected_SEP_PIDs": [
+    2960820,
+    3041291
+  ]
+}

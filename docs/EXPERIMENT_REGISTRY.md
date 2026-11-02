@@ -708,3 +708,8 @@ H20新增候选最低40.427635%，历史H9为40.425480%；H60为42.874081%，不
 ## C-PGC CUHK单模态补充（2026-11-01）
 
 新输出`/home/lzf/ldx/outputs/tbps-framework-cpgc-cuhk-modal-ablation-v1`；原v2 Full只读。仅IRRA/RaSa各两项新增评分，Image-only严格使用matched_text。独立CPU审计、唯一启动、失败不重试。执行入口operations/run_cpgc_modal_ablation.py；状态以新控制目录回执为准。
+
+
+## C-PGC三数据集单模态补全（2026-11-02）
+
+CUHK消融只读复用；新增RSTP/IRRA、RSTP/RaSa、ICFG/IRRA、ICFG/RaSa两模式Full，各自CPU审计后推进。旧来源前三组v2、最后v3；新输出tbps-framework-cpgc-modal-three-datasets-v1。所有新值只来自真实完整评分，状态以控制目录回执为准。[报告](framework/results/cpgc_modal_three_datasets/REPORT.md)。

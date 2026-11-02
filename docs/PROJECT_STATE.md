@@ -1,5 +1,9 @@
 # 项目当前状态（唯一权威入口）
 
+## C-PGC RSTP/ICFG单模态Full扩展准备（2026-11-02）
+
+独立codex/cpgc-modal-three-datasets；CUHK两组Full及审计已PASS，只读复用。按原CUHK实现最小泛化，72项CPU测试PASS；RSTP/ICFG四组新Full与审计以实际后台回执为准，不预先宣称完成。[执行报告](framework/results/cpgc_modal_three_datasets/REPORT.md)。共享GPU，保留SEP，数值算法不变。
+
 ## C-PGC CUHK两Victim单模态补充准备（2026-11-01）
 
 独立codex/cpgc-cuhk-modal-ablation；只读复用原Full特征，显式matched_text桥接。43项CPU测试PASS。新两模式评分/审计以实际回执为准；默认等待SEP释放全局锁，绝不干预原后台任务。[报告](framework/results/cpgc_cuhk_modal_ablation/REPORT.md)。

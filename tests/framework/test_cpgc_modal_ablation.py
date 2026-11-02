@@ -93,7 +93,7 @@ def test_no_attack_generation_or_feature_encoding_in_runner():
 def test_audit_is_independent_and_checks_full_scores():
  s=inspect.getsource(a.audit)
  assert "load_victim(" not in s and "ranking(score" in s
- assert "score chunks exact" in s and "(6156,3074)" in s and "history_unchanged" in s
+ assert "score chunks exact" in s and "(dimensions(c)[1],dimensions(c)[0])" in s and "history_unchanged" in s
 
 def test_existing_attempt_refuses_restart(tmp_path):
  from tbps.baselines.cpgc_sep.runtime import attempt

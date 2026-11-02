@@ -463,3 +463,8 @@ A1不消费新文本条件，B消费，二者均刷新G→H反馈。Loss/Reward/
 ## 2026-10-28：C-PGC与SEP三数据集原生评测接线
 
 新增独立tbps.baselines.cpgc_sep，支持CUHK/ICFG/RSTP专用IRRA与RaSa权重、作者预训练UAP及原SEP DPP候选机制。旧框架与历史实验只读。96项CPU回归及两个真实环境预检PASS，GPU/Full仍以实际不可变回执为准。详见[实验记录](framework/results/cpgc_sep_tbps/REPORT.md)。
+
+
+### C-PGC多数据集单模态补充
+
+modal_ablation复用原NativeScorer/EvaluationEngine，仅按独立配置泛化Dataset、尺寸和输出身份；Matched Manifest保持原输入桥。operations/run_cpgc_modal_three_datasets.py串行调度四组Full与独立CPU审计，report工具只读合并已审计CUHK得到24行；不改变攻击或Victim数学。
