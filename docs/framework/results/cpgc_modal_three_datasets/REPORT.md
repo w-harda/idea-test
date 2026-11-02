@@ -2,6 +2,15 @@
 
 本报告是启动准备记录，不是四组新增Full完成报告。最终24行CSV和报告仅在四组评分及独立CPU审计全部PASS后发布到codex/cpgc-modal-three-datasets-results。
 
+## 后台启动核验（快照）
+
+执行源码Commit `969a6d0fe0292042b86cb27653a0060b8168b154`，计划SHA `ac32e1884c2839f3c9bef2e05cebf351f0e4bbd033711fb4a58af3e2df2852fd`。
+监督器PID/PGID/SID均46866，PPID=1、无TTY，stdin=/dev/null，flock真实持有，已脱离SSH。
+最新快照阶段：`RUNNING_FULL`，当前组合：`rstp/rasa`，新增完成`1/4`。
+CPU Inventory已PASS；每组仍须完整Preflight、真实评分及独立CPU审计。启动不等于最终完成。
+SEP原2960820/3041291保持存活，未发送信号或修改执行链。
+[完整启动证据](LAUNCH_EVIDENCE.json)。
+
 ## 已核实状态
 
 - CUHK两Victim四模式Full及独立CPU审计均PASS；真实历史结果只读复用，不再运行。原结果报告Commit b6b913943f874d7d8ce54f2f32d7a3c64d9c63a5。

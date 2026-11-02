@@ -1,0 +1,28 @@
+{
+  "time": "2026-11-02T09:57:18.017166+08:00",
+  "execution_commit": "969a6d0fe0292042b86cb27653a0060b8168b154",
+  "plan_sha256": "ac32e1884c2839f3c9bef2e05cebf351f0e4bbd033711fb4a58af3e2df2852fd",
+  "status": {
+    "time": "2026-11-02T09:54:28+0800",
+    "phase": "RUNNING_FULL",
+    "log": "/home/lzf/ldx/tmp/cpgc_modal_three_datasets_v1_20261102/rstp_rasa_evaluate.log",
+    "dataset": "rstp",
+    "victim": "rasa",
+    "completed": 1,
+    "total": 4
+  },
+  "supervisor_PID": 46866,
+  "process_evidence": "    PID    PPID    PGID     SID TT           ELAPSED COMMAND\n  46866       1   46866   46866 ?              11:00 /home/lzf/ldx/envs/tbps-image/bin/python -u -B /home/lzf/ldx/projects/idea-test-tbps-cpgc-modal-three-datasets-20261102/operations/run_cpgc_modal_three_datasets.py --allow-shared-gpu-full\n2960820       1 2960820 2960820 ?         1-09:28:04 /home/lzf/ldx/envs/tbps-image/bin/python -u -B /home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-no-gpu-floor-20261101/operations/cpgc_sep_throughput_run.py --allow-no-gpu-floor\n3041291 2960820 2960820 2960820 ?         1-08:59:37 /home/lzf/ldx/envs/tbps-image/bin/python -u -B -m tbps.baselines.cpgc_sep.cli --config /home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-no-gpu-floor-20261101/configs/framework/cpgc_sep_tbps.no_gpu_floor.server.json --action sep-source --method sep --scope full --dataset cuhk --victim irra --allow-full\n",
+  "control_directory": "/home/lzf/ldx/tmp/cpgc_modal_three_datasets_v1_20261102",
+  "native_output": "/home/lzf/ldx/outputs/tbps-framework-cpgc-modal-three-datasets-v1",
+  "GPU_compute_processes": [
+    "3041291, 3008",
+    "65087, 2564"
+  ],
+  "CPU_unique_tests": 72,
+  "SEP_untouched": true,
+  "inventory_receipt": {
+    "path": "/home/lzf/ldx/tmp/cpgc_modal_three_datasets_v1_20261102/inventory.json",
+    "sha256": "28ffb06dbd3e318fbccbaf166284bf5ac1e3918f8704cc98b072b2174e600d13"
+  }
+}
