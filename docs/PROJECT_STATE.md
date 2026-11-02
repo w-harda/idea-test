@@ -1,5 +1,9 @@
 # 项目当前状态（唯一权威入口）
 
+## CURRENT：CUHK冻结G60 + H7跨数据集Text-only/Joint独立补齐（2026-11-02）
+
+独立`codex/gh-cross-dataset`，基准9db53fc5；只新增迁移接线/tests/配置/后台Supervisor，不改G/H算法或旧v2运行依赖。H E7/visit14336对RSTP/ICFG原Caption新生成冻结文本，两新增模式共享其文本/特征；原Clean/Image-only与图库只读引用对应已审计v2。无目标标签/配对/反馈调整策略，无训练/微调/G生成或图像重编码。两目标真实Smoke与四独立CPU审计PASS才自动Full；后台状态、PID和最终审计/发布以新控制目录回执为准，本快照不提前宣称Full成功。[协议/状态入口](framework/results/gh_cross_dataset/REPORT.md)。
+
 ## G-v2跨数据集v2精准修复与CPU验证（2026-11-02）
 
 独立codex/gv2-cross-dataset-v2，基准1ed89e4。CPU护栏仅放行所需纯CPU Resize/ToTensor，神经前向/CUDA/Backward/真实Optimizer/JVP仍拒绝。原112+新增29共141项CPU回归PASS；v1真实Artifact隔离副本完整audit与错误像素拒绝通过，原264失败文件SHA/stat不变。原FAIL保留；新真实Smoke/Full状态以v2独立Supervisor回执为准。[报告](framework/results/gv2_cross_dataset_v2/REPORT.md)。

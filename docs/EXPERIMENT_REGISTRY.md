@@ -1,5 +1,9 @@
 # 历史实验注册表
 
+## CUHK冻结G60 + H7 → RSTP/ICFG × IRRA（2026-11-02，独立补齐Attempt）
+
+新增Text-only/Joint各两组Full；H为E7/visit14336、G为E60，权重固定不训练。原989202及旧v2资产只读，旧失败现场保留。新输出tbps-framework-gh-cross-dataset-20261102；Smoke/Full完成态以独立控制/CPU审计为准，最终后台汇总8组并发布。详见framework/results/gh_cross_dataset/REPORT.md。
+
 ## G-v2跨数据集v2修复Attempt（2026-11-02，准备）
 
 基准1ed89e4，原CUHK G-v2 E60与两域IRRA不变，只有审计边界修复和新版本命名空间。141 CPU回归PASS；新两Smoke/Full未提前宣称完成。v1 FAIL永久保留；原264文件SHA/stat一致。详见framework/results/gv2_cross_dataset_v2/REPORT.md。

@@ -1,5 +1,9 @@
 # 架构边界与迁移约定
 
+## 冻结H跨数据集与已审计G图库复用
+
+transfer/gh_core、gh_execute、gh_results只做迁移接线/来源隔离/独立审计/汇总，调用原H TextAttacker、CaptionFrontend和CharacterPolicy；不重新实现文本算法。H接口只收Caption。旧v2 scope的独立CPU审计是所有图库读取的前置条件；新增H生成可先执行。Text-only编码并原子发布共享adv_text特征，Joint禁止再推H/再编码并严格绑定同一Manifest/ModelSpace。新Supervisor四Smoke审计门禁后自动Full，失败单次停止；最终8行全部审计后才发布。详见framework/results/gh_cross_dataset/REPORT.md。
+
 ## G-v2跨数据集推理接线
 
 transfer/gv2_core与gv2_execute仅桥接冻结CUHK E60的G(I)/generate_once/投影、C-PGC/SEP官方多数据集Manifest与IRRA、既有EvaluationEngine/ArtifactStore。生成阶段无目标模型/PID/Caption输入；评分和独立CPU重新排名审计分别运行。operations/run_gv2_cross_dataset.py提供单次有锁后台执行与双Smoke审计门禁。无新训练算法或G数值改动。
