@@ -1,9 +1,8 @@
 # 项目当前状态（唯一权威入口）
 
-## G-v2 CUHK → RSTP/ICFG跨数据集迁移准备（2026-11-02）
+## G-v2跨数据集迁移：RSTP Smoke CPU审计失败并停止（2026-11-02）
 
-独立codex/gv2-cross-dataset，固定CUHK G-v2 E60；两目标各自官方IRRA，只有Clean/Image-only。112个CPU用例PASS，原算法文件保持；共享GPU无VRAM floor，真实两Smoke/审计后自动串行Full，阶段状态以独立Supervisor回执为准。尚未宣称本轮GPU或Full成功。[报告](framework/results/gv2_cross_dataset/REPORT.md)。
-
+执行3277fa12935501ed22adad61ce3a3a44ef058318；CPU预检PASS，RSTP真实G10张和IRRA10 Query评分完成，但独立CPU审计误拦截纯CPU torchvision Resize而FAIL。原FAIL/源码/产物保留；ICFG Smoke和两个Full均未启动，无自动修复/重试。112 CPU用例未覆盖该组合边界，不宣称Smoke整体PASS或正式指标。历史123738文件stat及权重SHA只读复核保持。[失败报告](framework/results/gv2_cross_dataset/REPORT.md)。
 
 ## C-PGC四组单模态Full后台已启动（2026-11-02）
 

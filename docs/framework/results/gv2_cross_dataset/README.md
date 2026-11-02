@@ -1,5 +1,7 @@
 # G-v2 E60跨数据集迁移执行
 
+**本Attempt已在RSTP Smoke CPU审计阶段FAIL并停止。禁止重复启动以下原命令；状态查看命令仍可用。修复/重试须新的用户授权与独立版本，保留原FAIL。**
+
 固定配置：configs/framework/gv2_cross_dataset.server.json。服务器Python使用tbps-image，源码冻结、任务独立。G为原fp32/math/no_tf32，目标IRRA沿用C-PGC/SEP已核验的各域官方convert_weights原生参数与FP32检索特征/打分。所有Caption保持原样，完整PID正例。无G/H训练、微调、Backward、Optimizer或JVP。
 
 ## 授权执行
