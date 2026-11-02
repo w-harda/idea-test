@@ -1,5 +1,10 @@
 # 架构边界与迁移约定
 
+## G-v2跨数据集推理接线
+
+transfer/gv2_core与gv2_execute仅桥接冻结CUHK E60的G(I)/generate_once/投影、C-PGC/SEP官方多数据集Manifest与IRRA、既有EvaluationEngine/ArtifactStore。生成阶段无目标模型/PID/Caption输入；评分和独立CPU重新排名审计分别运行。operations/run_gv2_cross_dataset.py提供单次有锁后台执行与双Smoke审计门禁。无新训练算法或G数值改动。
+
+
 ## 独立B正式调度与共同IRRA比较
 
 formal_*在冻结NativeBackend外增加B单臂Round调度、独立范围授权与完整Round事务，不修改原G/H训练数学、JVP或原Smoke审计。

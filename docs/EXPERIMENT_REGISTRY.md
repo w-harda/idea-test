@@ -1,5 +1,10 @@
 # 历史实验注册表
 
+## G-v2 E60跨数据集Image-only迁移（2026-11-02，准备）
+
+Source训练数据/模型为CUHK-PEDES/IRRA-CUHK；G固定Epoch60，SHA9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049。Target为IRRA-RSTP/IRRA-ICFG，同时改变域与Victim checkpoint。112 CPU用例PASS；两目标真实Smoke/审计与Full以本轮不可变回执为准。输出tbps-framework-gv2-cross-dataset-20261102；完整Query/Gallery、原Caption和PID正例，无Target训练/反馈。详见framework/results/gv2_cross_dataset/REPORT.md。
+
+
 ## CPU研究审计：R²TUA文献Baseline引用与评测环境核验完成（2026-10-26，CPU只读）
 
 独立codex/r2tua-aligned-evaluation，基准c2062e43；目标是引用已发表Baseline，不重现全部攻击算法。

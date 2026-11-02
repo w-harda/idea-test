@@ -1,5 +1,10 @@
 # 项目当前状态（唯一权威入口）
 
+## G-v2 CUHK → RSTP/ICFG跨数据集迁移准备（2026-11-02）
+
+独立codex/gv2-cross-dataset，固定CUHK G-v2 E60；两目标各自官方IRRA，只有Clean/Image-only。112个CPU用例PASS，原算法文件保持；共享GPU无VRAM floor，真实两Smoke/审计后自动串行Full，阶段状态以独立Supervisor回执为准。尚未宣称本轮GPU或Full成功。[报告](framework/results/gv2_cross_dataset/REPORT.md)。
+
+
 ## C-PGC四组单模态Full后台已启动（2026-11-02）
 
 执行Commit969a6d0，72项CPU测试、真实Inventory PASS；监督器46866独立存活、无TTY，当前阶段RUNNING_FULL，新增完成1/4。各组Full/审计以最终回执为准；CUHK两组仅只读复用。原SEP保持运行。[启动报告](framework/results/cpgc_modal_three_datasets/REPORT.md)。
