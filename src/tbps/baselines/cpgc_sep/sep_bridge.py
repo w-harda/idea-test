@@ -1,5 +1,7 @@
 """SEP的分类→检索I/O桥；DPP、概率margin与候选算法定义仍直接读取作者代码。"""
 from collections import OrderedDict
+from dataclasses import dataclass
+from tbps.contracts import PersonID
 from types import SimpleNamespace
 import math,re
 from .official import sep_ensemble_class,definitions
@@ -16,6 +18,29 @@ def pid_logits(scores,gallery_pids):
  require(scores.ndim==2 and scores.shape[1]==len(gallery_pids),"complete native Gallery scores")
  values=torch.stack([scores[:,[i for i,p in enumerate(gallery_pids) if p==pid]].max(dim=1).values for pid in order],dim=1)
  return values,order
+@dataclass(frozen=True)
+class PIDPlan:
+ """每个固定Gallery/Classifier独立构建；保留原PID/成员/归约顺序。"""
+ gallery_count:int
+ order:tuple
+ members:tuple
+ fast_domain:bool
+ @classmethod
+ def build(cls,gallery_pids):
+  order=tuple(dict.fromkeys(gallery_pids))
+  fast=all(type(pid) in (PersonID,str) for pid in gallery_pids)
+  if fast:
+   by_pid={pid:i for i,pid in enumerate(order)};groups=[[] for _ in order]
+   for i,pid in enumerate(gallery_pids):groups[by_pid[pid]].append(i)
+  else:
+   # 非正式类型沿用原相等比较，包括NaN PID导致空组的原异常。
+   groups=[[i for i,p in enumerate(gallery_pids) if p==pid] for pid in order]
+  return cls(len(gallery_pids),order,tuple(tuple(g) for g in groups),fast)
+ def aggregate(self,scores):
+  import torch
+  require(scores.ndim==2 and scores.shape[1]==self.gallery_count,"complete native Gallery scores")
+  values=torch.stack([scores[:,list(indices)].max(dim=1).values for indices in self.members],dim=1)
+  return values,self.order
 class Texts(list):
  """只运输原字符串；实际分词在原生Victim Adapter内部执行，不用另一Tokenizer替代。"""
  def to(self,device):return self

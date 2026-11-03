@@ -1,0 +1,158 @@
+{
+  "status": "PASS",
+  "reference_commit": "769648d0b8330e7a9bf93a096abac1397fb13940",
+  "seed": 20261103,
+  "torch": "2.5.1+cu124",
+  "python": "3.10.21",
+  "CPU": "Intel(R) Core(TM) i9-14900K",
+  "threads": 1,
+  "affinity_CPU": 0,
+  "CUDA_initialized": false,
+  "forbidden_calls": 0,
+  "model_checkpoints_loaded": 0,
+  "real_query_encodings": 0,
+  "history_Full_Tensor_reads": 0,
+  "cases": [
+    {
+      "case": "RSTP_shape",
+      "Gallery": 1000,
+      "PIDs": 200,
+      "batch": 1,
+      "dtype": "float32",
+      "trace_pattern": false,
+      "repeats": 7,
+      "milliseconds": {
+        "old_entry": [
+          29.474514,
+          29.535591,
+          29.799206,
+          29.694799,
+          29.507677,
+          29.386073,
+          29.33619
+        ],
+        "new_entry": [
+          1.792348,
+          1.780581,
+          1.833193,
+          1.793478,
+          1.786674,
+          1.77832,
+          1.780074
+        ]
+      },
+      "median_ms": {
+        "old_entry": 29.507677,
+        "new_entry": 1.786674
+      },
+      "new_classifier_creation_median_ms": 0.606397,
+      "measured_entry_speedup": 16.51542307102471,
+      "bitwise_exact": true,
+      "RNG_unchanged": true,
+      "input_scores_sha256": "50539ad2095cdc14dd42af99c31fd4938020195b4cf60e79c69f524af586fcb3"
+    },
+    {
+      "case": "CUHK_shape",
+      "Gallery": 3074,
+      "PIDs": 1000,
+      "batch": 1,
+      "dtype": "float32",
+      "trace_pattern": false,
+      "repeats": 7,
+      "milliseconds": {
+        "old_entry": [
+          422.186632,
+          423.054591,
+          422.520211,
+          423.167634,
+          423.130119,
+          422.76694,
+          427.400844
+        ],
+        "new_entry": [
+          8.633326,
+          8.582325,
+          8.639105,
+          8.580221,
+          8.66521,
+          8.58476,
+          8.718848
+        ]
+      },
+      "median_ms": {
+        "old_entry": 423.054591,
+        "new_entry": 8.633326
+      },
+      "new_classifier_creation_median_ms": 1.941993,
+      "measured_entry_speedup": 49.002503901740766,
+      "bitwise_exact": true,
+      "RNG_unchanged": true,
+      "input_scores_sha256": "e230dcf67d3532d00d9b70bb1a62940c4636a1409f844f27e68fef40c1d7a018"
+    },
+    {
+      "case": "ICFG_shape",
+      "Gallery": 19848,
+      "PIDs": 1000,
+      "batch": 1,
+      "dtype": "float32",
+      "trace_pattern": false,
+      "repeats": 5,
+      "milliseconds": {
+        "old_entry": [
+          2900.047275,
+          2840.905364,
+          2833.165652,
+          2832.133623,
+          2831.051961
+        ],
+        "new_entry": [
+          10.032542,
+          10.179882,
+          10.29628,
+          9.893093,
+          10.30674
+        ]
+      },
+      "median_ms": {
+        "old_entry": 2833.165652,
+        "new_entry": 10.179882
+      },
+      "new_classifier_creation_median_ms": 12.360777,
+      "measured_entry_speedup": 278.310264500119,
+      "bitwise_exact": true,
+      "RNG_unchanged": true,
+      "input_scores_sha256": "1f398189781ad123188fd84ce5c176fb4a46e755f7dcce8621239968e93c8ca5"
+    },
+    {
+      "case": "CUHK_trace_pattern",
+      "Gallery": 3074,
+      "PIDs": 1000,
+      "batch": 1,
+      "dtype": "float32",
+      "trace_pattern": true,
+      "repeats": 3,
+      "milliseconds": {
+        "old_entry": [
+          1360.647903,
+          1363.787397,
+          1403.599147
+        ],
+        "new_entry": [
+          9.107057,
+          8.762955,
+          9.137054
+        ]
+      },
+      "median_ms": {
+        "old_entry": 1363.787397,
+        "new_entry": 9.107057
+      },
+      "new_classifier_creation_median_ms": 1.836867,
+      "measured_entry_speedup": 149.75061614306358,
+      "bitwise_exact": true,
+      "RNG_unchanged": true,
+      "input_scores_sha256": "e230dcf67d3532d00d9b70bb1a62940c4636a1409f844f27e68fef40c1d7a018"
+    }
+  ],
+  "scope": "actual old/new production PIDClassifier.forward with fixed synthetic encoder/scorer; not real model or Full attack speed"
+}

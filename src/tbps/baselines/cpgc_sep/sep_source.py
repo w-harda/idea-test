@@ -12,7 +12,7 @@ from .runtime import attempt,unit,ref,tensor_bytes,resources
 from .victims import load_victim,native_pixels,encode_images,encode_texts,snapshot,frozen,global_features
 from .cache import FeatureBank,NativeScorer
 from .official import sep_functions
-from .sep_bridge import make_ensemble,prepare_caption,pid_logits,legal_semantic_flags
+from .sep_bridge import make_ensemble,prepare_caption,pid_logits,legal_semantic_flags,PIDPlan
 def capture_state():
  import torch,numpy as np
  n=np.random.get_state()
@@ -35,6 +35,7 @@ def classifier(adapter,backend,model,bank,manifest):
  class PIDClassifier(torch.nn.Module):
   def __init__(self):
    super().__init__();self.backend=backend;self.cache=OrderedDict();self.calls=0;self.hits=0
+   self.pid_plan=PIDPlan.build(tuple(x.pid for x in manifest.gallery))
   def forward(self,texts):
    values=[]
    for text in texts:
@@ -47,7 +48,7 @@ def classifier(adapter,backend,model,bank,manifest):
      q=RepresentationBatch(qb.globals,adapter.space.id,"text");g=RepresentationBatch(bank.globals,adapter.space.id,"image")
      q=scorer.slice_query(q,0,1)
      matrix=scorer.score(q,g).payload
-     value,order=pid_logits(matrix,tuple(x.pid for x in manifest.gallery));value=value[0].detach().cpu()
+     value,order=self.pid_plan.aggregate(matrix);value=value[0].detach().cpu()
      self.cache[text]=value
      if len(self.cache)>8192:self.cache.popitem(last=False)
     values.append(value.to(next(backend.parameters()).device))

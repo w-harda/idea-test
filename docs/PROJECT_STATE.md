@@ -1,6 +1,12 @@
 # 项目当前状态（唯一权威入口）
 
-## CURRENT：SEP工程性能与迁移协议CPU审查完成（2026-11-03）
+## CURRENT：SEP A类PID预计算生产接线及公平协议设计完成（2026-11-03，CPU Only）
+
+独立codex/sep-pid-integration，基准769648d。生产仅sep_bridge新增独立冻结PIDPlan、sep_source在每Classifier构建一次并用于cache miss；原归约/缓存/RNG/trace/算法/参数不变。原144+新32共176项CPU PASS，新旧原生产AST入口合成分数/候选/最终文本/RNG Exact；CUHK生产聚合入口423.055→8.633ms（49.00×，非完整攻击加速）。旧144中1项冻结断言按授权改为两文件白名单，另有精确diff门禁；未跳测试。
+
+公平协议仅设计：推荐审查Source train参考PID与Source clean伪标签新变体，不称原GT目标等价；目标函数、参考库、代理集合仍OPEN，未选定/实现新方案或可执行配置。真实Smoke计划未执行。旧Source 44条/第45条Claim、C-PGC/G-v2/G+H保持，CUDA/真实模型/真实Query/训练0。详见[完整A–D报告](framework/results/sep_pid_integration/REPORT.md)。
+
+## FROZEN：SEP工程性能与迁移协议CPU审查完成（2026-11-03）
 
 独立codex/sep-cpu-optimization-review，基准b4a62f3；生产src/configs/官方算法及历史执行树不改。tests内PIDPlan保留PID/成员/原max顺序；原47+新97共144 CPU PASS，80项bitwise检查全通过，3个官方合成候选流程最终文本/RNG一致。CUHK合成CPU聚合430.783→8.229ms（52.35×，不是整条攻击提速）；候选批量/Trace/设备搬运仍B类，预算/代理/零向量回退等C类不实施。当前Victim在IRRA/RaSa代理中且使用Test PID，不是独立Target迁移，与Idea IRRA-only Source不公平；未来协议/标签权限OPEN。本轮无CUDA、真实Query重播或SEP启动，仍0/6 Full、44文本+第45条Claim冻结。[完整报告](framework/results/sep_cpu_optimization_review/REPORT.md)。
 

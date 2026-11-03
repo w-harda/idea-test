@@ -149,8 +149,14 @@ def test_namespaced_pid_not_collapsed():
 def test_source_files_still_frozen():
  import hashlib
  old=Path('/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-no-gpu-floor-20261101')
+ import subprocess
  for name in ('sep_bridge.py','sep_source.py','cache.py','official.py','victims.py'):
-  relative='src/tbps/baselines/cpgc_sep/'+name;assert hashlib.sha256((old/relative).read_bytes()).digest()==hashlib.sha256((ROOT/relative).read_bytes()).digest()
+  relative='src/tbps/baselines/cpgc_sep/'+name
+  baseline=subprocess.check_output(['git','show','769648d0b8330e7a9bf93a096abac1397fb13940:'+relative],cwd=ROOT)
+  assert hashlib.sha256((old/relative).read_bytes()).digest()==hashlib.sha256(baseline).digest()
+  if name not in ('sep_bridge.py','sep_source.py'):
+   assert hashlib.sha256((ROOT/relative).read_bytes()).digest()==hashlib.sha256(baseline).digest()
+ # 两个授权文件的精确AST变更白名单由test_sep_pid_integration额外核验。
 
 
 def test_nan_payload_bits_are_preserved():

@@ -1,5 +1,9 @@
 # 历史实验注册表
 
+## SEP A类生产PID集成与公平协议设计（2026-11-03，CPU_ONLY_COMPLETE）
+
+基准769648d；仅两生产文件接入PIDPlan。原144+新增32 CPU PASS，原/新生产入口Exact；CUHK合成入口49.00×微基准。公平SourceRef伪标签方案只是建议，N/目标/参考库OPEN；未改GT适配协议、未启动GPU/Smoke/Full，旧44/第45条现场冻结。详见framework/results/sep_pid_integration/REPORT.md。
+
 ## SEP CPU性能与迁移协议审查（2026-11-03，CPU_ONLY_COMPLETE）
 
 原47+新97 CPU测试PASS；固定分数/Manifest下PID预计算Exact，CPU微基准与原始重复计时已保存。原型仅tests、基准仅operations，不改生产、不启动GPU/SEP，不重播44/第45条。当前含Victim的IRRA/RaSa检索适配不等于论文排除目标的四代理协议；公平IRRA Source→RaSa/APTM及跨域标签权限需后续审查，未执行。详见framework/results/sep_cpu_optimization_review/REPORT.md。

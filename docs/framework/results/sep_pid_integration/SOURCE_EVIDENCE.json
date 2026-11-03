@@ -1,0 +1,423 @@
+{
+  "schema": "sep-pid-integration-1",
+  "status": "PASS",
+  "base_commit": "769648d0b8330e7a9bf93a096abac1397fb13940",
+  "branch": "codex/sep-pid-integration",
+  "worktree": "/home/lzf/ldx/projects/idea-test-tbps-sep-pid-integration-20261103",
+  "raw_evidence_directory": "/home/lzf/ldx/tmp/sep_pid_integration_20261103",
+  "production_changes": {
+    "src/tbps/baselines/cpgc_sep/sep_bridge.py": {
+      "before_sha256": "93084434436303433e1bd4fa1c567494a0a6c1acaaf3d6c9b25f3fb50d5aa68f",
+      "after_sha256": "9346207dba66e6fc573c1d4041f24a8aec744b1333f526a333466dea6c73230e"
+    },
+    "src/tbps/baselines/cpgc_sep/sep_source.py": {
+      "before_sha256": "71137fdd7a962dfcb6d17fa9f454f002c4921e3c628c9d71651fa352f15c003f",
+      "after_sha256": "d5932335b57bcbf2f1f465bf64f33fc69e0c379cfdf20256c1ceceb764bbad88"
+    }
+  },
+  "production_patch_sha256": "ff6831c31f75165246cc1cdb0502ec68511a641d7fb48d739657e075e7618422",
+  "test_and_benchmark_sources": {
+    "tests/framework/sep_pid_integration_support.py": "4a7df89e89529ab1b6dce4e5d2b7da85c2cffbd122b65e2c9293d251ca385a62",
+    "tests/framework/test_sep_pid_integration.py": "9683355edb30cdce99b6e357269d1c2c60c2c16f3699ecf05a5ae223e70f3ded",
+    "operations/sep_pid_integration_benchmark.py": "43186d191bdd63015d76fc522e5f03b7705299ead392297e04b9306d0d62b64e"
+  },
+  "CPU_tests_sha256": "2c793fc72c42227dc96dfacd419f76025c871b8044b5d74e6dbe27a729e31d76",
+  "benchmark_sha256": "c8545f730947967fe7fa26d6cc1e02971265398f3e9d102f3e8b1103f6bd95cb",
+  "protection": {
+    "status": "PASS",
+    "small_receipts_rechecked": 75,
+    "reference_manifest_hashes": [
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc/cuhk/irra/completed/manifest.json",
+        "sha256": "c26af4adaaf523b89c9d628f90cd74aa9a2802abcc7ab9a4c18d801b7f3c227d"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/audit/cpgc/cuhk/irra/completed/manifest.json",
+        "sha256": "799b32fc69c0673f9779f6dbb7ebc81b87769c04f42080bbe630a2c0cd41d05c"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc/cuhk/rasa/completed/manifest.json",
+        "sha256": "2b86878d7df8de470915aa7e8e7b39b0128512d9fdf54b66a6281b332727db20"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/audit/cpgc/cuhk/rasa/completed/manifest.json",
+        "sha256": "76bf7d0a309ba9c24ac195ff87d21b1193cfeff8d90bd7e319503ac540c33ebc"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc/rstp/irra/completed/manifest.json",
+        "sha256": "d9c570274cf337baa232fb6bf9d6bedb0c556192e41b664f2a9e522053c5ca8b"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/audit/cpgc/rstp/irra/completed/manifest.json",
+        "sha256": "0034a6cc736754d3e84abf421a375d259ad51d9ef651230089c04c3e8774212a"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc/rstp/rasa/completed/manifest.json",
+        "sha256": "921123b08fc9ac57e69acd402c97d6e4a48f63303c3bc91d50fd02808628913a"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/audit/cpgc/rstp/rasa/completed/manifest.json",
+        "sha256": "8a02152afba3e14318b18ff51992105acdbae116972d3bbf7eeee5069482dda2"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc/icfg/irra/completed/manifest.json",
+        "sha256": "71ba9f3d0425f4f67994ec38608790e1991a9d25d1a7d18928ef393e0d0484dc"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/audit/cpgc/icfg/irra/completed/manifest.json",
+        "sha256": "ad671fa3453968a063c13406c19316ac6c2bb444dc5438598ed6b3e0b4759c49"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/full/cpgc/icfg/rasa/completed/manifest.json",
+        "sha256": "e831de7d2132143cdcb85a3028c713715bad91e9cfbc1941db63b99646e08442"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/full/audit/cpgc/icfg/rasa/completed/manifest.json",
+        "sha256": "69d87db7d6d65e192bbb04eeaef2892583bdc0ac35710466cca3bea2e2c8485b"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep_source/cuhk/irra/completed/manifest.json",
+        "sha256": "48d460312a8374dc6ae9746baf9c8b385a1f36a530ccd827013250780d10de0f"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep/cuhk/irra/completed/manifest.json",
+        "sha256": "da235f7366feeceeb8a95e9b5260ec6b68e68855ee8c1217a702de91b1bf35f7"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/sep/cuhk/irra/completed/manifest.json",
+        "sha256": "529d6e21c8c195fbbbfc59b3ed18a8e527e86f74d97bddc384e6f3625d762e4b"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep_source/cuhk/rasa/completed/manifest.json",
+        "sha256": "284564881f7500826a516ee60e4a8bcec79c701d3b7a788cfab7d8ebc998eb2c"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep/cuhk/rasa/completed/manifest.json",
+        "sha256": "98006306deab184f08261d6958166451d729edefe9bb6320d841d0e89b3598df"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/sep/cuhk/rasa/completed/manifest.json",
+        "sha256": "975b6278f2997193aa943a7c7391669f127e3dd0e0d3b905b747eb43fd18c9ed"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep_source/rstp/irra/completed/manifest.json",
+        "sha256": "3af4216b58466788ad4c78558dd6d4f9fd7a9e7d6a3c76d40b29555ba4bb0c75"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep/rstp/irra/completed/manifest.json",
+        "sha256": "a45e73570050a26b672ceff86db4e8349daf5d77833b6aa4de153b6aab88af95"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/sep/rstp/irra/completed/manifest.json",
+        "sha256": "bff49630619499deef60d73fe6b4ecc1bf5586ccf8bd70012339910584d99bb1"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep_source/rstp/rasa/completed/manifest.json",
+        "sha256": "e81e9ad7f678a35eb3612afed29e6cb883edf4cafafe975bf42d77a2c8f999a6"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep/rstp/rasa/completed/manifest.json",
+        "sha256": "bdc84482a788b717338886760fea7a8c7a6ca2999b17ff961823a2f64cea14f3"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/sep/rstp/rasa/completed/manifest.json",
+        "sha256": "0eeb6311f773cb0a86b1fe7ba8c4d21167c1c5e543bf91b40094dd78d34253d0"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep_source/icfg/irra/completed/manifest.json",
+        "sha256": "e86f1449f4849d6b8698afc5fecfbf6c7b1c7bb0627902015ebcccf34de4703e"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/smoke/sep/icfg/irra/completed/manifest.json",
+        "sha256": "b008a174783b4d908339c778963a8c3d7c2d8a4c3cff7f6d2addc0c7504cf524"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/smoke/audit/sep/icfg/irra/completed/manifest.json",
+        "sha256": "d1500c9419b4f3b753bc8c08a9bcc367099801addff6474e104c41d626995541"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/smoke/sep_source/icfg/rasa/completed/manifest.json",
+        "sha256": "5a86c4bb1b5e644b14028fe3aa6ea144d5c21323c1ec85aab53401953ed9122e"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/smoke/sep/icfg/rasa/completed/manifest.json",
+        "sha256": "d823a2886a88542b103f8293f6a4581e5dfd1f089f4179db926e93a15d027a79"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/smoke/audit/sep/icfg/rasa/completed/manifest.json",
+        "sha256": "3932b98050515791b52e721380f5ec40cafdfa99359b9d56e843e83e6477d8f3"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000000/manifest.json",
+        "sha256": "38a0372aa349e7d26c62dfdb41b9520a8b5c3dc7abe89570f955e9a276271b41"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000001/manifest.json",
+        "sha256": "6c0221bd9f2d9858be7c151cc7cc9e54b5b074dd4e67b03439905d292e4c0875"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000002/manifest.json",
+        "sha256": "c8c9ada855271e7395a4e7925b9ddaa1df2f869346952e936c676a6c9614738d"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000003/manifest.json",
+        "sha256": "a120539d16609ea180b07768970ac57078f05c31f166d267b8e2e10618e8a115"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000004/manifest.json",
+        "sha256": "f71d5f26025d65f941277eb1b23fad95e6406ed2b41b0fe64660b5793512efeb"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000005/manifest.json",
+        "sha256": "1073095afcb7631b87f69501944a41c2cf91a5b4f4070b06dc9ae88d78c6c15c"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000006/manifest.json",
+        "sha256": "1484ee1abb500dd9ef6a3220844db2f7f148c75a7a4f820a4b09d51d9420f9aa"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000007/manifest.json",
+        "sha256": "f2574c045dde180eb1978a5b00fabf8d94198e12dd01ea5806dc3feb1067e2dd"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000008/manifest.json",
+        "sha256": "a06752626b07678c554f762294e4c7d530272b67734806cea68d741efc352cde"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000009/manifest.json",
+        "sha256": "803768a539309477700d2ad8053a2a238bb84bf4c6437964c7c7821e1221accf"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000010/manifest.json",
+        "sha256": "751637220977e47d1af6d6034ae4baef3c9471747b17f021e5aeadb16d97d04b"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000011/manifest.json",
+        "sha256": "80b090269418512e333e8caba241fd3518f27c0c8d65a8b749c71f35f165a19a"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000012/manifest.json",
+        "sha256": "06e36c05cda0c629e94511bfd9a72bb21f7c45766ed674c58d4ac6f963393ca1"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000013/manifest.json",
+        "sha256": "ec1a2bce941b2a8e37f9f529d05fb5c0f2151ac1597dac154bf7937333edc3ce"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000014/manifest.json",
+        "sha256": "c0dddb7d93fb3d730a47e66698945817d2b4d20cd50f7558c90f80099b9d630d"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000015/manifest.json",
+        "sha256": "fae0e72543c62ac105216fea7feba607e0109c44d63c032ded3a999f3c64a644"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000016/manifest.json",
+        "sha256": "9c5f3288dd51c08db3ff10a4a026e41846919ca5afd7ef295e5db09ab2fdac1c"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000017/manifest.json",
+        "sha256": "990bd6224ce5c059a3a896799d651ef46d7b486d7010346b048a926bda1b807c"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000018/manifest.json",
+        "sha256": "e4b065d5b86e30e03399811a37ff97bc87498f06a0b7dd1c7d8bb9673ad3c3fa"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000019/manifest.json",
+        "sha256": "0d80f406681a4504e3750246e643638edc6e829ff7c2b072d475521a0b48e371"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000020/manifest.json",
+        "sha256": "a1f9599e35ef0d81f61ce309d8f99b5ab3df66aa6d843cdd2c1055f9f138afbe"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000021/manifest.json",
+        "sha256": "115bc295ea75b6c7821cb7b96a82f677c21d97b57ead70effd361378f2548e82"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000022/manifest.json",
+        "sha256": "fc160b194ed7ac0e85f73f93b8e769f002c8db5cea98bab9e01baef9c9fae593"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000023/manifest.json",
+        "sha256": "fe8fabf41861344757bb07619ca16eb71ae300ee9218550f18666c33c733ce9d"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000024/manifest.json",
+        "sha256": "21d48f8c6c104e4feea8b653558f75ee8f469a46f7bf31e84b36a4966c4ac9c3"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000025/manifest.json",
+        "sha256": "9e46425c311471f8eb1a5d8634b2e7d499f5f5fa2f42d29fd2e9951b70b3e671"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000026/manifest.json",
+        "sha256": "61406f47f5d42ea371de130c58cf8e67b241be32330e71a5a2bb4893954fe827"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000027/manifest.json",
+        "sha256": "ce793929c29a20fa14c6714341cd0fc2646d7670b81678b1290015f8ebbecf5f"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000028/manifest.json",
+        "sha256": "1a9f64c9383c868b93b9d44cc76fc88d607548fe94ff7952dff1f062466be1b5"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000029/manifest.json",
+        "sha256": "aca5e6b59bbcdb2ccbc37ffcbe1c507242d11af0e2bc258a53b768cd7e8b56ce"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000030/manifest.json",
+        "sha256": "8a135e0ba4d124536116a4875106751093f42e5c6759dd510b8778d1b5cfc542"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000031/manifest.json",
+        "sha256": "48393f3a2323acc064277a45504036cbcd5d7cbb6446372c696c7d85e9687eba"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000032/manifest.json",
+        "sha256": "52815a88c16c296f598ba3d524c4baf0d07555d13c3ff0e8faae0970833ccf93"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000033/manifest.json",
+        "sha256": "8f777ef820ac16aa4903df15d16f3a7373954e9472c3f7e90f7db2fed3a751aa"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000034/manifest.json",
+        "sha256": "c5cdf38fc9981a29f746ffb13c1cbf4fb093d0d307e6a316cbe0e3d62bc968cf"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000035/manifest.json",
+        "sha256": "3d99e902a933d28be167b910b8ffe759cc25cccfd1039f10086559540f233651"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000036/manifest.json",
+        "sha256": "4b8ca5123640d22e6fd717c3aa4850f8408b1c0d450c38918e717ed91934599f"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000037/manifest.json",
+        "sha256": "1a51821a4386b77e09d2c8362f60103fa1cfbc7e56604af39f101c3b57140a8a"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000038/manifest.json",
+        "sha256": "6ac76e94e9190419f4dfcd87ea29e252d8a2864511cf51c7ee06f62f7d8e5ab4"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000039/manifest.json",
+        "sha256": "7c09dbd279c924a28b22301b6802ac1b57c36d3b7c7ebeef2838fc6eb59193f1"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000040/manifest.json",
+        "sha256": "abeb7648390c64012658a88d883eb5072270d0157d834f4e92e03b7b35bee7b5"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000041/manifest.json",
+        "sha256": "f738730171f92f4a718cd77d41672227ad5c08f11dcefb66e8ea60a6bc079735"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000042/manifest.json",
+        "sha256": "2f4d0bb598e9981fe26c030070f25c84b402155af1c5078486158e45d10c6b25"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000043/manifest.json",
+        "sha256": "4b911f257e00fd07e2e8fe927090cc1d8ba8f3ef41cc9b83655d1e7acaee8c6e"
+      },
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000044.Claim.json",
+        "sha256": "93102ab40b4b0d921c6b43d23024b25a42d46418cd073cba42c3f5ceb8cc4558"
+      }
+    ],
+    "checkpoint_annotation_stat": {
+      "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0060/checkpoint.pt": {
+        "size": 18674878,
+        "mtime_ns": 1792492293431806483,
+        "inode": 2752528
+      },
+      "/home/lzf/ldx/outputs/tbps-framework-hv1-g60-adaptation-epoch60/training/checkpoints/visit_00122880/checkpoint.pt": {
+        "size": 8826313,
+        "mtime_ns": 1792644080835208736,
+        "inode": 16908672
+      },
+      "/home/lzf/TBPS/Datasets/CUHK-PEDES/reid_raw.json": {
+        "size": 30051967,
+        "mtime_ns": 1681127516000000000,
+        "inode": 222380578
+      },
+      "/home/lzf/TBPS/Datasets/ICFG-PEDES/ICFG-PEDES.json": {
+        "size": 34665292,
+        "mtime_ns": 1680332782000000000,
+        "inode": 228589626
+      },
+      "/home/lzf/TBPS/Datasets/RSTPReid/data_captions.json": {
+        "size": 7272467,
+        "mtime_ns": 1763007827000000000,
+        "inode": 222183289
+      },
+      "/home/lzf/Attack/IRRA/logs/CUHK-PEDES/best.pth": {
+        "size": 1320992076,
+        "mtime_ns": 1679070842000000000,
+        "inode": 229257106
+      },
+      "/home/lzf/Attack/IRRA/logs/ICFG-PEDES/best.pth": {
+        "size": 1296672780,
+        "mtime_ns": 1679070904000000000,
+        "inode": 229257128
+      },
+      "/home/lzf/Attack/IRRA/logs/RSTPReid/best.pth": {
+        "size": 1298516556,
+        "mtime_ns": 1679070952000000000,
+        "inode": 229257150
+      },
+      "/home/lzf/ldx/checkpoints/RaSa/rasa_cuhk_checkpoint.pth": {
+        "size": 1816575847,
+        "mtime_ns": 1792242576745995446,
+        "inode": 238629867
+      },
+      "/home/lzf/ldx/checkpoints/cpgc_sep_official_20261028/rasa_icfg_checkpoint.pth": {
+        "size": 1816575847,
+        "mtime_ns": 1793193988132044543,
+        "inode": 17761763
+      },
+      "/home/lzf/ldx/checkpoints/cpgc_sep_official_20261028/rasa_rstp_checkpoint.pth": {
+        "size": 1816575847,
+        "mtime_ns": 1793194125909654382,
+        "inode": 17761765
+      }
+    },
+    "old_execution_source_sha256": {
+      "src/tbps/baselines/cpgc_sep/sep_bridge.py": "93084434436303433e1bd4fa1c567494a0a6c1acaaf3d6c9b25f3fb50d5aa68f",
+      "src/tbps/baselines/cpgc_sep/sep_source.py": "71137fdd7a962dfcb6d17fa9f454f002c4921e3c628c9d71651fa352f15c003f",
+      "src/tbps/baselines/cpgc_sep/cache.py": "68abc0ce80f6a0adf757f6c04f45f41863b0113499dec882d01eae3a0e1cb5c0",
+      "src/tbps/baselines/cpgc_sep/official.py": "01fe734a57d5de1f2f8c015ad44569bfbf6f5df7754fd5faafaf87d176818626",
+      "src/tbps/baselines/cpgc_sep/victims.py": "949b6bb88818536533589032de9588adf51864c234bc895e1946d8291a9d63aa"
+    },
+    "old_execution_HEAD": "14f247fb5557d1d8eb40d71a470a4aecbe801655",
+    "old_tree_clean": true,
+    "old_SEP_pids_absent": true,
+    "old_published_queries": 44,
+    "old_next_Claim_preserved": true,
+    "large_Full_Tensor_rescans": 0
+  },
+  "runtime": {
+    "CUDA_initialized": false,
+    "real_models_loaded": 0,
+    "real_queries_replayed": 0,
+    "new_GPU_experiments": 0,
+    "new_training": 0,
+    "existing_small_Smoke_parity_readonly": true
+  },
+  "fair_protocol": {
+    "status": "DESIGN_ONLY_NOT_ADOPTED",
+    "source_domain_required": "CUHK-trained IRRA",
+    "target_access_during_generation": "forbidden",
+    "target_Test_PID_or_pairing_access": "forbidden",
+    "recommended_candidate_for_review": "SEP-TBPS-SRefPseudoPID",
+    "objective_final_choice": "OPEN",
+    "source_pool_choice": "OPEN",
+    "source_reference_gallery_choice": "OPEN",
+    "new_executable_config_written": false
+  },
+  "official_source": "https://github.com/ZevineXu/SEP-Attack/tree/3a6d848a48097aee79be0299da8959e78db543c7",
+  "paper": "https://arxiv.org/html/2605.24958v1"
+}

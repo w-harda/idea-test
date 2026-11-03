@@ -1,5 +1,9 @@
 # 架构边界与迁移约定
 
+## SEP固定Gallery的生产PIDPlan（2026-11-03，CPU验收）
+
+sep_bridge.PIDPlan在每个sep_source.PIDClassifier构造时独立建立不可变PID/成员索引，cache miss继续原list索引/max/stack；保留旧pid_logits兼容入口。无全局跨Gallery缓存，不改NativeScorer、缓存键/容量、Trace或官方搜索。仅此A类代码集成，176 CPU回归PASS；不代表旧目标/GT权限已公平。Source参考伪标签协议仍为未采纳设计，未添加执行配置；新SHA不得绕过旧Claim/producer锁定。见framework/results/sep_pid_integration/REPORT.md。
+
 ## SEP PID预计算仅CPU测试原型（2026-11-03）
 
 新tests/framework/sep_cpu_review_support.py对固定Manifest构建不可变PIDPlan，保留原索引list/max/stack；生产桥接未替换。80项位模式检查、合成官方候选/RNG对照及CPU微基准通过。长度相同不代表Plan可跨Manifest复用，未来仅可每Classifier固定bank绑定。当前两代理含Victim/真实Test PID的协议与独立Target迁移严格区分；无未来协议采纳。B/C类优化和源/目标权限变更均留待独立授权。见framework/results/sep_cpu_optimization_review/REPORT.md。
