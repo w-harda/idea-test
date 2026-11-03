@@ -1,5 +1,9 @@
 # 历史实验注册表
 
+## SEP CPU性能与迁移协议审查（2026-11-03，CPU_ONLY_COMPLETE）
+
+原47+新97 CPU测试PASS；固定分数/Manifest下PID预计算Exact，CPU微基准与原始重复计时已保存。原型仅tests、基准仅operations，不改生产、不启动GPU/SEP，不重播44/第45条。当前含Victim的IRRA/RaSa检索适配不等于论文排除目标的四代理协议；公平IRRA Source→RaSa/APTM及跨域标签权限需后续审查，未执行。详见framework/results/sep_cpu_optimization_review/REPORT.md。
+
 ## SEP Full：STOPPED_BY_USER（2026-11-03）
 
 执行14f247f，SIGTERM子进程3041291后Supervisor2960820自然退出；Source CUHK/IRRA 44已发布+第45条Claim中断，所有SEP Full评分/审计未完成，正式Full 0/6。历史C-PGC六组及SEP六组Smoke保持完整；不重跑、不修算法。诊断/停止证据及未来建议见framework/results/sep_stop_diagnosis/REPORT.md。

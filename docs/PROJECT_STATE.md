@@ -1,6 +1,10 @@
 # 项目当前状态（唯一权威入口）
 
-## CURRENT：SEP Full已按用户授权停止；性能诊断与完整性核验完成（2026-11-03）
+## CURRENT：SEP工程性能与迁移协议CPU审查完成（2026-11-03）
+
+独立codex/sep-cpu-optimization-review，基准b4a62f3；生产src/configs/官方算法及历史执行树不改。tests内PIDPlan保留PID/成员/原max顺序；原47+新97共144 CPU PASS，80项bitwise检查全通过，3个官方合成候选流程最终文本/RNG一致。CUHK合成CPU聚合430.783→8.229ms（52.35×，不是整条攻击提速）；候选批量/Trace/设备搬运仍B类，预算/代理/零向量回退等C类不实施。当前Victim在IRRA/RaSa代理中且使用Test PID，不是独立Target迁移，与Idea IRRA-only Source不公平；未来协议/标签权限OPEN。本轮无CUDA、真实Query重播或SEP启动，仍0/6 Full、44文本+第45条Claim冻结。[完整报告](framework/results/sep_cpu_optimization_review/REPORT.md)。
+
+## FROZEN：SEP Full已按用户授权停止；性能诊断与完整性核验完成（2026-11-03）
 
 14:43:39仅向身份确认的SEP计算3041291发送SIGTERM；Supervisor2960820自行记录-15/FAIL后退出，所有SEP计算后代退出、3008MiB显存释放。原输出0变更0缺失；44/6156文本发布，第45条Claim中断保留，SEP Full 0/6。此前completed_Full=6是C-PGC六组，不是SEP。C-PGC六组Full/CPU回执保留，SEP六组Smoke的Source/Target/Audit 18范围深SHA通过；711130个冻结stat保持，89945文件SHA核验。无重启/重跑/参数修改/新GPU实验。已确认CPU PID聚合重复扫描、逐候选RaSa融合及同步开销；不把未保存栈的条件性上游零向量循环认定为现场死循环。详见[完整报告](framework/results/sep_stop_diagnosis/REPORT.md)。
 

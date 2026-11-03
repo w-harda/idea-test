@@ -1,0 +1,631 @@
+{
+  "status": "PASS",
+  "original_suites": [
+    {
+      "file": "test_cpgc_sep.py",
+      "exit": 0,
+      "log": "/home/lzf/ldx/tmp/sep_cpu_optimization_review_20261103/original_test_cpgc_sep.py.log",
+      "passed": 28,
+      "log_sha256": "8a7cd9f1ad924c1a85544a5b64271cb07fbbaf7ce9b46bddd24b5efbef58d742"
+    },
+    {
+      "file": "test_cpgc_sep_throughput.py",
+      "exit": 0,
+      "log": "/home/lzf/ldx/tmp/sep_cpu_optimization_review_20261103/original_test_cpgc_sep_throughput.py.log",
+      "passed": 19,
+      "log_sha256": "713e369880b8b6f53fef2d39ad69c3b29caed2d1502d7e0a17391bf00b32c5eb"
+    }
+  ],
+  "original_passed": 47,
+  "new_passed": 97,
+  "total_unique_tests": 144,
+  "new_failures": 0,
+  "new_errors": 0,
+  "new_skipped": 0,
+  "exact_bearing_tests": 80,
+  "exact_passed": 80,
+  "exact_first_difference": null,
+  "candidate_order_changed_in_tested_exact_cases": false,
+  "synthetic_official_attack_flow_seeds": [
+    0,
+    1,
+    7
+  ],
+  "original_error_behavior_cases": 5,
+  "CUDA_initialization": false,
+  "real_model_checkpoints_loaded": 0,
+  "real_queries_replayed": 0,
+  "history_Full_Tensor_scans": 0,
+  "new_suite_log": {
+    "path": "/home/lzf/ldx/tmp/sep_cpu_optimization_review_20261103/new_cpu_tests_delivery.log",
+    "sha256": "a360c66f54baf30f8a8fe80ea7a2c1d283fedde92920508d70b9a785dc58522d"
+  },
+  "junit": {
+    "path": "/home/lzf/ldx/tmp/sep_cpu_optimization_review_20261103/new_cpu_tests_delivery.xml",
+    "sha256": "147a54189edb003a0bb7557d52b9acd312650b92ab4070131c0a164256e503fa"
+  },
+  "cases": [
+    {
+      "name": "test_seeded_multi_pid_bitwise[dtype0-0]",
+      "seconds": 0.003,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_seeded_multi_pid_bitwise[dtype0-1]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_seeded_multi_pid_bitwise[dtype0-2]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_seeded_multi_pid_bitwise[dtype0-3]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_seeded_multi_pid_bitwise[dtype0-4]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_seeded_multi_pid_bitwise[dtype0-5]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_seeded_multi_pid_bitwise[dtype0-6]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_seeded_multi_pid_bitwise[dtype0-7]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_seeded_multi_pid_bitwise[dtype0-8]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_seeded_multi_pid_bitwise[dtype0-9]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_seeded_multi_pid_bitwise[dtype0-10]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_seeded_multi_pid_bitwise[dtype0-11]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_seeded_multi_pid_bitwise[dtype1-0]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_seeded_multi_pid_bitwise[dtype1-1]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_seeded_multi_pid_bitwise[dtype1-2]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_seeded_multi_pid_bitwise[dtype1-3]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_seeded_multi_pid_bitwise[dtype1-4]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_seeded_multi_pid_bitwise[dtype1-5]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_seeded_multi_pid_bitwise[dtype1-6]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_seeded_multi_pid_bitwise[dtype1-7]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_seeded_multi_pid_bitwise[dtype1-8]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_seeded_multi_pid_bitwise[dtype1-9]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_seeded_multi_pid_bitwise[dtype1-10]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_seeded_multi_pid_bitwise[dtype1-11]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_uneven_members_and_repeated_positives[0-pids0]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_uneven_members_and_repeated_positives[0-pids1]",
+      "seconds": 0.0,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_uneven_members_and_repeated_positives[0-pids2]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_uneven_members_and_repeated_positives[0-pids3]",
+      "seconds": 0.0,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_uneven_members_and_repeated_positives[0-pids4]",
+      "seconds": 0.0,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_uneven_members_and_repeated_positives[1-pids0]",
+      "seconds": 0.0,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_uneven_members_and_repeated_positives[1-pids1]",
+      "seconds": 0.0,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_uneven_members_and_repeated_positives[1-pids2]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_uneven_members_and_repeated_positives[1-pids3]",
+      "seconds": 0.0,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_uneven_members_and_repeated_positives[1-pids4]",
+      "seconds": 0.0,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_uneven_members_and_repeated_positives[8-pids0]",
+      "seconds": 0.0,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_uneven_members_and_repeated_positives[8-pids1]",
+      "seconds": 0.0,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_uneven_members_and_repeated_positives[8-pids2]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_uneven_members_and_repeated_positives[8-pids3]",
+      "seconds": 0.0,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_uneven_members_and_repeated_positives[8-pids4]",
+      "seconds": 0.0,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_ties_extremes_and_nonfinite_original_semantics[ties-dtype0]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_ties_extremes_and_nonfinite_original_semantics[ties-dtype1]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_ties_extremes_and_nonfinite_original_semantics[negative-dtype0]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_ties_extremes_and_nonfinite_original_semantics[negative-dtype1]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_ties_extremes_and_nonfinite_original_semantics[extreme-dtype0]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_ties_extremes_and_nonfinite_original_semantics[extreme-dtype1]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_ties_extremes_and_nonfinite_original_semantics[negative_zero-dtype0]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_ties_extremes_and_nonfinite_original_semantics[negative_zero-dtype1]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_ties_extremes_and_nonfinite_original_semantics[nan-dtype0]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_ties_extremes_and_nonfinite_original_semantics[nan-dtype1]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_ties_extremes_and_nonfinite_original_semantics[infinity-dtype0]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_ties_extremes_and_nonfinite_original_semantics[infinity-dtype1]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_noncontiguous_inputs[transpose]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_noncontiguous_inputs[slice]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_noncontiguous_inputs[expanded]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_noncontiguous_inputs[plain]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_original_error_type_and_message_preserved[empty_gallery]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": false
+    },
+    {
+      "name": "test_original_error_type_and_message_preserved[wrong_width]",
+      "seconds": 0.0,
+      "status": "PASS",
+      "contains_bitwise_check": false
+    },
+    {
+      "name": "test_original_error_type_and_message_preserved[wrong_dimension]",
+      "seconds": 0.0,
+      "status": "PASS",
+      "contains_bitwise_check": false
+    },
+    {
+      "name": "test_original_error_type_and_message_preserved[nan_pid_empty_group]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": false
+    },
+    {
+      "name": "test_original_error_type_and_message_preserved[unhashable_pid]",
+      "seconds": 0.0,
+      "status": "PASS",
+      "contains_bitwise_check": false
+    },
+    {
+      "name": "test_original_ensemble_softmax_margin_and_candidate_selection_exact[False-0]",
+      "seconds": 0.008,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_original_ensemble_softmax_margin_and_candidate_selection_exact[False-1]",
+      "seconds": 0.007,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_original_ensemble_softmax_margin_and_candidate_selection_exact[False-2]",
+      "seconds": 0.007,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_original_ensemble_softmax_margin_and_candidate_selection_exact[False-3]",
+      "seconds": 0.006,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_original_ensemble_softmax_margin_and_candidate_selection_exact[False-4]",
+      "seconds": 0.007,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_original_ensemble_softmax_margin_and_candidate_selection_exact[False-5]",
+      "seconds": 0.006,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_original_ensemble_softmax_margin_and_candidate_selection_exact[False-6]",
+      "seconds": 0.006,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_original_ensemble_softmax_margin_and_candidate_selection_exact[False-7]",
+      "seconds": 0.007,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_original_ensemble_softmax_margin_and_candidate_selection_exact[True-0]",
+      "seconds": 0.033,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_original_ensemble_softmax_margin_and_candidate_selection_exact[True-1]",
+      "seconds": 0.007,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_original_ensemble_softmax_margin_and_candidate_selection_exact[True-2]",
+      "seconds": 0.007,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_original_ensemble_softmax_margin_and_candidate_selection_exact[True-3]",
+      "seconds": 0.007,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_original_ensemble_softmax_margin_and_candidate_selection_exact[True-4]",
+      "seconds": 0.007,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_original_ensemble_softmax_margin_and_candidate_selection_exact[True-5]",
+      "seconds": 0.007,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_original_ensemble_softmax_margin_and_candidate_selection_exact[True-6]",
+      "seconds": 0.007,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_original_ensemble_softmax_margin_and_candidate_selection_exact[True-7]",
+      "seconds": 0.007,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_grouping_and_scoring_preserve_all_rng_inputs_and_identities[0]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": false
+    },
+    {
+      "name": "test_grouping_and_scoring_preserve_all_rng_inputs_and_identities[1]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": false
+    },
+    {
+      "name": "test_grouping_and_scoring_preserve_all_rng_inputs_and_identities[2]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": false
+    },
+    {
+      "name": "test_grouping_and_scoring_preserve_all_rng_inputs_and_identities[3]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": false
+    },
+    {
+      "name": "test_production_classifier_fixture_cache_keys_order_and_eviction[16]",
+      "seconds": 0.024,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_production_classifier_fixture_cache_keys_order_and_eviction[8200]",
+      "seconds": 0.833,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_trace_observer_capture_same_without_touching_official_attack[False]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": false
+    },
+    {
+      "name": "test_trace_observer_capture_same_without_touching_official_attack[True]",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": false
+    },
+    {
+      "name": "test_trace_restored_on_exception",
+      "seconds": 0.0,
+      "status": "PASS",
+      "contains_bitwise_check": false
+    },
+    {
+      "name": "test_original_importance_loop_boundary_bounded_cpu_observation[zero]",
+      "seconds": 0.263,
+      "status": "PASS",
+      "contains_bitwise_check": false
+    },
+    {
+      "name": "test_original_importance_loop_boundary_bounded_cpu_observation[constant_nonzero]",
+      "seconds": 0.007,
+      "status": "PASS",
+      "contains_bitwise_check": false
+    },
+    {
+      "name": "test_namespaced_pid_not_collapsed",
+      "seconds": 0.0,
+      "status": "PASS",
+      "contains_bitwise_check": false
+    },
+    {
+      "name": "test_source_files_still_frozen",
+      "seconds": 0.0,
+      "status": "PASS",
+      "contains_bitwise_check": false
+    },
+    {
+      "name": "test_nan_payload_bits_are_preserved",
+      "seconds": 0.0,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_adjacent_float32_values_and_order",
+      "seconds": 0.006,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_hot_aggregation_removes_personid_equality_scan",
+      "seconds": 0.001,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_plan_is_only_valid_for_its_fixed_gallery",
+      "seconds": 0.0,
+      "status": "PASS",
+      "contains_bitwise_check": false
+    },
+    {
+      "name": "test_official_attack_synthetic_final_text_capture_and_rng_exact[0]",
+      "seconds": 0.176,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_official_attack_synthetic_final_text_capture_and_rng_exact[1]",
+      "seconds": 0.063,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_official_attack_synthetic_final_text_capture_and_rng_exact[7]",
+      "seconds": 0.061,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    },
+    {
+      "name": "test_production_two_cpu_threads_fp32_exact",
+      "seconds": 0.443,
+      "status": "PASS",
+      "contains_bitwise_check": true
+    }
+  ]
+}

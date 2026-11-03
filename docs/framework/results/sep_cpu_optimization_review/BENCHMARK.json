@@ -1,0 +1,299 @@
+{
+  "status": "PASS",
+  "seed": 20261103,
+  "torch": "2.5.1+cu124",
+  "python": "3.10.21",
+  "host": "binarygroup",
+  "platform": "Linux-6.14.0-37-generic-x86_64-with-glibc2.39",
+  "CPU_model": "Intel(R) Core(TM) i9-14900K",
+  "threads": 1,
+  "interop_threads": 1,
+  "process_affinity_CPU": 0,
+  "CUDA_initialized": false,
+  "forbidden_runtime_calls": 0,
+  "real_model_loads": 0,
+  "real_query_encodings": 0,
+  "history_Tensor_reads": 0,
+  "cases": [
+    {
+      "case": "RSTP_shape",
+      "Gallery": 1000,
+      "PID": 200,
+      "batch": 1,
+      "dtype": "float32",
+      "production_like_global_trace": false,
+      "repeats": 7,
+      "milliseconds": {
+        "reference": [
+          29.818883,
+          29.709887,
+          29.699231,
+          29.764289,
+          29.829901,
+          29.701343,
+          29.766195
+        ],
+        "precomputed": [
+          1.69431,
+          1.693442,
+          1.689071,
+          1.693052,
+          1.69756,
+          1.687821,
+          1.683702
+        ],
+        "cold_precomputed": [
+          2.245681,
+          2.235933,
+          2.244905,
+          2.199177,
+          2.22258,
+          2.199163,
+          2.238737
+        ]
+      },
+      "median_ms": {
+        "reference": 29.764289,
+        "precomputed": 1.693052,
+        "cold_precomputed": 2.235933
+      },
+      "precompute_setup_median_ms": 0.553607,
+      "measured_warm_speedup": 17.580256837947093,
+      "measured_cold_speedup": 13.311798251557628,
+      "output_bitwise_exact": true,
+      "output_sha256": "4224abbb9a72cee3122dd59beca63414236dabab93855b7f23087dcaac679d0b"
+    },
+    {
+      "case": "CUHK_shape",
+      "Gallery": 3074,
+      "PID": 1000,
+      "batch": 1,
+      "dtype": "float32",
+      "production_like_global_trace": false,
+      "repeats": 7,
+      "milliseconds": {
+        "reference": [
+          428.172093,
+          432.674733,
+          430.396905,
+          431.912509,
+          435.901697,
+          430.782681,
+          430.168414
+        ],
+        "precomputed": [
+          8.208475,
+          8.149822,
+          8.262439,
+          8.200987,
+          8.282505,
+          8.344287,
+          8.22904
+        ],
+        "cold_precomputed": [
+          9.968539,
+          10.031385,
+          10.006406,
+          9.987352,
+          10.163361,
+          9.979693,
+          10.007925
+        ]
+      },
+      "median_ms": {
+        "reference": 430.782681,
+        "precomputed": 8.22904,
+        "cold_precomputed": 10.006406
+      },
+      "precompute_setup_median_ms": 1.701791,
+      "measured_warm_speedup": 52.34908093775216,
+      "measured_cold_speedup": 43.050689828096125,
+      "output_bitwise_exact": true,
+      "output_sha256": "678bde41d9b6827a092a3eb0188b6921f292e7977eaee33998f4052200da4ab2"
+    },
+    {
+      "case": "CUHK_B8_fixture",
+      "Gallery": 3074,
+      "PID": 1000,
+      "batch": 8,
+      "dtype": "float32",
+      "production_like_global_trace": false,
+      "repeats": 7,
+      "milliseconds": {
+        "reference": [
+          432.130652,
+          428.421331,
+          434.470623,
+          430.368164,
+          430.523071,
+          428.979091,
+          429.855105
+        ],
+        "precomputed": [
+          8.598856,
+          8.573293,
+          8.597011,
+          8.530751,
+          8.62166,
+          8.580301,
+          8.601335
+        ],
+        "cold_precomputed": [
+          10.369142,
+          10.307495,
+          10.302322,
+          10.32779,
+          10.39381,
+          10.30538,
+          10.330664
+        ]
+      },
+      "median_ms": {
+        "reference": 430.368164,
+        "precomputed": 8.597011,
+        "cold_precomputed": 10.32779
+      },
+      "precompute_setup_median_ms": 1.685229,
+      "measured_warm_speedup": 50.06020860040774,
+      "measured_cold_speedup": 41.670886414228015,
+      "output_bitwise_exact": true,
+      "output_sha256": "fde147de497827ddf148c02e8b46e09ada9d805cc8fdb9d11d090c4fb3def4df"
+    },
+    {
+      "case": "ICFG_shape",
+      "Gallery": 19848,
+      "PID": 1000,
+      "batch": 1,
+      "dtype": "float32",
+      "production_like_global_trace": false,
+      "repeats": 5,
+      "milliseconds": {
+        "reference": [
+          2855.458799,
+          2846.613907,
+          2837.629483,
+          2860.76783,
+          2882.397785
+        ],
+        "precomputed": [
+          9.711744,
+          9.622981,
+          9.736083,
+          9.592347,
+          9.743871
+        ],
+        "cold_precomputed": [
+          21.474554,
+          21.677353,
+          21.444456,
+          21.203484,
+          21.552138
+        ]
+      },
+      "median_ms": {
+        "reference": 2855.458799,
+        "precomputed": 9.711744,
+        "cold_precomputed": 21.474554
+      },
+      "precompute_setup_median_ms": 11.542554,
+      "measured_warm_speedup": 294.0212179192532,
+      "measured_cold_speedup": 132.96941109929455,
+      "output_bitwise_exact": true,
+      "output_sha256": "be3d1922c4361f82e5ffb62b57fa5c676529c6166709f980b4c6eaf1e0b08d07"
+    },
+    {
+      "case": "CUHK_trace_pattern",
+      "Gallery": 3074,
+      "PID": 1000,
+      "batch": 1,
+      "dtype": "float32",
+      "production_like_global_trace": true,
+      "repeats": 3,
+      "milliseconds": {
+        "reference": [
+          1362.790015,
+          1339.801233,
+          1340.311693
+        ],
+        "precomputed": [
+          8.45054,
+          8.354628,
+          8.436172
+        ],
+        "cold_precomputed": [
+          13.732666,
+          13.751315,
+          13.851013
+        ]
+      },
+      "median_ms": {
+        "reference": 1340.311693,
+        "precomputed": 8.436172,
+        "cold_precomputed": 13.751315
+      },
+      "precompute_setup_median_ms": 1.68149,
+      "measured_warm_speedup": 158.876762232918,
+      "measured_cold_speedup": 97.46789256154776,
+      "output_bitwise_exact": true,
+      "output_sha256": "678bde41d9b6827a092a3eb0188b6921f292e7977eaee33998f4052200da4ab2"
+    }
+  ],
+  "trace_scope": {
+    "shape": [
+      4,
+      512
+    ],
+    "PID": 128,
+    "milliseconds": {
+      "original_scope": [
+        66.763296,
+        67.014941,
+        66.216077,
+        66.462192,
+        66.669965
+      ],
+      "paused_inside_reducer": [
+        20.244007,
+        20.154899,
+        20.303195,
+        20.198131,
+        20.261304
+      ]
+    },
+    "median_ms": {
+      "original_scope": 66.669965,
+      "paused_inside_reducer": 20.244007
+    },
+    "callback_counts_last": {
+      "original_scope": {
+        "calls": 133135,
+        "lines": 28
+      },
+      "paused_inside_reducer": {
+        "calls": 17,
+        "lines": 28
+      }
+    },
+    "synthetic_capture_exact": true,
+    "classification": "B; single-thread synthetic observer only"
+  },
+  "batch_float_demo": {
+    "shape_query": [
+      8,
+      512
+    ],
+    "shape_gallery": [
+      3074,
+      512
+    ],
+    "dtype": "float32",
+    "seed": 20261103,
+    "near_tie_gallery_pairs": true,
+    "bitwise_exact": false,
+    "different_score_values": 21990,
+    "max_abs_difference": 3.910064697265625e-05,
+    "rows_with_any_rank_difference": 8,
+    "meaning": "synthetic CPU GEMV/GEMM counterexample only; no target/model or attack input used"
+  },
+  "limitation": "CPU aggregation/observer microbenchmark, not end-to-end SEP speed or GPU/model numerical equivalence"
+}

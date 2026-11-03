@@ -1,5 +1,9 @@
 # 架构边界与迁移约定
 
+## SEP PID预计算仅CPU测试原型（2026-11-03）
+
+新tests/framework/sep_cpu_review_support.py对固定Manifest构建不可变PIDPlan，保留原索引list/max/stack；生产桥接未替换。80项位模式检查、合成官方候选/RNG对照及CPU微基准通过。长度相同不代表Plan可跨Manifest复用，未来仅可每Classifier固定bank绑定。当前两代理含Victim/真实Test PID的协议与独立Target迁移严格区分；无未来协议采纳。B/C类优化和源/目标权限变更均留待独立授权。见framework/results/sep_cpu_optimization_review/REPORT.md。
+
 ## SEP停止审计与性能限制（2026-11-03，仅诊断）
 
 现有SEP Source仅Query原子发布与RNG边界，未完成Claim不得自动重播；没有专用停止信号/迭代Checkpoint。用户停止子进程后Supervisor原生FAIL表示人工中断，不改为PASS。当前检索→PID桥每候选重建P×G分组，且逐文本编码/Top128融合，属于已确认性能瓶颈；未实施优化。官方原函数的条件性零向量循环风险与当前现场原因分开记录。核验旧成功依赖与新Partial只读进行，不重算GPU/指标。详见framework/results/sep_stop_diagnosis/REPORT.md。
