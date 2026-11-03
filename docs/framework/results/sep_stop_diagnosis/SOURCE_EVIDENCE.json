@@ -1,0 +1,1159 @@
+{
+  "schema": "sep-stop-diagnosis-1",
+  "execution_commit": "14f247fb5557d1d8eb40d71a470a4aecbe801655",
+  "stop": {
+    "status": "STOPPED_BY_USER",
+    "verified_time": "2026-11-03T15:05:15.611133+08:00",
+    "supervisor_pid": 2960820,
+    "SEP_pid": 3041291,
+    "both_exited": true,
+    "remaining_SEP_processes": [],
+    "SEP_GPU_memory_released": true,
+    "before_SEP_GPU_MiB": 3008,
+    "GPU_processes_final": "",
+    "original_supervisor_record": {
+      "time": "2026-11-03T14:43:39.534728+08:00",
+      "phase": "FAIL",
+      "step": "sep_full_cuhk_irra_source",
+      "completed_Full": 6,
+      "wait_seconds": 0.0,
+      "error": "RuntimeError('native execution failed; preserve and stop: /home/lzf/ldx/tmp/cpgc_sep_no_gpu_floor_v4_20261101/0006_sep_full_cuhk_irra_source.log')"
+    },
+    "child_returncode": -15,
+    "supervisor_recorded_exit": "1",
+    "ollama_server_pids_present": [
+      277892
+    ],
+    "signal_other_experiments": false,
+    "restart": false,
+    "new_GPU_experiments": 0
+  },
+  "original_process_identity": {
+    "time": "2026-11-03T14:43:13.797739+08:00",
+    "supervisor": {
+      "pid": 2960820,
+      "ppid": 1,
+      "pgid": 2960820,
+      "sid": 2960820,
+      "start_ticks": 2361740670,
+      "state": "S",
+      "cmdline": [
+        "/home/lzf/ldx/envs/tbps-image/bin/python",
+        "-u",
+        "-B",
+        "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-no-gpu-floor-20261101/operations/cpgc_sep_throughput_run.py",
+        "--allow-no-gpu-floor"
+      ],
+      "cwd": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-no-gpu-floor-20261101",
+      "stat": "2960820 (python) S 1 2960820 2960820 0 -1 4194304 10185 61389316 0 11 1672 571 278085 24676 20 0 2 0 2361740670 110759936 5512 18446744073709551615 98619536519168 98619538626373 140728377778848 0 0 0 0 16781313 2 0 0 0 17 14 0 0 0 0 0 98619539653456 98619539876928 98620154916864 140728377785640 140728377785815 140728377785815 140728377786319 0\n",
+      "status": "Name:\tpython\nUmask:\t0002\nState:\tS (sleeping)\nTgid:\t2960820\nNgid:\t0\nPid:\t2960820\nPPid:\t1\nTracerPid:\t0\nUid:\t1009\t1009\t1009\t1009\nGid:\t1009\t1009\t1009\t1009\nFDSize:\t256\nGroups:\t27 100 1001 1009 \nNStgid:\t2960820\nNSpid:\t2960820\nNSpgid:\t2960820\nNSsid:\t2960820\nKthread:\t0\nVmPeak:\t  171604 kB\nVmSize:\t  108164 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t   23648 kB\nVmRSS:\t   23648 kB\nRssAnon:\t   13384 kB\nRssFile:\t   10264 kB\nRssShmem:\t       0 kB\nVmData:\t   23032 kB\nVmStk:\t     132 kB\nVmExe:\t    2060 kB\nVmLib:\t    6280 kB\nVmPTE:\t     120 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nuntag_mask:\t0xffffffffffffffff\nThreads:\t2\nSigQ:\t0/513118\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001001\nSigCgt:\t0000000100000002\nCapInh:\t0000000000000000\nCapPrm:\t0000000000000000\nCapEff:\t0000000000000000\nCapBnd:\t000001ffffffffff\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t0\nSeccomp_filters:\t0\nSpeculation_Store_Bypass:\tthread vulnerable\nSpeculationIndirectBranch:\tconditional enabled\nCpus_allowed:\tffffffff\nCpus_allowed_list:\t0-31\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001\nMems_allowed_list:\t0\nvoluntary_ctxt_switches:\t33472\nnonvoluntary_ctxt_switches:\t293\nx86_Thread_features:\t\nx86_Thread_features_locked:\t\n",
+      "io": "rchar: 172290223839\nwchar: 461212896\nsyscr: 2136865\nsyscw: 120642\nread_bytes: 217911296\nwrite_bytes: 482766848\ncancelled_write_bytes: 16384\n",
+      "wchan": "do_wait"
+    },
+    "child": {
+      "pid": 3041291,
+      "ppid": 2960820,
+      "pgid": 2960820,
+      "sid": 2960820,
+      "start_ticks": 2361911378,
+      "state": "R",
+      "cmdline": [
+        "/home/lzf/ldx/envs/tbps-image/bin/python",
+        "-u",
+        "-B",
+        "-m",
+        "tbps.baselines.cpgc_sep.cli",
+        "--config",
+        "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-no-gpu-floor-20261101/configs/framework/cpgc_sep_tbps.no_gpu_floor.server.json",
+        "--action",
+        "sep-source",
+        "--method",
+        "sep",
+        "--scope",
+        "full",
+        "--dataset",
+        "cuhk",
+        "--victim",
+        "irra",
+        "--allow-full"
+      ],
+      "cwd": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-no-gpu-floor-20261101",
+      "stat": "3041291 (python) R 2960820 2960820 2960820 0 -1 4194304 6537370785 17474 0 0 22678730 973363 1 4 20 0 68 0 2361911378 23918522368 2127212 18446744073709551615 98927419793408 98927421900613 140730601260688 0 0 0 0 16781313 2 0 0 0 17 8 0 0 0 0 0 98927422927696 98927423151168 98928136978432 140730601266170 140730601266471 140730601266471 140730601267151 0\n",
+      "status": "Name:\tpython\nUmask:\t0002\nState:\tR (running)\nTgid:\t3041291\nNgid:\t0\nPid:\t3041291\nPPid:\t2960820\nTracerPid:\t0\nUid:\t1009\t1009\t1009\t1009\nGid:\t1009\t1009\t1009\t1009\nFDSize:\t64\nGroups:\t27 100 1001 1009 \nNStgid:\t3041291\nNSpid:\t3041291\nNSpgid:\t2960820\nNSsid:\t2960820\nKthread:\t0\nVmPeak:\t23967264 kB\nVmSize:\t23357932 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 9132404 kB\nVmRSS:\t 8512832 kB\nRssAnon:\t 8087588 kB\nRssFile:\t  406808 kB\nRssShmem:\t   18436 kB\nVmData:\t11092800 kB\nVmStk:\t     224 kB\nVmExe:\t    2060 kB\nVmLib:\t 2507952 kB\nVmPTE:\t   18616 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nuntag_mask:\t0xffffffffffffffff\nThreads:\t68\nSigQ:\t0/513118\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001001\nSigCgt:\t0000000100000002\nCapInh:\t0000000000000000\nCapPrm:\t0000000000000000\nCapEff:\t0000000000000000\nCapBnd:\t000001ffffffffff\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t0\nSeccomp_filters:\t0\nSpeculation_Store_Bypass:\tthread vulnerable\nSpeculationIndirectBranch:\tconditional enabled\nCpus_allowed:\tffffffff\nCpus_allowed_list:\t0-31\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001\nMems_allowed_list:\t0\nvoluntary_ctxt_switches:\t55887\nnonvoluntary_ctxt_switches:\t726154\nx86_Thread_features:\t\nx86_Thread_features_locked:\t\n",
+      "io": "rchar: 45012156573\nwchar: 6046221759\nsyscr: 242319\nsyscw: 5769\nread_bytes: 14458880\nwrite_bytes: 6058582016\ncancelled_write_bytes: 4096\n",
+      "wchan": "0"
+    },
+    "children": [
+      {
+        "pid": 3041291,
+        "ppid": 2960820,
+        "cmd": "/home/lzf/ldx/envs/tbps-image/bin/python -u -B -m tbps.baselines.cpgc_sep.cli --config /home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-no-gpu-floor-20261101/configs/framework/cpgc_sep_tbps.no_gpu_floor.server.json --action sep-source --method sep --scope full --dataset cuhk --victim irra --allow-full "
+      }
+    ],
+    "output": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4",
+    "config": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-sep-no-gpu-floor-20261101/configs/framework/cpgc_sep_tbps.no_gpu_floor.server.json"
+  },
+  "signal": {
+    "time": 1793688218.9927416,
+    "action": "SIGTERM",
+    "pid": 3041291,
+    "start_ticks": 2361911378,
+    "pidfd": true,
+    "process_group_signalled": false,
+    "implementation": "Linux x86_64 pidfd syscall；Python未暴露os.pidfd_open，准备阶段错误未发信号",
+    "authorization": "用户明确授权停止SEP"
+  },
+  "timing": {
+    "completed_queries": 44,
+    "early_Clean_wrong_NOOP": 14,
+    "optimized_queries": 30,
+    "optimized_seconds": {
+      "min": 2183.6364290714264,
+      "median": 6230.653167724609,
+      "mean": 7301.567960890135,
+      "max": 25598.54757452011,
+      "sum": 219047.03882670403
+    },
+    "early_NOOP_seconds": {
+      "min": 2.4261624813079834,
+      "median": 2.443904161453247,
+      "max": 2.6069705486297607,
+      "sum": 34.69342756271362
+    },
+    "gallery_setup_seconds": 189.72235226631165,
+    "wall_seconds": 222339.0546386242,
+    "process_CPU_seconds": 236520.93,
+    "active_query_index": 44,
+    "active_query_id": "cuhk:37154:0",
+    "active_query_seconds_before_stop": 3066.28373503685,
+    "active_claim": {
+      "config_sha": "d3a5bf917d2d4d28a19dee1b14f6c61d546670b039efadba727db7f6d5f347ad",
+      "kind": "SEP_official_text",
+      "query_id": "cuhk:37154:0",
+      "raw_sha": "246e05714168653166f1d796d202733f33a7a3f3f0e2bf45594805c0c57c8bd8"
+    },
+    "active_caption": "A man with short hair, wearing a t shirt and shorts with flip flops . He has something  wrapped around his neck",
+    "log_last_progress_count": 41,
+    "Gallery": 3074,
+    "PID_count": 1000,
+    "PID_comparisons_per_new_candidate_two_models": 6148000
+  },
+  "GPU_telemetry": {
+    "samples": 14802,
+    "first": {
+      "time": "2026-11-01T00:57:50.017852+08:00",
+      "memory_used_MiB": 40.0,
+      "memory_free_MiB": 24051.0,
+      "utilization": 0.0,
+      "power_W": 26.63
+    },
+    "last": {
+      "time": "2026-11-03T14:43:25.898639+08:00",
+      "memory_used_MiB": 3056.0,
+      "memory_free_MiB": 21035.0,
+      "utilization": 0.0,
+      "power_W": 57.53
+    },
+    "all": {
+      "count": 14802,
+      "median_utilization": 0.0,
+      "mean_utilization": 11.587420618835292,
+      "zero_utilization": 10478
+    },
+    "high_memory_total_ge20GiB": {
+      "count": 7422,
+      "median_utilization": 0.0,
+      "mean_utilization": 20.940986257073565,
+      "zero_utilization": 3959
+    },
+    "low_memory_total_lt8GiB": {
+      "count": 7345,
+      "median_utilization": 0.0,
+      "mean_utilization": 2.1256637168141594,
+      "zero_utilization": 6504
+    },
+    "memory_used_MiB_min": 40.0,
+    "memory_used_MiB_max": 23645.0,
+    "attribution_limit": "GPU telemetry is device-global, not per-process utilization; historical high residency alone cannot attribute kernels or blocking to Ollama."
+  },
+  "integrity": {
+    "status": "PASS",
+    "scope": "existing artifacts/SHA/receipt only; no metric or model rerun",
+    "CPGC_Full_audits": 6,
+    "CPGC_integrity_method": "all frozen size/mtime/inode + original completion manifest SHA + complete original independent CPU audit/CSV/provenance identity; not all cached Tensor payloads rehashed",
+    "frozen_stat_snapshots": {
+      "/home/lzf/ldx/tmp/cpgc_sep_no_gpu_floor_prepare_20261101/v3_metadata.jsonl": {
+        "rows": 175354,
+        "sha256": "cb98d3c318d2af4fd431ab410abd6a62bb49af8e44b6f73893eea4472a28e944"
+      },
+      "/home/lzf/ldx/tmp/cpgc_sep_throughput_prepare_v3_20261031/v2_metadata.jsonl": {
+        "rows": 535776,
+        "sha256": "bfb308fe2decbbbd1de7f700c13efd17c535ebf0d9bf16d834f08069958d1f77"
+      }
+    },
+    "frozen_stat_unique_files": 711130,
+    "CPGC_stat_coverage": {
+      "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc/cuhk/irra": 33112,
+      "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/audit/cpgc/cuhk/irra": 6,
+      "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc/cuhk/rasa": 33112,
+      "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/audit/cpgc/cuhk/rasa": 6,
+      "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc/rstp/irra": 10782,
+      "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/audit/cpgc/rstp/irra": 6,
+      "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc/rstp/rasa": 10782,
+      "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/audit/cpgc/rstp/rasa": 6,
+      "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc/icfg/irra": 168743,
+      "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/audit/cpgc/icfg/irra": 6,
+      "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/full/cpgc/icfg/rasa": 168743,
+      "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/full/audit/cpgc/icfg/rasa": 6
+    },
+    "SEP_Smoke_audits": 6,
+    "groups": [
+      {
+        "identity": "cpgc/full/cuhk/irra/target",
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc/cuhk/irra",
+        "status": "PASS",
+        "units": 6739,
+        "deep_payload_SHA_this_scan": false,
+        "completion_manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc/cuhk/irra/completed/manifest.json",
+        "completion_sha256": "c26af4adaaf523b89c9d628f90cd74aa9a2802abcc7ab9a4c18d801b7f3c227d",
+        "report_status": "PASS"
+      },
+      {
+        "identity": "cpgc/full/cuhk/irra/audit",
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/audit/cpgc/cuhk/irra",
+        "status": "PASS",
+        "units": 1,
+        "deep_payload_SHA_this_scan": false,
+        "completion_manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/audit/cpgc/cuhk/irra/completed/manifest.json",
+        "completion_sha256": "799b32fc69c0673f9779f6dbb7ebc81b87769c04f42080bbe630a2c0cd41d05c",
+        "report_status": "PASS"
+      },
+      {
+        "identity": "cpgc/full/cuhk/rasa/target",
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc/cuhk/rasa",
+        "status": "PASS",
+        "units": 6739,
+        "deep_payload_SHA_this_scan": false,
+        "completion_manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc/cuhk/rasa/completed/manifest.json",
+        "completion_sha256": "2b86878d7df8de470915aa7e8e7b39b0128512d9fdf54b66a6281b332727db20",
+        "report_status": "PASS"
+      },
+      {
+        "identity": "cpgc/full/cuhk/rasa/audit",
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/audit/cpgc/cuhk/rasa",
+        "status": "PASS",
+        "units": 1,
+        "deep_payload_SHA_this_scan": false,
+        "completion_manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/audit/cpgc/cuhk/rasa/completed/manifest.json",
+        "completion_sha256": "76bf7d0a309ba9c24ac195ff87d21b1193cfeff8d90bd7e319503ac540c33ebc",
+        "report_status": "PASS"
+      },
+      {
+        "identity": "cpgc/full/rstp/irra/target",
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc/rstp/irra",
+        "status": "PASS",
+        "units": 2195,
+        "deep_payload_SHA_this_scan": false,
+        "completion_manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc/rstp/irra/completed/manifest.json",
+        "completion_sha256": "d9c570274cf337baa232fb6bf9d6bedb0c556192e41b664f2a9e522053c5ca8b",
+        "report_status": "PASS"
+      },
+      {
+        "identity": "cpgc/full/rstp/irra/audit",
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/audit/cpgc/rstp/irra",
+        "status": "PASS",
+        "units": 1,
+        "deep_payload_SHA_this_scan": false,
+        "completion_manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/audit/cpgc/rstp/irra/completed/manifest.json",
+        "completion_sha256": "0034a6cc736754d3e84abf421a375d259ad51d9ef651230089c04c3e8774212a",
+        "report_status": "PASS"
+      },
+      {
+        "identity": "cpgc/full/rstp/rasa/target",
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc/rstp/rasa",
+        "status": "PASS",
+        "units": 2195,
+        "deep_payload_SHA_this_scan": false,
+        "completion_manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc/rstp/rasa/completed/manifest.json",
+        "completion_sha256": "921123b08fc9ac57e69acd402c97d6e4a48f63303c3bc91d50fd02808628913a",
+        "report_status": "PASS"
+      },
+      {
+        "identity": "cpgc/full/rstp/rasa/audit",
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/audit/cpgc/rstp/rasa",
+        "status": "PASS",
+        "units": 1,
+        "deep_payload_SHA_this_scan": false,
+        "completion_manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/audit/cpgc/rstp/rasa/completed/manifest.json",
+        "completion_sha256": "8a02152afba3e14318b18ff51992105acdbae116972d3bbf7eeee5069482dda2",
+        "report_status": "PASS"
+      },
+      {
+        "identity": "cpgc/full/icfg/irra/target",
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc/icfg/irra",
+        "status": "PASS",
+        "units": 34122,
+        "deep_payload_SHA_this_scan": false,
+        "completion_manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/cpgc/icfg/irra/completed/manifest.json",
+        "completion_sha256": "71ba9f3d0425f4f67994ec38608790e1991a9d25d1a7d18928ef393e0d0484dc",
+        "report_status": "PASS"
+      },
+      {
+        "identity": "cpgc/full/icfg/irra/audit",
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/audit/cpgc/icfg/irra",
+        "status": "PASS",
+        "units": 1,
+        "deep_payload_SHA_this_scan": false,
+        "completion_manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v2/full/audit/cpgc/icfg/irra/completed/manifest.json",
+        "completion_sha256": "ad671fa3453968a063c13406c19316ac6c2bb444dc5438598ed6b3e0b4759c49",
+        "report_status": "PASS"
+      },
+      {
+        "identity": "cpgc/full/icfg/rasa/target",
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/full/cpgc/icfg/rasa",
+        "status": "PASS",
+        "units": 34122,
+        "deep_payload_SHA_this_scan": false,
+        "completion_manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/full/cpgc/icfg/rasa/completed/manifest.json",
+        "completion_sha256": "e831de7d2132143cdcb85a3028c713715bad91e9cfbc1941db63b99646e08442",
+        "report_status": "PASS"
+      },
+      {
+        "identity": "cpgc/full/icfg/rasa/audit",
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/full/audit/cpgc/icfg/rasa",
+        "status": "PASS",
+        "units": 1,
+        "deep_payload_SHA_this_scan": false,
+        "completion_manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/full/audit/cpgc/icfg/rasa/completed/manifest.json",
+        "completion_sha256": "69d87db7d6d65e192bbb04eeaef2892583bdc0ac35710466cca3bea2e2c8485b",
+        "report_status": "PASS"
+      },
+      {
+        "identity": "sep/smoke/cuhk/irra/source",
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep_source/cuhk/irra",
+        "status": "PASS",
+        "units": 36,
+        "deep_payload_SHA_this_scan": true,
+        "completion_manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep_source/cuhk/irra/completed/manifest.json",
+        "completion_sha256": "48d460312a8374dc6ae9746baf9c8b385a1f36a530ccd827013250780d10de0f",
+        "report_status": "PASS"
+      },
+      {
+        "identity": "sep/smoke/cuhk/irra/target",
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep/cuhk/irra",
+        "status": "PASS",
+        "units": 28,
+        "deep_payload_SHA_this_scan": true,
+        "completion_manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep/cuhk/irra/completed/manifest.json",
+        "completion_sha256": "da235f7366feeceeb8a95e9b5260ec6b68e68855ee8c1217a702de91b1bf35f7",
+        "report_status": "PASS"
+      },
+      {
+        "identity": "sep/smoke/cuhk/irra/audit",
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/sep/cuhk/irra",
+        "status": "PASS",
+        "units": 1,
+        "deep_payload_SHA_this_scan": true,
+        "completion_manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/sep/cuhk/irra/completed/manifest.json",
+        "completion_sha256": "529d6e21c8c195fbbbfc59b3ed18a8e527e86f74d97bddc384e6f3625d762e4b",
+        "report_status": "PASS"
+      },
+      {
+        "identity": "sep/smoke/cuhk/rasa/source",
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep_source/cuhk/rasa",
+        "status": "PASS",
+        "units": 36,
+        "deep_payload_SHA_this_scan": true,
+        "completion_manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep_source/cuhk/rasa/completed/manifest.json",
+        "completion_sha256": "284564881f7500826a516ee60e4a8bcec79c701d3b7a788cfab7d8ebc998eb2c",
+        "report_status": "PASS"
+      },
+      {
+        "identity": "sep/smoke/cuhk/rasa/target",
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep/cuhk/rasa",
+        "status": "PASS",
+        "units": 28,
+        "deep_payload_SHA_this_scan": true,
+        "completion_manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep/cuhk/rasa/completed/manifest.json",
+        "completion_sha256": "98006306deab184f08261d6958166451d729edefe9bb6320d841d0e89b3598df",
+        "report_status": "PASS"
+      },
+      {
+        "identity": "sep/smoke/cuhk/rasa/audit",
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/sep/cuhk/rasa",
+        "status": "PASS",
+        "units": 1,
+        "deep_payload_SHA_this_scan": true,
+        "completion_manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/sep/cuhk/rasa/completed/manifest.json",
+        "completion_sha256": "975b6278f2997193aa943a7c7391669f127e3dd0e0d3b905b747eb43fd18c9ed",
+        "report_status": "PASS"
+      },
+      {
+        "identity": "sep/smoke/rstp/irra/source",
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep_source/rstp/irra",
+        "status": "PASS",
+        "units": 36,
+        "deep_payload_SHA_this_scan": true,
+        "completion_manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep_source/rstp/irra/completed/manifest.json",
+        "completion_sha256": "3af4216b58466788ad4c78558dd6d4f9fd7a9e7d6a3c76d40b29555ba4bb0c75",
+        "report_status": "PASS"
+      },
+      {
+        "identity": "sep/smoke/rstp/irra/target",
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep/rstp/irra",
+        "status": "PASS",
+        "units": 28,
+        "deep_payload_SHA_this_scan": true,
+        "completion_manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep/rstp/irra/completed/manifest.json",
+        "completion_sha256": "a45e73570050a26b672ceff86db4e8349daf5d77833b6aa4de153b6aab88af95",
+        "report_status": "PASS"
+      },
+      {
+        "identity": "sep/smoke/rstp/irra/audit",
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/sep/rstp/irra",
+        "status": "PASS",
+        "units": 1,
+        "deep_payload_SHA_this_scan": true,
+        "completion_manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/sep/rstp/irra/completed/manifest.json",
+        "completion_sha256": "bff49630619499deef60d73fe6b4ecc1bf5586ccf8bd70012339910584d99bb1",
+        "report_status": "PASS"
+      },
+      {
+        "identity": "sep/smoke/rstp/rasa/source",
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep_source/rstp/rasa",
+        "status": "PASS",
+        "units": 36,
+        "deep_payload_SHA_this_scan": true,
+        "completion_manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep_source/rstp/rasa/completed/manifest.json",
+        "completion_sha256": "e81e9ad7f678a35eb3612afed29e6cb883edf4cafafe975bf42d77a2c8f999a6",
+        "report_status": "PASS"
+      },
+      {
+        "identity": "sep/smoke/rstp/rasa/target",
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep/rstp/rasa",
+        "status": "PASS",
+        "units": 28,
+        "deep_payload_SHA_this_scan": true,
+        "completion_manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep/rstp/rasa/completed/manifest.json",
+        "completion_sha256": "bdc84482a788b717338886760fea7a8c7a6ca2999b17ff961823a2f64cea14f3",
+        "report_status": "PASS"
+      },
+      {
+        "identity": "sep/smoke/rstp/rasa/audit",
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/sep/rstp/rasa",
+        "status": "PASS",
+        "units": 1,
+        "deep_payload_SHA_this_scan": true,
+        "completion_manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/sep/rstp/rasa/completed/manifest.json",
+        "completion_sha256": "0eeb6311f773cb0a86b1fe7ba8c4d21167c1c5e543bf91b40094dd78d34253d0",
+        "report_status": "PASS"
+      },
+      {
+        "identity": "sep/smoke/icfg/irra/source",
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep_source/icfg/irra",
+        "status": "PASS",
+        "units": 36,
+        "deep_payload_SHA_this_scan": true,
+        "completion_manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep_source/icfg/irra/completed/manifest.json",
+        "completion_sha256": "e86f1449f4849d6b8698afc5fecfbf6c7b1c7bb0627902015ebcccf34de4703e",
+        "report_status": "PASS"
+      },
+      {
+        "identity": "sep/smoke/icfg/irra/target",
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/smoke/sep/icfg/irra",
+        "status": "PASS",
+        "units": 28,
+        "deep_payload_SHA_this_scan": true,
+        "completion_manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/smoke/sep/icfg/irra/completed/manifest.json",
+        "completion_sha256": "b008a174783b4d908339c778963a8c3d7c2d8a4c3cff7f6d2addc0c7504cf524",
+        "report_status": "PASS"
+      },
+      {
+        "identity": "sep/smoke/icfg/irra/audit",
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/smoke/audit/sep/icfg/irra",
+        "status": "PASS",
+        "units": 1,
+        "deep_payload_SHA_this_scan": true,
+        "completion_manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/smoke/audit/sep/icfg/irra/completed/manifest.json",
+        "completion_sha256": "d1500c9419b4f3b753bc8c08a9bcc367099801addff6474e104c41d626995541",
+        "report_status": "PASS"
+      },
+      {
+        "identity": "sep/smoke/icfg/rasa/source",
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/smoke/sep_source/icfg/rasa",
+        "status": "PASS",
+        "units": 36,
+        "deep_payload_SHA_this_scan": true,
+        "completion_manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/smoke/sep_source/icfg/rasa/completed/manifest.json",
+        "completion_sha256": "5a86c4bb1b5e644b14028fe3aa6ea144d5c21323c1ec85aab53401953ed9122e",
+        "report_status": "PASS"
+      },
+      {
+        "identity": "sep/smoke/icfg/rasa/target",
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/smoke/sep/icfg/rasa",
+        "status": "PASS",
+        "units": 28,
+        "deep_payload_SHA_this_scan": true,
+        "completion_manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/smoke/sep/icfg/rasa/completed/manifest.json",
+        "completion_sha256": "d823a2886a88542b103f8293f6a4581e5dfd1f089f4179db926e93a15d027a79",
+        "report_status": "PASS"
+      },
+      {
+        "identity": "sep/smoke/icfg/rasa/audit",
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/smoke/audit/sep/icfg/rasa",
+        "status": "PASS",
+        "units": 1,
+        "deep_payload_SHA_this_scan": true,
+        "completion_manifest": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/smoke/audit/sep/icfg/rasa/completed/manifest.json",
+        "completion_sha256": "3932b98050515791b52e721380f5ec40cafdfa99359b9d56e843e83e6477d8f3",
+        "report_status": "PASS"
+      }
+    ],
+    "partial_SEP": {
+      "Gallery_per_surrogate": 3074,
+      "published_queries": 44,
+      "expected_queries": 6156,
+      "rows": [
+        {
+          "index": 0,
+          "query_id": "cuhk:37132:0",
+          "NOOP": false,
+          "reason": null,
+          "manifest_sha256": "38a0372aa349e7d26c62dfdb41b9520a8b5c3dc7abe89570f955e9a276271b41",
+          "raw_caption_sha256": "24af8c725b92c5e48ff3e77927e7f806d165c0a83696bb33371ff31bd95865b9"
+        },
+        {
+          "index": 1,
+          "query_id": "cuhk:37132:1",
+          "NOOP": false,
+          "reason": null,
+          "manifest_sha256": "6c0221bd9f2d9858be7c151cc7cc9e54b5b074dd4e67b03439905d292e4c0875",
+          "raw_caption_sha256": "b03e7a2598a4e0f389ec64c85fe6512f876aa522b0b3213880676c757f58afac"
+        },
+        {
+          "index": 2,
+          "query_id": "cuhk:37133:0",
+          "NOOP": false,
+          "reason": null,
+          "manifest_sha256": "c8c9ada855271e7395a4e7925b9ddaa1df2f869346952e936c676a6c9614738d",
+          "raw_caption_sha256": "f03111f981b50eb866718aff1226798b2d1b03d80ba9c8c359cae48f59e7c418"
+        },
+        {
+          "index": 3,
+          "query_id": "cuhk:37133:1",
+          "NOOP": false,
+          "reason": null,
+          "manifest_sha256": "a120539d16609ea180b07768970ac57078f05c31f166d267b8e2e10618e8a115",
+          "raw_caption_sha256": "be03b2d9f7067afc453576df3d0737152b2fbaaf26c95d89bd83d16c914e0c15"
+        },
+        {
+          "index": 4,
+          "query_id": "cuhk:37134:0",
+          "NOOP": false,
+          "reason": null,
+          "manifest_sha256": "f71d5f26025d65f941277eb1b23fad95e6406ed2b41b0fe64660b5793512efeb",
+          "raw_caption_sha256": "ee6fcab105387d6dc4fbc3c6f2c282afe5b2d3fb77dc7eb2d6e8241fcbd9550e"
+        },
+        {
+          "index": 5,
+          "query_id": "cuhk:37134:1",
+          "NOOP": false,
+          "reason": null,
+          "manifest_sha256": "1073095afcb7631b87f69501944a41c2cf91a5b4f4070b06dc9ae88d78c6c15c",
+          "raw_caption_sha256": "cf4546f9c6423ad750a3da644ff28225d968257ff07198d6d3e9bd2adef85b3f"
+        },
+        {
+          "index": 6,
+          "query_id": "cuhk:37135:0",
+          "NOOP": true,
+          "reason": "original Victim Clean wrong",
+          "manifest_sha256": "1484ee1abb500dd9ef6a3220844db2f7f148c75a7a4f820a4b09d51d9420f9aa",
+          "raw_caption_sha256": "f5ab356954d57fb620a6e09516079ccac4f166eabf50aff7457755b8f381c3e5"
+        },
+        {
+          "index": 7,
+          "query_id": "cuhk:37135:1",
+          "NOOP": true,
+          "reason": "original Victim Clean wrong",
+          "manifest_sha256": "f2574c045dde180eb1978a5b00fabf8d94198e12dd01ea5806dc3feb1067e2dd",
+          "raw_caption_sha256": "9d952dd4d6fb069e12d7101190186efd87f17339960701f2acef8fbba1afaa11"
+        },
+        {
+          "index": 8,
+          "query_id": "cuhk:37136:0",
+          "NOOP": true,
+          "reason": "original Victim Clean wrong",
+          "manifest_sha256": "a06752626b07678c554f762294e4c7d530272b67734806cea68d741efc352cde",
+          "raw_caption_sha256": "1a30b4f6a6ceed185fa9049118653f887b3cb0b17ed724a95b5da9c444bc1a31"
+        },
+        {
+          "index": 9,
+          "query_id": "cuhk:37136:1",
+          "NOOP": false,
+          "reason": null,
+          "manifest_sha256": "803768a539309477700d2ad8053a2a238bb84bf4c6437964c7c7821e1221accf",
+          "raw_caption_sha256": "d467ef797de087259bc4a9001ec774fb0846b6b18299b8d62ebe644ccc5b23d9"
+        },
+        {
+          "index": 10,
+          "query_id": "cuhk:37137:0",
+          "NOOP": true,
+          "reason": "original Victim Clean wrong",
+          "manifest_sha256": "751637220977e47d1af6d6034ae4baef3c9471747b17f021e5aeadb16d97d04b",
+          "raw_caption_sha256": "1a404f2d49fa9a483ca25f565b2e29a4014196e17a24889ed9afcec802594853"
+        },
+        {
+          "index": 11,
+          "query_id": "cuhk:37137:1",
+          "NOOP": false,
+          "reason": null,
+          "manifest_sha256": "80b090269418512e333e8caba241fd3518f27c0c8d65a8b749c71f35f165a19a",
+          "raw_caption_sha256": "244771542e6a9bafc2dfd8026b407a044b308b92fa1cfb39cf0088340993497d"
+        },
+        {
+          "index": 12,
+          "query_id": "cuhk:37138:0",
+          "NOOP": true,
+          "reason": "original Victim Clean wrong",
+          "manifest_sha256": "06e36c05cda0c629e94511bfd9a72bb21f7c45766ed674c58d4ac6f963393ca1",
+          "raw_caption_sha256": "24d95b5e1e44704f4341ced282d04d0384c372c95ba21508dc61ff89a3248454"
+        },
+        {
+          "index": 13,
+          "query_id": "cuhk:37138:1",
+          "NOOP": true,
+          "reason": "original Victim Clean wrong",
+          "manifest_sha256": "ec1a2bce941b2a8e37f9f529d05fb5c0f2151ac1597dac154bf7937333edc3ce",
+          "raw_caption_sha256": "a0439eee746741ec3c2b9759a870ef28cc269a2e230695c033c8dee00419fcba"
+        },
+        {
+          "index": 14,
+          "query_id": "cuhk:37139:0",
+          "NOOP": false,
+          "reason": null,
+          "manifest_sha256": "c0dddb7d93fb3d730a47e66698945817d2b4d20cd50f7558c90f80099b9d630d",
+          "raw_caption_sha256": "1ed16ce5226a624a39331f7bcd65977e6ac8637c1f47a031d991882f30b83d45"
+        },
+        {
+          "index": 15,
+          "query_id": "cuhk:37139:1",
+          "NOOP": false,
+          "reason": null,
+          "manifest_sha256": "fae0e72543c62ac105216fea7feba607e0109c44d63c032ded3a999f3c64a644",
+          "raw_caption_sha256": "72180b63fe93e611dd8ed27e1e959ab61c41dbfd88ea109f2c0129339951e04d"
+        },
+        {
+          "index": 16,
+          "query_id": "cuhk:37140:0",
+          "NOOP": true,
+          "reason": "original Victim Clean wrong",
+          "manifest_sha256": "9c5f3288dd51c08db3ff10a4a026e41846919ca5afd7ef295e5db09ab2fdac1c",
+          "raw_caption_sha256": "4d17dec3b01301612401d5cb5311c3b68eab21ee54054474a303b33b245bb39c"
+        },
+        {
+          "index": 17,
+          "query_id": "cuhk:37140:1",
+          "NOOP": false,
+          "reason": null,
+          "manifest_sha256": "990bd6224ce5c059a3a896799d651ef46d7b486d7010346b048a926bda1b807c",
+          "raw_caption_sha256": "776519f13a6c5b29ed43b1dc4b4f0fbbeb8d00bf6b8695170111d108d9a928ea"
+        },
+        {
+          "index": 18,
+          "query_id": "cuhk:37141:0",
+          "NOOP": false,
+          "reason": null,
+          "manifest_sha256": "e4b065d5b86e30e03399811a37ff97bc87498f06a0b7dd1c7d8bb9673ad3c3fa",
+          "raw_caption_sha256": "c43395e229fc1bddb50b3f808fd808fd9ec8ee96cb09be765ca71b61ce15966c"
+        },
+        {
+          "index": 19,
+          "query_id": "cuhk:37141:1",
+          "NOOP": true,
+          "reason": "original Victim Clean wrong",
+          "manifest_sha256": "0d80f406681a4504e3750246e643638edc6e829ff7c2b072d475521a0b48e371",
+          "raw_caption_sha256": "3fa0bcd9c715296f1b95ab7b9195d6fcdae4e598d039c835fb8b68b7dc30cbf9"
+        },
+        {
+          "index": 20,
+          "query_id": "cuhk:37142:0",
+          "NOOP": true,
+          "reason": "original Victim Clean wrong",
+          "manifest_sha256": "a1f9599e35ef0d81f61ce309d8f99b5ab3df66aa6d843cdd2c1055f9f138afbe",
+          "raw_caption_sha256": "19a37e9c7e2e38963581fbf1b3e31d3bbe1ada0d2d9a0b8e203244a7b612e3f4"
+        },
+        {
+          "index": 21,
+          "query_id": "cuhk:37142:1",
+          "NOOP": false,
+          "reason": null,
+          "manifest_sha256": "115bc295ea75b6c7821cb7b96a82f677c21d97b57ead70effd361378f2548e82",
+          "raw_caption_sha256": "fa386963c853ce8eb120fc03c0550ca5a6bcec7caac5ea5a1c88dedb3a4ce1e4"
+        },
+        {
+          "index": 22,
+          "query_id": "cuhk:37143:0",
+          "NOOP": true,
+          "reason": "original Victim Clean wrong",
+          "manifest_sha256": "fc160b194ed7ac0e85f73f93b8e769f002c8db5cea98bab9e01baef9c9fae593",
+          "raw_caption_sha256": "c2ee421f61c87e7584b43a6930f31ce8b343893e8fe4a294047f707e7f6843fc"
+        },
+        {
+          "index": 23,
+          "query_id": "cuhk:37143:1",
+          "NOOP": false,
+          "reason": null,
+          "manifest_sha256": "fe8fabf41861344757bb07619ca16eb71ae300ee9218550f18666c33c733ce9d",
+          "raw_caption_sha256": "9741334f1bc2d203c949483722816cd603c68f6fb61d3f94f3ed346e0dba05f4"
+        },
+        {
+          "index": 24,
+          "query_id": "cuhk:37144:0",
+          "NOOP": false,
+          "reason": null,
+          "manifest_sha256": "21d48f8c6c104e4feea8b653558f75ee8f469a46f7bf31e84b36a4966c4ac9c3",
+          "raw_caption_sha256": "98c15939a93150a2f151c662347289da036f6fa5f248d34df082556da7900588"
+        },
+        {
+          "index": 25,
+          "query_id": "cuhk:37144:1",
+          "NOOP": true,
+          "reason": "original Victim Clean wrong",
+          "manifest_sha256": "9e46425c311471f8eb1a5d8634b2e7d499f5f5fa2f42d29fd2e9951b70b3e671",
+          "raw_caption_sha256": "eb46646b87d99a5282776056aab833775335573b85796c8f84dbf1b712c68b71"
+        },
+        {
+          "index": 26,
+          "query_id": "cuhk:37145:0",
+          "NOOP": true,
+          "reason": "original Victim Clean wrong",
+          "manifest_sha256": "61406f47f5d42ea371de130c58cf8e67b241be32330e71a5a2bb4893954fe827",
+          "raw_caption_sha256": "6cb2e4813405b9c91b7998c0b7bce9af27b1dd653a5ce221a219146d027ccb22"
+        },
+        {
+          "index": 27,
+          "query_id": "cuhk:37145:1",
+          "NOOP": true,
+          "reason": "original Victim Clean wrong",
+          "manifest_sha256": "ce793929c29a20fa14c6714341cd0fc2646d7670b81678b1290015f8ebbecf5f",
+          "raw_caption_sha256": "15cf8340cde350716d272610898d492309d90a51fe30c6ab1fd929fc73900b3c"
+        },
+        {
+          "index": 28,
+          "query_id": "cuhk:37146:0",
+          "NOOP": false,
+          "reason": null,
+          "manifest_sha256": "1a9f64c9383c868b93b9d44cc76fc88d607548fe94ff7952dff1f062466be1b5",
+          "raw_caption_sha256": "3c5c86473fb0522d77772621b23caed51bf7529edba7ecf60031d18178ef8581"
+        },
+        {
+          "index": 29,
+          "query_id": "cuhk:37146:1",
+          "NOOP": false,
+          "reason": null,
+          "manifest_sha256": "aca5e6b59bbcdb2ccbc37ffcbe1c507242d11af0e2bc258a53b768cd7e8b56ce",
+          "raw_caption_sha256": "4e45da733e963b0415957980a908c81ff8edd5a98fc5c7e167b3b2f5cd8e5823"
+        },
+        {
+          "index": 30,
+          "query_id": "cuhk:37147:0",
+          "NOOP": false,
+          "reason": null,
+          "manifest_sha256": "8a135e0ba4d124536116a4875106751093f42e5c6759dd510b8778d1b5cfc542",
+          "raw_caption_sha256": "1cef00e470c8a3f1734edf9082dd152f08c205b626913b6023b5a300f0a4a4df"
+        },
+        {
+          "index": 31,
+          "query_id": "cuhk:37147:1",
+          "NOOP": true,
+          "reason": "original Victim Clean wrong",
+          "manifest_sha256": "48393f3a2323acc064277a45504036cbcd5d7cbb6446372c696c7d85e9687eba",
+          "raw_caption_sha256": "ae57e322322decc31f9491e17fa36f27837fb5b91b6156d1fdb9bcda9747f400"
+        },
+        {
+          "index": 32,
+          "query_id": "cuhk:37148:0",
+          "NOOP": false,
+          "reason": null,
+          "manifest_sha256": "52815a88c16c296f598ba3d524c4baf0d07555d13c3ff0e8faae0970833ccf93",
+          "raw_caption_sha256": "4e45da733e963b0415957980a908c81ff8edd5a98fc5c7e167b3b2f5cd8e5823"
+        },
+        {
+          "index": 33,
+          "query_id": "cuhk:37148:1",
+          "NOOP": false,
+          "reason": null,
+          "manifest_sha256": "8f777ef820ac16aa4903df15d16f3a7373954e9472c3f7e90f7db2fed3a751aa",
+          "raw_caption_sha256": "5adf9c6119dbde51a1695612cfe32037882229c99db801fb1807726f2892de68"
+        },
+        {
+          "index": 34,
+          "query_id": "cuhk:37149:0",
+          "NOOP": false,
+          "reason": null,
+          "manifest_sha256": "c5cdf38fc9981a29f746ffb13c1cbf4fb093d0d307e6a316cbe0e3d62bc968cf",
+          "raw_caption_sha256": "7b1247efe642a9ebc06f964a8384f59abc6712ba78cd5bbbcf105e06fd85bff7"
+        },
+        {
+          "index": 35,
+          "query_id": "cuhk:37149:1",
+          "NOOP": false,
+          "reason": null,
+          "manifest_sha256": "3d99e902a933d28be167b910b8ffe759cc25cccfd1039f10086559540f233651",
+          "raw_caption_sha256": "4e45da733e963b0415957980a908c81ff8edd5a98fc5c7e167b3b2f5cd8e5823"
+        },
+        {
+          "index": 36,
+          "query_id": "cuhk:37150:0",
+          "NOOP": false,
+          "reason": null,
+          "manifest_sha256": "4b8ca5123640d22e6fd717c3aa4850f8408b1c0d450c38918e717ed91934599f",
+          "raw_caption_sha256": "b1a95dee3ffaa0a7f65aa697606ec9b5b20beed6db0ddc515e198c94ab7a84dd"
+        },
+        {
+          "index": 37,
+          "query_id": "cuhk:37150:1",
+          "NOOP": false,
+          "reason": null,
+          "manifest_sha256": "1a51821a4386b77e09d2c8362f60103fa1cfbc7e56604af39f101c3b57140a8a",
+          "raw_caption_sha256": "b9a7383264e0ac7895b18d615af94a50f13d6d833c6398fc65e97f851be76590"
+        },
+        {
+          "index": 38,
+          "query_id": "cuhk:37151:0",
+          "NOOP": false,
+          "reason": null,
+          "manifest_sha256": "6ac76e94e9190419f4dfcd87ea29e252d8a2864511cf51c7ee06f62f7d8e5ab4",
+          "raw_caption_sha256": "b48d894dd38f6410673452e0cb5bf8485b455b90eb78e61d8c0d9fa1ddec9609"
+        },
+        {
+          "index": 39,
+          "query_id": "cuhk:37151:1",
+          "NOOP": false,
+          "reason": null,
+          "manifest_sha256": "7c09dbd279c924a28b22301b6802ac1b57c36d3b7c7ebeef2838fc6eb59193f1",
+          "raw_caption_sha256": "112a70c7fdf3bfdcb6afb4056fc23db1b261a62e8ddad1270ad682ba5de53d94"
+        },
+        {
+          "index": 40,
+          "query_id": "cuhk:37152:0",
+          "NOOP": false,
+          "reason": null,
+          "manifest_sha256": "abeb7648390c64012658a88d883eb5072270d0157d834f4e92e03b7b35bee7b5",
+          "raw_caption_sha256": "50fb6cd617859c304bb0ec564ea0f8a07a17ecf9e6d96fb91b4f464174aa6110"
+        },
+        {
+          "index": 41,
+          "query_id": "cuhk:37152:1",
+          "NOOP": false,
+          "reason": null,
+          "manifest_sha256": "f738730171f92f4a718cd77d41672227ad5c08f11dcefb66e8ea60a6bc079735",
+          "raw_caption_sha256": "240667ec015f7cf2f0edb8ffc4dcc72534b347b75935f542fd3309f1de339b15"
+        },
+        {
+          "index": 42,
+          "query_id": "cuhk:37153:0",
+          "NOOP": false,
+          "reason": null,
+          "manifest_sha256": "2f4d0bb598e9981fe26c030070f25c84b402155af1c5078486158e45d10c6b25",
+          "raw_caption_sha256": "ef6040568b47bc9179edc8fb02ce7e12e299383b7bbef6c22fc9265750a353b2"
+        },
+        {
+          "index": 43,
+          "query_id": "cuhk:37153:1",
+          "NOOP": false,
+          "reason": null,
+          "manifest_sha256": "4b911f257e00fd07e2e8fe927090cc1d8ba8f3ef41cc9b83655d1e7acaee8c6e",
+          "raw_caption_sha256": "31cd0c5da46c954f1840f8cf080ea566760006f3afbed0eb1e0edce82fc46a2f"
+        }
+      ],
+      "orphan_claims": [
+        "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra/text-000044.Claim.json"
+      ],
+      "pending": [],
+      "completed_exists": false,
+      "Full_target_exists": false,
+      "Full_audit_exists": false,
+      "independent_Full_audit": "NOT_RUN"
+    },
+    "prior_output_changed": [],
+    "prior_files_missing": [],
+    "expected_control_changes": [
+      "/home/lzf/ldx/tmp/cpgc_sep_no_gpu_floor_v4_20261101/launcher.log",
+      "/home/lzf/ldx/tmp/cpgc_sep_no_gpu_floor_v4_20261101/GPU_monitor.jsonl",
+      "/home/lzf/ldx/tmp/cpgc_sep_no_gpu_floor_v4_20261101/status.log",
+      "/home/lzf/ldx/tmp/cpgc_sep_no_gpu_floor_v4_20261101/status.json",
+      "/home/lzf/ldx/tmp/cpgc_sep_no_gpu_floor_v4_20261101/phase"
+    ],
+    "protected_checkpoints": {
+      "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0060/checkpoint.pt": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049",
+      "/home/lzf/ldx/outputs/tbps-framework-hv1-g60-adaptation-epoch60/training/checkpoints/visit_00122880/checkpoint.pt": "c0de26658c5f36083aaeb04dde3948cdd5bf941d30b1b5c97f7bb2c796404094"
+    },
+    "other_final_reports": [
+      {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-gh-cross-dataset-20261102/final/manifest.json",
+        "sha256": "aaedcb37f29d5ad46874412bce54c67ede24a9b905f1d3c3420b6d7810264a88"
+      }
+    ],
+    "unique_files_sha256_checked": 89945,
+    "cache_hits": 1654,
+    "unique_bytes_sha256_checked": 60675537619,
+    "elapsed_seconds": 442.20706486701965,
+    "model_frameworks_imported": false
+  },
+  "partial_identity": {
+    "status": "PASS",
+    "gallery_coverage": {
+      "irra": {
+        "blocks": 385,
+        "gallery": 3074
+      },
+      "rasa": {
+        "blocks": 385,
+        "gallery": 3074
+      }
+    },
+    "query_provenance_exact": 44,
+    "active_claim_exact": true,
+    "H7_checkpoint_sha256": "487f3061b6cba2ddabccdd49745a7b99c8c549f4541781b8814b299ef5f279df",
+    "new_model_forward": 0,
+    "new_attack_execution": 0
+  },
+  "all_SEP_history": {
+    "status": "PASS",
+    "all_discovered_SEP_scopes": [
+      {
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/smoke/sep_source/icfg/rasa",
+        "scope": "smoke",
+        "kind": "sep_source",
+        "completed_exists": true,
+        "FAIL_exists": false,
+        "pending": [],
+        "receipt_SHA_status": "PASS",
+        "completion_sha256": "5a86c4bb1b5e644b14028fe3aa6ea144d5c21323c1ec85aab53401953ed9122e",
+        "reported_status": "PASS"
+      },
+      {
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/smoke/sep/icfg/irra",
+        "scope": "smoke",
+        "kind": "sep",
+        "completed_exists": true,
+        "FAIL_exists": false,
+        "pending": [],
+        "receipt_SHA_status": "PASS",
+        "completion_sha256": "b008a174783b4d908339c778963a8c3d7c2d8a4c3cff7f6d2addc0c7504cf524",
+        "reported_status": "PASS"
+      },
+      {
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/smoke/sep/icfg/rasa",
+        "scope": "smoke",
+        "kind": "sep",
+        "completed_exists": true,
+        "FAIL_exists": false,
+        "pending": [],
+        "receipt_SHA_status": "PASS",
+        "completion_sha256": "d823a2886a88542b103f8293f6a4581e5dfd1f089f4179db926e93a15d027a79",
+        "reported_status": "PASS"
+      },
+      {
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/smoke/audit/sep/icfg/irra",
+        "scope": "smoke",
+        "kind": "audit/sep",
+        "completed_exists": true,
+        "FAIL_exists": false,
+        "pending": [],
+        "receipt_SHA_status": "PASS",
+        "completion_sha256": "d1500c9419b4f3b753bc8c08a9bcc367099801addff6474e104c41d626995541",
+        "reported_status": "PASS"
+      },
+      {
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/smoke/audit/sep/icfg/rasa",
+        "scope": "smoke",
+        "kind": "audit/sep",
+        "completed_exists": true,
+        "FAIL_exists": false,
+        "pending": [],
+        "receipt_SHA_status": "PASS",
+        "completion_sha256": "3932b98050515791b52e721380f5ec40cafdfa99359b9d56e843e83e6477d8f3",
+        "reported_status": "PASS"
+      },
+      {
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-no-gpu-floor-v4/full/sep_source/cuhk/irra",
+        "scope": "full",
+        "kind": "sep_source",
+        "completed_exists": false,
+        "FAIL_exists": false,
+        "pending": [],
+        "state": "PARTIAL_INTERRUPTED"
+      },
+      {
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep_source/cuhk/irra",
+        "scope": "smoke",
+        "kind": "sep_source",
+        "completed_exists": true,
+        "FAIL_exists": false,
+        "pending": [],
+        "receipt_SHA_status": "PASS",
+        "completion_sha256": "48d460312a8374dc6ae9746baf9c8b385a1f36a530ccd827013250780d10de0f",
+        "reported_status": "PASS"
+      },
+      {
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep_source/cuhk/rasa",
+        "scope": "smoke",
+        "kind": "sep_source",
+        "completed_exists": true,
+        "FAIL_exists": false,
+        "pending": [],
+        "receipt_SHA_status": "PASS",
+        "completion_sha256": "284564881f7500826a516ee60e4a8bcec79c701d3b7a788cfab7d8ebc998eb2c",
+        "reported_status": "PASS"
+      },
+      {
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep_source/icfg/irra",
+        "scope": "smoke",
+        "kind": "sep_source",
+        "completed_exists": true,
+        "FAIL_exists": false,
+        "pending": [],
+        "receipt_SHA_status": "PASS",
+        "completion_sha256": "e86f1449f4849d6b8698afc5fecfbf6c7b1c7bb0627902015ebcccf34de4703e",
+        "reported_status": "PASS"
+      },
+      {
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep_source/rstp/irra",
+        "scope": "smoke",
+        "kind": "sep_source",
+        "completed_exists": true,
+        "FAIL_exists": false,
+        "pending": [],
+        "receipt_SHA_status": "PASS",
+        "completion_sha256": "3af4216b58466788ad4c78558dd6d4f9fd7a9e7d6a3c76d40b29555ba4bb0c75",
+        "reported_status": "PASS"
+      },
+      {
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep_source/rstp/rasa",
+        "scope": "smoke",
+        "kind": "sep_source",
+        "completed_exists": true,
+        "FAIL_exists": false,
+        "pending": [],
+        "receipt_SHA_status": "PASS",
+        "completion_sha256": "e81e9ad7f678a35eb3612afed29e6cb883edf4cafafe975bf42d77a2c8f999a6",
+        "reported_status": "PASS"
+      },
+      {
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep/cuhk/irra",
+        "scope": "smoke",
+        "kind": "sep",
+        "completed_exists": true,
+        "FAIL_exists": false,
+        "pending": [],
+        "receipt_SHA_status": "PASS",
+        "completion_sha256": "da235f7366feeceeb8a95e9b5260ec6b68e68855ee8c1217a702de91b1bf35f7",
+        "reported_status": "PASS"
+      },
+      {
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep/cuhk/rasa",
+        "scope": "smoke",
+        "kind": "sep",
+        "completed_exists": true,
+        "FAIL_exists": false,
+        "pending": [],
+        "receipt_SHA_status": "PASS",
+        "completion_sha256": "98006306deab184f08261d6958166451d729edefe9bb6320d841d0e89b3598df",
+        "reported_status": "PASS"
+      },
+      {
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep/rstp/irra",
+        "scope": "smoke",
+        "kind": "sep",
+        "completed_exists": true,
+        "FAIL_exists": false,
+        "pending": [],
+        "receipt_SHA_status": "PASS",
+        "completion_sha256": "a45e73570050a26b672ceff86db4e8349daf5d77833b6aa4de153b6aab88af95",
+        "reported_status": "PASS"
+      },
+      {
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/sep/rstp/rasa",
+        "scope": "smoke",
+        "kind": "sep",
+        "completed_exists": true,
+        "FAIL_exists": false,
+        "pending": [],
+        "receipt_SHA_status": "PASS",
+        "completion_sha256": "bdc84482a788b717338886760fea7a8c7a6ca2999b17ff961823a2f64cea14f3",
+        "reported_status": "PASS"
+      },
+      {
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/sep/cuhk/irra",
+        "scope": "smoke",
+        "kind": "audit/sep",
+        "completed_exists": true,
+        "FAIL_exists": false,
+        "pending": [],
+        "receipt_SHA_status": "PASS",
+        "completion_sha256": "529d6e21c8c195fbbbfc59b3ed18a8e527e86f74d97bddc384e6f3625d762e4b",
+        "reported_status": "PASS"
+      },
+      {
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/sep/cuhk/rasa",
+        "scope": "smoke",
+        "kind": "audit/sep",
+        "completed_exists": true,
+        "FAIL_exists": false,
+        "pending": [],
+        "receipt_SHA_status": "PASS",
+        "completion_sha256": "975b6278f2997193aa943a7c7391669f127e3dd0e0d3b905b747eb43fd18c9ed",
+        "reported_status": "PASS"
+      },
+      {
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/sep/rstp/irra",
+        "scope": "smoke",
+        "kind": "audit/sep",
+        "completed_exists": true,
+        "FAIL_exists": false,
+        "pending": [],
+        "receipt_SHA_status": "PASS",
+        "completion_sha256": "bff49630619499deef60d73fe6b4ecc1bf5586ccf8bd70012339910584d99bb1",
+        "reported_status": "PASS"
+      },
+      {
+        "root": "/home/lzf/ldx/outputs/tbps-framework-cpgc-sep-official-v3/smoke/audit/sep/rstp/rasa",
+        "scope": "smoke",
+        "kind": "audit/sep",
+        "completed_exists": true,
+        "FAIL_exists": false,
+        "pending": [],
+        "receipt_SHA_status": "PASS",
+        "completion_sha256": "0eeb6311f773cb0a86b1fe7ba8c4d21167c1c5e543bf91b40094dd78d34253d0",
+        "reported_status": "PASS"
+      }
+    ],
+    "additional_complete_roots_deep_SHA_verified": 0,
+    "additional_unique_files": 0
+  },
+  "source_comparison_file": "SOURCE_COMPARISON.json",
+  "raw_evidence_directory": "/home/lzf/ldx/tmp/sep_stop_diagnosis_20261103",
+  "raw_evidence_index": {
+    "path": "/home/lzf/ldx/tmp/sep_stop_diagnosis_20261103/EVIDENCE_INDEX.json",
+    "sha256": "c6ebc5dfb1c80c41989dc51f83291cd6d9cc2054bcd3db32c6c6c5740ef88234"
+  },
+  "verification_method": {
+    "time": 1793688731.1399453,
+    "own_read_only_scan_ended": [
+      {
+        "pid": 495765,
+        "start_ticks": 2384180115,
+        "cmdline": [
+          "/home/lzf/ldx/envs/tbps-image/bin/python",
+          "-u",
+          "-B",
+          "/home/lzf/ldx/tmp/sep_stop_diagnosis_20261103/integrity_scan.py"
+        ]
+      }
+    ],
+    "reason": "本轮不重新运行历史指标审计；对已审计六组Full使用启动前冻结全量stat及完成/审计SHA绑定核验，SEP Smoke和新增Partial做逐payload SHA。未改动或恢复任何实验。",
+    "limitation": "不把本次C-PGC全量stat+完成回执SHA复核表述为所有数百GiB缓存重新SHA"
+  }
+}

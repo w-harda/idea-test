@@ -1,5 +1,9 @@
 # 项目当前状态（唯一权威入口）
 
+## CURRENT：SEP Full已按用户授权停止；性能诊断与完整性核验完成（2026-11-03）
+
+14:43:39仅向身份确认的SEP计算3041291发送SIGTERM；Supervisor2960820自行记录-15/FAIL后退出，所有SEP计算后代退出、3008MiB显存释放。原输出0变更0缺失；44/6156文本发布，第45条Claim中断保留，SEP Full 0/6。此前completed_Full=6是C-PGC六组，不是SEP。C-PGC六组Full/CPU回执保留，SEP六组Smoke的Source/Target/Audit 18范围深SHA通过；711130个冻结stat保持，89945文件SHA核验。无重启/重跑/参数修改/新GPU实验。已确认CPU PID聚合重复扫描、逐候选RaSa融合及同步开销；不把未保存栈的条件性上游零向量循环认定为现场死循环。详见[完整报告](framework/results/sep_stop_diagnosis/REPORT.md)。
+
 ## C-PGC/SEP取消固定GPU显存门槛恢复准备（2026-11-01）
 
 6/12完成，v3等待器909831已核实后停止，原现场保留。新codex/cpgc-sep-no-gpu-floor仅移除活动GPU显存否决、保留主机与来源门禁。

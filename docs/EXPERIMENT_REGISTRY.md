@@ -1,5 +1,9 @@
 # 历史实验注册表
 
+## SEP Full：STOPPED_BY_USER（2026-11-03）
+
+执行14f247f，SIGTERM子进程3041291后Supervisor2960820自然退出；Source CUHK/IRRA 44已发布+第45条Claim中断，所有SEP Full评分/审计未完成，正式Full 0/6。历史C-PGC六组及SEP六组Smoke保持完整；不重跑、不修算法。诊断/停止证据及未来建议见framework/results/sep_stop_diagnosis/REPORT.md。
+
 ## CPU研究审计：R²TUA文献Baseline引用与评测环境核验完成（2026-10-26，CPU只读）
 
 独立codex/r2tua-aligned-evaluation，基准c2062e43；目标是引用已发表Baseline，不重现全部攻击算法。

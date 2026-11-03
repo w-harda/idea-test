@@ -1,0 +1,54 @@
+{
+  "src/tbps/baselines/cpgc_sep/sep_source.py": {
+    "v4_sha256": "71137fdd7a962dfcb6d17fa9f454f002c4921e3c628c9d71651fa352f15c003f",
+    "v3_sha256": "71137fdd7a962dfcb6d17fa9f454f002c4921e3c628c9d71651fa352f15c003f",
+    "exact": true
+  },
+  "src/tbps/baselines/cpgc_sep/sep_bridge.py": {
+    "v4_sha256": "93084434436303433e1bd4fa1c567494a0a6c1acaaf3d6c9b25f3fb50d5aa68f",
+    "v3_sha256": "93084434436303433e1bd4fa1c567494a0a6c1acaaf3d6c9b25f3fb50d5aa68f",
+    "exact": true
+  },
+  "src/tbps/baselines/cpgc_sep/cache.py": {
+    "v4_sha256": "68abc0ce80f6a0adf757f6c04f45f41863b0113499dec882d01eae3a0e1cb5c0",
+    "v3_sha256": "68abc0ce80f6a0adf757f6c04f45f41863b0113499dec882d01eae3a0e1cb5c0",
+    "exact": true
+  },
+  "src/tbps/baselines/cpgc_sep/victims.py": {
+    "v4_sha256": "949b6bb88818536533589032de9588adf51864c234bc895e1946d8291a9d63aa",
+    "v3_sha256": "949b6bb88818536533589032de9588adf51864c234bc895e1946d8291a9d63aa",
+    "exact": true
+  },
+  "src/tbps/baselines/cpgc_sep/official.py": {
+    "v4_sha256": "01fe734a57d5de1f2f8c015ad44569bfbf6f5df7754fd5faafaf87d176818626",
+    "v3_sha256": "01fe734a57d5de1f2f8c015ad44569bfbf6f5df7754fd5faafaf87d176818626",
+    "exact": true
+  },
+  "sep_protocol_v4_v3_exact": true,
+  "evaluation_v4_v3_exact": true,
+  "official_git": {
+    "head": "3a6d848a48097aee79be0299da8959e78db543c7",
+    "status": "",
+    "files": {
+      "/home/lzf/ldx/external/SEP-Attack-official-20261028/SEP_Attack.py": "fbf09d92d5e3a98263374920ad1e0d541d3b2d9fe66ac26179df9a3b6b06c0eb",
+      "/home/lzf/ldx/external/SEP-Attack-official-20261028/SEP_utils.py": "b5ec6cce43214eedb5d2e5c12e15cceda70bb5ab1597687ade296881b7849cca"
+    }
+  },
+  "paper.html": {
+    "url": "https://arxiv.org/html/2605.24958v1",
+    "sha256": "0637b4e0d5e6ae3cc86b0b4125afc8ffe980e3ffc881d2e96e9bc5ead7f2ce98",
+    "bytes": 327227
+  },
+  "classification_to_TBPS_limit": {
+    "paper_ensemble_models": 4,
+    "paper_DPP_weights": 4,
+    "actual_ensemble_models": [
+      "irra",
+      "rasa"
+    ],
+    "actual_DPP_weights": 2,
+    "actual_victim_in_ensemble": true,
+    "official_main_excludes_victim": "SEP_Attack.py:551",
+    "note": "不得将其称为论文原分类任务/独立Victim黑盒同等复现；当前显式检索适配未改动。"
+  }
+}

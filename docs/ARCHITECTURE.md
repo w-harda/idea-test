@@ -1,5 +1,9 @@
 # 架构边界与迁移约定
 
+## SEP停止审计与性能限制（2026-11-03，仅诊断）
+
+现有SEP Source仅Query原子发布与RNG边界，未完成Claim不得自动重播；没有专用停止信号/迭代Checkpoint。用户停止子进程后Supervisor原生FAIL表示人工中断，不改为PASS。当前检索→PID桥每候选重建P×G分组，且逐文本编码/Top128融合，属于已确认性能瓶颈；未实施优化。官方原函数的条件性零向量循环风险与当前现场原因分开记录。核验旧成功依赖与新Partial只读进行，不重算GPU/指标。详见framework/results/sep_stop_diagnosis/REPORT.md。
+
 ## 独立B正式调度与共同IRRA比较
 
 formal_*在冻结NativeBackend外增加B单臂Round调度、独立范围授权与完整Round事务，不修改原G/H训练数学、JVP或原Smoke审计。
