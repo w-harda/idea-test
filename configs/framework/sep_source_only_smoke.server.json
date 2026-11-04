@@ -1,0 +1,20 @@
+{
+  "protocol": "SEP-TBPS-SRefPseudoPID-S1",
+  "scope": "smoke",
+  "baseline_config": {
+    "path": "configs/framework/cpgc_sep_tbps.no_gpu_floor.server.json",
+    "sha256": "d3a5bf917d2d4d28a19dee1b14f6c61d546670b039efadba727db7f6d5f347ad"
+  },
+  "aptm_config": {
+    "path": "configs/framework/aptm_sources.server.json",
+    "sha256": "812ca6c763d33de595796587ff7102433613d18230b6f56d9c677e6c2ec1812f"
+  },
+  "samples": {
+    "cuhk": [{"row": 37679, "caption": 0}, {"row": 39166, "caption": 0}],
+    "rstp": [{"row": 19693, "caption": 0}, {"row": 19776, "caption": 0}],
+    "icfg": [{"row": 36253, "caption": 0}, {"row": 43897, "caption": 0}]
+  },
+  "source_query_timeout_seconds": 1800,
+  "output": "/home/lzf/ldx/outputs/tbps-framework-sep-source-only-smoke-20261104",
+  "control": "/home/lzf/ldx/tmp/sep_source_only_smoke_20261104"
+}

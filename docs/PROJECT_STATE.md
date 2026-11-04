@@ -1,6 +1,10 @@
 # 项目当前状态（唯一权威入口）
 
-## CURRENT：SEP A类PID预计算生产接线及公平协议设计完成（2026-11-03，CPU Only）
+## CURRENT：SEP Source-only 独立 Smoke
+
+已接入 SEP-TBPS-SRefPseudoPID-S1。先冻结真实 IRRA/RaSa 分数并做 CPU 位级对照，再执行 Source-only 生成、独立 Target 评分和 CPU 审计。运行状态以新控制回执为准。[报告](framework/results/sep_source_only_smoke/REPORT.md)
+
+## FROZEN：SEP A类PID预计算生产接线及公平协议设计完成（2026-11-03，CPU Only）
 
 独立codex/sep-pid-integration，基准769648d。生产仅sep_bridge新增独立冻结PIDPlan、sep_source在每Classifier构建一次并用于cache miss；原归约/缓存/RNG/trace/算法/参数不变。原144+新32共176项CPU PASS，新旧原生产AST入口合成分数/候选/最终文本/RNG Exact；CUHK生产聚合入口423.055→8.633ms（49.00×，非完整攻击加速）。旧144中1项冻结断言按授权改为两文件白名单，另有精确diff门禁；未跳测试。
 

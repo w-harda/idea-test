@@ -1,5 +1,9 @@
 # 架构边界与迁移约定
 
+## SEP Source-only Smoke 隔离
+
+独立进程在 Linux Landlock 中读取固定 CUHK Train 参考图库和 Caption-only 输入。评测进程在文本冻结后加载 Target。既有 SEP 生产适配代码保持冻结。[协议](framework/results/sep_source_only_smoke/EXECUTION_PROTOCOL.md)
+
 ## SEP固定Gallery的生产PIDPlan（2026-11-03，CPU验收）
 
 sep_bridge.PIDPlan在每个sep_source.PIDClassifier构造时独立建立不可变PID/成员索引，cache miss继续原list索引/max/stack；保留旧pid_logits兼容入口。无全局跨Gallery缓存，不改NativeScorer、缓存键/容量、Trace或官方搜索。仅此A类代码集成，176 CPU回归PASS；不代表旧目标/GT权限已公平。Source参考伪标签协议仍为未采纳设计，未添加执行配置；新SHA不得绕过旧Claim/producer锁定。见framework/results/sep_pid_integration/REPORT.md。

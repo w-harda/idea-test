@@ -1,5 +1,9 @@
 # 历史实验注册表
 
+## SEP-TBPS-SRefPseudoPID-S1
+
+Source 为 CUHK-PEDES Train IRRA 与完整固定 Train 参考图库。两条 Caption 每域，分别评测 CUHK RaSa/APTM 和 RSTP/ICFG 原生 IRRA。状态以独立控制回执为准。[协议](framework/results/sep_source_only_smoke/EXECUTION_PROTOCOL.md)
+
 ## SEP A类生产PID集成与公平协议设计（2026-11-03，CPU_ONLY_COMPLETE）
 
 基准769648d；仅两生产文件接入PIDPlan。原144+新增32 CPU PASS，原/新生产入口Exact；CUHK合成入口49.00×微基准。公平SourceRef伪标签方案只是建议，N/目标/参考库OPEN；未改GT适配协议、未启动GPU/Smoke/Full，旧44/第45条现场冻结。详见framework/results/sep_pid_integration/REPORT.md。
