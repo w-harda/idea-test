@@ -14,7 +14,14 @@ from .common import image_path, sha_file
 @contextmanager
 def native(c, name, ds, aptm_config=None):
     if name == "aptm":
+        import torch
         from tbps.models.aptm import APTMSource, load_aptm
+        # Match materialized_aptm.run in this one-model Target process.
+        torch.backends.cuda.matmul.allow_tf32 = False
+        torch.backends.cudnn.allow_tf32 = False
+        torch.backends.cuda.enable_flash_sdp(False)
+        torch.backends.cuda.enable_mem_efficient_sdp(False)
+        torch.backends.cuda.enable_math_sdp(True)
         source = APTMSource(aptm_config)
         with load_aptm(source, smoke=True) as adapter:
             yield adapter, adapter.backend, source
