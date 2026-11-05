@@ -13,7 +13,7 @@ from tbps.baselines.cpgc_sep.dataset import require
 from operations.sep_source_only.common import ROOT,atomic,read
 from .runtime import CONFIG,DATASETS,VICTIMS,config,event,store,metadata
 
-REPORT=Path("docs/framework/results/sep_text_only_full/REPORT.md")
+REPORT=Path("docs/framework/results/sep_word_budget1/REPORT.md")
 
 
 def commit():
@@ -33,23 +33,25 @@ def observe():
 
 
 def final_report(c,launch,status,steps):
-    lines=["# SEP Text-only 三数据集 × 两 Victim", "",
-           "协议 SEP-TBPS-SRefPseudoPID-S1。Source 为冻结 CUHK IRRA，参考库为完整 CUHK Train。"
-           "生成阶段只使用 Caption 和 Source 伪 PID，IRRA/RaSa 共用同一份冻结文本。", "",
-           f"执行 Commit `{launch['commit']}`。实际状态 `{status}`。",
-           f"控制目录 `{c['control']}`。输出目录 `{c['output']}`。", "",
-           "继承176项CPU回归和已有真实分数Exact。本轮只执行受影响接线的定向CPU测试。"
-           "原Landlock CUDA初始化失败改为Caption-only输入投影及文件审计钩子。"
-           "S1保留原100次随机权重/DPP调用，N/E=1/1，权重退化为[1]。"
-           "CUHK IRRA也是Source，因此该行是Source可访问评测。", "",
-           "原同义词/POS/搜索预算/T=10/patience=5/gamma=.02保持。"
-           "每Caption使用不透明键派生的固定Seed，Smoke产物直接复用于Full。"
-           "常量/非有限重要性导致官方缩放循环无法结束时显式FAIL，保留原Query，未添加NOOP回退。", "",
-           "## 实际阶段", "", "|阶段|状态|秒|", "|---|---|---:|"]
+    from collections import Counter
+    import csv,io
+    lines=["# SEP-TBPS-TextOnly-WordBudget1", "",
+           f"执行 Commit `{launch['commit']}`，当前状态 `{status}`。",
+           f"控制目录 `{c['control']}`。输出目录 `{c['output']}`。",
+           "", "只执行Text-only。Source为CUHK IRRA与完整Train参考图库，固定Source伪PID。"
+           "S1原100随机权重/DPP调用保留，N/E=1/1，最终权重[1]。CUHK IRRA为Source可访问模型。",
+           "", "原官方AST仅适配max_change_num=1、att_succ_num=1，禁用整词截断；"
+           "重要性探针由删词改为基于原文的单位置[UNK]替换。其他原始单词、空白及标点位置保持，"
+           "实际输出仅替换原始一个词跨度。单一可选位置直接保留softmax概率1，"
+           "多位置常量/非有限重要性仍显式报错停止。T=10、patience=5、候选top50、tau gamma=.02保持。",
+           "", "生成过程和每次Source评分前检查全部候选、搜索状态和最终文本，超预算立即失败。"
+           "无合法同义词时记录NO_LEGAL_SYNONYM并原文NOOP。"
+           "Source-only伪标签及单代理属于既有检索适配，本版属于固定单词预算SEP-inspired变体。",
+           "", "## 实际阶段", "", "|阶段|状态|秒|", "|---|---|---:|"]
     lines += [f"|{s['phase']}|{s['status']}|{s['seconds']:.2f}|" for s in steps]
-    lines += ["", "## Full结果", "",
-              "|Dataset|Victim|Attack|R@1|R@5|R@10|mAP|Query|",
-              "|---|---|---|---:|---:|---:|---:|---:|"]
+    lines += ["", "## 正式Full结果", "",
+              "|Dataset|Victim|Attack|Budget|R@1|R@5|R@10|mAP|",
+              "|---|---|---|---|---:|---:|---:|---:|"]
     names={"cuhk":"CUHK-PEDES","rstp":"RSTPReid","icfg":"ICFG-PEDES"}
     rows=[]
     for ds in DATASETS:
@@ -58,31 +60,47 @@ def final_report(c,launch,status,steps):
             if (a.root/"completed").exists():
                 a.verify("completed")
                 audit=read(a.root/"completed/report.json")
+                require(audit["budget_violations"]==0 and audit["word_budget"]==1,"WordBudget1 Full validity")
                 values=audit["metrics"]
-                lines.append(f"|{names[ds]}|{victim.upper() if victim=='irra' else 'RaSa'}|SEP Text-only|"
-                             +"|".join(f"{values[k]:.2f}" for k in ("R@1","R@5","R@10","mAP"))+f"|{audit['Query']}|")
-                rows.append({"Dataset":names[ds],"Victim":victim,"Attack":"SEP Text-only",**values,
+                lines.append(f"|{names[ds]}|{victim.upper() if victim=='irra' else 'RaSa'}|SEP Text-only|1 Word|"
+                             +"|".join(f"{values[k]:.2f}" for k in ("R@1","R@5","R@10","mAP"))+"|")
+                rows.append({"Dataset":names[ds],"Victim":victim,"Attack":"SEP Text-only","Budget":"1 Word",**values,
                              "Query":audit["Query"],"checkpoint":audit["checkpoint"],
+                             "SourceCheckpoint":audit["source_checkpoint"],
+                             "SourceForwards":audit["source_forward_count"],
+                             "WordBudgetViolations":audit["budget_violations"],
+                             "OneWordQueries":audit["one_word_queries"],"NOOP":audit["noop_queries"],
+                             "NOOPReasons":audit["noop_reasons"],
                              "source_seconds":audit["source_total_seconds"],"target_seconds":audit["target_seconds"],
-                             "artifact":str(store(c,f"full/target/{ds}/{victim}").root)})
+                             "attack_config_sha256":sha_file(CONFIG),"seed":"uint32(first8hex(SHA256(dataset+NUL+query_id)))",
+                             "artifact":str(store(c,f"full/target/{ds}/{victim}").root),
+                             "source_artifact":str(store(c,"source/"+ds).root),
+                             "result_manifest_sha256":audit["result"]["sha256"]})
             else:
-                lines.append(f"|{names[ds]}|{victim}|SEP Text-only|—|—|—|—|未完成|")
-    (ROOT/REPORT).write_text("\n".join(lines)+"\n")
+                lines.append(f"|{names[ds]}|{victim}|SEP Text-only|1 Word|—|—|—|—|")
     if rows:
-        import csv,io
+        lines += ["", "## 覆盖与预算", "",
+                  "|Dataset|Victim|Query|1词修改|NOOP|违规|Source前向|Source秒|Target秒|",
+                  "|---|---|---:|---:|---:|---:|---:|---:|---:|"]
+        for r in rows:
+            lines.append(f"|{r['Dataset']}|{r['Victim']}|{r['Query']}|{r['OneWordQueries']}|{r['NOOP']}|"
+                         f"{r['WordBudgetViolations']}|{r['SourceForwards']}|{r['source_seconds']:.2f}|{r['target_seconds']:.2f}|")
+        lines += ["", "逐组Checkpoint、NOOP原因、配置SHA、Seed及产物SHA见SOURCES.json。"]
         buf=io.StringIO()
-        columns=("Dataset","Victim","Attack","R@1","R@5","R@10","mAP","Query")
+        columns=("Dataset","Victim","Attack","Budget","R@1","R@5","R@10","mAP")
         writer=csv.DictWriter(buf,fieldnames=columns)
         writer.writeheader()
         for r in rows:writer.writerow({k:r[k] for k in columns})
         (ROOT/REPORT.parent/"METRICS.csv").write_text(buf.getvalue())
         (ROOT/REPORT.parent/"SOURCES.json").write_bytes(json_bytes(rows))
+    (ROOT/REPORT).write_text("\n".join(lines)+"\n")
     subprocess.run(["git","diff","--check"],cwd=ROOT,check=True)
     subprocess.run(["git","add","--",str(REPORT.parent)],cwd=ROOT,check=True)
-    subprocess.run(["git","commit","-m","docs: publish SEP Text-only execution results"],cwd=ROOT,check=True)
-    subprocess.run(["git","push","origin","HEAD:refs/heads/"+subprocess.check_output(["git","branch","--show-current"],cwd=ROOT,text=True).strip()],cwd=ROOT,check=True)
+    subprocess.run(["git","commit","-m","docs: publish SEP WordBudget1 execution results"],cwd=ROOT,check=True)
+    branch=subprocess.check_output(["git","branch","--show-current"],cwd=ROOT,text=True).strip()
+    subprocess.run(["git","push","origin","HEAD:refs/heads/"+branch],cwd=ROOT,check=True)
     published=commit()
-    remote=subprocess.check_output(["git","ls-remote","origin","refs/heads/"+subprocess.check_output(["git","branch","--show-current"],cwd=ROOT,text=True).strip()],cwd=ROOT,text=True).split()[0]
+    remote=subprocess.check_output(["git","ls-remote","origin","refs/heads/"+branch],cwd=ROOT,text=True).split()[0]
     require(remote==published,"publication SHA mismatch")
     atomic(Path(c["control"])/"publication.json",{"status":"PUBLISHED","commit":published})
 
@@ -119,7 +137,7 @@ def main():
                             s=store(c,f"smoke/audit/{ds}/{v}")
                             s.verify("completed")
                             r=read(s.root/"completed/report.json")
-                            require(r["status"]=="PASS" and r["Query"]==8,"all Smoke checks required")
+                            require(r["status"]=="PASS" and r["Query"]==8 and r["word_budget"]==1 and r["budget_violations"]==0,"all WordBudget1 Smoke checks required")
                             smoke.append(r)
                     source_estimate=sum(next(r["mean_source_query_seconds"] for r in smoke if r["dataset"]==ds)
                                         *n for ds,n in (("cuhk",6156),("rstp",2000),("icfg",19848)))

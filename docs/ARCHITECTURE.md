@@ -1,5 +1,9 @@
 # 架构边界与迁移约定
 
+## SEP固定1词预算
+
+operations/sep_text_only/word_budget.py复用官方AST，只适配1词搜索上界和原始词位置约束所需的探针及单位置边界。PIDPlan、IRRA/RaSa原生评分不改。[预算协议](framework/results/sep_word_budget1/REPORT.md)
+
 ## SEP Text-only正式接线
 
 operations/sep_text_only复用原生产PIDPlan classifier、Source-only攻击函数和NativeScorer。生成只接收Caption，Source固定CUHK IRRA；独立Target进程只评分冻结文本。S1的DPP明确退化为[1]。[执行说明](framework/results/sep_text_only_full/REPORT.md)

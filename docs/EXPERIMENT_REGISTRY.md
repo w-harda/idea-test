@@ -1,5 +1,9 @@
 # 历史实验注册表
 
+## SEP-TBPS-TextOnly-WordBudget1
+
+三个TBPS数据集×IRRA/RaSa，Query6156/2000/19848，Source固定CUHK IRRA。比例预算产物历史冻结，不复用攻击文本。[报告](framework/results/sep_word_budget1/REPORT.md)
+
 ## SEP Text-only 三数据集 × IRRA/RaSa
 
 独立codex/sep-text-only-full，完整6156/2000/19848 Query。生成三份冻结文本供各自两个模型共用，历史176CPU/真实Exact直接复用。[报告](framework/results/sep_text_only_full/REPORT.md)

@@ -1,6 +1,10 @@
 # 项目当前状态（唯一权威入口）
 
-## CURRENT：SEP Text-only 三数据集正式链
+## CURRENT：SEP WordBudget1独立Text-only链
+
+比例预算链已因用户改为1词预算而安全停止。新协议SEP-TBPS-TextOnly-WordBudget1从原始词位置检查全部候选，三域各8条Smoke、六组评分与CPU核对通过后自动Full。[报告](framework/results/sep_word_budget1/REPORT.md)
+
+## FROZEN：SEP Text-only 三数据集正式链
 
 复用PIDPlan与Source-only伪PID接线。每域8条Smoke、六组Text-only评分与CPU核对全部通过后自动Full。运行进度以独立控制目录回执为准。[报告](framework/results/sep_text_only_full/REPORT.md)
 

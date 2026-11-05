@@ -19,7 +19,8 @@ from tbps.baselines.cpgc_sep.cache import FeatureBank,NativeScorer
 from tbps.baselines.cpgc_sep.target import cat_payload
 from tbps.engines.metrics import ranking
 from tbps.models.base import RepresentationBatch
-from operations.sep_source_only import attack,native
+from operations.sep_source_only import native
+from . import word_budget as attack
 from operations.sep_source_only.common import read,seed,train_manifest,tensor_sha
 from operations.sep_source_only.phases import token_receipt
 from .runtime import (config,store,metadata,source_inputs,selected_source,target_manifest,source_guard,
@@ -35,6 +36,24 @@ def protocol(c,s,body,**fields):
 
 def prepare_gallery(c):
     import torch
+    if c.get("reference_features"):
+        old=Path(c["reference_features"])
+        from tbps.baselines.cpgc_sep.verified_store import VerifiedArtifactStore
+        inherited=VerifiedArtifactStore(old,new_base=old.parents[1])
+        inherited.verify("completed")
+        report=read(old/"completed/report.json")
+        require(report["status"]=="PASS" and report["gallery"]==34054 and report["pids"]==11003,
+                "completed fixed Source reference")
+        bundle=source_inputs(c)
+        require(report["checkpoint"]==bundle["config"]["victims"]["irra"]["datasets"]["cuhk"]["checkpoint"],
+                "same Source IRRA checkpoint")
+        output=store(c,"source/reference")
+        protocol(c,output,{"Source Train":c["source_train_manifest_sha256"],"reused":str(old)})
+        output.publish("completed",{"features.pt":(old/"completed/features.pt").read_bytes(),
+                       "report.json":json_bytes(report)},{"kind":"reuse query-independent Source Train features"},
+                       sources=(ref(old/"completed/manifest.json"),ref(output.root/"protocol/manifest.json")))
+        event(c,"SOURCE_REFERENCE_REUSED",source=str(old))
+        return
     bundle=source_inputs(c)
     source_guard(c,bundle)
     cfg=bundle["config"]
@@ -224,11 +243,25 @@ def audit(c,ds,victim,scope):
                 row["pseudo_pid_index"]==label and row["pseudo_pid"]==pid_plan.order[label].value,"fixed Source pseudo PID")
         require(row["matched_clean"]==attack.prepare_caption(cfg,q.caption),"original SEP preprocessing")
         chosen=row["candidates"][0]["text"] if row["candidates"] else row["matched_clean"]
-        require(row["selected"]==chosen and row["adversarial"]==(q.caption if row["noop"] else chosen),
+        require(row["selected"]==chosen and row["adversarial"]==attack.restore_original(q.caption,chosen),
                 "official tau selection/raw NOOP")
         pos=official.__globals__["criteria"].get_pos(row["matched_clean"].split())
         require(row["word_edits"]==attack.verify_edits(row["matched_clean"],chosen,vocabulary,pos),"word budget/synonyms")
-        require(row["DPP"]=={"N":1,"E":1,"draws":100,"weights":[[1.]]},"S1 DPP explicitly checked")
+        legal=attack.eligible_positions(row["matched_clean"],vocabulary,pos)
+        require(row["legal_positions"]==legal,"actual legal synonym coverage")
+        if legal:
+            require(row["DPP"]=={"N":1,"E":1,"draws":100,"weights":[[1.]]},"S1 DPP explicitly checked")
+        else:
+            require(row["noop"] and row["noop_reason"]=="NO_LEGAL_SYNONYM"
+                    and row["DPP"]=={"N":1,"E":1,"draws":0,"weights":[]},"explicit no-candidate NOOP")
+        require(row["word_budget"]==1 and row["budget_violations"]==0
+                and row["word_positions"]==attack.budget_check(q.caption,row["adversarial"]),"original word budget")
+        for request in row["requests"]:
+            for text in request["texts"]:attack.budget_check(q.caption,text)
+        for candidate in row["candidates"]:attack.budget_check(q.caption,candidate["text"])
+        for timing in row["timings"]:
+            if timing["stage"]=="OFFICIAL_OPTIMIZE":
+                require(timing["max_change_num"]==timing["att_succ_num"]==1,"search budget evidence")
         stats.append(row["elapsed_seconds"])
     scores=torch.load(s.root/"completed/scores.pt",map_location="cpu",weights_only=True)
     values,_=ranking(scores,manifest.evaluation_identity())
@@ -242,7 +275,14 @@ def audit(c,ds,victim,scope):
             "Gallery":len(manifest.gallery),"result":asdict(ref(s.root/"completed/manifest.json")),
             "mean_source_query_seconds":sum(stats)/len(stats),"source_total_seconds":sum(stats),
             "metrics":summary["metrics"],"target_seconds":summary["elapsed_seconds"],
-            "checkpoint":summary["checkpoint"],"CUDA":False}
+            "checkpoint":summary["checkpoint"],"CUDA":False,
+            "word_budget":1,"budget_violations":0,
+            "one_word_queries":sum(not r["noop"] for r in rows),
+            "noop_queries":sum(r["noop"] for r in rows),
+            "noop_reasons":{reason:sum(r["noop_reason"]==reason for r in rows)
+                            for reason in sorted({r["noop_reason"] for r in rows if r["noop"]})},
+            "source_checkpoint":bundle["config"]["victims"]["irra"]["datasets"]["cuhk"]["checkpoint"],
+            "source_forward_count":sum(r["text_forwards"] for r in rows)}
     out=store(c,f"{scope}/audit/{ds}/{victim}")
     out.publish("completed",{"report.json":json_bytes(report)},{"kind":"CPU integrity audit","scope":scope},
                 sources=(ref(s.root/"completed/manifest.json"),))

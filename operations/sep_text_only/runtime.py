@@ -20,6 +20,7 @@ VICTIMS = ("irra", "rasa")
 
 def config():
     c = read(CONFIG)
+    require(c["protocol"]=="SEP-TBPS-TextOnly-WordBudget1" and c["word_budget"]==1,"fixed WordBudget1 protocol")
     from tbps.contracts import FileRef
     checked(FileRef(str(ROOT/c["base_config"]), c["base_config_sha256"]))
     return c, read(ROOT/c["base_config"])
