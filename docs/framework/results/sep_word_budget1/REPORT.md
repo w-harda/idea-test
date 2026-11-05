@@ -27,3 +27,11 @@
 控制为 `/home/lzf/ldx/tmp/sep_word_budget1_20261105`。
 
 状态以控制回执为准。真实错误停止保留，不自动重试。共享GPU无固定空闲显存门槛。正常长耗时不触发停止。最终报告由Supervisor在真实Full和独立CPU核对后发布。
+
+## 后台Full已启动
+
+实际执行Commit `7fd8a742c3c2b2c9a17872860d417e4a392e40d4`。Supervisor 682941，PPID1，PGID/SID=682941，无TTY。
+
+三域各8条生成、IRRA/RaSa六组Text-only评分及独立CPU检查全部PASS，候选和最终文本违规总数0。Source单Query平均秒数为 cuhk 8.141/rstp 7.802/icfg 7.371。
+
+真实Full处于 `full-source-cuhk`，尚未完成。Source生成Smoke外推 58.90 小时，Target评分另计。种子按不透明Query键固定，正式数据长度和共享资源可能影响时间。完整启动证据及审计SHA见LAUNCH.json。
