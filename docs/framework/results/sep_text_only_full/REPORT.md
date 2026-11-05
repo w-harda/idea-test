@@ -1,3 +1,9 @@
+# SEP Text-only Full v2 执行准备
+
+v2已完成专用临时目录修复及1项针对性回归。继承上个准备阶段7项CPU测试和176项历史测试。新控制目录为`/home/lzf/ldx/tmp/sep_text_only_full_v2_20261105`，真实阶段以status.json为准。
+
+## 首次新Attempt的保留诊断
+
 # SEP Text-only 三数据集 × 两 Victim
 
 协议 SEP-TBPS-SRefPseudoPID-S1。Source 为冻结 CUHK IRRA，参考库为完整 CUHK Train。生成阶段只使用 Caption 和 Source 伪 PID，IRRA/RaSa 共用同一份冻结文本。
