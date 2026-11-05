@@ -1,14 +1,8 @@
-# SEP Text-only Full v2 执行准备
-
-v2已完成专用临时目录修复及1项针对性回归。继承上个准备阶段7项CPU测试和176项历史测试。新控制目录为`/home/lzf/ldx/tmp/sep_text_only_full_v2_20261105`，真实阶段以status.json为准。
-
-## 首次新Attempt的保留诊断
-
 # SEP Text-only 三数据集 × 两 Victim
 
 协议 SEP-TBPS-SRefPseudoPID-S1。Source 为冻结 CUHK IRRA，参考库为完整 CUHK Train。生成阶段只使用 Caption 和 Source 伪 PID，IRRA/RaSa 共用同一份冻结文本。
 
-执行 Commit `749bc1ca65ac1a44e33cc8cd2eb472b793b96ce1`。实际状态 `FAIL`。
+执行 Commit `a22b1a412df66886c73b9d14524a56551a8a1a96`。实际状态 `FAIL`。
 控制目录 `/home/lzf/ldx/tmp/sep_text_only_full_v2_20261105`。输出目录 `/home/lzf/ldx/outputs/tbps-framework-sep-text-only-full-v2-20261105`。
 
 继承176项CPU回归和已有真实分数Exact。本轮只执行受影响接线的定向CPU测试。原Landlock CUDA初始化失败改为Caption-only输入投影及文件审计钩子。S1保留原100次随机权重/DPP调用，N/E=1/1，权重退化为[1]。CUHK IRRA也是Source，因此该行是Source可访问评测。
@@ -19,7 +13,18 @@ v2已完成专用临时目录修复及1项针对性回归。继承上个准备�
 
 |阶段|状态|秒|
 |---|---|---:|
-|reference|FAIL|7.70|
+|reference|PASS|187.78|
+|smoke-source-cuhk|PASS|619.59|
+|smoke-target-cuhk-irra|PASS|10.30|
+|smoke-audit-cuhk-irra|PASS|4.26|
+|smoke-target-cuhk-rasa|PASS|20.41|
+|smoke-audit-cuhk-rasa|PASS|4.36|
+|smoke-source-rstp|PASS|507.69|
+|smoke-target-rstp-irra|PASS|10.03|
+|smoke-audit-rstp-irra|PASS|3.98|
+|smoke-target-rstp-rasa|PASS|21.51|
+|smoke-audit-rstp-rasa|PASS|3.99|
+|smoke-source-icfg|FAIL|542.99|
 
 ## Full结果
 
@@ -31,7 +36,3 @@ v2已完成专用临时目录修复及1项针对性回归。继承上个准备�
 |RSTPReid|rasa|SEP Text-only|—|—|—|—|未完成|
 |ICFG-PEDES|irra|SEP Text-only|—|—|—|—|未完成|
 |ICFG-PEDES|rasa|SEP Text-only|—|—|—|—|未完成|
-
-## v2 修复
-
-首个新Attempt在首次图像前向前，torchvision依赖导入需要临时文件而被Source写入门禁拒绝。旧输出与FAIL报告保留于原路径。v2仅为生成进程提供新输出内专用TMPDIR和CUDA cache，Target标注和权重读取限制保持，未修改攻击定义。
