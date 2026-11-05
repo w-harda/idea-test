@@ -1,5 +1,9 @@
 # 历史实验注册表
 
+## SEP Text-only 三数据集 × IRRA/RaSa
+
+独立codex/sep-text-only-full，完整6156/2000/19848 Query。生成三份冻结文本供各自两个模型共用，历史176CPU/真实Exact直接复用。[报告](framework/results/sep_text_only_full/REPORT.md)
+
 ## SEP-TBPS-SRefPseudoPID-S1
 
 Source 为 CUHK-PEDES Train IRRA 与完整固定 Train 参考图库。两条 Caption 每域，分别评测 CUHK RaSa/APTM 和 RSTP/ICFG 原生 IRRA。状态以独立控制回执为准。[协议](framework/results/sep_source_only_smoke/EXECUTION_PROTOCOL.md)

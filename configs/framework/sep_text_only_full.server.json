@@ -1,0 +1,18 @@
+{
+  "protocol": "SEP-TBPS-SRefPseudoPID-S1",
+  "output": "/home/lzf/ldx/outputs/tbps-framework-sep-text-only-full-20261105",
+  "control": "/home/lzf/ldx/tmp/sep_text_only_full_20261105",
+  "base_config": "configs/framework/cpgc_sep_tbps.no_gpu_floor.server.json",
+  "base_config_sha256": "d3a5bf917d2d4d28a19dee1b14f6c61d546670b039efadba727db7f6d5f347ad",
+  "source_reference": "/home/lzf/ldx/outputs/tbps-framework-sep-source-only-smoke-20261104/preflight/source-input",
+  "source_reference_bundle_sha256": "1604cf37049c10655768f26e5c379b0a261533982d58a978f85c0dafce2df3cb",
+  "source_train_manifest_sha256": "7c21e500200753a722cda0f7c0246b87506b2b582fee8b5433b13698c8b6fde4",
+  "smoke_queries": 8,
+  "smoke_selection": "shortest eight captions with at least four words; ties by official order; no model feedback",
+  "source_seed": 0,
+  "query_chunk": 32,
+  "fusion_batch": 16,
+  "image_batch": 1,
+  "text_batch": 8,
+  "cache_chunk": 8
+}

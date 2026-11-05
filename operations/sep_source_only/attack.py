@@ -110,9 +110,18 @@ def attack_caption(c, raw, classifier, device, vocabulary, report):
 
         attack = sep_functions(c)["attack"]
         tau, opt = trace_markers(c)
+        optimizer = attack.__globals__["optimize"]
+        tree = ast.parse(Path(c["official"]["sep"]["root"], "SEP_Attack.py").read_text())
+        scaling_line = next(n.lineno for n in ast.walk(tree) if isinstance(n, ast.While))
         ensemble = s1_ensemble(c, classifier, device)
 
         def trace(frame, event, _arg):
+            if frame.f_code is optimizer.__code__:
+                if event == "line" and frame.f_lineno == scaling_line:
+                    importance = frame.f_locals["wi_score"]
+                    if not torch.isfinite(importance).all() or (importance.max()-importance.min()).item() == 0:
+                        raise RuntimeError("Official SEP importance scaling cannot terminate for constant/nonfinite scores")
+                return trace
             if frame.f_code is not attack.__code__:
                 return None
             if event == "line" and frame.f_lineno == opt:

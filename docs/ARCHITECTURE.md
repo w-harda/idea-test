@@ -1,5 +1,9 @@
 # 架构边界与迁移约定
 
+## SEP Text-only正式接线
+
+operations/sep_text_only复用原生产PIDPlan classifier、Source-only攻击函数和NativeScorer。生成只接收Caption，Source固定CUHK IRRA；独立Target进程只评分冻结文本。S1的DPP明确退化为[1]。[执行说明](framework/results/sep_text_only_full/REPORT.md)
+
 ## SEP Source-only Smoke 隔离
 
 独立进程在 Linux Landlock 中读取固定 CUHK Train 参考图库和 Caption-only 输入。评测进程在文本冻结后加载 Target。既有 SEP 生产适配代码保持冻结。[协议](framework/results/sep_source_only_smoke/EXECUTION_PROTOCOL.md)

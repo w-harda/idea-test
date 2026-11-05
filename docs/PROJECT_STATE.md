@@ -1,6 +1,10 @@
 # 项目当前状态（唯一权威入口）
 
-## CURRENT：SEP Source-only 独立 Smoke
+## CURRENT：SEP Text-only 三数据集正式链
+
+复用PIDPlan与Source-only伪PID接线。每域8条Smoke、六组Text-only评分与CPU核对全部通过后自动Full。运行进度以独立控制目录回执为准。[报告](framework/results/sep_text_only_full/REPORT.md)
+
+## FROZEN：SEP Source-only 独立 Smoke
 
 已接入 SEP-TBPS-SRefPseudoPID-S1。先冻结真实 IRRA/RaSa 分数并做 CPU 位级对照，再执行 Source-only 生成、独立 Target 评分和 CPU 审计。运行状态以新控制回执为准。[报告](framework/results/sep_source_only_smoke/REPORT.md)
 
