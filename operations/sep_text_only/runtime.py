@@ -134,6 +134,14 @@ def source_guard(c, bundle):
         if p != allowed_checkpoint and any(p.is_relative_to(root) for root in protected):
             raise PermissionError("Target checkpoint is inaccessible to Source")
 
+    # PyTorch/torchvision imports create local Python helpers. Keep these writes
+    # inside the new Source output before installing the file-access hook.
+    import tempfile
+    scratch=output/"source"/"scratch"
+    scratch.mkdir(parents=True,exist_ok=True)
+    os.environ["TMPDIR"]=str(scratch)
+    os.environ["CUDA_CACHE_PATH"]=str(scratch)
+    tempfile.tempdir=str(scratch)
     sys.addaudithook(audit)
     return audit
 

@@ -80,9 +80,9 @@ def final_report(c,launch,status,steps):
     subprocess.run(["git","diff","--check"],cwd=ROOT,check=True)
     subprocess.run(["git","add","--",str(REPORT.parent)],cwd=ROOT,check=True)
     subprocess.run(["git","commit","-m","docs: publish SEP Text-only execution results"],cwd=ROOT,check=True)
-    subprocess.run(["git","push","origin","HEAD:refs/heads/codex/sep-text-only-full"],cwd=ROOT,check=True)
+    subprocess.run(["git","push","origin","HEAD:refs/heads/"+subprocess.check_output(["git","branch","--show-current"],cwd=ROOT,text=True).strip()],cwd=ROOT,check=True)
     published=commit()
-    remote=subprocess.check_output(["git","ls-remote","origin","refs/heads/codex/sep-text-only-full"],cwd=ROOT,text=True).split()[0]
+    remote=subprocess.check_output(["git","ls-remote","origin","refs/heads/"+subprocess.check_output(["git","branch","--show-current"],cwd=ROOT,text=True).strip()],cwd=ROOT,text=True).split()[0]
     require(remote==published,"publication SHA mismatch")
     atomic(Path(c["control"])/"publication.json",{"status":"PUBLISHED","commit":published})
 

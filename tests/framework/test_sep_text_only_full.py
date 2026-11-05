@@ -37,6 +37,13 @@ bundle={"train_root":str(root),"train_gallery":[],
 "config":{"victims":{"irra":{"clip_bootstrap":{"path":str(root/"clip.pt")},
 "datasets":{"cuhk":{"checkpoint":{"path":str(root/"source.pth")}}}}}}}
 source_guard({"output":str(root/"out"),"control":str(root/"control")},bundle)
+import tempfile
+with tempfile.TemporaryDirectory() as temporary:
+    helper=Path(temporary)/"helper.py"
+    helper.write_text("fixture")
+    assert helper.read_text()=="fixture"
+from torchvision import transforms
+assert transforms.ToTensor() is not None
 for p in ("/home/lzf/TBPS/Datasets/CUHK-PEDES/reid_raw.json",
 "/home/lzf/Attack/IRRA/logs/RSTPReid/best.pth",str(root/"target.pth")):
     try:open(p,"rb")

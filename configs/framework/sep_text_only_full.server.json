@@ -1,7 +1,7 @@
 {
   "protocol": "SEP-TBPS-SRefPseudoPID-S1",
-  "output": "/home/lzf/ldx/outputs/tbps-framework-sep-text-only-full-20261105",
-  "control": "/home/lzf/ldx/tmp/sep_text_only_full_20261105",
+  "output": "/home/lzf/ldx/outputs/tbps-framework-sep-text-only-full-v2-20261105",
+  "control": "/home/lzf/ldx/tmp/sep_text_only_full_v2_20261105",
   "base_config": "configs/framework/cpgc_sep_tbps.no_gpu_floor.server.json",
   "base_config_sha256": "d3a5bf917d2d4d28a19dee1b14f6c61d546670b039efadba727db7f6d5f347ad",
   "source_reference": "/home/lzf/ldx/outputs/tbps-framework-sep-source-only-smoke-20261104/preflight/source-input",
