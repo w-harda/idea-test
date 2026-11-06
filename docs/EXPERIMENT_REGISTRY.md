@@ -1,5 +1,9 @@
 # 历史实验注册表
 
+## SEP独立CPU/GPU性能诊断（2026-11-06）
+
+独立codex/sep-performance，预先固定每域前两条Caption，仅真实Source A/B与原生RaSa Smoke评分诊断。Packed局部CPU微基准约365×，完整attack_caption六样本6.76×；不代表正式Full结果或承诺Full加速。没有停止原链或重新发布CUHK指标。[报告](framework/results/sep_performance/REPORT.md)
+
 ## SEP-TBPS-TextOnly-WordBudget1
 
 2026-11-06新增独立codex/sep-word-budget1-reports报告分支，每组Full及独立CPU审计通过即发布对应REPORT.md；全部六组后生成SUMMARY.md。无新增实验版本或科学参数变更，原六组连续执行。[发布说明](framework/results/sep_word_budget1/PUBLICATION.md)

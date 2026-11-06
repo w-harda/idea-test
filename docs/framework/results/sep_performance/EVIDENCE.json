@@ -1,0 +1,951 @@
+{
+  "baseline_commit": "d5550d55f288b2e3529476912c02c3fce552121c",
+  "live_baseline": {
+    "duration_seconds": 60.04843493178487,
+    "samples": 61,
+    "logical_cores": 32,
+    "process_cpu_mean_pct_one_core_100": 99.36976884298383,
+    "process_cpu_peak_pct": 100.98866961984731,
+    "process_mean_logical_cores": 0.9936976884298383,
+    "host_cpu_busy_mean_pct": 4.620515732083337,
+    "idle_cores_below_5pct_mean": 29.1,
+    "thread_cpu_mean_pct": {
+      "3006245": 99.3197804906849,
+      "3006539": 0.03329703340050878,
+      "3006278": 0.0,
+      "3006279": 0.0,
+      "3006280": 0.0,
+      "3006281": 0.0,
+      "3006282": 0.0,
+      "3006283": 0.0,
+      "3006284": 0.0,
+      "3006285": 0.0,
+      "3006286": 0.0,
+      "3006287": 0.0
+    },
+    "gpu_util_mean_pct": 3.1639344262295084,
+    "gpu_util_peak_pct": 5.0,
+    "gpu_zero_util_fraction": 0.14754098360655737,
+    "gpu_memory_peak_MiB": 1034.0,
+    "gpu_memory_mean_MiB": 1033.8032786885246,
+    "gpu_power_mean_W": 61.061475409836056,
+    "gpu_clock_mean_MHz": 2520.0,
+    "rss_peak_bytes": 2719682560,
+    "io_delta": {
+      "rchar": 2133041,
+      "wchar": 729766,
+      "syscr": 385,
+      "syscw": 266,
+      "read_bytes": 0,
+      "write_bytes": 880640,
+      "cancelled_write_bytes": 0
+    },
+    "context_switches": {
+      "voluntary": 100,
+      "involuntary": 153
+    },
+    "host_memory_last": {
+      "MemTotal": "131557344 kB",
+      "MemAvailable": "118590928 kB",
+      "SwapTotal": "31250428 kB",
+      "SwapFree": "26691628 kB"
+    },
+    "swap_pages_in_delta": 0,
+    "swap_pages_out_delta": 0
+  },
+  "ab": {
+    "status": "PASS",
+    "arms": {
+      "original": {
+        "mean_query_seconds": 8.582386489957571,
+        "p50_seconds": 8.351755548268557,
+        "p95_seconds": 9.43686187081039,
+        "query_seconds": [
+          8.340943973511457,
+          8.362567123025656,
+          7.864318862557411,
+          8.304973870515823,
+          9.058548923581839,
+          9.56296618655324
+        ],
+        "query_per_second": 0.11651770765277476,
+        "arm_wall_seconds": 51.55258430913091,
+        "model_forwards": 394,
+        "calls": 1176,
+        "hits": 782,
+        "violations": 0,
+        "monitor": {
+          "duration_seconds": 51.495073057711124,
+          "samples": 243,
+          "logical_cores": 32,
+          "process_cpu_mean_pct_one_core_100": 101.17675969753537,
+          "process_cpu_peak_pct": 109.92294166520381,
+          "process_mean_logical_cores": 1.0117675969753537,
+          "host_cpu_busy_mean_pct": 8.46991464159379,
+          "idle_cores_below_5pct_mean": 24.89669421487603,
+          "thread_cpu_mean_pct": {
+            "3720631": 97.00633145220161,
+            "3720912": 3.9844916072081893,
+            "3720888": 0.020647838927860155,
+            "3720632": 0.0,
+            "3720633": 0.0,
+            "3720634": 0.0,
+            "3720635": 0.0,
+            "3720636": 0.0,
+            "3720637": 0.0,
+            "3720638": 0.0,
+            "3720639": 0.0,
+            "3720640": 0.0
+          },
+          "gpu_util_mean_pct": 6.493827160493828,
+          "gpu_util_peak_pct": 12.0,
+          "gpu_zero_util_fraction": 0.024691358024691357,
+          "gpu_memory_peak_MiB": 2026.0,
+          "gpu_memory_mean_MiB": 2025.3333333333333,
+          "gpu_power_mean_W": 62.071316872428,
+          "gpu_clock_mean_MHz": 2520.0,
+          "rss_peak_bytes": 2706657280,
+          "io_delta": {
+            "rchar": 34876679,
+            "wchar": 55797,
+            "syscr": 72737,
+            "syscw": 4204,
+            "read_bytes": 0,
+            "write_bytes": 24576,
+            "cancelled_write_bytes": 0
+          },
+          "context_switches": {
+            "voluntary": 149491,
+            "involuntary": 362
+          },
+          "host_memory_last": {
+            "MemTotal": "131557344 kB",
+            "MemAvailable": "115964980 kB",
+            "SwapTotal": "31250428 kB",
+            "SwapFree": "26691628 kB"
+          },
+          "swap_pages_in_delta": 0,
+          "swap_pages_out_delta": 0
+        },
+        "peak_cuda_allocated_bytes": 528637952,
+        "peak_cuda_reserved_bytes": 549453824
+      },
+      "packed": {
+        "mean_query_seconds": 1.2695298735052347,
+        "p50_seconds": 1.2490680236369371,
+        "p95_seconds": 1.3824430173262954,
+        "query_seconds": [
+          1.2257930748164654,
+          1.2226932756602764,
+          1.1684581264853477,
+          1.272342972457409,
+          1.326951652765274,
+          1.4009401388466358
+        ],
+        "query_per_second": 0.7876931617520355,
+        "arm_wall_seconds": 7.6317304745316505,
+        "model_forwards": 394,
+        "calls": 1176,
+        "hits": 782,
+        "violations": 0,
+        "monitor": {
+          "duration_seconds": 7.432857770472765,
+          "samples": 38,
+          "logical_cores": 32,
+          "process_cpu_mean_pct_one_core_100": 191.0621331369789,
+          "process_cpu_peak_pct": 209.8054522486738,
+          "process_mean_logical_cores": 1.910621331369789,
+          "host_cpu_busy_mean_pct": 9.976939835392042,
+          "idle_cores_below_5pct_mean": 25.35135135135135,
+          "thread_cpu_mean_pct": {
+            "3720631": 97.9432626651034,
+            "3720847": 89.3583642130386,
+            "3723862": 3.900181762042004,
+            "3720632": 0.0,
+            "3720633": 0.0,
+            "3720634": 0.0,
+            "3720635": 0.0,
+            "3720636": 0.0,
+            "3720637": 0.0,
+            "3720638": 0.0,
+            "3720639": 0.0,
+            "3720640": 0.0
+          },
+          "gpu_util_mean_pct": 25.763157894736842,
+          "gpu_util_peak_pct": 32.0,
+          "gpu_zero_util_fraction": 0.0,
+          "gpu_memory_peak_MiB": 2026.0,
+          "gpu_memory_mean_MiB": 2025.7894736842106,
+          "gpu_power_mean_W": 67.86184210526316,
+          "gpu_clock_mean_MHz": 2520.0,
+          "rss_peak_bytes": 2727153664,
+          "io_delta": {
+            "rchar": 5252839,
+            "wchar": 17276,
+            "syscr": 11214,
+            "syscw": 706,
+            "read_bytes": 0,
+            "write_bytes": 12288,
+            "cancelled_write_bytes": 0
+          },
+          "context_switches": {
+            "voluntary": 14972,
+            "involuntary": 36
+          },
+          "host_memory_last": {
+            "MemTotal": "131557344 kB",
+            "MemAvailable": "116044424 kB",
+            "SwapTotal": "31250428 kB",
+            "SwapFree": "26691628 kB"
+          },
+          "swap_pages_in_delta": 0,
+          "swap_pages_out_delta": 0
+        },
+        "peak_cuda_allocated_bytes": 528637952,
+        "peak_cuda_reserved_bytes": 549453824
+      }
+    },
+    "exact_checks": [
+      {
+        "dataset": "cuhk",
+        "key": "36d7bfdc4f6fd6b1e90c7d0ae4c370e3c102ab347121bc820852fde9f7586946",
+        "row_exact_excluding_time": true,
+        "logits_bitwise": true,
+        "cache_key_order": true,
+        "cache_values_bitwise": true,
+        "rng_before": true,
+        "rng_after": true
+      },
+      {
+        "dataset": "cuhk",
+        "key": "eaeba1601affed2ed00dbb818f71af3965fa9ad7f3e0576683f5d3b9c7c3b8b5",
+        "row_exact_excluding_time": true,
+        "logits_bitwise": true,
+        "cache_key_order": true,
+        "cache_values_bitwise": true,
+        "rng_before": true,
+        "rng_after": true
+      },
+      {
+        "dataset": "rstp",
+        "key": "307ab0a408b08acc396ae2304ea83334d31807449e928c4536dd800a131700af",
+        "row_exact_excluding_time": true,
+        "logits_bitwise": true,
+        "cache_key_order": true,
+        "cache_values_bitwise": true,
+        "rng_before": true,
+        "rng_after": true
+      },
+      {
+        "dataset": "rstp",
+        "key": "68da1b9257c5eff6807a806faedb551fbf225bda942c57f4da8fa3389dd582e0",
+        "row_exact_excluding_time": true,
+        "logits_bitwise": true,
+        "cache_key_order": true,
+        "cache_values_bitwise": true,
+        "rng_before": true,
+        "rng_after": true
+      },
+      {
+        "dataset": "icfg",
+        "key": "b83300fa0d998f7089414b1367e387a5ea493800068838150945b794883b8d4f",
+        "row_exact_excluding_time": true,
+        "logits_bitwise": true,
+        "cache_key_order": true,
+        "cache_values_bitwise": true,
+        "rng_before": true,
+        "rng_after": true
+      },
+      {
+        "dataset": "icfg",
+        "key": "af32361621b2e4976a319f89bb4cff51ccb70dfbfd6a3c9f6d0a345abf1a71d4",
+        "row_exact_excluding_time": true,
+        "logits_bitwise": true,
+        "cache_key_order": true,
+        "cache_values_bitwise": true,
+        "rng_before": true,
+        "rng_after": true
+      }
+    ],
+    "profiles": {
+      "original": [
+        {
+          "key": "aten::to",
+          "count": 11083,
+          "cpu_us": 8374.886000001456,
+          "self_cpu_us": 479.02500000148973,
+          "device_us": 5667.160999999998
+        },
+        {
+          "key": "aten::_to_copy",
+          "count": 60,
+          "cpu_us": 7895.860999999966,
+          "self_cpu_us": 86.86599999992018,
+          "device_us": 5667.160999999998
+        },
+        {
+          "key": "cudaMemcpyAsync",
+          "count": 12,
+          "cpu_us": 5804.635999999971,
+          "self_cpu_us": 5804.635999999971,
+          "device_us": 0
+        },
+        {
+          "key": "cudaStreamSynchronize",
+          "count": 9,
+          "cpu_us": 115.89200000001392,
+          "self_cpu_us": 115.89200000001392,
+          "device_us": 0
+        },
+        {
+          "key": "aten::index",
+          "count": 11004,
+          "cpu_us": 28831.87500000302,
+          "self_cpu_us": 21249.772000001798,
+          "device_us": 4.0
+        },
+        {
+          "key": "aten::max",
+          "count": 11003,
+          "cpu_us": 54007.685999999885,
+          "self_cpu_us": 25323.68099999751,
+          "device_us": 0
+        }
+      ],
+      "packed": [
+        {
+          "key": "aten::to",
+          "count": 81,
+          "cpu_us": 7622.319000000005,
+          "self_cpu_us": 36.17700000000326,
+          "device_us": 6497.116000000002
+        },
+        {
+          "key": "aten::_to_copy",
+          "count": 60,
+          "cpu_us": 7586.142000000002,
+          "self_cpu_us": 84.96299999998905,
+          "device_us": 6497.116000000002
+        },
+        {
+          "key": "cudaMemcpyAsync",
+          "count": 12,
+          "cpu_us": 6630.331,
+          "self_cpu_us": 6630.331,
+          "device_us": 0
+        },
+        {
+          "key": "cudaStreamSynchronize",
+          "count": 9,
+          "cpu_us": 115.83899999999926,
+          "self_cpu_us": 115.83899999999926,
+          "device_us": 0
+        },
+        {
+          "key": "aten::index",
+          "count": 2,
+          "cpu_us": 358.7579999999998,
+          "self_cpu_us": 323.12199999999666,
+          "device_us": 4.3200000000006185
+        },
+        {
+          "key": "aten::max",
+          "count": 1,
+          "cpu_us": 131.02999999999884,
+          "self_cpu_us": 121.63299999999799,
+          "device_us": 0
+        }
+      ]
+    },
+    "batching_prototype": {
+      "batch": 8,
+      "encoder_bitwise": false,
+      "encoder_max_abs": 0.00027683377265930176,
+      "native_matrix_bitwise": false,
+      "native_matrix_max_abs": 0.000433504581451416
+    },
+    "real_pid_checks": {
+      "real_cpu_bitwise": true,
+      "real_cuda_bitwise": true,
+      "shape": [
+        1,
+        34054
+      ],
+      "packed_width": 15
+    },
+    "pid_microbenchmark": {
+      "original": {
+        "median_seconds": 0.08961445838212967,
+        "samples": [
+          0.0906280167400837,
+          0.09000799059867859,
+          0.0902230441570282,
+          0.08955897390842438,
+          0.08966994285583496,
+          0.08926967531442642,
+          0.08947398141026497,
+          0.08930237963795662,
+          0.08922449871897697,
+          0.08893656730651855,
+          0.08968745917081833,
+          0.09029661118984222
+        ]
+      },
+      "packed": {
+        "median_seconds": 0.0002453383058309555,
+        "samples": [
+          0.00041538476943969727,
+          0.0002663247287273407,
+          0.00024665892124176025,
+          0.0002479851245880127,
+          0.00024661049246788025,
+          0.0002458430826663971,
+          0.00024300068616867065,
+          0.00024323910474777222,
+          0.00024227052927017212,
+          0.0002448335289955139,
+          0.0002428293228149414,
+          0.0002438575029373169
+        ]
+      }
+    },
+    "trace_callback_diagnostic": {
+      "callbacks": 602811,
+      "callback_seconds": 0.3360406756401062,
+      "query_seconds": 1.414907280355692,
+      "mutation_checks": 3626,
+      "instrumentation_included": true
+    },
+    "checkpoint": {
+      "path": "/home/lzf/Attack/IRRA/logs/CUHK-PEDES/best.pth",
+      "sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+    },
+    "speedup": 6.760287149652633,
+    "model_unchanged": true,
+    "GPU_OOM": false
+  },
+  "baseline_profile": {
+    "status": "PASS",
+    "checkpoint": {
+      "path": "/home/lzf/Attack/IRRA/logs/CUHK-PEDES/best.pth",
+      "sha256": "9ff6209551ea8d6ee80396214a2534301fba5d58fa2c5a1875a338f61b295009"
+    },
+    "gallery": [
+      34054,
+      512
+    ],
+    "pids": 11003,
+    "query_elapsed_cprofile_seconds": 8.455640535801649,
+    "calls": 157,
+    "forwards": 64,
+    "cache_hits": 93,
+    "mutation_checks": 3626,
+    "trace_callback_stats": [
+      {
+        "file": "/home/lzf/ldx/projects/idea-test-tbps-sep-performance-20261106/operations/sep_text_only/word_budget.py",
+        "line": 19,
+        "function": "budget_check",
+        "calls": 160,
+        "own_seconds": 0.001212608,
+        "cumulative_seconds": 0.001763901
+      },
+      {
+        "file": "/home/lzf/ldx/projects/idea-test-tbps-sep-performance-20261106/operations/sep_text_only/word_budget.py",
+        "line": 136,
+        "function": "observed",
+        "calls": 36,
+        "own_seconds": 0.000264326,
+        "cumulative_seconds": 0.002005853
+      },
+      {
+        "file": "/home/lzf/ldx/projects/idea-test-tbps-sep-performance-20261106/operations/sep_text_only/word_budget.py",
+        "line": 126,
+        "function": "attack_caption",
+        "calls": 1,
+        "own_seconds": 0.0009516720000000001,
+        "cumulative_seconds": 8.455646711
+      },
+      {
+        "file": "/home/lzf/ldx/projects/idea-test-tbps-sep-performance-20261106/src/tbps/baselines/cpgc_sep/sep_bridge.py",
+        "line": 39,
+        "function": "aggregate",
+        "calls": 64,
+        "own_seconds": 0.117044884,
+        "cumulative_seconds": 6.901237423
+      },
+      {
+        "file": "/home/lzf/ldx/projects/idea-test-tbps-sep-performance-20261106/src/tbps/baselines/cpgc_sep/victims.py",
+        "line": 133,
+        "function": "encode_texts",
+        "calls": 64,
+        "own_seconds": 0.00057693,
+        "cumulative_seconds": 0.8454553370000001
+      },
+      {
+        "file": "/home/lzf/ldx/projects/idea-test-tbps-sep-performance-20261106/src/tbps/models/irra.py",
+        "line": 115,
+        "function": "encode_texts",
+        "calls": 64,
+        "own_seconds": 0.00048776,
+        "cumulative_seconds": 0.843708137
+      },
+      {
+        "file": "/home/lzf/ldx/projects/idea-test-tbps-sep-performance-20261106/src/tbps/baselines/cpgc_sep/cache.py",
+        "line": 108,
+        "function": "_compute",
+        "calls": 64,
+        "own_seconds": 0.026085837,
+        "cumulative_seconds": 0.432850665
+      }
+    ],
+    "torch_profile": [
+      {
+        "key": "aten::to",
+        "count": 11083,
+        "cpu_us": 8735.960000001038,
+        "self_cpu_us": 495.8300000010331,
+        "device_us": 5913.697999999997
+      },
+      {
+        "key": "aten::copy_",
+        "count": 89,
+        "cpu_us": 6704.310000000092,
+        "self_cpu_us": 296.20300000002317,
+        "device_us": 5968.417000000009
+      },
+      {
+        "key": "aten::_to_copy",
+        "count": 60,
+        "cpu_us": 8240.130000000005,
+        "self_cpu_us": 100.9639999999199,
+        "device_us": 5913.697999999997
+      },
+      {
+        "key": "cudaMemcpyAsync",
+        "count": 12,
+        "cpu_us": 6096.616000000002,
+        "self_cpu_us": 6096.616000000002,
+        "device_us": 0
+      },
+      {
+        "key": "cudaStreamSynchronize",
+        "count": 9,
+        "cpu_us": 141.2880000000514,
+        "self_cpu_us": 141.2880000000514,
+        "device_us": 0
+      },
+      {
+        "key": "aten::mm",
+        "count": 2,
+        "cpu_us": 83.02100000000792,
+        "self_cpu_us": 62.85599999999977,
+        "device_us": 76.51300000000629
+      },
+      {
+        "key": "aten::index",
+        "count": 11004,
+        "cpu_us": 28164.649000000703,
+        "self_cpu_us": 20978.473000000813,
+        "device_us": 4.224000000001979
+      },
+      {
+        "key": "aten::max",
+        "count": 11003,
+        "cpu_us": 51835.49099999979,
+        "self_cpu_us": 24634.188999997918,
+        "device_us": 0
+      }
+    ]
+  },
+  "native_exact": {
+    "status": "PASS",
+    "full_native_matrix_shape": [
+      1,
+      34054
+    ],
+    "pid_shape": [
+      1,
+      11003
+    ],
+    "checks": [
+      {
+        "dataset": "cuhk",
+        "key": "36d7bfdc4f6fd6b1e90c7d0ae4c370e3c102ab347121bc820852fde9f7586946",
+        "features": true,
+        "matrix": true,
+        "logits": true,
+        "probabilities": true,
+        "margin": true,
+        "rng_unchanged": true
+      },
+      {
+        "dataset": "cuhk",
+        "key": "eaeba1601affed2ed00dbb818f71af3965fa9ad7f3e0576683f5d3b9c7c3b8b5",
+        "features": true,
+        "matrix": true,
+        "logits": true,
+        "probabilities": true,
+        "margin": true,
+        "rng_unchanged": true
+      },
+      {
+        "dataset": "rstp",
+        "key": "307ab0a408b08acc396ae2304ea83334d31807449e928c4536dd800a131700af",
+        "features": true,
+        "matrix": true,
+        "logits": true,
+        "probabilities": true,
+        "margin": true,
+        "rng_unchanged": true
+      },
+      {
+        "dataset": "rstp",
+        "key": "68da1b9257c5eff6807a806faedb551fbf225bda942c57f4da8fa3389dd582e0",
+        "features": true,
+        "matrix": true,
+        "logits": true,
+        "probabilities": true,
+        "margin": true,
+        "rng_unchanged": true
+      },
+      {
+        "dataset": "icfg",
+        "key": "b83300fa0d998f7089414b1367e387a5ea493800068838150945b794883b8d4f",
+        "features": true,
+        "matrix": true,
+        "logits": true,
+        "probabilities": true,
+        "margin": true,
+        "rng_unchanged": true
+      },
+      {
+        "dataset": "icfg",
+        "key": "af32361621b2e4976a319f89bb4cff51ccb70dfbfd6a3c9f6d0a345abf1a71d4",
+        "features": true,
+        "matrix": true,
+        "logits": true,
+        "probabilities": true,
+        "margin": true,
+        "rng_unchanged": true
+      }
+    ]
+  },
+  "rasa": {
+    "status": "PASS",
+    "scope": "independent previously audited Smoke features; not a new Full",
+    "queries": 8,
+    "gallery": 136,
+    "fusion_batch": 16,
+    "native_ITM_pairs": 1024,
+    "expected_ITM_pairs": 1024,
+    "scores_bitwise_against_frozen_smoke": true,
+    "max_abs_diff": 0.0,
+    "profiler_inclusive_seconds": 2.6201867312192917,
+    "fusion_inclusive": {
+      "calls": 8,
+      "seconds": 1.8074623197317123
+    },
+    "checkpoint": {
+      "path": "/home/lzf/ldx/checkpoints/RaSa/rasa_cuhk_checkpoint.pth",
+      "sha256": "bc85da09c2991d5de503c2c2ac4f032e20cc536fec5094f0acff45e93d0104d2"
+    },
+    "counts": {
+      "image_samples": 0,
+      "text_samples": 0,
+      "fusion_pairs": 1024,
+      "score_calls": 8
+    },
+    "token_cache": {
+      "hits": 1014,
+      "misses": 18,
+      "resident_bytes": 242445440,
+      "limit_bytes": 68719476736,
+      "read_seconds": 0.10173420235514641,
+      "bytes_read": 242445440
+    }
+  },
+  "stage_warm": {
+    "status": "PASS",
+    "warmup": true,
+    "results": {
+      "original": {
+        "stages": {
+          "encode_texts": {
+            "calls": 64,
+            "seconds": 0.6007112488150597
+          },
+          "native_matrix": {
+            "calls": 64,
+            "seconds": 0.37771570682525635
+          },
+          "pid_aggregate": {
+            "calls": 64,
+            "seconds": 6.80694554746151
+          }
+        },
+        "cross_device_calls": {
+          "cpu->cuda": 389,
+          "cuda->cpu": 159
+        },
+        "cross_device_bytes": {
+          "cpu->cuda": 4470606912,
+          "cuda->cpu": 8892992
+        },
+        "query_seconds": 8.025977555662394,
+        "forwards": 64,
+        "mutation_checks": 3626,
+        "instrumentation_included": true
+      },
+      "packed": {
+        "stages": {
+          "encode_texts": {
+            "calls": 64,
+            "seconds": 0.6046947911381721
+          },
+          "native_matrix": {
+            "calls": 64,
+            "seconds": 0.35863855481147766
+          },
+          "pid_aggregate": {
+            "calls": 64,
+            "seconds": 0.032992757856845856
+          }
+        },
+        "cross_device_calls": {
+          "cpu->cuda": 389,
+          "cuda->cpu": 159
+        },
+        "cross_device_bytes": {
+          "cpu->cuda": 4470606912,
+          "cuda->cpu": 8892992
+        },
+        "query_seconds": 1.155787631869316,
+        "forwards": 64,
+        "mutation_checks": 3626,
+        "instrumentation_included": true
+      }
+    },
+    "scope": "first preregistered CUHK caption; Python-level cross-device API transitions, not all C++ internal memcpy"
+  },
+  "stage_cold_diagnostic": {
+    "status": "PASS",
+    "results": {
+      "original": {
+        "stages": {
+          "encode_texts": {
+            "calls": 64,
+            "seconds": 0.7232454419136047
+          },
+          "native_matrix": {
+            "calls": 64,
+            "seconds": 0.4105698876082897
+          },
+          "pid_aggregate": {
+            "calls": 64,
+            "seconds": 6.609172258526087
+          }
+        },
+        "cross_device_calls": {
+          "cpu->cuda": 401,
+          "cuda->cpu": 159
+        },
+        "cross_device_bytes": {
+          "cpu->cuda": 4470891504,
+          "cuda->cpu": 8892992
+        },
+        "query_seconds": 7.9853925704956055,
+        "forwards": 64,
+        "mutation_checks": 3626,
+        "instrumentation_included": true
+      },
+      "packed": {
+        "stages": {
+          "encode_texts": {
+            "calls": 64,
+            "seconds": 0.608584351837635
+          },
+          "native_matrix": {
+            "calls": 64,
+            "seconds": 0.37836357206106186
+          },
+          "pid_aggregate": {
+            "calls": 64,
+            "seconds": 0.033814623951911926
+          }
+        },
+        "cross_device_calls": {
+          "cpu->cuda": 389,
+          "cuda->cpu": 159
+        },
+        "cross_device_bytes": {
+          "cpu->cuda": 4470606912,
+          "cuda->cpu": 8892992
+        },
+        "query_seconds": 1.1808239072561264,
+        "forwards": 64,
+        "mutation_checks": 3626,
+        "instrumentation_included": true
+      }
+    },
+    "scope": "first preregistered CUHK caption; Python-level cross-device API transitions, not all C++ internal memcpy"
+  },
+  "timeline": {
+    "original": {
+      "wall_us": 400377.319,
+      "gpu_kernel_union_us": 766.6044921875,
+      "gpu_copy_union_us": 5563.16064453125,
+      "gpu_active_union_us": 6329.76513671875,
+      "host_cuda_sync_union_us": 115.892578125,
+      "copy_counts": {
+        "HtoD": 5,
+        "DtoH": 4,
+        "DtoD": 3
+      },
+      "gpu_busy_fraction_in_window": 0.015809499780177982,
+      "gpu_compute_fraction_in_window": 0.0019147050939403987
+    },
+    "packed": {
+      "wall_us": 14697.415,
+      "gpu_kernel_union_us": 765.44384765625,
+      "gpu_copy_union_us": 6393.05419921875,
+      "gpu_active_union_us": 7158.498046875,
+      "host_cuda_sync_union_us": 115.83935546875,
+      "copy_counts": {
+        "HtoD": 5,
+        "DtoH": 4,
+        "DtoD": 3
+      },
+      "gpu_busy_fraction_in_window": 0.4870583056187091,
+      "gpu_compute_fraction_in_window": 0.0520801683599633
+    }
+  },
+  "preservation": {
+    "time": 1793954121.9785645,
+    "baseline_commit": "d5550d5",
+    "scientific_worktree": "/home/lzf/ldx/projects/idea-test-tbps-sep-word-budget1-20261105",
+    "scientific_head": "0438e27b2164c2478e17ace865c063bb0f79bc12",
+    "protected_sha256": {
+      "operations/sep_text_only/execute.py": "8b51162dc124e55c296a042e9ae32450c16ab94924e798985e5627a25b8be09a",
+      "operations/sep_text_only/runtime.py": "1db0f0d357e8c9c4dee4717a6ffe8245c08085cfc9d7bfa9d6a9cc2329836f3a",
+      "operations/sep_text_only/supervisor.py": "691ff953116f915486c350046f3b94489fa2701c09c20a07e5b47339fca3378e",
+      "operations/sep_text_only/word_budget.py": "a2e0422b468cb36a7c597112bee0f1d4cf85a6d0359e42c692a213265d169011",
+      "configs/framework/sep_text_only_full.server.json": "6bc8e0e232904ce18d148bdf6814b2280579de9fbc227172d109f144609334e0",
+      "src/tbps/baselines/cpgc_sep/sep_source.py": "d5932335b57bcbf2f1f465bf64f33fc69e0c379cfdf20256c1ceceb764bbad88",
+      "src/tbps/baselines/cpgc_sep/sep_bridge.py": "9346207dba66e6fc573c1d4041f24a8aec744b1333f526a333466dea6c73230e",
+      "src/tbps/baselines/cpgc_sep/cache.py": "68abc0ce80f6a0adf757f6c04f45f41863b0113499dec882d01eae3a0e1cb5c0",
+      "src/tbps/baselines/cpgc_sep/victims.py": "949b6bb88818536533589032de9588adf51864c234bc895e1946d8291a9d63aa",
+      "cuhk_irra_published_report": "93d040876eae43e58a56ff242c4fe5afe1dfde6a7a64e65cae73871a5c835e34",
+      "cuhk_rasa_published_report": "bdb75113e7f3db9159d39e7daf8926452360c6d98cd9a7b1476d29f2269cce0e"
+    },
+    "scientific_phase": "full-source-icfg",
+    "scientific_status": "RUNNING",
+    "processes": "    PID    PPID    PGID     SID TT       %CPU     ELAPSED COMMAND\n 682941       1  682941  682941 ?         0.0    19:41:13 /home/lzf/ldx/envs/tbps-image/bin/python -B -m operations.sep_text_only.supervisor\n2919691       1 2919691 2919691 ?         0.0    05:34:05 /home/lzf/ldx/envs/tbps-image/bin/python -B -m operations.sep_word_budget1_publish\n3779804  682941 3779804 3779804 ?         100       12:02 /home/lzf/ldx/envs/tbps-image/bin/python -B -m operations.sep_text_only.execute source icfg full\n",
+    "publisher_state": "MONITORING",
+    "published_groups": [
+      "cuhk_irra",
+      "cuhk_rasa",
+      "rstp_irra",
+      "rstp_rasa"
+    ],
+    "live_monitor_gpu_processes": [
+      "3006245, /home/lzf/ldx/envs/tbps-image/bin/python, 984",
+      "3006245, /home/lzf/ldx/envs/tbps-image/bin/python, 986"
+    ],
+    "final_time": 1793954903.850332
+  },
+  "preregister": {
+    "selection": "first two official caption-only rows of each dataset; no attack-feedback selection",
+    "samples": [
+      {
+        "caption": "A man wearing a blue and white stripe tank top, a pair of green pants and a pair of pink shoes.",
+        "key": "36d7bfdc4f6fd6b1e90c7d0ae4c370e3c102ab347121bc820852fde9f7586946",
+        "dataset": "cuhk"
+      },
+      {
+        "caption": "The man is wearing a blue and white striped tank top and green pants. He has pink headphones around his neck.",
+        "key": "eaeba1601affed2ed00dbb818f71af3965fa9ad7f3e0576683f5d3b9c7c3b8b5",
+        "dataset": "cuhk"
+      },
+      {
+        "caption": "The man is wearing a black coat and black trousers. He is wearing glasses. He walked with his hands on each other.",
+        "key": "307ab0a408b08acc396ae2304ea83334d31807449e928c4536dd800a131700af",
+        "dataset": "rstp"
+      },
+      {
+        "caption": "A man with short hair is wearing black coat with white writing on left arm,fitted black pants.He is looking left side.",
+        "key": "68da1b9257c5eff6807a806faedb551fbf225bda942c57f4da8fa3389dd582e0",
+        "dataset": "rstp"
+      },
+      {
+        "caption": "A man in his thirties with semi-bald hair is wearing a gray topcoat with his hands on the pocket. He is wearing black pants and brown leather shoes. He is carrying a black backpack.",
+        "key": "b83300fa0d998f7089414b1367e387a5ea493800068838150945b794883b8d4f",
+        "dataset": "icfg"
+      },
+      {
+        "caption": "A man in his forties with short black hair is wearing a mid-length grey trench coat over a light-colored collared shirt. He is also wearing a regular-fit black pants and dark brown dress shoes.",
+        "key": "af32361621b2e4976a319f89bb4cff51ccb70dfbfd6a3c9f6d0a345abf1a71d4",
+        "dataset": "icfg"
+      }
+    ]
+  },
+  "tests": {
+    "final_passed": 20,
+    "failed": 0,
+    "seconds": 0.98,
+    "initial_collection_error": "PersonID test fixture omitted namespace; fixed test fixture only; initial log/XML preserved"
+  },
+  "runtime": {
+    "python": "3.10.21",
+    "torch": "2.5.1+cu124",
+    "CUDA_build": "12.4",
+    "logical_cores": 32,
+    "torch_threads_in_GPU_runs": 2,
+    "gpu": "NVIDIA GeForce RTX 4090, 570.211.01"
+  },
+  "raw_output": "/home/lzf/ldx/outputs/tbps-sep-performance-20261106",
+  "raw_control": "/home/lzf/ldx/tmp/sep_performance_20261106",
+  "final_preservation": {
+    "time": 1793954121.9785645,
+    "baseline_commit": "d5550d5",
+    "scientific_worktree": "/home/lzf/ldx/projects/idea-test-tbps-sep-word-budget1-20261105",
+    "scientific_head": "0438e27b2164c2478e17ace865c063bb0f79bc12",
+    "protected_sha256": {
+      "operations/sep_text_only/execute.py": "8b51162dc124e55c296a042e9ae32450c16ab94924e798985e5627a25b8be09a",
+      "operations/sep_text_only/runtime.py": "1db0f0d357e8c9c4dee4717a6ffe8245c08085cfc9d7bfa9d6a9cc2329836f3a",
+      "operations/sep_text_only/supervisor.py": "691ff953116f915486c350046f3b94489fa2701c09c20a07e5b47339fca3378e",
+      "operations/sep_text_only/word_budget.py": "a2e0422b468cb36a7c597112bee0f1d4cf85a6d0359e42c692a213265d169011",
+      "configs/framework/sep_text_only_full.server.json": "6bc8e0e232904ce18d148bdf6814b2280579de9fbc227172d109f144609334e0",
+      "src/tbps/baselines/cpgc_sep/sep_source.py": "d5932335b57bcbf2f1f465bf64f33fc69e0c379cfdf20256c1ceceb764bbad88",
+      "src/tbps/baselines/cpgc_sep/sep_bridge.py": "9346207dba66e6fc573c1d4041f24a8aec744b1333f526a333466dea6c73230e",
+      "src/tbps/baselines/cpgc_sep/cache.py": "68abc0ce80f6a0adf757f6c04f45f41863b0113499dec882d01eae3a0e1cb5c0",
+      "src/tbps/baselines/cpgc_sep/victims.py": "949b6bb88818536533589032de9588adf51864c234bc895e1946d8291a9d63aa",
+      "cuhk_irra_published_report": "93d040876eae43e58a56ff242c4fe5afe1dfde6a7a64e65cae73871a5c835e34",
+      "cuhk_rasa_published_report": "bdb75113e7f3db9159d39e7daf8926452360c6d98cd9a7b1476d29f2269cce0e"
+    },
+    "scientific_phase": "full-source-icfg",
+    "scientific_status": "RUNNING",
+    "processes": "    PID    PPID    PGID     SID TT       %CPU     ELAPSED COMMAND\n 682941       1  682941  682941 ?         0.0    19:41:13 /home/lzf/ldx/envs/tbps-image/bin/python -B -m operations.sep_text_only.supervisor\n2919691       1 2919691 2919691 ?         0.0    05:34:05 /home/lzf/ldx/envs/tbps-image/bin/python -B -m operations.sep_word_budget1_publish\n3779804  682941 3779804 3779804 ?         100       12:02 /home/lzf/ldx/envs/tbps-image/bin/python -B -m operations.sep_text_only.execute source icfg full\n",
+    "publisher_state": "MONITORING",
+    "published_groups": [
+      "cuhk_irra",
+      "cuhk_rasa",
+      "rstp_irra",
+      "rstp_rasa"
+    ],
+    "live_monitor_gpu_processes": [
+      "3006245, /home/lzf/ldx/envs/tbps-image/bin/python, 984",
+      "3006245, /home/lzf/ldx/envs/tbps-image/bin/python, 986"
+    ],
+    "final_time": 1793954903.850332
+  },
+  "source_reference": {
+    "source_train_manifest_sha256": "7c21e500200753a722cda0f7c0246b87506b2b582fee8b5433b13698c8b6fde4",
+    "manifest_path": "/home/lzf/ldx/outputs/tbps-framework-sep-word-budget1-20261105/source/reference/completed/manifest.json",
+    "manifest_sha256": "b9ea3e2199ce048b90ba9014d8c19407611b33ec01144e88b104cac76c479a7e",
+    "frozen_features_sha256": "0fdd6fd878bb3033c69c3416a48def8b26e9fba7b7a40e0b3e6ed626eae8d1cb"
+  },
+  "diagnostic_manifest": {
+    "path": "/home/lzf/ldx/outputs/tbps-sep-performance-20261106/run_manifest.json",
+    "sha256": "d9ddfdc9d5e5352932622e846f4f6f8022c94937c4818638cdbeca311ba6cfda"
+  }
+}

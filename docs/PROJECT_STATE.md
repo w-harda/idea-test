@@ -6,6 +6,8 @@
 
 新增独立codex/sep-word-budget1-reports发布器，12项针对性CPU测试PASS；每组正式Full及CPU审计通过后独立提交GitHub，六组完成后汇总，不修改或暂停原链。控制/home/lzf/ldx/tmp/sep_word_budget1_reports_20261105，逐组链接记录status.json。[发布机制](framework/results/sep_word_budget1/PUBLICATION.md)
 
+独立性能诊断codex/sep-performance已完成：60秒Source监控显示单核CPU约99.37%、设备GPU平均3.16%；PackedPIDPlan六条固定真实Caption实测8.582→1.270秒（6.76×），20项CPU及真实特征/完整矩阵/候选/RNG Exact通过。Batch8非Exact不采用。原682941链及2919691发布器持续，收尾时CUHK/RSTP四组已发布、ICFG Source运行；默认科学入口和已发布结果不改；优化版Full未运行。[性能报告](framework/results/sep_performance/REPORT.md)
+
 ## FROZEN：SEP Text-only 三数据集正式链
 
 复用PIDPlan与Source-only伪PID接线。每域8条Smoke、六组Text-only评分与CPU核对全部通过后自动Full。运行进度以独立控制目录回执为准。[报告](framework/results/sep_text_only_full/REPORT.md)

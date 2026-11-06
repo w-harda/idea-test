@@ -1,5 +1,9 @@
 # 架构边界与迁移约定
 
+## SEP显式Packed PID归约
+
+新增sep_packed_pid.PackedPIDPlan，复用Classifier原PIDPlan顺序，以组首成员尾部补齐后批量索引/max。enable_packed_pid仅供未来独立版本显式调用，默认入口、NativeScorer、缓存、RNG与WordBudget1 Trace不改。独立真实GPU六Query Exact验证通过，当前Full未切换。[性能报告](framework/results/sep_performance/REPORT.md)
+
 ## SEP固定1词预算
 
 独立operations/sep_word_budget1_publish.py只读取已提交的Full CPU回执及小型元数据，在独立报告工作树提交逐组Markdown。发布进程不导入Torch、不重算评分、不操作科学进程；Git发布失败独立留存并重试，不影响原六组调度。[发布机制](framework/results/sep_word_budget1/PUBLICATION.md)
