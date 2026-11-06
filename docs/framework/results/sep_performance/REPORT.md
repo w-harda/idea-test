@@ -169,3 +169,5 @@ Packed后的首Query中PID仅约2.85%。在该已测分解下，假设完全消�
 必要脚本：monitor、diagnose、ab、verify_native、stages和rasa_profile。GPU入口都有独占启动回执，重复路径拒绝重跑；实际失败保留证据，不自动重试。全部原始证据留服务器，Git仅提交源码、针对性测试、本文及小型[EVIDENCE.json](EVIDENCE.json)。
 
 诊断产物的SHA清单见[RUN_MANIFEST.json](RUN_MANIFEST.json)，原始对应run_manifest.json保留在独立输出目录。SHA覆盖原始Profiler/日志、预注册输入、测试结果和独立Tensor；Git不包含这些大型原始文件。
+
+实现及实测对应代码Commit：1838964bf22bc322e6f94f0e98704ef19af0d50a。后续本说明提交只补充Commit引用，不修改已测试源码。

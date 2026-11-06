@@ -947,5 +947,6 @@
   "diagnostic_manifest": {
     "path": "/home/lzf/ldx/outputs/tbps-sep-performance-20261106/run_manifest.json",
     "sha256": "d9ddfdc9d5e5352932622e846f4f6f8022c94937c4818638cdbeca311ba6cfda"
-  }
+  },
+  "implementation_commit": "1838964bf22bc322e6f94f0e98704ef19af0d50a"
 }
