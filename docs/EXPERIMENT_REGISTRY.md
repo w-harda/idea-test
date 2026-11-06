@@ -665,3 +665,11 @@ H20新增候选最低40.427635%，历史H9为40.425480%；H60为42.874081%，不
 [设计](framework/results/gh_bidirectional_prototype/REPORT.md)、
 [实际CPU/资源/保护证据](framework/results/gh_bidirectional_prototype/SOURCE_EVIDENCE.json)。
 不重发任何历史完成回执，不自动启动后续训练。
+
+## GH-Alternating-v1（2026-11-06）
+
+- 执行源码：9080d1accf51da7a9b9776b1d051ef24f62b5d9f，分支codex/gh-alternating-v1。
+- 独立G60/H10完整父状态；G图像8/255，H新WordBudget1且每词最多1字符；旧H7/H60协议不改。
+- 原8条Train Pilot，两Round，每Round完整2048图库；预定Round1正常边界退出后新进程恢复Round2。
+- 输出：/home/lzf/ldx/outputs/tbps-framework-gh-alternating-v1-20261106；控制：/home/lzf/ldx/tmp/gh_alternating_v1_pilot_20261106。
+- 50个不同CPU用例已通过，实际GPU/审计状态见framework/results/gh_alternating_v1/REPORT.md。本条不代表正式训练或Test已运行。

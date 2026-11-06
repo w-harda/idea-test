@@ -1,6 +1,14 @@
 # 项目当前状态（唯一权威入口）
 
-## 当前阶段：B正式训练与统一IRRA评估CPU准备完成，Pilot资源阻塞（2026-10-24）
+## 当前阶段：GH-Alternating-v1 WordBudget1两轮真实Pilot与独立CPU审计通过（2026-11-06）
+
+执行源码9080d1accf51da7a9b9776b1d051ef24f62b5d9f，codex/gh-alternating-v1。原146源码/496运行来源保持，新增预算支持集、独立配置/双Scheduler/多pass/恢复/诊断。
+G60/H10完整Adam与阶段RNG初始化；两轮各27 G更新、8 H访问/7更新、完整2048图库，累计54/16/14/4096、38新JVP。Round1正常完整边界退出后新进程恢复Round2，双状态/Adam/Scheduler/RNG/当前Bank链通过；IRRA/reader始终冻结。
+44份动作WordBudget1及原Unicode replay通过，最大L∞0.0313725471496582≤8/255；50个不同CPU用例、真实Pilot/Train CPU预检及新独立CPU审计PASS。8/14有效H步当前梯度非零，greedy文本两轮0/8变化；不推断攻击性能改善。
+GPU共享只观察，无VRAM floor；本任务GPU已退出，外部任务未干预。正式50轮仅候选配置，train_v1不存在，无新Test/Full。原NOOP exact FAIL保持。
+[完整报告](framework/results/gh_alternating_v1/REPORT.md)、[运行说明](framework/GH_ALTERNATING_V1.md)。
+
+## 历史快照：B正式训练与统一IRRA评估CPU准备完成，Pilot资源阻塞（2026-10-24）
 
 独立codex/gh-formal-b；保留原140份生产数学源码和旧Smoke exact审计FAIL，停止NOOP kernel调查。
 G60/H10/H60真实Checkpoint已核验：适配H60=H10新增50轮固定G60图库，最终122880 visits/122220更新；现有128条内部Validation，不把G60/H7 Test Full冒充H60。

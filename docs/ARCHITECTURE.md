@@ -1,5 +1,11 @@
 # 架构边界与迁移约定
 
+## GH-Alternating-v1独立预算与调度适配
+
+configured_*复用原FormalBackend/Journal、NativeBackend与原G/H训练函数，原146框架producer保持。WordBudget1通过隔离legacy会话内的有界候选支持集约束调用原rollout，保留参数对象、Natural-K、Unicode/Span及SCST；每词原有一次字符替换规则继续有效。
+新配置独立管理轮数、G/H遍数、LR、双Scheduler、排序seed与Checkpoint里程碑。每个完整Round保存双模型/Adam/Scheduler/阶段RNG/游标，并引用绑定当前G状态和2048有序Train成员的完整Bank。只有显式边界恢复，Claim/pending/真实FAIL阻止自动重播。
+新路径GPU只观察，无VRAM floor；RAM/磁盘/inode仍检查。Pilot分两个进程执行真实边界恢复；源码冻结Commit 9080d1accf51da7a9b9776b1d051ef24f62b5d9f。正式长训练与Test未执行，结果以新报告为准。[运行说明](framework/GH_ALTERNATING_V1.md)。
+
 ## 独立B正式调度与共同IRRA比较
 
 formal_*在冻结NativeBackend外增加B单臂Round调度、独立范围授权与完整Round事务，不修改原G/H训练数学、JVP或原Smoke审计。

@@ -1,0 +1,314 @@
+{
+  "schema": "gh-alternating-v1-evidence-1",
+  "status": "PASS",
+  "execution_commit": "9080d1accf51da7a9b9776b1d051ef24f62b5d9f",
+  "branch": "codex/gh-alternating-v1",
+  "configuration": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-alternating-v1-20261106/configs/framework/gh_alternating_v1.server.json",
+    "sha256": "31d77d919fbccadf31999764caabf42714fc658ba41e15c3e06a9817f9bf7c7a"
+  },
+  "parents": {
+    "G60": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gv2-epoch60-ablation/train/checkpoints/epoch_0060/checkpoint.pt",
+      "sha256": "9148a6ac06178b2eb474194ef6892c50182c5623b4e88bdcf88faa358aa46049"
+    },
+    "H10": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00020480/checkpoint.pt",
+      "sha256": "4ae964d51ea94840de71d9597d90a2234a36104e5d649cfee96577f59f94bacd"
+    },
+    "H7": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/training/checkpoints/visit_00014336/checkpoint.pt",
+      "sha256": "487f3061b6cba2ddabccdd49745a7b99c8c549f4541781b8814b299ef5f279df"
+    },
+    "H60": {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-hv1-g60-adaptation-epoch60/training/checkpoints/visit_00122880/checkpoint.pt",
+      "sha256": "c0de26658c5f36083aaeb04dde3948cdd5bf941d30b1b5c97f7bb2c796404094"
+    }
+  },
+  "frozen_146_producers_exact": true,
+  "current_producer_count": 151,
+  "runtime_pin_count": 496,
+  "all_current_SHA_exact": true,
+  "old_FAIL_preserved": {
+    "path": "/home/lzf/ldx/tmp/gh_smoke_wait_v1_20261023/cpu_audit.log",
+    "sha256": "6524384b33fbabe29cfc93e7af772990426945887b63d8fe566addb82dc3fe65"
+  },
+  "CPU_tests": {
+    "new_passed": 23,
+    "existing_related_passed": 27,
+    "unique_passed": 50,
+    "reran_all_history": false
+  },
+  "pilot_audit": {
+    "GPU_report": {
+      "complete": true,
+      "configuration_sha256": "31d77d919fbccadf31999764caabf42714fc658ba41e15c3e06a9817f9bf7c7a",
+      "counts": {
+        "G": 4150,
+        "H": 42,
+        "IRRA_image": 4150,
+        "IRRA_text": 184,
+        "JVP": 38,
+        "reader": 14
+      },
+      "cursor": {
+        "g_updates": 484134,
+        "h_updates": 20384,
+        "h_visits": 20496,
+        "round": 2
+      },
+      "elapsed_seconds": 451.8392216153443,
+      "frozen_sources": true,
+      "not_retrieval_performance_evaluation": true,
+      "peak_GPU_allocated_bytes": 1085259264,
+      "peak_GPU_reserved_bytes": 1132462080,
+      "planned_boundary_resume": true,
+      "resources": {
+        "CPU_system_seconds": 27.3359,
+        "CPU_user_seconds": 408.601993,
+        "GPU": "NVIDIA GeForce RTX 4090, 21500, 2592, 24564, 6",
+        "available_RAM_bytes": 119481024512,
+        "checks": {
+          "RAM": true,
+          "disk": true,
+          "inodes": true
+        },
+        "compute_processes": "3779804, /home/lzf/ldx/envs/tbps-image/bin/python, 986\n3960052, /home/lzf/ldx/envs/tbps-image/bin/python, 1552",
+        "free_disk_bytes": 5427618131968,
+        "free_inodes": 238773963,
+        "peak_RSS_bytes": 2442813440,
+        "policy": "shared_observe_only_no_VRAM_floor",
+        "resource_eligible": true
+      },
+      "scope": "pilot",
+      "status": "GH_ALTERNATING_V1_GENERATED"
+    },
+    "G_updates": 54,
+    "H_updates": 14,
+    "complete_dual_Adam_Scheduler_RNG_state": true,
+    "configuration_sha256": "31d77d919fbccadf31999764caabf42714fc658ba41e15c3e06a9817f9bf7c7a",
+    "formal_long_training": "NOT_RUN",
+    "old_exact_Smoke_FAIL_unchanged": true,
+    "planned_fresh_process_boundary_resume": true,
+    "retrieval_performance": "NOT_EVALUATED",
+    "rounds": [
+      {
+        "G_changed": true,
+        "G_updates": 27,
+        "H_changed": true,
+        "H_updates": 7,
+        "bank": {
+          "G_checkpoint_bound": true,
+          "images": 2048,
+          "max_Linf": 0.0313725471496582,
+          "ordered_members_bound": true
+        },
+        "cursor": {
+          "g_updates": 484107,
+          "h_updates": 20377,
+          "h_visits": 20488,
+          "round": 1
+        },
+        "new_JVPs": 19,
+        "nonNOOP_contexts": 7,
+        "nonzero_H_gradients": 3,
+        "round": 1,
+        "same_text_reward_changes": 7,
+        "seconds": {
+          "G_and_context": 5.211105834692717,
+          "H": 0.5648108944296837,
+          "bank": 386.13525865599513,
+          "total": 391.91117576137185
+        }
+      },
+      {
+        "G_changed": true,
+        "G_updates": 27,
+        "H_changed": true,
+        "H_updates": 7,
+        "bank": {
+          "G_checkpoint_bound": true,
+          "images": 2048,
+          "max_Linf": 0.0313725471496582,
+          "ordered_members_bound": true
+        },
+        "cursor": {
+          "g_updates": 484134,
+          "h_updates": 20384,
+          "h_visits": 20496,
+          "round": 2
+        },
+        "new_JVPs": 19,
+        "nonNOOP_contexts": 7,
+        "nonzero_H_gradients": 5,
+        "round": 2,
+        "same_text_reward_changes": 7,
+        "seconds": {
+          "G_and_context": 3.008865926414728,
+          "H": 0.5253151804208755,
+          "bank": 399.9803661480546,
+          "total": 403.5145476311445
+        }
+      }
+    ],
+    "scope": "pilot",
+    "status": "GH_ALTERNATING_V1_PILOT_CPU_AUDIT_PASS",
+    "word_budget": {
+      "checked_outputs": 44,
+      "edited_outputs": 42,
+      "maximum_changed_words": 1
+    }
+  },
+  "process_segments": [
+    {
+      "pgid": 3943546,
+      "pid": 3943547,
+      "ppid": 3943546,
+      "sid": 3943546,
+      "tty": null
+    },
+    {
+      "pgid": 3943546,
+      "pid": 3960052,
+      "ppid": 3943546,
+      "sid": 3943546,
+      "tty": null
+    }
+  ],
+  "supervisor_wall_seconds": 963.6107747554779,
+  "resources": [
+    {
+      "round": 1,
+      "CPU_seconds_during_round": 120.87813700000001,
+      "CPU_percent_one_core_100": 30.826063086112097,
+      "peak_RSS_MiB": 2310.74609375,
+      "peak_GPU_allocated_MiB": 1034.98388671875,
+      "peak_GPU_reserved_MiB": 1080.0,
+      "observed_GPU_utilization_percent": [
+        6,
+        4,
+        22,
+        50,
+        4,
+        4
+      ]
+    },
+    {
+      "round": 2,
+      "CPU_seconds_during_round": 121.13756800000002,
+      "CPU_percent_one_core_100": 30.001684463609223,
+      "peak_RSS_MiB": 2329.6484375,
+      "peak_GPU_allocated_MiB": 1034.98388671875,
+      "peak_GPU_reserved_MiB": 1080.0,
+      "observed_GPU_utilization_percent": [
+        2,
+        4,
+        13,
+        38,
+        4,
+        4
+      ]
+    }
+  ],
+  "round2_greedy_text_changes": 0,
+  "formal_training_directory_exists": false,
+  "new_Test_evaluation": false,
+  "source_files": [
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-alternating-v1-20261106/pilot_cpu_audit_v1/completed/report.json",
+      "sha256": "bcfef9fe4cc7bdb073c085167bf375a472245d24f878f0ae058ce09b4833c15b"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-alternating-v1-20261106/pilot_cpu_audit_v1/completed/manifest.json",
+      "sha256": "304124bece23514bae945cd96a49cf4aa05ba37af86fd72d381cbd8fda862765"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-alternating-v1-20261106/readiness/ready.json",
+      "sha256": "0d9e58a8f5372e761ba4bb075796a1980ce228dfcb372048a877c38d8adcc4bb"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v1_pilot_20261106/supervisor_status.json",
+      "sha256": "c1a4e0cecaa8a665d161fc4302e63cd098155436114335e36c01ce435dc156ce"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v1_pilot_20261106/started.json",
+      "sha256": "7cb998fb6afaf7091f99426398c941fe1bc15a0dd2bfdc9b2378a099094c44d3"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v1_pilot_20261106/resource_stages.jsonl",
+      "sha256": "2d895dffef28bb4f8cfc1cb9b73b157773647422ed0460772b98c0affb75ebf5"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v1_pilot_20261106/01_round1.log",
+      "sha256": "c02bb5a6f376aeb2dbca8d0e690ce1fb84ecc86731421b489f99b61b66af4fab"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v1_pilot_20261106/02_resume_round2.log",
+      "sha256": "c6ef1870c5ba6287d35e90ae8c95bcabf61efd75def12a66b6ed7ac6843db0ce"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v1_pilot_20261106/03_cpu_audit.log",
+      "sha256": "f25a071aef94f23017a4d0a90be1f3552d15bc26ae7a52e4f1d5f282583278c1"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-alternating-v1-20261106/pilot_v1/rounds/round_0001/state.pt",
+      "sha256": "66b6139e913ee97923f075228843413a4decfe16d008cee53910a310b4535dc7"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-alternating-v1-20261106/pilot_v1/rounds/round_0001/ledger.json",
+      "sha256": "a0d3612c9ec66e4195abb7a55df1a5cae2ec0dff81433330fe95254f05480739"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-alternating-v1-20261106/pilot_v1/rounds/round_0001/manifest.json",
+      "sha256": "888085e57248f0a77aa190435a7fdd2b7f71c6625e4a34ac3ecb6e701e417b4e"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-alternating-v1-20261106/pilot_v1/B/bank_1/completed/manifest.json",
+      "sha256": "a21c199c182fe8849a1cfd868e34a835d894d59c27acac37d42eac7a2b9d0fc9"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-alternating-v1-20261106/pilot_v1/rounds/round_0002/state.pt",
+      "sha256": "239fe3a4185dd3a7ae29535402938178c79fac2e31a61dd50b7a186d7ee54fae"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-alternating-v1-20261106/pilot_v1/rounds/round_0002/ledger.json",
+      "sha256": "17ac65e7b60015745701c1c5e3215037ad97b97ff849e3d12a91521be3a3bf99"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-alternating-v1-20261106/pilot_v1/rounds/round_0002/manifest.json",
+      "sha256": "3a84c5a2f6164a25d117d9dcccdc5b6c01537b1991d5997337f668dec5d817d4"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-alternating-v1-20261106/pilot_v1/B/bank_2/completed/manifest.json",
+      "sha256": "09672eb8cfc5f88cf0ce3e80d07bae701ef28842362adb0dc373975c24af9455"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v1_cpu_20261106/tests.log",
+      "sha256": "0834347c64b409f46680d173bbfa15910223c543aa97977487d4a81fa1318a95"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v1_cpu_20261106/tests-v2.log",
+      "sha256": "f8f67c0ae0cbb98e940be41435aa2d77fc05c92f56d1cd723bc6fccfbefadde6"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v1_cpu_20261106/tests-v4.log",
+      "sha256": "9920b06c0d78b6d79e2aaa40e832f7ac85c97555bc38681729093dc9d3a7b23e"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v1_cpu_20261106/tests-v5.log",
+      "sha256": "1fd2307cb8ec3f9326f4db728cc5a0d4b5fda8a5c106626ba60e23fe0dc06b83"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v1_cpu_20261106/preflight-pilot.log",
+      "sha256": "4d66f76503c9f1ca9576f87ed3e6a7257ffecf32a7377a998b35a13983a6799c"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v1_cpu_20261106/preflight-pilot-final.log",
+      "sha256": "5393c2784652e271a44d1f5d2b63f9533deae0d818021b7327d61ef4c22b7052"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v1_cpu_20261106/preflight-train-final.log",
+      "sha256": "2fb869bf07792590cc3fe5b88e01d84d0edd6c8d2bdf712535d6c6e37f38b0ef"
+    }
+  ]
+}
