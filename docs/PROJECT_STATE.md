@@ -2,7 +2,9 @@
 
 ## CURRENT：SEP WordBudget1独立Text-only链
 
-比例预算链已因用户改为1词预算而安全停止。新协议SEP-TBPS-TextOnly-WordBudget1从原始词位置检查全部候选，三域各8条Smoke、六组评分与CPU候选/最终预算核对均PASS、违规0。Full已自动启动，Supervisor682941，当前CUHK Source生成，尚未完成。[报告](framework/results/sep_word_budget1/REPORT.md)
+比例预算链已因用户改为1词预算而安全停止。新协议SEP-TBPS-TextOnly-WordBudget1从原始词位置检查全部候选，三域各8条Smoke、六组评分与CPU候选/最终预算核对均PASS、违规0。Full已自动启动，Supervisor682941；2026-11-06只读接线确认CUHK Source6156条完成，CUHK × IRRA Full及独立CPU审计PASS，六组连续调度。当前阶段以原status.json为准。[启动快照](framework/results/sep_word_budget1/REPORT.md)
+
+新增独立codex/sep-word-budget1-reports发布器，12项针对性CPU测试PASS；每组正式Full及CPU审计通过后独立提交GitHub，六组完成后汇总，不修改或暂停原链。控制/home/lzf/ldx/tmp/sep_word_budget1_reports_20261105，逐组链接记录status.json。[发布机制](framework/results/sep_word_budget1/PUBLICATION.md)
 
 ## FROZEN：SEP Text-only 三数据集正式链
 

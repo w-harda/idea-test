@@ -1,0 +1,14 @@
+{
+  "experiment_config": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-sep-word-budget1-20261105/configs/framework/sep_text_only_full.server.json",
+    "sha256": "6bc8e0e232904ce18d148bdf6814b2280579de9fbc227172d109f144609334e0"
+  },
+  "experiment_worktree": "/home/lzf/ldx/projects/idea-test-tbps-sep-word-budget1-20261105",
+  "output": "/home/lzf/ldx/outputs/tbps-framework-sep-word-budget1-20261105",
+  "control": "/home/lzf/ldx/tmp/sep_word_budget1_reports_20261105",
+  "report_path": "docs/framework/results/sep_word_budget1",
+  "branch": "codex/sep-word-budget1-reports",
+  "repo_url": "https://github.com/w-harda/idea-test",
+  "poll_seconds": 30,
+  "push_retry_seconds": 300
+}

@@ -2,6 +2,8 @@
 
 ## SEP固定1词预算
 
+独立operations/sep_word_budget1_publish.py只读取已提交的Full CPU回执及小型元数据，在独立报告工作树提交逐组Markdown。发布进程不导入Torch、不重算评分、不操作科学进程；Git发布失败独立留存并重试，不影响原六组调度。[发布机制](framework/results/sep_word_budget1/PUBLICATION.md)
+
 operations/sep_text_only/word_budget.py复用官方AST，只适配1词搜索上界和原始词位置约束所需的探针及单位置边界。PIDPlan、IRRA/RaSa原生评分不改。[预算协议](framework/results/sep_word_budget1/REPORT.md)
 
 ## SEP Text-only正式接线

@@ -2,6 +2,8 @@
 
 ## SEP-TBPS-TextOnly-WordBudget1
 
+2026-11-06新增独立codex/sep-word-budget1-reports报告分支，每组Full及独立CPU审计通过即发布对应REPORT.md；全部六组后生成SUMMARY.md。无新增实验版本或科学参数变更，原六组连续执行。[发布说明](framework/results/sep_word_budget1/PUBLICATION.md)
+
 三个TBPS数据集×IRRA/RaSa，Query6156/2000/19848，Source固定CUHK IRRA。比例预算产物历史冻结，不复用攻击文本。[报告](framework/results/sep_word_budget1/REPORT.md)
 
 ## SEP Text-only 三数据集 × IRRA/RaSa
