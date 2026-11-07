@@ -1,5 +1,12 @@
 # 架构边界与迁移约定
 
+## GH-Alternating-v2 从零训练及六节点Joint
+
+fresh_*复用NativeBackend的原G/H训练、条件/JVP和完整Bank，以及原调度/ArtifactStore/IRRA原生Engine。只替换初始化、历史绑定、数据顺序和存储生命周期；G/H分别按原seed42构造，双Adam为空、无Scheduler，原Natural-K多词Unicode预算，无v1 WordBudget1。
+每轮固定2048 Train先G后新Bank再H，计数从0。每10轮原子导出配对G/H用于Test；每轮发布最新完整双状态/RNG/Bank并原子切换后，限定本次输出树内退休旧大Tensor，保留账本与六组权重。未提交Claim/IO/FAIL拒绝自动重播。
+单次Supervisor在Smoke/审计与Joint链路Smoke/审计通过后执行60轮，再固定六次Joint-only CUHK×IRRA Test，最后独立CPU审计/表格/两曲线自动发布；没有Validation或额外36组。新源配置完全移除历史G/H/旧G60 Bank，仅固定IRRA/Reader/basis/clean等资源。
+[运行协议](framework/GH_ALTERNATING_V2.md)。
+
 ## GH-Alternating-v1独立预算与调度适配
 
 configured_*复用原FormalBackend/Journal、NativeBackend与原G/H训练函数，原146框架producer保持。WordBudget1通过隔离legacy会话内的有界候选支持集约束调用原rollout，保留参数对象、Natural-K、Unicode/Span及SCST；每词原有一次字符替换规则继续有效。

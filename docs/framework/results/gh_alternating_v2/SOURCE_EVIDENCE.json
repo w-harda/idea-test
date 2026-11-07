@@ -1,0 +1,127 @@
+{
+  "schema": "gh-v2-startup-1",
+  "status": "TRAIN60_RUNNING",
+  "execution_commit": "f2aeb14ba24c50f70d124d3be6da76895dc4904b",
+  "configuration": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-alternating-v2-20261107/configs/framework/gh_alternating_v2.server.json",
+    "sha256": "3ac664d8ac563f5ab71936c0863d1537906a4035a268a1b60974b48c361417ce"
+  },
+  "initialization": {
+    "Scheduler": null,
+    "empty_G_Adam": true,
+    "empty_H_Adam": true,
+    "historical_dynamic_bank_loaded": false,
+    "initial_G": "be3fc4d83a60b85c598c300274899f628a64f2508ca16031c06c9a58f55f8ffa",
+    "initial_H": "02dfb3a9a45c6da4b7e739cc4f80bee31230926498938a15337448510ea47d6a",
+    "status": "FRESH_G_H_SEED42_PASS",
+    "trained_checkpoint_loads": 0,
+    "word_budget1_installed": false
+  },
+  "multiword_probe": {
+    "K": 2,
+    "changed_word_positions": [
+      [
+        0,
+        2
+      ],
+      [
+        48,
+        53
+      ]
+    ],
+    "independent_sampler_seed": 1000,
+    "not_training_or_Test_selection": true,
+    "row_id": "cuhk:9955:0",
+    "status": "ORIGINAL_DYNAMIC_K_MULTIWORD_PASS"
+  },
+  "CPU_tests": {
+    "new_passed": 17,
+    "existing_related_passed": 27,
+    "unique_passed": 44
+  },
+  "source_count": 158,
+  "runtime_pins": 496,
+  "supervisor": {
+    "pid": 2620702,
+    "ppid": 1,
+    "pgid": 2620702,
+    "sid": 2620702,
+    "tty": null,
+    "time": 1794022762.6168463
+  },
+  "source_files": [
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_cpu_20261107/tests-v2.log",
+      "sha256": "3e148d1bd6a41587b84abaf62195aa7b1e6cce6f64ff6c674950b7e43ed9ddf8"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_cpu_20261107/tests-final.log",
+      "sha256": "36bd770ae470a6181069882268d32383c9cd70d9e3e3fc099c247ff1ee00bfae"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_cpu_20261107/preflight-final2.log",
+      "sha256": "3dd211e8d1c8729e2f1489be6af3ff2bd63015bf9aca0d9488bbeb16c4e971b6"
+    }
+  ],
+  "formal_results": [],
+  "formal_results_status": "NOT_RUN",
+  "six_points_predeclared": [
+    10,
+    20,
+    30,
+    40,
+    50,
+    60
+  ],
+  "smoke_audit": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-gh-alternating-v2-20261107/smoke_cpu_audit/completed/report.json",
+    "sha256": "763437898a36d7ebf7b88d159d157e9993e83619e7283a36142df716e5de297f"
+  },
+  "joint_smoke_audit": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-gh-alternating-v2-20261107/test/smoke/cpu_audit/completed/report.json",
+    "sha256": "5a2e9fe115d630bae495cc5f90ae7839014da526d6ab2a50a6c427a9086514ba"
+  },
+  "fresh_train_initialization": {
+    "Scheduler": null,
+    "empty_G_Adam": true,
+    "empty_H_Adam": true,
+    "historical_dynamic_bank_loaded": false,
+    "initial_G": "be3fc4d83a60b85c598c300274899f628a64f2508ca16031c06c9a58f55f8ffa",
+    "initial_H": "02dfb3a9a45c6da4b7e739cc4f80bee31230926498938a15337448510ea47d6a",
+    "status": "FRESH_G_H_SEED42_PASS",
+    "trained_checkpoint_loads": 0,
+    "word_budget1_installed": false
+  },
+  "supervisor_status": {
+    "phase": "05_train60",
+    "time": 1794023289.124404
+  },
+  "formal_train_snapshot": {
+    "phase": "G_TRAIN",
+    "round": 1,
+    "visited": 608,
+    "total": 2048,
+    "cursor": {
+      "g_updates": 2415,
+      "h_updates": 0,
+      "h_visits": 0,
+      "round": 0
+    },
+    "counts": {
+      "G": 2415,
+      "H": 2037,
+      "IRRA_image": 2415,
+      "IRRA_text": 21448,
+      "JVP": 5836,
+      "reader": 1970
+    },
+    "elapsed_seconds": 649.3614770807326
+  },
+  "current_process": {
+    "pgid": 2620702,
+    "pid": 2640028,
+    "ppid": 2620702,
+    "sid": 2620702,
+    "tty": null
+  }
+}

@@ -1,6 +1,15 @@
 # 项目当前状态（唯一权威入口）
 
-## 当前阶段：GH-Alternating-v1 WordBudget1两轮真实Pilot与独立CPU审计通过（2026-11-06）
+<!-- GH_V2_CURRENT_BEGIN -->
+## 当前阶段：GH-Alternating-v2 Smoke/审计全部通过，正式从零60轮执行中（2026-11-07）
+
+独立codex/gh-alternating-v2，执行源码f2aeb14ba24c50f70d124d3be6da76895dc4904b。44 CPU用例与真实CPU预检PASS，G/H seed42新建、空Adam、0计数，无历史G/H加载或WordBudget1；原H已验证K2多词各1字符。
+单次后台Supervisor PID/PGID/SID2620702、PPID1、无TTY。真实训练Smoke 27 G/7 H更新、19新JVP、2048 Bank与独立CPU审计PASS；10+10 Joint Smoke/独立排名审计PASS。正式训练已从全新seed42、空Adam/0计数启动第1轮（0/60完成），未继承Smoke；完整2048条件重建已完成，G真实更新已开始。全部训练/审计完成后自动六节点Joint Test及报告发布。正式Test结果0行，不能用Smoke补齐。
+控制/home/lzf/ldx/tmp/gh_alternating_v2_supervisor_20261107，输出/home/lzf/ldx/outputs/tbps-framework-gh-alternating-v2-20261107。
+GPU仅观察，无VRAM floor；真实失败停止保留，不自动重试，不干预SEP等外部任务。[当前报告](framework/results/gh_alternating_v2/REPORT.md)、[运行与恢复](framework/GH_ALTERNATING_V2.md)。
+<!-- GH_V2_CURRENT_END -->
+
+## 历史版本：GH-Alternating-v1 WordBudget1两轮真实Pilot与独立CPU审计通过（2026-11-06）
 
 执行源码9080d1accf51da7a9b9776b1d051ef24f62b5d9f，codex/gh-alternating-v1。原146源码/496运行来源保持，新增预算支持集、独立配置/双Scheduler/多pass/恢复/诊断。
 G60/H10完整Adam与阶段RNG初始化；两轮各27 G更新、8 H访问/7更新、完整2048图库，累计54/16/14/4096、38新JVP。Round1正常完整边界退出后新进程恢复Round2，双状态/Adam/Scheduler/RNG/当前Bank链通过；IRRA/reader始终冻结。
