@@ -1,12 +1,12 @@
 # 项目当前状态（唯一权威入口）
 
 <!-- GH_V2_CURRENT_BEGIN -->
-## 当前阶段：GH-Alternating-v2 Smoke/审计全部通过，正式从零60轮执行中（2026-11-07）
+## 当前阶段：GH-v2原60轮独立CPU审计PASS，六Joint Test恢复执行中（2026-11-08）
 
-独立codex/gh-alternating-v2，执行源码f2aeb14ba24c50f70d124d3be6da76895dc4904b。44 CPU用例与真实CPU预检PASS，G/H seed42新建、空Adam、0计数，无历史G/H加载或WordBudget1；原H已验证K2多词各1字符。
-单次后台Supervisor PID/PGID/SID2620702、PPID1、无TTY。真实训练Smoke 27 G/7 H更新、19新JVP、2048 Bank与独立CPU审计PASS；10+10 Joint Smoke/独立排名审计PASS。正式训练已从全新seed42、空Adam/0计数启动第1轮（0/60完成），未继承Smoke；完整2048条件重建已完成，G真实更新已开始。全部训练/审计完成后自动六节点Joint Test及报告发布。正式Test结果0行，不能用Smoke补齐。
-控制/home/lzf/ldx/tmp/gh_alternating_v2_supervisor_20261107，输出/home/lzf/ldx/outputs/tbps-framework-gh-alternating-v2-20261107。
-GPU仅观察，无VRAM floor；真实失败停止保留，不自动重试，不干预SEP等外部任务。[当前报告](framework/results/gh_alternating_v2/REPORT.md)、[运行与恢复](framework/GH_ALTERNATING_V2.md)。
+原训练60/60轮、G484080/H访问122880/H更新122220，未重跑。原64MiB审计失败现场保留；独立流式审计157.25秒/峰值RSS558.88MiB PASS，六组权重精确对应，43907历史文件SHA/stat exact。原158源码/496来源/配置不改。
+首版新增H逐步检查混用了原生state_sha与边界tree_sha，13秒停止，FAIL保持；第二版工具通过双摘要桥接并完整核验60轮，执行Commit176571dedc0268d1856c4c1ed727c9db07215ff9。10新增+27相关CPU测试PASS。
+第二版后处理Supervisor PID/PGID/SID2487647、PPID1、无TTY，控制/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2。训练审计PASS后已自动进入G10/H10完整3074 Gallery/6156 Query Joint-only Test，正式结果尚未齐六组，不宣称全部完成。任何真实错误停止保留，无自动重试，无新训练/JVP/历史Bank生成。
+[恢复报告](framework/results/gh_alternating_v2_recovery/REPORT.md)、[审计明细](framework/results/gh_alternating_v2_recovery/AUDIT_DETAILS.md)、[运行说明](framework/GH_V2_POSTTRAINING_RECOVERY.md)。
 <!-- GH_V2_CURRENT_END -->
 
 ## 历史版本：GH-Alternating-v1 WordBudget1两轮真实Pilot与独立CPU审计通过（2026-11-06）

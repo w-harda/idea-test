@@ -1,6 +1,6 @@
 # GH-Alternating-v2：训练后CPU审计恢复（第二版工具准备快照）
 
-原60轮训练计算已完成，独立CPU语义审计待执行，正式Joint Test 0组完成。
+原60轮独立CPU语义审计已PASS（157.25秒/峰值RSS558.88MiB）；六组正式Joint Test已按门禁开始，当前尚未全部完成。详见[AUDIT_DETAILS.md](AUDIT_DETAILS.md)。
 
 - 原训练：60/60轮，G 484080更新，H 122880访问/122220更新，79478.77秒。不会重新训练。
 - 原失败：`06_train_audit`调用全局`read_json`读取第2轮68178636字节账本，超过67108864字节限制。旧Supervisor保持`FAIL_STOPPED_NO_RETRY`。
