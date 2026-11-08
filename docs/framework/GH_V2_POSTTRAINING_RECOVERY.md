@@ -1,30 +1,49 @@
-# GH-v2原60轮的后处理恢复
+# GH-v2原60轮的后处理恢复（当前工具第二版）
 
-独立操作工具位于operations/gh_v2_recovery*.py，版本绑定configs/framework/gh_v2_posttraining_recovery_20261108.json。它们在原冻结158份生产源码集合之外，原配置SHA不变；每个子进程启动前验证全部恢复工具SHA及原冻结来源。配置明确记录新审计输出路由，不静默关闭来源检查。
+本任务只复用原训练Attempt的产物。没有重跑60轮、重新训练G/H、重算训练JVP或重建历史RewardBank。
 
-原训练输出、60份账本、六对权重和旧失败现场只读。新控制目录/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108；后处理输出在原输出posttraining_recovery_20261108，正式Test在预留的test/round_10至round_60，每组禁止重生成/重试。原始Smoke保留，不作为正式结果。
+当前入口为`operations/gh_v2_recovery_v2_supervisor.py`，操作入口`operations/gh_v2_recovery_v2.py`，共用严格分项读取器`operations/gh_v2_recovery_stream.py`。恢复版本配置为`configs/framework/gh_v2_posttraining_recovery_20261108_v2.json`，执行源码Commit为`176571dedc0268d1856c4c1ed727c9db07215ff9`。
 
-## 单次启动
+原158份生产源码、496份运行来源及冻结配置SHA保持；新增operations工具通过独立版本Manifest逐阶段核验。没有静默关闭SHA、来源或Manifest检查。原全局read_json的64MiB限制保持。
+
+## 执行身份与状态
+
+第二版控制目录：`/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2`。Supervisor PID/PGID/SID2487647、PPID1、无TTY。started.json为不可变单次身份；**本入口已经启动消费，不应再次启动或删除身份文件。**
 
 ```bash
-cd /home/lzf/ldx/projects/idea-test-tbps-gh-alternating-v2-20261107
-nohup setsid /home/lzf/ldx/envs/tbps-image/bin/python -u -B operations/gh_v2_recovery_v2_supervisor.py --allow-posttraining-recovery > /home/lzf/ldx/tmp/gh_v2_recovery_launcher_20261108_v2.log 2>&1 < /dev/null &
+cat /home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/status.json
+cat /home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/child.json
 ```
 
-身份一旦消费，不删除started.json重启。状态见新控制目录status.json、child.json和每阶段日志。监督器阶段只有审计/Test/报告，没有训练入口；真实失败停止并保留FAIL.json，不自动重试。所有资源观察只读，共享GPU无VRAM floor，不操作外部任务。
+原工作树：`/home/lzf/ldx/projects/idea-test-tbps-gh-alternating-v2-20261107`。
+原输出：`/home/lzf/ldx/outputs/tbps-framework-gh-alternating-v2-20261107`。
+新训练CPU审计：原输出下`posttraining_recovery_20261108/train_cpu_audit_v2`。
+六组正式Test：原输出下`test/round_10`至`test/round_60`，各自独立生成完整3074 Gallery/6156 Query。
 
-## 读取与审计
+阶段只包含：独立CPU训练审计 → 六组Joint Test及逐组CPU审计 → 六行指标/两张曲线/报告 → 历史保护复核 → Git发布并核对远端SHA。没有训练入口，没有重试循环。真实错误停止保留；资源只观察，共享GPU无VRAM floor，不操作外部任务。
 
-独立分项JSON读取器先经ArtifactStore原验证，按项回调G/H/conditions，保留其余有界字段，完整消费JSON直到EOF，拒绝重复键、NaN/Infinity/浮点溢出、无效UTF-8、缺失闭合/尾随/非法分隔及类型。所有项都解析，原文件不拆写、不重存。每轮处理前后SHA检查及最后全部43907历史文件SHA/stat复核；所有恢复工具版本随回执记录。
+最终阶段为`SUCCESS_POSTTRAINING_SIX_JOINT_PUBLISHED`；它只属于新后处理控制，不能改写原Supervisor的`FAIL_STOPPED_NO_RETRY`。实时状态及当前最终结果见[独立恢复报告](results/gh_alternating_v2_recovery/REPORT.md)。
 
-CPU门禁禁止NN前向、CUDA、反向、autograd.grad和Optimizer.step，仅允许白名单CPU反序列化及纯规则/tokenizer操作。第1–59轮退休Tensor以原封存账本/退休Manifest审计，限制在报告显式声明。第60轮保留资产及六对权重直接读回。无训练JVP/Bank重算。
+## 大账本读取与CPU审计
 
-评测复用原fresh_evaluation完整Joint-only生成/评分数学。独立preflight只构建架构并严格载入当前端点权重，不创建训练初始状态、Adam或阶段RNG。内存中仅将训练审计证明读取路径改为新审计输出；原配置文件、配置SHA和生产来源不改。原CPU Test审计独立重读预算/Unicode/分数并使用原生ranking复算指标。
+原60份账本合计3890547998字节，第2轮首次超64MiB，超限轮为2/3/4/5/7/9/10。读取器在原ArtifactStore完成回执、Manifest和文件SHA验证后，按项完整解析G/H/conditions，保留其余有界字段；64Ki字符读取块、单项最多4Mi字符，完整消费到EOF。重复键、NaN/Infinity/浮点溢出、非法UTF-8、截断、尾随、非法分隔、字段结构错误全部拒绝。原文件不拆写、不重存。
 
-结果仅全部六组完成后写入独立docs/framework/results/gh_alternating_v2_recovery；表格/R@1/mAP曲线/来源说明自动commit/push并核对远端SHA。数据、权重、Ledger、缓存和原始日志不上传Git。
+CPU审计已PASS：60×2048完整覆盖，G484080更新、H122880访问/122220更新；原选中ID/S_raw/K+1、状态和父态声明链、所有H动作原Unicode回放/原候选合法性/Natural-K、当前Bank绑定、冻结隔离、原JVP/FD回执和六对Checkpoint身份核验。耗时157.251830秒，实际峰值RSS586027008字节（558.879MiB）。模型前向、反向、Optimizer更新、新JVP及CUDA均0。
 
-## 第二版摘要域兼容
+43907个原输出/原Supervisor文件SHA及inode/size/mtime基线在审计前后及最终收尾复核。第1–59轮原始Bank、完整状态、G-rollout按原滚动策略已退休，使用封存账本/退休Manifest核验，不能宣称重读了不存在的Tensor。全部历史H sampled/greedy仍在账本，已逐条回放；第60轮完整Bank、条件和rollout直接读回原资产。
 
-第一版恢复工具的首轮逐步H检查混用了两个不同摘要函数，13秒停止；第一版控制目录和FAIL保留。当前入口为operations/gh_v2_recovery_v2_supervisor.py，版本configs/framework/gh_v2_posttraining_recovery_20261108_v2.json，控制目录后缀_v2，训练CPU审计输出train_cpu_audit_v2。
+## H逐步与轮边界摘要域
 
-原H逐步日志使用冻结feedback_backend.state_sha，边界使用tree_sha，分别核验连续链；在原初始状态、六组Checkpoint及最终完整状态重算双摘要验证桥接。仅操作审计兼容，不修改或重新计算训练。第一版7个控制文件另有SHA/stat保护，每阶段核验。当前第二版工具仍是原训练Attempt的后处理，不是新训练Attempt。
+第一版恢复工具Commit e2abc63在新增H逐步检查处13秒停止，未产生PASS或Test；其原源码、配置、7个控制文件及FAIL全部保持。错误来自工具把两种不同摘要混比：原生feedback_backend.state_sha使用(shape,dtype)，框架tree_sha使用(dtype,shape)。同一原始初始H分别得到02dfb3a...与9d607ba8...，均与各自原记录精确对应。
+
+第二版使用冻结原state_sha验证整条H逐步/跨轮链，tree_sha验证轮边界链，并在初始、六对现有Checkpoint及最新完整状态重算双摘要桥接。未跳过连续性检查。第一版7个控制文件额外SHA/stat保护，每阶段核验。
+
+第二版10项不同新增CPU测试和27项相关回归PASS；首版9项同名用例不重复计数。包含真实初始H双摘要校验，以及改变一个权重值必须改变原生摘要的回归。
+
+## 评测与发布
+
+评测复用原fresh_evaluation的完整Joint-only生成/评分数学。独立preflight仅构建架构并严格加载对应已训练权重，不创建训练初始状态、Adam或阶段RNG。内存中只将训练审计证明路径显式指向新审计；原配置文件及SHA不改。
+
+每组用自己的G/H权重、图像和文本，原生IRRA FP32完整Gallery全部同PID正例检索。仅Joint，图像L∞≤8/255；文本沿用原Natural Dynamic-K、每原词位最多1字符，STOP/NOOP合法，无WordBudget1。原CPU Test审计独立重读RGB预算、Unicode和分数，并用原生ranking复算四项指标。没有新增Clean/单模态/跨模型/跨数据集实验，Test不反馈训练或选点。
+
+六组审计全部PASS后，独立`docs/framework/results/gh_alternating_v2_recovery`发布METRICS.csv、R@1/mAP曲线PNG/SVG、报告和来源证明，自动commit/push并核对远端SHA。权重、Ledger、原始数据、Tensor和大型日志不发布Git。

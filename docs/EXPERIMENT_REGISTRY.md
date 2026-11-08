@@ -678,3 +678,8 @@ H20新增候选最低40.427635%，历史H9为40.425480%；H60为42.874081%，不
 
 源码f2aeb14ba24c50f70d124d3be6da76895dc4904b，codex/gh-alternating-v2。G/H从零、seed42、原Dynamic-K每词一次字符替换，无WordBudget1；60轮、固定2048 Train、无Validation，原G K+1/H SCST不改。
 短Smoke/两类CPU审计后自动训练，训练结束后六节点10/20/30/40/50/60执行Joint-only CUHK-PEDES×IRRA Test。结果状态以framework/results/gh_alternating_v2/REPORT.md及控制回执为准，启动不是正式结果。旧v1和历史G/H/SEP资产保持。
+
+
+## GH-Alternating-v2训练后审计恢复（2026-11-08）
+
+原训练执行f2aeb14；后处理第二版执行176571d。60轮训练不重跑，使用原G10/H10至G60/H60六对权重。独立流式CPU审计157.25秒/峰值RSS558.879MiB PASS；原64MiB失败及首版恢复双摘要混比FAIL均保留。原158生产源码/496运行来源/配置SHA保持，43907历史文件及首版7个控制文件保护。恢复仅Joint-only CUHK-PEDES×IRRA，六组各3074 Gallery/6156 Query及独立CPU审计，不新增其他实验。最终指标及完整执行状态以[独立恢复报告](framework/results/gh_alternating_v2_recovery/REPORT.md)为准，运行/来源兼容详见[恢复说明](framework/GH_V2_POSTTRAINING_RECOVERY.md)。
