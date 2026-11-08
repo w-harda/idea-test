@@ -1,0 +1,14 @@
+[
+  {
+    "mode": "whole_json",
+    "seconds": 1.1806974075734615,
+    "peak_RSS_bytes": 421588992,
+    "size_bytes": 68178636
+  },
+  {
+    "mode": "bounded_stream",
+    "seconds": 0.8806757628917694,
+    "peak_RSS_bytes": 20951040,
+    "size_bytes": 68178636
+  }
+]

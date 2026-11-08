@@ -1,0 +1,25 @@
+{
+  "schema": "gh-v2-posttraining-recovery-1",
+  "configuration": "/home/lzf/ldx/projects/idea-test-tbps-gh-alternating-v2-20261107/configs/framework/gh_alternating_v2.server.json",
+  "configuration_sha256": "3ac664d8ac563f5ab71936c0863d1537906a4035a268a1b60974b48c361417ce",
+  "tools": {
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-alternating-v2-20261107/operations/gh_v2_recovery.py": "dfd688af347c5f146127ea56801b141bad777dce478af589ce37b02b8bf615bd",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-alternating-v2-20261107/operations/gh_v2_recovery_stream.py": "27432b6c46f52208cc650a1f9174f51cad6e292e52ae0d67fb36ea894075ac48",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-alternating-v2-20261107/operations/gh_v2_recovery_supervisor.py": "eac74ce47a92a90a15b2fd83f4a22107a79cfd7f5b45c7e757784399a09fb1d0",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-alternating-v2-20261107/operations/test_gh_v2_recovery.py": "3bcb0a9560af37a6bfe3af877c731121980dc8bb7726cfe43c83f84f1b533e1f"
+  },
+  "original_execution_commit": "f2aeb14ba24c50f70d124d3be6da76895dc4904b",
+  "original_training_attempt": 1,
+  "new_training_updates": 0,
+  "training_audit": "/home/lzf/ldx/outputs/tbps-framework-gh-alternating-v2-20261107/posttraining_recovery_20261108/train_cpu_audit",
+  "allowed_test_rounds": [
+    10,
+    20,
+    30,
+    40,
+    50,
+    60
+  ],
+  "compatibility": "new operations only; exact original producer/tool/config/runtime SHA checks retained; audit output path explicitly routed in memory",
+  "failure_policy": "stop and preserve without retry"
+}
