@@ -1,4 +1,4 @@
-# GH-Alternating-v2：训练后CPU审计恢复（准备快照）
+# GH-Alternating-v2：训练后CPU审计恢复（第二版工具准备快照）
 
 原60轮训练计算已完成，独立CPU语义审计待执行，正式Joint Test 0组完成。
 
@@ -18,3 +18,11 @@
 新控制目录：`/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108`。新审计输出：原输出下`posttraining_recovery_20261108/train_cpu_audit`。原始审计失败回执和所有历史文件保留。
 
 新Supervisor只执行：CPU审计 → G10/H10至G60/H60六组Joint-only完整Test → 各组独立CPU审计 → 表格/曲线/报告 → Git发布。任何真实错误停止，无重试；不调用原Supervisor，不训练，不重新计算训练JVP或历史Bank。六组固定CUHK-PEDES×IRRA，3074 Gallery/6156 Query。
+
+## 第一版恢复工具的额外检查错误（已停止保留）
+
+第一版工具e2abc63在首轮新增逐步H连续性检查处停止，未生成PASS、未执行Test。原因是原H逐步日志使用feedback_backend.state_sha（形状在类型之前），而框架轮边界使用tree_sha（类型在形状之前）；它们不是同一种摘要。对同一份原初始H权重独立计算，边界摘要02dfb3a...、原生摘要9d607ba8...均精确对应原记录。该错误来自新增审计工具，不能据此判定训练损坏。
+
+第一版全部7个控制文件（包括FAIL.json、status、started、日志和exit）SHA/stat已额外封存，保留不变。第二版新增独立工具文件、版本配置及控制目录后缀_v2，不覆盖或重启第一版控制身份。第二版使用原冻结state_sha检查每个H步和跨轮链，使用tree_sha检查轮边界链，并在初始、六组实际Checkpoint、最新状态同时计算两种摘要作桥接；不跳过状态连续性。
+
+新增真实CPU双摘要回归：同一原始H匹配两个已知摘要，改变一个权重值时原生摘要必须改变。第二版10项不同CPU测试及27项相关回归PASS。旧9项同名回归不重复计数。

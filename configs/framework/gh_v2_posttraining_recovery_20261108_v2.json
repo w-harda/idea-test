@@ -1,0 +1,96 @@
+{
+  "schema": "gh-v2-posttraining-recovery-1",
+  "configuration": "/home/lzf/ldx/projects/idea-test-tbps-gh-alternating-v2-20261107/configs/framework/gh_alternating_v2.server.json",
+  "configuration_sha256": "3ac664d8ac563f5ab71936c0863d1537906a4035a268a1b60974b48c361417ce",
+  "tools": {
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-alternating-v2-20261107/operations/gh_v2_recovery.py": "dfd688af347c5f146127ea56801b141bad777dce478af589ce37b02b8bf615bd",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-alternating-v2-20261107/operations/gh_v2_recovery_stream.py": "27432b6c46f52208cc650a1f9174f51cad6e292e52ae0d67fb36ea894075ac48",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-alternating-v2-20261107/operations/gh_v2_recovery_supervisor.py": "eac74ce47a92a90a15b2fd83f4a22107a79cfd7f5b45c7e757784399a09fb1d0",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-alternating-v2-20261107/operations/gh_v2_recovery_v2.py": "ea257eaed0615ffefab3deae4d9f750b0a73ed45dff3f1c57107b80d7bc3e6cd",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-alternating-v2-20261107/operations/gh_v2_recovery_v2_supervisor.py": "d7dd8b0f8ea03f932adac276750f8c59cb92fe27107bd47dc526ef71b2f05040",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-alternating-v2-20261107/operations/test_gh_v2_recovery.py": "3bcb0a9560af37a6bfe3af877c731121980dc8bb7726cfe43c83f84f1b533e1f",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-alternating-v2-20261107/operations/test_gh_v2_recovery_v2.py": "e73739cdf3165d7e4b13e654a50fd8ab073d7295432dae5f8aef7c8ef50bac82"
+  },
+  "original_execution_commit": "f2aeb14ba24c50f70d124d3be6da76895dc4904b",
+  "original_training_attempt": 1,
+  "new_training_updates": 0,
+  "training_audit": "/home/lzf/ldx/outputs/tbps-framework-gh-alternating-v2-20261107/posttraining_recovery_20261108/train_cpu_audit_v2",
+  "allowed_test_rounds": [
+    10,
+    20,
+    30,
+    40,
+    50,
+    60
+  ],
+  "compatibility": "new operations only; exact original producer/tool/config/runtime SHA checks retained; audit output path explicitly routed in memory",
+  "failure_policy": "stop and preserve without retry",
+  "audit_tool_revision": 2,
+  "previous_tool_commit": "e2abc6336becfd15437eab8ce51039535d49dd02",
+  "preserved_first_recovery_failure": [
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108/01_train_cpu_audit.exit",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "stat": [
+        231097812,
+        2,
+        1794113988411593277
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108/01_train_cpu_audit.log",
+      "sha256": "ed70ebc12f3133ef683cb22242271e3b0c9d943becf682d75aef5fa4e455fa73",
+      "stat": [
+        231097810,
+        1328,
+        1794113988191853015
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108/FAIL.json",
+      "sha256": "dd6bd93eb1527bb620a29b4cdfa3ad71e6aedc0eb50702f40ffa74e396839a4a",
+      "stat": [
+        231097809,
+        613,
+        1794113988411920333
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108/child.json",
+      "sha256": "c584a7109ef84cd906588e24ddb9fc9048ba1ccedc63f919ff3d1d28a39ae498",
+      "stat": [
+        231097811,
+        74,
+        1794113975153187868
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108/started.json",
+      "sha256": "e626fb6b9648223cc0b967e04793344be0d0a96599120c422b9976fbb66b6c7d",
+      "stat": [
+        231097808,
+        1102,
+        1794113975012998268
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108/status.json",
+      "sha256": "2307f45074e20a29810c7c972cae7341e0521c4a72205180ee43cff6ae701f5d",
+      "stat": [
+        231097813,
+        147,
+        1794113988411676088
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108/supervisor.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stat": [
+        231097807,
+        0,
+        1794113975011828985
+      ]
+    }
+  ],
+  "hash_compatibility": "H step native state_sha serializes(shape,dtype); boundary tree_sha serializes(dtype,shape). Same initial H independently verifies both. Continuous native H chain must bridge both at six checkpoints and latest."
+}
