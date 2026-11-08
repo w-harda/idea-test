@@ -446,3 +446,8 @@ mAP按上述方法顺序：IRRA 66.10/40.43/32.28，RaSa 69.18/39.99/35.05，APT
 ## AnyAttack官方预训练免训练适配（2026-11-08）
 
 AnyAttack官方COCO Decoder免TBPS训练迁移已接线，CUHK三模型Smoke→Full门控，尚待真实执行；不得以研究或CPU检查声称Full成功。详见[协议](framework/ANYATTACK_PRETRAINED.md)。
+
+
+## AnyAttack免训练正式Full完成（2026-11-08）
+
+CUHK-PEDES × IRRA/RaSa/APTM三组Full与独立CPU审计全部PASS，原3074图库/6156文本，官方coco_cos.pt直接迁移，无TBPS训练或微调。名义16/255、异PID参考映射及与R²TUA协议差异见[结果报告](framework/results/anyattack_pretrained/REPORT.md)。
