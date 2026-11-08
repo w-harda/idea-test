@@ -690,6 +690,6 @@ H20新增候选最低40.427635%，历史H9为40.425480%；H60为42.874081%，不
 独立分支codex/anyattack-tbps-pretrained，固定官方coco_cos.pt与CLIP ViT-B/32，CUHK原生三Victim，名义16/255、原始文本、异PID参考映射。零训练/微调/梯度/JVP；三Smoke及独立审计后自动三Full。协议与来源：[说明](framework/ANYATTACK_PRETRAINED.md)。当前CPU预检与67适用测试PASS，真实实验待启动；不冒充R²TUA表1精确复现。
 
 
-## AnyAttack免训练正式Full完成（2026-11-08）
+## AnyAttack免训练正式Full完成（2026-11-09）
 
 CUHK-PEDES × IRRA/RaSa/APTM三组Full与独立CPU审计全部PASS，原3074图库/6156文本，官方coco_cos.pt直接迁移，无TBPS训练或微调。名义16/255、异PID参考映射及与R²TUA协议差异见[结果报告](framework/results/anyattack_pretrained/REPORT.md)。

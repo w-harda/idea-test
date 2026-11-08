@@ -41,7 +41,7 @@ def main():
     for n in names:
         for mode in ('Clean','Image-only'):rows.append({'Model':n.upper() if n!='rasa' else 'RaSa','Mode':mode,**reports['full/'+n]['metrics'][mode]})
     out=ROOT/'docs/framework/results/anyattack_pretrained';out.mkdir(parents=True,exist_ok=False)
-    text=io.StringIO(newline='');writer=csv.DictWriter(text,fieldnames=['Model','Mode',*keys,'mINP']);writer.writeheader();writer.writerows(rows)
+    text=io.StringIO(newline='');writer=csv.DictWriter(text,fieldnames=['Model','Mode',*keys,'mINP'],lineterminator='\n');writer.writeheader();writer.writerows(rows)
     (out/'METRICS.csv').write_text(text.getvalue())
     evidence={'schema':'tbps-anyattack-published-evidence-1','scientific_commit':identity['scientific_commit'],
         'config':asdict(ref(cfg)),'decoder':c['decoder'],'CLIP':c['clip'],'official_commit':c['official_commit'],
@@ -74,7 +74,7 @@ def main():
         '控制目录：`'+str(CONTROL)+'`；`status.json=SUCCESS_ALL_THREE_FULL_CPU_AUDITED`。原G/H、SGA及其他历史资产保持。']
     (out/'REPORT.md').write_text('\n'.join(lines)+'\n')
     for f in ('docs/PROJECT_STATE.md','docs/EXPERIMENT_REGISTRY.md'):
-        p=ROOT/f;p.write_text(p.read_text()+'\n\n## AnyAttack免训练正式Full完成（2026-11-08）\n\nCUHK-PEDES × IRRA/RaSa/APTM三组Full与独立CPU审计全部PASS，原3074图库/6156文本，官方coco_cos.pt直接迁移，无TBPS训练或微调。名义16/255、异PID参考映射及与R²TUA协议差异见[结果报告](framework/results/anyattack_pretrained/REPORT.md)。\n')
+        p=ROOT/f;p.write_text(p.read_text()+'\n\n## AnyAttack免训练正式Full完成\n\nCUHK-PEDES × IRRA/RaSa/APTM三组Full与独立CPU审计全部PASS，原3074图库/6156文本，官方coco_cos.pt直接迁移，无TBPS训练或微调。名义16/255、异PID参考映射及与R²TUA协议差异见[结果报告](framework/results/anyattack_pretrained/REPORT.md)。\n')
     allowed={'docs/PROJECT_STATE.md','docs/EXPERIMENT_REGISTRY.md','docs/framework/results/anyattack_pretrained/'}
     dirty=subprocess.check_output(['git','status','--porcelain'],cwd=ROOT,text=True).splitlines()
     assert all(any(row[3:]==a or row[3:].startswith(a) for a in allowed) for row in dirty),dirty

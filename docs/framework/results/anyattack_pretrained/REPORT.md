@@ -1,5 +1,7 @@
 # AnyAttack官方预训练Decoder：CUHK-PEDES三模型Full结果
 
+任务开始：2026-11-08 21:01:09；三组Full完成：2026-11-09 00:02:35（Asia/Shanghai），完整执行链约181.43分钟。
+
 三组正式Full及各自独立CPU审计全部PASS；3074 Gallery / 6156原Query。官方coco_cos.pt + CLIP ViT-B/32固定权重，无TBPS训练或微调，无反向/Optimizer/JVP，无Victim反馈。三模型使用同一图像攻击集合。
 
 | Victim | 输入 | R@1 (%) | R@5 (%) | R@10 (%) | mAP (%) |
@@ -45,3 +47,5 @@ R²TUA公开表1的AnyAttack（CUHK）R@1/mAP为RaSa8.48/6.49、APTM10.15/6.92�
 [完整协议及论文/官方代码来源](../../ANYATTACK_PRETRAINED.md)。运行源码冻结Commit `536d54a77fec8ee2e7f60f57439e2c50c2652f72`；后续报告发布仅增加文档/独立报告辅助，未改数值源码。
 
 控制目录：`/home/lzf/ldx/tmp/anyattack_pretrained_20261108`；`status.json=SUCCESS_ALL_THREE_FULL_CPU_AUDITED`。原G/H、SGA及其他历史资产保持。
+
+收尾独立只读校验再次确认：官方Decoder/CLIP、三Victim源码/Checkpoint/Tokenizer、164份执行源码均保持；当前完整数据集身份与三组结果一致，同一攻击集合SHA保持。无模型加载、CUDA未初始化；源校验耗时12.924秒。校验回执已收入SOURCE_EVIDENCE.json。
