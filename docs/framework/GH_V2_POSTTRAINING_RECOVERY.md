@@ -34,7 +34,7 @@ CPU审计已PASS：60×2048完整覆盖，G484080更新、H122880访问/122220�
 
 ## H逐步与轮边界摘要域
 
-第一版恢复工具Commit e2abc63在新增H逐步检查处13秒停止，未产生PASS或Test；其原源码、配置、7个控制文件及FAIL全部保持。错误来自工具把两种不同摘要混比：原生feedback_backend.state_sha使用(shape,dtype)，框架tree_sha使用(dtype,shape)。同一原始初始H分别得到02dfb3a...与9d607ba8...，均与各自原记录精确对应。
+第一版恢复工具Commit e2abc63在新增H逐步检查处13秒停止，未产生PASS或Test；其原源码、配置、7个控制文件及FAIL全部保持。错误来自工具把两种不同摘要混比：原生feedback_backend.state_sha使用(shape,dtype)，框架tree_sha使用(dtype,shape)。同一原始初始H的tree_sha为02dfb3a...，原生state_sha为9d607ba8...，均与各自原记录精确对应。
 
 第二版使用冻结原state_sha验证整条H逐步/跨轮链，tree_sha验证轮边界链，并在初始、六对现有Checkpoint及最新完整状态重算双摘要桥接。未跳过连续性检查。第一版7个控制文件额外SHA/stat保护，每阶段核验。
 
