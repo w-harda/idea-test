@@ -1,0 +1,319 @@
+{
+  "schema": "gh-v2-publication-only-1",
+  "reason": "six official tests/audits PASS; original final_report stopped because tbps-image has no matplotlib",
+  "original_configuration_sha256": "3ac664d8ac563f5ab71936c0863d1537906a4035a268a1b60974b48c361417ce",
+  "tools": {
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-alternating-v2-20261107/operations/gh_v2_posttraining_publish.py": "6d069e5bb0db6f9f6f4bd8df34f981c6f43ab1721ddf0685706330970c2aa6fa",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-alternating-v2-20261107/operations/gh_v2_joint_plot.py": "dca72f1b94a23fcf632386338a5f5a5f773f50afa6f2b90c27552f6117bb6a31",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-alternating-v2-20261107/operations/test_gh_v2_joint_publication.py": "3a9496fb6d64ae7df2fa6d3553fa846735c54ee9ed5c3a4eb1b7aa8b2cf406d0"
+  },
+  "plot_environment": {
+    "interpreter": "/home/lzf/ldx/envs/deepmisranking/bin/python",
+    "python": "3.9.25",
+    "matplotlib": "3.7.5",
+    "numpy": "1.23.5",
+    "use": "pure CSV plotting only; no TBPS/model imports or environment changes"
+  },
+  "prior_control_files": [
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/01_train_cpu_audit.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "stat": [
+        231097822,
+        2,
+        1794114338470226920
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/01_train_cpu_audit.log",
+      "sha256": "9c281ccdbda5f4b612fb15b4e64d2eaaea236b5628f015e569148424d4914942",
+      "stat": [
+        231097820,
+        51205,
+        1794114338288598497
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/FAIL.json",
+      "sha256": "3b1c47d2fcd120c3d7376cd849b6f31701cd4223d61ff55dbab033505ecfba7c",
+      "stat": [
+        231097847,
+        645,
+        1794124132226513627
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/child.json",
+      "sha256": "d261599fae03dfaa1cd978aeceda5087d21d29e7243e12a5da8daecb91b76efc",
+      "stat": [
+        231097821,
+        69,
+        1794124054818552959
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/final_report.exit",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "stat": [
+        231097848,
+        2,
+        1794124132226196962
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/final_report.log",
+      "sha256": "05b0a1925611664e22819d82a5267197e7f2e8f76e2996a4e905fddcc991f424",
+      "stat": [
+        231097845,
+        773,
+        1794124132214761592
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/joint_cpu_audit_10.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "stat": [
+        231097826,
+        2,
+        1794115957318975439
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/joint_cpu_audit_10.log",
+      "sha256": "96ba3a65bb443b1728e740d192bcdef7a6d4f048618537030486cefb2730e26f",
+      "stat": [
+        231097823,
+        559,
+        1794115957122026093
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/joint_cpu_audit_20.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "stat": [
+        231097830,
+        2,
+        1794117560459702922
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/joint_cpu_audit_20.log",
+      "sha256": "e9df4cbbb2ef9990b8df2d12ed49f0d92ca2f83135c9b8036f39ef0c48a4bd15",
+      "stat": [
+        231097827,
+        558,
+        1794117560268474608
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/joint_cpu_audit_30.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "stat": [
+        231097834,
+        2,
+        1794119183135628281
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/joint_cpu_audit_30.log",
+      "sha256": "02277c1bf72d1c297eeeb44329d1605628806f4369bd3f3ef86be8ea6572c6df",
+      "stat": [
+        231097831,
+        560,
+        1794119182946342420
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/joint_cpu_audit_40.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "stat": [
+        231097838,
+        2,
+        1794120795090234152
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/joint_cpu_audit_40.log",
+      "sha256": "0f41670ce5d24edc7c804dc11e1d7c26ff22d53a3ea489405db0876aca90643d",
+      "stat": [
+        231097835,
+        557,
+        1794120794903689785
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/joint_cpu_audit_50.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "stat": [
+        231097842,
+        2,
+        1794122426637041513
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/joint_cpu_audit_50.log",
+      "sha256": "0a949b8da5b7b63e942fe9a71b8a7010194394073b4b3913adb9231ce6b3159f",
+      "stat": [
+        231097839,
+        558,
+        1794122426446039372
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/joint_cpu_audit_60.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "stat": [
+        231097846,
+        2,
+        1794124054669579084
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/joint_cpu_audit_60.log",
+      "sha256": "e147cc3a372e0187fafe4c7064ab8b53aa5a8ee4a2ceac8278049e180543725e",
+      "stat": [
+        231097843,
+        558,
+        1794124054440578574
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/joint_test_10.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "stat": [
+        231097824,
+        2,
+        1794115938466085795
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/joint_test_10.log",
+      "sha256": "ba719d8c09a493360e2e4a694307a149219181ed8a1c2d3c7bc81f0e36036547",
+      "stat": [
+        231097819,
+        210474,
+        1794115937924970924
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/joint_test_20.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "stat": [
+        231097828,
+        2,
+        1794117541759564610
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/joint_test_20.log",
+      "sha256": "23a51d91353f07e57e0bf57bba7116e6ffc3686b679a299827598128d803f5a1",
+      "stat": [
+        231097825,
+        210474,
+        1794117541269107600
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/joint_test_30.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "stat": [
+        231097832,
+        2,
+        1794119164380865720
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/joint_test_30.log",
+      "sha256": "fdc8725d2eb8b8fbae5297cac2ee1da39b976204a81a2c11410937c199820a81",
+      "stat": [
+        231097829,
+        210474,
+        1794119163851088269
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/joint_test_40.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "stat": [
+        231097836,
+        2,
+        1794120776291958912
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/joint_test_40.log",
+      "sha256": "0f5357c4ad555d2cc284e5857d97e9faeabf5c856411d6e71b36191af8feb96e",
+      "stat": [
+        231097833,
+        210473,
+        1794120775795605296
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/joint_test_50.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "stat": [
+        231097840,
+        2,
+        1794122407830361659
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/joint_test_50.log",
+      "sha256": "2532510686cde919e74cbe1dee7b5892e0a5c6e37458962f6805346da93acd76",
+      "stat": [
+        231097837,
+        210474,
+        1794122407314825038
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/joint_test_60.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "stat": [
+        231097844,
+        2,
+        1794124035862053562
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/joint_test_60.log",
+      "sha256": "52dbb7894b8fe57e4b0e15214ead53fcab49fb7b8bacc0b3ec49e3be512e1ea5",
+      "stat": [
+        231097841,
+        210474,
+        1794124035376536638
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/started.json",
+      "sha256": "b496020c0b0b1117f146e2414e9a3752b5ed83ac4839fb4a2244fef6da655e8a",
+      "stat": [
+        231097818,
+        1622,
+        1794114180617844825
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/status.json",
+      "sha256": "85d9fbc6c5aa78cfca96f7643b32a19587dce47fe12bd0ab06bb8658c3ed36d1",
+      "stat": [
+        231097849,
+        141,
+        1794124132226290460
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2/supervisor.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stat": [
+        231097817,
+        0,
+        1794114180617240468
+      ]
+    }
+  ],
+  "scientific_rerun": false,
+  "new_training_updates": 0,
+  "new_Test_generation": false
+}

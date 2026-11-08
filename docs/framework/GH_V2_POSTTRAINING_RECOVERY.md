@@ -47,3 +47,11 @@ CPU审计已PASS：60×2048完整覆盖，G484080更新、H122880访问/122220�
 每组用自己的G/H权重、图像和文本，原生IRRA FP32完整Gallery全部同PID正例检索。仅Joint，图像L∞≤8/255；文本沿用原Natural Dynamic-K、每原词位最多1字符，STOP/NOOP合法，无WordBudget1。原CPU Test审计独立重读RGB预算、Unicode和分数，并用原生ranking复算四项指标。没有新增Clean/单模态/跨模型/跨数据集实验，Test不反馈训练或选点。
 
 六组审计全部PASS后，独立`docs/framework/results/gh_alternating_v2_recovery`发布METRICS.csv、R@1/mAP曲线PNG/SVG、报告和来源证明，自动commit/push并核对远端SHA。权重、Ledger、原始数据、Tensor和大型日志不发布Git。
+
+## 六组全部PASS后的独立绘图发布
+
+第二版后处理已完成六组正式Test与六组CPU审计。其final_report阶段因tbps-image环境未安装matplotlib而停止，原FAIL/status/日志保持；没有重试任何评测。收尾使用独立仅发布入口operations/gh_v2_posttraining_publish.py，版本configs/framework/gh_v2_publication_20261108.json，控制/home/lzf/ldx/tmp/gh_v2_publication_20261108。
+
+发布器复用原六结果校验和文档写作逻辑，仅将绘图交给既有deepmisranking Python3.9.25/Matplotlib3.7.5/NumPy1.23.5解释器。该子进程只读取SHA锁定的六行CSV并画图，不导入TBPS或模型；缓存全部放在新发布控制目录，不安装依赖，不修改任何科学环境。原158源码/496来源/训练配置及后处理工具版本保持。第二版后处理整个控制目录另有逐文件SHA/stat保护。
+
+绘图CSV新增4项门禁测试PASS，验证原值不缩放、SHA不匹配、端点错序/重复、非有限/越界数值和多余列拒绝。发布成功状态为SUCCESS_SIX_JOINT_RESULTS_PUBLISHED。它与原训练Supervisor和第二版后处理收尾FAIL分开记录，不把旧FAIL改成成功。
