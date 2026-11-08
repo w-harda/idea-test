@@ -55,3 +55,5 @@ CPU审计已PASS：60×2048完整覆盖，G484080更新、H122880访问/122220�
 发布器复用原六结果校验和文档写作逻辑，仅将绘图交给既有deepmisranking Python3.9.25/Matplotlib3.7.5/NumPy1.23.5解释器。该子进程只读取SHA锁定的六行CSV并画图，不导入TBPS或模型；缓存全部放在新发布控制目录，不安装依赖，不修改任何科学环境。原158源码/496来源/训练配置及后处理工具版本保持。第二版后处理整个控制目录另有逐文件SHA/stat保护。
 
 绘图CSV新增4项门禁测试PASS，验证原值不缩放、SHA不匹配、端点错序/重复、非有限/越界数值和多余列拒绝。发布成功状态为SUCCESS_SIX_JOINT_RESULTS_PUBLISHED。它与原训练Supervisor和第二版后处理收尾FAIL分开记录，不把旧FAIL改成成功。
+
+仅发布器生成曲线/报告后，Git门禁发现Matplotlib SVG行末空格，原发布FAIL仍保留。最终入口operations/gh_v2_publication_finalize.py只核对现有六结果、归档原SVG、清除派生SVG行末空白并验证XML语义等价，PNG/指标SHA保持，不重绘或运行科学计算。控制/home/lzf/ldx/tmp/gh_v2_publication_finalize_20261108；最终成功状态SUCCESS_ALL_SIX_JOINT_PUBLISHED。

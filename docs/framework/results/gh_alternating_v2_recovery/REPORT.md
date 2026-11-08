@@ -1,36 +1,36 @@
-# GH-Alternating-v2：训练后CPU审计恢复（执行中快照）
+# GH-Alternating-v2：60轮训练后审计恢复与六组Joint正式Test
 
-原60轮独立CPU语义审计已PASS（157.25秒/峰值RSS558.88MiB）；G10+H10完整Joint Test及独立CPU审计PASS，已开始G20+H20，其余五组尚未完成。详见[AUDIT_DETAILS.md](AUDIT_DETAILS.md)。
+**原60轮CPU审计PASS；六组完整Joint Test及独立CPU审计全部PASS。没有重新训练。**
 
-- 原训练：60/60轮，G 484080更新，H 122880访问/122220更新，79478.77秒。不会重新训练。
-- 原失败：`06_train_audit`调用全局`read_json`读取第2轮68178636字节账本，超过67108864字节限制。旧Supervisor保持`FAIL_STOPPED_NO_RETRY`。
-- 60份账本完整严格解析和Manifest/SHA核验通过；总3890547998字节，范围63102008–68178636字节，超限轮2/3/4/5/7/9/10。结构核验不能代替完整数值/预算审计。
-- 第2轮字段占比：G 16.038%、H 28.657%、conditions 55.170%，其余约0.135%。逐轮精确大小/字段字节见DIAGNOSIS.json。
-- 同一第2轮账本的独立纯解析进程：整份加载峰值421588992字节（约402.06MiB），分项读取20951040字节（约19.98MiB），见MEMORY_COMPARISON.json。正式语义审计含Torch及最终Bank，内存峰值另行实测。
-- 已封存43907个历史文件的SHA及inode/size/mtime基线，覆盖原输出和原Supervisor；158份生产源码、496份运行依赖及原配置SHA保持。
+训练仅原Attempt：484080次G更新、122880次H访问、122220次H更新，训练79478.77秒。原Supervisor的64MiB FAIL、started.json和日志保持。恢复工具及执行身份独立；原158份生产源码、496份依赖和冻结配置保持SHA。
 
-修复仅新增operations独立工具。全局read_json、原训练/评测生产源码和冻结配置不改。原Manifest/完成回执/文件SHA先验核验，大数组逐条解析；严格拒绝重复键、非有限数值（包括溢出）、非法UTF-8、截断、尾随及结构错误。64Ki字符读取块，单项最大4Mi字符，无整份大账本常驻。
+账本总3890547998字节；第2轮首次超64MiB，超限轮为2/3/4/5/7/9/10。独立读取器在原Manifest和SHA验证后逐项完整严格解析G/H/conditions，检查重复键、UTF-8、非有限值、尾随/截断、字段结构；单项4MiB、块64Ki字符，没有修改全局read_json。
 
-审计完整覆盖60×2048 G/H/conditions、K+1与累计更新、全部H sampled/greedy Unicode回放、原候选合法性和Natural-K、状态/父态声明链、当前RewardBank、原JVP回执/FD与冻结隔离，以及六组G/H状态身份。第60轮保留的条件/rollout和完整Bank独立读取Tensor。第1–59轮原始Bank/完整状态/rollout已按原滚动策略退休，只能用封存账本/退休Manifest验证，不能宣称重新读取已退休Tensor，也不会重建。
+独立CPU训练审计覆盖60轮、全部2048×60数据：状态/完整父态声明链、每样本K+1、当前H条件、原S_raw/选择、原JVP回执、冻结隔离、当前RewardBank和六组权重身份。审计耗时157.25秒，进程峰值RSS 558.88MiB；新模型前向/更新/JVP/CUDA均0。
 
-9项新增CPU测试（含17类非法JSON、6种块边界及真实超64MiB合成输入）与27项相关回归PASS。当前第二版正式独立CPU训练审计已PASS；上述准备测试快照不代替最终Test审计。
+证据边界：第1–59轮原始Bank、完整状态和rollout按原流水线滚动策略已退休，逐轮核对不可变账本、退休Manifest、连续状态摘要和训练预算记录；这些轮次不能宣称重新检查已不存在的原始Tensor。第60轮保留的完整Bank/条件/rollout逐项独立读取。全部历史H sampled/greedy输出重算原候选合法性与Natural-K，回放Unicode编辑；每合法原词位≤1字符，无WordBudget1。
 
-新控制目录：`/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108`。新审计输出：原输出下`posttraining_recovery_20261108/train_cpu_audit`。原始审计失败回执和所有历史文件保留。
+恢复工具第一版新增逐步H检查混用了原生state_sha与轮边界tree_sha，13秒停止、未进行Test；其FAIL和日志完整保留。第二版独立控制身份修正摘要域，使用冻结原state_sha验证整条H更新链，并在初始/六Checkpoint/最新状态同时桥接两种摘要，没有跳过连续性检查。
 
-新Supervisor只执行：CPU审计 → G10/H10至G60/H60六组Joint-only完整Test → 各组独立CPU审计 → 表格/曲线/报告 → Git发布。任何真实错误停止，无重试；不调用原Supervisor，不训练，不重新计算训练JVP或历史Bank。六组固定CUHK-PEDES×IRRA，3074 Gallery/6156 Query。
-
-## 第一版恢复工具的额外检查错误（已停止保留）
-
-第一版工具e2abc63在首轮新增逐步H连续性检查处停止，未生成PASS、未执行Test。原因是原H逐步日志使用feedback_backend.state_sha（形状在类型之前），而框架轮边界使用tree_sha（类型在形状之前）；它们不是同一种摘要。对同一份原初始H权重独立计算，边界摘要02dfb3a...、原生摘要9d607ba8...均精确对应原记录。该错误来自新增审计工具，不能据此判定训练损坏。
-
-第一版全部7个控制文件（包括FAIL.json、status、started、日志和exit）SHA/stat已额外封存，保留不变。第二版新增独立工具文件、版本配置及控制目录后缀_v2，不覆盖或重启第一版控制身份。第二版使用原冻结state_sha检查每个H步和跨轮链，使用tree_sha检查轮边界链，并在初始、六组实际Checkpoint、最新状态同时计算两种摘要作桥接；不跳过状态连续性。
-
-新增真实CPU双摘要回归：同一原始H匹配两个已知摘要，改变一个权重值时原生摘要必须改变。第二版10项不同CPU测试及27项相关回归PASS。旧9项同名回归不重复计数。
-
-## 当前已审计正式结果（1/6）
+六组各自严格加载原G10/H10至G60/H60；每组独立生成3074 Gallery/6156 Query。CUHK-PEDES × IRRA、Joint-only、原生完整Gallery全部同PID正例检索、FP32、L∞≤8/255；无Clean/单模态/额外模型数据集，也不将Test结果反馈训练或选点。
 
 | Round | R@1 | R@5 | R@10 | mAP |
 |---:|---:|---:|---:|---:|
 | 10 | 30.36 | 50.55 | 59.47 | 26.29 |
+| 20 | 23.99 | 42.76 | 51.56 | 21.21 |
+| 30 | 19.92 | 36.18 | 44.80 | 17.35 |
+| 40 | 18.32 | 34.24 | 41.78 | 15.96 |
+| 50 | 17.71 | 32.46 | 40.07 | 15.27 |
+| 60 | 17.11 | 31.24 | 38.92 | 14.53 |
 
-单位%。完整3074 Gallery/6156 Query，Joint-only原生IRRA。第10轮CPU审计状态GH_V2_JOINT_TEST_CPU_AUDIT_PASS，最大L∞ 0.0313725471496582，最大编辑词数6。其他节点尚无正式结果，不填占位指标。六组全部完成后自动替换为完整表格及曲线。
+单位%；越低攻击越有效。原精度见METRICS.csv；这是单条seed42轨迹，不据此推断统计显著或单调收敛。
+
+![R@1](R1_by_round.png)
+
+![mAP](mAP_by_round.png)
+
+原后处理Supervisor已完成六Test/六审计，final_report因原tbps-image缺少matplotlib停止；该FAIL保留。独立仅发布工具改用既有Python3.9.25/Matplotlib3.7.5环境纯CSV绘图，不修改科学环境、不重新评测。
+
+历史文件SHA/stat复核全部保持；详情见DIAGNOSIS.json、TRAIN_AUDIT.json及SOURCE_EVIDENCE.json。权重、账本、原始输出和大型资产不上传Git。
+
+纯发布阶段的Matplotlib SVG行末空格触发Git whitespace门禁，旧FAIL保留。独立Git收尾仅清除派生SVG行末空白，XML语义摘要清理前后相同，PNG和指标SHA保持；未重绘、重新评测或训练。最终发布控制：`/home/lzf/ldx/tmp/gh_v2_publication_finalize_20261108`，状态见status.json。

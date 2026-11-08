@@ -1,0 +1,65 @@
+{
+  "schema": "gh-v2-git-publication-finalize-1",
+  "source_sha256": "12ee0d61d3cc3faa35ae2cb0ad786f4a0af2958588ef8dbcb5326d195a6c5df2",
+  "metrics_sha256": "4401120173f5f3fd8f254ef53327be36a054cbb09b8006474a7700d3a62ec862",
+  "png_sha256": {
+    "R1_by_round.png": "617524bc21ae9a9544931277245b1b8664ff99651a8636ca95067c86c74821f7",
+    "mAP_by_round.png": "4b75e52e65a7ac33f1a54565d027bcf0ab79f3417fdab0a81588346b47cdec91"
+  },
+  "preserved_publication_files": [
+    {
+      "path": "/home/lzf/ldx/tmp/gh_v2_publication_20261108/FAIL",
+      "sha256": "5e45d0bef17fc1b0002d0750e668311e857ca6ecc469c6c45ce8297383b5151d",
+      "stat": [
+        231097855,
+        552,
+        1794124426588590398
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_v2_publication_20261108/launcher.log",
+      "sha256": "d7f6de9bfec818dd3786910608d87cb58b5020f033cdf8310f28e13b50f0cb47",
+      "stat": [
+        231097852,
+        136134,
+        1794124426588590398
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_v2_publication_20261108/matplotlib/fontlist-v330.json",
+      "sha256": "00a43f9903dbd4a57330cb70b05045e0d788f54d86e46b801eebacdae465a1fd",
+      "stat": [
+        231097857,
+        148888,
+        1794124424986585431
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_v2_publication_20261108/publication.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stat": [
+        231097853,
+        0,
+        1794124413701550559
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_v2_publication_20261108/started.json",
+      "sha256": "b7a03301f55d1a391739e10efec274aa1d821298fba2b3e21a7f87a23d8cd316",
+      "stat": [
+        231097854,
+        576,
+        1794124413702713584
+      ]
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_v2_publication_20261108/status.json",
+      "sha256": "ea83291b2afa646718ca0dccbbf3c5c46fe8dafde09fd1a0edf817b21f7f130e",
+      "stat": [
+        231097856,
+        144,
+        1794124426566614070
+      ]
+    }
+  ]
+}

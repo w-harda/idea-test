@@ -1,12 +1,9 @@
 # 项目当前状态（唯一权威入口）
 
 <!-- GH_V2_CURRENT_BEGIN -->
-## 当前阶段：GH-v2原60轮独立CPU审计PASS，六Joint Test恢复执行中（2026-11-08）
+## 当前阶段：GH-v2原60轮审计恢复及六组Joint正式Test完成
 
-原训练60/60轮、G484080/H访问122880/H更新122220，未重跑。原64MiB审计失败现场保留；独立流式审计157.25秒/峰值RSS558.88MiB PASS，六组权重精确对应，43907历史文件SHA/stat exact。原158源码/496来源/配置不改。
-首版新增H逐步检查混用了原生state_sha与边界tree_sha，13秒停止，FAIL保持；第二版工具通过双摘要桥接并完整核验60轮，执行Commit176571dedc0268d1856c4c1ed727c9db07215ff9。10新增+27相关CPU测试PASS。
-第二版后处理Supervisor PID/PGID/SID2487647、PPID1、无TTY，控制/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108_v2。训练审计PASS后已自动进入G10/H10完整3074 Gallery/6156 Query Joint-only Test，正式结果尚未齐六组，不宣称全部完成。任何真实错误停止保留，无自动重试，无新训练/JVP/历史Bank生成。
-[恢复报告](framework/results/gh_alternating_v2_recovery/REPORT.md)、[审计明细](framework/results/gh_alternating_v2_recovery/AUDIT_DETAILS.md)、[运行说明](framework/GH_V2_POSTTRAINING_RECOVERY.md)。
+原训练60轮未重跑，独立流式CPU审计和六组正式Test/独立审计PASS。原64MiB失败现场保持。[恢复报告](framework/results/gh_alternating_v2_recovery/REPORT.md)。
 <!-- GH_V2_CURRENT_END -->
 
 ## 历史版本：GH-Alternating-v1 WordBudget1两轮真实Pilot与独立CPU审计通过（2026-11-06）
