@@ -471,3 +471,8 @@ A1不消费新文本条件，B消费，二者均刷新G→H反馈。Loss/Reward/
 双Adam与G/H阶段RNG分别存储，原子round、不可变Claim与完整边界恢复；未完成事务拒绝自动重播。
 当前仅CPU Fixture执行，真实后端组装与GPU数值验收PENDING；CLI只有只读预检，无训练动作。
 协议/接口/缓存失效及预算见framework/results/gh_bidirectional_prototype/和ADR-0015。
+
+
+## AnyAttack官方预训练免训练适配（2026-11-08）
+
+AnyAttack独立anyattack包固定官方CLIP/Decoder，仅图像形状桥接；独立生成与三原生Victim进程，复用ArtifactStore/FeatureCache/NativeFeatureCache/EvaluationEngine，CPU审计无神经前向。详见[协议](framework/ANYATTACK_PRETRAINED.md)。

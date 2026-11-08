@@ -683,3 +683,8 @@ H20新增候选最低40.427635%，历史H9为40.425480%；H60为42.874081%，不
 ## GH-Alternating-v2训练后审计恢复（2026-11-08）
 
 原训练执行f2aeb14；后处理第二版执行176571d。60轮训练不重跑，使用原G10/H10至G60/H60六对权重。独立流式CPU审计157.25秒/峰值RSS558.879MiB PASS；原64MiB失败及首版恢复双摘要混比FAIL均保留。原158生产源码/496运行来源/配置SHA保持，43907历史文件及首版7个控制文件保护。恢复仅Joint-only CUHK-PEDES×IRRA，六组各3074 Gallery/6156 Query及独立CPU审计，不新增其他实验。最终指标及完整执行状态以[独立恢复报告](framework/results/gh_alternating_v2_recovery/REPORT.md)为准，运行/来源兼容详见[恢复说明](framework/GH_V2_POSTTRAINING_RECOVERY.md)。
+
+
+## AnyAttack官方预训练免TBPS微调（2026-11-08）
+
+独立分支codex/anyattack-tbps-pretrained，固定官方coco_cos.pt与CLIP ViT-B/32，CUHK原生三Victim，名义16/255、原始文本、异PID参考映射。零训练/微调/梯度/JVP；三Smoke及独立审计后自动三Full。协议与来源：[说明](framework/ANYATTACK_PRETRAINED.md)。当前CPU预检与67适用测试PASS，真实实验待启动；不冒充R²TUA表1精确复现。
