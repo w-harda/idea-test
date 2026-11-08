@@ -1,6 +1,6 @@
-# GH-Alternating-v2：训练后CPU审计恢复（第二版工具准备快照）
+# GH-Alternating-v2：训练后CPU审计恢复（执行中快照）
 
-原60轮独立CPU语义审计已PASS（157.25秒/峰值RSS558.88MiB）；六组正式Joint Test已按门禁开始，当前尚未全部完成。详见[AUDIT_DETAILS.md](AUDIT_DETAILS.md)。
+原60轮独立CPU语义审计已PASS（157.25秒/峰值RSS558.88MiB）；G10+H10完整Joint Test及独立CPU审计PASS，已开始G20+H20，其余五组尚未完成。详见[AUDIT_DETAILS.md](AUDIT_DETAILS.md)。
 
 - 原训练：60/60轮，G 484080更新，H 122880访问/122220更新，79478.77秒。不会重新训练。
 - 原失败：`06_train_audit`调用全局`read_json`读取第2轮68178636字节账本，超过67108864字节限制。旧Supervisor保持`FAIL_STOPPED_NO_RETRY`。
@@ -13,7 +13,7 @@
 
 审计完整覆盖60×2048 G/H/conditions、K+1与累计更新、全部H sampled/greedy Unicode回放、原候选合法性和Natural-K、状态/父态声明链、当前RewardBank、原JVP回执/FD与冻结隔离，以及六组G/H状态身份。第60轮保留的条件/rollout和完整Bank独立读取Tensor。第1–59轮原始Bank/完整状态/rollout已按原滚动策略退休，只能用封存账本/退休Manifest验证，不能宣称重新读取已退休Tensor，也不会重建。
 
-9项新增CPU测试（含17类非法JSON、6种块边界及真实超64MiB合成输入）与27项相关回归PASS。正式独立CPU审计尚未PASS，不填正式指标。
+9项新增CPU测试（含17类非法JSON、6种块边界及真实超64MiB合成输入）与27项相关回归PASS。当前第二版正式独立CPU训练审计已PASS；上述准备测试快照不代替最终Test审计。
 
 新控制目录：`/home/lzf/ldx/tmp/gh_alternating_v2_posttraining_recovery_20261108`。新审计输出：原输出下`posttraining_recovery_20261108/train_cpu_audit`。原始审计失败回执和所有历史文件保留。
 
@@ -26,3 +26,11 @@
 第一版全部7个控制文件（包括FAIL.json、status、started、日志和exit）SHA/stat已额外封存，保留不变。第二版新增独立工具文件、版本配置及控制目录后缀_v2，不覆盖或重启第一版控制身份。第二版使用原冻结state_sha检查每个H步和跨轮链，使用tree_sha检查轮边界链，并在初始、六组实际Checkpoint、最新状态同时计算两种摘要作桥接；不跳过状态连续性。
 
 新增真实CPU双摘要回归：同一原始H匹配两个已知摘要，改变一个权重值时原生摘要必须改变。第二版10项不同CPU测试及27项相关回归PASS。旧9项同名回归不重复计数。
+
+## 当前已审计正式结果（1/6）
+
+| Round | R@1 | R@5 | R@10 | mAP |
+|---:|---:|---:|---:|---:|
+| 10 | 30.36 | 50.55 | 59.47 | 26.29 |
+
+单位%。完整3074 Gallery/6156 Query，Joint-only原生IRRA。第10轮CPU审计状态GH_V2_JOINT_TEST_CPU_AUDIT_PASS，最大L∞ 0.0313725471496582，最大编辑词数6。其他节点尚无正式结果，不填占位指标。六组全部完成后自动替换为完整表格及曲线。

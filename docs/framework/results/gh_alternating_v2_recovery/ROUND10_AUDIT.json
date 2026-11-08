@@ -1,0 +1,17 @@
+{
+  "configuration_sha256": "3ac664d8ac563f5ab71936c0863d1537906a4035a268a1b60974b48c361417ce",
+  "gallery": 3074,
+  "max_Linf": 0.0313725471496582,
+  "maximum_edited_words": 6,
+  "metrics": {
+    "R@1": 30.360624313354492,
+    "R@10": 59.47043228149414,
+    "R@5": 50.55230712890625,
+    "mAP": 26.291584014892578
+  },
+  "native_ranking_exact": true,
+  "query": 6156,
+  "round": 10,
+  "scope": "official_test",
+  "status": "GH_V2_JOINT_TEST_CPU_AUDIT_PASS"
+}
