@@ -693,3 +693,8 @@ H20新增候选最低40.427635%，历史H9为40.425480%；H60为42.874081%，不
 ## AnyAttack免训练正式Full完成（2026-11-09）
 
 CUHK-PEDES × IRRA/RaSa/APTM三组Full与独立CPU审计全部PASS，原3074图库/6156文本，官方coco_cos.pt直接迁移，无TBPS训练或微调。名义16/255、异PID参考映射及与R²TUA协议差异见[结果报告](framework/results/anyattack_pretrained/REPORT.md)。
+
+
+## AnyAttack统一8/255预算修正（2026-11-09）
+
+AnyAttack eps8：原官方coco_cos.pt、原CLIP ViT-B/32与固定参考映射；CPU复用历史raw_noise再限幅/严格投影8/255，文本上限1词且实际0。CUHK三模型新Smoke/Full与独立审计，不与16/255旧结果混用。 详见[协议](framework/ANYATTACK_EPS8.md)。

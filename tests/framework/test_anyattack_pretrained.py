@@ -18,7 +18,7 @@ def test_cpu_geometry_and_endpoints(value):
  x=bridge(original,torch.full((1,3,224,224),value))
  assert x['adversarial'].shape==original.shape
  assert x['adversarial'].min()>=0 and x['adversarial'].max()<=1
- assert float(x['effective_delta'].abs().max())<=EPS+torch.finfo(torch.float32).eps
+ assert float((x['adversarial'].double()-original.double()).abs().max())<=EPS
  assert torch.equal(x['clamped_noise'],torch.full((1,3,224,224),max(-EPS,min(EPS,value))))
 
 def test_noise_shape_and_nonfinite_rejected():
@@ -40,3 +40,20 @@ def test_cpu_guard_tensor_load_only(tmp_path):
  with no_training(cpu=True):assert torch.equal(torch.load(p,map_location='cpu',weights_only=True),torch.ones(3))
  with pytest.raises(ArtifactError):
   with no_training(cpu=True):torch.load(p,map_location='cpu',weights_only=False)
+
+@pytest.mark.parametrize('sign',[-1.,1.])
+def test_all_byte_levels_strict_real_budget(sign):
+ original=(torch.arange(384*128)%256).float().div(255).reshape(1,1,384,128).expand(1,3,384,128).clone()
+ x=bridge(original,torch.full((1,3,224,224),sign*100))
+ assert float((x['adversarial'].double()-original.double()).abs().max())<=8/255
+ assert EPS==8/255
+
+
+def test_projection_rounds_inward_instead_of_relaxing_tolerance():
+ from tbps.anyattack.core import strict_project
+ original=torch.zeros(1,3,384,128)
+ candidate=(original+EPS).clamp(0,1)
+ assert float((candidate.double()-original.double()).abs().max())>EPS
+ fixed=strict_project(original,candidate)
+ assert float((fixed.double()-original.double()).abs().max())<=EPS
+ assert (fixed<candidate).any()

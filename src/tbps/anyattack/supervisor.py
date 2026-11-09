@@ -8,8 +8,9 @@ def write(path,value):
 def main():
     a=argparse.ArgumentParser();a.add_argument('--config',required=True);a.add_argument('--control',required=True);args=a.parse_args()
     c=json.loads(Path(args.config).read_text());control=Path(args.control);control.mkdir(parents=True,exist_ok=False)
-    started={'kind':'AnyAttack official pretrained zero-shot inference; NOT training Attempt','pid':os.getpid(),
-        'config':args.config,'started_unix':time.time(),'retry':False,'gpu_policy':'shared_observe_only'}
+    started={'kind':'AnyAttack strict8/255 raw-noise CPU derivation + native inference; NOT training Attempt','pid':os.getpid(),
+        'config':args.config,'started_unix':time.time(),'retry':False,'gpu_policy':'shared_observe_only','image_linf_limit':c['eps'],
+        'text_budget_unit':'word','text_max_replacements':1,'text_actual_replacements':0}
     with (control/'started.json').open('x') as f:json.dump(started,f,ensure_ascii=False,indent=2)
     env=dict(os.environ,PYTHONPATH=str(Path(__file__).resolve().parents[2]),PYTHONDONTWRITEBYTECODE='1',CUDA_VISIBLE_DEVICES='0',
              HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1',TOKENIZERS_PARALLELISM='false',OMP_NUM_THREADS='2',MKL_NUM_THREADS='2')

@@ -476,3 +476,8 @@ A1不消费新文本条件，B消费，二者均刷新G→H反馈。Loss/Reward/
 ## AnyAttack官方预训练免训练适配（2026-11-08）
 
 AnyAttack独立anyattack包固定官方CLIP/Decoder，仅图像形状桥接；独立生成与三原生Victim进程，复用ArtifactStore/FeatureCache/NativeFeatureCache/EvaluationEngine，CPU审计无神经前向。详见[协议](framework/ANYATTACK_PRETRAINED.md)。
+
+
+## AnyAttack统一8/255预算修正（2026-11-09）
+
+anyattack包在独立eps8分支增加旧raw_noise只读来源桥和FP32可表示端点向内投影，原权重、映射和Native评分不变；旧16/255生产源码/产物不改。 详见[协议](framework/ANYATTACK_EPS8.md)。

@@ -1,5 +1,7 @@
 # AnyAttack官方预训练Decoder：CUHK-PEDES三模型Full结果
 
+> 预算勘误（2026-11-09）：本页16/255结果只保留为补充实验，不属于项目8/255正式对照。修正版见[统一预算协议](../../ANYATTACK_EPS8.md)。
+
 任务开始：2026-11-08 21:01:09；三组Full完成：2026-11-09 00:02:35（Asia/Shanghai），完整执行链约181.43分钟。
 
 三组正式Full及各自独立CPU审计全部PASS；3074 Gallery / 6156原Query。官方coco_cos.pt + CLIP ViT-B/32固定权重，无TBPS训练或微调，无反向/Optimizer/JVP，无Victim反馈。三模型使用同一图像攻击集合。

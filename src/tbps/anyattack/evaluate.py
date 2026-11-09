@@ -85,8 +85,8 @@ def run(ctx,name):
                     value=torch.cat(rows) if name=='irra' else {k:torch.cat([r[k] for r in rows]) for k in rows[0]}
                     cache.publish(family,b,start,end,value);del value,rows
                     print('ANYATTACK_NATIVE_ENCODING',name,family,end,'/',len(b.ordered_ids),flush=True)
-            origin=AttackOrigin('anyattack_pretrained',FileRef(**ctx['c']['decoder']),ref(ctx['path']),
-                AttackBudget(image=ImageBudget('linf',EPS,'RGB [0,1]; official FP32 clamp nominal budget')),
+            origin=AttackOrigin('anyattack_pretrained_eps8',FileRef(**ctx['c']['decoder']),ref(ctx['path']),
+                AttackBudget(image=ImageBudget('linf',EPS,'RGB [0,1]; strict8/255 inward projection; zero audit tolerance')),
                 digest({'official_files':ctx['c']['official_files'],'clip':ctx['c']['clip']}))
             inputs={family:cache.gather(family,b,origin=origin if family=='adv_gallery' else None,
                     originals=tuple(g.image_sha256 for g in ctx['manifest'].gallery) if family=='adv_gallery' else ())
