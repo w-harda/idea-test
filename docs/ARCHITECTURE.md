@@ -1,5 +1,9 @@
 # 架构边界与迁移约定
 
+## GH-Cooperative-v1双向协同训练
+
+独立cooperative包复用原G/H模型、K+1/SCST单次更新、原条件重建及当前完整Train Bank，新增四模式交互、逐编辑反事实贡献、残余证据权重和同图多描述监督；推理保持G(I)、H(T)。分片账本保留严格SHA/JSON校验，独立CPU逐分片核对新数学和原预算。每十轮完整状态边界→CPU审计→配对Joint Full/CPU审计→恢复下一十轮，真实失败停止。见[方法协议](framework/GH_COOPERATIVE_V1.md)。
+
 ## GH-Alternating-v2 从零训练及六节点Joint
 
 fresh_*复用NativeBackend的原G/H训练、条件/JVP和完整Bank，以及原调度/ArtifactStore/IRRA原生Engine。只替换初始化、历史绑定、数据顺序和存储生命周期；G/H分别按原seed42构造，双Adam为空、无Scheduler，原Natural-K多词Unicode预算，无v1 WordBudget1。

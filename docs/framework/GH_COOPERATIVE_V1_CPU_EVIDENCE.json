@@ -1,0 +1,131 @@
+{
+  "schema": "gh-cooperative-v1-prelaunch-cpu-1",
+  "base_commit": "143fbcdf505623c3a5cb4b4078237bed168aae3d",
+  "branch": "codex/gh-cooperative-v1",
+  "configuration": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-cooperative-v1-20261109/configs/framework/gh_cooperative_v1.server.json",
+    "sha256": "e585992ba5cb0c320d4e268cfacaeabb4c5d89a8cb5f225eac50653d35ffbfad"
+  },
+  "method": "GH-Cooperative-v1",
+  "cooperative": {
+    "attribute_temperature": 1.0,
+    "caption_set_weight": 0.1,
+    "caption_temperature": 0.1,
+    "edit_credit_weight": 0.1,
+    "g_synergy_weight": 0.1,
+    "h_synergy_weight": 0.1,
+    "residual_mix": 0.5
+  },
+  "cpu_tests": {
+    "passed": 29,
+    "new": 16,
+    "existing": 13,
+    "historical_configuration_specific_deselected": 4
+  },
+  "verification": [
+    {
+      "label": "cpu_regression_release",
+      "exit": 0,
+      "seconds": 92.68279143795371,
+      "log": "/home/lzf/ldx/tmp/gh_cooperative_v1_cpu_20261109/cpu_regression_release.log",
+      "log_sha256": "f2e42b5ee0b21d2ee1eff13cb401aa5a3ff48797c120c482bb59fa47c497d3d6"
+    },
+    {
+      "label": "smoke_preflight_release",
+      "exit": 0,
+      "seconds": 9.883054349571466,
+      "log": "/home/lzf/ldx/tmp/gh_cooperative_v1_cpu_20261109/smoke_preflight_release.log",
+      "log_sha256": "ceee3a4eaf8fdea2ac2b0c4c17f078fd26f07416e5c3d1f9f6b524b267391c1b"
+    },
+    {
+      "label": "train_preflight_release",
+      "exit": 0,
+      "seconds": 9.781794216483831,
+      "log": "/home/lzf/ldx/tmp/gh_cooperative_v1_cpu_20261109/train_preflight_release.log",
+      "log_sha256": "1dffb601577450eebf10eba84c13a1853c1e0604a4ee91183b226a5311a2f3fe"
+    }
+  ],
+  "producers": 170,
+  "tools": {
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-cooperative-v1-20261109/operations/gh_cooperative_v1.py": "56c071cdfb5d6077fc6f75dc56e1aa0e390fe389d066ce3477d7202a968d1089",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-cooperative-v1-20261109/operations/gh_cooperative_v1_freeze.py": "b6f6339ae4fac1e765f12e3e01535a183cc21f3ff2db9d037039860b849066fa",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-cooperative-v1-20261109/operations/gh_cooperative_v1_status.py": "26e1a053d32f150e739aa95cdc8bea80e830e17101589a54c59a743101bece5a",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-cooperative-v1-20261109/operations/gh_cooperative_v1_supervisor.py": "b819f3f54f1872b07def51728b1f0574ff61772723d787e5d4cbb20d1de0ff33"
+  },
+  "fixed_resources": {
+    "G_condition_protocol": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/conditions_full/protocol.json",
+      "sha256": "9ad4903a6de6dc221df1a15af48d9e63e6332d7fcd3a9a62ecd3f11a2ed91c9d"
+    },
+    "G_manifest": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/conditions_full/manifest.json",
+      "sha256": "506caf30b8f82b8a29fc35e06df7bb04a5b2bcddc58a1f159b524bb107e7511e"
+    },
+    "G_original_config": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/config_phase26.json",
+      "sha256": "7e87bd272abfee440afc13109d439507a34b140506a19a132a8f740afe093bc4"
+    },
+    "H_original_config": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/config_phase4.json",
+      "sha256": "eaf9500fa9f8d8ad86e53fb94435c41b3c39a54a83e041ebee73300f5ffc8ce1"
+    },
+    "annotation": {
+      "path": "/home/lzf/TBPS/Datasets/CUHK-PEDES/reid_raw.json",
+      "sha256": "fc3d15542f91dd70e23028c2cb40171a8f41734a39afddb9505e352e396cabf0"
+    },
+    "basis": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1/prototypes/attribute_unit_v55_interface_20261003/outputs/full/semantic_bases.json",
+      "sha256": "94f114b9e330cb1f205c5ef4d1ca0aa9df9a6e7cd2e7906cf6ac69f1b68f32d4"
+    },
+    "bpe": {
+      "path": "/home/lzf/Attack/IRRA-main/IRRA-main/data/bpe_simple_vocab_16e6.txt.gz",
+      "sha256": "924691ac288e54409236115652ad4aa250f48203de50a9e4722a6ecd48d6804a"
+    },
+    "clean_completed": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/gallery_train/completed.json",
+      "sha256": "ce419a37957ddf5d7d29e80a06c837b9d2aeb5104aa6e15c745aa4c292a0a5f4"
+    },
+    "clean_protocol": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/gallery_train/protocol.json",
+      "sha256": "edb347369f0aaa9d36a5c3cf51da6719da97b4db7d1abf0af65a07da096db529"
+    },
+    "dataset_config": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4c2-20261017/configs/framework/stage2_sources.server.json",
+      "sha256": "9f2da834669c7a1902b3fa9570ce8ab1a2844483ddbfb6e75bb3221a02acf73e"
+    },
+    "reader": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1/prototypes/attribute_unit_v4_learned_reader_20261003/outputs/reader_final.pt",
+      "sha256": "c0f4298cf7f9d1581489a2c1f1e9346dc0a8171c1355f5db0d51974d91afd793"
+    },
+    "reader_split": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1/prototypes/attribute_unit_v4_learned_reader_20261003/outputs/split.json",
+      "sha256": "33ec828fdf45de86d77a3fcaa23918953085fd2257d825150e4600d430687891"
+    },
+    "train_qualification": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/qualification/train.json",
+      "sha256": "44a6d39aa00153acb6d8880e9271370f7ee664b6f79b2b7cacf31c163c216ccb"
+    }
+  },
+  "fresh_scope": {
+    "train": 2048,
+    "rounds": 60,
+    "G_updates_per_round": 8068,
+    "H_visits_per_round": 2048,
+    "H_updates_per_round": 2037,
+    "test_rounds": [
+      10,
+      20,
+      30,
+      40,
+      50,
+      60
+    ]
+  },
+  "historical_source_diff": [],
+  "GPU_experiment_at_this_snapshot": "NOT_STARTED",
+  "controls": {
+    "smoke": "/home/lzf/ldx/tmp/gh_cooperative_v1_smoke_20261109",
+    "train": "/home/lzf/ldx/tmp/gh_cooperative_v1_train_20261109"
+  },
+  "output_base": "/home/lzf/ldx/outputs/tbps-framework-gh-cooperative-v1-20261109"
+}

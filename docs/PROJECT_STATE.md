@@ -1,5 +1,11 @@
 # 项目当前状态（唯一权威入口）
 
+<!-- GH_COOP_CURRENT_BEGIN -->
+## 当前阶段：GH-Cooperative-v1 CPU验证完成、准备后台执行（2026-11-09）
+
+用户确认G/H从零60轮，新增四模式协同、逐编辑撤销贡献、残余证据局部权重和同图多描述目标；每十轮审计及CUHK-PEDES × IRRA完整Joint Test。29项CPU回归及Smoke/Train完整来源预检PASS。真实GPU尚未启动，完成状态以独立控制回执为准。[方法与运行协议](framework/GH_COOPERATIVE_V1.md)。
+<!-- GH_COOP_CURRENT_END -->
+
 <!-- GH_V2_CURRENT_BEGIN -->
 ## 当前阶段：GH-v2原60轮审计恢复及六组Joint正式Test完成
 

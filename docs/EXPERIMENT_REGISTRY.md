@@ -1,5 +1,9 @@
 # 历史实验注册表
 
+## GH-Cooperative-v1从零60轮与六组IRRA Joint（2026-11-09，开发验证）
+
+分支codex/gh-cooperative-v1，基准143fbcdf505623c3a5cb4b4078237bed168aae3d。四项协同目标权重预先固定；2048 Train、seed42、8/255、Natural-K每原词最多1字符。预设10/20/30/40/50/60配对Checkpoint和3074/6156原生Joint Test。启动成功后由用户查看进度，无人工持续监控。[协议](framework/GH_COOPERATIVE_V1.md)。
+
 ## B正式训练与G60/H60统一评估准备（2026-10-24，未执行GPU）
 
 独立codex/gh-formal-b；保留原140份生产数学源码和旧Smoke exact审计FAIL，停止NOOP kernel调查。
