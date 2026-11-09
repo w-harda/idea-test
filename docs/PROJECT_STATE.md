@@ -3,7 +3,7 @@
 <!-- GH_ATTRACTION_CURRENT_BEGIN -->
 ## 当前阶段：GH-Adversarial-Attraction-v1简单实现与CPU验证（2026-11-09）
 
-用户要求G1攻击图像指导H1靠近该图像、远离原文；H1攻击文本再指导G2靠近该文本、远离原图。独立attraction包复用原G K+1/Local/Retain和H三头SCST，改用共同Train候选KL吸引/排斥。旧GH-Cooperative-v1保持，不检查其进度。本轮无新GPU、正式训练或Test。[代码与公式](framework/GH_ATTRACTION_V1.md)。30项CPU回归及Smoke/Train完整来源预检PASS，详细证据见GH_ATTRACTION_V1_CPU_EVIDENCE.json。
+用户要求G1攻击图像指导H1靠近该图像、远离原文；H1攻击文本再指导G2靠近该文本、远离原图。独立attraction包复用原G K+1/Local/Retain和H三头SCST，改用共同Train候选KL吸引/排斥。旧GH-Cooperative-v1保持，不检查其进度。本轮无新GPU、正式训练或Test。[代码与公式](framework/GH_ATTRACTION_V1.md)。实现48ff8ab15be10f25872296ee844ab46a64cb9d03；30项CPU回归及Smoke/Train完整来源预检PASS，详细证据见GH_ATTRACTION_V1_CPU_EVIDENCE.json。
 <!-- GH_ATTRACTION_CURRENT_END -->
 
 <!-- GH_COOP_CURRENT_BEGIN -->

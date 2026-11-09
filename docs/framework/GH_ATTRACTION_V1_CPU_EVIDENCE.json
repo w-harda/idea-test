@@ -106,5 +106,6 @@
   "production_output_created": false,
   "scope": "CPU数学与显式Mock特征接线；原G串行机制与真实原H策略CPU更新；非正式攻击效果",
   "old_source_diff": [],
-  "previous_experiment_progress_checked": false
+  "previous_experiment_progress_checked": false,
+  "implementation_commit": "48ff8ab15be10f25872296ee844ab46a64cb9d03"
 }
