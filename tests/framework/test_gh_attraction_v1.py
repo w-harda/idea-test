@@ -86,7 +86,11 @@ def test_native_G_adapter_preserves_K_plus_one_budget_and_teacher_freeze(native,
     from tbps.alternating.conditions import LegacySteps
     serial=bindings.get('serial_training');before=(serial.attribute_losses,serial.joint_losses)
     b.steps=LegacySteps(serial.train_single_sample,None)
-    cond=SimpleNamespace(payload=condition,identity=SimpleNamespace(key='current-H-caption-test'))
+    from tbps.artifacts import digest
+    ident={'original_caption_sha256':'a'*64,'context_caption_sha256':'a'*64,
+        'selected_g_ids':list(condition['selected_instance_ids']),'scores':condition['S_raw'].tolist(),
+        'source_space_sha256':'b'*64,'anchor_mapping_sha256':'c'*64}
+    cond=SimpleNamespace(payload=condition,identity=SimpleNamespace(key=digest(ident)))
     log=b.g_update(row,cond)
     assert log['optimizer_steps']==k+1==b.cursor['g_updates']
     assert tree_sha(b.h.state_dict())==before_h and tree_sha(b.encoder.state_dict())==before_encoder
@@ -97,6 +101,13 @@ def test_native_G_adapter_preserves_K_plus_one_budget_and_teacher_freeze(native,
         assert math.isclose(rec['global'],terms['loss'],rel_tol=1e-6,abs_tol=1e-6)
         assert math.isclose(rec['total'],rec['global']+rec['local']+rec['retain'],rel_tol=1e-6,abs_tol=1e-6)
     assert (serial.attribute_losses,serial.joint_losses)==before
+    from tbps.attraction.audit_math import audit_attraction
+    log['row_id']=row
+    ledger={'G':[log],'H':[],'conditions':[{'row':row,'identity':ident}],'g_orders':[[row]],'h_orders':[[]],
+        'G_before':log['G_before'],'G_after':log['G_after'],'condition_H_state':b.h_fingerprint(),
+        'bank':{'ordered_train_ids':b.p['train_ids']}}
+    report=audit_attraction(ledger,c['attraction'],None,None,b.clean,b.clean)
+    assert report['G_steps_independently_recomputed']==k+1
 
 def test_G_binding_restores_after_exception(native):
     _,_,bundle,_=native;s=bundle.bindings.get('serial_training');old=s.joint_losses
@@ -151,6 +162,11 @@ def test_native_H_three_heads_single_SCST_update_and_current_G_binding(native):
     expected=b.profile_cpu.terms(rt.last_features[1:2],rt.last_features[:1],adv[:1])['reward'].item()
     assert math.isclose(log['sampled_reward']['total'],expected,rel_tol=1e-6,abs_tol=1e-6)
     assert log['gradient_norm']>0 and all(int(v['step'])==1 for v in b.ha.state.values())
+    from tbps.attraction.audit_math import audit_attraction
+    ledger={'G':[],'H':[log],'conditions':[],'g_orders':[[]],'h_orders':[[row]],
+        'G_before':b.g_fingerprint(),'G_after':b.g_fingerprint(),'bank':{'ordered_train_ids':b.p['train_ids']}}
+    report=audit_attraction(ledger,c['attraction'],None,None,clean,adv)
+    assert report['H_steps_independently_recomputed']==1
     with pytest.raises(ArtifactError):b.h_update(row,SimpleNamespace(g_state_sha256='stale',adversarial_sha256='stale'))
     with torch.no_grad():b.g.v.add_(.001)
     with pytest.raises(ArtifactError,match='stale G parameters'):b.h_update(row,bank)

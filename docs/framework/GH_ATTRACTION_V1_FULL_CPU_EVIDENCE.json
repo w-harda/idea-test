@@ -1,0 +1,71 @@
+{
+  "schema": "gh-attraction-full-launch-CPU-evidence-1",
+  "created_utc": "2026-11-09T10:55:21.451878+00:00",
+  "configuration_sha256": "b80e2d7393a00e34e365e5aec9568d1798089ff5640e4a5564ad9ab2cb5f39df",
+  "verification": {
+    "verified": true,
+    "logs": [
+      "tests_release2.log",
+      "smoke_preflight_release2.log",
+      "train_preflight_release2.log"
+    ],
+    "configuration_sha256": "b80e2d7393a00e34e365e5aec9568d1798089ff5640e4a5564ad9ab2cb5f39df",
+    "time": 1794221646.4404635
+  },
+  "tests": {
+    "passed": 30,
+    "failed": 0,
+    "scope": [
+      "production_G_K0_K1_K3_K7",
+      "production_H_SCST_three_heads",
+      "FP64_independent_loss_audit",
+      "tamper_rejection",
+      "bank_retirement_resume",
+      "native_Joint_engine",
+      "six_node_report_curves"
+    ]
+  },
+  "preflight": {
+    "smoke": "GH_ATTRACTION_CPU_PREFLIGHT_PASS",
+    "train": "GH_ATTRACTION_CPU_PREFLIGHT_PASS"
+  },
+  "logs": [
+    {
+      "path": "/home/lzf/ldx/tmp/gh_attraction_v1_full_cpu_20261109/tests_release2.log",
+      "sha256": "77e5b2d63cdf53822d10a26f2abb10a53301e28f64d7d9915ad827ebffa492fe"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_attraction_v1_full_cpu_20261109/smoke_preflight_release2.log",
+      "sha256": "395a7e1430cf717c59982613ae06a22266e775b1b3a68b8d3188a44608c3c8cf"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_attraction_v1_full_cpu_20261109/train_preflight_release2.log",
+      "sha256": "8aa654a1a2592a8a91a819a3550b0a32fb16734f842f641c7e37693e730e6ad4"
+    }
+  ],
+  "scientific_objectives_unchanged_from": "48ff8ab15be10f25872296ee844ab46a64cb9d03",
+  "objectives_sha256": "15befc92d5f52c76b134e2d4e4bf5c96d87aaa91a1ee65eadfcd4828d0a20d78",
+  "frozen_legacy_paths_unmodified": [
+    "prototypes",
+    "src/tbps/alternating",
+    "src/tbps/cooperative"
+  ],
+  "report_runtime": {
+    "matplotlib_init": {
+      "path": "/home/lzf/ldx/envs/apattack/lib/python3.9/site-packages/matplotlib/__init__.py",
+      "sha256": "0210e48bc9c505e50625717f3a7a5399ee2f846882e83b8e1a7a11af6f9fca4f"
+    },
+    "matplotlib_version": "3.7.5",
+    "plotter": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-attraction-v1-20261109/operations/gh_attraction_v1_plot.py",
+      "sha256": "b17c5329d262a4634804671a0c34a351b4e3cb81bebcfcd403f0dee547c880f2"
+    },
+    "purpose": "report-only; no training/model/metrics computation",
+    "python": {
+      "path": "/home/lzf/ldx/envs/apattack/bin/python",
+      "sha256": "b88afaf77de811bc44a47bc70979d9f501abb62f8d7884f4795639fce4d483bd"
+    }
+  },
+  "GPU_experiment_results": "NOT_OBSERVED",
+  "training_environment_dependency_installations": 0
+}

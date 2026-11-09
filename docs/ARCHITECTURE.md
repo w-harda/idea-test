@@ -2,7 +2,7 @@
 
 ## 对抗表示相互吸引变体
 
-新增tbps.attraction，固定Train候选KL定义吸引当前对方攻击表示、排斥自身干净表示。G上下文适配器替换Global但保留原Local/Retain和K+1；H奖励适配器通过原FreshReward完成身份/Unicode/三文本预算核验后替换SCST奖励。复用原整轮G→新Bank→H→新H语境流程，记录双向teacher和来源SHA。operations本阶段仅CPU预检，无新GPU启动。见[方法说明](framework/GH_ATTRACTION_V1.md)。
+新增tbps.attraction，固定Train候选KL定义吸引当前对方攻击表示、排斥自身干净表示。G上下文适配器替换Global但保留原Local/Retain和K+1；H奖励适配器通过原FreshReward完成身份/Unicode/三文本预算核验后替换SCST奖励。复用原整轮G→新Bank→H→新H语境流程，记录双向teacher和来源SHA。Full执行链位于attraction独立run/store/audit/evaluation/report模块与gh_attraction_v1 Supervisor。G/H记录紧凑特征供独立FP64重算KL，所有大账本分片；每轮原Bank特征副本封存，旧权重/图像在完整新边界后显式退休，每十轮评估权重保留。六组原生Joint评分及CPU审计后自动发布，纯绘图使用单独现有apattack解释器；不改训练环境。见[方法说明](framework/GH_ATTRACTION_V1.md)与[Full协议](framework/GH_ATTRACTION_V1_FULL.md)。
 
 ## GH-Cooperative-v1双向协同训练
 

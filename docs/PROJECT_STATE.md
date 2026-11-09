@@ -1,9 +1,9 @@
 # 项目当前状态（唯一权威入口）
 
 <!-- GH_ATTRACTION_CURRENT_BEGIN -->
-## 当前阶段：GH-Adversarial-Attraction-v1简单实现与CPU验证（2026-11-09）
+## 当前阶段：双向靠近KL版本已获Full授权，启动前验证完成（2026-11-09）
 
-用户要求G1攻击图像指导H1靠近该图像、远离原文；H1攻击文本再指导G2靠近该文本、远离原图。独立attraction包复用原G K+1/Local/Retain和H三头SCST，改用共同Train候选KL吸引/排斥。旧GH-Cooperative-v1保持，不检查其进度。本轮无新GPU、正式训练或Test。[代码与公式](framework/GH_ATTRACTION_V1.md)。实现48ff8ab15be10f25872296ee844ab46a64cb9d03；30项CPU回归及Smoke/Train完整来源预检PASS，详细证据见GH_ATTRACTION_V1_CPU_EVIDENCE.json。
+用户授权从零60轮及每十轮配对G/H的六组CUHK-PEDES × IRRA Full Joint Test。科学目标沿用48ff8ab的双向吸引/自身排斥，新增独立KL特征重算审计、完整执行链和自动结果发布；旧GH-Cooperative-v1不改动。30项CPU测试及Smoke/Train来源预检全部PASS，实际后台启动身份见后续回执；真实GPU Smoke和Full尚未运行。[Full协议与检查命令](framework/GH_ATTRACTION_V1_FULL.md)。
 <!-- GH_ATTRACTION_CURRENT_END -->
 
 <!-- GH_COOP_CURRENT_BEGIN -->

@@ -1,7 +1,8 @@
-"""独立预检配置；本次入口只提供CPU预检，不启动新实验。"""
+"""独立来源与CPU预检；GPU执行须通过Full入口显式授权。"""
 from tbps.alternating import fresh_sources as old
 from .objectives import Settings,require
 from dataclasses import asdict
+Grant=old.Grant
 
 def augment(f,c):
     require(f['method']=='GH-Adversarial-Attraction-v1','explicit attraction method identity')

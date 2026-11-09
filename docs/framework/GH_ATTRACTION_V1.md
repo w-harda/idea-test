@@ -62,3 +62,7 @@ cd /home/lzf/ldx/projects/idea-test-tbps-gh-attraction-v1-20261109
 ```
 
 两条命令只读核验全部固定来源和2048成员，建立原G/H CPU初始化对象，禁止CPU预检进入CUDA；不创建实验Attempt。
+
+## 后续Full授权
+
+用户已明确授权启动从零60轮及六组Full Joint Test，完整执行/审计门禁和用户检查命令见[Full协议](GH_ATTRACTION_V1_FULL.md)。上文CPU-only为48ff8ab实现阶段的历史范围；新执行入口为`operations/gh_attraction_v1.py --config configs/framework/gh_attraction_v1.server.json --action preflight --scope smoke`。

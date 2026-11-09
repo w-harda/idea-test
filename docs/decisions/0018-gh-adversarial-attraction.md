@@ -7,3 +7,7 @@
 保留原整轮G→新Train Bank→H调度，下一轮G必须使用新H语境；保留属性Local/Retain、G K+1、H三头、原Unicode预算和8/255投影。原prototypes和所有旧实验不修改。独立attraction包、新来源配置与CPU预检入口实现；本轮不启动GPU或新的实验流水线。
 
 该目标可以维持对抗图文的正确配对，研究结果需通过实际完整Gallery检索确认。CPU目标/接线测试只证明实现契合定义。
+
+## 后续Full授权与执行封存
+
+用户随后明确要求启动Full，授权从零60轮与每十轮配对的六组CUHK-PEDES × IRRA Joint正式Test。新增独立执行链、分片账本、历史Bank特征封存及独立FP64数值审计；原目标公式、G Local/Retain/K+1、H三头SCST和双预算保持。30项CPU测试和Smoke/Train来源预检PASS。先真实训练与Joint Smoke审计，再运行正式计划。启动后由用户查看进度，助手不持续监督。

@@ -24,7 +24,8 @@ class AttractionBackend(FreshBackend):
         require(len(records)==condition.payload['K']+1,'original G K+1 updates')
         for record,values in zip(result['records'],records):record['attraction']=values
         result['attraction']={'teacher_H_state':teacher,'condition_identity':condition.identity.key,
-            'anchor_sha256':self.anchor_sha,'candidate_count':len(self.clean),'settings':dict(self.c['attraction'])}
+            'anchor_sha256':self.anchor_sha,'candidate_count':len(self.clean),'settings':dict(self.c['attraction']),
+            'partner_text_feature':condition.payload['z_t'].detach().cpu().reshape(-1).tolist()}
         return result
     def h_update(self,row,bank):
         self.grant.validate(self.c,'smoke');require(bank==self.last_bank,'current G reward bank required')

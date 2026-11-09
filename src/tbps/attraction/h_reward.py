@@ -29,7 +29,7 @@ class BoundAlignmentReward:
     def diagnostics(self):
         return {**self.base.diagnostics(),'attraction':{'sampled':self.alignment[0],'greedy':self.alignment[1],
             'old_rewards_diagnostic_only':self.raw_rewards,'R_sim_optimized':False,'R_rank_optimized':False,
-            'objective':'pull_current_G_image_push_original_text','candidate_count':len(self.profile.anchors)}}
+            'objective':'pull_current_G_image_push_original_text','candidate_count':len(self.profile.anchors),'text_features':self.features.tolist(),'partner_image_feature':self.partner.reshape(-1).tolist()}}
 
 def train_step(phase,policy,optimizer,example,sampler,bind_reward,step,row_id,profile,partner_image):
     def reward(k):return BoundAlignmentReward(bind_reward(k),profile,partner_image)

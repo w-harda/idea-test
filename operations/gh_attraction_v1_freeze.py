@@ -1,4 +1,4 @@
-"""仅为未消费的新方法冻结来源；本轮不授权真实GPU运行。"""
+"""仅为未消费的新方法冻结来源；按用户Full授权冻结完整执行链。"""
 from pathlib import Path
 import sys,copy,argparse,shutil
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'src'))
@@ -20,7 +20,15 @@ def freeze(rebind=False):
         audits={k:out+'/'+k+'_cpu_audit' for k in ('smoke','train')},
         producers={str(p):sha_file(p) for p in (ROOT/'src/tbps').rglob('*.py')},
         tools={str(p):sha_file(p) for p in (ROOT/'operations').glob('gh_attraction_v1*.py')},
-        authorization={'implementation_and_CPU_verification':True,'GPU_experiment':False,'automatic_training':False,'new_Test':False})
+        authorization={'implementation_and_CPU_verification':True,'GPU_experiment':True,'automatic_training':True,'new_Test':True,'fresh_sixty_rounds':True,'six_Joint_Tests_after_prefix_audit':True,'retry_real_failure':False})
+    import subprocess,json,os
+    report_python=Path('/home/lzf/ldx/envs/apattack/bin/python')
+    env={**os.environ,'MPLCONFIGDIR':'/home/lzf/ldx/tmp/gh_attraction_v1_report_cache'}
+    info=json.loads(subprocess.check_output([str(report_python),'-B','-c',"import matplotlib,json;print(json.dumps({'version':matplotlib.__version__,'module':matplotlib.__file__}))"],text=True,env=env))
+    def ref(p):return {'path':str(p),'sha256':sha_file(p)}
+    f['report_runtime']={'python':ref(report_python),'matplotlib_init':ref(info['module']),
+        'matplotlib_version':info['version'],'plotter':ref(ROOT/'operations/gh_attraction_v1_plot.py'),
+        'purpose':'report-only; no training/model/metrics computation'}
     f['native_template']['prototype']['schema']='gh-attraction-v1-protocol-1'
     cfg.write_bytes(json_bytes(f));print(cfg,sha_file(cfg))
 if __name__=='__main__':

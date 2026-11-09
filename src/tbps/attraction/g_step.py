@@ -11,7 +11,7 @@ def attraction_g(serial,profile,clean_image,partner_text,records):
         values=profile.terms(feature,clean,partner)
         original=terms['global'];terms['global']=values['loss'].mean()
         terms['total']=terms['total']-original+terms['global']
-        records.append({'phase':phase,'old_global_diagnostic':float(original.detach()),**scalars(values)})
+        records.append({'phase':phase,'old_global_diagnostic':float(original.detach()),'image_feature':feature.detach().cpu().reshape(-1).tolist(),**scalars(values)})
         return terms
     def attribute(feature,z,local,**kwargs):return replace_global(old_attribute(feature,z,local,**kwargs),feature,'attribute')
     def joint(feature,z,local,has_local):return replace_global(old_joint(feature,z,local,has_local),feature,'joint')
