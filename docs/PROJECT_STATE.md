@@ -455,4 +455,4 @@ CUHK-PEDES × IRRA/RaSa/APTM三组Full与独立CPU审计全部PASS，原3074图�
 
 ## AnyAttack统一8/255预算修正（2026-11-09）
 
-统一预算修正已接线：图像实际L∞≤8/255、审计零容差；文本上限1词，用户确认AnyAttack无需另加文本分支，实际0替换。CPU复用既有原始Decoder输出，不重训、不重新调用Decoder。三模型Smoke→Full自动门控，启动后由用户检查进度，尚无8/255正式结果。 详见[协议](framework/ANYATTACK_EPS8.md)。
+统一预算修正已接线：图像实际L∞≤8/255、审计零容差；Idea/GH文本为Natural-K下每词最多1字符、可改多个词；用户确认AnyAttack无需另加文本分支，实际0替换。CPU复用既有原始Decoder输出，不重训、不重新调用Decoder。三模型Smoke→Full自动门控，启动后由用户检查进度，尚无8/255正式结果。 详见[协议](framework/ANYATTACK_EPS8.md)。
