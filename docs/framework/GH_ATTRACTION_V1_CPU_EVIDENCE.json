@@ -1,0 +1,110 @@
+{
+  "schema": "gh-attraction-v1-cpu-1",
+  "method": "GH-Adversarial-Attraction-v1",
+  "base_commit": "9ce332f639f733f4636c866a6027402ab2d25317",
+  "branch": "codex/gh-attraction-v1",
+  "configuration": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-attraction-v1-20261109/configs/framework/gh_attraction_v1.server.json",
+    "sha256": "45707f77c47f26949bfe35e1fbfb13d2de22bb702a9825032b862421d2c17d4d"
+  },
+  "attraction": {
+    "pull_weight": 1.0,
+    "push_weight": 1.0,
+    "temperature": 0.07
+  },
+  "verification": [
+    {
+      "label": "release_tests",
+      "exit_code": 0,
+      "seconds": 85.32163002714515,
+      "log": "/home/lzf/ldx/tmp/gh_attraction_v1_cpu_20261109/release_tests.log",
+      "log_sha256": "7685a9b6be50dcabd2297b5f9db3453839ab9b6ebb9db9ffe7d76138d356aeb4"
+    },
+    {
+      "label": "smoke_preflight",
+      "exit_code": 0,
+      "seconds": 9.688929297029972,
+      "log": "/home/lzf/ldx/tmp/gh_attraction_v1_cpu_20261109/smoke_preflight.log",
+      "log_sha256": "c349ef2fece83c87ec6f3b38f30b39ecd6255f45db2174098f294fb3d3ceca85"
+    },
+    {
+      "label": "train_preflight",
+      "exit_code": 0,
+      "seconds": 9.685155637562275,
+      "log": "/home/lzf/ldx/tmp/gh_attraction_v1_cpu_20261109/train_preflight.log",
+      "log_sha256": "6f2b873702887f5df268ea281e212adfbd118cde832a5e7da68656e4ebe5b795"
+    }
+  ],
+  "cpu_tests": {
+    "passed": 30,
+    "new": 17,
+    "existing_source_independent": 13,
+    "old_configuration_specific_deselected": 4
+  },
+  "fixed_sources": {
+    "G_condition_protocol": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/conditions_full/protocol.json",
+      "sha256": "9ad4903a6de6dc221df1a15af48d9e63e6332d7fcd3a9a62ecd3f11a2ed91c9d"
+    },
+    "G_manifest": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/outputs/conditions_full/manifest.json",
+      "sha256": "506caf30b8f82b8a29fc35e06df7bb04a5b2bcddc58a1f159b524bb107e7511e"
+    },
+    "G_original_config": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_image_generator_v2_20261014/config_phase26.json",
+      "sha256": "7e87bd272abfee440afc13109d439507a34b140506a19a132a8f740afe093bc4"
+    },
+    "H_original_config": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/config_phase4.json",
+      "sha256": "eaf9500fa9f8d8ad86e53fb94435c41b3c39a54a83e041ebee73300f5ffc8ce1"
+    },
+    "annotation": {
+      "path": "/home/lzf/TBPS/Datasets/CUHK-PEDES/reid_raw.json",
+      "sha256": "fc3d15542f91dd70e23028c2cb40171a8f41734a39afddb9505e352e396cabf0"
+    },
+    "basis": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1/prototypes/attribute_unit_v55_interface_20261003/outputs/full/semantic_bases.json",
+      "sha256": "94f114b9e330cb1f205c5ef4d1ca0aa9df9a6e7cd2e7906cf6ac69f1b68f32d4"
+    },
+    "bpe": {
+      "path": "/home/lzf/Attack/IRRA-main/IRRA-main/data/bpe_simple_vocab_16e6.txt.gz",
+      "sha256": "924691ac288e54409236115652ad4aa250f48203de50a9e4722a6ecd48d6804a"
+    },
+    "clean_completed": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/gallery_train/completed.json",
+      "sha256": "ce419a37957ddf5d7d29e80a06c837b9d2aeb5104aa6e15c745aa4c292a0a5f4"
+    },
+    "clean_protocol": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/gallery_train/protocol.json",
+      "sha256": "edb347369f0aaa9d36a5c3cf51da6719da97b4db7d1abf0af65a07da096db529"
+    },
+    "dataset_config": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-framework-stage4c2-20261017/configs/framework/stage2_sources.server.json",
+      "sha256": "9f2da834669c7a1902b3fa9570ce8ab1a2844483ddbfb6e75bb3221a02acf73e"
+    },
+    "reader": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1/prototypes/attribute_unit_v4_learned_reader_20261003/outputs/reader_final.pt",
+      "sha256": "c0f4298cf7f9d1581489a2c1f1e9346dc0a8171c1355f5db0d51974d91afd793"
+    },
+    "reader_split": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1/prototypes/attribute_unit_v4_learned_reader_20261003/outputs/split.json",
+      "sha256": "33ec828fdf45de86d77a3fcaa23918953085fd2257d825150e4600d430687891"
+    },
+    "train_qualification": {
+      "path": "/home/lzf/ldx/projects/idea-TBPS-test1-github-sync-20261014/prototypes/attribute_text_policy_h_v1_20261015/outputs/formal_v1/qualification/train.json",
+      "sha256": "44a6d39aa00153acb6d8880e9271370f7ee664b6f79b2b7cacf31c163c216ccb"
+    }
+  },
+  "source_files": 176,
+  "operations": {
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-attraction-v1-20261109/operations/gh_attraction_v1.py": "73e9d69a735137ef6944422d417f33d8b482569b6fca5f135648a6890bc26ed2",
+    "/home/lzf/ldx/projects/idea-test-tbps-gh-attraction-v1-20261109/operations/gh_attraction_v1_freeze.py": "0ddc1dbeaff6f68f334234f368f8c515416bf6611d15ee92e4817fdad3f2d97c"
+  },
+  "GPU_experiment": false,
+  "new_training_attempt": false,
+  "official_Test": false,
+  "production_output_created": false,
+  "scope": "CPU数学与显式Mock特征接线；原G串行机制与真实原H策略CPU更新；非正式攻击效果",
+  "old_source_diff": [],
+  "previous_experiment_progress_checked": false
+}

@@ -1,7 +1,13 @@
 # 项目当前状态（唯一权威入口）
 
+<!-- GH_ATTRACTION_CURRENT_BEGIN -->
+## 当前阶段：GH-Adversarial-Attraction-v1简单实现与CPU验证（2026-11-09）
+
+用户要求G1攻击图像指导H1靠近该图像、远离原文；H1攻击文本再指导G2靠近该文本、远离原图。独立attraction包复用原G K+1/Local/Retain和H三头SCST，改用共同Train候选KL吸引/排斥。旧GH-Cooperative-v1保持，不检查其进度。本轮无新GPU、正式训练或Test。[代码与公式](framework/GH_ATTRACTION_V1.md)。30项CPU回归及Smoke/Train完整来源预检PASS，详细证据见GH_ATTRACTION_V1_CPU_EVIDENCE.json。
+<!-- GH_ATTRACTION_CURRENT_END -->
+
 <!-- GH_COOP_CURRENT_BEGIN -->
-## 当前阶段：GH-Cooperative-v1唯一后台流水线已启动（2026-11-09）
+## 旧版本启动快照：GH-Cooperative-v1唯一后台流水线已启动（2026-11-09）
 
 用户确认G/H从零60轮，加入四模式协同、逐编辑撤销贡献、残余证据局部权重和同图多描述目标；每十轮审计及CUHK-PEDES × IRRA完整Joint Test。科学执行ca209a1d4417aa05f26514e4c358c006e137c2de；29项CPU回归和Smoke/Train完整来源预检PASS。Supervisor PID/PGID/SID2137488、无TTY，启动首阶段01_smoke；助手此后不监控，由用户执行检查命令。训练/六组Full结果以后台独立回执为准。[方法协议](framework/GH_COOPERATIVE_V1.md)、[启动交接及检查命令](framework/GH_COOPERATIVE_V1_LAUNCH.md)。
 <!-- GH_COOP_CURRENT_END -->

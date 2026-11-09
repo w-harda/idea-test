@@ -1,5 +1,9 @@
 # 架构边界与迁移约定
 
+## 对抗表示相互吸引变体
+
+新增tbps.attraction，固定Train候选KL定义吸引当前对方攻击表示、排斥自身干净表示。G上下文适配器替换Global但保留原Local/Retain和K+1；H奖励适配器通过原FreshReward完成身份/Unicode/三文本预算核验后替换SCST奖励。复用原整轮G→新Bank→H→新H语境流程，记录双向teacher和来源SHA。operations本阶段仅CPU预检，无新GPU启动。见[方法说明](framework/GH_ATTRACTION_V1.md)。
+
 ## GH-Cooperative-v1双向协同训练
 
 独立cooperative包复用原G/H模型、K+1/SCST单次更新、原条件重建及当前完整Train Bank，新增四模式交互、逐编辑反事实贡献、残余证据权重和同图多描述监督；推理保持G(I)、H(T)。分片账本保留严格SHA/JSON校验，独立CPU逐分片核对新数学和原预算。每十轮完整状态边界→CPU审计→配对Joint Full/CPU审计→恢复下一十轮，真实失败停止。见[方法协议](framework/GH_COOPERATIVE_V1.md)。

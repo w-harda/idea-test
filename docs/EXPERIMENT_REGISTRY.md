@@ -1,5 +1,9 @@
 # 历史实验注册表
 
+## GH-Adversarial-Attraction-v1（2026-11-09，实现及CPU验证）
+
+基准9ce332f639f733f4636c866a6027402ab2d25317，独立codex/gh-attraction-v1。共同2048 Train候选KL相互吸引/自身排斥；原模型、属性Local/Retain、K+1、H三头和预算保持。当前只执行CPU数学/接线测试与来源预检；正式训练及Full未运行。[方法与范围](framework/GH_ATTRACTION_V1.md)。
+
 ## GH-Cooperative-v1从零60轮与六组IRRA Joint（2026-11-09，后台已启动）
 
 分支codex/gh-cooperative-v1，基准143fbcdf505623c3a5cb4b4078237bed168aae3d。四项协同目标权重预先固定；2048 Train、seed42、8/255、Natural-K每原词最多1字符。预设10/20/30/40/50/60配对Checkpoint和3074/6156原生Joint Test。科学执行ca209a1d4417aa05f26514e4c358c006e137c2de，29项CPU回归及双预检PASS；启动Supervisor2137488，后续由用户查看进度。[协议](framework/GH_COOPERATIVE_V1.md)。
