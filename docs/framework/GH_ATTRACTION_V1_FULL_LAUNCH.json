@@ -1,0 +1,32 @@
+{
+  "status": "DETACHED_SUPERVISOR_AND_INITIAL_CHILD_LAUNCHED",
+  "verified_time": 1794221833.4213238,
+  "source_commit": "ec197618e639b169ebece0c317f5e36e9f5bd141",
+  "configuration_sha256": "b80e2d7393a00e34e365e5aec9568d1798089ff5640e4a5564ad9ab2cb5f39df",
+  "supervisor": {
+    "pid": 3043588,
+    "state": "S",
+    "ppid": 1,
+    "pgid": 3043588,
+    "sid": 3043588,
+    "tty_nr": 0
+  },
+  "initial_child": {
+    "pid": 3043590,
+    "label": "01_smoke",
+    "time": 1794221777.6048138
+  },
+  "started": {
+    "pid": 3043588,
+    "ppid": 3043530,
+    "pgid": 3043588,
+    "sid": 3043588,
+    "tty": null,
+    "time": 1794221777.600678,
+    "configuration_sha256": "b80e2d7393a00e34e365e5aec9568d1798089ff5640e4a5564ad9ab2cb5f39df",
+    "commit": "ec197618e639b169ebece0c317f5e36e9f5bd141"
+  },
+  "scope": "fresh_60_rounds_six_CUHK_PEDES_IRRA_Joint_Tests",
+  "scientific_stage_results": "NOT_OBSERVED",
+  "progress_monitoring": "user-managed; assistant only verified launch"
+}

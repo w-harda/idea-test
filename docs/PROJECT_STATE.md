@@ -1,9 +1,9 @@
 # 项目当前状态（唯一权威入口）
 
 <!-- GH_ATTRACTION_CURRENT_BEGIN -->
-## 当前阶段：双向靠近KL版本已获Full授权，启动前验证完成（2026-11-09）
+## 当前阶段：双向靠近KL版本Full后台已启动（2026-11-09）
 
-用户授权从零60轮及每十轮配对G/H的六组CUHK-PEDES × IRRA Full Joint Test。科学目标沿用48ff8ab的双向吸引/自身排斥，新增独立KL特征重算审计、完整执行链和自动结果发布；旧GH-Cooperative-v1不改动。30项CPU测试及Smoke/Train来源预检全部PASS，实际后台启动身份见后续回执；真实GPU Smoke和Full尚未运行。[Full协议与检查命令](framework/GH_ATTRACTION_V1_FULL.md)。
+用户授权的独立Supervisor PID/PGID/SID3043588、PPID1、无TTY及首子进程01_smoke已核验。执行Commit `ec197618e639b169ebece0c317f5e36e9f5bd141`，从零60轮，每10轮配对G/H完成CUHK-PEDES × IRRA六组Full Joint Test/独立审计；先真实Smoke双审计。30项CPU测试及Smoke/Train来源预检PASS。此快照仅确认启动，不宣称真实Smoke、训练或Full结果；后续由用户检查进度，助手不持续监控。真实失败停止不自动重试；旧Cooperative和其他实验保持。[启动身份与检查命令](framework/GH_ATTRACTION_V1_FULL_LAUNCH.md)。
 <!-- GH_ATTRACTION_CURRENT_END -->
 
 <!-- GH_COOP_CURRENT_BEGIN -->
