@@ -1,0 +1,23 @@
+{
+  "status": "BACKGROUND_PIPELINE_LAUNCHED",
+  "startup_identity": {
+    "pid": 2137488,
+    "ppid": 2137241,
+    "pgid": 2137488,
+    "sid": 2137488,
+    "tty": null,
+    "time": 1794201242.974125,
+    "configuration_sha256": "e585992ba5cb0c320d4e268cfacaeabb4c5d89a8cb5f225eac50653d35ffbfad",
+    "commit": "ca209a1d4417aa05f26514e4c358c006e137c2de"
+  },
+  "initial_child": {
+    "pid": 2137490,
+    "label": "01_smoke",
+    "time": 1794201242.9778607
+  },
+  "configuration_sha256": "e585992ba5cb0c320d4e268cfacaeabb4c5d89a8cb5f225eac50653d35ffbfad",
+  "science_commit": "ca209a1d4417aa05f26514e4c358c006e137c2de",
+  "output_base": "/home/lzf/ldx/outputs/tbps-framework-gh-cooperative-v1-20261109",
+  "control": "/home/lzf/ldx/tmp/gh_cooperative_v1_20261109",
+  "verification_scope": "startup receipts and process existence only; no experiment progress monitoring"
+}
