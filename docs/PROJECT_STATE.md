@@ -1,9 +1,9 @@
 # 项目当前状态（唯一权威入口）
 
 <!-- GH_ATTRACTION_CURRENT_BEGIN -->
-## 当前阶段：双向靠近KL版本Full后台已启动（2026-11-09）
+## 当前阶段：GH-Adversarial-Attraction-v1从零60轮及六Joint Test完成
 
-用户授权的独立Supervisor PID/PGID/SID3043588、PPID1、无TTY及首子进程01_smoke已核验。执行Commit `ec197618e639b169ebece0c317f5e36e9f5bd141`，从零60轮，每10轮配对G/H完成CUHK-PEDES × IRRA六组Full Joint Test/独立审计；先真实Smoke双审计。30项CPU测试及Smoke/Train来源预检PASS。此快照仅确认启动，不宣称真实Smoke、训练或Full结果；后续由用户检查进度，助手不持续监控。真实失败停止不自动重试；旧Cooperative和其他实验保持。[启动身份与检查命令](framework/GH_ATTRACTION_V1_FULL_LAUNCH.md)。
+训练与六组正式Test/独立CPU审计全部PASS。[结果报告](framework/results/gh_attraction_v1/REPORT.md)。旧v1和所有历史结果保持。
 <!-- GH_ATTRACTION_CURRENT_END -->
 
 <!-- GH_COOP_CURRENT_BEGIN -->

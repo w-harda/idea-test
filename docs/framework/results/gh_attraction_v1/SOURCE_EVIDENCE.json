@@ -1,0 +1,150 @@
+{
+  "schema": "gh-attraction-six-joint-tests-1",
+  "configuration_sha256": "b80e2d7393a00e34e365e5aec9568d1798089ff5640e4a5564ad9ab2cb5f39df",
+  "initialization": {
+    "Scheduler": null,
+    "empty_G_Adam": true,
+    "empty_H_Adam": true,
+    "historical_dynamic_bank_loaded": false,
+    "initial_G": "be3fc4d83a60b85c598c300274899f628a64f2508ca16031c06c9a58f55f8ffa",
+    "initial_H": "02dfb3a9a45c6da4b7e739cc4f80bee31230926498938a15337448510ea47d6a",
+    "status": "FRESH_G_H_SEED42_PASS",
+    "trained_checkpoint_loads": 0,
+    "word_budget1_installed": false
+  },
+  "modes": [
+    "Joint"
+  ],
+  "dataset": "CUHK-PEDES",
+  "victim": "IRRA Source/same-model",
+  "gallery": 3074,
+  "query": 6156,
+  "attraction": {
+    "pull_weight": 1.0,
+    "push_weight": 1.0,
+    "temperature": 0.07
+  },
+  "points_predeclared": [
+    10,
+    20,
+    30,
+    40,
+    50,
+    60
+  ],
+  "metrics": [
+    {
+      "Round": 10,
+      "G": "G10",
+      "H": "H10",
+      "R@1": 17.868745803833008,
+      "R@10": 40.75698471069336,
+      "R@5": 32.5211181640625,
+      "mAP": 14.977688789367676
+    },
+    {
+      "Round": 20,
+      "G": "G20",
+      "H": "H20",
+      "R@1": 15.204678535461426,
+      "R@10": 35.54256057739258,
+      "R@5": 28.021442413330078,
+      "mAP": 12.360782623291016
+    },
+    {
+      "Round": 30,
+      "G": "G30",
+      "H": "H30",
+      "R@1": 14.132553100585938,
+      "R@10": 33.78817367553711,
+      "R@5": 26.20207977294922,
+      "mAP": 11.436636924743652
+    },
+    {
+      "Round": 40,
+      "G": "G40",
+      "H": "H40",
+      "R@1": 13.33658218383789,
+      "R@10": 32.48862838745117,
+      "R@5": 24.870044708251953,
+      "mAP": 10.881502151489258
+    },
+    {
+      "Round": 50,
+      "G": "G50",
+      "H": "H50",
+      "R@1": 13.531513214111328,
+      "R@10": 32.5211181640625,
+      "R@5": 25.633529663085938,
+      "mAP": 10.850741386413574
+    },
+    {
+      "Round": 60,
+      "G": "G60",
+      "H": "H60",
+      "R@1": 14.7173490524292,
+      "R@10": 33.6094856262207,
+      "R@5": 26.949316024780273,
+      "mAP": 11.357696533203125
+    }
+  ],
+  "monotonic_nonincreasing": {
+    "R@1": false,
+    "mAP": false
+  },
+  "Test_feedback": false,
+  "sources": [
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-attraction-v1-20261109/test/round_10/cpu_audit/completed/report.json",
+      "sha256": "75c74b6a30602caf711eb7b20a21e605af743e1c38cf825863c0f0b1273365e7"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-attraction-v1-20261109/test/round_10/completed/summary.json",
+      "sha256": "714f7878a413d5addfee3e052a25f247bb96429b9cfcbc15ce94cbf28fef6cef"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-attraction-v1-20261109/test/round_20/cpu_audit/completed/report.json",
+      "sha256": "a2c750f4aa4be8f7f21c238528712610819014edec3be6a39cd644de4e7acfd8"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-attraction-v1-20261109/test/round_20/completed/summary.json",
+      "sha256": "79c20ac37f61ccee1fa10aeeca152756153565abc1bc6e045827b2a75748de4d"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-attraction-v1-20261109/test/round_30/cpu_audit/completed/report.json",
+      "sha256": "440901f08a50536f9f036b3a6f8327dcea75674f0d77105b58971935dd5dc6a6"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-attraction-v1-20261109/test/round_30/completed/summary.json",
+      "sha256": "9e6aada2432c4530369827af121aaf958559ea1e453711407da24ad90767db95"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-attraction-v1-20261109/test/round_40/cpu_audit/completed/report.json",
+      "sha256": "2931bec90d7e09f2d6a6a2acbdd7cbdc0b1075da52640bf835cf9aaaf28f55f4"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-attraction-v1-20261109/test/round_40/completed/summary.json",
+      "sha256": "9c7c0c444778d952d3cd857ee2a6ba8faeacb613f33f59cf31af32dcccaf0ee2"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-attraction-v1-20261109/test/round_50/cpu_audit/completed/report.json",
+      "sha256": "d1e603d611b462fff91c6a20a3996a49c89f07f49c21fc077ef237d3ab7cbfce"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-attraction-v1-20261109/test/round_50/completed/summary.json",
+      "sha256": "b803078e67dbd217f3f44eec25d1936af42dbe0f13c7e438014c97217feb482a"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-attraction-v1-20261109/test/round_60/cpu_audit/completed/report.json",
+      "sha256": "8a6b0ad42aa6a83fad26f785c3ddb6a32c372bc9b50297c0e4337e4e324fad07"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-attraction-v1-20261109/test/round_60/completed/summary.json",
+      "sha256": "644249f6ba35f8961076db35d7457f654a6e7d592438209275293dc9b2373a2b"
+    }
+  ],
+  "training_audit": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-gh-attraction-v1-20261109/train_cpu_audit/round_60/completed/report.json",
+    "sha256": "6bdcd515c5c72c0d3a46651d9c9fc8e9d708a78e39bc1cf55a400e76aae7d0cb"
+  }
+}
