@@ -1,0 +1,62 @@
+{
+  "status": "ALL_FINAL_CPU_CHECKS_PASS",
+  "tests": {
+    "passed": 29,
+    "failed": 0
+  },
+  "configuration_sha256": "7d80b03cd638a1718eae3ac5121e6156c56567160ec339abd4cfd9052b26cc1d",
+  "logs": [
+    {
+      "path": "/home/lzf/ldx/tmp/gh_pushpull_aug_v1_development_20261111/tests_final.log",
+      "sha256": "4dae029e14ef51c245be5a01182f5cfe0b5d4da580614c46a9a0e48ca08090e0"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_pushpull_aug_v1_development_20261111/smoke_preflight_final.log",
+      "sha256": "7b939a057e4d440f2e6cebcb491404ba39087d22e0583cc5ba8f0232d092d750"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_pushpull_aug_v1_development_20261111/train_preflight_final.log",
+      "sha256": "8514b3aa139f810e90cb1ae3bf0bd45022a623b9486cffda309379cc015fa1b8"
+    }
+  ],
+  "time": 1794373855.1397278,
+  "GPU_experiment_started": false,
+  "created_utc": "2026-11-11T05:12:47.643442+00:00",
+  "base_commit": "62e575913894fff6a10556b37c9226a8f045c3a8",
+  "scope": "fresh G/H 60 rounds; paired six IRRA Full Joint after Smoke audits",
+  "augmentation": {
+    "global_chain": 3,
+    "local_cols": 2,
+    "local_rows": 4,
+    "rotation_degrees": 5.0,
+    "seed": 42,
+    "translation_fraction": 0.04,
+    "views": 3
+  },
+  "optimizer_update_budget_unchanged": true,
+  "training_neural_image_views_multiplier": 3,
+  "legacy_tracked_files_checked": 370,
+  "legacy_tracked_content_digest": "a47409438c84053683be0427f1872d3f7b7f85efacd8e2050fca990bfa3e1f93",
+  "legacy_diff_empty": true,
+  "upstream_evidence": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-pushpull-augmentation-v1-20261111/configs/framework/gh_pushpull_aug_v1.upstreams.json",
+    "sha256": "cb307b926a7abbfa62f6b5e5ed74029b9fb6f7d1e6fda35d27ca161debda97da"
+  },
+  "report_runtime": {
+    "matplotlib_init": {
+      "path": "/home/lzf/ldx/envs/apattack/lib/python3.9/site-packages/matplotlib/__init__.py",
+      "sha256": "0210e48bc9c505e50625717f3a7a5399ee2f846882e83b8e1a7a11af6f9fca4f"
+    },
+    "matplotlib_version": "3.7.5",
+    "plotter": {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-pushpull-augmentation-v1-20261111/operations/gh_pushpull_aug_v1_plot.py",
+      "sha256": "a2f8e2f38f50676b84c61050c7e76794b3ea113758bde9ae60d562e5d22d0e73"
+    },
+    "purpose": "report-only; no training/model/metrics computation",
+    "python": {
+      "path": "/home/lzf/ldx/envs/apattack/bin/python",
+      "sha256": "b88afaf77de811bc44a47bc70979d9f501abb62f8d7884f4795639fce4d483bd"
+    }
+  },
+  "no_training_environment_package_installation": true
+}

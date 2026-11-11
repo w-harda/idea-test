@@ -1,0 +1,74 @@
+{
+  "paper": {
+    "path": "E:/A研究生/12第十二次论文汇报/AoA_Alternating_Optimization_Attack_for_Multimodal_Vision-Language_Models.pdf",
+    "sha256": "57a49cf9d57c9d32dda21e826cdd0bacb9959c76b9e8b9d43e6d3353459f4940",
+    "DOI": "10.1109/TDSC.2026.3736415",
+    "implementation_section": "III-D, page 5"
+  },
+  "upstreams": {
+    "AoA": {
+      "repository": "https://github.com/dislab-gzhu/AoA",
+      "commit": "a98dd4b496c5a7a719d8f395d04a3678342449e5",
+      "files": [
+        {
+          "upstream_file": "README.md",
+          "path": "/home/lzf/ldx/tmp/gh_pushpull_aug_v1_development_20261111/references/AoA_README.md",
+          "sha256": "6e305f800860cf665012fe57cc5fe1cafebb1d29cba18e0584a1daee09db641d",
+          "url": "https://github.com/dislab-gzhu/AoA/blob/a98dd4b496c5a7a719d8f395d04a3678342449e5/README.md"
+        },
+        {
+          "upstream_file": "LICENSE",
+          "path": "/home/lzf/ldx/tmp/gh_pushpull_aug_v1_development_20261111/references/AoA_LICENSE",
+          "sha256": "3afe9ac3ee6df34e5adc03eb55af0ec6d9210d6fdffe1bc697057d7743d50a13",
+          "url": "https://github.com/dislab-gzhu/AoA/blob/a98dd4b496c5a7a719d8f395d04a3678342449e5/LICENSE"
+        }
+      ],
+      "official_MSA_implementation_available": false
+    },
+    "SGA": {
+      "repository": "https://github.com/Zoky-2020/SGA",
+      "commit": "f49e6926cd13148e49bdbc2c3e537660e096230c",
+      "files": [
+        {
+          "upstream_file": "attacker.py",
+          "path": "/home/lzf/ldx/tmp/gh_pushpull_aug_v1_development_20261111/references/SGA_attacker.py",
+          "sha256": "79384bb914824c59c2a7c65c9b3b565cebac9c3b469a7a15d8f21b5ebf110a30",
+          "url": "https://github.com/Zoky-2020/SGA/blob/f49e6926cd13148e49bdbc2c3e537660e096230c/attacker.py"
+        },
+        {
+          "upstream_file": "LICENSE",
+          "path": "/home/lzf/ldx/tmp/gh_pushpull_aug_v1_development_20261111/references/SGA_LICENSE",
+          "sha256": "3e68afa626f673287ebc53b16786fb95a9b419d77b9752efd76e8af9597fde43",
+          "url": "https://github.com/Zoky-2020/SGA/blob/f49e6926cd13148e49bdbc2c3e537660e096230c/LICENSE"
+        }
+      ]
+    },
+    "GLEAM": {
+      "repository": "https://github.com/LuckAlex/GLEAM",
+      "commit": "2ec57f387c0ae53d74e69d2cbaecc820589e933a",
+      "files": [
+        {
+          "upstream_file": "NURBSAttacker.py",
+          "path": "/home/lzf/ldx/tmp/gh_pushpull_aug_v1_development_20261111/references/GLEAM_NURBSAttacker.py",
+          "sha256": "da6b2effd73bfd30c1237d25ce4573049c53e83f82d7124ae8d0dd015a2bf9cd",
+          "url": "https://github.com/LuckAlex/GLEAM/blob/2ec57f387c0ae53d74e69d2cbaecc820589e933a/NURBSAttacker.py"
+        },
+        {
+          "upstream_file": "LICENSE",
+          "path": "/home/lzf/ldx/tmp/gh_pushpull_aug_v1_development_20261111/references/GLEAM_LICENSE",
+          "sha256": "e9f4b5b1c1a4eb4253c2f9f9736c3e1e7465dafda65a42726300d52d9c81d71c",
+          "url": "https://github.com/LuckAlex/GLEAM/blob/2ec57f387c0ae53d74e69d2cbaecc820589e933a/LICENSE"
+        }
+      ]
+    }
+  },
+  "adaptations": [
+    "AoA partition-transform-shuffle restricted within horizontal body strips; no upper/lower strip exchange",
+    "AoA three-operation global composition; vertical flip excluded for upright TBPS",
+    "SGA scale diversity; GLEAM resize-pad preserves original 3:1 aspect ratio; no extra Gaussian noise",
+    "three training inputs original/local/global, one averaged Global per original optimizer step",
+    "G Local/Retain original view only; H mean of current three-view partner rewards",
+    "original push-pull retained, no AoA DRAL/MLM or GLEAM Wasserstein objective",
+    "original Test inputs, no Test augmentation or target feedback"
+  ]
+}

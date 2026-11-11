@@ -1,5 +1,11 @@
 # 项目当前状态（唯一权威入口）
 
+<!-- GH_AUG_CURRENT_BEGIN -->
+## 当前阶段：Push-pull三视图增强执行准备（2026-11-11）
+
+用户授权参考AoA、SGA、GLEAM增强训练输入并联合训练G/H。独立augmented_attraction包，原始/局部/全局三视图，G Global与H当前G奖励跨视图取均值；属性Local/Retain与原预算保持。29项CPU测试及Smoke/Train来源预检全部PASS；真实Smoke、从零60轮和六组IRRA Joint Full尚未启动，实际启动身份以后续回执为准。[方法、审计与检查指令](framework/GH_PUSHPULL_AUG_V1.md)。
+<!-- GH_AUG_CURRENT_END -->
+
 <!-- GH_ATTRACTION_CURRENT_BEGIN -->
 ## 当前阶段：GH-Adversarial-Attraction-v1从零60轮及六Joint Test完成
 

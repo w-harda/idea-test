@@ -479,3 +479,7 @@ A1不消费新文本条件，B消费，二者均刷新G→H反馈。Loss/Reward/
 双Adam与G/H阶段RNG分别存储，原子round、不可变Claim与完整边界恢复；未完成事务拒绝自动重播。
 当前仅CPU Fixture执行，真实后端组装与GPU数值验收PENDING；CLI只有只读预检，无训练动作。
 协议/接口/缓存失效及预算见framework/results/gh_bidirectional_prototype/和ADR-0015。
+
+## Push-pull三视图图像增强
+
+新增tbps.augmented_attraction，复用冻结push-pull目标和原G/H模型，CPU可回放局部/全局recipe生成三个G训练输入。多视图Global平均，属性Local/Retain仅原始视图；当前G完整三视图库引导原H三头SCST一次更新。独立分片Journal、逐视图FP64审计、最新Bank像素回放、配对Checkpoint原生IRRA六Full与报告执行链，不改历史包。见[协议](framework/GH_PUSHPULL_AUG_V1.md)。
