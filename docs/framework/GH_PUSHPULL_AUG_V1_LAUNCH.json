@@ -1,0 +1,33 @@
+{
+  "status": "DETACHED_SUPERVISOR_AND_INITIAL_SMOKE_CHILD_LAUNCHED",
+  "verified_time": 1794374086.1421032,
+  "verified_time_beijing": "2026-11-11T13:14:46.142109+08:00",
+  "source_commit": "7ebf8684227f54fa2fc4e462e058e7144c6cd361",
+  "configuration_sha256": "7d80b03cd638a1718eae3ac5121e6156c56567160ec339abd4cfd9052b26cc1d",
+  "supervisor": {
+    "pid": 1388274,
+    "state": "S",
+    "ppid": 1,
+    "pgid": 1388274,
+    "sid": 1388274,
+    "tty_nr": 0
+  },
+  "initial_child": {
+    "pid": 1388276,
+    "label": "01_smoke",
+    "time": 1794374026.2005224
+  },
+  "started": {
+    "pid": 1388274,
+    "ppid": 1388204,
+    "pgid": 1388274,
+    "sid": 1388274,
+    "tty": null,
+    "time": 1794374026.1962528,
+    "configuration_sha256": "7d80b03cd638a1718eae3ac5121e6156c56567160ec339abd4cfd9052b26cc1d",
+    "commit": "7ebf8684227f54fa2fc4e462e058e7144c6cd361"
+  },
+  "scope": "fresh G/H 60 rounds, six paired CUHK-PEDES IRRA Full Joint Tests",
+  "scientific_stage_results": "NOT_OBSERVED",
+  "progress_monitoring": "user-managed; assistant only verified launch"
+}

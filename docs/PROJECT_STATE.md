@@ -1,9 +1,9 @@
 # 项目当前状态（唯一权威入口）
 
 <!-- GH_AUG_CURRENT_BEGIN -->
-## 当前阶段：Push-pull三视图增强执行准备（2026-11-11）
+## 当前阶段：Push-pull三视图增强Full后台已启动（2026-11-11）
 
-用户授权参考AoA、SGA、GLEAM增强训练输入并联合训练G/H。独立augmented_attraction包，原始/局部/全局三视图，G Global与H当前G奖励跨视图取均值；属性Local/Retain与原预算保持。29项CPU测试及Smoke/Train来源预检全部PASS；真实Smoke、从零60轮和六组IRRA Joint Full尚未启动，实际启动身份以后续回执为准。[方法、审计与检查指令](framework/GH_PUSHPULL_AUG_V1.md)。
+执行Commit 7ebf8684227f54fa2fc4e462e058e7144c6cd361；独立Supervisor PID/PGID/SID1388274、PPID1、无TTY，首Smoke子进程已核验。原始/局部/全局三视图，G Global与H当前G奖励均值，属性Local/Retain仅原始视图；原G/H更新数、8/255及Unicode预算保持。29项CPU测试与Smoke/Train来源预检PASS。真实Smoke审计通过后自动从零60轮、每10轮IRRA完整Joint Test/独立审计及自动发布；尚未观察科学阶段结果。旧实验保持，真实错误停止不重试，助手启动后不持续监督。[启动回执及检查指令](framework/GH_PUSHPULL_AUG_V1_LAUNCH.md)。
 <!-- GH_AUG_CURRENT_END -->
 
 <!-- GH_ATTRACTION_CURRENT_BEGIN -->

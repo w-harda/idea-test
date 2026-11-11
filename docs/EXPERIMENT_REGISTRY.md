@@ -692,6 +692,6 @@ H20新增候选最低40.427635%，历史H9为40.425480%；H60为42.874081%，不
 
 原训练执行f2aeb14；后处理第二版执行176571d。60轮训练不重跑，使用原G10/H10至G60/H60六对权重。独立流式CPU审计157.25秒/峰值RSS558.879MiB PASS；原64MiB失败及首版恢复双摘要混比FAIL均保留。原158生产源码/496运行来源/配置SHA保持，43907历史文件及首版7个控制文件保护。恢复仅Joint-only CUHK-PEDES×IRRA，六组各3074 Gallery/6156 Query及独立CPU审计，不新增其他实验。最终指标及完整执行状态以[独立恢复报告](framework/results/gh_alternating_v2_recovery/REPORT.md)为准，运行/来源兼容详见[恢复说明](framework/GH_V2_POSTTRAINING_RECOVERY.md)。
 
-## GH-PushPull-Augmentation-v1（2026-11-11，执行准备）
+## GH-PushPull-Augmentation-v1（2026-11-11，Full后台已启动）
 
-基准62e575913894fff6a10556b37c9226a8f045c3a8；codex/gh-pushpull-augmentation-v1。训练仅2048原Train，每Round6144图像视图，G/H从零60轮、每10轮IRRA完整Joint。Adam/文本预算及KL方向保持，记录真实额外前向计算。当前29项CPU测试PASS，不代表泛化收益或GPU训练完成。启动身份以后续回执为准。见[方法及检查指令](framework/GH_PUSHPULL_AUG_V1.md)。
+基准62e575913894fff6a10556b37c9226a8f045c3a8；codex/gh-pushpull-augmentation-v1。训练仅2048原Train，每Round6144图像视图，G/H从零60轮、每10轮IRRA完整Joint。Adam/文本预算及KL方向保持，记录真实额外前向计算。当前29项CPU测试PASS，不代表泛化收益或GPU训练完成。执行Commit 7ebf8684227f54fa2fc4e462e058e7144c6cd361，独立Supervisor PID1388274及首Smoke子进程已启动；仅启动核验，科学阶段结果尚未观察。[启动回执](framework/GH_PUSHPULL_AUG_V1_LAUNCH.md)。见[方法及检查指令](framework/GH_PUSHPULL_AUG_V1.md)。
