@@ -1,0 +1,35 @@
+{
+  "status": "CPU_SELECTED_REGRESSION_PASS",
+  "tests_passed": 75,
+  "tests_deselected": 1,
+  "deselected_reason": "既有test_final_APTM_config_dry_no_model_or_cuda固定旧工作树producer集合，不能作为新树配置验收；本次两个真实目标CPU预检及当前config()已单独通过。",
+  "real_target_model_loads": 0,
+  "CUDA": false,
+  "training_updates": 0,
+  "historical_checkpoint_CPU_state_identity": "both Round60 PASS",
+  "configuration_sha256": "00a7ace233616eca64943000669d5634d8acaa210fba98533f25d8a84bb26fe7",
+  "logs": [
+    {
+      "path": "/home/lzf/ldx/tmp/gh_cross_model_v1_development_20261112/tests_final.log",
+      "sha256": "82d59c2c9c58a9f9441a1e4591809e5a70e8ec4202e855adbbb418c49235e3b5"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_cross_model_v1_development_20261112/historical_probe.log",
+      "sha256": "98f98ce3a345fb43b76b1ad9bad9c3f73ad7132be859950865b736d782d38e98"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_cross_model_v1_development_20261112/rasa_preflight_v2.log",
+      "sha256": "8ca5acde93fe36ad9a976654dd4b893d2487b8bdf152a91c64bff329ac1b5a91"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_cross_model_v1_development_20261112/aptm_preflight_v2.log",
+      "sha256": "7c4a1dd67fb42f664a84b7b0fd4c8dd3dcf06d450c743aa623f8a854bb915634"
+    }
+  ],
+  "late_control_boundary_check": "absent PID exits queue; four Full pairs/eight GPU stages; PASS",
+  "development_failures_preserved": [
+    "tests.log",
+    "rasa_preflight.log",
+    "aptm_preflight.log"
+  ]
+}

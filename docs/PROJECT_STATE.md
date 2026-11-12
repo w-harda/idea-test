@@ -1,5 +1,12 @@
 # 项目当前状态（唯一权威入口）
 
+<!-- GH_TRANSFER_CURRENT_BEGIN -->
+## 当前阶段：Cooperative与原Push-pull的IRRA→RaSa/APTM迁移评测接线
+
+固定各版Round60，复用已有完整3074攻击RGB／6156攻击文本，不训练、不重新生成攻击。四组原生Joint Full附Clean，CPU逐图预算/Unicode/来源核验→四组Smoke及独立审计→四组Full及独立审计→报告发布。GPU阶段排在当前增强版Supervisor退出后；启动和最终状态以新控制回执为准。[执行协议及检查命令](framework/GH_CROSS_MODEL_V1.md)。
+<!-- GH_TRANSFER_CURRENT_END -->
+
+
 <!-- GH_ATTRACTION_CURRENT_BEGIN -->
 ## 当前阶段：GH-Adversarial-Attraction-v1从零60轮及六Joint Test完成
 

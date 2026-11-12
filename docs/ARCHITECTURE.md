@@ -479,3 +479,7 @@ A1不消费新文本条件，B消费，二者均刷新G→H反馈。Loss/Reward/
 双Adam与G/H阶段RNG分别存储，原子round、不可变Claim与完整边界恢复；未完成事务拒绝自动重播。
 当前仅CPU Fixture执行，真实后端组装与GPU数值验收PENDING；CLI只有只读预检，无训练动作。
 协议/接口/缓存失效及预算见framework/results/gh_bidirectional_prototype/和ADR-0015。
+
+## GH跨模型冻结输入评测
+
+`src/tbps/gh_transfer`提供封存攻击输入的来源/逐图预算与Unicode审计、原生RaSa/APTM编码、Clean/Joint评分与独立CPU复核。复用NativeFeatureCache、ChunkCachedScorer/APTMSetScorer与EvaluationEngine；无G/H训练、生成或目标反馈接口。每种方法保留独立Round60输入索引，目标模型绑定各自ModelSpace。[协议](framework/GH_CROSS_MODEL_V1.md)。

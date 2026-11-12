@@ -691,3 +691,7 @@ H20新增候选最低40.427635%，历史H9为40.425480%；H60为42.874081%，不
 ## GH-Alternating-v2训练后审计恢复（2026-11-08）
 
 原训练执行f2aeb14；后处理第二版执行176571d。60轮训练不重跑，使用原G10/H10至G60/H60六对权重。独立流式CPU审计157.25秒/峰值RSS558.879MiB PASS；原64MiB失败及首版恢复双摘要混比FAIL均保留。原158生产源码/496运行来源/配置SHA保持，43907历史文件及首版7个控制文件保护。恢复仅Joint-only CUHK-PEDES×IRRA，六组各3074 Gallery/6156 Query及独立CPU审计，不新增其他实验。最终指标及完整执行状态以[独立恢复报告](framework/results/gh_alternating_v2_recovery/REPORT.md)为准，运行/来源兼容详见[恢复说明](framework/GH_V2_POSTTRAINING_RECOVERY.md)。
+
+## Cooperative与Push-pull Round60跨模型迁移（2026-11-12）
+
+`codex/gh-cross-model-v1`：IRRA训练，两版Round60各向RaSa/APTM迁移；只读复用各自3074/6156原正式Test攻击产物。新输出`/home/lzf/ldx/outputs/tbps-framework-gh-cross-model-v1-20261112`，控制`/home/lzf/ldx/tmp/gh_cross_model_v1_20261112`。两版原审计与FAIL保持；四组Full完成及效果以新独立CPU回执为准。详见[协议](framework/GH_CROSS_MODEL_V1.md)。
