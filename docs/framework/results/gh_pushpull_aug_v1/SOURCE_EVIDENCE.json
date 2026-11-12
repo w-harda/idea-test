@@ -1,0 +1,159 @@
+{
+  "schema": "gh-pushpull-augmentation-six-joint-tests-1",
+  "configuration_sha256": "7d80b03cd638a1718eae3ac5121e6156c56567160ec339abd4cfd9052b26cc1d",
+  "initialization": {
+    "Scheduler": null,
+    "empty_G_Adam": true,
+    "empty_H_Adam": true,
+    "historical_dynamic_bank_loaded": false,
+    "initial_G": "be3fc4d83a60b85c598c300274899f628a64f2508ca16031c06c9a58f55f8ffa",
+    "initial_H": "02dfb3a9a45c6da4b7e739cc4f80bee31230926498938a15337448510ea47d6a",
+    "status": "FRESH_G_H_SEED42_PASS",
+    "trained_checkpoint_loads": 0,
+    "word_budget1_installed": false
+  },
+  "modes": [
+    "Joint"
+  ],
+  "dataset": "CUHK-PEDES",
+  "victim": "IRRA Source/same-model",
+  "gallery": 3074,
+  "query": 6156,
+  "attraction": {
+    "pull_weight": 1.0,
+    "push_weight": 1.0,
+    "temperature": 0.07
+  },
+  "augmentation": {
+    "global_chain": 3,
+    "local_cols": 2,
+    "local_rows": 4,
+    "rotation_degrees": 5.0,
+    "seed": 42,
+    "translation_fraction": 0.04,
+    "views": 3
+  },
+  "points_predeclared": [
+    10,
+    20,
+    30,
+    40,
+    50,
+    60
+  ],
+  "metrics": [
+    {
+      "Round": 10,
+      "G": "G10",
+      "H": "H10",
+      "R@1": 14.684860229492188,
+      "R@10": 33.73944091796875,
+      "R@5": 26.884342193603516,
+      "mAP": 11.679365158081055
+    },
+    {
+      "Round": 20,
+      "G": "G20",
+      "H": "H20",
+      "R@1": 11.92332649230957,
+      "R@10": 27.875244140625,
+      "R@5": 21.604938507080078,
+      "mAP": 9.218343734741211
+    },
+    {
+      "Round": 30,
+      "G": "G30",
+      "H": "H30",
+      "R@1": 10.623781204223633,
+      "R@10": 24.967510223388672,
+      "R@5": 19.78557586669922,
+      "mAP": 8.04076099395752
+    },
+    {
+      "Round": 40,
+      "G": "G40",
+      "H": "H40",
+      "R@1": 10.428849220275879,
+      "R@10": 24.75633430480957,
+      "R@5": 19.23326873779297,
+      "mAP": 7.881721019744873
+    },
+    {
+      "Round": 50,
+      "G": "G50",
+      "H": "H50",
+      "R@1": 9.990253448486328,
+      "R@10": 23.261857986450195,
+      "R@5": 18.697206497192383,
+      "mAP": 7.423892021179199
+    },
+    {
+      "Round": 60,
+      "G": "G60",
+      "H": "H60",
+      "R@1": 9.454191207885742,
+      "R@10": 22.969459533691406,
+      "R@5": 17.706302642822266,
+      "mAP": 7.15700101852417
+    }
+  ],
+  "monotonic_nonincreasing": {
+    "R@1": true,
+    "mAP": true
+  },
+  "Test_feedback": false,
+  "sources": [
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-pushpull-aug-v1-20261111/test/round_10/cpu_audit/completed/report.json",
+      "sha256": "c83d617908505455c2ca493e5d1c0eb14edbacdec6de7bce0fc834d742135245"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-pushpull-aug-v1-20261111/test/round_10/completed/summary.json",
+      "sha256": "703c74ec5ad9bef40c18b0a939a3b91ff4b0e1897b59bf880ffd3e3b306eaf13"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-pushpull-aug-v1-20261111/test/round_20/cpu_audit/completed/report.json",
+      "sha256": "7142eac76307d303d59133c6bdc871f5baa89cbdc46a1c0a047c2c57d7cfa94a"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-pushpull-aug-v1-20261111/test/round_20/completed/summary.json",
+      "sha256": "1e7f523fb1d6bc54e1af4effd364e95017a73c8c43d8ef380c7f1a7cc756b2a2"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-pushpull-aug-v1-20261111/test/round_30/cpu_audit/completed/report.json",
+      "sha256": "affcacad5f33430f8623ac0d4f8cfd89cd73081ac40a70c6f272f3fa019485d1"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-pushpull-aug-v1-20261111/test/round_30/completed/summary.json",
+      "sha256": "d3e1fdffb6c39f17fea5ab7bae5c085c8a90f52f08f32d052548c30b7a52a543"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-pushpull-aug-v1-20261111/test/round_40/cpu_audit/completed/report.json",
+      "sha256": "195a4950b36caf2b1cad8c9600f13e3b890747306776495f542b69e8306c8241"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-pushpull-aug-v1-20261111/test/round_40/completed/summary.json",
+      "sha256": "6ab116d93b6d07591684155d6e5ba6d9c460c1c299111c5ad0bec4ce373fc125"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-pushpull-aug-v1-20261111/test/round_50/cpu_audit/completed/report.json",
+      "sha256": "cb87d8434e553f029718ab9b5e5302dae7efe2051aea2bb192de72b65bd5e4f0"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-pushpull-aug-v1-20261111/test/round_50/completed/summary.json",
+      "sha256": "9965b3bafd89314649206f505d82de9a4a666ad24e4a67cc3e3605fb23cbcd10"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-pushpull-aug-v1-20261111/test/round_60/cpu_audit/completed/report.json",
+      "sha256": "f8882b62497e2910c2d10adc28987e81dfa9bcb2c06452a1a9fae128dd05450f"
+    },
+    {
+      "path": "/home/lzf/ldx/outputs/tbps-framework-gh-pushpull-aug-v1-20261111/test/round_60/completed/summary.json",
+      "sha256": "c938260c13a4464dcce2ceada919ee340332515af9a05f132f7f4bec8ffee77c"
+    }
+  ],
+  "training_audit": {
+    "path": "/home/lzf/ldx/outputs/tbps-framework-gh-pushpull-aug-v1-20261111/train_cpu_audit/round_60/completed/report.json",
+    "sha256": "044f400fe7b1ec9f973a44ee1c51fa10ce1d04999776fdfae6b15370e140f963"
+  }
+}
