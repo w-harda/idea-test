@@ -1,0 +1,22 @@
+{
+  "execution_commit": "0795609f47ea15107bf9085d803141d7f736b179",
+  "configuration_sha256": "00a7ace233616eca64943000669d5634d8acaa210fba98533f25d8a84bb26fe7",
+  "launched_at": "2026-11-12T20:05:24.680176+08:00",
+  "verified_at": "2026-11-12T20:05:59.240319+08:00",
+  "supervisor": {
+    "pid": 2148305,
+    "ppid": 1,
+    "pgid": 2148305,
+    "sid": 2148305,
+    "tty": null
+  },
+  "initial_child": {
+    "pid": 2148326,
+    "label": "inputs_cooperative",
+    "alive_at_startup": true
+  },
+  "phase_at_startup": "inputs_cooperative",
+  "FAIL_at_startup": false,
+  "full_results": "PENDING",
+  "continuous_assistant_monitoring": false
+}

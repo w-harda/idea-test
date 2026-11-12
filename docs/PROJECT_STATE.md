@@ -1,9 +1,11 @@
 # 项目当前状态（唯一权威入口）
 
 <!-- GH_TRANSFER_CURRENT_BEGIN -->
-## 当前阶段：Cooperative与原Push-pull的IRRA→RaSa/APTM迁移评测接线
+## 当前阶段：Cooperative与原Push-pull跨模型迁移流水线已启动（2026-11-12）
 
-固定各版Round60，复用已有完整3074攻击RGB／6156攻击文本，不训练、不重新生成攻击。四组原生Joint Full附Clean，CPU逐图预算/Unicode/来源核验→四组Smoke及独立审计→四组Full及独立审计→报告发布。GPU阶段排在当前增强版Supervisor退出后；启动和最终状态以新控制回执为准。[执行协议及检查命令](framework/GH_CROSS_MODEL_V1.md)。
+执行Commit0795609f47ea15107bf9085d803141d7f736b179；75项CPU回归、两目标真实CPU导入/Tokenizer及两版Round60来源/Checkpoint核验通过。20:05启动Supervisor PID/PGID/SID2148305、PPID1、无TTY，首个完整CPU输入审计子进程2148326正常运行；启动时无FAIL。助手不持续监控。
+
+固定各版Round60，复用已有3074攻击RGB／6156攻击文本，不训练或重新生成攻击。两版完整CPU输入核验→等待增强版Supervisor退出→四组Smoke与审计→四组RaSa/APTM Full与独立CPU审计→报告发布。效果与完成以后台回执为准。[执行协议](framework/GH_CROSS_MODEL_V1.md)、[启动及检查命令](framework/GH_CROSS_MODEL_V1_LAUNCH.md)。
 <!-- GH_TRANSFER_CURRENT_END -->
 
 
