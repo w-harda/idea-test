@@ -1,9 +1,11 @@
 # 项目当前状态（唯一权威入口）
 
 <!-- GH_TRANSFER_CURRENT_BEGIN -->
-## 当前阶段：跨模型v2修复冷启动并加入图像增强版，准备六组正式迁移
+## 当前阶段：跨模型v2已启动，三版Round60迁移RaSa/APTM共六组（2026-11-13）
 
-v1在首组Smoke前因torchvision首次导入新增sys.path而触发CPUStartupGate，旧FAIL/started/日志完整保留；没有目标模型加载或GPU评分。v2在受控冷导入后使用原严格Gate，三版Round60迁移RaSa/APTM，共六组3074/6156 Clean/Joint，不训练或重新生成攻击。原两版完整输入审计只读复用，增强版新增完整核验。90项CPU回归、三版完整输入审计与12条真实全新进程Smoke/Full冷启动路径通过；增强版输入核验87.10秒，严格8/255及Unicode规则PASS。后续后台状态和正式结果以新回执为准。[协议与检查命令](framework/GH_CROSS_MODEL_V2.md)。
+修复Commit f0d1afb7848a5f412f163b539a51f3d2f838d53c。90项CPU回归、三版完整输入审计、12条真实全新进程Smoke/Full冷启动路径通过；原Gate/原生Adapter不改。v1失败现场及13份控制文件SHA保持。
+
+13:01后台启动Supervisor PID/PGID/SID3753008、PPID1、无TTY；13:02核验首个子进程3753035存活，阶段verify_inputs_cooperative，启动时无FAIL。助手不继续监控。后续自动六组Smoke审计全部通过后执行六组3074/6156 Clean/Joint Full及独立CPU审计，全部PASS才发布。固定三版各自G60/H60和原攻击图文，不训练或重新生成攻击。当前正式迁移结果仍PENDING，以新回执为准。[协议](framework/GH_CROSS_MODEL_V2.md)、[启动与检查命令](framework/GH_CROSS_MODEL_V2_LAUNCH.md)。
 <!-- GH_TRANSFER_CURRENT_END -->
 
 

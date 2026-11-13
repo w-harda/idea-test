@@ -1,0 +1,24 @@
+{
+  "execution_commit": "f0d1afb7848a5f412f163b539a51f3d2f838d53c",
+  "configuration_sha256": "9a875cf8a28c2d3d1a3b3598fa87a81466575c02e5037765cd72465e1294b203",
+  "launched_at": "2026-11-13T13:01:49.578164+08:00",
+  "verified_at": "2026-11-13T13:02:48.215450+08:00",
+  "supervisor": {
+    "pid": 3753008,
+    "ppid": 1,
+    "pgid": 3753008,
+    "sid": 3753008,
+    "tty": null
+  },
+  "initial_child": {
+    "pid": 3753035,
+    "label": "verify_inputs_cooperative",
+    "alive_at_startup": true
+  },
+  "FAIL_at_startup": false,
+  "input_audits": "all three complete; original two reused, augmentation independently audited",
+  "CPU_regression_passed": 90,
+  "real_fresh_process_startup_checks_passed": 12,
+  "formal_transfer_results": "PENDING",
+  "continuous_assistant_monitoring": false
+}
