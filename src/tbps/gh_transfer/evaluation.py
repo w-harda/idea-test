@@ -14,7 +14,9 @@ def target(c,model):
     return module,source
 
 def preflight(path,model):
-    import torch,torchvision  # 先建立Dynamo导入注册，再进入CPU函数替换护栏。
+    import torch
+    from .startup import bootstrap
+    bootstrap()
     from tbps.alternating.parents import cpu_restore_only
     c=config(path)
     with cpu_restore_only(()):
@@ -63,16 +65,15 @@ def run(path,method,model,scope,*,allow=False):
     from tbps.alternating.parents import no_optimizer_steps
     from tbps.smoke_irra import model_snapshot
     torch.set_num_threads(2);torch.manual_seed(42)
-    gate=CPUStartupGate();c,mod,source=preflight(path,model)
-    coll,inputs_store=collection(c,method);m=manifest(c,scope)
-    gate.checked();gate.exit_checked()
+    from .startup import prepare
+    c,mod,source,coll,inputs_store,m,gate,startup=prepare(path,method,model,scope)
     need(__import__('os').environ.get('CUDA_VISIBLE_DEVICES')=='0','explicit physical GPU0')
     store=ArtifactStore(Path(c['output_base'])/'evaluation'/method/model/scope,new_base=c['output_base'])
     need(not store.root.exists(),'evaluation Attempt consumed; no resume/retry')
     store.publish('claim',{'configuration.json':json_bytes(asdict(ref(path)))},{'method':method,'model':model,'scope':scope},
                   sources=(ref(path),ref(inputs_store.root/'completed/manifest.json'),source.ref,source.checkpoint))
     start=time.monotonic()
-    report={'method':method,'model':model,'scope':scope,'G_H_loads':0,'G_H_forwards':0,'IRRA_loads':0,'backward':0,'optimizer':0,'JVP':0,'no_target_feedback':True}
+    report={'method':method,'model':model,'scope':scope,'G_H_loads':0,'G_H_forwards':0,'IRRA_loads':0,'backward':0,'optimizer':0,'JVP':0,'no_target_feedback':True,'startup':startup}
     def forbidden(*a,**k):raise ArtifactError('cross-model evaluation forbids derivative')
     try:
         gate.initialize_cuda()

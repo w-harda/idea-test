@@ -5,7 +5,7 @@ import hashlib,json
 from tbps.artifacts import ArtifactError,ArtifactStore,FileRef,checked,sha_file,read_json,digest,json_bytes
 
 METRICS=('R@1','R@5','R@10','mAP')
-METHODS=('cooperative','attraction')
+METHODS=('cooperative','attraction','augmentation')
 MODELS=('rasa','aptm')
 def need(ok,message):
     if not ok:raise ArtifactError(message)
@@ -13,15 +13,16 @@ def ref(p):return FileRef(str(Path(p).resolve()),sha_file(p))
 def utf8(t):return hashlib.sha256(t.encode('utf-8')).hexdigest()
 def plain(x):return json.loads(json_bytes(x))
 def config(path):
-    c=read_json(path,'gh-cross-model-1')
-    need(c['methods']==list(METHODS) and c['models']==list(MODELS) and c['round']==60,'fixed two methods/two targets/Round60')
+    c=read_json(path,'gh-cross-model-2')
+    need(c['methods']==list(METHODS) and c['models']==list(MODELS) and c['round']==60,'fixed three methods/two targets/Round60')
     need(c['image_epsilon']==8/255 and c['text_budget']=='original Natural-K; one Unicode character per original native word','original budgets')
     need(c['modes']==['Clean','Joint'] and c['precision']=='fp32/math/no_tf32' and c['query_chunk']==128 and c['cache_chunk']==16,'native frozen evaluation')
     need(c['retry_real_failure'] is False and c['no_training'] is True,'no retry/training')
     root=Path(__file__).resolve().parents[3]
-    files=list((root/'src/tbps').rglob('*.py'))+list((root/'operations').glob('gh_cross_model_v1*.py'))
+    files=list((root/'src/tbps').rglob('*.py'))+list((root/'operations').glob('gh_cross_model_v*.py'))
     need(c['producers']=={str(p):sha_file(p) for p in files},'complete versioned source pins')
     for v in c['targets'].values():checked(FileRef(**v))
+    for v in c['legacy_attempt'].values():checked(FileRef(**v))
     checked(FileRef(**c['annotation']))
     return c
 
@@ -46,7 +47,7 @@ def historical(c,method):
         ArtifactStore(root,new_base=base).verify(key)
     summary=read_json(test/'completed/summary.json');audit=read_json(test/'cpu_audit/completed/report.json')
     train=read_json(base/'train_cpu_audit/round_60/completed/report.json')
-    prefix='GH_COOP' if method=='cooperative' else 'GH_ATTRACTION'
+    prefix={'cooperative':'GH_COOP','attraction':'GH_ATTRACTION','augmentation':'GH_AUG'}[method]
     need(train['status']==prefix+'_TRAIN_CPU_AUDIT_PASS' and train['cursor']=={'round':60,'g_updates':484080,'h_updates':122220,'h_visits':122880},'historical train audit')
     need(train['configuration_sha256']==h['configuration']['sha256'],'historical train identity')
     need(audit['status']==prefix+'_JOINT_TEST_CPU_AUDIT_PASS' and audit['metrics']==summary['metrics']
@@ -67,7 +68,10 @@ def historical(c,method):
     return h,f,test,session
 
 def collection(c,method):
-    s=ArtifactStore(Path(c['output_base'])/'inputs'/method,new_base=c['output_base']);s.verify('completed')
+    binding=c['input_collections'][method]
+    need(Path(binding['root']).name==method,'method-specific input collection')
+    if binding['completed'] is not None:checked(FileRef(**binding['completed']))
+    s=ArtifactStore(binding['root'],new_base=binding['base']);s.verify('completed')
     report=read_json(s.root/'completed/report.json');v=read_json(s.root/'completed/collection.json')
     need(report['status']=='GH_TRANSFER_INPUT_CPU_AUDIT_PASS' and report['method']==method
          and report['round']==60 and (report['gallery'],report['query'])==(3074,6156),'complete original input audit')

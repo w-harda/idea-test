@@ -1,0 +1,438 @@
+{
+  "status": "GH_TRANSFER_V2_CPU_PREPARATION_PASS",
+  "selected_CPU_tests_passed": 90,
+  "deselected": 1,
+  "deselected_reason": "旧APTM配置正例固定旧工作树producer路径；新v2配置、真实模型来源、Tokenizer与12条生产冷启动路径另行严格核验通过。",
+  "configuration": {
+    "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-cross-model-v2-20261113/configs/framework/gh_cross_model_v2.server.json",
+    "sha256": "9a875cf8a28c2d3d1a3b3598fa87a81466575c02e5037765cd72465e1294b203"
+  },
+  "startup_checks": [
+    {
+      "CUDA": false,
+      "bootstrap": {
+        "CUDA": false,
+        "cold_torchvision_import": true,
+        "forbidden_attempts": [],
+        "neural_forwards": 0,
+        "sys_path_added": [
+          "/home/lzf/ldx/envs/tbps-image/lib/python3.10/site-packages/setuptools/_vendor",
+          "/home/lzf/ldx/tmp/gh_cross_model_v2_development_20261113/tmpt6b5qql2"
+        ],
+        "weights_loaded": 0
+      },
+      "cpu_isolation_exited": true,
+      "cpu_sources_verified": true,
+      "gallery": 10,
+      "method": "cooperative",
+      "model": "rasa",
+      "query": 10,
+      "real_model_loads": 0,
+      "scope": "smoke",
+      "status": "GH_TRANSFER_COLD_CPU_STARTUP_PASS"
+    },
+    {
+      "CUDA": false,
+      "bootstrap": {
+        "CUDA": false,
+        "cold_torchvision_import": true,
+        "forbidden_attempts": [],
+        "neural_forwards": 0,
+        "sys_path_added": [
+          "/home/lzf/ldx/envs/tbps-image/lib/python3.10/site-packages/setuptools/_vendor",
+          "/home/lzf/ldx/tmp/gh_cross_model_v2_development_20261113/tmpunpwcq_u"
+        ],
+        "weights_loaded": 0
+      },
+      "cpu_isolation_exited": true,
+      "cpu_sources_verified": true,
+      "gallery": 3074,
+      "method": "cooperative",
+      "model": "rasa",
+      "query": 6156,
+      "real_model_loads": 0,
+      "scope": "full",
+      "status": "GH_TRANSFER_COLD_CPU_STARTUP_PASS"
+    },
+    {
+      "CUDA": false,
+      "bootstrap": {
+        "CUDA": false,
+        "cold_torchvision_import": true,
+        "forbidden_attempts": [],
+        "neural_forwards": 0,
+        "sys_path_added": [
+          "/home/lzf/ldx/envs/tbps-image/lib/python3.10/site-packages/setuptools/_vendor",
+          "/home/lzf/ldx/tmp/gh_cross_model_v2_development_20261113/tmpapc8cbn7"
+        ],
+        "weights_loaded": 0
+      },
+      "cpu_isolation_exited": true,
+      "cpu_sources_verified": true,
+      "gallery": 10,
+      "method": "cooperative",
+      "model": "aptm",
+      "query": 10,
+      "real_model_loads": 0,
+      "scope": "smoke",
+      "status": "GH_TRANSFER_COLD_CPU_STARTUP_PASS"
+    },
+    {
+      "CUDA": false,
+      "bootstrap": {
+        "CUDA": false,
+        "cold_torchvision_import": true,
+        "forbidden_attempts": [],
+        "neural_forwards": 0,
+        "sys_path_added": [
+          "/home/lzf/ldx/envs/tbps-image/lib/python3.10/site-packages/setuptools/_vendor",
+          "/home/lzf/ldx/tmp/gh_cross_model_v2_development_20261113/tmpgm3hx67w"
+        ],
+        "weights_loaded": 0
+      },
+      "cpu_isolation_exited": true,
+      "cpu_sources_verified": true,
+      "gallery": 3074,
+      "method": "cooperative",
+      "model": "aptm",
+      "query": 6156,
+      "real_model_loads": 0,
+      "scope": "full",
+      "status": "GH_TRANSFER_COLD_CPU_STARTUP_PASS"
+    },
+    {
+      "CUDA": false,
+      "bootstrap": {
+        "CUDA": false,
+        "cold_torchvision_import": true,
+        "forbidden_attempts": [],
+        "neural_forwards": 0,
+        "sys_path_added": [
+          "/home/lzf/ldx/envs/tbps-image/lib/python3.10/site-packages/setuptools/_vendor",
+          "/home/lzf/ldx/tmp/gh_cross_model_v2_development_20261113/tmpkmm6npwm"
+        ],
+        "weights_loaded": 0
+      },
+      "cpu_isolation_exited": true,
+      "cpu_sources_verified": true,
+      "gallery": 10,
+      "method": "attraction",
+      "model": "rasa",
+      "query": 10,
+      "real_model_loads": 0,
+      "scope": "smoke",
+      "status": "GH_TRANSFER_COLD_CPU_STARTUP_PASS"
+    },
+    {
+      "CUDA": false,
+      "bootstrap": {
+        "CUDA": false,
+        "cold_torchvision_import": true,
+        "forbidden_attempts": [],
+        "neural_forwards": 0,
+        "sys_path_added": [
+          "/home/lzf/ldx/envs/tbps-image/lib/python3.10/site-packages/setuptools/_vendor",
+          "/home/lzf/ldx/tmp/gh_cross_model_v2_development_20261113/tmp1q5dyqum"
+        ],
+        "weights_loaded": 0
+      },
+      "cpu_isolation_exited": true,
+      "cpu_sources_verified": true,
+      "gallery": 3074,
+      "method": "attraction",
+      "model": "rasa",
+      "query": 6156,
+      "real_model_loads": 0,
+      "scope": "full",
+      "status": "GH_TRANSFER_COLD_CPU_STARTUP_PASS"
+    },
+    {
+      "CUDA": false,
+      "bootstrap": {
+        "CUDA": false,
+        "cold_torchvision_import": true,
+        "forbidden_attempts": [],
+        "neural_forwards": 0,
+        "sys_path_added": [
+          "/home/lzf/ldx/envs/tbps-image/lib/python3.10/site-packages/setuptools/_vendor",
+          "/home/lzf/ldx/tmp/gh_cross_model_v2_development_20261113/tmp2snvjdi1"
+        ],
+        "weights_loaded": 0
+      },
+      "cpu_isolation_exited": true,
+      "cpu_sources_verified": true,
+      "gallery": 10,
+      "method": "attraction",
+      "model": "aptm",
+      "query": 10,
+      "real_model_loads": 0,
+      "scope": "smoke",
+      "status": "GH_TRANSFER_COLD_CPU_STARTUP_PASS"
+    },
+    {
+      "CUDA": false,
+      "bootstrap": {
+        "CUDA": false,
+        "cold_torchvision_import": true,
+        "forbidden_attempts": [],
+        "neural_forwards": 0,
+        "sys_path_added": [
+          "/home/lzf/ldx/envs/tbps-image/lib/python3.10/site-packages/setuptools/_vendor",
+          "/home/lzf/ldx/tmp/gh_cross_model_v2_development_20261113/tmpl8vp8q1v"
+        ],
+        "weights_loaded": 0
+      },
+      "cpu_isolation_exited": true,
+      "cpu_sources_verified": true,
+      "gallery": 3074,
+      "method": "attraction",
+      "model": "aptm",
+      "query": 6156,
+      "real_model_loads": 0,
+      "scope": "full",
+      "status": "GH_TRANSFER_COLD_CPU_STARTUP_PASS"
+    },
+    {
+      "CUDA": false,
+      "bootstrap": {
+        "CUDA": false,
+        "cold_torchvision_import": true,
+        "forbidden_attempts": [],
+        "neural_forwards": 0,
+        "sys_path_added": [
+          "/home/lzf/ldx/envs/tbps-image/lib/python3.10/site-packages/setuptools/_vendor",
+          "/home/lzf/ldx/tmp/gh_cross_model_v2_development_20261113/tmp0wb7zqip"
+        ],
+        "weights_loaded": 0
+      },
+      "cpu_isolation_exited": true,
+      "cpu_sources_verified": true,
+      "gallery": 10,
+      "method": "augmentation",
+      "model": "rasa",
+      "query": 10,
+      "real_model_loads": 0,
+      "scope": "smoke",
+      "status": "GH_TRANSFER_COLD_CPU_STARTUP_PASS"
+    },
+    {
+      "CUDA": false,
+      "bootstrap": {
+        "CUDA": false,
+        "cold_torchvision_import": true,
+        "forbidden_attempts": [],
+        "neural_forwards": 0,
+        "sys_path_added": [
+          "/home/lzf/ldx/envs/tbps-image/lib/python3.10/site-packages/setuptools/_vendor",
+          "/home/lzf/ldx/tmp/gh_cross_model_v2_development_20261113/tmp79fs_1qo"
+        ],
+        "weights_loaded": 0
+      },
+      "cpu_isolation_exited": true,
+      "cpu_sources_verified": true,
+      "gallery": 3074,
+      "method": "augmentation",
+      "model": "rasa",
+      "query": 6156,
+      "real_model_loads": 0,
+      "scope": "full",
+      "status": "GH_TRANSFER_COLD_CPU_STARTUP_PASS"
+    },
+    {
+      "CUDA": false,
+      "bootstrap": {
+        "CUDA": false,
+        "cold_torchvision_import": true,
+        "forbidden_attempts": [],
+        "neural_forwards": 0,
+        "sys_path_added": [
+          "/home/lzf/ldx/envs/tbps-image/lib/python3.10/site-packages/setuptools/_vendor",
+          "/home/lzf/ldx/tmp/gh_cross_model_v2_development_20261113/tmpg09uzoqf"
+        ],
+        "weights_loaded": 0
+      },
+      "cpu_isolation_exited": true,
+      "cpu_sources_verified": true,
+      "gallery": 10,
+      "method": "augmentation",
+      "model": "aptm",
+      "query": 10,
+      "real_model_loads": 0,
+      "scope": "smoke",
+      "status": "GH_TRANSFER_COLD_CPU_STARTUP_PASS"
+    },
+    {
+      "CUDA": false,
+      "bootstrap": {
+        "CUDA": false,
+        "cold_torchvision_import": true,
+        "forbidden_attempts": [],
+        "neural_forwards": 0,
+        "sys_path_added": [
+          "/home/lzf/ldx/envs/tbps-image/lib/python3.10/site-packages/setuptools/_vendor",
+          "/home/lzf/ldx/tmp/gh_cross_model_v2_development_20261113/tmp22od0us3"
+        ],
+        "weights_loaded": 0
+      },
+      "cpu_isolation_exited": true,
+      "cpu_sources_verified": true,
+      "gallery": 3074,
+      "method": "augmentation",
+      "model": "aptm",
+      "query": 6156,
+      "real_model_loads": 0,
+      "scope": "full",
+      "status": "GH_TRANSFER_COLD_CPU_STARTUP_PASS"
+    }
+  ],
+  "input_audits": [
+    {
+      "method": "cooperative",
+      "report": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-gh-cross-model-v1-20261112/inputs/cooperative/completed/report.json",
+        "sha256": "5498a1f4ca335ceafbf3c7c517bd0b6faf73567f4a2cfe0a2374eb883c7859cd"
+      },
+      "summary": {
+        "G_H_forward": 0,
+        "JVP": 0,
+        "collection_sha256": "e41b634bd69b66375a18255b70acc11b0d1be2548aac6f73bd9d3ccb644e5d40",
+        "elapsed_seconds": 73.2414207868278,
+        "gallery": 3074,
+        "max_Linf": 0.0313725471496582,
+        "maximum_edited_words": 5,
+        "method": "cooperative",
+        "native_Unicode_replay": true,
+        "optimizer": 0,
+        "original_pixels_exact": true,
+        "peak_RSS_bytes": 711540736,
+        "query": 6156,
+        "round": 60,
+        "status": "GH_TRANSFER_INPUT_CPU_AUDIT_PASS"
+      }
+    },
+    {
+      "method": "attraction",
+      "report": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-gh-cross-model-v1-20261112/inputs/attraction/completed/report.json",
+        "sha256": "2dad44ac34e7bc61a18c717b37f4601cb879c7ff95a4f1c3d46e874c537e2b7d"
+      },
+      "summary": {
+        "G_H_forward": 0,
+        "JVP": 0,
+        "collection_sha256": "2ce21c82de70b91aed5a4e307ac422ceaf89f713c7dd401ec62e7bdbb9c65815",
+        "elapsed_seconds": 58.8438971824944,
+        "gallery": 3074,
+        "max_Linf": 0.0313725471496582,
+        "maximum_edited_words": 5,
+        "method": "attraction",
+        "native_Unicode_replay": true,
+        "optimizer": 0,
+        "original_pixels_exact": true,
+        "peak_RSS_bytes": 710709248,
+        "query": 6156,
+        "round": 60,
+        "status": "GH_TRANSFER_INPUT_CPU_AUDIT_PASS"
+      }
+    },
+    {
+      "method": "augmentation",
+      "report": {
+        "path": "/home/lzf/ldx/outputs/tbps-framework-gh-cross-model-v2-20261113/inputs/augmentation/completed/report.json",
+        "sha256": "78ae4979c0cbeefc0d3755a0a4ad617ed66d34bfdb08cf73aa50f13729752f65"
+      },
+      "summary": {
+        "G_H_forward": 0,
+        "JVP": 0,
+        "collection_sha256": "2e217682e6907399c9139aef0236d470d4824edc3b649771e155fe6b2821d592",
+        "elapsed_seconds": 87.0993443094194,
+        "gallery": 3074,
+        "max_Linf": 0.0313725471496582,
+        "maximum_edited_words": 5,
+        "method": "augmentation",
+        "native_Unicode_replay": true,
+        "optimizer": 0,
+        "original_pixels_exact": true,
+        "peak_RSS_bytes": 713531392,
+        "query": 6156,
+        "round": 60,
+        "status": "GH_TRANSFER_INPUT_CPU_AUDIT_PASS"
+      }
+    }
+  ],
+  "cold_failure_root_cause": "torchvision首次导入在快照后向sys.path追加setuptools/_vendor与Torch临时目录；其他快照项不变，原v1隔离断言正确触发。",
+  "original_CPUStartupGate_modified": false,
+  "real_target_weights_loaded": 0,
+  "GPU_initialized": false,
+  "new_G_H_training_or_generation": false,
+  "legacy_control_files_protected": 13,
+  "logs": [
+    {
+      "path": "/home/lzf/ldx/tmp/gh_cross_model_v2_development_20261113/tests_final.log",
+      "sha256": "e134b23f4fc5552bd6dedbb588616435daf25ff96b5dde44eda8844e3b0569ba"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_cross_model_v2_development_20261113/augmentation_historical_probe.log",
+      "sha256": "62adbeff42491dc24d275d4964b25022f60a825319f34c591232668b6d5d4bb5"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_cross_model_v2_development_20261113/augmentation_input_audit.log",
+      "sha256": "845667c07b7313c8b9496b9d24dbaa33182f78ebf8162381e16f18121375552a"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_cross_model_v2_development_20261113/v1_diagnostic_rasa.log",
+      "sha256": "034297e449b34ad5072f558fde5dc6f04b0e99eab22f383e7d5bee80f5edd711"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_cross_model_v2_development_20261113/v1_diagnostic_aptm.log",
+      "sha256": "207e9d853bc2feecabf510944380d783e362cf1f9f287d5e9a97d44f214c4225"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_cross_model_v2_development_20261113/cold_cooperative_rasa_smoke.log",
+      "sha256": "7bb4504dcee685868ac9f012d5f6ea556be0e8f925ff9911539f40b42c9f4a1f"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_cross_model_v2_development_20261113/cold_cooperative_rasa_full.log",
+      "sha256": "98c30dc74aebfc9efc5c6da2d0b6dbbe6c5e55545c34cf5da8d4b5ae0a6fd7d5"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_cross_model_v2_development_20261113/cold_cooperative_aptm_smoke.log",
+      "sha256": "a66d91cc431540c5bb9863e87bda34ad2d77f441fa01b67ab50279619b4fc663"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_cross_model_v2_development_20261113/cold_cooperative_aptm_full.log",
+      "sha256": "cc91d73447c76bb13244dcc63ffc17cc3e6e268e03e4fa48100297d0938d062e"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_cross_model_v2_development_20261113/cold_attraction_rasa_smoke.log",
+      "sha256": "43396aed3d7bbcdc8b915b6fcd9addb7c3fe3204b5f75d386790739b1bd2604c"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_cross_model_v2_development_20261113/cold_attraction_rasa_full.log",
+      "sha256": "927b64a1356a91306159b6114cefe94e6ccd3289224d3228efa9d00bdaa3b06d"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_cross_model_v2_development_20261113/cold_attraction_aptm_smoke.log",
+      "sha256": "4031b3d43ef2809ed91c7974ffbc53588d5b3cdf99efb0e786e9139af6db840e"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_cross_model_v2_development_20261113/cold_attraction_aptm_full.log",
+      "sha256": "f3b3186763083c7cb6fdd1f408953c68e1de0acb42b524c255d84eb7027cdf0e"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_cross_model_v2_development_20261113/cold_augmentation_rasa_smoke.log",
+      "sha256": "cf3dd995bfa83ff4690f1c475597ed0fe8e039351a535af637953320c36b79ea"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_cross_model_v2_development_20261113/cold_augmentation_rasa_full.log",
+      "sha256": "d5150e3075344568dc2fb3b63cc81e8a430e75a7a835b812381b8f158ef8fe66"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_cross_model_v2_development_20261113/cold_augmentation_aptm_smoke.log",
+      "sha256": "57af6f45926ff42892c45fe12e20b0137d60217272ca6bb8e859579c2c98cbc1"
+    },
+    {
+      "path": "/home/lzf/ldx/tmp/gh_cross_model_v2_development_20261113/cold_augmentation_aptm_full.log",
+      "sha256": "56065673dd0f65522abe83c1fa4b6134a82e940f22f693c81d282959f38e1711"
+    }
+  ]
+}

@@ -483,3 +483,7 @@ A1不消费新文本条件，B消费，二者均刷新G→H反馈。Loss/Reward/
 ## GH跨模型冻结输入评测
 
 `src/tbps/gh_transfer`提供封存攻击输入的来源/逐图预算与Unicode审计、原生RaSa/APTM编码、Clean/Joint评分与独立CPU复核。复用NativeFeatureCache、ChunkCachedScorer/APTMSetScorer与EvaluationEngine；无G/H训练、生成或目标反馈接口。每种方法保留独立Round60输入索引，目标模型绑定各自ModelSpace。[协议](framework/GH_CROSS_MODEL_V1.md)。
+
+## GH跨模型v2冷启动修复与三版迁移
+
+稳定gh_transfer包新增受控依赖bootstrap与共享startup.prepare，先核对冷导入副作用，再进入原CPUStartupGate，原物化Gate及目标Adapter/原生评分不改。配置将历史Checkpoint身份与输入索引分开：旧两版索引保留原生产者签名，增强版在v2输出下新增全量CPU审计。六组独立缓存/原生Score/审计后发布。[协议](framework/GH_CROSS_MODEL_V2.md)。

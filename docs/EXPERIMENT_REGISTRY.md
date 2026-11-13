@@ -695,3 +695,7 @@ H20新增候选最低40.427635%，历史H9为40.425480%；H60为42.874081%，不
 ## Cooperative与Push-pull Round60跨模型迁移（2026-11-12）
 
 `codex/gh-cross-model-v1`：IRRA训练，两版Round60各向RaSa/APTM迁移；只读复用各自3074/6156原正式Test攻击产物。新输出`/home/lzf/ldx/outputs/tbps-framework-gh-cross-model-v1-20261112`，控制`/home/lzf/ldx/tmp/gh_cross_model_v1_20261112`。两版原审计与FAIL保持；四组Full完成及效果以新独立CPU回执为准。详见[协议](framework/GH_CROSS_MODEL_V1.md)。
+
+## 三版Round60跨模型迁移v2（2026-11-13）
+
+`codex/gh-cross-model-v2`，三版Cooperative/原Push-pull/图像增强Push-pull分别迁移RaSa/APTM，共六组，均固定各自G60/H60和原3074/6156攻击产物。旧v1于首组Smoke的CPU隔离退出校验FAIL，GPU评分0；旧现场13份控制文件SHA固定保护，不重启旧Supervisor。新输出`/home/lzf/ldx/outputs/tbps-framework-gh-cross-model-v2-20261113`，控制`/home/lzf/ldx/tmp/gh_cross_model_v2_20261113`；六组Smoke审计全部PASS后自动Full及独立CPU审计，真实失败不自动重试。见[协议](framework/GH_CROSS_MODEL_V2.md)。

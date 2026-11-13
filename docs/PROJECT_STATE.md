@@ -1,11 +1,9 @@
 # 项目当前状态（唯一权威入口）
 
 <!-- GH_TRANSFER_CURRENT_BEGIN -->
-## 当前阶段：Cooperative与原Push-pull跨模型迁移流水线已启动（2026-11-12）
+## 当前阶段：跨模型v2修复冷启动并加入图像增强版，准备六组正式迁移
 
-执行Commit0795609f47ea15107bf9085d803141d7f736b179；75项CPU回归、两目标真实CPU导入/Tokenizer及两版Round60来源/Checkpoint核验通过。20:05启动Supervisor PID/PGID/SID2148305、PPID1、无TTY，首个完整CPU输入审计子进程2148326正常运行；启动时无FAIL。助手不持续监控。
-
-固定各版Round60，复用已有3074攻击RGB／6156攻击文本，不训练或重新生成攻击。两版完整CPU输入核验→等待增强版Supervisor退出→四组Smoke与审计→四组RaSa/APTM Full与独立CPU审计→报告发布。效果与完成以后台回执为准。[执行协议](framework/GH_CROSS_MODEL_V1.md)、[启动及检查命令](framework/GH_CROSS_MODEL_V1_LAUNCH.md)。
+v1在首组Smoke前因torchvision首次导入新增sys.path而触发CPUStartupGate，旧FAIL/started/日志完整保留；没有目标模型加载或GPU评分。v2在受控冷导入后使用原严格Gate，三版Round60迁移RaSa/APTM，共六组3074/6156 Clean/Joint，不训练或重新生成攻击。原两版完整输入审计只读复用，增强版新增完整核验。90项CPU回归、三版完整输入审计与12条真实全新进程Smoke/Full冷启动路径通过；增强版输入核验87.10秒，严格8/255及Unicode规则PASS。后续后台状态和正式结果以新回执为准。[协议与检查命令](framework/GH_CROSS_MODEL_V2.md)。
 <!-- GH_TRANSFER_CURRENT_END -->
 
 
