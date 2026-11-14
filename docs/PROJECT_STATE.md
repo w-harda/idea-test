@@ -2,7 +2,7 @@
 
 ## 最新：增强Push-pull共享显存启动政策修正（2026-11-14）
 
-用户要求移除固定显存门槛；旧两个仅等待的作业已在GPU计算前停止，原claim/started SHA保持。新工作树idea-test-tbps-gh-pushpull-aug-shared-20261114、分支codex/gh-pushpull-aug-shared：实际加载RaSa后观察余量，有剩余即启动APTM；所有后续评测不设空闲MiB门槛、不作显存轮询等待。13项CPU回归通过，重做来源预检。真实状态以gh_native_aug_shared_20261114控制回执为准。[说明](framework/GH_NATIVE_AUG_V1.md)。
+用户要求移除固定显存门槛；旧两个仅等待的作业已在GPU计算前停止，原claim/started SHA保持。新工作树idea-test-tbps-gh-pushpull-aug-shared-20261114、分支codex/gh-pushpull-aug-shared：实际加载RaSa后观察余量，有剩余即启动APTM；所有后续评测不设空闲MiB门槛、不作显存轮询等待。13项CPU回归通过，重做来源预检通过。新PID3890273/3891403均已实际加载模型并同时进行GPU原生reader特征准备，正式Round1尚未开始。执行源码a4c86d3；助手完成启动核验后退出。真实状态以gh_native_aug_shared_20261114控制回执为准。[说明](framework/GH_NATIVE_AUG_V1.md)。
 
 
 ## 本轮：RaSa/APTM原生代理Push-pull增强版双作业已部署（2026-11-14）

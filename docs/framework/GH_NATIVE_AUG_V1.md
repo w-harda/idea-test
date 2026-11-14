@@ -54,3 +54,11 @@ GPU Smoke、60轮及36组Full尚未完成，只认后台不可变回执。开发
 新独立分支codex/gh-pushpull-aug-shared，13项CPU回归PASS，包括零空闲量也不会被gpu上下文估算门槛拦截、不会sleep。原native/compat/guard/startup四文件逐字节SHA保持，真实CPU后端探针按来源证明显式复用，原报告和新路径均记录；源模型预检重新执行。不把旧探针改签为新GPU结果。
 
 新作业直接加载模型并观察实际余量；训练和全部后续生成/评分均不设固定显存准入门槛。其余60轮、每10轮权重、两个来源六条独立评测进程及CPU审计保持。
+
+## 新共享作业启动核验（2026-11-14 16:21，Asia/Shanghai）
+
+执行源码a4c86d3f89fd404fdd9fee23993e2fdbcd14065c。RaSa PID3890273、APTM PID3891403，已实际加载CUDA模型并同时进入PREPARE_NATIVE_READER_FEATURES；启动核验快照分别27600/67946、16320/67946。尚未进入正式G/H Round1。
+
+模型加载后PyTorch实际allocated：RaSa1734.87MiB/reserved1894MiB，APTM827.81MiB/reserved882MiB；APTM加载时GPU实测尚余177MiB。另有外部PID1790874占20178MiB，未干预。nvidia-smi进程显存含CUDA上下文和库，不能与PyTorch allocated混为一个数。两作业实际GPU进程观测分别约2412/1396MiB。
+
+全部显存观测写各作业gpu_observations.jsonl，model_loaded.json记录装载后快照。此后不持续监控。两条60轮训练、每10轮权重及后续六独立评测进程逻辑保持；真实数值/OOM失败保留停止，不自动重试。
