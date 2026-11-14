@@ -82,7 +82,7 @@ class Tests(unittest.TestCase):
         self.assertTrue(guard.legal_change('a b c d','a b c d'))
     def test_separate_evaluation_workers(self):
         from . import common
-        with tempfile.TemporaryDirectory(dir='/home/lzf/ldx/tmp') as td:
+        with tempfile.TemporaryDirectory(prefix='tbps-framework-native-test-',dir='/home/lzf/ldx/tmp') as td:
             count=[]
             class P:
                 def __init__(self,*args,**kw):count.append((args,kw));self.pid=100+len(count)
@@ -94,16 +94,40 @@ class Tests(unittest.TestCase):
                 with self.assertRaises(Exception):common.spawn_eval('rasa')
     def test_zero_free_memory_does_not_gate_gpu_context(self):
         from . import common
-        with tempfile.TemporaryDirectory(dir='/home/lzf/ldx/tmp') as td,patch.object(common,'CONTROL',Path(td)),patch.object(common.subprocess,'check_output',return_value='0, 24564, 24564\n'),patch.object(common.time,'sleep') as sleep,patch.object(torch.cuda,'is_initialized',return_value=False):
+        with tempfile.TemporaryDirectory(prefix='tbps-framework-native-test-',dir='/home/lzf/ldx/tmp') as td,patch.object(common,'CONTROL',Path(td)),patch.object(common.subprocess,'check_output',return_value='0, 24564, 24564\n'),patch.object(common.time,'sleep') as sleep,patch.object(torch.cuda,'is_initialized',return_value=False):
             entered=False
             with common.gpu('fixture'):entered=True
             self.assertTrue(entered);sleep.assert_not_called()
             rows=(Path(td)/'fixture/gpu_observations.jsonl').read_text().splitlines()
             self.assertEqual(len(rows),2)
             self.assertTrue(all(__import__('json').loads(x)['fixed_VRAM_floor'] is None for x in rows))
+    def test_all_publish_calls_have_required_provenance(self):
+        import ast
+        for path in Path(__file__).parent.glob('*.py'):
+            for node in ast.walk(ast.parse(path.read_text())):
+                if isinstance(node,ast.Call) and isinstance(node.func,ast.Attribute) and node.func.attr=='publish':
+                    self.assertTrue(len(node.args)>=3 or any(x.arg=='provenance' for x in node.keywords),(path.name,node.lineno))
+    def test_three_repaired_receipts_real_publish(self):
+        from tbps.artifacts import ArtifactStore,json_bytes
+        with tempfile.TemporaryDirectory(prefix='tbps-framework-native-test-',dir='/home/lzf/ldx/tmp') as td:
+            for name in ('smoke_completed','bank_completed','evaluation_claim'):
+                store=ArtifactStore(Path(td)/name,new_base=td)
+                store.publish('receipt',{'log.json':json_bytes({'fixture':True})},{'scope':name})
+                self.assertEqual(store.verify('receipt')['provenance'],{'scope':name})
+    def test_reader_cpu_training_keeps_features_frozen(self):
+        from learned_reader import SlotReader,ce_sum
+        model=SlotReader([2,3],dim=8)
+        optimizer=torch.optim.Adam(model.parameters(),lr=.001)
+        hidden=torch.randn(4,5,8);mask=torch.ones(4,5,dtype=torch.bool)
+        labels=torch.tensor([[0,1],[1,2],[0,0],[1,1]])
+        before=model.queries.detach().clone()
+        loss=ce_sum(model(hidden,mask)[2],labels);loss.backward();optimizer.step()
+        self.assertIsNone(hidden.grad)
+        self.assertFalse(torch.equal(before,model.queries.detach()))
+        self.assertTrue(all(p.device.type=='cpu' for p in model.parameters()))
     def test_real_failure_never_retried(self):
         from . import common
-        with tempfile.TemporaryDirectory(dir='/home/lzf/ldx/tmp') as td,patch.object(common,'CONTROL',Path(td)):
+        with tempfile.TemporaryDirectory(prefix='tbps-framework-native-test-',dir='/home/lzf/ldx/tmp') as td,patch.object(common,'CONTROL',Path(td)):
             d=Path(td)/'train_rasa';d.mkdir();(d/'FAIL').write_text('real failed')
             with self.assertRaises(Exception):common.wait_file(Path(td)/'missing','eval_rasa_to_irra',source='rasa')
 if __name__=='__main__':unittest.main()

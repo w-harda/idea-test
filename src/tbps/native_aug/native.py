@@ -8,7 +8,20 @@ from torch.nn import functional as F
 from .common import *
 class Source(nn.Module):
     def __init__(self,adapter,name):
-        super().__init__();self.model=adapter.backend;self.adapter=adapter;self.name=name
+        super().__init__();object.__setattr__(self,'model',adapter.backend);self.adapter=adapter;self.name=name
+        before=tree_sha(self.model.state_dict());offloaded_modules=[];offloaded_buffers=[]
+        for key in ('visual_encoder_m','vision_proj_m','text_encoder_m','text_proj_m'):
+            module=getattr(self.model,key,None)
+            if module is not None:module.cpu();offloaded_modules.append(key)
+        for key in ('image_queue','text_queue','idx_queue','queue_ptr'):
+            value=self.model._buffers.get(key)
+            if value is not None:self.model._buffers[key]=value.cpu();offloaded_buffers.append(key)
+        need(tree_sha(self.model.state_dict())==before,'offload changed official weight/buffer values')
+        self.memory_placement={'offloaded_modules':offloaded_modules,'offloaded_buffers':offloaded_buffers,'full_model_SHA_preserved':True}
+        self.image_backbone=self.model.visual_encoder if name=='rasa' else self.model.vision_encoder
+        self.image_projection=self.model.vision_proj;self.text_projection=self.model.text_proj
+        self.checkpoint_counts={'forward_block_calls':0,'recompute_block_calls':0}
+        self._checkpoint_originals=[]
         self.bert=self.model.text_encoder.bert
         self.text_end=int(self.bert.config.fusion_layer)
         self.prefix_index=math.floor(self.text_end*2/3)-1
@@ -21,6 +34,27 @@ class Source(nn.Module):
         self.model.eval().requires_grad_(False)
         self.frozen=tree_sha(self.model.state_dict())
         self.versions=[(id(x),x._version) for x in (*self.model.parameters(),*self.model.buffers())]
+        self.enable_image_checkpointing()
+        if next(self.image_backbone.parameters()).device.type=='cuda':torch.cuda.empty_cache()
+    def enable_image_checkpointing(self):
+        from torch.utils.checkpoint import checkpoint
+        for module in self.image_backbone.modules():
+            if type(module).__name__ not in ('Block','SwinTransformerBlock'):continue
+            original=module.forward
+            def wrapped(*args,_original=original,**kwargs):
+                if not torch.is_grad_enabled() or not any(isinstance(x,torch.Tensor) and x.requires_grad for x in args):
+                    return _original(*args,**kwargs)
+                calls=[0]
+                def invoke(*values):
+                    key='forward_block_calls' if calls[0]==0 else 'recompute_block_calls'
+                    self.checkpoint_counts[key]+=1;calls[0]+=1
+                    return _original(*values,**kwargs)
+                return checkpoint(invoke,*args,use_reentrant=False,preserve_rng_state=True)
+            module.forward=wrapped;self._checkpoint_originals.append((module,original))
+        need(self._checkpoint_originals,'native vision block checkpoint coverage')
+    def close(self):
+        for module,original in self._checkpoint_originals:module.forward=original
+        self._checkpoint_originals=[]
     def forward(self,pixels):
         x=self.adapter.prepare_pixels(pixels)
         if self.name=='rasa':h=self.model.visual_encoder(x)
@@ -124,7 +158,8 @@ def loaded(c,name,smoke=False):
     loader=mod.load_rasa if name=='rasa' else mod.load_aptm
     with loader(source,smoke=smoke) as adapter:
         wrapper=Source(adapter,name);wrapper.eval().requires_grad_(False)
-        yield wrapper
+        try:yield wrapper
+        finally:wrapper.close()
 def instances(frontend,caption,row='caption-only'):
     result=frontend.extract(caption)
     aa=frontend.adapter.convert_record({'row_id':row,'caption':caption,**result})

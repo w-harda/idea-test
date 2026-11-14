@@ -71,7 +71,9 @@ def run(c,name):
         n,bundle=native_bundle(c,name)
         from .compat import source_session
         with fp32_runtime(),loaded(c,name) as source,source_session(n,bundle,c,name):
-            model_ready(job)
+            ready=model_ready(job)
+            ready['memory_placement']=source.memory_placement
+            (CONTROL/job/'model_loaded.json').write_bytes(json_bytes(ready))
             reader,split,bases,plans,clean,entries=prepare(c,n,bundle,source,name,job)
             b=bundle.bindings;g,h=bundle.g.cuda(),bundle.h
             ga=bundle.g_adam;ha=bundle.h_adam
@@ -105,7 +107,9 @@ def run(c,name):
                 with torch.no_grad():clean_views=source(vv).detach()
                 clean_views[0]=clean[index].cuda()
                 g.requires_grad_(True);before=tree_sha(g.state_dict())
+                checkpoint_before=dict(source.checkpoint_counts)
                 result=train_single_sample(g,source,ga,vv,cond,profile=profile,clean_features=clean_views)
+                result['activation_checkpoint_block_calls']={k:source.checkpoint_counts[k]-checkpoint_before[k] for k in checkpoint_before}
                 result={k:v for k,v in result.items() if k not in ('serial_adversarial','joint_adversarial')}
                 result.update(row=row,G_before=before,G_after=tree_sha(g.state_dict()),H_state=tree_sha(h.state_dict()),
                     current_H_caption=action.adversarial,H_action=action.record(),original_caption=e['caption'],
@@ -143,7 +147,7 @@ def run(c,name):
             for i,e in enumerate(entries[:2]):
                 partner=bank_sample(e,i,1,smoke);smoke_h.append(update_h(e,i,partner))
             source.check_frozen(final=True)
-            smoke.publish('completed',{'log.json':json_bytes({'G':smoke_g,'H':smoke_h,'source':name,'source_frozen':True,'G_after':gsha})},sources=(ref(c['_config_path']),))
+            smoke.publish('completed',{'log.json':json_bytes({'G':smoke_g,'H':smoke_h,'source':name,'source_frozen':True,'G_after':gsha})},{'source_model':name,'scope':'smoke','configuration_sha256':sha_file(c['_config_path'])},sources=(ref(c['_config_path']),))
             subprocess.run(command('audit',name,0),check=True,cwd=ROOT)
             g.load_state_dict(initial['G'],strict=True);h.load_state_dict(initial['H'],strict=True)
             ga.load_state_dict(initial['GA']);ha.load_state_dict(initial['HA'])
@@ -168,7 +172,7 @@ def run(c,name):
                         features.append(bank_sample(e,i,round_index,bank_store))
                         state(job,'REFRESH_CURRENT_G_VIEW_BANK',round=round_index,done=i+1,total=2048,**counters)
                     bank=torch.stack(features)
-                    bank_store.publish('completed',{'features.pt':tensor_bytes(bank),'identity.json':json_bytes({'G':current_g,'rows':[e['identity']['row_id'] for e in entries],'source_model':name,'round':round_index,'feature_sha256':tree_sha(bank)})})
+                    bank_store.publish('completed',{'features.pt':tensor_bytes(bank),'identity.json':json_bytes({'G':current_g,'rows':[e['identity']['row_id'] for e in entries],'source_model':name,'round':round_index,'feature_sha256':tree_sha(bank)})},{'source_model':name,'round':round_index,'G':current_g,'configuration_sha256':sha_file(c['_config_path'])})
                     inactive_ga=tree_sha(ga.state_dict())
                     restore_rng(rngs['H'],bundle.sampler,allow_cuda=True);g.requires_grad_(False);g.zero_grad(set_to_none=True)
                     for i,e in enumerate(entries):
@@ -181,7 +185,7 @@ def run(c,name):
                 summary={'source_model':name,'round':round_index,'G_before':g_before,'G_after':current_g,'H_before':h_before,
                     'H_after':tree_sha(h.state_dict()),'counters':dict(counters),'ledger':asdict(ref(ledger)),
                     'bank_completed':asdict(ref(round_root/'bank/completed/manifest.json')),'previous_round':previous,
-                    'source_frozen':True,'inactive_H_Adam_sha256':inactive_ha,'inactive_G_Adam_sha256':inactive_ga,'configuration_sha256':sha_file(c['_config_path'])}
+                    'source_frozen':True,'activation_checkpoint_counts_cumulative':dict(source.checkpoint_counts),'inactive_H_Adam_sha256':inactive_ha,'inactive_G_Adam_sha256':inactive_ga,'configuration_sha256':sha_file(c['_config_path'])}
                 publish(round_root,'completed',{'summary.json':json_bytes(summary)},summary,sources=(ref(ledger),ref(round_root/'bank/completed/manifest.json')))
                 if round_index in ROUNDS:
                     cp=base/'checkpoints';state_value={'G':g.state_dict(),'H':h.state_dict(),'G_Adam':ga.state_dict(),'H_Adam':ha.state_dict(),

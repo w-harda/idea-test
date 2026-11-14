@@ -24,9 +24,19 @@ def run(c,name):
         feature=wrapper(pixels);need(feature.shape==(1,256),'native projected dimension256')
         gradient,=torch.autograd.grad(feature[0,0],pixels)
         need(torch.isfinite(gradient).all() and gradient.norm()>0,'native image input gradient')
+        counts=dict(wrapper.checkpoint_counts)
+        need(counts['recompute_block_calls']>0,'real activation checkpoint backward path')
+        wrapper.close()
+        baseline_pixels=pixels.detach().clone().requires_grad_(True)
+        baseline_feature=wrapper(baseline_pixels)
+        baseline_gradient,=torch.autograd.grad(baseline_feature[0,0],baseline_pixels)
+        need(torch.equal(feature.detach(),baseline_feature.detach()),'checkpoint forward changed native features')
+        need(torch.allclose(gradient,baseline_gradient,atol=1e-7,rtol=1e-5),'checkpoint changed input gradient')
+        gradient_error=float((gradient-baseline_gradient).abs().max())
         wrapper.check_frozen(final=True)
         report={'status':'NATIVE_AUG_REAL_CPU_BACKEND_PROBE_PASS','source':name,'feature_dim':256,'hidden_dim':768,
             'prefix_layer':wrapper.prefix_index+1,'JVP':check,'image_input_gradient_norm':float(gradient.norm()),
+            'checkpoint_features_exact':True,'checkpoint_gradient_max_abs_error':gradient_error,'checkpoint_counts':counts,'memory_placement':wrapper.memory_placement,
             'tested_sources':[asdict(ref(Path(__file__).with_name(f))) for f in ('native.py','compat.py','guard.py','startup.py')],'source_configuration':c['targets'][name],
             'victim_frozen':True,'G_H_updates':0,'CUDA':False,'elapsed_seconds':time.monotonic()-start}
         d=CONTROL/'cpu_probes'/name;d.mkdir(parents=True,exist_ok=True);(d/'report.json').write_bytes(json_bytes(report))

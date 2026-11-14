@@ -9,6 +9,9 @@ def pixels(bundle,path):
 def prepare(c,n,bundle,source,name,job):
     root=OUTPUT/name/'preparation';need(not root.exists(),'preparation Attempt consumed')
     root.mkdir(parents=True)
+    from .recovery import completed_preparation,verified_prefix
+    ready=completed_preparation(c,n,bundle,source,name,root)
+    if ready is not None:return ready
     split=read_json(n['sources']['reader_split']['path']);records=split['records']
     raw=json.loads(Path(n['prototype']['annotation']).read_text())
     for r in records:
@@ -17,21 +20,25 @@ def prepare(c,n,bundle,source,name,job):
     need(not set(split['train_pids'])&set(split['validation_pids']),'reader PID split')
     N=len(records);L=source.max_tokens;D=source.hidden_dim
     cache=root/'native_prefix.fp32.npy'
-    H=np.lib.format.open_memmap(cache,mode='w+',dtype=np.float32,shape=(N,L,D))
-    mask=np.lib.format.open_memmap(root/'content_mask.npy',mode='w+',dtype=np.bool_,shape=(N,L))
-    for start in range(0,N,16):
-        texts=[r['caption'] for r in records[start:start+16]]
-        h,m=source.prefix(texts);H[start:start+len(texts)]=h.cpu().numpy();mask[start:start+len(texts)]=m.numpy()
-        state(job,'PREPARE_NATIVE_READER_FEATURES',done=start+len(texts),total=N)
-    H.flush();mask.flush()
+    cached=verified_prefix(c,n,bundle,source,name,root)
+    if cached is not None:H,mask=cached
+    else:
+        H=np.lib.format.open_memmap(cache,mode='w+',dtype=np.float32,shape=(N,L,D))
+        mask=np.lib.format.open_memmap(root/'content_mask.npy',mode='w+',dtype=np.bool_,shape=(N,L))
+        for start in range(0,N,16):
+            texts=[r['caption'] for r in records[start:start+16]]
+            h,m=source.prefix(texts);H[start:start+len(texts)]=h.cpu().numpy();mask[start:start+len(texts)]=m.numpy()
+            state(job,'PREPARE_NATIVE_READER_FEATURES',done=start+len(texts),total=N)
+        H.flush();mask.flush()
     torch.manual_seed(42)
-    reader=bundle.bindings.get('learned_reader').SlotReader([len(v) for v in split['values']],dim=D).to('cuda:0')
+    reader_device=c['reader_device'][name]
+    reader=bundle.bindings.get('learned_reader').SlotReader([len(v) for v in split['values']],dim=D).to(reader_device)
     optimizer=torch.optim.Adam(reader.parameters(),lr=.001)
     train=np.array(split['train_indices']);valid=np.array(split['validation_indices']);rng=np.random.default_rng(42)
     labels=torch.tensor([r['labels'] for r in records],dtype=torch.long)
     reader_history=[]
-    def batch(ix):
-        return torch.from_numpy(np.array(H[ix],copy=True)).cuda(),torch.from_numpy(np.array(mask[ix],copy=True)).cuda(),labels[ix].cuda()
+    def batch(ix,device=reader_device):
+        return torch.from_numpy(np.array(H[ix],copy=True)).to(device),torch.from_numpy(np.array(mask[ix],copy=True)).to(device),labels[ix].to(device)
     for epoch in range(1,21):
         reader.train();order=rng.permutation(train);loss_sum=0
         for start in range(0,len(order),512):
@@ -46,9 +53,11 @@ def prepare(c,n,bundle,source,name,job):
         reader_history.append({'epoch':epoch,'train_CE':loss_sum/len(train),'validation_CE':val/len(valid)})
         state(job,'PREPARE_NATIVE_READER_TRAIN',total_epochs=20,**reader_history[-1])
     reader.eval().requires_grad_(False);reader.zero_grad(set_to_none=True)
+    del optimizer
+    reader=reader.to('cuda:0')
     sums={};counts={}
     for start in range(0,len(train),128):
-        ix=train[start:start+128];h,m,_=batch(ix)
+        ix=train[start:start+128];h,m,_=batch(ix,device='cuda:0')
         with torch.no_grad():alpha,z,_=reader(h,m)
         for j,k in enumerate(ix):
             rec=records[int(k)]
@@ -109,7 +118,7 @@ def prepare(c,n,bundle,source,name,job):
     source.check_frozen(final=True)
     report={'source_model':name,'source_space':asdict(source.adapter.space),'hidden_dim':D,'feature_dim':source.feature_dim,
         'prefix_layer':source.prefix_index+1,'native_text_layers':source.text_end,
-        'reader_epochs':20,'reader_selection':'fixed final20','reader_train':len(train),'reader_validation':len(valid),
+        'reader_device':reader_device,'reader_epochs':20,'reader_selection':'fixed final20','reader_train':len(train),'reader_validation':len(valid),
         'reader_PID_split_ref':asdict(ref(n['sources']['reader_split']['path'])),'reader_history':reader_history,
         'gallery_count':34054,'train_count':2048,'Test_feedback':False,'selection_gamma':3,'selection_beta':1,
         'K_distribution':{str(k):sum(len(p)==k for p in plans.values()) for k in sorted(set(map(len,plans.values())))},

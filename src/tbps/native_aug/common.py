@@ -6,8 +6,8 @@ import os,json,time,hashlib,subprocess,fcntl,sys,traceback,io
 from tbps.artifacts import ArtifactStore,FileRef,sha_file,checked,read_json,json_bytes,digest,ArtifactError
 from tbps.alternating.state import tree_sha,clone_tree
 ROOT=Path(__file__).resolve().parents[3]
-CONTROL=Path('/home/lzf/ldx/tmp/gh_native_aug_shared_20261114')
-OUTPUT=Path('/home/lzf/ldx/outputs/tbps-framework-gh-native-aug-shared-20261114')
+CONTROL=Path('/home/lzf/ldx/tmp/gh_native_aug_repair_20261114')
+OUTPUT=Path('/home/lzf/ldx/outputs/tbps-framework-gh-native-aug-repair-20261114')
 ROUNDS=(10,20,30,40,50,60)
 MODELS=('irra','rasa','aptm')
 def need(ok,msg):

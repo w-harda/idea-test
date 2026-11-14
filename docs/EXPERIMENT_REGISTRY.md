@@ -700,3 +700,8 @@ H20新增候选最低40.427635%，历史H9为40.425480%；H60为42.874081%，不
 ## 2026-11-14：RaSa/APTM源模型Push-pull增强版
 
 分支codex/gh-pushpull-aug-native，两个源各从零60轮、六节点权重、各节点IRRA/RaSa/APTM Joint Full。[协议](framework/GH_NATIVE_AUG_V1.md)。正式结果PENDING，以gh_native_aug_20261114控制回执为准。
+
+
+## 2026-11-14：原生增强Push-pull双源修复Attempt
+
+旧共享Attempt的OOM/Smoke发布FAIL保留；新codex/gh-native-aug-repair按明确来源复用准备数据、正式G/H从零。16CPU及双真实CPU模型探针PASS，真实GPU Smoke/60轮/36 Full结果待新控制回执。[说明](framework/GH_NATIVE_AUG_REPAIR.md)。

@@ -66,7 +66,7 @@ def evaluate_one(c,source,target,round_index,job):
     from tbps.alternating.parents import no_optimizer_steps
     m=manifest(c);root=OUTPUT/source/'evaluation'/target/f'round_{round_index:02d}'
     need(not root.exists(),'evaluation Attempt consumed')
-    store=ArtifactStore(root,new_base=OUTPUT);store.publish('claim',{'identity.json':json_bytes({'source':source,'target':target,'round':round_index})},
+    store=ArtifactStore(root,new_base=OUTPUT);store.publish('claim',{'identity.json':json_bytes({'source':source,'target':target,'round':round_index})},{'source':source,'target':target,'round':round_index,'configuration_sha256':sha_file(c['_config_path'])},
         sources=(ref(c['_config_path']),ref(checkpoint(source,round_index)/'manifest.json'),ref(attack_root(source,round_index)/'cpu_audit/completed/manifest.json')))
     started=time.monotonic()
     with gpu(job),fp32_runtime(),no_optimizer_steps(),target_loaded(c,target) as loaded:

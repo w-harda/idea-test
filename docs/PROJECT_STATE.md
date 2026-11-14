@@ -1,5 +1,10 @@
 # 项目当前状态（唯一权威入口）
 
+## 最新：原生增强Push-pull双源修复与准备恢复（2026-11-14）
+
+前次RaSa Reader OOM、APTM Smoke回执漏provenance已真实停止，旧FAIL不变。新codex/gh-native-aug-repair修复Smoke/Bank/评测claim三处契约，RaSa Reader CPU、EMA/队列CPU暂存及视觉块反向重计算降低显存。16项CPU回归、双真实官方权重特征/梯度等价探针PASS；RaSa67946前缀完整核验可复用，APTM完成准备按SHA/来源恢复。新作业不用显存门槛，正式Round1与Full需后续真实回执。[修复说明](framework/GH_NATIVE_AUG_REPAIR.md)。
+
+
 ## 最新：增强Push-pull共享显存启动政策修正（2026-11-14）
 
 用户要求移除固定显存门槛；旧两个仅等待的作业已在GPU计算前停止，原claim/started SHA保持。新工作树idea-test-tbps-gh-pushpull-aug-shared-20261114、分支codex/gh-pushpull-aug-shared：实际加载RaSa后观察余量，有剩余即启动APTM；所有后续评测不设空闲MiB门槛、不作显存轮询等待。13项CPU回归通过，重做来源预检通过。新PID3890273/3891403均已实际加载模型并同时进行GPU原生reader特征准备，正式Round1尚未开始。执行源码a4c86d3；助手完成启动核验后退出。真实状态以gh_native_aug_shared_20261114控制回执为准。[说明](framework/GH_NATIVE_AUG_V1.md)。
