@@ -695,3 +695,8 @@ H20新增候选最低40.427635%，历史H9为40.425480%；H60为42.874081%，不
 ## GH-PushPull-Augmentation-v1（2026-11-11，Full后台已启动）
 
 基准62e575913894fff6a10556b37c9226a8f045c3a8；codex/gh-pushpull-augmentation-v1。训练仅2048原Train，每Round6144图像视图，G/H从零60轮、每10轮IRRA完整Joint。Adam/文本预算及KL方向保持，记录真实额外前向计算。当前29项CPU测试PASS，不代表泛化收益或GPU训练完成。执行Commit 7ebf8684227f54fa2fc4e462e058e7144c6cd361，独立Supervisor PID1388274及首Smoke子进程已启动；仅启动核验，科学阶段结果尚未观察。[启动回执](framework/GH_PUSHPULL_AUG_V1_LAUNCH.md)。见[方法及检查指令](framework/GH_PUSHPULL_AUG_V1.md)。
+
+
+## 2026-11-14：RaSa/APTM源模型Push-pull增强版
+
+分支codex/gh-pushpull-aug-native，两个源各从零60轮、六节点权重、各节点IRRA/RaSa/APTM Joint Full。[协议](framework/GH_NATIVE_AUG_V1.md)。正式结果PENDING，以gh_native_aug_20261114控制回执为准。

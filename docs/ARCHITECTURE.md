@@ -483,3 +483,8 @@ A1不消费新文本条件，B消费，二者均刷新G→H反馈。Loss/Reward/
 ## Push-pull三视图图像增强
 
 新增tbps.augmented_attraction，复用冻结push-pull目标和原G/H模型，CPU可回放局部/全局recipe生成三个G训练输入。多视图Global平均，属性Local/Retain仅原始视图；当前G完整三视图库引导原H三头SCST一次更新。独立分片Journal、逐视图FP64审计、最新Bank像素回放、配对Checkpoint原生IRRA六Full与报告执行链，不改历史包。见[协议](framework/GH_PUSHPULL_AUG_V1.md)。
+
+
+## 原生多代理增强Push-pull
+
+新增tbps.native_aug：native/guard/compat负责256维可微代理、768维语义传输和Tokenizer/命名空间适配；prepare生成各代理的reader/basis/S_raw/JVP空间；training复用三视图Push-pull和三头SCST；两个独立训练进程各派生三个独立目标评测进程；audit与evaluation_audit独立CPU验证。历史增强版和官方Adapter保持。
