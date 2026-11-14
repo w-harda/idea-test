@@ -6,8 +6,8 @@ import os,json,time,hashlib,subprocess,fcntl,sys,traceback,io
 from tbps.artifacts import ArtifactStore,FileRef,sha_file,checked,read_json,json_bytes,digest,ArtifactError
 from tbps.alternating.state import tree_sha,clone_tree
 ROOT=Path(__file__).resolve().parents[3]
-CONTROL=Path('/home/lzf/ldx/tmp/gh_native_aug_20261114')
-OUTPUT=Path('/home/lzf/ldx/outputs/tbps-framework-gh-native-aug-20261114')
+CONTROL=Path('/home/lzf/ldx/tmp/gh_native_aug_shared_20261114')
+OUTPUT=Path('/home/lzf/ldx/outputs/tbps-framework-gh-native-aug-shared-20261114')
 ROUNDS=(10,20,30,40,50,60)
 MODELS=('irra','rasa','aptm')
 def need(ok,msg):
@@ -36,24 +36,29 @@ def tensor_bytes(x):
     b=io.BytesIO();torch.save(clone_tree(x),b);return b.getvalue()
 def publish(root,key,files,metadata=None,sources=()):
     store=ArtifactStore(root,new_base=OUTPUT);return store.publish(key,files,metadata or {},sources=sources)
+def gpu_snapshot(job,event):
+    # 仅观测实际余量与本进程分配，不设准入阈值、不sleep、不占GPU调度锁。
+    values=subprocess.check_output(['nvidia-smi','--query-gpu=memory.free,memory.total,memory.used','--format=csv,noheader,nounits'],text=True).splitlines()[0]
+    free,total,used=[int(v.strip()) for v in values.split(',')]
+    import torch
+    record={'event':event,'pid':os.getpid(),'time_utc':time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()),
+        'free_mib':free,'total_mib':total,'used_mib':used,'fixed_VRAM_floor':None}
+    if torch.cuda.is_initialized():
+        record.update(process_allocated_mib=torch.cuda.memory_allocated()/2**20,process_reserved_mib=torch.cuda.memory_reserved()/2**20)
+    path=CONTROL/job;path.mkdir(parents=True,exist_ok=True)
+    with (path/'gpu_observations.jsonl').open('ab') as f:f.write(json_bytes(record)+b'\n')
+    return record
+def model_ready(job):
+    record=gpu_snapshot(job,'MODEL_LOADED_ACTUAL_MEMORY')
+    (CONTROL/job/'model_loaded.json').write_bytes(json_bytes(record))
+    return record
 @contextmanager
-def gpu(job,minimum=6500):
-    """独立进程保留；共享锁只保护显存准入瞬间，绝不结束其他任务。"""
-    CONTROL.mkdir(parents=True,exist_ok=True)
-    lock=(CONTROL/'gpu_admission.lock').open('a')
-    while True:
-        fcntl.flock(lock,fcntl.LOCK_EX)
-        free=int(subprocess.check_output(['nvidia-smi','--query-gpu=memory.free','--format=csv,noheader,nounits'],text=True).splitlines()[0])
-        # 留出正在构造模型的短暂窗口，防止多个进程同时看到同一份空闲显存。
-        stamp=CONTROL/'last_gpu_admission.json';previous=read_json(stamp) if stamp.exists() else {}
-        if free>=minimum and time.time()-previous.get('timestamp',0)>=30:
-            stamp.write_bytes(json_bytes({'timestamp':time.time(),'job':job,'pid':os.getpid()}))
-            fcntl.flock(lock,fcntl.LOCK_UN);break
-        fcntl.flock(lock,fcntl.LOCK_UN)
-        state(job,'WAITING_FOR_GPU',free_mib=free,required_mib=minimum)
-        time.sleep(30)
+def gpu(job):
+    gpu_snapshot(job,'BEFORE_ACTUAL_LOAD')
+    state(job,'STARTING_GPU_JOB',GPU_policy='shared_observe_only_no_VRAM_floor')
     try:yield
-    finally:lock.close()
+    finally:gpu_snapshot(job,'AFTER_GPU_WORK')
+
 def failed(job):
     p=CONTROL/job;p.mkdir(parents=True,exist_ok=True)
     with (p/('FAIL' if not (p/'FAIL').exists() else 'FAIL_'+str(time.time_ns()))).open('x') as f:f.write(traceback.format_exc())

@@ -23,7 +23,7 @@ def make_attack(c,source,round_index,job):
         value=torch.load(cp/(side+'.pt'),map_location='cpu',weights_only=True)
         need(value['source_model']==source and value['round']==round_index,'attack paired checkpoint identities')
         getattr(bundle,side.lower()).load_state_dict(value['state_dict'],strict=True)
-    with gpu(job,1800),fp32_runtime(),native_session(n,reuse=bundle.modules):
+    with gpu(job),fp32_runtime(),native_session(n,reuse=bundle.modules):
         bundle.g=bundle.g.cuda().eval().requires_grad_(False);bundle.h.eval().requires_grad_(False)
         state(job,'GENERATE_SHARED_ATTACK',source=source,round=round_index,gallery=3074,query=6156)
         materialize(m,bundle,n,root)
@@ -69,7 +69,7 @@ def evaluate_one(c,source,target,round_index,job):
     store=ArtifactStore(root,new_base=OUTPUT);store.publish('claim',{'identity.json':json_bytes({'source':source,'target':target,'round':round_index})},
         sources=(ref(c['_config_path']),ref(checkpoint(source,round_index)/'manifest.json'),ref(attack_root(source,round_index)/'cpu_audit/completed/manifest.json')))
     started=time.monotonic()
-    with gpu(job,5000),fp32_runtime(),no_optimizer_steps(),target_loaded(c,target) as loaded:
+    with gpu(job),fp32_runtime(),no_optimizer_steps(),target_loaded(c,target) as loaded:
         adapter,target_source,mod=loaded;model=adapter._backend if target=='irra' else adapter.backend
         frozen=tree_sha(model.state_dict());space=adapter.space
         b,origins,originals=bindings(c,source,round_index,m,space)

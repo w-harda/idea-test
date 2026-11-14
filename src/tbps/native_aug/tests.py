@@ -92,6 +92,15 @@ class Tests(unittest.TestCase):
                 self.assertEqual(set(jobs),{'irra','rasa','aptm'});self.assertEqual(len(count),3)
                 self.assertTrue(all(kw['start_new_session'] for _,kw in count))
                 with self.assertRaises(Exception):common.spawn_eval('rasa')
+    def test_zero_free_memory_does_not_gate_gpu_context(self):
+        from . import common
+        with tempfile.TemporaryDirectory(dir='/home/lzf/ldx/tmp') as td,patch.object(common,'CONTROL',Path(td)),patch.object(common.subprocess,'check_output',return_value='0, 24564, 24564\n'),patch.object(common.time,'sleep') as sleep,patch.object(torch.cuda,'is_initialized',return_value=False):
+            entered=False
+            with common.gpu('fixture'):entered=True
+            self.assertTrue(entered);sleep.assert_not_called()
+            rows=(Path(td)/'fixture/gpu_observations.jsonl').read_text().splitlines()
+            self.assertEqual(len(rows),2)
+            self.assertTrue(all(__import__('json').loads(x)['fixed_VRAM_floor'] is None for x in rows))
     def test_real_failure_never_retried(self):
         from . import common
         with tempfile.TemporaryDirectory(dir='/home/lzf/ldx/tmp') as td,patch.object(common,'CONTROL',Path(td)):

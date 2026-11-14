@@ -71,6 +71,7 @@ def run(c,name):
         n,bundle=native_bundle(c,name)
         from .compat import source_session
         with fp32_runtime(),loaded(c,name) as source,source_session(n,bundle,c,name):
+            model_ready(job)
             reader,split,bases,plans,clean,entries=prepare(c,n,bundle,source,name,job)
             b=bundle.bindings;g,h=bundle.g.cuda(),bundle.h
             ga=bundle.g_adam;ha=bundle.h_adam

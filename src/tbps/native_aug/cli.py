@@ -45,6 +45,16 @@ def launch(c):
     CONTROL.mkdir(parents=True,exist_ok=True)
     jobs={}
     for name in ('rasa','aptm'):
+        if name=='aptm':
+            # 等待前一进程完成真实模型装载，随后仅检查是否还有余量；不以预估GiB拦截。
+            started=time.monotonic();first=CONTROL/'train_rasa'
+            while not (first/'model_loaded.json').exists() and not (first/'FAIL').exists() and time.monotonic()-started<60:
+                time.sleep(.2)
+            observed=gpu_snapshot('launcher','AFTER_RASA_LOAD_BEFORE_APTM_START')
+            if observed['free_mib']<=0:
+                state('train_aptm','NOT_STARTED_NO_FREE_GPU_MEMORY',observed=observed)
+                jobs[name]={'job':'train_aptm','phase':'NOT_STARTED_NO_FREE_GPU_MEMORY'}
+                continue
         job=f'train_{name}';d=CONTROL/job;d.mkdir(exist_ok=True)
         with (d/'started.json').open('x') as f:json.dump({'source':name,'configuration_sha256':sha_file(c['_config_path'])},f)
         log=(d/'launcher.log').open('ab',buffering=0)

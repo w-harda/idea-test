@@ -14,7 +14,7 @@
 
 ## 执行链
 
-两个训练作业train_rasa/train_aptm独立PID、日志、状态、输出。先等显存、准备原生reader/basis/gallery/selection，完成真正GPU短Smoke与独立CPU审计，才开始Round1。正式训练从空Adam/新G/H开始，保存初态及连续状态链。
+两个训练作业train_rasa/train_aptm独立PID、日志、状态、输出。直接实际加载模型、准备原生reader/basis/gallery/selection，完成真正GPU短Smoke与独立CPU审计，才开始Round1。正式训练从空Adam/新G/H开始，保存初态及连续状态链。
 
 每轮JSONL账本和2048×3视图库保留并独立CPU审计；严格逐行解析覆盖重复键、非有限数值、尾随，单行最多4MiB，不修改全局read_json限制。每10轮保存配对G/H推理权重与完整双模型/双Adam/双RNG状态。
 
@@ -22,7 +22,7 @@
 
 每组3074 Gallery/6156 Query，IRRA原生全Gallery余弦；RaSa原生Top128融合；APTM原生Top128及完整矩阵归一化。query_chunk128、fusion microbatch1。每组独立CPU核对来源、预算、全部评分块与完整排名。Test反馈不进入训练。真实失败保留停止，不自动重试；共享输入生成失败则迁移进程停止。
 
-进程独立不等于无条件同时分配显存。训练准入空闲6500MiB、评分5000MiB、生成1800MiB；30秒构造竞争保护，不结束外部任务。WAITING_FOR_GPU不能报作正式训练中。
+按用户最新要求，不设置最小空闲MiB，不因预估显存或30秒构造窗口等待。先实际加载RaSa并记录本进程allocated/reserved与GPU剩余，若仍有余量立即启动APTM；六个评测进程同样直接执行，只观测实际占用。没有停止外部任务。真实OOM仍保留证据停止，不自动重试。
 
 ## 验证与边界
 
@@ -32,28 +32,25 @@ GPU Smoke、60轮及36组Full尚未完成，只认后台不可变回执。开发
 
 ## 路径与检查
 
-工作树：/home/lzf/ldx/projects/idea-test-tbps-gh-pushpull-aug-native-20261114
-输出：/home/lzf/ldx/outputs/tbps-framework-gh-native-aug-20261114
-控制：/home/lzf/ldx/tmp/gh_native_aug_20261114
+工作树：/home/lzf/ldx/projects/idea-test-tbps-gh-pushpull-aug-shared-20261114
+输出：/home/lzf/ldx/outputs/tbps-framework-gh-native-aug-shared-20261114
+控制：/home/lzf/ldx/tmp/gh_native_aug_shared_20261114
 
 服务器查看全部进程、阶段和已审计结果：
 
-    /home/lzf/ldx/envs/tbps-image/bin/python -B /home/lzf/ldx/projects/idea-test-tbps-gh-pushpull-aug-native-20261114/operations/gh_native_aug.py status
+    /home/lzf/ldx/envs/tbps-image/bin/python -B /home/lzf/ldx/projects/idea-test-tbps-gh-pushpull-aug-shared-20261114/operations/gh_native_aug.py status
 
 训练日志：
 
-    tail -f /home/lzf/ldx/tmp/gh_native_aug_20261114/train_rasa/launcher.log
-    tail -f /home/lzf/ldx/tmp/gh_native_aug_20261114/train_aptm/launcher.log
+    tail -f /home/lzf/ldx/tmp/gh_native_aug_shared_20261114/train_rasa/launcher.log
+    tail -f /home/lzf/ldx/tmp/gh_native_aug_shared_20261114/train_aptm/launcher.log
 
 六个后续日志位于eval_<source>_to_<target>/launcher.log，状态为同目录status.json。助手仅核验部署后退出，由用户检查后续。只发布代码/配置/小型文档，不上传模型、原始账本、图库或运行日志。
 
-## 部署核验快照（2026-11-14 14:39，Asia/Shanghai）
+## 2026-11-14 显存政策修正
 
-执行源码Commit：3c6800a3f5982148146bca7ee7cbd2e3ef541937。
-冻结配置SHA256：fa2b2153505174c7b979df31d1ef0b618504552df8d34e2abc97dd7ccac25c13。
+此前3297036/3297037两个作业只有claim及等待状态，无GPU占用、无准备数据、无G/H更新；已按用户纠正停止。原started.json和claim文件SHA保护核对保持，原工作树、控制和回执保留。
 
-两个独立作业真实启动：RaSa PID3297036、APTM PID3297037。二者PPID1、PGID/SID各自等于PID、无TTY，关闭SSH后继续。部署时两者均WAITING_FOR_GPU，实测空闲3865MiB低于新作业6500MiB准入，因此正式训练Round1、GPU Smoke和后续评测都尚未开始，不能报作已开始60轮计算。
+新独立分支codex/gh-pushpull-aug-shared，13项CPU回归PASS，包括零空闲量也不会被gpu上下文估算门槛拦截、不会sleep。原native/compat/guard/startup四文件逐字节SHA保持，真实CPU后端探针按来源证明显式复用，原报告和新路径均记录；源模型预检重新执行。不把旧探针改签为新GPU结果。
 
-RaSa真实CPU JVP FD相对误差约0.0038925，APTM约0.0025661；零干预exact，图像梯度范数分别约0.05472/0.02920，均无Victim更新和CUDA。CPU探针不替代GPU Smoke或正式Full。12项合成CPU回归通过。开发期预检失败回执仍在控制目录preflight_，详细日志在相邻gh_native_aug_20261114_development；未删除或改签旧失败。
-
-仅做上述启动核验，之后助手不持续检查。两个来源首组权重及审计通过后由已冻结代码自动创建六条独立目标评测进程。
+新作业直接加载模型并观察实际余量；训练和全部后续生成/评分均不设固定显存准入门槛。其余60轮、每10轮权重、两个来源六条独立评测进程及CPU审计保持。
