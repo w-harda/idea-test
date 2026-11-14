@@ -31,3 +31,13 @@ RaSa未使用的EMA编码器、投影和训练队列转存CPU，逐值SHA核对�
     /home/lzf/ldx/envs/tbps-image/bin/python -B /home/lzf/ldx/projects/idea-test-tbps-gh-native-aug-repair-20261114/operations/gh_native_aug.py status
 
 本轮只修复、完成必要验证及重新启动；启动核验后退出，不持续监控60轮。
+
+## 修复后真实启动核验
+
+执行源码Commit：3c4246eb43f0472627c12a9968b9e73cd4d477ef。
+
+RaSa PID99632、APTM PID101317已独立后台运行。启动核验快照：RaSa已复用完整前缀、CPU Reader达到8/20；APTM已复用已验证准备，通过新真实GPU Smoke及独立CPU审计（9次G、2次H诊断更新），进入正式Round1的G训练，154/2048条、641次正式G更新。Smoke图像最大L∞0.03137043118476868；独立审计3.60秒、无CUDA/神经前向/JVP重入。
+
+这证实此前Smoke发布漏参的真实失败点已越过；Bank完成和评测claim由静态契约与真实ArtifactStore回归覆盖，尚不把未来节点宣称已经完成。两条60轮训练/六节点Full仍由后台推进。本轮结束不持续监控。
+
+原41份失败、started、完成准备等保护文件SHA/size/mtime核对保持；大前缀只读引用其新验证SHA，没有覆写。原源码和原FAIL不改。

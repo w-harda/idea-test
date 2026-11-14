@@ -2,7 +2,7 @@
 
 ## 最新：原生增强Push-pull双源修复与准备恢复（2026-11-14）
 
-前次RaSa Reader OOM、APTM Smoke回执漏provenance已真实停止，旧FAIL不变。新codex/gh-native-aug-repair修复Smoke/Bank/评测claim三处契约，RaSa Reader CPU、EMA/队列CPU暂存及视觉块反向重计算降低显存。16项CPU回归、双真实官方权重特征/梯度等价探针PASS；RaSa67946前缀完整核验可复用，APTM完成准备按SHA/来源恢复。新作业不用显存门槛，正式Round1与Full需后续真实回执。[修复说明](framework/GH_NATIVE_AUG_REPAIR.md)。
+前次RaSa Reader OOM、APTM Smoke回执漏provenance已真实停止，旧FAIL不变。新codex/gh-native-aug-repair修复Smoke/Bank/评测claim三处契约，RaSa Reader CPU、EMA/队列CPU暂存及视觉块反向重计算降低显存。16项CPU回归、双真实官方权重特征/梯度等价探针PASS；RaSa67946前缀完整核验可复用，APTM完成准备按SHA/来源恢复。新PID99632/101317已启动，不用显存门槛。启动核验时RaSa CPU Reader8/20；APTM新真实Smoke和独立CPU审计PASS，正式Round1 G阶段154/2048（641更新）。原41文件保护保持；Full仍待后台正式回执，助手此后不持续监控。[修复说明](framework/GH_NATIVE_AUG_REPAIR.md)。
 
 
 ## 最新：增强Push-pull共享显存启动政策修正（2026-11-14）
