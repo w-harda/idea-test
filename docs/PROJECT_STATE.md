@@ -1,8 +1,8 @@
 # 项目当前状态（唯一权威入口）
 
-## 本轮：RaSa/APTM原生代理Push-pull增强训练准备（2026-11-14）
+## 本轮：RaSa/APTM原生代理Push-pull增强版双作业已部署（2026-11-14）
 
-用户授权两个独立从零60轮作业、每10轮权重、六个独立目标评测进程（每进程六节点）。新分支codex/gh-pushpull-aug-native。12项CPU回归、双模型真实权重CPU梯度/JVP探针和2048×2原生Tokenizer预检通过；正式GPU Smoke/训练/Full以新控制回执为准。[协议与命令](framework/GH_NATIVE_AUG_V1.md)。
+用户授权两个独立从零60轮作业、每10轮权重、六个独立目标评测进程（每进程六节点）。新分支codex/gh-pushpull-aug-native。12项CPU回归、双模型真实权重CPU梯度/JVP探针和2048×2原生Tokenizer预检通过；源码3c6800a；RaSa PID3297036、APTM PID3297037已脱离SSH独立启动，部署核验时均WAITING_FOR_GPU（空闲3865MiB，准入6500MiB），正式Round1尚未开始。助手核验启动后退出；正式GPU Smoke/训练/Full以新控制回执为准。[协议与命令](framework/GH_NATIVE_AUG_V1.md)。
 
 
 <!-- GH_AUG_CURRENT_BEGIN -->

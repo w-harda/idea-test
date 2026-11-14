@@ -46,3 +46,14 @@ GPU Smoke、60轮及36组Full尚未完成，只认后台不可变回执。开发
     tail -f /home/lzf/ldx/tmp/gh_native_aug_20261114/train_aptm/launcher.log
 
 六个后续日志位于eval_<source>_to_<target>/launcher.log，状态为同目录status.json。助手仅核验部署后退出，由用户检查后续。只发布代码/配置/小型文档，不上传模型、原始账本、图库或运行日志。
+
+## 部署核验快照（2026-11-14 14:39，Asia/Shanghai）
+
+执行源码Commit：3c6800a3f5982148146bca7ee7cbd2e3ef541937。
+冻结配置SHA256：fa2b2153505174c7b979df31d1ef0b618504552df8d34e2abc97dd7ccac25c13。
+
+两个独立作业真实启动：RaSa PID3297036、APTM PID3297037。二者PPID1、PGID/SID各自等于PID、无TTY，关闭SSH后继续。部署时两者均WAITING_FOR_GPU，实测空闲3865MiB低于新作业6500MiB准入，因此正式训练Round1、GPU Smoke和后续评测都尚未开始，不能报作已开始60轮计算。
+
+RaSa真实CPU JVP FD相对误差约0.0038925，APTM约0.0025661；零干预exact，图像梯度范数分别约0.05472/0.02920，均无Victim更新和CUDA。CPU探针不替代GPU Smoke或正式Full。12项合成CPU回归通过。开发期预检失败回执仍在控制目录preflight_，详细日志在相邻gh_native_aug_20261114_development；未删除或改签旧失败。
+
+仅做上述启动核验，之后助手不持续检查。两个来源首组权重及审计通过后由已冻结代码自动创建六条独立目标评测进程。
