@@ -1,9 +1,9 @@
 # 历史实验注册表
 
-## GH-Attribute-Response-v1（2026-11-16，实现/CPU验证，未运行实验）
+## GH-Attribute-Response-v1（2026-11-16，Full已获授权，启动准备完成）
 
 独立codex/gh-attribute-response，以052d247为基准。用户要求将一步前瞻属性重加权、反事实编辑优势及历史记忆全部实现，并结合Push-pull及图像增强。
-训练方案为IRRA/CUHK-PEDES，从零60轮、六个十轮节点Joint Full；当前配置GPU/automatic_training/new_Test全部为false。
+训练方案为IRRA/CUHK-PEDES，从零60轮、六个十轮节点Joint Full。用户后续明确授权启动，未消费配置现已冻结GPU/automatic_training/new_Test=true；真实阶段由新控制回执确认。
 36项CPU测试及双scope来源预检PASS，真实IRRA/GPU/新攻击指标均NOT_RUN。CPU合成编码fixture不填正式实验结果。
 工作树/home/lzf/ldx/projects/idea-test-tbps-gh-attribute-response-20261116；证据/home/lzf/ldx/tmp/gh_attribute_response_cpu_20261116。
 [方法与边界](framework/GH_ATTRIBUTE_RESPONSE.md)。
