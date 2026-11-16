@@ -1,5 +1,7 @@
 # 项目当前状态（唯一权威入口）
 
+全实验内容与逐版变化见[项目实验演进图](framework/PROJECT_EXPERIMENT_EVOLUTION.md)（2026-11-16整理）。
+
 <!-- GH_AR_CURRENT_BEGIN -->
 ## 当前阶段：GH属性更新收益引导完整实现，CPU验证阶段
 

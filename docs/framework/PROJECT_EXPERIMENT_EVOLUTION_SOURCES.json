@@ -1,0 +1,418 @@
+{
+  "scope": "method/configuration-level history; not a rerun or a per-process complete forensic audit",
+  "server_sources": [
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-attribute-response-20261116/docs/framework/results/gh_alternating_v2_recovery/REPORT.md",
+      "sha256": "09ff3e34a4704e30abe1fc40bff83dd93b5a4b6d4621d29c79cb2ea9c5ab6016"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-cooperative-v1-20261109/docs/framework/GH_COOPERATIVE_V1.md",
+      "sha256": "2dd2fd22645a3c3a18b638100b605b1dd919a8f920c7256112888e068662b9ec"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-attraction-v1-20261109/docs/framework/results/gh_attraction_v1/REPORT.md",
+      "sha256": "52e66985ae9fab8fa17d5f4ba623406f4cebb9642965d0a3ba193a49a68a4340"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-pushpull-augmentation-v1-20261111/docs/framework/results/gh_pushpull_aug_v1/REPORT.md",
+      "sha256": "71c8ad56d22dd9bfc8b388bcb8feeca4b5e8d7232066643cbd3b8e07fa8af23c"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-cross-model-v2-20261113/docs/framework/results/gh_cross_model_v2/REPORT.md",
+      "sha256": "4c59518821c4c01ce72960daf23fb65c56fd28e5887cd1115c60710e6d8d413c"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-cross-dataset-20261102/docs/framework/results/gh_cross_dataset/REPORT.md",
+      "sha256": "dce7238da1226d50e7f797ae9d76b7d56d922c54223d63eac4917ec0a4751379"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gv2-cross-dataset-v2-20261102/docs/framework/results/gv2_cross_dataset_v2/REPORT.md",
+      "sha256": "ce2d0228d9e4acdff6640b37ef1ca0c0a6a17204f38cd4a98f5e1bf2c5addd9f"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-attribute-response-20261116/docs/framework/results/gv2_epoch_sweep_full_analysis/REPORT.md",
+      "sha256": "2e3f2b54fecfe9695094deb7e4989589dc2ea9a33c527e48f11ddaa1c797d69b"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-attribute-response-20261116/docs/framework/results/hv1_g60_posthoc_analysis/REPORT.md",
+      "sha256": "20b919b404aa149440f9dbe41bb90a58d6c0a8c4ccfdf8963697c3c08fd7f329"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-g60-h60-result-recovery-20261024/docs/framework/results/g60_h60_official_test/REPORT.md",
+      "sha256": "224706851246a4d480022395bfd1752d847f430b90603b5788554af69ce49101"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-native-aug-repair-20261114/docs/framework/GH_NATIVE_AUG_REPAIR.md",
+      "sha256": "014f3845854331de4f0247e8fc504aeaada4e13e19e2bd1b5bce9f9a54da425e"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-gh-attribute-response-20261116/docs/framework/results/gh_attribute_response_implementation/REPORT.md",
+      "sha256": "4cd26986bf7783cee6f9053a862069fe4fc261a35c350df9ca725f9b6a13a75a"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-sga-official-full-results-20261019/docs/framework/results/sga_official_irra_full_20261019/SGA_OFFICIAL_IRRA_FULL_REPORT.md",
+      "sha256": "fd7b742cdcd4a3b7aaece274849b561ca1b766f65cb4beecf6742c74ed296e5d"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-vlpt-full-results-20261020/docs/framework/results/vlpt_official_irra_full_20261020/VLPTATTACK_OFFICIAL_IRRA_FULL_REPORT.md",
+      "sha256": "308b688ce908cec4c65bc3715b657d7583dbfbf5e2628de70309e6d2736bb8ba"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-cpgc-cuhk-modal-results-20261101/docs/framework/results/cpgc_cuhk_modal_ablation/REPORT.md",
+      "sha256": "9ce8a2fc667a043586f1006b59af9f9c691a9eaca12f55e5d9d046f1c02a6ba4"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-sep-word-budget1-20261105/docs/framework/results/sep_word_budget1/REPORT.md",
+      "sha256": "1e105d73c9032bed123236a43eec9d4bef6a292a0d8ed5e860046907d2a94e58"
+    },
+    {
+      "path": "/home/lzf/ldx/projects/idea-test-tbps-anyattack-eps8-20261109/docs/framework/results/anyattack_eps8/REPORT.md",
+      "sha256": "74b19e7a685bfcda523b6a79bcece4a2cd64d7821490288d3e268de6e70811b4"
+    }
+  ],
+  "native_snapshot": {
+    "observed_at": "2026-11-16T12:50:40+08:00",
+    "APTM_round_audits_PASS": 60,
+    "all_round_audit_statuses_PASS": true,
+    "checkpoints": [
+      "round_10",
+      "round_20",
+      "round_30",
+      "round_40",
+      "round_50",
+      "round_60"
+    ],
+    "formal_test_results": [
+      {
+        "CUDA": false,
+        "JVP": 0,
+        "Test_feedback": false,
+        "all_native_score_blocks_exact": true,
+        "backward": 0,
+        "elapsed_seconds": 96.56527413055301,
+        "gallery": 3074,
+        "metrics": {
+          "R@1": 8.317089080810547,
+          "R@10": 18.421052932739258,
+          "R@5": 14.733592987060547,
+          "mAP": 5.517662048339844
+        },
+        "native_full_ranking_exact": true,
+        "neural_forward": 0,
+        "optimizer": 0,
+        "peak_RSS_bytes": 5460320256,
+        "query": 6156,
+        "round": 10,
+        "source": "aptm",
+        "status": "NATIVE_AUG_TEST_CPU_AUDIT_PASS",
+        "target": "aptm"
+      }
+    ]
+  },
+  "local_stage_sources": [
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\01_text_attributes.md",
+      "sha256": "3696373b43d07b9fc3932baeb03e1fcd411ff013beba4abe0f37af0b2ddf247a"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\02_image_attributes.md",
+      "sha256": "c7ccdb1a3a90e7dcbd01bd2bb2c3697e4bd249b97341097c00090424091da07f"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\03_attribute_scoring_v2.md",
+      "sha256": "8201d87d3cc7d96ad09b6cd2c6998770612cc84adcdef92c7bf594ab2082c110"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\03_attribute_scoring.md",
+      "sha256": "2c5cf75395b82d6cb5ace5b2eeea3b9ee4f43c004736c5c870dff6a63f693215"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\03_irra_attribute_unit_prototype.md",
+      "sha256": "683051c8f6477f2c98c0bb3ab7e2623b5bfc5329357bf0c35f4f9c5d1b67befa"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\03_irra_attribute_unit_v2_direction_diagnostic.md",
+      "sha256": "fdde2bc0ce660234f09b00acbdb181dfcb9f7e368e58014b339d13aaa76403f3"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\03_irra_attribute_unit_v2_prototype.md",
+      "sha256": "949de9208a6f4165ed32ea37c03d2b5818a1ea81542d5c5c0f3a5b7b0fdbe8fe"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\03_irra_attribute_unit_v21_evidence_only.md",
+      "sha256": "d4ae10afb1398e08465a6d2ad2f002a19868f6b9ed34123f2abbc78566ba9b4a"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\03_irra_attribute_unit_v3_query_reader.md",
+      "sha256": "c0cebc2952aacc45d8b5dfccb22c75b6e5c8e4fafbcf2f8d73a77f07067d6117"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\03_irra_attribute_unit_v31_value_token_query.md",
+      "sha256": "e0dd604800de56c6d1329b3d6a4a58051311fbf816bdf12eb820c255d5a37e68"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\03_irra_attribute_unit_v4_learned_slot_reader.md",
+      "sha256": "40835b716683686d0b78f2bfe1e21c82b9a738243be6c7371fb8c8ea2340e51f"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\03_irra_attribute_unit_v41_low_rank_projection.md",
+      "sha256": "6ae71b22181d89343de38587c0224ec5ca01d17e70e77011d574acf69e133b3b"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\03_irra_attribute_unit_v42_causal_controls.md",
+      "sha256": "cf0cae668c9c987a1262f5b770121f4364455a7c975227aa8e1ec3aa895518a1"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\03_irra_attribute_unit_v43_value_specific_direction.md",
+      "sha256": "60dfdf61b94e3530e70cc0c7efb738fd2cca75fca79dff0f50a557b758b24e41"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\03_irra_attribute_unit_v5_contextual_subspace.md",
+      "sha256": "f17cd8d89a338f478f9b7fd9daee21af40778800162382a37cb3fbdc1c416540"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\03_irra_attribute_unit_v51_controlled_selectivity.md",
+      "sha256": "c096c1344406d929a19ea7ac583e68492d2e555fc6818029a964339e61b23424"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\03_irra_attribute_unit_v51_pair_audit.md",
+      "sha256": "26aa197bf5d2d9c3ea87d2da7b18da6a0656426e96f404c1fad4811816115905"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\03_irra_attribute_unit_v52_binding_audit.md",
+      "sha256": "d45a4f434632904114dce55ab2dd6a235fbac2c6a8634a024ba7f34c7e231c0d"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\03_irra_attribute_unit_v52_leakage_sources.md",
+      "sha256": "656b221a266b0c90cfa92c747eae42384d7c1d4596c87ed54b7afb3f8fb674ed"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\03_irra_attribute_unit_v53_factorized_ontology.md",
+      "sha256": "bc4f81b61497cf1ec48cf681ee0890be8bb3315d3b58ae41ca10859ec7fd4d1c"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\03_irra_attribute_unit_v53_pair_audit.md",
+      "sha256": "0646b1ac96c5ec80abe007c70c488a50501ac98232d0135ba9dad66eaae429de"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\03_irra_attribute_unit_v54_axis_examples.md",
+      "sha256": "3f3a6e94cd2f4c553e6604ff9dbdfbeb97d8f78df155f45e887c308cce94b58b"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\03_irra_attribute_unit_v54_ontology_axis_audit.md",
+      "sha256": "be3a850e6008d4dfe0478a5affafaf2c1781abe8035a1ea0dbfae40cb19ff19e"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\03_irra_attribute_unit_v55_interface_freeze.md",
+      "sha256": "92e3b1facc187fc84e0a9c2501b34a954244f6bccba99132f1197ed8a94787fe"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\03_soft_rank_gradient_prototype.md",
+      "sha256": "dfcd10db60eea1e9ccd97b1f906ad85089384055facc08242e3fffda0d9872e1"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\04_dynamic_topk.md",
+      "sha256": "81923eb3699134e508f2a76cd33b6bd83aa84dcba6679ec9cd9994ce9a4bc9a5"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\05_1_attribute_importance_score_prototype.md",
+      "sha256": "78e800c9823bf1e871bc3bf8c13813905fda72824184ba91ba0a937fe631978b"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\05_attack_scheduler.md",
+      "sha256": "c1f03a02a4d93fb1915ec56888f846202641810fc67cd4eac3e724fbfa19946a"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\06_1_power_sharpened_dynamic_topk.md",
+      "sha256": "a65d2da5c8ea745dbfed89dbfa85967c63fa88cbd85dc5215ca375e86b62fa03"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\06_generator_training_framework.md",
+      "sha256": "40cbde0f57b8c42b3f291675101b71acdb99e8ab520c58a82a80dfc5448fbaf5"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\07_1_existing_attack_interface_audit.md",
+      "sha256": "178d21cbfdde312880ebed6a5f20d68bd9df599f35cf253d7630b872d72b6d27"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\07_2_attribute_guided_irra_tta.md",
+      "sha256": "a5625e656e70e6b5db84282df6ec5bac69333b629a86efa488919feeceae53d3"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\07_3_2_prefix_preserving_attribute_tta.md",
+      "sha256": "4769f1ea23635f1952bd251c062a025b958b786ae45eb8c93948da970d67c166"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\07_3_controlled_attribute_tta_evaluation.md",
+      "sha256": "a989075170b003fcfe3d7a0cd431024a2f7eb936e0860a08254c774a933eb864"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\07_4_natural_dynamic_k.md",
+      "sha256": "fd2b4c63067aacd86788630da157e640a6f55c60a8fb92d874c79d8efe715d3b"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\07_5_1_fast_historical_gradient_aggregation.md",
+      "sha256": "58251feaef3fd1f231068800578e72d8f06d3e0e5052cf56366cfe5eee2c6587"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\07_5_2_batched_per_attribute_vjp.md",
+      "sha256": "0386c8f9b46d278f10705d23c7b81d71912aa8840a3c6cba4ee351bd42e9e755"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\07_5_3_aggregated_objective_priority_projection.md",
+      "sha256": "6ef4769c74643094e8febdfcd348287f1e37bf709296f0fa0c566c2e562e76d8"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\07_5_score_aware_priority_projection.md",
+      "sha256": "619a503c1246d3ff1a720089f3aee94f2a07a31aa7f863fe33ac864d9322f368"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\07_6_full_test_shared_gallery.md",
+      "sha256": "62a01c6f3f04c4f396327351651fc6b34c40005648f3cd4f6c10338ab138e07b"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\07_6_pid_map_diagnostic.md",
+      "sha256": "29552721816b67996a9f507d05b7860c5a8c0ee33338525c2f4a59554a0fdf12"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\07_joint_attack_baseline.md",
+      "sha256": "8357c027b5bd8207dcdbd1b63d518542d5917b86964bf6f5a86e4865ef6f066f"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\07_selection_value_diagnostic.md",
+      "sha256": "d41f1349561f75fb415ff971d9a672487d6afdb6e6fe070deb152f586b386a8c"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\08_1_image_conditioned_generator_prototype.md",
+      "sha256": "3be13c997f811bd3ef97ee970471f443704c65c9e5234f015b8ad21ead6e2e75"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\08_2_image_generator_test_evaluation.md",
+      "sha256": "2f0a69ff0e9df4311229ef7f3bc99f39a3b10c04cce152df025f895d7cc1c30a"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\09_1_gv2_per_attribute_supervision_cache.md",
+      "sha256": "2032d07f1f097799f81623a7bca2f252228fd2604e17b8188a90bafe123bc397"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\09_2_1_gv2_image_generator_projection_losses.md",
+      "sha256": "34d9aa0d6f81e457ef12bc1455a54682937a53acd703989f926a160038cc1cec"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\09_2_2_gv2_serial_training.md",
+      "sha256": "8d410e479da6782aa9917165dca1e61113f2389c958497f071ba0ba70574e200"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\09_2_3_gv2_real_irra_smoke.md",
+      "sha256": "ae9ab1df3ea1469429679598d2f7385f8ea2ca6efa476d1adceee310404852b7"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\09_2_4_gv2_epoch_training_checkpoint.md",
+      "sha256": "50065a39b44a2d17c94c0c5b934782e0d7e8e2ebf02e8b3b46939a247ec18ff1"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\09_2_5_gv2_full_condition_cache_audit.md",
+      "sha256": "8bde9865e3a1242e8e339b30681160325ba518066fb292293c9ef4b0469ba7cc"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\09_2_6_gv2_formal_epoch1_validation.md",
+      "sha256": "02449a5ab35023b27dcce78f719d512146d92cbda7123fe634bb56f463bd275c"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\09_2_7_gv2_formal_epochs2_3_stability.md",
+      "sha256": "35437051bd446dcfcfb2e7761f53bcd2e794dd67033c9c9bab96dd6eac9a4025"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\09_2_8_gv2_formal_epochs4_10_final_audit.md",
+      "sha256": "7db69c574e6a2aef7e05f1b8498775b60e615ce7cfd400fd61620922f32d5237"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\09_2_9A_gv2_official_test_smoke.md",
+      "sha256": "906a7a5c7341676999a060001099a8ac291ba822a688e6bf744dcdfa1f340297"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\09_2_9C_gv2_full_storage_fix.md",
+      "sha256": "b5ce483dea6bd8846bacb3c20b1cf64e45ed47eee3150886b277bb4f714a5bcd"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\10_1_hv1_character_policy_scst_cpu.md",
+      "sha256": "d2cc71c91107bf6660c1c8b2dd5ab13b6bd04140c15aaa3537954347eabbc76b"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\10_2_hv1_real_frontend_reward_interfaces.md",
+      "sha256": "d065117ee2a9b07542f714ce4062dc4ed33f0aab59ffb83d2e222890506176c4"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\10_3_hv1_real_gv2_irra_reward_smoke.md",
+      "sha256": "ac21b522e9e199443dff45373c0d74b3ccbd9e58d5d97d8c14562029c293ce48"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\10_4_hv1_scst32_training_checkpoint.md",
+      "sha256": "02cabe38d9d25b3e6d00731ef31e4d2de6a17056b25cdfdb55bd932cd2819a4b"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\10_4B_hv1_formal_scst_training_system.md",
+      "sha256": "bad4caa2fcadedad5fcc8f7d6c108ec5d9e95f1eb7419a966df2e91d4c698ed4"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\10_5_hv1_joint_full_evaluation_system.md",
+      "sha256": "73b7fc67d74acc0c4f1ad774e2eb49643918892b71ec0ac99469835d612640a8"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\10_6_joint_attack_ablation_system.md",
+      "sha256": "cf9a05c1882e8916f344a5523f85d9aa7c2282d654541573a5309571ac1e1f72"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\audit_attribute_tta_irra_500.md",
+      "sha256": "89ec89555d34fccbe4c08ab0856caf59c85cdaf9b94851d4c615670891079be0"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\audit_stage03_v2_removal_granularity_20261001.md",
+      "sha256": "6992d138c09e3cd215ac2837bd47bfc264c0f328bbeb2805b64bc2fb3d3a741c"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\baseline_ap_123_final_analysis.md",
+      "sha256": "d4b8feb8e772313cfc51c9b9d82fce38de1819a91b312e28a1b370a6c1d43349"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\baseline01_ap_duke_irra.md",
+      "sha256": "1efd98b1e8d50b1f20824b8d4ae45feca828236c605500586db3bfc06874366e"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\baseline02_ap_cuhk_train.md",
+      "sha256": "bd1ced84107be65f93e3871fc021fed65eeaeb32cd86fcdd2a49b0b0e980dfb2"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\baseline03_ap_cuhk_irra_surrogate.md",
+      "sha256": "96f093515e5739df3977801a149cea3529702c35561258851e5891048dcec6b2"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\context_freeze_stage03_v2_20261001.md",
+      "sha256": "662f972773c2550ef26b818bcaa171ffd41615aba18fa14f4fd4cb03aef4d56b"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\gh_native_aug_20261114.md",
+      "sha256": "c787f5cc13e1406e86f29c7525835affd5f812288056fe39c0af612f0e44b25e"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\gh_native_aug_shared_20261114.md",
+      "sha256": "81ae66a9c1b85cca2265896ebb8653f21ad7ec6a4309dc98bafec4e18743f454"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\gv2_cross_dataset_transfer_20261102.md",
+      "sha256": "07fc25a6e254ef9be2864bd2a53f8d6bd5acc719d542df7b7ea7cb7c69bb32dc"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\gv2_cross_dataset_transfer_v2_20261102.md",
+      "sha256": "5fdf5cb82940c024bb1047c2d61dab6d135fc1b6b3cef313f236f643f89c6f9c"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\research_tbps_adversarial_evaluation_protocol.md",
+      "sha256": "c9c9560ea79eeead648dcac6811b7bdd89acc164a76ece984f551f6a300bfbcc"
+    },
+    {
+      "path": "E:\\Git\\idea-TBPS-test1\\docs\\stages\\stage03_v2_ablation_coverage_20261001.md",
+      "sha256": "789c1acb064dc7717c17bdf5dccf9bf870def246252469c1cf1d2c55d2716f85"
+    }
+  ]
+}

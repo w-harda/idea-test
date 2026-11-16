@@ -1,5 +1,7 @@
 # 历史实验注册表
 
+全实验内容与逐版变化见[项目实验演进图](framework/PROJECT_EXPERIMENT_EVOLUTION.md)（2026-11-16整理）。
+
 ## GH-Attribute-Response-v1（2026-11-16，实现/CPU验证，未运行实验）
 
 独立codex/gh-attribute-response，以052d247为基准。用户要求将一步前瞻属性重加权、反事实编辑优势及历史记忆全部实现，并结合Push-pull及图像增强。
