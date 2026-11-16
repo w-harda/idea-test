@@ -1,15 +1,14 @@
 # 项目当前状态（唯一权威入口）
 
 <!-- GH_AR_CURRENT_BEGIN -->
-## 当前阶段：GH属性更新收益引导版Full已授权，启动准备完成
+## 当前阶段：属性更新收益引导版60轮流水线已后台启动
 
-用户2026-11-16明确要求启动最新版本。实现代码b62415e7319aca720d29e201f2db7c7054f5544e保持；本次仅冻结未消费的新授权配置，SHA bd7af6e51f56514c79831d8a76cbdbca919c1adf52289e5a2d3d1aec80bfa975。
-G/H从零60轮，每10轮配对G/H及完整教师状态，CUHK-PEDES × IRRA完整Joint Full及独立CPU审计。
-原36项CPU验收保持；授权后35项适用数值/接口回归与Smoke/Train完整来源预检PASS，RAM/磁盘/inode通过。原CPU-only配置断言因用户已授权而不适用，未把它改写为PASS。
+用户2026-11-16已授权完整执行链。科学执行42a11a307bd28edbbd5eb5baff0f4b6e835c3a9b；原实现b62415e、213份生产源码不改，配置SHA bd7af6e51f56514c79831d8a76cbdbca919c1adf52289e5a2d3d1aec80bfa975。
+35项本阶段适用CPU回归、Smoke/Train完整来源预检、RAM/磁盘/inode检查PASS。GPU无固定显存门槛，不干预外部任务。
 
-后台执行顺序为真实Smoke/独立审计→Joint Smoke/独立审计→六个十轮训练节点/前缀审计/Full及独立审计→报告。
-无固定显存门槛，不干预外部任务，真实失败保留停止，不自动重试。此准备快照不宣称GPU或Full已通过。
-[启动协议与检查命令](framework/GH_ATTRIBUTE_RESPONSE_LAUNCH.md)、[方法](framework/GH_ATTRIBUTE_RESPONSE.md)。
+Supervisor PID/PGID/SID 2887061、PPID1、无TTY；首Smoke子进程2887064已实际占用GPU2108MiB，核验时进入本次Smoke的完整Train三视图库刷新。
+接下来按真实Smoke/CPU审计、Joint Smoke/CPU审计门禁，自动从零60轮并每十轮配对Joint Full/独立审计。尚无本次正式Test指标，真实失败保留停止不重试。
+助手仅核验启动，后续由用户按[交接命令](framework/GH_ATTRIBUTE_RESPONSE_LAUNCH.md)检查；输出和控制与历史实验独立。
 <!-- GH_AR_CURRENT_END -->
 
 

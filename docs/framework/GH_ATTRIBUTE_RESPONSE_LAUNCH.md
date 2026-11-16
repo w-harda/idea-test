@@ -38,3 +38,17 @@ GPU先实际加载观察，不设固定空闲显存门槛、不轮询等待显�
 
 状态PENDING不代表失败；FAIL_STOPPED_NO_RETRY表示真实失败已停止。Smoke只验证链路，正式结果必须有对应节点Full及CPU审计。
 本文件的准备版本尚不宣称GPU Smoke或正式训练通过；实际启动身份由新started.json及后续交接记录提供。
+
+## 启动核验快照
+
+核验时间：2026-11-16T13:38:44.284338+08:00。
+
+执行Commit：42a11a307bd28edbbd5eb5baff0f4b6e835c3a9b。
+配置SHA256：bd7af6e51f56514c79831d8a76cbdbca919c1adf52289e5a2d3d1aec80bfa975。
+
+Supervisor PID/PGID/SID：2887061，PPID1，无TTY。
+首个真实Smoke子进程PID：2887064。
+已实际加载GPU，核验时GPU占用2108MiB，日志进入本次Smoke的完整2048行三视图Train Bank刷新。
+这不是正式Round1完成，也不代表Smoke/CPU审计或后续Full已经通过。
+
+启动身份及完整快照保存在控制目录started.json、startup_verified.json；本次只核验启动，不持续监控。
