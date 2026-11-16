@@ -1,0 +1,19 @@
+{
+  "method": "GH-Attribute-Response-v1",
+  "status": "implementation_and_CPU_only",
+  "training_source": "IRRA",
+  "rounds": 60,
+  "checkpoint_rounds": [10, 20, 30, 40, 50, 60],
+  "dataset": "CUHK-PEDES",
+  "evaluation": "Joint-only native full gallery; independent CPU audit",
+  "image_epsilon": 0.03137254901960784,
+  "text_budget": "original Natural-K; each original word at most one Unicode character",
+  "G_internal": "sparse isolated K+1 lookahead followed by one H step; learned mean-one attribute weights",
+  "H_internal": "SCST plus complete legal conditional position/replacement/NOOP advantage; attribute-head distillation",
+  "H_to_G_probe": "one isolated global-only Adam step; no stale attribute JVP reuse",
+  "interaction": "original Push-pull KL",
+  "augmentation": "original/local/global",
+  "history": "bounded semantic attribute memory plus GRU",
+  "GPU_authorized": false,
+  "automatic_retry": false
+}

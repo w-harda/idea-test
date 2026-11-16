@@ -1,5 +1,14 @@
 # 历史实验注册表
 
+## GH-Attribute-Response-v1（2026-11-16，实现/CPU验证，未运行实验）
+
+独立codex/gh-attribute-response，以052d247为基准。用户要求将一步前瞻属性重加权、反事实编辑优势及历史记忆全部实现，并结合Push-pull及图像增强。
+训练方案为IRRA/CUHK-PEDES，从零60轮、六个十轮节点Joint Full；当前配置GPU/automatic_training/new_Test全部为false。
+36项CPU测试及双scope来源预检PASS，真实IRRA/GPU/新攻击指标均NOT_RUN。CPU合成编码fixture不填正式实验结果。
+工作树/home/lzf/ldx/projects/idea-test-tbps-gh-attribute-response-20261116；证据/home/lzf/ldx/tmp/gh_attribute_response_cpu_20261116。
+[方法与边界](framework/GH_ATTRIBUTE_RESPONSE.md)。
+
+
 ## GH-Adversarial-Attraction-v1（2026-11-09，Full后台已启动）
 
 基准9ce332f639f733f4636c866a6027402ab2d25317，独立codex/gh-attraction-v1。共同2048 Train候选KL相互吸引/自身排斥；原模型、属性Local/Retain、K+1、H三头和预算保持。用户后续已授权从零60轮、每十轮配对CUHK-PEDES × IRRA Joint完整3074 Gallery/6156 Query。30项CPU验证及两scope来源预检PASS；真实Smoke通过及CPU审计后自动正式训练/六节点Test，失败停止不自动重试，输出和控制使用独立attraction-v1身份。执行Commit `ec197618e639b169ebece0c317f5e36e9f5bd141`，Supervisor PID/PGID/SID3043588已脱离SSH并启动首Smoke子进程。仅启动核验，未持续查看进度或宣称任何GPU阶段/正式结果完成。见[启动回执](framework/GH_ATTRACTION_V1_FULL_LAUNCH.md)。[方法与范围](framework/GH_ATTRACTION_V1.md)。

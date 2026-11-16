@@ -1,5 +1,10 @@
 # 架构边界与迁移约定
 
+## 属性条件更新收益引导
+
+新增tbps.attribute_response，复用IRRA原Push-pull/三视图生产链。小型CPU语义/GRU双向评价器以隔离前瞻收益学习G原Top-K属性步权重，并提供H合法局部反事实动作优势及属性头监督。正式G/H推理不依赖评价器。完整教师/Adam/记忆/Replay/独立RNG与双向探测游标参与边界恢复和十轮Checkpoint；所有额外编码/虚拟更新单独计数。反事实候选特征在退休前封存进严格分片账本，CPU独立重算条件概率、KL、检索Margin和收益标签。默认CPU授权，真实失败停止无自动重试。见[协议](framework/GH_ATTRIBUTE_RESPONSE.md)。
+
+
 ## 对抗表示相互吸引变体
 
 新增tbps.attraction，固定Train候选KL定义吸引当前对方攻击表示、排斥自身干净表示。G上下文适配器替换Global但保留原Local/Retain和K+1；H奖励适配器通过原FreshReward完成身份/Unicode/三文本预算核验后替换SCST奖励。复用原整轮G→新Bank→H→新H语境流程，记录双向teacher和来源SHA。Full执行链位于attraction独立run/store/audit/evaluation/report模块与gh_attraction_v1 Supervisor。G/H记录紧凑特征供独立FP64重算KL，所有大账本分片；每轮原Bank特征副本封存，旧权重/图像在完整新边界后显式退休，每十轮评估权重保留。六组原生Joint评分及CPU审计后自动发布，纯绘图使用单独现有apattack解释器；不改训练环境。见[方法说明](framework/GH_ATTRACTION_V1.md)与[Full协议](framework/GH_ATTRACTION_V1_FULL.md)。
