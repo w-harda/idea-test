@@ -3,7 +3,7 @@
 <!-- GH_AR_CURRENT_BEGIN -->
 ## 当前阶段：GH属性更新收益引导完整实现，CPU验证阶段
 
-独立分支codex/gh-attribute-response，基准052d2472cf921a01e7a8b59be22800415d9f4128。
+独立分支codex/gh-attribute-response，基准052d2472cf921a01e7a8b59be22800415d9f4128；实现代码b62415e7319aca720d29e201f2db7c7054f5544e。
 新增G一步前瞻属性重加权、H完整合法局部反事实优势、双向收益评价器、有界语义历史/GRU、完整教师恢复、Push-pull/三视图及六节点训练/评估/审计代码。
 原G/H模型和推理输入、Natural-K/每原词最多1字符、8/255保持。虚拟与正式更新分别核对，旧四模式项不直接进入目标。
 

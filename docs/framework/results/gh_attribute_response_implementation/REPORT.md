@@ -42,3 +42,5 @@ H→G标签来自1个Global-only虚拟G步，不是完整K+1链，不重标记�
 CPU图像/文本数值fixture为合成数据，不能代表真实IRRA攻击效果、GPU显存需求或正式Full已通过。
 
 [方法、引用与入口](../../GH_ATTRIBUTE_RESPONSE.md)。源码分支codex/gh-attribute-response，工作树/home/lzf/ldx/projects/idea-test-tbps-gh-attribute-response-20261116。Windows仅同步Markdown。
+
+实现代码Commit：b62415e7319aca720d29e201f2db7c7054f5544e。源码身份由冻结配置的213份producer SHA绑定；后续登记提交只修改文档。
