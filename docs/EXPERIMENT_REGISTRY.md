@@ -1,5 +1,12 @@
 # 历史实验注册表
 
+## GH工程加速v1（2026-11-19，原方法的运行实现优化）
+
+用户授权优化并部署；原图缓存/CPU预取、H完整候选GPU KL、等值历史复用。
+28项CPU验证及真实Train特征/克隆H/Adam对照PASS；原损失、架构、顺序、预算、逐步SHA和CPU审计保持。
+这是同一Attack Method的工程版本，不新增方法结果行、不重新从零训练。
+部署以完整Round边界交接，来源兼容及用户检查见[工程加速说明](framework/GH_PERFORMANCE_V1.md)。
+
 ## GH-Attribute-Response原训练恢复（2026-11-19，GPU恢复后后台已启动）
 
 用户确认GPU修复后授权继续。RTX4090/595.99.02、PyTorch2.5.1+cu124实际CUDA运算PASS。

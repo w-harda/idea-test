@@ -488,3 +488,7 @@ A1不消费新文本条件，B消费，二者均刷新G→H反馈。Loss/Reward/
 ## Push-pull三视图图像增强
 
 新增tbps.augmented_attraction，复用冻结push-pull目标和原G/H模型，CPU可回放局部/全局recipe生成三个G训练输入。多视图Global平均，属性Local/Retain仅原始视图；当前G完整三视图库引导原H三头SCST一次更新。独立分片Journal、逐视图FP64审计、最新Bank像素回放、配对Checkpoint原生IRRA六Full与报告执行链，不改历史包。见[协议](framework/GH_PUSHPULL_AUG_V1.md)。
+
+## GH运行时工程加速
+
+原科学源码与配置继续冻结；src/tbps/performance通过显式SHA清单的兼容桥提供CPU原图缓存/视图预取、完整候选KL向量化、等值GRU历史复用。新Ledger绑定runtime_tools版本，原独立数值审计之后增加工具身份审计；部署器在完整Round边界交接双模型/Adam/RNG/评价器。见[实现与验证](framework/GH_PERFORMANCE_V1.md)。
