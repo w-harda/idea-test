@@ -1,15 +1,17 @@
 # 项目当前状态（唯一权威入口）
 
 <!-- GH_AR_CURRENT_BEGIN -->
-## 当前阶段：GH工程加速v1实现并验证，待完整Round边界部署
+## 当前阶段：GH工程加速v1部署器已启动，等待第32轮完整边界
 
 用户2026-11-19授权优化并部署。独立codex/gh-performance-v1，原科学配置/213份源码文件保持；
 新增原图缓存、四线程/16项确定性视图预取、完整候选GPU KL、评价器等值历史复用。
 28项CPU测试PASS，真实Train候选/评价器与克隆H/Adam对照PASS。
 克隆H单步三次计时中位数323.33ms→306.12ms；局部加速不外推整轮。
-部署将让旧训练在当前完整Round保存后切换，保留G/H/双Adam/RNG/评价器及所有历史结果。
+部署器3065898/PPID1已后台启动，执行40d6085a906ffb728d3cf29416b3ebcaf384e049。
+旧恢复Supervisor2738134已退出，旧训练器2755266完成第32轮保存后正常退出，自动从第33轮接入优化版。
+当前WAITING_COMMITTED_ROUND_BOUNDARY，优化训练尚未开始；保留G/H/双Adam/RNG/评价器及所有历史结果。
 每Round新增优化来源绑定，原完整CPU审计后增加运行工具身份审计，再放行40/50/60三个正式Full。
-[实现/验证/检查命令](framework/GH_PERFORMANCE_V1.md)。尚未宣称新优化训练已经启动。
+[实现/验证/检查命令](framework/GH_PERFORMANCE_V1.md)。启动/检查命令核验PASS，助手此后不持续监控。
 <!-- GH_AR_CURRENT_END -->
 
 

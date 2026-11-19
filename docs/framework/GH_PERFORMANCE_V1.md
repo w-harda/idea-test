@@ -90,4 +90,14 @@ WAITING_COMMITTED_ROUND_BOUNDARY表示旧训练器正在完成当前整轮，新
 train_to_40/50/60表示新的优化训练阶段，真实轮次读取训练快照。
 FAIL_STOPPED_NO_RETRY表示失败停止，应保留现场。
 
-本说明实现时部署尚未启动；最终启动核验另附在末节。
+## 部署启动核验
+
+2026-11-19 21:02，新Supervisor PID/PGID/SID3065898、PPID1、无TTY，执行Commit40d6085a906ffb728d3cf29416b3ebcaf384e049。
+真实G/H运行时接线验证、28项CPU回归与GPU数值/性能对照PASS，检查命令exit0。
+旧恢复Supervisor2738134已按交接计划退出，训练子进程2755266继续完成第32轮；
+已发送SIGTERM完整Round停止请求，新部署器处于WAITING_COMMITTED_ROUND_BOUNDARY。
+此快照时优化训练尚未开始，第32轮完整提交后自动从第33轮加载优化实现，继续至60轮及原三个剩余Full。
+不把交接等待写成优化训练已经运行；实际切换身份以handoff_completed.json、新child.json及新训练日志为准。
+本次仅核验部署器启动，之后不持续监控。源码和数值配置已冻结，历史权重/账本不改。
+
+证据在新控制目录started.json、handoff_requested.json、deployment_verified.json、benchmark.json和cpu_tests.json。
