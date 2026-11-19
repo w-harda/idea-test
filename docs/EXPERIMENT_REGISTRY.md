@@ -1,5 +1,13 @@
 # 历史实验注册表
 
+## GH-Attribute-Response原训练恢复（2026-11-19，GPU恢复后后台已启动）
+
+用户确认GPU修复后授权继续。RTX4090/595.99.02、PyTorch2.5.1+cu124实际CUDA运算PASS。
+执行b601c3a，独立Supervisor2738134/PPID1；原来源预检、30轮完整状态和三组Full审计复核PASS。19:41核验训练子进程2755266已进入第31轮H_ROLLOUT、GPU1874MiB；39387份中断文件封存验证PASS。
+先备份和封存中断产物，再从30轮继续；剩余40/50/60三节点完整Joint及独立CPU审计、六节点曲线与报告自动接续。
+驱动变化已记录，算法/科学配置和旧结果不改。尚不宣称剩余训练或评测完成。
+[启动回执及用户命令](framework/GH_ATTRIBUTE_RESPONSE_RECOVERY_LAUNCH.md)。
+
 ## GH-Attribute-Response原训练恢复（2026-11-19，GPU驱动阻塞，尚未续训）
 
 原训练已提交/CPU审计30轮，10/20/30三组正式Full审计PASS；31轮计算结束但Ledger/状态未提交。

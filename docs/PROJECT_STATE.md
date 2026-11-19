@@ -1,15 +1,17 @@
 # 项目当前状态（唯一权威入口）
 
 <!-- GH_AR_CURRENT_BEGIN -->
-## 当前阶段：属性更新收益引导版已审计至30轮；恢复入口完成，GPU驱动不可用
+## 当前阶段：属性更新收益引导版恢复Supervisor已后台启动
 
-2026-11-19用户授权继续原60轮全部剩余流程。原第10/20/30轮Full及独立CPU审计PASS；
-第31轮H阶段计算到2048/2048，但未提交完整Ledger/状态，完整恢复边界仍为30轮。
-独立恢复工作树idea-test-tbps-gh-attribute-response-recovery-20261119，原科学源码、配置、历史Checkpoint及日志保持。
-15项CPU恢复用例、真实30轮恢复预检、原冻结来源CPU预检PASS。
-服务器NVIDIA内核驱动未加载，nvidia-smi退出9、/dev/nvidia0不存在，GPU续训尚未启动；没有轮询或修改系统。
-驱动恢复后一次launch可封存未提交31轮证据，从30轮继续到60轮，补齐40/50/60 Full/审计/曲线/报告。
-检查及启动命令见[恢复说明](framework/GH_ATTRIBUTE_RESPONSE_RECOVERY.md)。
+2026-11-19用户在GPU恢复后明确授权继续原项目。RTX4090、驱动595.99.02、内核7.0.0-43-generic；
+原PyTorch2.5.1+cu124 CUDA检测与实际GPU矩阵计算PASS。
+恢复执行b601c3af29fb82ad489bd7250b51a100e075dcc0，Supervisor PID/PGID/SID2738134、PPID1、无TTY。
+原科学执行42a11a3、来源HEAD720c607、配置bd7af6e...fa975保持；15项CPU恢复用例已通过，本次原来源/状态/既有审计再次核验PASS。
+当前完整提交边界30轮；已有10/20/30节点Full与CPU审计保持。
+后台先备份30轮完整状态及Train Bank、校验封存未提交31轮，再继续至60轮并补齐40/50/60 Full/审计和六节点报告。
+19:41启动核验：39387份中断文件封存校验PASS，第30轮完整状态/Bank备份PASS；训练子进程2755266已恢复原30轮游标并进入第31轮H_ROLLOUT，GPU实际占用1874MiB。后续训练进度以新控制目录真实回执为准。
+新控制/home/lzf/ldx/tmp/gh_attribute_response_recovery_20261119。
+[启动交接及检查命令](framework/GH_ATTRIBUTE_RESPONSE_RECOVERY_LAUNCH.md)。本轮不持续监控。
 <!-- GH_AR_CURRENT_END -->
 
 
