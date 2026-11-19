@@ -1,14 +1,15 @@
 # 项目当前状态（唯一权威入口）
 
 <!-- GH_AR_CURRENT_BEGIN -->
-## 当前阶段：属性更新收益引导版60轮流水线已后台启动
+## 当前阶段：属性更新收益引导版已审计至30轮；恢复入口完成，GPU驱动不可用
 
-用户2026-11-16已授权完整执行链。科学执行42a11a307bd28edbbd5eb5baff0f4b6e835c3a9b；原实现b62415e、213份生产源码不改，配置SHA bd7af6e51f56514c79831d8a76cbdbca919c1adf52289e5a2d3d1aec80bfa975。
-35项本阶段适用CPU回归、Smoke/Train完整来源预检、RAM/磁盘/inode检查PASS。GPU无固定显存门槛，不干预外部任务。
-
-Supervisor PID/PGID/SID 2887061、PPID1、无TTY；首Smoke子进程2887064已实际占用GPU2108MiB，核验时进入本次Smoke的完整Train三视图库刷新。
-接下来按真实Smoke/CPU审计、Joint Smoke/CPU审计门禁，自动从零60轮并每十轮配对Joint Full/独立审计。尚无本次正式Test指标，真实失败保留停止不重试。
-助手仅核验启动，后续由用户按[交接命令](framework/GH_ATTRIBUTE_RESPONSE_LAUNCH.md)检查；输出和控制与历史实验独立。
+2026-11-19用户授权继续原60轮全部剩余流程。原第10/20/30轮Full及独立CPU审计PASS；
+第31轮H阶段计算到2048/2048，但未提交完整Ledger/状态，完整恢复边界仍为30轮。
+独立恢复工作树idea-test-tbps-gh-attribute-response-recovery-20261119，原科学源码、配置、历史Checkpoint及日志保持。
+15项CPU恢复用例、真实30轮恢复预检、原冻结来源CPU预检PASS。
+服务器NVIDIA内核驱动未加载，nvidia-smi退出9、/dev/nvidia0不存在，GPU续训尚未启动；没有轮询或修改系统。
+驱动恢复后一次launch可封存未提交31轮证据，从30轮继续到60轮，补齐40/50/60 Full/审计/曲线/报告。
+检查及启动命令见[恢复说明](framework/GH_ATTRIBUTE_RESPONSE_RECOVERY.md)。
 <!-- GH_AR_CURRENT_END -->
 
 

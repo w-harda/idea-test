@@ -1,5 +1,13 @@
 # 历史实验注册表
 
+## GH-Attribute-Response原训练恢复（2026-11-19，GPU驱动阻塞，尚未续训）
+
+原训练已提交/CPU审计30轮，10/20/30三组正式Full审计PASS；31轮计算结束但Ledger/状态未提交。
+新增独立operations恢复工具及15项CPU测试，不改G/H算法、配置和原来源；实际恢复及原来源CPU预检PASS。
+恢复计划为原第30轮完整状态继续、精确封存未提交31轮、补齐40/50/60三节点Full/审计及报告。
+驱动不可用时先拒绝，不移动原产物或消费恢复身份，不开轮询。
+[恢复说明与命令](framework/GH_ATTRIBUTE_RESPONSE_RECOVERY.md)。
+
 ## GH-Attribute-Response-v1（2026-11-16，Full流水线已后台启动）
 
 独立codex/gh-attribute-response，以052d247为基准。用户要求将一步前瞻属性重加权、反事实编辑优势及历史记忆全部实现，并结合Push-pull及图像增强。
