@@ -36,7 +36,9 @@ def audit_g(g,profile,anchor,index,bundle):
     need(g['K']+1==g['optimizer_steps']==len(g['records']),'K+1 G update count')
     action_check(g['H_action'],bundle)
     need(g['current_H_caption']==g['H_action']['adversarial'],'current H partner caption')
-    need(all(x['zero_exact'] and x['FD_relative_error']<=.02 for x in g['JVP_checks']),'strict native JVP receipt')
+    from .jvp_validation import audit_fd_receipt
+    for check in g['JVP_checks']:
+        audit_fd_receipt(check)
     previous=None
     jvps=torch.tensor(g['attribute_jvps'],dtype=torch.float64).reshape(g['K'],-1) if g['K'] else torch.empty(0,anchor.shape[1],dtype=torch.float64)
     aggregate=torch.tensor(g['v_local'],dtype=torch.float64)

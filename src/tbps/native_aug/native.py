@@ -209,17 +209,19 @@ def localization(source,reader,split,bases,caption,attrs):
         out[a.instance_id]={'attribute':a,'w':w,'Q':Q,'B':B}
     return out
 def jvp(source,caption,item):
+    from .jvp_validation import verify_directional_derivative
+
     t=torch.zeros((),device=next(source.parameters()).device,requires_grad=True);B=item['B']
     with torch.nn.attention.sdpa_kernel(torch.nn.attention.SDPBackend.MATH):
         z,v=torch.autograd.functional.jvp(lambda eta:source.transport(caption,eta,B),t,torch.ones_like(t),strict=True)
         with torch.no_grad():
             clean=source.text([caption]);zero=source.transport(caption,torch.zeros_like(t),B)
-            fd=(source.transport(caption,torch.full_like(t,.01),B)-source.transport(caption,torch.full_like(t,-.01),B))/.02
-    need(torch.equal(z,clean) and torch.equal(zero,clean),'native JVP zero exact')
-    need(torch.isfinite(v).all() and v.norm()>0,'finite nonzero native JVP')
-    error=float((fd-v).double().norm()/v.double().norm())
-    need(error<=.02,'native JVP finite difference exceeds original 2% threshold')
-    return v[0].detach().cpu(),{'zero_exact':True,'FD_relative_error':error,'unit_direction_norm':float(B.double().norm())}
+            need(torch.equal(z,clean) and torch.equal(zero,clean),'native JVP zero exact')
+            need(torch.isfinite(v).all() and v.norm()>0,'finite nonzero native JVP')
+            check=verify_directional_derivative(
+                lambda step:source.transport(caption,torch.full_like(t,step),B),v)
+    return v[0].detach().cpu(),{'zero_exact':True,'unit_direction_norm':float(B.double().norm()),**check}
+
 def select(scores):
     ordered=sorted((v for v in scores if v['S_raw']>0),key=lambda v:-v['S_raw'])
     if not ordered:return []
