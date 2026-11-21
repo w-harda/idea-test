@@ -196,5 +196,4 @@ def run(c,name):
                 state(job,'CPU_AUDIT_ROUND',round=round_index,**counters)
                 subprocess.run(command('audit',name,round_index),check=True,cwd=ROOT)
                 previous=sha_file(round_root/'completed/summary.json')
-                if round_index==10:spawn_eval(name)
             state(job,'TRAINING_COMPLETE',round=60,**counters)

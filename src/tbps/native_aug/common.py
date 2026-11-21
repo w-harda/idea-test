@@ -6,8 +6,8 @@ import os,json,time,hashlib,subprocess,fcntl,sys,traceback,io
 from tbps.artifacts import ArtifactStore,FileRef,sha_file,checked,read_json,json_bytes,digest,ArtifactError
 from tbps.alternating.state import tree_sha,clone_tree
 ROOT=Path(__file__).resolve().parents[3]
-CONTROL=Path('/home/lzf/ldx/tmp/gh_native_aug_repair_20261114')
-OUTPUT=Path('/home/lzf/ldx/outputs/tbps-framework-gh-native-aug-repair-20261114')
+CONTROL=Path('/home/lzf/ldx/tmp/gh_rasa_source_20261121')
+OUTPUT=Path('/home/lzf/ldx/outputs/tbps-framework-gh-rasa-source-20261121')
 ROUNDS=(10,20,30,40,50,60)
 MODELS=('irra','rasa','aptm')
 def need(ok,msg):
@@ -15,7 +15,15 @@ def need(ok,msg):
 def ref(p):return FileRef(str(p),sha_file(p))
 def config():
     c=read_json(ROOT/'configs/framework/gh_native_aug.server.json','gh-native-aug-v1')
+    need(c['source_models'] == ['rasa'] and c['output_base'] == str(OUTPUT)
+         and c['control'] == str(CONTROL), 'RaSa-only experiment identity')
+    need(c['evaluation_targets'] == ['rasa','irra','aptm']
+         and c['execution']['evaluation_order'] == [60,10,20,30,40,50],
+         'fixed target models and evaluation order')
+    need(set(c['producers']) == {str(p) for p in (ROOT/'src/tbps').rglob('*.py')},
+         'complete producer set')
     for p,h in c['producers'].items():checked(FileRef(p,h))
+    for p,h in c['tools'].items():checked(FileRef(p,h))
     for p,h in c['runtime_pins'].items():checked(FileRef(p,h))
     for r in c['fixed_resources'].values():checked(FileRef(**r))
     for r in c['targets'].values():checked(FileRef(**r))

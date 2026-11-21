@@ -61,7 +61,7 @@ class Source(nn.Module):
         else:h,_=self.model.get_vision_embeds(x)
         return F.normalize(self.model.vision_proj(h[:,0]),dim=1)
     def text(self,texts):
-        batch=self.adapter.tokenize(texts).to(next(self.model.parameters()).device)
+        batch=self.adapter.tokenize(texts).to(next(self.text_projection.parameters()).device)
         if self.name=='rasa':
             h=self.bert(batch.input_ids,attention_mask=batch.attention_mask,mode='text').last_hidden_state
         else:h=self.model.get_text_embeds(batch.input_ids,batch.attention_mask)
@@ -150,13 +150,24 @@ class Source(nn.Module):
     def support(self,caption,span):
         a,b=span['start'],span['end'];tokens=self.aligned(caption)
         return [i for i,chars in enumerate(tokens) if any(a<=v<b for v in chars)]
+def place_rasa_compute_on_cuda(adapter):
+    # 官方权重先在CPU恢复，只将训练与原生评分会用到的模块迁入GPU。
+    model=adapter.backend
+    before=tree_sha(model.state_dict())
+    modules=('visual_encoder','vision_proj','text_encoder','text_proj','itm_head')
+    for name in modules:
+        getattr(model,name).to('cuda:0')
+    adapter.device='cuda:0'
+    need(tree_sha(model.state_dict())==before,'RaSa CPU/GPU placement changed weight bytes')
+
 @contextmanager
 def loaded(c,name,smoke=False):
     from importlib import import_module
     mod=import_module('tbps.models.'+name)
     source=(mod.RasaSource if name=='rasa' else mod.APTMSource)(c['targets'][name]['path']);source.verify()
     loader=mod.load_rasa if name=='rasa' else mod.load_aptm
-    with loader(source,smoke=smoke) as adapter:
+    with loader(source,device='cpu' if name=='rasa' else 'cuda:0',smoke=smoke) as adapter:
+        if name=='rasa':place_rasa_compute_on_cuda(adapter)
         wrapper=Source(adapter,name);wrapper.eval().requires_grad_(False)
         try:yield wrapper
         finally:wrapper.close()

@@ -55,7 +55,11 @@ def target_loaded(c,target):
         mod=import_module('tbps.models.'+target)
         source=(mod.RasaSource if target=='rasa' else mod.APTMSource)(c['targets'][target]['path'])
         loader=mod.load_rasa if target=='rasa' else mod.load_aptm
-        with loader(source) as adapter:yield adapter,source,mod
+        with loader(source,device='cpu' if target=='rasa' else 'cuda:0') as adapter:
+            if target=='rasa':
+                from .native import place_rasa_compute_on_cuda
+                place_rasa_compute_on_cuda(adapter)
+            yield adapter,source,mod
 def evaluate_one(c,source,target,round_index,job):
     from tbps.models.irra import fp32_runtime
     from tbps.engines.materialized_cache import FeatureCache,CachedIRRA
