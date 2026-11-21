@@ -11,3 +11,9 @@
     /home/lzf/ldx/envs/tbps-image/bin/python -B /home/lzf/ldx/projects/idea-test-tbps-gh-rasa-source-20261121/operations/gh_native_aug.py status
 
 运行控制目录为 /home/lzf/ldx/tmp/gh_rasa_source_20261121，输出目录为 /home/lzf/ldx/outputs/tbps-framework-gh-rasa-source-20261121。正式结果以独立审计回执为准。
+
+## 启动核验
+
+2026-11-21 20:19（北京时间）确认进入第1轮正式 G 训练，已处理 4/2048 个样本并执行 18 次 G 更新。Supervisor PID 472332 已脱离 SSH，训练进程 PID 472351，占用 GPU 显存 1948 MiB。16 项 CPU 回归、源模型 CPU 探针、准备产物 SHA 核验及真实 GPU Smoke 的独立 CPU 审计通过。Smoke 覆盖 10 次 G 更新和 2 次 H 更新，最大 L∞ 为 0.031338759。
+
+执行提交 8b26d2287b9e73ebc5294787c784357b790c548a。配置 SHA256 f7d500f3aab01972ada522c2c75238ff87f8535de5d459be1549023a99ea8a35。当前正式结果待独立 CPU 审计回执。

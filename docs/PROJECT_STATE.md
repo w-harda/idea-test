@@ -2,7 +2,7 @@
 
 ## 当前任务：RaSa 源增强 Push-pull 60轮（2026-11-21）
 
-本轮只执行 RaSa 源模型，保存六组权重，最终在 RaSa、IRRA、APTM 上做完整 Joint 评测。运行入口和状态见[实验说明](framework/GH_RASA_SOURCE_20261121.md)。
+本轮只执行 RaSa 源模型。20:19 启动核验通过，真实 GPU Smoke 及独立 CPU 审计通过，独立后台进程 472351 已进入正式第1轮。每十轮保存权重，最终在 RaSa、IRRA、APTM 上做完整 Joint 评测。运行入口和状态见[实验说明](framework/GH_RASA_SOURCE_20261121.md)。
 
 ## 最新：原生增强Push-pull双源修复与准备恢复（2026-11-14）
 
